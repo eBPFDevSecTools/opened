@@ -1,0 +1,19 @@
+balancer_kern.c:  if ((*cur_time - conn_rate_stats->v2) > ONE_SEC) {
+balancer_kern.c:SEC("xdp")
+balancer_kern.c:char _license[] SEC("license") = "GPL";
+bpf.h:  BPF_PROG_TYPE_FLOW_DISSECTOR,
+bpf.h:  BPF_FLOW_DISSECTOR,
+bpf.h: *      SEC("kprobe/sys_open")
+decap_kern.c:SEC("decap")
+decap_kern.c://char _license[] SEC("license") = "GPL";
+healthchecking_ipip.c:SEC("tc")
+healthchecking_ipip.c:char _license[] SEC("license") = "GPL";
+healthchecking_kern.c:SEC("tc")
+healthchecking_kern.c:char _license[] SEC("license") = "GPL";
+x.c:SEC("xdp")
+x.c:char _license[] SEC("license") = "GPL";
+xdp_pktcntr.c:SEC("xdp")
+xdp_pktcntr.c:char _license[] SEC("license") = "GPL";
+xdp_root.c:int SEC("xdp") xdp_root(struct xdp_md* ctx) {
+xdp_root.c:int SEC("xdp") xdp_val(struct xdp_md* ctx) {
+xdp_root.c:char _license[] SEC("license") = "GPL";

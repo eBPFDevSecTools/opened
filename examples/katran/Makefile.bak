@@ -1,0 +1,5 @@
+SRCS=balancer_kern.c  decap_kern.c  healthchecking_ipip.c  healthchecking_kern.c  x.c  xdp_pktcntr.c  xdp_root.c
+CFLAGS=-O
+depend:
+	makedepend -- $(SRCS)
+# DO NOT DELETE
