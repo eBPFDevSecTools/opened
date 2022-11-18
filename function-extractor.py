@@ -1,4 +1,3 @@
-from lxml import etree
 import re
 import os.path
 import os

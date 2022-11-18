@@ -138,12 +138,11 @@ if __name__ == "__main__":
     txl_op_dir = args.txl_op_dir
     dir_list.append(txl_op_dir)
     create_directories(dir_list)
-    #make_cscope_db(db_file,"katran")
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
     txl_dict = create_txl_annotation(cscope_files,txl_op_dir)
     if args.annotate_only:
-    #clean up
+        #clean up
         clean_intermediate_files(intermediate_f_list)
         exit(0)
     #if False :
