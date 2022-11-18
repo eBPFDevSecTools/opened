@@ -37,11 +37,14 @@ def check_if_file_available():
 
 #rm cscope.files cscope.out tags myproject.db 
 def clean_intermediate_files(file_list):
-    for my_file in file_list:
-        if os.path.isfile(myfile):
-            os.remove(myfile)
-        else:
-            print("File Not Found: ",my_file)
+    for file_path in file_list:
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 def run_cmd(cmd):
     print("Running: ",cmd)
@@ -124,7 +127,12 @@ if __name__ == "__main__":
     cscope_files = "cscope.files"
     cscope_out = "cscope.out"
     tags_folder = "tags"
-    #function_name = "xdpdecap"
+    intermediate_f_list = []
+    intermediate_f_list.append(db_file)
+    intermediate_f_list.append(cscope_files)
+    intermediate_f_list.append(cscope_out)
+    intermediate_f_list.append(tags_folder)
+    
     function_name= args.function_name
     src_dir = args.src_dir
     txl_op_dir = args.txl_op_dir
@@ -135,9 +143,13 @@ if __name__ == "__main__":
 
     txl_dict = create_txl_annotation(cscope_files,txl_op_dir)
     if args.annotate_only:
+    #clean up
+        clean_intermediate_files(intermediate_f_list)
         exit(0)
     #if False :
     #    cmt.create_code_comments(txl_dict, "asset/helper_hookpoint_map.json", "commented")
     create_cqmakedb(db_file, cscope_out, tags_folder)
     search_function(function_name, db_file)
+    #clean up
+    clean_intermediate_files(intermediate_f_list)
 
