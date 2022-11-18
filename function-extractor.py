@@ -289,24 +289,6 @@ def parseTXLFunctionOutputFile(inputFile,f,e):
                     #del fns[key]
             continue;
     
-def parseXML(xmlFile,f):
-    """
-    Parse the xml
-    """
-    with open(xmlFile) as fobj:
-        xml = fobj.read()
-
-    root = etree.fromstring(xml)
-    for appt in root.getchildren():
-        dump_to_file(f,appt)
-        #print("source_code\n")
-        #print(appt.text)
-        #print("FileName")
-        #print(appt.get('file'))
-        #print(appt.get('funcheader'))
-        #print(appt.get('startline'))
-        #print(appt.get('endline'))
-        
 # read header file and included headers to headers dict
 def addDependsOn(cFile):
     with open(cFile) as iFile:
@@ -569,12 +551,3 @@ if __name__ == "__main__":
             print("DUPLICATE MAP",mapName)
         else:
             print("MAP",mapName)
-        #for str in opMaps[mapName]:
-            #print(str)
-
-    #print("PREPROCESSORS")
-    #for key in presDict:
-        #print("Name: ",key)
-        #print("Val: ",presDict[key])
-    #print("AFTER: FNS LIST")
-    #print(fns)
