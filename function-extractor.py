@@ -399,14 +399,11 @@ if __name__ == "__main__":
     parser.add_argument('-o','--opdir', type=str,required=True,
                     help='directory to dump extracted files to ')
 
-    parser.add_argument('-f','--codequeryOutputFile', type=str,required=True,
+    parser.add_argument('-c','--codequeryOutputFile', type=str,required=True,
                     help='Function and Map dependency output from codequery ')
 
     parser.add_argument('-e','--extractedFileName', type=str,required=True,
                     help='Output file with extracted function')
-
-    parser.add_argument('-c','--cscopeFile', type=str,required=True,
-                    help='cscope file listing all files in original dir')
 
     parser.add_argument('-t','--txlDir', type=str,required=True,
                     help='Directory contaning TXL annotated files with function and map listings')
@@ -423,11 +420,11 @@ if __name__ == "__main__":
     opdir=args.opdir
     codequeryOutputFile=args.codequeryOutputFile
     extractedFileName = opdir+"/"+args.extractedFileName
-    cscopeFile=args.cscopeFile
+
     TXLDir =args.txlDir
     srcdir = args.srcdir
 
-    
+    cscopeFile=cscope.files    
     dupFileName=opdir+"/"+"duplicates.out"
     extractedFunctionListFile="extractedFuncList.out"
     missedFunctionListFile="missedFuncList.out"
