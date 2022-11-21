@@ -1,0 +1,4 @@
+[submodule "codequery"]
+	path = codequery
+	url = git@github.com:sdsen/codequery.git
+	branch = call_flow_graph
