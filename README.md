@@ -10,4 +10,4 @@ docker build . -t opened/extract:0.01
 1. Open the func.out file and remove the duplicate function definitions
 
 ### Phase III
-2. python3 function-extractor.py -o/--opdir, -f/--codequeryOutputFile, -e/--extractedFileName, -c/--cscopeFile, -t/--txlDir, -s/--srcdir, an example is given in run2.sh
+2. python3 function-extractor.py -o/--opdir, -c/--codequeryOutputFile, -e/--extractedFileName,  -t/--txlDir, -s/--srcdir, an example is given in run2.sh
