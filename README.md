@@ -1,3 +1,6 @@
+## Cloning repository
+git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git
+
 ## Install
 docker build . -t opened/extract:0.01
 
