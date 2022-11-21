@@ -150,5 +150,5 @@ if __name__ == "__main__":
     create_cqmakedb(db_file, cscope_out, tags_folder)
     search_function(function_name, db_file)
     #clean up
-    clean_intermediate_files(intermediate_f_list)
+    #clean_intermediate_files(intermediate_f_list)
 
