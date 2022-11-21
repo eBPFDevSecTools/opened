@@ -406,7 +406,7 @@ if __name__ == "__main__":
     TXLDir =args.txlDir
     srcdir = args.srcdir
 
-    cscopeFile=cscope.files    
+    cscopeFile="cscope.files"
     dupFileName=opdir+"/"+"duplicates.out"
     extractedFunctionListFile="extractedFuncList.out"
     missedFunctionListFile="missedFuncList.out"
