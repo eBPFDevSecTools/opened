@@ -1,3 +1,6 @@
+#Author: Sayandeep Sen (sayandes@in.ibm.com)
+#Author: Palani Kodeswaran (palani.kodeswaran@in.ibm.com)
+
 FROM ubuntu:latest
 
 #install dependencies for codequery
