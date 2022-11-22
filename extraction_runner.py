@@ -261,7 +261,8 @@ if __name__ == "__main__":
     maps = {}
     dup_map_dict = defaultdict(list)
     extracted_files = []
-    
+
+    # run code query to generate annotated function call graph
     create_cqmakedb(db_file, cscope_out, tags_folder)
     search_function(function_name, db_file)
 
