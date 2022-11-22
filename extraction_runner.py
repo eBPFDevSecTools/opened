@@ -158,7 +158,6 @@ def get_src_file(line):
     fnName = tokens[0]
     count = tokens[1]
     if int(count) > 1:
-        #print("Duplicate Defns: ", line);
         return
     src = tokens[2]
     #Add headers included by .c files only
