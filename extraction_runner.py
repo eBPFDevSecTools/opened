@@ -11,7 +11,7 @@ import command
 import shutil
 #import code_commentor as cmt
 import argparse
-
+from collections import defaultdict
 
 def check_if_cmd_available():
     commands = ['txl', 'cscope', 'ctags', 'cqmakedb', 'cqsearch']
@@ -78,7 +78,8 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
 
 def create_txl_annotation(cscope_file, opdir):
     print("Read cscope files and generate function annotation ...")
-    txl_dict = {}
+    txl_dict_func = {}
+    txl_dict_struct = {}
     code_f = open(cscope_file,'r')
     for line in code_f.readlines():
         line = line.strip()
@@ -88,18 +89,144 @@ def create_txl_annotation(cscope_file, opdir):
         line = re.sub('^__','',line) 
 
         opfile_function_annotate= opdir+"/annotate_func_"+line+".xml"
+        opfile_function_annotate= run_cmd("readlink -f "+opfile_function_annotate)
         opfile_struct_annotate= opdir+"/annotate_struct_"+line+".out"
+        opfile_struct_annotate= run_cmd("readlink -f "+opfile_struct_annotate)
         logfile= opdir+"/LOG"
 
         print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
         op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
-        txl_dict[full_line] = opfile_function_annotate
-    return txl_dict
+        txl_dict_func[full_line] = opfile_function_annotate
+        txl_dict_struct[full_line] = opfile_struct_annotate
+    return txl_dict_func,txl_dict_struct
 
 def create_cqmakedb(db_file, cscope_file, tags_folder):
     run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
     return
+
+#does structStr contain map name that is of interest
+def doesStructContainMap(str):
+    for key in maps:
+        print("Checking if MOI: "+key)
+        #isMap = re.match(key,str)
+        if key in str.split():
+            print("MOI: map_name:  "+key+" struct: "+str)
+            return (True,key)
+        
+    return (False,None)
+
+
+# parses output from c-extract-struct.txl
+def parseTXLStructOutputFile(fileName):
+    print("Parsing Struct Output FIle: ",fileName)
+    iFile = open(fileName,'r')
+    lineCt = 1
+    inside = False;
+    structStr = ""
+    for line in iFile.readlines():
+        #print(line)
+        begin=re.match(r"<struct>",line)
+        end = re.match(r"</struct>",line)
+        
+        if begin:
+            #print("line: "+line+" begin: "+str(begin))
+            startLine = lineCt + 1
+            inside = True;
+        elif end:
+            #print("line: "+line+" end: "+str(end))
+            endLine = lineCt - 1
+            key = fileName+":"+str(startLine)+":"+str(endLine);
+            #print("EXTRACT -> ",key)
+
+            # Write maps together from dict
+            #if not ".h.out" in fileName:
+            #    extractAndDump(fileName,startLine,endLine,f)
+            inside = False;
+            #print("StructStr",structStr)
+            
+            (isMap,mapName) = doesStructContainMap(structStr)
+            if isMap == True:
+                print("Adding Map: "+mapName)
+                head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
+                structStr=head+structStr
+                opMaps[mapName].add(structStr)
+                map_def = fileName +":"+str(startLine)+":"+str(endLine)
+                map_file_def_dict[mapName].add(map_def)
+        
+            structStr= ""
+        elif inside == True:
+            structStr = structStr + line
+            print("line: "+line+" struct: " + structStr)
+                        
+        lineCt = lineCt + 1;
+    iFile.close()
+    
+    
+def get_src_file(line):
+    ###print("Processing", line)
+    line = line.replace('[','')
+    line = line.replace(']','')
+    tokens = line.split(',')
+    fnName = tokens[0]
+    count = tokens[1]
+    if int(count) > 1:
+        ##print("Duplicate Defns: ", line);
+        #duplicates.append(line)
+        return
+    src = tokens[2]
+    #Add headers included by .c files only
+    if src.endswith(".c"):
+        extracted_files.append(src)
+    startLine = tokens[3]
+    #remove end ]
+    startLine = startLine[:-1]
+
+
+# Parses output from codequery search output and puts in map
+def parseFunctionList(ifile):
+    ct = 0
+    for line in ifile.readlines():
+        ##print(line)
+        m = re.match(r"[{}]",line)
+        if m:
+            #print("Ignoring",line)
+            ct = ct + 1
+        else:
+            #print("ct",ct)
+            if ct < 2:
+                get_src_file(line)
+            else:
+                processMapLine(line)
+            
+def processMapLine(line):
+    ###print("Processing", line)
+    line = line.replace('[','')
+    line = line.replace(']','')
+    tokens = line.split(',')
+    mapName = tokens[0]
+    srcFile = tokens[1]
+    startLine = tokens[2]
+    isFound = tokens[3]
+    ##print(fnName,count,src,startLine)
+    #key=fnName+":"+src+":"+startLine
+    key=mapName
+    maps[key]=1
+
+
+
+
+def is_dup_map_in_extracted_files(dup_map_dict,extracted_files):
+    op_map = defaultdict(list)
+    for dup_map in dup_map_dict:
+        def_files = dup_map_dict[dup_map]
+        print(def_files)
+        for dfile in def_files:
+            if ".c" in dfile and dfile in extracted_files:
+                print("Dup Struct" + dup_map+ " Defined in: "+dfile)
+                op_map[dup_map].append(dfile)
+    return op_map
+                
 
 def search_function(function_name, db_file):
     print("Running cqsearch for ",function_name," and outputting dependencies to func.out")
@@ -129,7 +256,7 @@ if __name__ == "__main__":
     tags_folder = "tags"
     intermediate_f_list = []
     intermediate_f_list.append(db_file)
-    intermediate_f_list.append(cscope_files)
+    #intermediate_f_list.append(cscope_files)
     intermediate_f_list.append(cscope_out)
     intermediate_f_list.append(tags_folder)
     
@@ -140,15 +267,61 @@ if __name__ == "__main__":
     create_directories(dir_list)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
-    txl_dict = create_txl_annotation(cscope_files,txl_op_dir)
+    txl_dict_func,txl_dict_struct = create_txl_annotation(cscope_files,txl_op_dir)
     if args.annotate_only:
         #clean up
         clean_intermediate_files(intermediate_f_list)
         exit(0)
+    
+    structFiles = []
+    #opMaps=defaultdict(list)
+    opMaps=defaultdict(set)
+    map_file_def_dict=defaultdict(set)
+    maps = {}
+    dup_map_dict = defaultdict(list)
+    
+    
     #if False :
     #    cmt.create_code_comments(txl_dict, "asset/helper_hookpoint_map.json", "commented")
     create_cqmakedb(db_file, cscope_out, tags_folder)
     search_function(function_name, db_file)
-    #clean up
-    #clean_intermediate_files(intermediate_f_list)
 
+    extracted_files=[]
+    ifile = open('func.out','r')
+    parseFunctionList(ifile)
+    ifile.close()
+
+    #Parse TXL annotated files
+    for fName in txl_dict_struct.values():
+        print("annotatedFile: ",fName)
+        parseTXLStructOutputFile(fName)
+
+    #get duplicate map definitions
+    for map_name in map_file_def_dict:
+        if len(map_file_def_dict[map_name]) > 1:
+            for map_def in map_file_def_dict[map_name]: 
+                dup_map_dict[map_name].append(map_def)
+
+    out = open("func.out",'a')
+    out.write("#DUPLICATE MAP DEFNS\n{#map_name,file_locations\n")
+
+    print(dup_map_dict)
+    
+    for map_name in dup_map_dict:
+        line = map_name +","+ str(len(dup_map_dict[map_name]))
+        for header  in dup_map_dict[map_name]:
+            tokens = header.split(":")
+            fname = tokens[0]
+            startLine = tokens[1]
+            line = line + ",["+fname+","+startLine+"]"
+        out.write(line)
+        out.write("\n")
+        
+
+    out.write("}\n")
+    out.close()
+    #clean up
+    clean_intermediate_files(intermediate_f_list)
+
+    
+    
