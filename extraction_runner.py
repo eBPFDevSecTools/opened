@@ -119,7 +119,7 @@ def doesStructContainMap(str):
 
 # parses output from c-extract-struct.txl
 def parseTXLStructOutputFile(fileName):
-    print("Parsing Struct Output FIle: ",fileName)
+
     iFile = open(fileName,'r')
     lineCt = 1
     inside = False;
@@ -130,24 +130,14 @@ def parseTXLStructOutputFile(fileName):
         end = re.match(r"</struct>",line)
         
         if begin:
-            #print("line: "+line+" begin: "+str(begin))
             startLine = lineCt + 1
             inside = True;
         elif end:
-            #print("line: "+line+" end: "+str(end))
             endLine = lineCt - 1
             key = fileName+":"+str(startLine)+":"+str(endLine);
-            #print("EXTRACT -> ",key)
-
-            # Write maps together from dict
-            #if not ".h.out" in fileName:
-            #    extractAndDump(fileName,startLine,endLine,f)
             inside = False;
-            #print("StructStr",structStr)
-            
             (isMap,mapName) = doesStructContainMap(structStr)
             if isMap == True:
-                print("Adding Map: "+mapName)
                 head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
                 structStr=head+structStr
                 opMaps[mapName].add(structStr)
@@ -157,22 +147,18 @@ def parseTXLStructOutputFile(fileName):
             structStr= ""
         elif inside == True:
             structStr = structStr + line
-            print("line: "+line+" struct: " + structStr)
-                        
         lineCt = lineCt + 1;
     iFile.close()
     
     
 def get_src_file(line):
-    ###print("Processing", line)
     line = line.replace('[','')
     line = line.replace(']','')
     tokens = line.split(',')
     fnName = tokens[0]
     count = tokens[1]
     if int(count) > 1:
-        ##print("Duplicate Defns: ", line);
-        #duplicates.append(line)
+        #print("Duplicate Defns: ", line);
         return
     src = tokens[2]
     #Add headers included by .c files only
@@ -187,7 +173,6 @@ def get_src_file(line):
 def parseFunctionList(ifile):
     ct = 0
     for line in ifile.readlines():
-        ##print(line)
         m = re.match(r"[{}]",line)
         if m:
             #print("Ignoring",line)
@@ -200,7 +185,6 @@ def parseFunctionList(ifile):
                 processMapLine(line)
             
 def processMapLine(line):
-    ###print("Processing", line)
     line = line.replace('[','')
     line = line.replace(']','')
     tokens = line.split(',')
@@ -212,8 +196,6 @@ def processMapLine(line):
     #key=fnName+":"+src+":"+startLine
     key=mapName
     maps[key]=1
-
-
 
 
 def is_dup_map_in_extracted_files(dup_map_dict,extracted_files):
@@ -274,19 +256,16 @@ if __name__ == "__main__":
         exit(0)
     
     structFiles = []
-    #opMaps=defaultdict(list)
     opMaps=defaultdict(set)
     map_file_def_dict=defaultdict(set)
     maps = {}
     dup_map_dict = defaultdict(list)
+    extracted_files = []
     
-    
-    #if False :
-    #    cmt.create_code_comments(txl_dict, "asset/helper_hookpoint_map.json", "commented")
     create_cqmakedb(db_file, cscope_out, tags_folder)
     search_function(function_name, db_file)
 
-    extracted_files=[]
+    # Read set of maps to be extracted to check for duplicate map definitions 
     ifile = open('func.out','r')
     parseFunctionList(ifile)
     ifile.close()
@@ -302,11 +281,10 @@ if __name__ == "__main__":
             for map_def in map_file_def_dict[map_name]: 
                 dup_map_dict[map_name].append(map_def)
 
+    # Write duplicate map definitions to func.out
     out = open("func.out",'a')
     out.write("#DUPLICATE MAP DEFNS\n{#map_name,file_locations\n")
 
-    print(dup_map_dict)
-    
     for map_name in dup_map_dict:
         line = map_name +","+ str(len(dup_map_dict[map_name]))
         for header  in dup_map_dict[map_name]:
@@ -320,6 +298,7 @@ if __name__ == "__main__":
 
     out.write("}\n")
     out.close()
+
     #clean up
     clean_intermediate_files(intermediate_f_list)
 
