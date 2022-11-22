@@ -333,14 +333,7 @@ def parseFunctionList(ifile):
             
 if __name__ == "__main__":
 
-    #constants
-    #opdir="extraction"
-    #codequeryOutputFile="func.out"
-    #extractedFileName = opdir+"/"+"extracted.c"
-    #TXLDir ="./txl_annotate"
-    #cscopeFile="cscope.files"
-
-
+ 
     parser = argparse.ArgumentParser(description='Function Extractor')
     parser.add_argument('-o','--opdir', type=str,required=True,
                     help='directory to dump extracted files to ')
