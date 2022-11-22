@@ -198,7 +198,41 @@ def dumpFns(f,e):
         
 
 
-    
+# parses output from c-extract-struct.txl
+def parseTXLStructOutputFile(fileName,f):
+    #print("Parsing Struct Output FIle: ",fileName)
+    iFile = open(fileName,'r')
+    lineCt = 1
+    inside = False;
+    structStr = ""
+    for line in iFile.readlines():
+        #print(line)
+        begin=re.match(r"<struct>",line)
+        end = re.match(r"</struct>",line)
+        if begin:
+            startLine = lineCt + 1
+            inside = True;
+        elif end:
+            endLine = lineCt - 1
+            key = fileName+":"+str(startLine)+":"+str(endLine);
+            #print("EXTRACT -> ",key)
+            maps[key]=1
+            # Write maps together from dict
+            #if not ".h.out" in fileName:
+            #    extractAndDump(fileName,startLine,endLine,f)
+            inside = False;
+            #print("StructStr",structStr)
+            (isMap,mapName) = doesStructContainMap(structStr)
+            if isMap == True:
+                head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
+                structStr=head+structStr
+                opMaps[mapName].append(structStr)
+            structStr= ""
+        elif inside == True:
+            structStr = structStr + line
+        lineCt = lineCt + 1;
+    iFile.close()
+       
 # parses output from c-extract-function.txl
 def parseTXLFunctionOutputFile(inputFile,f,e):
     srcSeen=False
@@ -439,7 +473,7 @@ if __name__ == "__main__":
         f.write(cmd)
 
     xmlFiles = []
-    '''
+    
     structFiles = []
     #Parse TXL annotated files
     for fName in os.listdir(TXLDir):
@@ -456,7 +490,7 @@ if __name__ == "__main__":
         p = create_preprocessor_map(path)
         presDict[path]=p
         parseTXLStructOutputFile(path,f)
-        '''    
+            
     for mapName  in opMaps:
         isDup=False
         if len(opMaps[mapName]) > 1:
