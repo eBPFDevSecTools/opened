@@ -1,5 +1,5 @@
 ## Dependencies
- 1. Works on kernel verion 5.4.0-131, Ubuntu 22:04
+ 1. Works on kernel verion 5.4.0-131, Ubuntu 22:04, Intel arch x86 arch. There is a known issue with Apple Silicon based Macbooks with installing ``gcc-multlib``.
  2. git
  3. Docker
  
