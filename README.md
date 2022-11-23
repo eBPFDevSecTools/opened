@@ -4,12 +4,13 @@
  3. Docker
  
 ## Download
- 1. git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git
+ 1. ``git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git``
+ 2. ``cd opened_extraction``
+ 3. To update the submodules ``git submodule update --remote --merge``
  
 ## Install
- 1. ``opened_extraction``
- 2. ``mkdir op`` To store the output of extraction phase (or any other folder name)
- 3.  ``docker build . -t opened/extract:0.01``
+ 1. ``mkdir op`` To store the output of extraction phase (or any other folder name)
+ 2.  ``docker build . -t opened/extract:0.01``
 
 ## Extraction code and artefacts
 
