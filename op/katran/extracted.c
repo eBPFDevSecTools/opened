@@ -88,6 +88,16 @@
 #include <linux/tcp.h>
 #include <linux/udp.h>
 #include <linux/version.h>
+//ATTENTION BEGIN: DUPLICATE MAP DEFNS
+//DUP Defn at: fileName txl/annotate_struct_examples_katran_control_data_maps.h.out startLine: 9 endLine: 15
+//fileName txl/annotate_struct_examples_katran_xdp_pktcntr.c.out startLine: 14 endLine: 19
+struct {
+    __uint (type, BPF_MAP_TYPE_ARRAY);
+    __type (key, __u32);
+    __type (value, __u32);
+    __uint (max_entries, CTRL_ARRAY_SIZE);
+} ctl_array SEC (".maps");
+//ATTENTION END 
 /* Extracted from 
  /root/examples/katran/decap_kern.c 
  startLine: 34 endLine: 83
