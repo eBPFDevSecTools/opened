@@ -1,3 +1,7 @@
+#Author Info: 
+# Palani Kodeswaran (palani.kodeswaran@in.ibm.com)
+# Sayandeep Sen (sayandes@in.ibm.com)
+
 import re
 import os.path
 import os
