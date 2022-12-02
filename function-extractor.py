@@ -331,7 +331,7 @@ def processFuncLine(line):
     fns[key]=(None,None,None,None)
 
 def processMapLine(line):
-    ###print("Processing", line)
+    print("Processing", line)
     line = line.replace('[','')
     line = line.replace(']','')
     tokens = line.split(',')
@@ -361,8 +361,10 @@ def parseFunctionList(ifile):
             #print("ct",ct)
             if ct < 2:
                 processFuncLine(line)
-            else:
+            elif ct > 2 and ct < 4:
                 processMapLine(line)
+            else:
+                print("TODO: PROCESS DUPLICATE MAP DEFNS..IGNORE FOR NOW")
             
             
 if __name__ == "__main__":
