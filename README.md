@@ -1,5 +1,9 @@
+# OPENED Exraction Tool
+
+LPC 2022 blurb describing the goal of the tool and an initial prototype is here: https://lpc.events/event/16/contributions/1370/ 
+ 
 ## Dependencies
- 1. Works on kernel verion 5.4.0-131, Ubuntu 22:04, Intel arch x86 arch. There is a known issue with Apple Silicon based Macbooks with installing ``gcc-multlib``.
+ 1. Works on kernel verion 5.4.0-131, Ubuntu 22:04, Intel arch x86 arch. There is a known issue with Apple Silicon based Macbooks with installing a) ``gcc-multlib`` and b) TXL.
  2. git
  3. Docker
  
