@@ -211,7 +211,7 @@ def is_dup_map_in_extracted_files(dup_map_dict,extracted_files):
 
 def search_function(function_name, db_file):
     print("Running cqsearch for ",function_name," and outputting dependencies to func.out")
-    status=run_cmd("cqsearch -s "+db_file+" -t "+function_name+"  -p 7  -l 100 -k 10 -e > func.out")
+    status=run_cmd("cqsearch -s "+db_file+" -t "+function_name+"  -p 7  -l 100 -k 10 -e -o func.out")
     base_dir = os.getcwd()
     cmd_str=" sed -i  -e \"s|\$HOME|"+base_dir+"|g\" func.out"
     status=run_cmd(cmd_str)
