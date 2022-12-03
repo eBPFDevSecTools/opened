@@ -1,3 +1,6 @@
+%Author: Sayandeep Sen (sayandes@in.ibm.com)
+%Author: Palani Kodeswaran (palani.kodeswaran@in.ibm.com)
+
 % Null transform - format output according to grammar
 %include "c.grm.1"
 include "c.grm"
@@ -21,24 +24,27 @@ define block
     [compound_statement]
 end define
 
-
 redefine function_definition_or_declaration
-	[function_definition]
-    |	[opt begin_marker] [declaration] [opt end_marker]
+    	[function_definition]  	
+    |	[struct_or_union_definition]  	
+    |	[opt begin_marker] [struct_or_union_definition] [opt end_marker]
+    |	[enum_definition]  	
+    |	[declaration] 		
+#ifdef GNU
+    |	[asm_statement] 
+#endif
+#ifdef LINUX
+    |	[macro_declaration_or_statement]  
+#endif
 #ifdef PREPROCESSOR
     |	[preprocessor]
 #endif
-    |	[block] [NL]	% sometimes, function headers are ifdefed out
-#ifdef GNU
-    |	[macro_declaration_or_statement]
-#endif
-    |	[unknown_declaration_or_statement]
 end redefine
 
 
 rule replaceStruct0
 	replace [function_definition_or_declaration]
-	  T [struct_or_union_specifier] S [semi] 
+	  T [struct_or_union_definition] % U [declarator_opt_init_semi] %S [semi] 
 
 	construct BEG [begin_marker]
 	 '< 'struct  '>
@@ -47,57 +53,58 @@ rule replaceStruct0
 	 '<  '/struct '>
 
 	by
-	   BEG  T S END
+	   BEG  T   END
 end rule
 
-rule replaceStruct1
-	replace [function_definition_or_declaration]
-	  T [struct_or_union_specifier] P [reference_id] S [semi] 
+%rule replaceStruct1
+%	replace [function_definition_or_declaration]
+%	  T [struct_or_union_definition]% S [semi] 
+%
+%	construct BEG [begin_marker]
+%	 '< 'struct '>
+%
+%	construct END [end_marker]
+%	 '< '/struct '>
+%
+%	by
+%	   BEG  T  END
+%end rule
 
-	construct BEG [begin_marker]
-	 '< 'struct '>
+%rule replaceStruct2
+%	replace [function_definition_or_declaration]
+%	  T [struct_or_union_specifier] P [identifier] U [declarator_opt_init_semi]
+%
+%	construct BEG [begin_marker]
+%	 '< 'struct '>
+%
+%	construct END [end_marker]
+%	 '< '/struct '>
+%
+%	by
+%	   BEG T P U  END 
+%end rule
 
-	construct END [end_marker]
-	 '< '/struct '>
-
-	by
-	   BEG  T P S END
-end rule
-
-rule replaceStruct2
-	replace [function_definition_or_declaration]
-	  T [struct_or_union_specifier] P [reference_id] U [decl_qualifier_or_type_specifier] S [semi]  
-
-	construct BEG [begin_marker]
-	 '< 'struct '>
-
-	construct END [end_marker]
-	 '< '/struct '>
-
-	by
-	   BEG T P U S END 
-end rule
-
-rule replaceStruct3
-	replace [function_definition_or_declaration]
-	  T [struct_or_union_specifier]  M [macro_specifier] P [init_declarator]  S [semi]  
-
-	construct BEG [begin_marker]
-	 '< 'struct '>
-
-	construct END [end_marker]
-	 '< '/struct '>
-
-	by
-	 BEG  T  M   P  S END
-end rule
+%rule replaceStruct3
+%	replace [function_definition_or_declaration]
+%	  T [struct_or_union_specifier]  M [macro_type_specifier] P [declarator_opt_init_semi] 
+%
+%	construct BEG [begin_marker]
+%	 '< 'struct '>
+%
+%	construct END [end_marker]
+%	 '< '/struct '>
+%
+%	by
+%	 BEG  T  M   P  END
+%end rule
 
 function main 
 	replace [program] 
 		P  [program]
 	by
-	 	P [replaceStruct0]
-		  [replaceStruct1]
-		  [replaceStruct2]
-		  [replaceStruct3]
+	 	P %[debug]
+		  [replaceStruct0]
+%		  [replaceStruct1]
+%		  [replaceStruct2]
+%		  [replaceStruct3]
 end function

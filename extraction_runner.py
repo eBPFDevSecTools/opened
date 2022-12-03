@@ -96,7 +96,7 @@ def create_txl_annotation(cscope_file, opdir):
 
         print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
-        #op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
+        op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
         txl_dict_func[full_line] = opfile_function_annotate
         txl_dict_struct[full_line] = opfile_struct_annotate
     return txl_dict_func,txl_dict_struct
@@ -300,7 +300,7 @@ if __name__ == "__main__":
     out.close()
 
     #clean up
-    clean_intermediate_files(intermediate_f_list)
+    #clean_intermediate_files(intermediate_f_list)
 
     
     
