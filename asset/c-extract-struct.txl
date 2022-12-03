@@ -1,5 +1,6 @@
 % Null transform - format output according to grammar
-include "c.grm.1"
+%include "c.grm.1"
+include "c.grm"
 
 % Ignore byte order marks on source files
 include "bom.grm"
@@ -14,6 +15,10 @@ end define
 
 define end_marker
  '<[SPOFF] '/struct '>[SPON] [NL]
+end define
+
+define block
+    [compound_statement]
 end define
 
 
