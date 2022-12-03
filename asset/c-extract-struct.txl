@@ -56,55 +56,10 @@ rule replaceStruct0
 	   BEG  T   END
 end rule
 
-%rule replaceStruct1
-%	replace [function_definition_or_declaration]
-%	  T [struct_or_union_definition]% S [semi] 
-%
-%	construct BEG [begin_marker]
-%	 '< 'struct '>
-%
-%	construct END [end_marker]
-%	 '< '/struct '>
-%
-%	by
-%	   BEG  T  END
-%end rule
-
-%rule replaceStruct2
-%	replace [function_definition_or_declaration]
-%	  T [struct_or_union_specifier] P [identifier] U [declarator_opt_init_semi]
-%
-%	construct BEG [begin_marker]
-%	 '< 'struct '>
-%
-%	construct END [end_marker]
-%	 '< '/struct '>
-%
-%	by
-%	   BEG T P U  END 
-%end rule
-
-%rule replaceStruct3
-%	replace [function_definition_or_declaration]
-%	  T [struct_or_union_specifier]  M [macro_type_specifier] P [declarator_opt_init_semi] 
-%
-%	construct BEG [begin_marker]
-%	 '< 'struct '>
-%
-%	construct END [end_marker]
-%	 '< '/struct '>
-%
-%	by
-%	 BEG  T  M   P  END
-%end rule
-
 function main 
 	replace [program] 
 		P  [program]
 	by
 	 	P %[debug]
 		  [replaceStruct0]
-%		  [replaceStruct1]
-%		  [replaceStruct2]
-%		  [replaceStruct3]
 end function
