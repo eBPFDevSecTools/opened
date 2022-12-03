@@ -96,6 +96,10 @@ end comments
 tokens
     ignore        "\\\n"
 end tokens
+tokens
+    ignore        "__maybe_unused_"
+end tokens
+
 
 % Add the special literal constants of C
 tokens
@@ -482,6 +486,7 @@ define type_qualifier
     |   [cv_qualifier]
 #ifdef GNU
     |   [inline_qualifier]
+    |   [compiler_qualifier]
     |   [restrict_qualifier]
     |   [init_qualifier]
     |   [exit_qualifier]
@@ -506,9 +511,14 @@ end define
 
 #ifdef GNU
 define inline_qualifier
-	'__inline | '__inline__ | 'inline__ | 'inline 
+	'__inline | '__inline__ | 'inline__ | 'inline |  '__always_inline 
     | 'SBA_INLINE  % Linux
 end define
+
+define compiler_qualifier % from https://en.cppreference.com/w/c/language/attributes/maybe_unused
+	'maybe_unused | '__maybe_unused__ | '__maybe_unused 
+end define
+
 
 define init_qualifier
     '__init | 'init__ | 'init | '__init__
@@ -649,6 +659,7 @@ define ptr_qualifier
 	[SPON] [cv_qualifier]
 #ifdef GNU
     |   [SPON] [inline_qualifier]
+    |   [SPON] [compiler_qualifier]
     |   [SPON] [restrict_qualifier]
     |   [SPON] [init_qualifier]
     |   [SPON] [exit_qualifier]

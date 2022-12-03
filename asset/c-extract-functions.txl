@@ -8,7 +8,8 @@
 % Revised 30.04.08 - unmark embedded functions - JRC
 
 % Using Gnu C grammar
-include "c.grm.1"
+%include "c.grm.1"
+include "c.grm"
 
 % Ignore BOM headers from Windows
 include "bom.grm"
@@ -20,7 +21,7 @@ redefine function_definition
 	% Input form 
 	[srcfilename] [srclinenumber] 		% Keep track of starting file and line number
 	[function_header]
-	[opt KR_parameter_decls]
+	[opt KP_parameter_decls]
 	'{ 				[IN][NL]
 	    [compound_statement_body]	[EX]
 	    [srcfilename] [srclinenumber] 	% Keep track of ending file and line number
@@ -30,7 +31,7 @@ redefine function_definition
         [not token]                             % disallow output form in input parse
 	[opt xml_source_coordinate]
 	[function_header]
-	[opt KR_parameter_decls]
+	[opt KP_parameter_decls]
 	'{ 				[IN][NL]
 	    [compound_statement_body] 	[EX]
 	'}
@@ -74,7 +75,7 @@ function main
     by 
         XmlHdrStart 
     	Functions [removeOptSemis]
-	          [removeEmptyStatements]
+	          %[removeEmptyStatements]
     	XmlHdrEnd
 end function
 
@@ -83,7 +84,7 @@ rule convertFunctionDefinitions
     replace [function_definition]
 	FileName [srcfilename] LineNumber [srclinenumber]
 	FunctionHeader [function_header]
-	KR_Parms [opt KR_parameter_decls]
+	KR_Parms [opt KP_parameter_decls]
 	'{
 	    FunctionBody [compound_statement_body]
 	    EndFileName [srcfilename] EndLineNumber [srclinenumber]
@@ -116,7 +117,7 @@ rule unmarkEmbeddedFunctionDefinitions
     replace [function_definition]
 	FileName [srcfilename] LineNumber [srclinenumber]
 	FunctionHeader [function_header]
-	KR_Parms [opt KR_parameter_decls]
+	KR_Parms [opt KP_parameter_decls]
 	'{
 	    FunctionBody [compound_statement_body]
 	    EndFileName [srcfilename] EndLineNumber [srclinenumber]
@@ -146,7 +147,7 @@ end rule
 
 rule r1
     replace [function_header]
-        T [decl_qualifier_or_type_specifier] M [macro_specifier] D [declarator] F [function_declarator_extension]
+        T [declaration_specifier] M [macro_type_specifier] D [declarator] F [function_declarator_extension]
     by
         M T D F
 end rule
