@@ -3,6 +3,7 @@
 
 % Jim Cordy, January 2008
 
+%updated Dec 2022 - work with c.grm circa 2020, and xml extensions to report start and end line numbers. Sayandeep Sen, Palani Kodeswarwan
 % Revised Aug 2012 - disallow ouput forms in input parse - JRC
 % Revised July 2011 - ignore BOM headers in source
 % Revised 30.04.08 - unmark embedded functions - JRC
