@@ -15,10 +15,6 @@
 #include "ipv6.h"
 #include "eth.h"
 
-#define TCP_CSUM_OFF (offsetof(struct tcphdr, check))
-#define UDP_CSUM_OFF (offsetof(struct udphdr, check))
-
-
 static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr)
 {
 	/* Check for ::FFFF:<IPv4 address>. */

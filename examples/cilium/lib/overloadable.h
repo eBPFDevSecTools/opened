@@ -8,9 +8,9 @@
 #include <bpf/api.h>
 
 #if __ctx_is == __ctx_skb
-# include "lib/overloadable_skb.h"
+# include "overloadable_skb.h"
 #else
-# include "lib/overloadable_xdp.h"
+# include "overloadable_xdp.h"
 #endif
 
 #endif /* __LIB_OVERLOADABLE_H_ */
