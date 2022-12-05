@@ -11,7 +11,7 @@ LLC_FLAGS += -mcpu=v2
 endif
 
 
-FLAGS := -I$(ROOT_DIR)/bpf/include -I$(ROOT_DIR)/bpf -D__NR_CPUS__=$(shell nproc --all) -O2 -g
+FLAGS :=  -I$(ROOT_DIR) -D__NR_CPUS__=$(shell nproc --all) -O2 -g
 LIB := $(shell find $(ROOT_DIR) -name '*.h') $(BUILD_PERMUTATIONS_DEP)
 BPF_C := $(patsubst %.o,%.c,$(BPF))
 BPF_ASM := $(patsubst %.o,%.s,$(BPF))
@@ -20,16 +20,14 @@ BPF_ASM := $(patsubst %.o,%.s,$(BPF))
 #ebpf3
 #ebpf1
 #BASEDIR=/home/sayandes/
-CLANG=$(BASEDIR)/katran/_build//deps/clang/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/clang 
-LLC=$(BASEDIR)/katran/_build//deps/clang/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/llc
 CLANG=clang
 LLC=llc
-INCLUDE_LOCAL=./include
-INCLUDE_LIB=./lib
+INCLUDE_LOCAL=$(ROOT_DIR)/include
+INCLUDE_LOCAL_LIB=$(ROOT_DIR)/lib
 INLCUDE_SYS=/usr/include
 INCLUDE_LOC=/include
 XDP_TARGETS=extracted
-BPF_CFLAGS ?= -I$(INLCUDE_SYS) -I$(INCLUDE_LOC) -I$(INCLUDE_LOCAL) -I$(INCLUDE_LIB)
+BPF_CFLAGS ?= -I$(INLCUDE_SYS) -I$(INCLUDE_LOC) -I$(INCLUDE_LOCAL) -I$(INCLUDE_LOCAL_LIB)
 
 XDP_C = ${XDP_TARGETS:=.c}
 XDP_OBJ = ${XDP_C:.c=.o}
