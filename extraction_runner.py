@@ -208,11 +208,11 @@ def is_dup_map_in_extracted_files(dup_map_dict,extracted_files):
     return op_map
                 
 
-def search_function(function_name, db_file):
-    print("Running cqsearch for ",function_name," and outputting dependencies to func.out")
-    status=run_cmd("cqsearch -s "+db_file+" -t "+function_name+"  -p 7  -l 100 -k 10 -e -o func.out")
+def search_function(function_name, db_file, opf_name):
+    print("Running cqsearch for ",function_name," and outputting dependencies to "+ opf_name)
+    status=run_cmd("cqsearch -s "+db_file+" -t "+function_name+"  -p 7  -l 100 -k 10 -e -o "+ opf_name)
     base_dir = os.getcwd()
-    cmd_str=" sed -i  -e \"s|\$HOME|"+base_dir+"|g\" func.out"
+    cmd_str=" sed -i  -e \"s|\$HOME|"+base_dir+"|g\" " +opf_name
     status=run_cmd(cmd_str)
 
 if __name__ == "__main__":
@@ -229,8 +229,18 @@ if __name__ == "__main__":
     print(vars(args))
     if(not check_if_cmd_available() or not check_if_file_available()):
         exit(1)
+
     dir_list = []
-    db_file = "test.db"
+    function_name= args.function_name
+    src_dir = args.src_dir
+    txl_op_dir = args.txl_op_dir
+    dir_list.append(txl_op_dir)
+    create_directories(dir_list)
+    repo_path = run_cmd("readlink -f "+src_dir)
+    repo_name = repo_path.split("/")[-1]
+    db_file = repo_name +".db"
+    print("repo_path: "+repo_path+" repo_name: "+repo_name+" db_file: "+db_file)
+
     cscope_files = "cscope.files"
     cscope_out = "cscope.out"
     tags_folder = "tags"
@@ -239,12 +249,6 @@ if __name__ == "__main__":
     #intermediate_f_list.append(cscope_files)
     intermediate_f_list.append(cscope_out)
     intermediate_f_list.append(tags_folder)
-    
-    function_name= args.function_name
-    src_dir = args.src_dir
-    txl_op_dir = args.txl_op_dir
-    dir_list.append(txl_op_dir)
-    create_directories(dir_list)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
     txl_dict_func,txl_dict_struct = create_txl_annotation(cscope_files,txl_op_dir)
@@ -259,13 +263,15 @@ if __name__ == "__main__":
     maps = {}
     dup_map_dict = defaultdict(list)
     extracted_files = []
+    opf_name = function_name+".cg.out"
 
     # run code query to generate annotated function call graph
     create_cqmakedb(db_file, cscope_out, tags_folder)
-    search_function(function_name, db_file)
+    ######## End phase 0 ###########
+    search_function(function_name, db_file, opf_name)
 
     # Read set of maps to be extracted to check for duplicate map definitions 
-    ifile = open('func.out','r')
+    ifile = open(opf_name,'r')
     parseFunctionList(ifile)
     ifile.close()
 
@@ -281,7 +287,7 @@ if __name__ == "__main__":
                 dup_map_dict[map_name].append(map_def)
 
     # Write duplicate map definitions to func.out
-    out = open("func.out",'a')
+    out = open(opf_name,'a')
     out.write("#DUPLICATE MAP DEFNS\n{#map_name,file_locations\n")
 
     for map_name in dup_map_dict:
@@ -297,7 +303,7 @@ if __name__ == "__main__":
 
     out.write("}\n")
     out.close()
-
+    print("Function graphs and map dependencies in: "+opf_name)
     #clean up
     #clean_intermediate_files(intermediate_f_list)
 
