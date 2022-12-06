@@ -224,6 +224,7 @@ if __name__ == "__main__":
     my_parser.add_argument('-f','--function_name',action='store',required=True)
     my_parser.add_argument('-s','--src_dir',action='store',required=True)
     my_parser.add_argument('-o','--txl_op_dir',action='store',required=True)
+    my_parser.add_argument('-g','--function_call_graph_path',action='store',required=False)
 
     args = my_parser.parse_args()
     print(vars(args))
@@ -232,22 +233,36 @@ if __name__ == "__main__":
 
     dir_list = []
     function_name= args.function_name
-    src_dir = args.src_dir
-    txl_op_dir = args.txl_op_dir
     
+    src_dir = args.src_dir
+    if (os.access(src_dir, os.W_OK) is not True):
+        print("Cannot read source folder: "+src_dir+" Exiting...")
+        exit(1)
+
+    txl_op_dir = args.txl_op_dir
+    if (os.access(txl_op_dir, os.W_OK) is not True):
+        print("Cannot write to TXL files: "+src_dir+" Exiting...")
+        exit(1)
+
+    opf_file_path = "./"
+    if (args.function_call_graph_path is not None):
+        opf_file_path = args.function_call_graph_path+"/"
+    if (os.access(opf_file_path, os.W_OK) is not True):
+        print("Cannot write fcg to: "+opf_file_path+" Exiting...")
+        exit(1)
+
     dir_list.append(txl_op_dir)
     create_directories(dir_list)
    
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"
-    print("repo_path: "+repo_path+" repo_name: "+repo_name+" db_file: "+db_file)
 
     cscope_files = "cscope.files"
     cscope_out = "cscope.out"
     tags_folder = "tags"
     intermediate_f_list = []
-    intermediate_f_list.append(db_file)
+    #intermediate_f_list.append(db_file)
     #intermediate_f_list.append(cscope_files)
     intermediate_f_list.append(cscope_out)
     intermediate_f_list.append(tags_folder)
@@ -265,11 +280,13 @@ if __name__ == "__main__":
     maps = {}
     dup_map_dict = defaultdict(list)
     extracted_files = []
-    opf_name = function_name+".cg.out"
+    opf_name = opf_file_path+repo_name+"."+function_name+".cg.out"
 
     # run code query to generate annotated function call graph
     create_cqmakedb(db_file, cscope_out, tags_folder)
+
     ######## End phase 0 ###########
+    
     search_function(function_name, db_file, opf_name)
 
     # Read set of maps to be extracted to check for duplicate map definitions 
@@ -279,7 +296,7 @@ if __name__ == "__main__":
 
     #Parse TXL annotated files
     for fName in txl_dict_struct.values():
-        print("annotatedFile: ",fName)
+        #print("annotatedFile: ",fName)
         parseTXLStructOutputFile(fName)
 
     #get duplicate map definitions
@@ -307,7 +324,4 @@ if __name__ == "__main__":
     out.close()
     print("Function graphs and map dependencies in: "+opf_name)
     #clean up
-    #clean_intermediate_files(intermediate_f_list)
-
-    
-    
+    clean_intermediate_files(intermediate_f_list)
