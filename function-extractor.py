@@ -2,6 +2,7 @@
 # Palani Kodeswaran (palani.kodeswaran@in.ibm.com)
 # Sayandeep Sen (sayandes@in.ibm.com)
 
+import subprocess
 import re
 import os.path
 import os
@@ -9,6 +10,14 @@ import shutil
 from collections import defaultdict
 from collections import OrderedDict
 import argparse
+
+def run_cmd(cmd):
+    print("Running: ",cmd)
+    status, output = subprocess.getstatusoutput(cmd)
+    if(status != 0):
+        print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
+        exit(1)
+    return output
 
 
 def dump_to_file(f,appt):
@@ -25,9 +34,10 @@ def copyMakefile(srcdir,opdir):
             shutil.copy(path,opdir)
         else:
             print("Makefile does not exist in ",srcdir)
+            exit(1)
     else:
         print("One or More directories do not exist")
-    
+        exit(1)
     
 
     
@@ -132,14 +142,20 @@ def contained_in_preprocessor(fname, pres, st_line, end_line):
                     return (t,defName,start,end)
         return (None,None,None,None)
                     
-# reads cscope.files and copies headers to direction. Also adds headers to headers dict
-def copy_include_files(iFile, opdir):
+# reads cscope.files and copies headers to directory Also adds headers to headers dict
+#./examples/cilium/include/bpf/... 
+def copy_include_files(iFile, opdir,base_dir):
     iFilePtr = open(iFile,'r')
     for line in iFilePtr.readlines():
-        #print("cscope header: ",line)
+        print("cscope header: ",line)
         line=line.replace("\n","")
         if line.endswith(".h"):
-            shutil.copy(line, opdir)
+            full_line = run_cmd("readlink -f "+line) 
+            header_path= full_line.split(base_dir)[-1]
+            dir_name= opdir+"/"+header_path
+            print("dir_name: "+dir_name)
+            os.makedirs(os.path.dirname(dir_name), exist_ok=True)
+            shutil.copy(line,dir_name)
             #headers[line]=1
             #print("copying header: ",line)
     #shutil.copy("Makefile",opdir)
@@ -390,6 +406,9 @@ if __name__ == "__main__":
     parser.add_argument('-s','--srcdir', type=str,required=True,
                     help='Directory containing source files for function  to be extraced from')
 
+    parser.add_argument('-b','--basedir', type=str,required=True,
+                    help='Base Directory path relative to which directory structure in opdir will be created')
+
     
     
     args = parser.parse_args()
@@ -402,6 +421,7 @@ if __name__ == "__main__":
 
     TXLDir =args.txlDir
     srcdir = args.srcdir
+    basedir=args.basedir
 
     cscopeFile="cscope.files"
     dupFileName=opdir+"/"+"duplicates.out"
@@ -430,12 +450,11 @@ if __name__ == "__main__":
 
     #dict of dict containing pre processor directives per file
     presDict = defaultdict(list)
-    
-    
+
     make_extraction_dir(opdir)
-    copy_include_files(cscopeFile, opdir)
+    copy_include_files(cscopeFile, opdir,basedir)
     copyMakefile(srcdir,opdir)
-    
+
     dupFile = open (dupFileName,'w')
     ifile = open(codequeryOutputFile,'r')
     eFile = open(extractedFunctionListFile,'w')

@@ -49,7 +49,7 @@ def run_cmd(cmd):
     print("Running: ",cmd)
     status, output = subprocess.getstatusoutput(cmd)
     if(status != 0):
-        print("Failed while running: ",cmd," Exiting...")
+        print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
         exit(1)
     return output
 
@@ -71,7 +71,7 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
         op_file.write(f)
         op_file.write("\n")
     op_file.close()        
-    run_cmd("cscope -cb -k -i "+cscope_files)
+    run_cmd("cscope -cb -q -k -i "+cscope_files)
     run_cmd("ctags --fields=+i -n -L "+cscope_files)
     run_cmd("cqmakedb -s "+ db_name+ " -c "+cscope_out+" -t "+tags_folder+" -p")
 
@@ -234,8 +234,10 @@ if __name__ == "__main__":
     function_name= args.function_name
     src_dir = args.src_dir
     txl_op_dir = args.txl_op_dir
+    
     dir_list.append(txl_op_dir)
     create_directories(dir_list)
+   
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"

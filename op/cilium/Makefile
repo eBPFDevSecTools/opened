@@ -34,8 +34,7 @@ XDP_OBJ = ${XDP_C:.c=.o}
 
 $(XDP_OBJ): %.o: %.c 
 	$(CLANG) $(FLAGS)  $(BPF_CFLAGS) \
-	-DDEBUG -D__KERNEL__ -Wno-unused-value -Wno-pointer-sign \
+	-DSKIP_DEBUG -D__KERNEL__ -Wno-unused-value -Wno-pointer-sign \
         -Wno-compare-distinct-pointer-types \
 	-O2 -emit-llvm -c -g -o  ${@:.o=.ll} $<
 	$(LLC) -march=bpf -filetype=obj -o $@ ${@:.o=.ll}
-
