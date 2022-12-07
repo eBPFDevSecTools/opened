@@ -309,7 +309,7 @@ def parseTXLFunctionOutputFile(inputFile,f,e):
             continue;
     if srcFile.endswith(".c"):
         addDefines(srcFile,f)
-
+        #buildIncludesOrderingGraph(srcFile,f)
     
 # read header file and included headers to headers dict
 def addDependsOn(cFile):
@@ -323,7 +323,8 @@ def addDependsOn(cFile):
                 ##print("cFile: ",cFile," h: ",h)
                 graph[h].add(cFile)
                 #print("Adding Header Dep: From",cFile," to: ",h )
-                headers[h]=1
+                #headers[h]=1
+                headers[h] = cFile
                
     iFile.close()
 
@@ -367,8 +368,24 @@ def addDefines(cFile,ofile):
                 multi = False
 
     iFile.close()
-
     
+#TODO: Remove this function or addDependsOn
+#buildIncludesOrderingGraph
+def buildIncludesOrderingGraph(cFile):
+    with open(cFile) as iFile:
+        for line in iFile.readlines():
+            if "#include" in line:
+                h  = line.split()[-1]
+                h = h.replace("<","")
+                h = h.replace(">","")
+                h = h.replace("\"","")
+                print("cFile: ",cFile," h: ",h)
+                
+                
+                
+               
+    iFile.close()
+
 def processFuncLine(line):
     ###print("Processing", line)
     line = line.replace('[','')
@@ -400,8 +417,10 @@ def processMapLine(line):
     mapName = tokens[0]
     srcFile = tokens[1]
     if srcFile.endswith(".h"):
-        headers[srcFile]=1
-        addDependsOn(srcFile)
+        print("")
+        #Commentged for Checking: Dec 7
+        #headers[srcFile]=1
+        #addDependsOn(srcFile)
     startLine = tokens[2]
     isFound = tokens[3]
     ##print(fnName,count,src,startLine)
@@ -524,6 +543,7 @@ if __name__ == "__main__":
     f.write("#define RECORD_FLOW_INFO\n")
     ##print("HEADERS\n")
     for header in headers.keys():
+        orig = header
         ##print(header)
         if not "<" in header:
             header = header.split('/')[-1]
@@ -538,9 +558,8 @@ if __name__ == "__main__":
             cmd += "#endif \n\n"
         else:
             cmd = "#include " + header + "\n"
-
-                
         f.write(cmd)
+        f.write("//OPENED: included from: "+headers[orig]+ "\n\n")
 
     xmlFiles = []
     
