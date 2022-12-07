@@ -10,12 +10,16 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
 ## Download
  1. ``git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git``
  2. ``cd opened_extraction``
- 3. To update the submodules ``git submodule update --remote --merge``
+ 3. 
+ 4. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
  
-## Install
+## Install Process 1: Docker
  1. ``mkdir op`` To store the output of extraction phase (or any other folder name)
  2.  ``docker build . -t opened/extract:0.01``
 
+## Install Process 2: on host
+ 1. **For now:** You will need to parse the Dockerfile and execute the installation steps on your host system.
+ 2. In future we will provide a script for on-host installation ([Issue #24](https://github.com/sdsen/opened_extraction/issues/24)).
 ## Extraction code and artefacts
 
 Code extraction consists of two phases 1) Generating annotated function call graph 2) Extracting required code from source files to generate an independantly compilable module.
