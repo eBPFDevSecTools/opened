@@ -21,7 +21,7 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
  1. **For now:** You will need to parse the Dockerfile and execute the installation steps on your host system.
  2. In future we will provide a script for on-host installation ([Issue #24](https://github.com/sdsen/opened_extraction/issues/24)).
  
-## Pulling local update
+## Updating local branch
  1. run ``git pull``
  2. run ``git submodule update --recursive`` 
  3. If you have docker for install, you are done. 
