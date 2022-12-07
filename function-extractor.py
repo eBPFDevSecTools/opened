@@ -257,6 +257,7 @@ def parseTXLStructOutputFile(fileName,f):
 def parseTXLFunctionOutputFile(inputFile,f,e):
     srcSeen=False
     lines = []
+    srcFile=""
     for line in inputFile.readlines():
         ending = re.match(r"</source",line)
         if ending:
@@ -306,6 +307,9 @@ def parseTXLFunctionOutputFile(inputFile,f,e):
                     #extractAndDump(srcFile,startLine,endLine,f)
                     #del fns[key]
             continue;
+    if srcFile.endswith(".c"):
+        addDefines(srcFile,f)
+
     
 # read header file and included headers to headers dict
 def addDependsOn(cFile):
@@ -323,6 +327,48 @@ def addDependsOn(cFile):
                
     iFile.close()
 
+#dump #defines to output file
+def addDefines(cFile,ofile):
+    full_line = run_cmd("readlink -f "+cFile) 
+    with open(full_line) as iFile:
+        multi = False
+        cont_char = ''
+        lineCt=0
+        for line in iFile.readlines():
+            lineCt = lineCt + 1
+            sline = line.rstrip()
+            if len(sline) > 0:
+                cont_char = sline[-1]
+            else:
+                continue #empty line
+            if "#define" in line:
+                line_arr=line.split("#define")
+                tokens = line_arr[1].split()
+                var_name=tokens[0]
+                cont_char = sline[-1]
+                ofile.write("//OPENED COMMENT BEGIN: From: "+full_line+" startLine: "+str(lineCt)+"\n")
+                ofile.write("#ifndef "+var_name+"//OPENED define "+var_name+" BEG\n")
+
+                if cont_char=='\\':#"\\" in line:
+                    multi = True;
+                    ofile.write(line)
+                else :
+                    ofile.write(line)
+                    ofile.write("#endif //OPENED define "+var_name+" END\n\n")
+                    ofile.write("//OPENED COMMENT END : From: "+full_line+" endLine: "+str(lineCt)+"\n\n")
+            elif cont_char == '\\' and multi == True:
+                ofile.write(line)
+                #print( line+" XXXXX "+line[-1]+"\n")
+            elif cont_char != '\\' and multi == True: 
+                ofile.write(line+"\n")
+                ofile.write("#endif //OPENED define "+var_name+" END\n\n")
+                ofile.write("//OPENED COMMENT END: From: "+full_line+" endLine: "+str(lineCt)+"\n\n")
+                #print("no \\ "+line+" XXXXX ["+line[-2]+"]\n")
+                multi = False
+
+    iFile.close()
+
+    
 def processFuncLine(line):
     ###print("Processing", line)
     line = line.replace('[','')
@@ -337,10 +383,6 @@ def processFuncLine(line):
     src = tokens[2]
     #Add headers included by .c files only
     if src.endswith(".c"):
-    #if src.endswith(".h"):
-        ##print("Header File: ",line)
-        #headers[src]=1
-        #shutil.copy(src,opdir)
         addDependsOn(src)
     startLine = tokens[3]
     #remove end ]
@@ -458,6 +500,8 @@ if __name__ == "__main__":
     dupFile = open (dupFileName,'w')
     ifile = open(codequeryOutputFile,'r')
     eFile = open(extractedFunctionListFile,'w')
+    f = open(extractedFileName,'w')
+
     
     parseFunctionList(ifile)
     ifile.close()
@@ -473,7 +517,7 @@ if __name__ == "__main__":
     dupFile.close()
 
     
-    f = open(extractedFileName,'w')
+
 
     #include required header files
     f.write("/* SPDX-License-Identifier: GPL-2.0 */\n");
@@ -494,7 +538,8 @@ if __name__ == "__main__":
             cmd += "#endif \n\n"
         else:
             cmd = "#include " + header + "\n"
-            
+
+                
         f.write(cmd)
 
     xmlFiles = []
@@ -546,7 +591,8 @@ if __name__ == "__main__":
 
     dumpFns(f,eFile)
     
-    f.write("char _license[] SEC(\"license\") = \"GPL\";");
+    #katran f.write("char _license[] SEC(\"license\") = \"GPL\";");
+    f.write("BPF_LICENSE(\"Dual BSD/GPL\");");
     f.close()
     eFile.close()
 
