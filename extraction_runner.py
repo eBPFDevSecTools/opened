@@ -13,7 +13,7 @@ import argparse
 from collections import defaultdict
 
 def check_if_cmd_available():
-    commands = ['txl', 'cscope', 'ctags', 'cqmakedb', 'cqsearch']
+    commands = ['sed', 'txl', 'cscope', 'ctags', 'cqmakedb', 'cqsearch']
     for cmd in commands:
         if shutil.which(cmd) is None:
             print("Command: ",cmd," unavailable.. ", "Exiting")
@@ -203,7 +203,7 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir):
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')
-        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
+        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
         xmlFile.close()
     return
 
@@ -233,12 +233,17 @@ if __name__ == "__main__":
     my_parser.add_argument('-annotate_only',
             action='store',
             default=False)
-    my_parser.add_argument('-f','--function_name',action='store',required=True)
-    my_parser.add_argument('-s','--src_dir',action='store',required=True)
-    my_parser.add_argument('-o','--txl_op_dir',action='store',required=True)
-    my_parser.add_argument('-g','--function_call_graph_path',action='store',required=False)
-    my_parser.add_argument('-c','--opened_comment_stub_folder',action='store',required=False)
-    my_parser.add_argument('-f','--bpfHelperFile', type=str,required=False,
+    my_parser.add_argument('-f','--function_name',action='store',required=True,
+            help='function name to be extracted')
+    my_parser.add_argument('-s','--src_dir',action='store',required=True,
+            help='directory with source code')
+    my_parser.add_argument('-o','--txl_op_dir',action='store',required=True,
+            help='directory to put txl annotated files')
+    my_parser.add_argument('-g','--function_call_graph_path',action='store',required=False,
+            help='directory to put function and map dependency call graph file. Output of phase I')
+    my_parser.add_argument('-c','--opened_comment_stub_folder',action='store',required=False,
+            help='directory to put source files with comment stub')
+    my_parser.add_argument('-r','--bpfHelperFile', type=str,required=False,
             help='Information regarding bpf_helper_funcitons ')
 
 
@@ -265,17 +270,18 @@ if __name__ == "__main__":
         print("Cannot write fcg to: "+opf_file_path+" Exiting...")
         exit(1)
 
-    if (ars.opened_comment_stub_folder is not None):
+    cmt_op_dir = None
+    if (args.opened_comment_stub_folder is not None):
         cmt_op_dir = args.opened_comment_stub_folder
         dir_list.append(cmt_op_dir)
 
     create_directories(dir_list)
    
     if (os.access(txl_op_dir, os.W_OK) is not True):
-        print("Cannot write to TXL files: "+src_dir+" Exiting...")
+        print("Cannot write to TXL files: "+txl_op_dir+" Exiting...")
         exit(1)
-    if (os.access(cmt_op_dir, os.W_OK) is not True):
-        print("Cannot write to TXL files: "+src_dir+" Exiting...")
+    if (cmt_op_dir is not None and os.access(cmt_op_dir, os.W_OK) is not True):
+        print("Cannot write to commented_file dir: "+cmt_op_dir+" Exiting...")
         exit(1)
 
 
@@ -296,13 +302,16 @@ if __name__ == "__main__":
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
     txl_dict_func,txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir)
-    if (args.opened_comment_stub_folder is not None):
+    if (cmt_op_dir is not None):
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
         else:
             print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
             bpf_helper_file = my_bpf_helper_file
+        print(cmt_op_dir)
         create_code_comments(txl_dict_func, bpf_helper_file, cmt_op_dir)
+    else:
+        print("no comment file found!")
     structFiles = []
     opMaps=defaultdict(set)
     map_file_def_dict=defaultdict(set)

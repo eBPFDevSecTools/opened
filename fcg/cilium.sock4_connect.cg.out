@@ -117,7 +117,7 @@ __it_xor,1,[/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtin
 __bpf_memcmp_builtin,1,[/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,258]
 __bpf_memcmp,1,[/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,272]
 memcmp,1,[/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,361]
-sock4_update_revnat,1,[/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,168]
+sock4_update_revnat,2,[/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,168],[/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,193]
 __sock4_xlate_fwd,1,[/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,323]
 sock4_connect,1,[/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,479]
 }
