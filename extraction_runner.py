@@ -8,7 +8,7 @@ import subprocess
 import glob
 import command
 import shutil
-#import code_commentor as cmt
+import code_commentor as cmt
 import argparse
 from collections import defaultdict
 
@@ -71,7 +71,7 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
         op_file.write(f)
         op_file.write("\n")
     op_file.close()        
-    run_cmd("cscope -cb -q -k -i "+cscope_files)
+    run_cmd("cscope -cb -k -i "+cscope_files)
     run_cmd("ctags --fields=+i -n -L "+cscope_files)
     run_cmd("cqmakedb -s "+ db_name+ " -c "+cscope_out+" -t "+tags_folder+" -p")
 
@@ -196,6 +196,18 @@ def processMapLine(line):
     maps[key]=1
 
 
+def create_code_comments(txl_dict, bpf_helper_file, opdir):
+    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
+    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
+    helperdict = cmt.load_bpf_helper_map(bpf_helper_file)  
+    for srcFile,txlFile in txl_dict.items():
+        opFile = opdir+'/'+os.path.basename(srcFile)
+        xmlFile = open(txlFile,'r')
+        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
+        xmlFile.close()
+    return
+
+
 def is_dup_map_in_extracted_files(dup_map_dict,extracted_files):
     op_map = defaultdict(list)
     for dup_map in dup_map_dict:
@@ -225,6 +237,10 @@ if __name__ == "__main__":
     my_parser.add_argument('-s','--src_dir',action='store',required=True)
     my_parser.add_argument('-o','--txl_op_dir',action='store',required=True)
     my_parser.add_argument('-g','--function_call_graph_path',action='store',required=False)
+    my_parser.add_argument('-c','--opened_comment_stub_folder',action='store',required=False)
+    my_parser.add_argument('-f','--bpfHelperFile', type=str,required=False,
+            help='Information regarding bpf_helper_funcitons ')
+
 
     args = my_parser.parse_args()
     print(vars(args))
@@ -240,10 +256,8 @@ if __name__ == "__main__":
         exit(1)
 
     txl_op_dir = args.txl_op_dir
-    if (os.access(txl_op_dir, os.W_OK) is not True):
-        print("Cannot write to TXL files: "+src_dir+" Exiting...")
-        exit(1)
-
+    dir_list.append(txl_op_dir)
+    
     opf_file_path = "./"
     if (args.function_call_graph_path is not None):
         opf_file_path = args.function_call_graph_path+"/"
@@ -251,9 +265,21 @@ if __name__ == "__main__":
         print("Cannot write fcg to: "+opf_file_path+" Exiting...")
         exit(1)
 
-    dir_list.append(txl_op_dir)
+    if (ars.opened_comment_stub_folder is not None):
+        cmt_op_dir = args.opened_comment_stub_folder
+        dir_list.append(cmt_op_dir)
+
     create_directories(dir_list)
    
+    if (os.access(txl_op_dir, os.W_OK) is not True):
+        print("Cannot write to TXL files: "+src_dir+" Exiting...")
+        exit(1)
+    if (os.access(cmt_op_dir, os.W_OK) is not True):
+        print("Cannot write to TXL files: "+src_dir+" Exiting...")
+        exit(1)
+
+
+
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"
@@ -261,6 +287,7 @@ if __name__ == "__main__":
     cscope_files = "cscope.files"
     cscope_out = "cscope.out"
     tags_folder = "tags"
+    my_bpf_helper_file = "asset/helper_hookpoint_map.json"
     intermediate_f_list = []
     #intermediate_f_list.append(db_file)
     #intermediate_f_list.append(cscope_files)
@@ -268,12 +295,14 @@ if __name__ == "__main__":
     intermediate_f_list.append(tags_folder)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
-    txl_dict_func,txl_dict_struct = create_txl_annotation(cscope_files,txl_op_dir)
-    if args.annotate_only:
-        #clean up
-        clean_intermediate_files(intermediate_f_list)
-        exit(0)
-    
+    txl_dict_func,txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir)
+    if (args.opened_comment_stub_folder is not None):
+        if(args.bpfHelperFile is not None):
+            bpf_helper_file = args.bpfHelperFile
+        else:
+            print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
+            bpf_helper_file = my_bpf_helper_file
+        create_code_comments(txl_dict_func, bpf_helper_file, cmt_op_dir)
     structFiles = []
     opMaps=defaultdict(set)
     map_file_def_dict=defaultdict(set)
@@ -284,6 +313,10 @@ if __name__ == "__main__":
 
     # run code query to generate annotated function call graph
     create_cqmakedb(db_file, cscope_out, tags_folder)
+    if args.annotate_only:
+        #clean up
+        clean_intermediate_files(intermediate_f_list)
+        exit(0)
 
     ######## End phase 0 ###########
     

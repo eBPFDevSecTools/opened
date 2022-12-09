@@ -80,21 +80,9 @@ def check_map_access(my_arr,line):
 
 
 def generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps):
-    comment="/* \n OPENED COMMENT BEGIN \n { \n File: "+srcFile + ",\n Startline: "+ str(startLine) + ",\n Endline: "+str(endLine) + ",\n Funcname: "+funcName + ",\n Input: ("+ funcArgs + "),\n Output: "+output + ",\n Helpers: [" + encoding + "]" + ",\n Read_maps: [" + read_maps + "],\n Update_maps: [" + update_maps + "],\n Func Description: TO BE ADDED, \n } \n OPENED COMMENT END \n */ \n"
+    comment="/* \n OPENED COMMENT BEGIN \n { \n File: "+srcFile + ",\n Startline: "+ str(startLine) + ",\n Endline: "+str(endLine) + ",\n Funcname: "+funcName + ",\n Input: ("+ funcArgs + "),\n Output: "+output + ",\n Helpers: [" + encoding + "]" + ",\n Read_maps: [" + read_maps + "],\n Update_maps: [" + update_maps + "],\n Func Description: TO BE ADDED, Commentor: TO BE ADDED \n } \n OPENED COMMENT END \n */ \n"
     #print("COMMENT File: ",srcFile, " startline: ",startLine," endline: ",endLine," funcname: ",funcName, "Input: (", funcArgs, ") Output: ",output, "Helpers: [",encoding,"]", "read_maps: [",read_maps,"] update_maps: [",update_maps,"]")
     return comment
-
-
-def create_code_comments(txl_dict, bpf_helper_file, opdir):
-    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
-    helperdict = cmt.load_bpf_helper_map(bpf_helper_file)  
-    for srcFile,txlFile in txl_dict.items():
-        opFile = opdir+'/'+os.path.basename(srcFile)
-        xmlFile = open(txlFile,'r')
-        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
-        xmlFile.close()
-    return
 
 
 # parses output from c-extract-function.txl
