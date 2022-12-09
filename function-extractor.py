@@ -446,7 +446,7 @@ def parseFunctionList(ifile):
                 processMapLine(line)
             else:
                 print("TODO: PROCESS DUPLICATE MAP DEFNS..IGNORE FOR NOW")
-            
+
             
 if __name__ == "__main__":
 
@@ -554,7 +554,8 @@ if __name__ == "__main__":
             macro = macro + "_OPENED_FRAMEWORK"
             cmd = "#ifndef "+ macro + "\n"
             cmd += "#define " + macro + "\n"
-            cmd += "#include \"" + header + "\"\n"
+            #cmd += "#include \"" + header + "\"\n"
+            cmd += "#include \"" + orig + "\"\n"
             cmd += "#endif \n\n"
         else:
             cmd = "#include " + header + "\n"
