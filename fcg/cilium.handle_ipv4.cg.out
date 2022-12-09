@@ -247,7 +247,7 @@ ctx_get_tunnel_key,2,[/home/sayandes/opened_extraction/examples/cilium/include/b
 identity_is_remote_node,1,[/home/sayandes/opened_extraction/examples/cilium/lib/identity.h,14]
 cilium_dbg_capture2,2,[/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,216],[/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,262]
 cilium_dbg_capture,2,[/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,233],[/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,256]
-handle_ipv4,1,[/home/sayandes/opened_extraction/examples/cilium/bpf_host.c,472]
+handle_ipv4,2,[/home/sayandes/opened_extraction/examples/cilium/bpf_host.c,472],[/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,196]
 }
 {#map_name,filename,line #, isFound
 }

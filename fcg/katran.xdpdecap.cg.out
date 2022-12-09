@@ -9,13 +9,13 @@ csum_fold_helper,1,[/home/sayandes/opened_extraction/examples/katran/csum_helper
 ipv4_csum_inline,1,[/home/sayandes/opened_extraction/examples/katran/csum_helpers.h,51]
 send_icmp_reply,1,[/home/sayandes/opened_extraction/examples/katran/handle_icmp.h,60]
 parse_icmp,1,[/home/sayandes/opened_extraction/examples/katran/handle_icmp.h,255]
-process_l3_headers,2,[/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,158],[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,34]
+process_l3_headers,1,[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,34]
 check_decap_dst,1,[/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,234]
 decrement_ttl,1,[/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,84]
 decap_v6,1,[/home/sayandes/opened_extraction/examples/katran/pckt_encap.h,138]
 decap_v4,1,[/home/sayandes/opened_extraction/examples/katran/pckt_encap.h,159]
 recirculate,1,[/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,74]
-process_encaped_ipip_pckt,2,[/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,340],[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,85]
+process_encaped_ipip_pckt,1,[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,85]
 calc_offset,1,[/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,58]
 parse_tcp,1,[/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,102]
 parse_udp,1,[/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,76]
@@ -63,13 +63,26 @@ perform_global_lru_lookup,1,[/home/sayandes/opened_extraction/examples/katran/ba
 REPORT_TCP_NONSYN_LRUMISS,2,[/home/sayandes/opened_extraction/examples/katran/introspection.h,30],[/home/sayandes/opened_extraction/examples/katran/introspection.h,38]
 PCKT_ENCAP_V6,2,[/home/sayandes/opened_extraction/examples/katran/balancer_consts.h,340],[/home/sayandes/opened_extraction/examples/katran/balancer_consts.h,344]
 PCKT_ENCAP_V4,2,[/home/sayandes/opened_extraction/examples/katran/balancer_consts.h,339],[/home/sayandes/opened_extraction/examples/katran/balancer_consts.h,343]
-process_packet,2,[/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,480],[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,164]
+process_packet,1,[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,164]
 xdpdecap,1,[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,224]
 }
 {#map_name,filename,line #, isFound
+ch_rings,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,67,1
+ctl_array,/home/sayandes/opened_extraction/examples/katran/control_data_maps.h,41,1
+decap_counters,/home/sayandes/opened_extraction/examples/katran/decap_maps.h,44,1
 decap_dst,/home/sayandes/opened_extraction/examples/katran/control_data_maps.h,62,1
-lru_map,/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,270,0
+global_lru_maps,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,133,1
+lpm_src_v4,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,113,1
+lpm_src_v6,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,121,1
+lru_map,/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,263,0
+lru_mapping,/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,672,0
+reals,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,76,1
+reals_stats,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,85,1
+server_id_map,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,104,1
+stats,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,94,1
+vip_map,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,38,1
 }
 #DUPLICATE MAP DEFNS
 {#map_name,file_locations
+ctl_array,2,[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_xdp_pktcntr.c.out,24],[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_control_data_maps.h.out,14]
 }
