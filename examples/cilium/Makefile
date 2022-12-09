@@ -38,3 +38,5 @@ $(XDP_OBJ): %.o: %.c
         -Wno-compare-distinct-pointer-types \
 	-O2 -emit-llvm -c -g -o  ${@:.o=.ll} $<
 	$(LLC) -march=bpf -filetype=obj -o $@ ${@:.o=.ll}
+clean:
+	rm *.o *.ll
