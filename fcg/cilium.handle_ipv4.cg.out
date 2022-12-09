@@ -250,6 +250,29 @@ cilium_dbg_capture,2,[/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h
 handle_ipv4,2,[/home/sayandes/opened_extraction/examples/cilium/bpf_host.c,472],[/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,196]
 }
 {#map_name,filename,line #, isFound
+CAPTURE4_RULES,/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,251,0
+CAPTURE6_RULES,/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,376,0
+CT_TAIL_CALL_BUFFER4,/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,109,0
+ENCRYPT_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/l3.h,164,0
+ENDPOINTS_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/eps.h,37,0
+IPV4_FRAG_DATAGRAMS_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,101,0
+LB4_AFFINITY_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1346,0
+LB4_BACKEND_MAP_V2,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1201,0
+LB4_MAGLEV_MAP_OUTER,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1263,0
+LB4_SERVICES_MAP_V2,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1184,0
+LB4_SRC_RANGE_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1139,0
+LB_AFFINITY_MATCH_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1365,0
+METRICS_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,34,0
+NODEPORT_NEIGH4,/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,1912,0
+TUNNEL_MAP,/home/sayandes/opened_extraction/examples/cilium/lib/encap.h,250,0
+VTEP_MAP,/home/sayandes/opened_extraction/examples/cilium/bpf_host.c,604,0
+cilium_capture_cache,/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,420,0
+cilium_ktime_cache,/home/sayandes/opened_extraction/examples/cilium/lib/time_cache.h,29,0
+cilium_xdp_scratch,/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,343,0
+maglev_lut,/home/sayandes/opened_extraction/examples/cilium/lib/lb.h,1267,0
+map,/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,197,0
+map_main,/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,948,0
+map_related,/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,1000,0
 }
 #DUPLICATE MAP DEFNS
 {#map_name,file_locations
