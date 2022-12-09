@@ -9,7 +9,7 @@
 
 #include "endian.h"
 #include "time.h"
-//#include "static_data.h"
+#include "static_data.h"
 
 #define __min(t_x, t_y, x, y)		\
 ({					\
