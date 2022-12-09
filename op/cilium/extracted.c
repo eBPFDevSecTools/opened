@@ -438,6 +438,7 @@ int NAME(struct __ctx_buff *ctx)						\
 #ifndef TAILCALL_H_OPENED_FRAMEWORK
 #define TAILCALL_H_OPENED_FRAMEWORK
 #include "lib/tailcall.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -447,6 +448,17 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/common.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef COMMON_H_OPENED_FRAMEWORK
+#define COMMON_H_OPENED_FRAMEWORK
+#include "lib/common.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef CONFIG_H_OPENED_FRAMEWORK
@@ -529,6 +541,7 @@ int NAME(struct __ctx_buff *ctx)						\
 #ifndef LXC_H_OPENED_FRAMEWORK
 #define LXC_H_OPENED_FRAMEWORK
 #include "lib/lxc.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -538,11 +551,23 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/identity.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef IDENTITY_H_OPENED_FRAMEWORK
+#define IDENTITY_H_OPENED_FRAMEWORK
+#include "lib/identity.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef POLICY_H_OPENED_FRAMEWORK
 #define POLICY_H_OPENED_FRAMEWORK
 #include "lib/policy.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -552,6 +577,17 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/lb.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef LB_H_OPENED_FRAMEWORK
+#define LB_H_OPENED_FRAMEWORK
+#include "lib/lb.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef DROP_H_OPENED_FRAMEWORK
@@ -620,6 +656,7 @@ int NAME(struct __ctx_buff *ctx)						\
 #ifndef POLICY_LOG_H_OPENED_FRAMEWORK
 #define POLICY_LOG_H_OPENED_FRAMEWORK
 #include "lib/policy_log.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -629,6 +666,17 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/proxy.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef PROXY_H_OPENED_FRAMEWORK
+#define PROXY_H_OPENED_FRAMEWORK
+#include "lib/proxy.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef L4_H_OPENED_FRAMEWORK
@@ -659,4 +707,232 @@ int NAME(struct __ctx_buff *ctx)						\
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
+<<<<<<< HEAD
+=======
+/* Extracted from 
+ /home/sayandes/opened_extraction/examples/cilium/bpf_host.c 
+ startLine: 67 endLine: 82
+ */ 
+static __always_inline int rewrite_dmac_to_host(struct __ctx_buff *ctx,
+						__u32 src_identity)
+{
+	/* When attached to cilium_host, we rewrite the DMAC to the mac of
+	 * cilium_host (peer) to ensure the packet is being considered to be
+	 * addressed to the host (PACKET_HOST).
+	 */
+	union macaddr cilium_net_mac = CILIUM_NET_MAC;
+
+	/* Rewrite to destination MAC of cilium_net (remote peer) */
+	if (eth_store_daddr(ctx, (__u8 *) &cilium_net_mac.addr, 0) < 0)
+		return send_drop_notify_error(ctx, src_identity, DROP_WRITE_ERROR,
+					      CTX_ACT_OK, METRIC_INGRESS);
+
+	return CTX_ACT_OK;
+}
+/* Extracted from 
+ /home/sayandes/opened_extraction/examples/cilium/bpf_host.c 
+ startLine: 471 endLine: 671
+ */ 
+static __always_inline int
+handle_ipv4(struct __ctx_buff *ctx, __u32 secctx,
+	    __u32 ipcache_srcid __maybe_unused, const bool from_host)
+{
+	struct trace_ctx __maybe_unused trace = {
+		.reason = TRACE_REASON_UNKNOWN,
+		.monitor = TRACE_PAYLOAD_LEN,
+	};
+	struct remote_endpoint_info *info = NULL;
+	__u32 __maybe_unused remote_id = 0;
+	struct ipv4_ct_tuple tuple = {};
+	bool skip_redirect = false;
+	struct endpoint_info *ep;
+	void *data, *data_end;
+	struct iphdr *ip4;
+	int ret;
+
+	if (!revalidate_data(ctx, &data, &data_end, &ip4))
+		return DROP_INVALID;
+
+/* If IPv4 fragmentation is disabled
+ * AND a IPv4 fragmented packet is received,
+ * then drop the packet.
+ */
+#ifndef ENABLE_IPV4_FRAGMENTS
+	if (ipv4_is_fragment(ip4))
+		return DROP_FRAG_NOSUPPORT;
+#endif
+
+#ifdef ENABLE_NODEPORT
+	if (!from_host) {
+		if (ctx_get_xfer(ctx) != XFER_PKT_NO_SVC &&
+		    !bpf_skip_nodeport(ctx)) {
+			ret = nodeport_lb4(ctx, secctx);
+			if (ret == NAT_46X64_RECIRC) {
+				ctx_store_meta(ctx, CB_SRC_IDENTITY, secctx);
+				ep_tail_call(ctx, CILIUM_CALL_IPV6_FROM_NETDEV);
+				return send_drop_notify_error(ctx, secctx,
+							      DROP_MISSED_TAIL_CALL,
+							      CTX_ACT_DROP,
+							      METRIC_INGRESS);
+			}
+
+			/* nodeport_lb4() returns with TC_ACT_REDIRECT for
+			 * traffic to L7 LB. Policy enforcement needs to take
+			 * place after L7 LB has processed the packet, so we
+			 * return to stack immediately here with
+			 * TC_ACT_REDIRECT.
+			 */
+			if (ret < 0 || ret == TC_ACT_REDIRECT)
+				return ret;
+		}
+		/* Verifier workaround: modified ctx access. */
+		if (!revalidate_data(ctx, &data, &data_end, &ip4))
+			return DROP_INVALID;
+	}
+#endif /* ENABLE_NODEPORT */
+
+#if defined(NO_REDIRECT) && !defined(ENABLE_HOST_ROUTING)
+	/* Without bpf_redirect_neigh() helper, we cannot redirect a
+	 * packet to a local endpoint in the direct routing mode, as
+	 * the redirect bypasses nf_conntrack table. This makes a
+	 * second reply from the endpoint to be MASQUERADEd or to be
+	 * DROP-ed by k8s's "--ctstate INVALID -j DROP" depending via
+	 * which interface it was inputed. With bpf_redirect_neigh()
+	 * we bypass request and reply path in the host namespace and
+	 * do not run into this issue.
+	 */
+	if (!from_host)
+		skip_redirect = true;
+#endif /* NO_REDIRECT && !ENABLE_HOST_ROUTING */
+
+#ifdef ENABLE_HOST_FIREWALL
+	if (from_host) {
+		/* We're on the egress path of cilium_host. */
+		ret = ipv4_host_policy_egress(ctx, secctx, ipcache_srcid,
+					      &trace);
+		if (IS_ERR(ret))
+			return ret;
+	} else if (!ctx_skip_host_fw(ctx)) {
+		/* We're on the ingress path of the native device. */
+		ret = ipv4_host_policy_ingress(ctx, &remote_id, &trace);
+		if (IS_ERR(ret))
+			return ret;
+	}
+#endif /* ENABLE_HOST_FIREWALL */
+
+	if (skip_redirect)
+		return CTX_ACT_OK;
+
+	tuple.nexthdr = ip4->protocol;
+
+	if (from_host) {
+		/* If we are attached to cilium_host at egress, this will
+		 * rewrite the destination MAC address to the MAC of cilium_net.
+		 */
+		ret = rewrite_dmac_to_host(ctx, secctx);
+		/* DIRECT PACKET READ INVALID */
+		if (IS_ERR(ret))
+			return ret;
+
+		if (!revalidate_data(ctx, &data, &data_end, &ip4))
+			return DROP_INVALID;
+	}
+
+	/* Lookup IPv4 address in list of local endpoints and host IPs */
+	ep = lookup_ip4_endpoint(ip4);
+	if (ep) {
+		/* Let through packets to the node-ip so they are processed by
+		 * the local ip stack.
+		 */
+		if (ep->flags & ENDPOINT_F_HOST)
+			return CTX_ACT_OK;
+
+		return ipv4_local_delivery(ctx, ETH_HLEN, secctx, ip4, ep,
+					   METRIC_INGRESS, from_host);
+	}
+
+	/* Below remainder is only relevant when traffic is pushed via cilium_host.
+	 * For traffic coming from external, we're done here.
+	 */
+	if (!from_host)
+		return CTX_ACT_OK;
+
+	/* Handle VTEP integration in bpf_host to support pod L7 PROXY.
+	 * It requires route setup to VTEP CIDR via dev cilium_host scope link.
+	 */
+#ifdef ENABLE_VTEP
+	{
+		struct vtep_key vkey = {};
+		struct vtep_value *vtep;
+
+		vkey.vtep_ip = ip4->daddr & VTEP_MASK;
+		vtep = map_lookup_elem(&VTEP_MAP, &vkey);
+		if (!vtep)
+			goto skip_vtep;
+
+		if (vtep->vtep_mac && vtep->tunnel_endpoint) {
+			if (eth_store_daddr(ctx, (__u8 *)&vtep->vtep_mac, 0) < 0)
+				return DROP_WRITE_ERROR;
+			return __encap_and_redirect_with_nodeid(ctx, vtep->tunnel_endpoint,
+								secctx, WORLD_ID, &trace);
+		}
+	}
+skip_vtep:
+#endif
+
+#ifdef TUNNEL_MODE
+	info = ipcache_lookup4(&IPCACHE_MAP, ip4->daddr, V4_CACHE_KEY_LEN);
+	if (info != NULL && info->tunnel_endpoint != 0) {
+		ret = encap_and_redirect_with_nodeid(ctx, info->tunnel_endpoint,
+						     info->key, secctx, &trace);
+
+		if (ret == IPSEC_ENDPOINT)
+			return CTX_ACT_OK;
+		else
+			return ret;
+	} else {
+		/* IPv4 lookup key: daddr & IPV4_MASK */
+		struct endpoint_key key = {};
+
+		key.ip4 = ip4->daddr & IPV4_MASK;
+		key.family = ENDPOINT_KEY_IPV4;
+
+		cilium_dbg(ctx, DBG_NETDEV_ENCAP4, key.ip4, secctx);
+		ret = encap_and_redirect_netdev(ctx, &key, secctx, &trace);
+		if (ret == IPSEC_ENDPOINT)
+			return CTX_ACT_OK;
+		else if (ret != DROP_NO_TUNNEL_ENDPOINT)
+			return ret;
+	}
+#endif
+
+	info = ipcache_lookup4(&IPCACHE_MAP, ip4->daddr, V4_CACHE_KEY_LEN);
+	if (info == NULL || info->sec_label == WORLD_ID) {
+		/* We have received a packet for which no ipcache entry exists,
+		 * we do not know what to do with this packet, drop it.
+		 *
+		 * The info == NULL test is soley to satisfy verifier requirements
+		 * as in Cilium case we'll always hit the 0.0.0.0/32 catch-all
+		 * entry. Therefore we need to test for WORLD_ID. It is clearly
+		 * wrong to route a ctx to cilium_host for which we don't know
+		 * anything about it as otherwise we'll run into a routing loop.
+		 */
+		return DROP_UNROUTABLE;
+	}
+
+#ifdef ENABLE_IPSEC
+	if (info && info->key && info->tunnel_endpoint) {
+		__u8 key = get_min_encrypt_key(info->key);
+
+		set_encrypt_key_meta(ctx, key);
+#ifdef IP_POOLS
+		set_encrypt_dip(ctx, info->tunnel_endpoint);
+#else
+		set_identity_meta(ctx, secctx);
+#endif
+	}
+#endif
+	return CTX_ACT_OK;
+}
+>>>>>>> main
 BPF_LICENSE("Dual BSD/GPL");

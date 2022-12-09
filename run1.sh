@@ -1,4 +1,4 @@
-#python3 extraction_runner.py -f xdpdecap -o txl -s examples/katran -g fcg
+
 #python3 extraction_runner.py -f bpf_sockmap -o txl_cilium -s examples/cilium -g fcg
 
 #python3 extraction_runner.py -f tail_handle_ipv6 -o txl_cilium -s examples/cilium
@@ -7,7 +7,8 @@
 
 # works 
 
-python3 extraction_runner.py -f handle_ipv4 -o txl_cilium -s examples/cilium -g fcg -c comment_cilium 
+#python3 extraction_runner.py -f handle_ipv4 -o txl_cilium -s examples/cilium -g fcg -c comment_cilium 
+python3 extraction_runner.py -f xdpdecap -o txl_katran -s examples/katran -g fcg
 
 #not works
 #python3 extraction_runner.py -f handle_ipv6 -o txl_cilium -s examples/cilium
