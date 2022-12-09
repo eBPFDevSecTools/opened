@@ -1,105 +1,105 @@
 /* SPDX-License-Identifier: GPL-2.0 */
 #define RECORD_FLOW_INFO
+
+
+
 #include <linux/in.h>
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #include <linux/ip.h>
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #include <linux/ipv6.h>
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #include <stdbool.h>
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #include <stddef.h>
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #ifndef BALANCER_CONSTS_H_OPENED_FRAMEWORK
 #define BALANCER_CONSTS_H_OPENED_FRAMEWORK
 #include "balancer_consts.h"
 #endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
 
 #ifndef BPF_H_OPENED_FRAMEWORK
 #define BPF_H_OPENED_FRAMEWORK
 #include "bpf.h"
 #endif 
 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #ifndef BPF_HELPERS_H_OPENED_FRAMEWORK
 #define BPF_HELPERS_H_OPENED_FRAMEWORK
 #include "bpf_helpers.h"
 #endif 
 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #ifndef DECAP_MAPS_H_OPENED_FRAMEWORK
 #define DECAP_MAPS_H_OPENED_FRAMEWORK
 #include "decap_maps.h"
 #endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
 
 #ifndef PCKT_ENCAP_H_OPENED_FRAMEWORK
 #define PCKT_ENCAP_H_OPENED_FRAMEWORK
 #include "pckt_encap.h"
 #endif 
 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #ifndef PCKT_PARSING_H_OPENED_FRAMEWORK
 #define PCKT_PARSING_H_OPENED_FRAMEWORK
 #include "pckt_parsing.h"
 #endif 
 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/decap_kern.c
+
 #include <string.h>
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c
+
 #ifndef BALANCER_HELPERS_H_OPENED_FRAMEWORK
 #define BALANCER_HELPERS_H_OPENED_FRAMEWORK
 #include "balancer_helpers.h"
 #endif 
 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c
+
 #ifndef BALANCER_MAPS_H_OPENED_FRAMEWORK
 #define BALANCER_MAPS_H_OPENED_FRAMEWORK
 #include "balancer_maps.h"
 #endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c
 
 #ifndef BALANCER_STRUCTS_H_OPENED_FRAMEWORK
 #define BALANCER_STRUCTS_H_OPENED_FRAMEWORK
 #include "balancer_structs.h"
 #endif 
 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c
+
 #ifndef HANDLE_ICMP_H_OPENED_FRAMEWORK
 #define HANDLE_ICMP_H_OPENED_FRAMEWORK
 #include "handle_icmp.h"
 #endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c
 
 #ifndef JHASH_H_OPENED_FRAMEWORK
 #define JHASH_H_OPENED_FRAMEWORK
 #include "jhash.h"
 #endif 
 
-#ifndef BALANCER_MAPS_H_OPENED_FRAMEWORK
-#define BALANCER_MAPS_H_OPENED_FRAMEWORK
-#include "balancer_maps.h"
-#endif 
+//OPENED: included from: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c
 
-#ifndef CONTROL_DATA_MAPS_H_OPENED_FRAMEWORK
-#define CONTROL_DATA_MAPS_H_OPENED_FRAMEWORK
-#include "control_data_maps.h"
-#endif 
-
-#ifndef DECAP_MAPS_H_OPENED_FRAMEWORK
-#define DECAP_MAPS_H_OPENED_FRAMEWORK
-#include "decap_maps.h"
-#endif 
-
-#ifndef PCKT_PARSING_H_OPENED_FRAMEWORK
-#define PCKT_PARSING_H_OPENED_FRAMEWORK
-#include "pckt_parsing.h"
-#endif 
-
-#include <linux/icmp.h>
-#include <linux/icmpv6.h>
-#include <linux/if_ether.h>
-#include <linux/ptrace.h>
-#include <linux/tcp.h>
-#include <linux/udp.h>
-#include <linux/version.h>
-//ATTENTION BEGIN: DUPLICATE MAP DEFNS
-//DUP Defn at: fileName txl/annotate_struct_examples_katran_control_data_maps.h.out startLine: 9 endLine: 15
-//fileName txl/annotate_struct_examples_katran_xdp_pktcntr.c.out startLine: 14 endLine: 19
-struct {
-    __uint (type, BPF_MAP_TYPE_ARRAY);
-    __type (key, __u32);
-    __type (value, __u32);
-    __uint (max_entries, CTRL_ARRAY_SIZE);
-} ctl_array SEC (".maps");
-//ATTENTION END 
 /* Extracted from 
- /root/examples/katran/decap_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/decap_kern.c 
  startLine: 34 endLine: 83
  */ 
 __attribute__((__always_inline__)) static inline int process_l3_headers(
@@ -154,7 +154,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 }
 #ifdef  INLINE_DECAP_GENERIC
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 233 endLine: 255
  */ 
 __attribute__((__always_inline__)) static inline int
@@ -182,7 +182,7 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
 }
 #endif 
 /* Extracted from 
- /root/examples/katran/decap_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/decap_kern.c 
  startLine: 85 endLine: 120
  */ 
 __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
@@ -223,7 +223,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 }
 #ifdef  INLINE_DECAP_GUE
 /* Extracted from 
- /root/examples/katran/decap_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/decap_kern.c 
  startLine: 123 endLine: 161
  */ 
 __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
@@ -267,7 +267,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 }
 #endif 
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 444 endLine: 457
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -285,7 +285,7 @@ increment_quic_cid_version_stats(int host_id) {
   }
 }
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 470 endLine: 478
  */ 
 __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_real_0() {
@@ -298,7 +298,7 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   quic_drop->v2 += 1;
 }
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 459 endLine: 468
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -312,7 +312,7 @@ increment_quic_cid_drop_no_real() {
   quic_drop->v1 += 1;
 }
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 133 endLine: 156
  */ 
 __attribute__((__always_inline__)) static inline void connection_table_lookup(
@@ -340,10 +340,9 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
   return;
 }
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
- startLine: 24 endLine: 50
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
+ startLine: 25 endLine: 50
  */ 
-__attribute__((__always_inline__)) 
 	static inline bool is_under_flood(
     __u64* cur_time) {
   __u32 conn_rate_key = MAX_VIPS + NEW_CONN_RATE_CNTR;
@@ -371,7 +370,7 @@ __attribute__((__always_inline__))
   return false;
 }
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 818 endLine: 827
  */ 
 __attribute__((__always_inline__)) static inline __u32 get_packet_hash(struct packet_description* pckt,bool hash_16bytes) {
@@ -385,10 +384,9 @@ __attribute__((__always_inline__)) static inline __u32 get_packet_hash(struct pa
   }
 }
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
- startLine: 52 endLine: 131
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
+ startLine: 53 endLine: 131
  */ 
-__attribute__((__always_inline__)) 
 	static inline bool get_packet_dst(
     struct real_definition** real,
     struct packet_description* pckt,
@@ -470,7 +468,7 @@ __attribute__((__always_inline__))
 }
 #ifdef  GLOBAL_LRU_LOOKUP
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 261 endLine: 277
  */ 
 __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
@@ -493,7 +491,7 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
 #endif 
 #ifdef  GLOBAL_LRU_LOOKUP
 /* Extracted from 
- /root/examples/katran/balancer_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/balancer_kern.c 
  startLine: 279 endLine: 335
  */ 
 __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
@@ -555,7 +553,7 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 }
 #endif 
 /* Extracted from 
- /root/examples/katran/decap_kern.c 
+ /home/sayandes/opened_extraction/examples/katran/decap_kern.c 
  startLine: 164 endLine: 221
  */ 
 __attribute__((__always_inline__)) static inline int process_packet(
@@ -617,10 +615,10 @@ __attribute__((__always_inline__)) static inline int process_packet(
   return XDP_PASS;
 }
 /* Extracted from 
- /root/examples/katran/decap_kern.c 
- startLine: 223 endLine: 247
+ /home/sayandes/opened_extraction/examples/katran/decap_kern.c 
+ startLine: 224 endLine: 247
  */ 
-SEC("decap")
+SEC("xdp")
 int xdpdecap(struct xdp_md* ctx) {
   void* data = (void*)(long)ctx->data;
   void* data_end = (void*)(long)ctx->data_end;
