@@ -311,7 +311,7 @@ def parseTXLFunctionOutputFile(inputFile,f,e):
         addDefines(srcFile,f)
         #buildIncludesOrderingGraph(srcFile,f)
     
-# read header file and included headers to headers dict
+# read cFile and included headers to headers dict
 def addDependsOn(cFile):
     with open(cFile) as iFile:
         for line in iFile.readlines():
@@ -521,12 +521,14 @@ if __name__ == "__main__":
     eFile = open(extractedFunctionListFile,'w')
     f = open(extractedFileName,'w')
 
+    #include required header files
+    f.write("/* SPDX-License-Identifier: GPL-2.0 */\n");
+    f.write("#define RECORD_FLOW_INFO\n")
+
+    
     
     parseFunctionList(ifile)
     ifile.close()
-
-    
-    ##print("Dependencies: \n",graph)
 
     # Dump duplicate function definitions
     ##print("fns: ", fns)
@@ -535,12 +537,8 @@ if __name__ == "__main__":
         dupFile.write(dup)
     dupFile.close()
 
-    
 
 
-    #include required header files
-    f.write("/* SPDX-License-Identifier: GPL-2.0 */\n");
-    f.write("#define RECORD_FLOW_INFO\n")
     ##print("HEADERS\n")
     for header in headers.keys():
         orig = header
@@ -563,7 +561,6 @@ if __name__ == "__main__":
         f.write("//OPENED: included from: "+headers[orig]+ "\n\n")
 
     xmlFiles = []
-    
     structFiles = []
     #Parse TXL annotated files
     for fName in os.listdir(TXLDir):
@@ -609,6 +606,8 @@ if __name__ == "__main__":
         parseTXLFunctionOutputFile(xmlFile,f,eFile)
         xmlFile.close()
 
+
+        
     dumpFns(f,eFile)
     
     #katran f.write("char _license[] SEC(\"license\") = \"GPL\";");
