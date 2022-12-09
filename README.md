@@ -38,14 +38,12 @@ Code extraction consists of two phases 1) Generating annotated function call gra
  1. Run the docker. ``docker run -it  --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
 2. Run foundation_maker phase1, ``python3 foundation_maker.py -o <txl_output> -s <source_folder> -c <commented_code_folder> -t <op_file_function_dict> -u <op_file_struct_dict.json>``, and **example is iven in run1.sh**
  
- 3. Run actual function extraction phase , ``python3 extraction_runner.py -d <sqlite3_db_from_foundation_maker> -f <function_name> ``, an **example is given in run2.sh**. The usage of command is as follows: 
- ``extraction_runner.py -f FUNCTION_NAME ``
-**XXX fixme **
+ 3. Run actual function extraction phase , ``python3 foundation_maker.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE] [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] ``, an **example is given in run2.sh**.
 ### Phase II
 1. Open the func.out file and remove the duplicate function and struct definitions. A cleaned **func.out.cleaned is shown in asset folder**. This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.
 
 ### Phase III: Extracting Required Code
-2. ``python3 function-extractor.py -o/--opdir, -c/--codequeryOutputFile, -e/--extractedFileName,  -t/--txlDir, -s/--srcdir,`` an **example is given in run2.sh**. The usage of the command is as follows: ``function-extractor.py [-h] -o OPDIR -c CODEQUERYOUTPUTFILE -e EXTRACTEDFILENAME -t TXLDIR -s SRCDIR -b BASEDIR``
+2. ``python3 function-extractor.py -o/--opdir, -c/--codequeryOutputFile, -e/--extractedFileName,  -t/--txlDir, -s/--srcdir,`` an **example is given in run3.sh**. The usage of the command is as follows: ``function-extractor.py [-h] -o OPDIR -c CODEQUERYOUTPUTFILE -e EXTRACTEDFILENAME -t TXLDIR -s SRCDIR -b BASEDIR``
 
 
 Note that extracted.c may contain duplicate eBPF Map defintions within and ```ATTENTION``` section. We expect the developer to choose the right map definition and delete the offending defintion.
