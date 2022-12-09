@@ -29,6 +29,10 @@ RUN apt-get update && apt-get upgrade && apt-get dist-upgrade && apt-get install
 	linux-tools-generic \
 	tcpdump 
 
+RUN apt-get install -y iproute2
+RUN apt-get install -y net-tools
+
+
 #install python dependencies
 RUN python3 -m pip install command
 RUN python3 -m pip install pytest-shutil

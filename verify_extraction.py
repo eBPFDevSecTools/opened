@@ -8,6 +8,14 @@
 import os
 import time
 import argparse
+import os
+import re
+import subprocess
+import glob
+import command
+import shutil
+import argparse
+from collections import defaultdict
 
 
 def check_if_cmd_available():
@@ -90,9 +98,10 @@ def clean():
     output = run_cmd("ip link del veth2")
 
 def setup_interfaces():
-    for i in range(2):
-        output = run_cmd("ip netns del ns"+i+" > /dev/null 2>&1")# remove ns if already existed
-        output = run_cmd("ip link del veth"+i+" > /dev/null 2>&1")
+    for r in range(1,3):
+        i =str(r)
+        #output = run_cmd("ip netns del ns"+i+" > /dev/null 2>&1")# remove ns if already existed
+        #output = run_cmd("ip link del veth"+i+" > /dev/null 2>&1")
         output = run_cmd("ip netns add ns"+i)
         output = run_cmd("ip link add veth"+i+"_ type veth peer name veth"+i)
         output = run_cmd("ip link set veth"+i+"_ netns ns"+i)
@@ -172,7 +181,7 @@ if __name__=="__main__":
     parser.add_argument('-u','--TCSec', type=str,required=False,
             help='TC code section name')
     
-    parser.add_argument('-y','--XDPSec', nargs='+', type=str,required=False,
+    parser.add_argument('-y','--XDPSec',type=str,required=False,
             help='XDP code section name')
 
 
@@ -191,11 +200,11 @@ if __name__=="__main__":
         print("Atleast one of PROG_TC or PROG_XDP should be set")
         exit(1)
 
-    if PROG_TC != "" and SEC_TC == None:
+    if PROG_TC != None and SEC_TC == None:
         print("SEC_TC should be set")
         exit(1)
 
-    if PROG_XDP != "" and SEC_XDP == None:
+    if PROG_XDP != None and SEC_XDP == None:
         print("SEC_XDP should be set")
         exit(1)
 
