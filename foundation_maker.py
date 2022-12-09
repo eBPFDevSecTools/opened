@@ -143,6 +143,10 @@ if __name__ == "__main__":
             help='directory to put source files with comment stub')
     my_parser.add_argument('-r','--bpfHelperFile', type=str,required=False,
             help='Information regarding bpf_helper_funcitons ')
+    my_parser.add_argument('-t','--txl_function_list',action='store',required=False,
+            help='JSON with information regarding functions present. output of foundation_maker.py')
+    my_parser.add_argument('-u','--txl_struct_list',action='store',required=False,
+            help='JSON with information regarding structures present. output of foundation_maker.py')
 
     args = my_parser.parse_args()
     print(vars(args))
@@ -150,7 +154,6 @@ if __name__ == "__main__":
         exit(1)
 
     dir_list = []
-    function_name= args.function_name
     
     src_dir = args.src_dir
     if (os.access(src_dir, os.R_OK) is not True):
@@ -160,13 +163,6 @@ if __name__ == "__main__":
     txl_op_dir = args.txl_op_dir
     dir_list.append(txl_op_dir)
     
-    opf_file_path = "./"
-    if (args.function_call_graph_path is not None):
-        opf_file_path = args.function_call_graph_path+"/"
-    if (os.access(opf_file_path, os.W_OK) is not True):
-        print("Cannot write fcg to: "+opf_file_path+" Exiting...")
-        exit(1)
-
     cmt_op_dir = None
     if (args.opened_comment_stub_folder is not None):
         cmt_op_dir = args.opened_comment_stub_folder
@@ -186,8 +182,21 @@ if __name__ == "__main__":
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"
+    
     txl_func_list = repo_name+".function_list.json"
+    if(args.txl_function_list is not None):
+        txl_func_list = args.txl_function_list
+    if (os.path.exists(txl_func_list) and os.access(txl_func_list, os.W_OK) is not True):
+        print("Cannot read txl_function_list: "+txl_func_list+" Exiting...")
+        exit(1)
+
     txl_struct_list = repo_name+".struct_list.json"
+    if(args.txl_struct_list is not None):
+        txl_struct_list = args.txl_struct_list
+    if (os.path.exists(txl_struct_list) and os.access(txl_struct_list, os.W_OK) is not True):
+        print("Cannot read txl_struct_list: "+txl_struct_list+" Exiting...")
+        exit(1)
+
     cscope_files = "cscope.files"
     cscope_out = "cscope.out"
     tags_folder = "tags"

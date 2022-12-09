@@ -189,7 +189,13 @@ if __name__ == "__main__":
             help='sqlite3 database with cqmakedb info')
     my_parser.add_argument('-g','--function_call_graph_path',action='store',required=False,
             help='directory to put function and map dependency call graph file. Output of phase I')
-   
+    my_parser.add_argument('-t','--txl_function_list',action='store',required=True,
+            help='JSON with information regarding functions present. output of foundation_maker.py')
+    my_parser.add_argument('-s','--txl_struct_list',action='store',required=True,
+            help='JSON with information regarding structures present. output of foundation_maker.py')
+    my_parser.add_argument('-r','--repo_name',action='store',required=False,
+            help='Project repository name')
+
     args = my_parser.parse_args()
     print(vars(args))
     if(not check_if_cmd_available() or not check_if_file_available()):
@@ -198,7 +204,7 @@ if __name__ == "__main__":
     dir_list = []
     function_name= args.function_name
    
-   opf_file_path = "./"
+    opf_file_path = "./"
     if (args.function_call_graph_path is not None):
         opf_file_path = args.function_call_graph_path+"/"
     if (os.access(opf_file_path, os.W_OK) is not True):
@@ -207,6 +213,16 @@ if __name__ == "__main__":
 
 
     db_file = args.db_file_name 
+
+    txl_func_list = args.txl_function_list
+    if (os.access(txl_func_list, os.R_OK) is not True):
+        print("Cannot read txl_function_list: "+txl_func_list+" Exiting...")
+        exit(1)
+
+    txl_struct_list = args.txl_struct_list
+    if (os.access(txl_struct_list, os.R_OK) is not True):
+        print("Cannot read txl_struct_list: "+txl_struct_list+" Exiting...")
+        exit(1)
 
     with open(txl_func_list, "r") as outfile:
         txl_dict_func = json.load(outfile)
@@ -220,6 +236,9 @@ if __name__ == "__main__":
     maps = {}
     dup_map_dict = defaultdict(list)
     extracted_files = []
+    repo_name = ""
+    if(args.repo_name is not None):
+        repo_name = args.repo_name
     opf_name = opf_file_path+repo_name+"."+function_name+".cg.out"
 
 
@@ -259,5 +278,3 @@ if __name__ == "__main__":
     out.write("}\n")
     out.close()
     print("Function graphs and map dependencies in: "+opf_name)
-    #clean up
-    clean_intermediate_files(intermediate_f_list)

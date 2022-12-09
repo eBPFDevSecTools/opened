@@ -84,5 +84,5 @@ vip_map,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,38,1
 }
 #DUPLICATE MAP DEFNS
 {#map_name,file_locations
-ctl_array,2,[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_control_data_maps.h.out,14],[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_xdp_pktcntr.c.out,24]
+ctl_array,2,[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_xdp_pktcntr.c.out,24],[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_control_data_maps.h.out,14]
 }
