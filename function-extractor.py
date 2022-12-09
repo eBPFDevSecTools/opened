@@ -521,44 +521,12 @@ if __name__ == "__main__":
     eFile = open(extractedFunctionListFile,'w')
     f = open(extractedFileName,'w')
 
-    #include required header files
-    f.write("/* SPDX-License-Identifier: GPL-2.0 */\n");
-    f.write("#define RECORD_FLOW_INFO\n")
-
-    
-    
     parseFunctionList(ifile)
     ifile.close()
 
-    # Dump duplicate function definitions
-    ##print("fns: ", fns)
-    ##print("dups: ",duplicates)
-    for dup in duplicates:
-        dupFile.write(dup)
-    dupFile.close()
-
-
-
-    ##print("HEADERS\n")
-    for header in headers.keys():
-        orig = header
-        ##print(header)
-        if not "<" in header:
-            header = header.split('/')[-1]
-            macro = header.upper()
-            macro = macro.replace(".","_")
-            macro = macro.replace("/","_")
-            macro = macro.replace("-","_")
-            macro = macro + "_OPENED_FRAMEWORK"
-            cmd = "#ifndef "+ macro + "\n"
-            cmd += "#define " + macro + "\n"
-            #cmd += "#include \"" + header + "\"\n"
-            cmd += "#include \"" + orig + "\"\n"
-            cmd += "#endif \n\n"
-        else:
-            cmd = "#include " + header + "\n"
-        f.write(cmd)
-        f.write("//OPENED: included from: "+headers[orig]+ "\n\n")
+    #include required header files
+    f.write("/* SPDX-License-Identifier: GPL-2.0 */\n");
+    f.write("#define RECORD_FLOW_INFO\n")
 
     xmlFiles = []
     structFiles = []
@@ -605,8 +573,37 @@ if __name__ == "__main__":
         xmlFile = open(path,'r')
         parseTXLFunctionOutputFile(xmlFile,f,eFile)
         xmlFile.close()
+    
 
+    # Dump duplicate function definitions
+    ##print("fns: ", fns)
+    ##print("dups: ",duplicates)
+    for dup in duplicates:
+        dupFile.write(dup)
+    dupFile.close()
 
+    ##print("HEADERS\n")
+    for header in headers.keys():
+        orig = header
+        ##print(header)
+        if not "<" in header:
+            header = header.split('/')[-1]
+            macro = header.upper()
+            macro = macro.replace(".","_")
+            macro = macro.replace("/","_")
+            macro = macro.replace("-","_")
+            macro = macro + "_OPENED_FRAMEWORK"
+            cmd = "#ifndef "+ macro + "\n"
+            cmd += "#define " + macro + "\n"
+            #cmd += "#include \"" + header + "\"\n"
+            cmd += "#include \"" + orig + "\"\n"
+            cmd += "#endif \n\n"
+        else:
+            cmd = "#include " + header + "\n"
+        f.write(cmd)
+        f.write("//OPENED: included from: "+headers[orig]+ "\n\n")
+
+    
         
     dumpFns(f,eFile)
     
