@@ -7,9 +7,9 @@
 
 # works 
 
-#python3 extraction_runner.py -f handle_ipv4 -o txl_cilium -s examples/cilium -g fcg -c comment_cilium 
 #python3 extraction_runner.py -f xdpdecap -o txl_katran -s examples/katran -g fcg
-python3 extraction_runner.py -f xdpdecap -d katran.db -g fcg -t katran.function_list.json -s katran.struct_list.json -r katran
+python3 extraction_runner.py -f xdpdecap -d katran.db -g fcg -t op/katran.function_list.json -s op/katran.struct_list.json -r katran
+python3 extraction_runner.py -f handle_ipv4 -d cilium.db -g fcg -t op/cilium.function_list.json -s op/cilium.struct_list.json -r cilium 
 
 #not works
 #python3 extraction_runner.py -f handle_ipv6 -o txl_cilium -s examples/cilium

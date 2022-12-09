@@ -63,8 +63,12 @@ RUN ninja install
 #add extraction code 
 WORKDIR /root
 ADD asset asset
+ADD fcg fcg
+ADD code_commentor.py code_commentor.py
+ADD foundation_maker.py foundation_maker.py
 ADD extraction_runner.py extraction_runner.py
 ADD function-extractor.py function-extractor.py
 ADD run1.sh run1.sh
 ADD run2.sh run2.sh
+ADD run3.sh run3.sh
 #RUN ./run.sh

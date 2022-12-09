@@ -4,3 +4,5 @@ cscope.files
 *.db
 *cscope*
 tags
+*.out
+*~
