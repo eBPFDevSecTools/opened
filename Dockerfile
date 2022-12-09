@@ -65,6 +65,7 @@ WORKDIR /root
 ADD asset asset
 ADD extraction_runner.py extraction_runner.py
 ADD function-extractor.py function-extractor.py
+ADD verify_extraction.py verify_extraction.py
 ADD run1.sh run1.sh
 ADD run2.sh run2.sh
 #RUN ./run.sh
