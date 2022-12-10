@@ -438,6 +438,7 @@ int NAME(struct __ctx_buff *ctx)						\
 #ifndef TAILCALL_H_OPENED_FRAMEWORK
 #define TAILCALL_H_OPENED_FRAMEWORK
 #include "lib/tailcall.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -447,6 +448,17 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/common.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef COMMON_H_OPENED_FRAMEWORK
+#define COMMON_H_OPENED_FRAMEWORK
+#include "lib/common.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef CONFIG_H_OPENED_FRAMEWORK
@@ -529,6 +541,7 @@ int NAME(struct __ctx_buff *ctx)						\
 #ifndef LXC_H_OPENED_FRAMEWORK
 #define LXC_H_OPENED_FRAMEWORK
 #include "lib/lxc.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -538,11 +551,23 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/identity.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef IDENTITY_H_OPENED_FRAMEWORK
+#define IDENTITY_H_OPENED_FRAMEWORK
+#include "lib/identity.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef POLICY_H_OPENED_FRAMEWORK
 #define POLICY_H_OPENED_FRAMEWORK
 #include "lib/policy.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -552,6 +577,17 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/lb.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef LB_H_OPENED_FRAMEWORK
+#define LB_H_OPENED_FRAMEWORK
+#include "lib/lb.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef DROP_H_OPENED_FRAMEWORK
@@ -620,6 +656,7 @@ int NAME(struct __ctx_buff *ctx)						\
 #ifndef POLICY_LOG_H_OPENED_FRAMEWORK
 #define POLICY_LOG_H_OPENED_FRAMEWORK
 #include "lib/policy_log.h"
+<<<<<<< HEAD
 #endif 
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
@@ -629,6 +666,17 @@ int NAME(struct __ctx_buff *ctx)						\
 #include "lib/proxy.h"
 #endif 
 
+=======
+#endif 
+
+//OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c
+
+#ifndef PROXY_H_OPENED_FRAMEWORK
+#define PROXY_H_OPENED_FRAMEWORK
+#include "lib/proxy.h"
+#endif 
+
+>>>>>>> main
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
 #ifndef L4_H_OPENED_FRAMEWORK
@@ -659,6 +707,8 @@ int NAME(struct __ctx_buff *ctx)						\
 
 //OPENED: included from: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c
 
+<<<<<<< HEAD
+=======
 /* Extracted from 
  /home/sayandes/opened_extraction/examples/cilium/bpf_host.c 
  startLine: 67 endLine: 82
@@ -884,4 +934,5 @@ skip_vtep:
 #endif
 	return CTX_ACT_OK;
 }
+>>>>>>> main
 BPF_LICENSE("Dual BSD/GPL");

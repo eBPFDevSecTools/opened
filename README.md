@@ -13,11 +13,12 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
  3. 
  4. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
  
-## Install Process 1: Docker
+## Install 
+### Process 1: Docker
  1. ``mkdir op`` To store the output of extraction phase (or any other folder name)
  2.  ``docker build . -t opened/extract:0.01``
 
-## Install Process 2: on host
+### Process 2: on host
  1. **For now:** You will need to parse the Dockerfile and execute the installation steps on your host system.
  2. In future we will provide a script for on-host installation ([Issue #24](https://github.com/sdsen/opened_extraction/issues/24)).
  
@@ -31,18 +32,19 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
 
 Code extraction consists of two phases 1) Generating annotated function call graph 2) Extracting required code from source files to generate an independantly compilable module.
 
-## Run
+
 ### Phase I: Annotated Function Call Generation
 
- 1. Run the docker. ``docker run -it --privileged  --mount type=bind,src=<source_code_dir_on_host>,dst=/root/examples/katran --mount type=bind,src=op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system. 
- 2. Run extraction phase 1, ``python3 extraction_runner.py -f <function_name> -s <source_folder> -o <txl_output>``, an **example is given in run1.sh**. The usage of command is as follows: 
- ``extraction_runner.py [-h] [-annotate_only ANNOTATE_ONLY] -f FUNCTION_NAME -s SRC_DIR -o TXL_OP_DIR [-g FUNCTION_CALL_GRAPH_PATH]``
+ 1. Run the docker. ``docker run -it --privileged --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
 
+2. Run annotator phase1, ``python3 annotator.py -o <txl_output> -s <source_folder> -c <commented_code_folder> -t <op_file_function_dict> -u <op_file_struct_dict.json>``, and **example is iven in run1.sh**
+ 
+ 3. Run actual function extraction phase , ``python3 annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE] [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] ``, an **example is given in run2.sh**.
 ### Phase II
 1. Open the func.out file and remove the duplicate function and struct definitions. A cleaned **func.out.cleaned is shown in asset folder**. This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.
 
 ### Phase III: Extracting Required Code
-2. ``python3 function-extractor.py -o/--opdir, -c/--codequeryOutputFile, -e/--extractedFileName,  -t/--txlDir, -s/--srcdir,`` an **example is given in run2.sh**. The usage of the command is as follows: ``function-extractor.py [-h] -o OPDIR -c CODEQUERYOUTPUTFILE -e EXTRACTEDFILENAME -t TXLDIR -s SRCDIR -b BASEDIR``
+2. ``python3 function-extractor.py -o/--opdir, -c/--codequeryOutputFile, -e/--extractedFileName,  -t/--txlDir, -s/--srcdir,`` an **example is given in run3.sh**. The usage of the command is as follows: ``function-extractor.py [-h] -o OPDIR -c CODEQUERYOUTPUTFILE -e EXTRACTEDFILENAME -t TXLDIR -s SRCDIR -b BASEDIR``
 
 
 Note that extracted.c may contain duplicate eBPF Map defintions within and ```ATTENTION``` section. We expect the developer to choose the right map definition and delete the offending defintion.

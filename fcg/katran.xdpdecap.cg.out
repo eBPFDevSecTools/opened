@@ -27,7 +27,7 @@ gue_record_route,1,[/home/sayandes/opened_extraction/examples/katran/flow_debug_
 RECORD_GUE_ROUTE,2,[/home/sayandes/opened_extraction/examples/katran/flow_debug.h,31],[/home/sayandes/opened_extraction/examples/katran/flow_debug.h,37]
 gue_decap_v6,1,[/home/sayandes/opened_extraction/examples/katran/pckt_encap.h,392]
 gue_decap_v4,1,[/home/sayandes/opened_extraction/examples/katran/pckt_encap.h,373]
-process_encaped_gue_pckt,1,[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,123]
+process_encaped_gue_pckt,2,[/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,392],[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,123]
 min_helper,1,[/home/sayandes/opened_extraction/examples/katran/csum_helpers.h,41]
 submit_event,1,[/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,46]
 REPORT_EVENT,1,[/home/sayandes/opened_extraction/examples/katran/introspection.h,28]
@@ -67,9 +67,22 @@ process_packet,2,[/home/sayandes/opened_extraction/examples/katran/balancer_kern
 xdpdecap,1,[/home/sayandes/opened_extraction/examples/katran/decap_kern.c,224]
 }
 {#map_name,filename,line #, isFound
+ch_rings,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,67,1
+ctl_array,/home/sayandes/opened_extraction/examples/katran/control_data_maps.h,41,1
+decap_counters,/home/sayandes/opened_extraction/examples/katran/decap_maps.h,44,1
 decap_dst,/home/sayandes/opened_extraction/examples/katran/control_data_maps.h,62,1
-lru_map,/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,270,0
+global_lru_maps,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,133,1
+lpm_src_v4,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,113,1
+lpm_src_v6,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,121,1
+lru_map,/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,263,0
+lru_mapping,/home/sayandes/opened_extraction/examples/katran/balancer_kern.c,672,0
+reals,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,76,1
+reals_stats,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,85,1
+server_id_map,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,104,1
+stats,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,94,1
+vip_map,/home/sayandes/opened_extraction/examples/katran/balancer_maps.h,38,1
 }
 #DUPLICATE MAP DEFNS
 {#map_name,file_locations
+ctl_array,2,[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_xdp_pktcntr.c.out,24],[/home/sayandes/opened_extraction/txl_katran/annotate_struct_examples_katran_control_data_maps.h.out,14]
 }
