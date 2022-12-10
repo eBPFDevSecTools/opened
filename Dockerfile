@@ -29,6 +29,7 @@ RUN apt-get update && apt-get upgrade && apt-get dist-upgrade && apt-get install
 	linux-tools-generic \
 	tcpdump 
 
+#add verification tools
 RUN apt-get install -y iproute2
 RUN apt-get install -y net-tools
 
