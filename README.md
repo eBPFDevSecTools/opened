@@ -35,7 +35,8 @@ Code extraction consists of two phases 1) Generating annotated function call gra
 
 ### Phase I: Annotated Function Call Generation
 
- 1. Run the docker. ``docker run -it  --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
+ 1. Run the docker. ``docker run -it --privileged --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
+
 2. Run annotator phase1, ``python3 annotator.py -o <txl_output> -s <source_folder> -c <commented_code_folder> -t <op_file_function_dict> -u <op_file_struct_dict.json>``, and **example is iven in run1.sh**
  
  3. Run actual function extraction phase , ``python3 annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE] [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] ``, an **example is given in run2.sh**.

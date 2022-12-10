@@ -29,6 +29,10 @@ RUN apt-get update && apt-get upgrade && apt-get dist-upgrade && apt-get install
 	linux-tools-generic \
 	tcpdump 
 
+RUN apt-get install -y iproute2
+RUN apt-get install -y net-tools
+
+
 #install python dependencies
 RUN python3 -m pip install command
 RUN python3 -m pip install pytest-shutil
@@ -68,6 +72,7 @@ ADD code_commentor.py code_commentor.py
 ADD foundation_maker.py foundation_maker.py
 ADD extraction_runner.py extraction_runner.py
 ADD function-extractor.py function-extractor.py
+ADD verify_extraction.py verify_extraction.py
 ADD run1.sh run1.sh
 ADD run2.sh run2.sh
 ADD run3.sh run3.sh
