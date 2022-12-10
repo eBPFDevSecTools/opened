@@ -23,7 +23,7 @@ def check_if_cmd_available():
     return True
 
 def check_if_file_available():
-    files = [r'asset/c-extract-functions.txl', r'asset/c-extract-struct.txl', r'asset/c.grm.1', r'asset/bom.grm', r'asset/helper_hookpoint_map.json']
+    files = [r'asset/c-extract-functions.txl', r'asset/c-extract-struct.txl', r'asset/c.grm', r'asset/bom.grm', r'asset/helper_hookpoint_map.json']
     for fl in files:
         if os.path.isfile(fl) is False:
             print("File: ",fl," unavailable.. ", "Exiting")
