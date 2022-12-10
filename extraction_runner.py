@@ -22,30 +22,6 @@ def check_if_cmd_available():
     print("All necessary commands found...")
     return True
 
-def check_if_file_available():
-    files = []
-    for fl in files:
-        if os.path.isfile(fl) is False:
-            print("File: ",fl," unavailable.. ", "Exiting")
-            return False
-    print("All necessary asset files found...")
-    return True
-#1. make cscope db
-#2. do txl annotation
-#3. comment generation
-#4. cqsearch
-
-#rm cscope.files cscope.out tags myproject.db 
-def clean_intermediate_files(file_list):
-    for file_path in file_list:
-        try:
-            if os.path.isfile(file_path) or os.path.islink(file_path):
-                os.unlink(file_path)
-            elif os.path.isdir(file_path):
-                shutil.rmtree(file_path)
-        except Exception as e:
-            print('Failed to delete %s. Reason: %s' % (file_path, e))
-
 def run_cmd(cmd):
     print("Running: ",cmd)
     status, output = subprocess.getstatusoutput(cmd)
@@ -198,7 +174,7 @@ if __name__ == "__main__":
 
     args = my_parser.parse_args()
     print(vars(args))
-    if(not check_if_cmd_available() or not check_if_file_available()):
+    if(not check_if_cmd_available()):
         exit(1)
 
     dir_list = []

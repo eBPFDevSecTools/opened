@@ -69,7 +69,7 @@ WORKDIR /root
 ADD asset asset
 ADD fcg fcg
 ADD code_commentor.py code_commentor.py
-ADD foundation_maker.py foundation_maker.py
+ADD annotator.py annotator.py
 ADD extraction_runner.py extraction_runner.py
 ADD function-extractor.py function-extractor.py
 ADD verify_extraction.py verify_extraction.py
