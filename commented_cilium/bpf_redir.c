@@ -65,7 +65,7 @@ __section("sk_msg")
  Funcname: bpf_redir_proxy,
  Input: (struct sk_msg_md *msg),
  Output: int,
- Helpers: [],
+ Helpers: [msg_redirect_hash,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

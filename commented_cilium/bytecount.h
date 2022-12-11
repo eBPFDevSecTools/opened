@@ -17,9 +17,9 @@ struct {
  Funcname: custom_prog,
  Input: (const struct  __ctx_buff *ctx, __u32 identity),
  Output: void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+ Helpers: [map_update_elem,map_lookup_elem,],
+ Read_maps: [  bytecount_map,],
+ Update_maps: [ bytecount_map,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

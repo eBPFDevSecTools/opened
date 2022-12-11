@@ -170,7 +170,7 @@ set_encrypt_key_meta(struct xdp_md *ctx __maybe_unused, __u8 key __maybe_unused)
  Funcname: redirect_self,
  Input: (struct xdp_md * ctx __maybe_unused),
  Output: int,
- Helpers: [],
+ Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

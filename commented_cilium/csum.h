@@ -107,7 +107,7 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
  Funcname: csum_diff,
  Input: (const void *from, __u32 size_from, const void *to, __u32 size_to, __u32 seed),
  Output: __wsum,
- Helpers: [],
+ Helpers: [csum_diff,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

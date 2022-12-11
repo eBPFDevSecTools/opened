@@ -21,7 +21,7 @@
  Funcname: do_decrypt,
  Input: (struct  __ctx_buff *ctx, __u16 proto),
  Output: int,
- Helpers: [],
+ Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
