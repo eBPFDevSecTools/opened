@@ -78,7 +78,7 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
  Funcname: gue_record_route,
  Input: (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4),
  Output: void,
- Helpers: [bpf_get_smp_processor_id,],
+ Helpers: [get_smp_processor_id,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

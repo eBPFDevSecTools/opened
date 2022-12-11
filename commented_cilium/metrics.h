@@ -30,9 +30,9 @@
  Funcname: update_metrics,
  Input: (__u64 bytes, __u8 direction, __u8 reason),
  Output: void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+ Helpers: [map_update_elem,map_lookup_elem,],
+ Read_maps: [  METRICS_MAP,],
+ Update_maps: [ METRICS_MAP,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

@@ -282,7 +282,7 @@ struct {
  Funcname: ep_tail_call,
  Input: (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused),
  Output: void,
- Helpers: [],
+ Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

@@ -76,8 +76,8 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
  Funcname: edt_sched_departure,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [],
- Read_maps: [],
+ Helpers: [ktime_get_ns,map_lookup_elem,],
+ Read_maps: [  THROTTLE_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

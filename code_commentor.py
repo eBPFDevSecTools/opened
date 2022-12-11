@@ -172,6 +172,9 @@ if __name__ =="__main__":
     parser.add_argument('-s','--srcFile', type=str,required=True,
             help='eBPF code file')
 
+    parser.add_argument('-c','--isCilium', type=bool,required=True,
+            help='whether repository is cilium')
+
 
     args = parser.parse_args()
 
@@ -180,12 +183,17 @@ if __name__ =="__main__":
     opFile=args.opFile
     srcFile=args.srcFile
     txlFile=args.txlFile
+    isCilium=args.isCilium
     if txlFile.endswith(".xml"):
         bpf_helper_file= args.bpfHelperFile #'./helper_hookpoint_map.json'
         startLineDict = {}
         helperdict = load_bpf_helper_map(bpf_helper_file)
-        map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-        map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
+        if(isCilium == False):
+            map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
+            map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
+        else:
+            map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
+            map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
         xmlFile = open(txlFile,'r')
         parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)

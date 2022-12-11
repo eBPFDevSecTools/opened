@@ -105,9 +105,14 @@ def create_cqmakedb(db_file, cscope_file, tags_folder):
     run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
     return
    
-def create_code_comments(txl_dict, bpf_helper_file, opdir):
-    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
+def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
+    if(isCilium == False):
+        map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
+        map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
+    else:
+        map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
+        map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
+
     helperdict = cmt.load_bpf_helper_map(bpf_helper_file)  
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
@@ -147,6 +152,9 @@ if __name__ == "__main__":
             help='JSON with information regarding functions present. output of foundation_maker.py')
     my_parser.add_argument('-u','--txl_struct_list',action='store',required=False,
             help='JSON with information regarding structures present. output of foundation_maker.py')
+    my_parser.add_argument('-q','--isCilium', type=bool,required=True,
+            help='whether repository is cilium')
+
 
     args = my_parser.parse_args()
     print(vars(args))
@@ -155,6 +163,7 @@ if __name__ == "__main__":
 
     dir_list = []
     
+    isCilium=args.isCilium
     src_dir = args.src_dir
     if (os.access(src_dir, os.R_OK) is not True):
         print("Cannot read source folder: "+src_dir+" Exiting...")
@@ -213,10 +222,14 @@ if __name__ == "__main__":
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
         else:
-            print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
-            bpf_helper_file = my_bpf_helper_file
+            if(isCilium == False):
+                print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
+                bpf_helper_file = "asset/helper_hookpoint_map.json"
+            else:
+                print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
+                bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
         print(cmt_op_dir)
-        create_code_comments(txl_dict_func, bpf_helper_file, cmt_op_dir)
+        create_code_comments(txl_dict_func, bpf_helper_file, cmt_op_dir, isCilium)
     else:
         print("no comment file found!")
 

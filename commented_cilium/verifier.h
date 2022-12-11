@@ -19,7 +19,7 @@
  Funcname: relax_verifier,
  Input: (void),
  Output: void,
- Helpers: [],
+ Helpers: [get_smp_processor_id,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

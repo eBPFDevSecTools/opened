@@ -118,7 +118,7 @@ int __send_drop_notify(struct __ctx_buff *ctx)
  Funcname: _send_drop_notify,
  Input: (__u8 file, __u16 line, struct  __ctx_buff *ctx, __u32 src, __u32 dst, __u32 dst_id, __u32 reason, __u32 exitcode, enum metric_dir direction),
  Output: int,
- Helpers: [],
+ Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

@@ -21,8 +21,8 @@
  Funcname: policy_sk_egress,
  Input: (__u32 identity, __u32 ip, __u16 dport),
  Output: int,
- Helpers: [],
- Read_maps: [],
+ Helpers: [map_lookup_elem,],
+ Read_maps: [ map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -129,8 +129,8 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
  Funcname: __policy_can_access,
  Input: (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type),
  Output: int,
- Helpers: [],
- Read_maps: [],
+ Helpers: [map_lookup_elem,],
+ Read_maps: [ map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
