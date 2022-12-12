@@ -247,6 +247,9 @@ def parseTXLStructOutputFile(fileName,f):
                 head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
                 structStr=head+structStr
                 opMaps[mapName].append(structStr)
+                #Add defines for cilium map defns coming from .c files
+                if fileName.endswith(".c"):
+                    addDefines(fileName,f)
             structStr= ""
         elif inside == True:
             structStr = structStr + line
@@ -546,27 +549,7 @@ if __name__ == "__main__":
         presDict[path]=p
         parseTXLStructOutputFile(path,f)
             
-    for mapName  in opMaps:
-        isDup=False
-        if len(opMaps[mapName]) > 1:
-            isDup=True
-            cmd = "//ATTENTION BEGIN: DUPLICATE MAP DEFNS\n"
-            f.write(cmd)
-        for s in opMaps[mapName]:
-            # Do not write structs from .h files as they will already be included
-            if not ".h" in s:
-                f.write(s)
-            else:
-                if isDup == True:
-                    f.write("//DUP Defn at: ")
-                    h = s.split("\n")[0]
-                    h = h.replace("//","")
-                    f.write(h)
-                    f.write("\n")
-        if isDup == True:
-            f.write("//ATTENTION END \n")
-            isDup=False;
-
+    
     for path in xmlFiles:
         p = create_preprocessor_map(path)
         presDict[path]=p
@@ -603,7 +586,27 @@ if __name__ == "__main__":
         f.write(cmd)
         f.write("//OPENED: included from: "+headers[orig]+ "\n\n")
 
-    
+    for mapName  in opMaps:
+        isDup=False
+        if len(opMaps[mapName]) > 1:
+            isDup=True
+            cmd = "//ATTENTION BEGIN: DUPLICATE MAP DEFNS\n"
+            f.write(cmd)
+        for s in opMaps[mapName]:
+            # Do not write structs from .h files as they will already be included
+            if not ".h" in s:
+                f.write(s)
+            else:
+                if isDup == True:
+                    f.write("//DUP Defn at: ")
+                    h = s.split("\n")[0]
+                    h = h.replace("//","")
+                    f.write(h)
+                    f.write("\n")
+        if isDup == True:
+            f.write("//ATTENTION END \n")
+            isDup=False;
+
         
     dumpFns(f,eFile)
     
