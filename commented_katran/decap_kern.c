@@ -221,7 +221,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
  Funcname: process_packet,
  Input: (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp),
  Output: int,
- Helpers: [map_lookup_elem,],
+ Helpers: [bpf_map_lookup_elem,],
  Read_maps: [  decap_counters,],
  Update_maps: [],
  Func Description: TO BE ADDED, 

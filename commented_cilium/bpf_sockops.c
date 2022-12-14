@@ -112,7 +112,7 @@ static __always_inline bool redirect_to_proxy(int verdict)
  Funcname: bpf_sock_ops_ipv4,
  Input: (struct bpf_sock_ops *skops),
  Output: void,
- Helpers: [redirect,sock_hash_update,],
+ Helpers: [sock_hash_update,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

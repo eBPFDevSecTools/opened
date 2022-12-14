@@ -67,7 +67,7 @@ out:
  Funcname: assign_socket_udp,
  Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused),
  Output: int,
- Helpers: [sk_release,sk_lookup_udp,],
+ Helpers: [sk_lookup_udp,sk_release,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

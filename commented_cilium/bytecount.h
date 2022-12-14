@@ -17,7 +17,7 @@ struct {
  Funcname: custom_prog,
  Input: (const struct  __ctx_buff *ctx, __u32 identity),
  Output: void,
- Helpers: [map_update_elem,map_lookup_elem,],
+ Helpers: [map_lookup_elem,map_update_elem,],
  Read_maps: [  bytecount_map,],
  Update_maps: [ bytecount_map,],
  Func Description: TO BE ADDED, 

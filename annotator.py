@@ -152,7 +152,7 @@ if __name__ == "__main__":
             help='JSON with information regarding functions present. output of foundation_maker.py')
     my_parser.add_argument('-u','--txl_struct_list',action='store',required=False,
             help='JSON with information regarding structures present. output of foundation_maker.py')
-    my_parser.add_argument('-q','--isCilium', action='store_true',required=False,
+    my_parser.add_argument('--isCilium', action='store_true',required=False,
             help='whether repository is cilium')
 
 
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     dir_list = []
     
     isCilium=False
-    if(args.isCilium is not True):
+    if(args.isCilium is True):
         isCilium = True
     src_dir = args.src_dir
     if (os.access(src_dir, os.R_OK) is not True):
