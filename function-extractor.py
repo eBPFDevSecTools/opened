@@ -473,11 +473,17 @@ if __name__ == "__main__":
     parser.add_argument('-b','--basedir', type=str,required=True,
                     help='Base Directory path relative to which directory structure in opdir will be created')
 
-    
+    parser.add_argument('--isCilium', action='store_true',required=False,
+            help='whether repository is cilium')
+
     
     args = parser.parse_args()
 
     #print("Args",args)
+    isCilium=False
+    if(args.isCilium is True):
+        isCilium = True
+
 
     opdir=args.opdir
     codequeryOutputFile=args.codequeryOutputFile
@@ -609,9 +615,11 @@ if __name__ == "__main__":
 
         
     dumpFns(f,eFile)
+    if isCilium:
+        f.write("BPF_LICENSE(\"Dual BSD/GPL\");");
+    else:
+        f.write("char _license[] SEC(\"license\") = \"GPL\";");
     
-    #katran f.write("char _license[] SEC(\"license\") = \"GPL\";");
-    f.write("BPF_LICENSE(\"Dual BSD/GPL\");");
     f.close()
     eFile.close()
 
