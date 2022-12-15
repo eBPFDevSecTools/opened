@@ -95,7 +95,7 @@ SEC("tc")
  Funcname: healthcheck_encap,
  Input: (struct  __sk_buff *skb),
  Output: int,
- Helpers: [redirect,map_lookup_elem,skb_set_tunnel_key,],
+ Helpers: [bpf_redirect,bpf_map_lookup_elem,bpf_skb_set_tunnel_key,],
  Read_maps: [  hc_stats_map, hc_reals_map, hc_ctrl_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
