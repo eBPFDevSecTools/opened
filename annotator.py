@@ -194,14 +194,14 @@ if __name__ == "__main__":
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"
     
-    txl_func_list = repo_name+".function_list.json"
+    txl_func_list = repo_name+".function_file_list.json"
     if(args.txl_function_list is not None):
         txl_func_list = args.txl_function_list
     if (os.path.exists(txl_func_list) and os.access(txl_func_list, os.W_OK) is not True):
         print("Cannot read txl_function_list: "+txl_func_list+" Exiting...")
         exit(1)
 
-    txl_struct_list = repo_name+".struct_list.json"
+    txl_struct_list = repo_name+".struct_file_list.json"
     if(args.txl_struct_list is not None):
         txl_struct_list = args.txl_struct_list
     if (os.path.exists(txl_struct_list) and os.access(txl_struct_list, os.W_OK) is not True):
