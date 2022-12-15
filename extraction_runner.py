@@ -6,7 +6,7 @@ import os
 import re
 import subprocess
 import glob
-import command
+#import command
 import shutil
 import code_commentor as cmt
 import argparse

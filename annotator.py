@@ -6,7 +6,7 @@ import os
 import re
 import subprocess
 import glob
-import command
+#import command
 import shutil
 import code_commentor as cmt
 import argparse
@@ -14,7 +14,7 @@ import json
 from collections import defaultdict
 
 def check_if_cmd_available():
-    commands = ['sed', 'txl', 'cscope', 'ctags', 'cqmakedb']
+    commands = ['txl', 'cscope', 'ctags', 'cqmakedb']
     for cmd in commands:
         if shutil.which(cmd) is None:
             print("Command: ",cmd," unavailable.. ", "Exiting")
@@ -152,18 +152,20 @@ if __name__ == "__main__":
             help='JSON with information regarding functions present. output of foundation_maker.py')
     my_parser.add_argument('-u','--txl_struct_list',action='store',required=False,
             help='JSON with information regarding structures present. output of foundation_maker.py')
-    my_parser.add_argument('-q','--isCilium', type=bool,required=True,
+    my_parser.add_argument('--isCilium', action='store_true',required=False,
             help='whether repository is cilium')
 
 
     args = my_parser.parse_args()
     print(vars(args))
     if(not check_if_cmd_available() or not check_if_file_available()):
-        exit(1)
+       exit(1)
 
     dir_list = []
     
-    isCilium=args.isCilium
+    isCilium=False
+    if(args.isCilium is True):
+        isCilium = True
     src_dir = args.src_dir
     if (os.access(src_dir, os.R_OK) is not True):
         print("Cannot read source folder: "+src_dir+" Exiting...")
@@ -209,10 +211,8 @@ if __name__ == "__main__":
     cscope_files = "cscope.files"
     cscope_out = "cscope.out"
     tags_folder = "tags"
-    my_bpf_helper_file = "asset/helper_hookpoint_map.json"
+    bpf_helper_file = "asset/helper_hookpoint_map.json"
     intermediate_f_list = []
-    #intermediate_f_list.append(db_file)
-    #intermediate_f_list.append(cscope_files)
     intermediate_f_list.append(cscope_out)
     intermediate_f_list.append(tags_folder)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
@@ -222,17 +222,12 @@ if __name__ == "__main__":
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
         else:
-            if(isCilium == False):
-                print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
-                bpf_helper_file = "asset/helper_hookpoint_map.json"
-            else:
+            if(isCilium == True):
                 print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
                 bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
-        print(cmt_op_dir)
         create_code_comments(txl_dict_func, bpf_helper_file, cmt_op_dir, isCilium)
     else:
         print("no comment file found!")
-
     # run code query to generate annotated function call graph
     create_cqmakedb(db_file, cscope_out, tags_folder)
     if args.annotate_only:
