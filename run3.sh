@@ -18,7 +18,7 @@
 
 #After PARTITION
 
-python3 function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c -c fcg/cilium.redirect_to_proxy.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium --isCilium
+python3 src/function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c -c fcg/cilium.redirect_to_proxy.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium --isCilium
 
 #Semi working..need to fix headers
 #python3 function-extractor.py -o op/cilium_sock4_connect -e extracted.c -c fcg/cilium.sock4_connect.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium
