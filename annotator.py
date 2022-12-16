@@ -190,7 +190,10 @@ def parseTXLStructOutputFile(fileName, map_file_def_dict):
             inside = False;
             head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
             map_def = fileName +":"+str(startLine)+":"+str(endLine)
-            map_file_def_dict[structStr].add(map_def)
+            if structStr in map_file_def_dict:
+                map_file_def_dict[structStr] += ","+map_def
+            else:
+                map_file_def_dict[structStr] = map_def
             structStr=head+structStr
             structStr= ""
         elif inside == True:
@@ -283,8 +286,8 @@ if __name__ == "__main__":
     intermediate_f_list.append(tags_folder)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
-    txl_dict_struct = defaultdict(set)
-    txl_dict_func = defaultdict(set)
+    txl_dict_struct = {} #defaultdict(set)
+    txl_dict_func = {} #defaultdict(set)
     txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct)
     if (cmt_op_dir is not None):
         if(args.bpfHelperFile is not None):
@@ -303,6 +306,7 @@ if __name__ == "__main__":
         clean_intermediate_files(intermediate_f_list)
         exit(0)
  
+    '''
     json_txl_func_dict = {}
     for key in txl_dict_func.keys():
         txt=""
@@ -310,18 +314,20 @@ if __name__ == "__main__":
             txt = txt + val + ","
         json_txl_func_dict[key] = txt
            
+    '''
     with open(txl_func_list, "w") as outfile:
-        json.dump(json_txl_func_dict, outfile)
+        json.dump(txl_dict_func, outfile)
     outfile.close()
+    '''
     json_txl_struct_dict = {}
     for key in txl_dict_struct.keys():
         txt=""
         for val in txl_dict_struct[key]:
             txt = txt + val + ","
         json_txl_struct_dict[key] = txt
-        
+    ''' 
     with open(txl_struct_list, "w") as outfile:
-        json.dump(json_txl_struct_dict, outfile)
+        json.dump(txl_dict_struct, outfile)
     outfile.close()
     
     #clean up

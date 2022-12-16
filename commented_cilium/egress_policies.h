@@ -390,7 +390,7 @@ srv6_decapsulation(struct __ctx_buff *ctx)
  Output: int,
  Helpers: [map_update_elem,],
  Read_maps: [],
- Update_maps: [ SRV6_STATE_MAP6, SRV6_STATE_MAP4,],
+ Update_maps: [ SRV6_STATE_MAP4, SRV6_STATE_MAP6,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

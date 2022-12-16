@@ -1230,9 +1230,9 @@ ct_update6_dsr(const void *map, const struct ipv6_ct_tuple *tuple,
  Funcname: ct_create6,
  Input: (const void *map_main, const void *map_related, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx, const int dir, const struct ct_state *ct_state, bool proxy_redirect, bool from_l7lb),
  Output: int,
- Helpers: [send_signal,map_update_elem,redirect,],
+ Helpers: [redirect,send_signal,map_update_elem,],
  Read_maps: [],
- Update_maps: [ map_main, map_related,],
+ Update_maps: [ map_related, map_main,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -1405,9 +1405,9 @@ ct_update4_dsr(const void *map, const struct ipv4_ct_tuple *tuple,
  Funcname: ct_create4,
  Input: (const void *map_main, const void *map_related, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx, const int dir, const struct ct_state *ct_state, bool proxy_redirect, bool from_l7lb),
  Output: int,
- Helpers: [send_signal,map_update_elem,redirect,],
+ Helpers: [redirect,send_signal,map_update_elem,],
  Read_maps: [],
- Update_maps: [ map_main, map_related,],
+ Update_maps: [ map_related, map_main,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

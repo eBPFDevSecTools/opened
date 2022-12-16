@@ -52,7 +52,7 @@
  Funcname: submit_event,
  Input: (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only),
  Output: void,
- Helpers: [bpf_map_lookup_elem,bpf_perf_event_output,],
+ Helpers: [bpf_perf_event_output,bpf_map_lookup_elem,],
  Read_maps: [  ctl_array,],
  Update_maps: [],
  Func Description: TO BE ADDED, 

@@ -31,7 +31,7 @@ __attribute__((__always_inline__))
  Funcname: is_under_flood,
  Input: (__u64 *cur_time),
  Output: bool,
- Helpers: [bpf_map_lookup_elem,bpf_ktime_get_ns,],
+ Helpers: [bpf_ktime_get_ns,bpf_map_lookup_elem,],
  Read_maps: [ stats,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -77,7 +77,7 @@ __attribute__((__always_inline__))
  Input: (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map),
  Output: bool,
  Helpers: [bpf_map_update_elem,bpf_map_lookup_elem,],
- Read_maps: [ reals,  lpm_src_v4, stats,  ch_rings,  lpm_src_v6,],
+ Read_maps: [  lpm_src_v6,  ch_rings,  lpm_src_v4, reals, stats,],
  Update_maps: [ lru_map,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -173,8 +173,8 @@ __attribute__((__always_inline__))
  Funcname: connection_table_lookup,
  Input: (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru),
  Output: void,
- Helpers: [bpf_map_lookup_elem,bpf_ktime_get_ns,],
- Read_maps: [ reals, lru_map,],
+ Helpers: [bpf_ktime_get_ns,bpf_map_lookup_elem,],
+ Read_maps: [ lru_map, reals,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -308,7 +308,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
  Input: (struct packet_description *pckt, bool is_ipv6, bool *pass),
  Output: int,
  Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ decap_dst,  stats,],
+ Read_maps: [  stats, decap_dst,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -691,7 +691,7 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
  Input: (struct xdp_md *xdp, __u64 off, bool is_ipv6),
  Output: int,
  Helpers: [bpf_get_smp_processor_id,bpf_map_lookup_elem,],
- Read_maps: [ lru_mapping,  reals_stats,  stats,  vip_map, stats,  ctl_array,  reals, server_id_map,],
+ Read_maps: [  stats,  reals_stats, lru_mapping,  vip_map, server_id_map, stats,  ctl_array,  reals,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

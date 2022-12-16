@@ -30,7 +30,7 @@
  Funcname: update_metrics,
  Input: (__u64 bytes, __u8 direction, __u8 reason),
  Output: void,
- Helpers: [map_update_elem,map_lookup_elem,],
+ Helpers: [map_lookup_elem,map_update_elem,],
  Read_maps: [  METRICS_MAP,],
  Update_maps: [ METRICS_MAP,],
  Func Description: TO BE ADDED, 
