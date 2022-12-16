@@ -1,7 +1,7 @@
 #Author Info: 
 # Palani Kodeswaran (palani.kodeswaran@in.ibm.com)
 # Sayandeep Sen (sayandes@in.ibm.com)
-
+import json
 import subprocess
 import re
 import os.path
@@ -135,9 +135,9 @@ def create_preprocessor_map(filename):
 
 # checks if function/struct in filename between st_line and end_line needs to be guarded with IFDEF MACROS
 def contained_in_preprocessor(fname, pres, st_line, end_line):
-        #print("checking containment in: ",fname,"start: ",st_line,"end: ",end_line)
+        print("checking containment in: ",fname,"start: ",st_line,"end: ",end_line)
         for (t,defName,start,end) in pres:
-                if st_line >= start and end_line <= end:
+                if int(st_line) >= int(start) and int(end_line) <= int(end):
                     #print("Fully contained ", t, defName)
                     return (t,defName,start,end)
         return (None,None,None,None)
@@ -199,7 +199,7 @@ def extractAndDump(iFile,startLine,endLine,oFile):
     return
 
 #does structStr contain map name that is of interest
-def doesStructContainMap(str):
+def doesStructContainMap(str,maps):
     for key in maps:
         #isMap = re.match(key,str)
         if key in str.split():
@@ -213,107 +213,59 @@ def dumpFns(f,e):
         if not funcName == None and not srcFile.endswith(".h"):
             op=funcName+","+srcFile+",["+str(startLine)+":"+str(endLine)+"]\n"
             e.write(op)
-            extractAndDump(srcFile,startLine,endLine,f)
+            extractAndDump(srcFile,int(startLine),int(endLine),f)
             #del fns[key]
-        
 
-'''
-# parses output from c-extract-struct.txl
-def parseTXLStructOutputFile(fileName,f):
-    #print("Parsing Struct Output FIle: ",fileName)
-    iFile = open(fileName,'r')
-    lineCt = 1
-    inside = False;
-    structStr = ""
-    for line in iFile.readlines():
-        #print(line)
-        begin=re.match(r"<struct>",line)
-        end = re.match(r"</struct>",line)
-        if begin:
-            startLine = lineCt + 1
-            inside = True;
-        elif end:
-            endLine = lineCt - 1
-            key = fileName+":"+str(startLine)+":"+str(endLine);
-            #print("EXTRACT -> ",key)
-            maps[key]=1
-            # Write maps together from dict
-            #if not ".h.out" in fileName:
-            #    extractAndDump(fileName,startLine,endLine,f)
-            inside = False;
-            #print("StructStr",structStr)
-            (isMap,mapName) = doesStructContainMap(structStr)
+# Check if struct definition could be an eBPF map definition based on map name
+def extract_maps_from_struct_defs(txl_struct_dict,fcg_maps,op_maps,extract_defines_files_set):
+    for structStr in txl_struct_dict:
+        struct_defn_list = txl_struct_dict[structStr]
+        #print("struct_defn_list: ")
+        #print(struct_defn_list)
+        for struct_defn in struct_defn_list:
+            struct_defn_dict = json.loads(struct_defn)
+            fileName = struct_defn_dict["fileName"]
+            startLine = struct_defn_dict["startLine"]
+            endLine = struct_defn_dict["endLine"]
+            if not fileName in presDict:
+                p = create_preprocessor_map(fileName)
+                presDict[fileName]=p
+            (isMap,mapName) = doesStructContainMap(structStr,fcg_maps)
             if isMap == True:
                 head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
+                print("STRUCT: "+mapName+ "  IS MAP: "+head+"\n\n")
                 structStr=head+structStr
-                opMaps[mapName].append(structStr)
+                op_maps[mapName].append(structStr)
                 #Add defines for cilium map defns coming from .c files
                 if fileName.endswith(".c"):
-                    addDefines(fileName,f)
-            structStr= ""
-        elif inside == True:
-            structStr = structStr + line
-        lineCt = lineCt + 1;
-    iFile.close()
-       
-# parses output from c-extract-function.txl
-def parseTXLFunctionOutputFile(inputFile,f,e):
-    srcSeen=False
-    lines = []
-    srcFile=""
-    for line in inputFile.readlines():
-        ending = re.match(r"</source",line)
-        if ending:
-            srcSeen = False;
-            #dump to file
-            #print(lines)
-            lines = []
-            continue;
-        if srcSeen:
-            lines.append(line)
-            continue;
-        starting = re.match(r"<source",line)
-        if starting:
-            #print("Starting",line)
-            srcSeen = True
-            line = line.replace("funcheader","")
-            line = line.replace("startline","")
-            line = line.replace("endline","")
-            line = line.replace(">","")
-            line = line.replace("\n","")
-            line = line.replace("\"","")
-            tokens = line.split('=')
-            ##print("len",len(tokens),"tokens",tokens)
-            srcFile = tokens[-4]
-            srcFile = srcFile.replace(" ","")
+                    extract_defines_files_set.add(fileNmae)
+                    
 
-            if not srcFile in presDict:
-                p = create_preprocessor_map(srcFile)
-                presDict[srcFile]=p
-            
-            funcName = tokens[-3].replace(" (","(")
-            ##print(funcName)
-            funcName = funcName.split('(')[-2].split(" ")[-1]
-            startLine = int(tokens[-2])
-            endLine = int(tokens[-1])
-            #funcHeader=tokens[2].split("=")[1]
-            ##print(srcFile, " startline: ",startLine," endline: ",endLine," funcname: ",funcName)
-            #key=funcName+":"+srcFile+":"+str(startLine)
-            key=funcName+":"+srcFile
+def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set):
+    for func_name in txl_func_dict:
+        func_defn_list = txl_func_dict[func_name]
+        print("func_defn_list: ")
+        print(func_defn_list)
+        for func_defn in func_defn_list:
+            func_defn_dict = json.loads(func_defn)
+            fileName = func_defn_dict["fileName"]
+            startLine = func_defn_dict["startLine"]
+            endLine = func_defn_dict["endLine"]
+            if not fileName in presDict:
+                p = create_preprocessor_map(fileName)
+                presDict[fileName]=p
+            key=func_name+":"+fileName
             #print("Checking if need to extract",key)
-            if key in fns.keys():
-                fns.update({key:(funcName,srcFile,startLine,endLine)})
-                if not srcFile.endswith(".h"):
+            if key in fcg_fns.keys():
+                fcg_fns.update({key:(func_name,fileName,startLine,endLine)})
+                if not fileName.endswith(".h"):
                     print("Need to Extract Function", key)
-                    #op=funcName+","+srcFile+",["+str(startLine)+":"+str(endLine)+"]\n"
-                    #e.write(op)
-                    #extractAndDump(srcFile,startLine,endLine,f)
-                    #del fns[key]
-            continue;
-    if srcFile.endswith(".c"):
-        addDefines(srcFile,f)
-        #buildIncludesOrderingGraph(srcFile,f)
-   ''' 
+                #TODO:DO not include duplicate #defines
+                if fileName.endswith(".c"):
+                    extract_defines_files_set.add(fileName)
+                    
+
+
 # read cFile and included headers to headers dict
 def addDependsOn(cFile):
     with open(cFile) as iFile:
@@ -389,7 +341,7 @@ def buildIncludesOrderingGraph(cFile):
                
     iFile.close()
 
-def processFuncLine(line):
+def processFuncLine(line,fns):
     ###print("Processing", line)
     line = line.replace('[','')
     line = line.replace(']','')
@@ -412,7 +364,7 @@ def processFuncLine(line):
     key=fnName+":"+src
     fns[key]=(None,None,None,None)
 
-def processMapLine(line):
+def processMapLine(line,maps):
     print("Processing", line)
     line = line.replace('[','')
     line = line.replace(']','')
@@ -433,7 +385,7 @@ def processMapLine(line):
 
 
 # Parses output from codequery search output and puts in map
-def parseFunctionList(ifile):
+def parseFunctionCallGraph(ifile,fns,maps):
     ct = 0
     for line in ifile.readlines():
         ##print(line)
@@ -444,9 +396,9 @@ def parseFunctionList(ifile):
         else:
             #print("ct",ct)
             if ct < 2:
-                processFuncLine(line)
+                processFuncLine(line,fns)
             elif ct > 2 and ct < 4:
-                processMapLine(line)
+                processMapLine(line,maps)
             else:
                 print("TODO: PROCESS DUPLICATE MAP DEFNS..IGNORE FOR NOW")
 
@@ -493,15 +445,13 @@ if __name__ == "__main__":
     extractedFileName = opdir+"/"+args.extractedFileName
 
     struct_info =args.struct_info
-    func_info =args.funcinfo
+    func_info =args.func_info
     srcdir = args.srcdir
     basedir=args.basedir
 
-    cscopeFile="cscope.files"
+    cscopeFile="./cscope.files"
     dupFileName=opdir+"/"+"duplicates.out"
     extractedFunctionListFile="extractedFuncList.out"
-    missedFunctionListFile="missedFuncList.out"
-    exit(1)
     
     #dict containing function definitions
     #fns = {}
@@ -525,6 +475,9 @@ if __name__ == "__main__":
     #dict of dict containing pre processor directives per file
     presDict = defaultdict(list)
 
+    #list of c files from which to include #defines
+    extract_defines_files_set = set()
+
     make_extraction_dir(opdir)
     copy_include_files(cscopeFile, opdir,basedir)
     copyMakefile(srcdir,opdir)
@@ -534,47 +487,31 @@ if __name__ == "__main__":
     eFile = open(extractedFunctionListFile,'w')
     f = open(extractedFileName,'w')
 
-    parseFunctionList(ifile)
+    parseFunctionCallGraph(ifile,fns,maps)
     ifile.close()
 
+    
     #include required header files
     f.write("/* SPDX-License-Identifier: GPL-2.0 */\n");
     f.write("#define RECORD_FLOW_INFO\n")
-
-    xmlFiles = []
-    structFiles = []
-    #Parse TXL annotated files
-    for fName in os.listdir(TXLDir):
-        #print("annotatedFile: ",fName)
-        path = TXLDir + "/" + fName
-        if fName.endswith(".xml"):
-            ##print("annotatedXmlFile: ",fName)
-            xmlFiles.append(path)
-        elif "annotate_struct" in fName:
-            structFiles.append(path)
-        
-    for path in structFiles:
-        #print("structFIle: ",path)
-        p = create_preprocessor_map(path)
-        presDict[path]=p
-        parseTXLStructOutputFile(path,f)
-            
     
-    for path in xmlFiles:
-        p = create_preprocessor_map(path)
-        presDict[path]=p
-        xmlFile = open(path,'r')
-        parseTXLFunctionOutputFile(xmlFile,f,eFile)
-        xmlFile.close()
     
+    with open(struct_info) as txl_struct_file:
+        txl_struct_dict= json.load(txl_struct_file)
+        print("TXL_STRUCT_DICT:")
+        print(txl_struct_dict)
 
-    # Dump duplicate function definitions
-    ##print("fns: ", fns)
-    ##print("dups: ",duplicates)
-    for dup in duplicates:
-        dupFile.write(dup)
-    dupFile.close()
 
+    with open(func_info) as txl_func_file:
+        txl_func_dict = json.load(txl_func_file)
+        print("TXL_FUNC_DICT:")
+        print(txl_func_dict)
+
+    extract_maps_from_struct_defs(txl_struct_dict,maps,opMaps,extract_defines_files_set)
+    build_fn_list_to_extract(txl_func_dict,fns,extract_defines_files_set)
+    for c_file in extract_defines_files_set:
+        addDefines(c_file,f)
+    
     ##print("HEADERS\n")
     for header in headers.keys():
         orig = header
@@ -627,21 +564,16 @@ if __name__ == "__main__":
     f.close()
     eFile.close()
 
-    outFile = open(missedFunctionListFile,'w')
-    outFile.write("func:fileName,Status\n")
-    for fn in fns:
-        outFile.write(fn)
-        srcFile = fn.split(":")[-1]
-        if srcFile.endswith(".h"):
-            outFile.write(",SKIPPED")
-        else:
-            outFile.write(",MISSED")
-        outFile.write("\n")
-    outFile.close()
-
-    #print("MAPS\n")
+    
+    print("MAPS\n")
     for mapName  in opMaps:
         if len(opMaps[mapName]) > 1:
             print("DUPLICATE MAP",mapName)
         else:
             print("MAP",mapName)
+    
+    
+    for dup in duplicates:
+        dupFile.write(dup)
+    dupFile.close()
+

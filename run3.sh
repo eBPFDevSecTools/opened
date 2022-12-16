@@ -18,7 +18,7 @@
 
 #After PARTITION
 
-python3 src/function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c -c fcg/cilium.redirect_to_proxy.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium --isCilium
+#python3 src/function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c -c fcg/cilium.redirect_to_proxy.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium --isCilium
 
 #Semi working..need to fix headers
 #python3 function-extractor.py -o op/cilium_sock4_connect -e extracted.c -c fcg/cilium.sock4_connect.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium
@@ -32,4 +32,4 @@ python3 src/function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c 
 
 #Working
 
-python3 function-extractor.py -o op/katran/katran_xdpdecap -e extracted.c -c op/fcg/katran.xdpdecap.cg.out.cleaned -t op/katran/txl_katran -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
+python3 src/function-extractor.py -o op/katran_xdpdecap -e extracted.c -c op/fcg/katran.xdpdecap.cg.out.cleaned -t op/katran/katran.struct_file_list.json -f op/katran/katran.function_file_list.json -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
