@@ -1,6 +1,0 @@
-sk_extract4_key,/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,[26:40]
-sk_lb4_key,/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,[42:48]
-redirect_to_proxy,/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,[50:53]
-bpf_sock_ops_ipv4,/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,[55:118]
-bpf_sock_ops_ipv6,/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,[122:126]
-bpf_sockmap,/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,[130:154]

@@ -8,8 +8,8 @@
 # works 
 
 #python3 extraction_runner.py -f xdpdecap -o txl_katran -s examples/katran -g fcg
-python3 extraction_runner.py -f xdpdecap -d katran.db -g op/fcg -t op/katran/katran.function_list.json -s op/katran/katran.struct_file_list.json -r katran
-python3 extraction_runner.py -f handle_ipv4 -d cilium.db -g op/fcg -t op/cilium/cilium.function_list.json -s op/cilium/cilium.struct_file_list.json -r cilium 
+python3 extraction_runner.py -f xdpdecap -d katran.db -g op/fcg  -r katran
+python3 extraction_runner.py -f handle_ipv4 -d cilium.db -g op/fcg  -r cilium 
 
 #not works
 
