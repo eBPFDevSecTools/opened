@@ -312,27 +312,11 @@ if __name__ == "__main__":
         #clean up
         clean_intermediate_files(intermediate_f_list)
         exit(0)
- 
-    '''
-    json_txl_func_dict = {}
-    for key in txl_dict_func.keys():
-        txt=""
-        for val in txl_dict_func[key]:
-            txt = txt + val + ","
-        json_txl_func_dict[key] = txt
-           
-    '''
+
     with open(txl_func_list, "w") as outfile:
         json.dump(txl_dict_func, outfile)
     outfile.close()
-    '''
-    json_txl_struct_dict = {}
-    for key in txl_dict_struct.keys():
-        txt=""
-        for val in txl_dict_struct[key]:
-            txt = txt + val + ","
-        json_txl_struct_dict[key] = txt
-    ''' 
+
     with open(txl_struct_list, "w") as outfile:
         json.dump(txl_dict_struct, outfile)
     outfile.close()
