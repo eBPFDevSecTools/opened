@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void bpf_clear_meta (struct  __sk_buff *ctx)" startline="7" endline="17">
+static __always_inline __maybe_unused void bpf_clear_meta (struct  __sk_buff *ctx)
+{
+    __u32 zero = 0;
+    WRITE_ONCE (ctx->cb[0], zero);
+    WRITE_ONCE (ctx->cb[1], zero);
+    WRITE_ONCE (ctx->cb[2], zero);
+    WRITE_ONCE (ctx->cb[3], zero);
+    WRITE_ONCE (ctx->cb[4], zero);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused int get_identity (const struct  __sk_buff *ctx)" startline="22" endline="26">
+static __always_inline __maybe_unused int get_identity (const struct  __sk_buff *ctx)
+{
+    return ((ctx->mark & 0xFF) << 16) | ctx->mark >> 16;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused __u32 get_epid (const struct  __sk_buff *ctx)" startline="31" endline="35">
+static __always_inline __maybe_unused __u32 get_epid (const struct  __sk_buff *ctx)
+{
+    return ctx->mark >> 16;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void set_encrypt_dip (struct  __sk_buff *ctx, __u32 ip_endpoint)" startline="37" endline="41">
+static __always_inline __maybe_unused void set_encrypt_dip (struct  __sk_buff *ctx, __u32 ip_endpoint)
+{
+    ctx->cb[4] = ip_endpoint;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void set_identity_mark (struct  __sk_buff *ctx, __u32 identity)" startline="46" endline="51">
+static __always_inline __maybe_unused void set_identity_mark (struct  __sk_buff *ctx, __u32 identity)
+{
+    ctx->mark = ctx->mark & MARK_MAGIC_KEY_MASK;
+    ctx->mark |= ((identity & 0xFFFF) << 16) | ((identity & 0xFF0000) >> 16);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void set_identity_meta (struct  __sk_buff *ctx, __u32 identity)" startline="53" endline="57">
+static __always_inline __maybe_unused void set_identity_meta (struct  __sk_buff *ctx, __u32 identity)
+{
+    ctx->cb[1] = identity;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void set_encrypt_key_mark (struct  __sk_buff *ctx, __u8 key)" startline="62" endline="66">
+static __always_inline __maybe_unused void set_encrypt_key_mark (struct  __sk_buff *ctx, __u8 key)
+{
+    ctx->mark = or_encrypt_key (key);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void set_encrypt_key_meta (struct  __sk_buff *ctx, __u8 key)" startline="68" endline="72">
+static __always_inline __maybe_unused void set_encrypt_key_meta (struct  __sk_buff *ctx, __u8 key)
+{
+    ctx->cb[0] = or_encrypt_key (key);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void set_encrypt_mark (struct  __sk_buff *ctx)" startline="79" endline="83">
+static __always_inline __maybe_unused void set_encrypt_mark (struct  __sk_buff *ctx)
+{
+    ctx->mark |= MARK_MAGIC_ENCRYPT;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused int redirect_self (const struct  __sk_buff *ctx)" startline="85" endline="99">
+static __always_inline __maybe_unused int redirect_self (const struct  __sk_buff *ctx)
+{
+
+#ifdef ENABLE_HOST_REDIRECT
+    return ctx_redirect (ctx, ctx->ifindex, 0);
+
+#else
+    return ctx_redirect (ctx, ctx->ifindex, BPF_F_INGRESS);
+
+#endif
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void ctx_skip_nodeport_clear (struct  __sk_buff * ctx __maybe_unused)" startline="101" endline="107">
+static __always_inline __maybe_unused void ctx_skip_nodeport_clear (struct  __sk_buff * ctx __maybe_unused)
+{
+
+#ifdef ENABLE_NODEPORT
+    ctx->tc_index &= ~TC_INDEX_F_SKIP_NODEPORT;
+
+#endif
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void ctx_skip_nodeport_set (struct  __sk_buff * ctx __maybe_unused)" startline="109" endline="115">
+static __always_inline __maybe_unused void ctx_skip_nodeport_set (struct  __sk_buff * ctx __maybe_unused)
+{
+
+#ifdef ENABLE_NODEPORT
+    ctx->tc_index |= TC_INDEX_F_SKIP_NODEPORT;
+
+#endif
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused bool ctx_skip_nodeport (struct  __sk_buff * ctx __maybe_unused)" startline="117" endline="127">
+static __always_inline __maybe_unused bool ctx_skip_nodeport (struct  __sk_buff * ctx __maybe_unused)
+{
+
+#ifdef ENABLE_NODEPORT
+    volatile __u32 tc_index = ctx->tc_index;
+    ctx->tc_index &= ~TC_INDEX_F_SKIP_NODEPORT;
+    return tc_index & TC_INDEX_F_SKIP_NODEPORT;
+
+#else
+    return true;
+
+#endif
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline void ctx_skip_host_fw_set (struct  __sk_buff *ctx)" startline="130" endline="134">
+static __always_inline void ctx_skip_host_fw_set (struct  __sk_buff *ctx)
+{
+    ctx->tc_index |= TC_INDEX_F_SKIP_HOST_FIREWALL;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline bool ctx_skip_host_fw (struct  __sk_buff *ctx)" startline="136" endline="143">
+static __always_inline bool ctx_skip_host_fw (struct  __sk_buff *ctx)
+{
+    volatile __u32 tc_index = ctx->tc_index;
+    ctx->tc_index &= ~TC_INDEX_F_SKIP_HOST_FIREWALL;
+    return tc_index & TC_INDEX_F_SKIP_HOST_FIREWALL;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused __u32 ctx_get_xfer (struct  __sk_buff *ctx)" startline="146" endline="152">
+static __always_inline __maybe_unused __u32 ctx_get_xfer (struct  __sk_buff *ctx)
+{
+    __u32 *data_meta = ctx_data_meta (ctx);
+    void *data = ctx_data (ctx);
+    return !ctx_no_room (data_meta + 1, data) ? data_meta[0] : 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused void ctx_set_xfer (struct  __sk_buff * ctx __maybe_unused, __u32 meta __maybe_unused)" startline="154" endline="158">
+static __always_inline __maybe_unused void ctx_set_xfer (struct  __sk_buff * ctx __maybe_unused, __u32 meta __maybe_unused)
+{
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h" funcheader="static __always_inline __maybe_unused int ctx_change_head (struct  __sk_buff *ctx, __u32 head_room, __u64 flags)" startline="160" endline="164">
+static __always_inline __maybe_unused int ctx_change_head (struct  __sk_buff *ctx, __u32 head_room, __u64 flags)
+{
+    return skb_change_head (ctx, head_room, flags);
+}
+</source>
+</doc>

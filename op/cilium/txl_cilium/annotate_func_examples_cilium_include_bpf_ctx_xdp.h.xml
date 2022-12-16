@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int xdp_load_bytes (const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)" startline="34" endline="60">
+static __always_inline __maybe_unused int xdp_load_bytes (const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
+{
+    void *from;
+    int ret;
+    asm volatile ("r1 = *(u32 *)(%[ctx] +0)\n\t"
+        "r2 = *(u32 *)(%[ctx] +4)\n\t"
+        "%[off] &= %[offmax]\n\t"
+        "r1 += %[off]\n\t"
+        "%[from] = r1\n\t"
+        "r1 += %[len]\n\t"
+        "if r1 > r2 goto +2\n\t"
+        "%[ret] = 0\n\t"
+        "goto +1\n\t"
+        "%[ret] = %[errno]\n\t"
+        : [ret] "=r"
+        (ret), [from] "=r"
+        (from) : [ctx] "r"
+        (ctx), [off] "r"
+        (off), [len] "ri"
+        (len), [offmax] "i"
+        (__CTX_OFF_MAX), [errno] "i"
+        (- EINVAL) : "r1",
+        "r2"
+        );
+    if (!ret)
+        memcpy (to, from, len);
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int xdp_store_bytes (const struct xdp_md *ctx, __u64 off, const void *from, const __u64 len, __u64 flags __maybe_unused)" startline="62" endline="86">
+static __always_inline __maybe_unused int xdp_store_bytes (const struct xdp_md *ctx, __u64 off, const void *from, const __u64 len, __u64 flags __maybe_unused)
+{
+    void *to;
+    int ret;
+    asm volatile ("r1 = *(u32 *)(%[ctx] +0)\n\t"
+        "r2 = *(u32 *)(%[ctx] +4)\n\t"
+        "%[off] &= %[offmax]\n\t"
+        "r1 += %[off]\n\t"
+        "%[to] = r1\n\t"
+        "r1 += %[len]\n\t"
+        "if r1 > r2 goto +2\n\t"
+        "%[ret] = 0\n\t"
+        "goto +1\n\t"
+        "%[ret] = %[errno]\n\t"
+        : [ret] "=r"
+        (ret), [to] "=r"
+        (to) : [ctx] "r"
+        (ctx), [off] "r"
+        (off), [len] "ri"
+        (len), [offmax] "i"
+        (__CTX_OFF_MAX), [errno] "i"
+        (- EINVAL) : "r1",
+        "r2"
+        );
+    if (!ret)
+        memcpy (to, from, len);
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused void __csum_replace_by_diff (__sum16 *sum, __wsum diff)" startline="110" endline="114">
+static __always_inline __maybe_unused void __csum_replace_by_diff (__sum16 *sum, __wsum diff)
+{
+    *sum = csum_fold (csum_add (diff, ~csum_unfold (*sum)));
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused void __csum_replace_by_4 (__sum16 *sum, __wsum from, __wsum to)" startline="116" endline="120">
+static __always_inline __maybe_unused void __csum_replace_by_4 (__sum16 *sum, __wsum from, __wsum to)
+{
+    __csum_replace_by_diff (sum, csum_add (~from, to));
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int l3_csum_replace (const struct xdp_md *ctx, __u64 off, const __u32 from, __u32 to, __u32 flags)" startline="122" endline="154">
+static __always_inline __maybe_unused int l3_csum_replace (const struct xdp_md *ctx, __u64 off, const __u32 from, __u32 to, __u32 flags)
+{
+    __u32 size = flags & BPF_F_HDR_FIELD_MASK;
+    __sum16 *sum;
+    int ret;
+    if (unlikely (flags & ~(BPF_F_HDR_FIELD_MASK)))
+        return -EINVAL;
+    if (unlikely (size != 0 && size != 2))
+        return -EINVAL;
+    asm volatile ("r1 = *(u32 *)(%[ctx] +0)\n\t"
+        "r2 = *(u32 *)(%[ctx] +4)\n\t"
+        "%[off] &= %[offmax]\n\t"
+        "r1 += %[off]\n\t"
+        "%[sum] = r1\n\t"
+        "r1 += 2\n\t"
+        "if r1 > r2 goto +2\n\t"
+        "%[ret] = 0\n\t"
+        "goto +1\n\t"
+        "%[ret] = %[errno]\n\t"
+        : [ret] "=r"
+        (ret), [sum] "=r"
+        (sum) : [ctx] "r"
+        (ctx), [off] "r"
+        (off), [offmax] "i"
+        (__CTX_OFF_MAX), [errno] "i"
+        (- EINVAL) : "r1",
+        "r2"
+        );
+    if (!ret)
+        from ? __csum_replace_by_4 (sum, from, to) : __csum_replace_by_diff (sum, to);
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int l4_csum_replace (const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to, __u32 flags)" startline="158" endline="196">
+static __always_inline __maybe_unused int l4_csum_replace (const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to, __u32 flags)
+{
+    bool is_mmzero = flags & BPF_F_MARK_MANGLED_0;
+    __u32 size = flags & BPF_F_HDR_FIELD_MASK;
+    __sum16 *sum;
+    int ret;
+    if (unlikely (flags & ~(BPF_F_MARK_MANGLED_0 | BPF_F_PSEUDO_HDR | BPF_F_HDR_FIELD_MASK)))
+        return -EINVAL;
+    if (unlikely (size != 0 && size != 2))
+        return -EINVAL;
+    asm volatile ("r1 = *(u32 *)(%[ctx] +0)\n\t"
+        "r2 = *(u32 *)(%[ctx] +4)\n\t"
+        "%[off] &= %[offmax]\n\t"
+        "r1 += %[off]\n\t"
+        "%[sum] = r1\n\t"
+        "r1 += 2\n\t"
+        "if r1 > r2 goto +2\n\t"
+        "%[ret] = 0\n\t"
+        "goto +1\n\t"
+        "%[ret] = %[errno]\n\t"
+        : [ret] "=r"
+        (ret), [sum] "=r"
+        (sum) : [ctx] "r"
+        (ctx), [off] "r"
+        (off), [offmax] "i"
+        (__CTX_OFF_MAX), [errno] "i"
+        (- EINVAL) : "r1",
+        "r2"
+        );
+    if (!ret) {
+        if (is_mmzero && !*sum)
+            return 0;
+        from ? __csum_replace_by_4 (sum, from, to) : __csum_replace_by_diff (sum, to);
+        if (is_mmzero && !*sum)
+            *sum = CSUM_MANGLED_0;
+    }
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int ctx_change_proto (struct xdp_md * ctx __maybe_unused, const __be16 proto __maybe_unused, const __u64 flags __maybe_unused)" startline="198" endline="234">
+static __always_inline __maybe_unused int ctx_change_proto (struct xdp_md * ctx __maybe_unused, const __be16 proto __maybe_unused, const __u64 flags __maybe_unused)
+{
+    const __s32 len_diff = proto == __constant_htons (ETH_P_IPV6) ? 20 : -20;
+    const __u32 move_len = 14;
+    void *data, *data_end;
+    int ret;
+    build_bug_on (flags != 0);
+    build_bug_on (proto != __constant_htons (ETH_P_IPV6) && proto != __constant_htons (ETH_P_IP));
+    if (len_diff < 0) {
+        data_end = ctx_data_end (ctx);
+        data = ctx_data (ctx);
+        if (data + move_len + -len_diff <= data_end)
+            __bpf_memmove_fwd (data + -len_diff, data, move_len);
+        else
+            return -EFAULT;
+    }
+    ret = xdp_adjust_head (ctx, - len_diff);
+    if (!ret && len_diff > 0) {
+        data_end = ctx_data_end (ctx);
+        data = ctx_data (ctx);
+        if (data + move_len + len_diff <= data_end)
+            __bpf_memmove_fwd (data, data + len_diff, move_len);
+        else
+            return -EFAULT;
+    }
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int ctx_adjust_troom (struct xdp_md *ctx, const __s32 len_diff)" startline="236" endline="240">
+static __always_inline __maybe_unused int ctx_adjust_troom (struct xdp_md *ctx, const __s32 len_diff)
+{
+    return xdp_adjust_tail (ctx, len_diff);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int ctx_adjust_hroom (struct xdp_md *ctx, const __s32 len_diff, const __u32 mode, const __u64 flags __maybe_unused)" startline="242" endline="289">
+static __always_inline __maybe_unused int ctx_adjust_hroom (struct xdp_md *ctx, const __s32 len_diff, const __u32 mode, const __u64 flags __maybe_unused)
+{
+    const __u32 move_len_v4 = 14 + 20;
+    const __u32 move_len_v6 = 14 + 40;
+    void *data, *data_end;
+    int ret;
+    build_bug_on (len_diff <= 0 || len_diff >= 64);
+    build_bug_on (mode != BPF_ADJ_ROOM_NET);
+    ret = xdp_adjust_head (ctx, - len_diff);
+    if (!ret) {
+        data_end = ctx_data_end (ctx);
+        data = ctx_data (ctx);
+        switch (len_diff) {
+        case 28 :
+            break;
+        case 20 :
+        case 8 :
+            if (data + move_len_v4 + len_diff <= data_end)
+                __bpf_memmove_fwd (data, data + len_diff, move_len_v4);
+            else
+                ret = -EFAULT;
+            break;
+        case 48 :
+            break;
+        case 40 :
+        case 24 :
+            if (data + move_len_v6 + len_diff <= data_end)
+                __bpf_memmove_fwd (data, data + len_diff, move_len_v6);
+            else
+                ret = -EFAULT;
+            break;
+        default :
+            __throw_build_bug ();
+        }
+    }
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int ctx_redirect (const struct xdp_md *ctx, int ifindex, const __u32 flags)" startline="291" endline="298">
+static __always_inline __maybe_unused int ctx_redirect (const struct xdp_md *ctx, int ifindex, const __u32 flags)
+{
+    if ((__u32) ifindex == ctx->ingress_ifindex)
+        return XDP_TX;
+    return redirect (ifindex, flags);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused int ctx_redirect_peer (const struct xdp_md * ctx __maybe_unused, int ifindex __maybe_unused, const __u32 flags __maybe_unused)" startline="300" endline="307">
+static __always_inline __maybe_unused int ctx_redirect_peer (const struct xdp_md * ctx __maybe_unused, int ifindex __maybe_unused, const __u32 flags __maybe_unused)
+{
+    return -ENOTSUP;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused __u64 ctx_full_len (const struct xdp_md *ctx)" startline="309" endline="314">
+static __always_inline __maybe_unused __u64 ctx_full_len (const struct xdp_md *ctx)
+{
+    return ctx_data_end (ctx) - ctx_data (ctx);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused __u32 ctx_wire_len (const struct xdp_md *ctx)" startline="316" endline="320">
+static __always_inline __maybe_unused __u32 ctx_wire_len (const struct xdp_md *ctx)
+{
+    return ctx_full_len (ctx);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused void ctx_store_meta (struct xdp_md * ctx __maybe_unused, const __u64 off, __u32 datum)" startline="330" endline="338">
+static __always_inline __maybe_unused void ctx_store_meta (struct xdp_md * ctx __maybe_unused, const __u64 off, __u32 datum)
+{
+    __u32 zero = 0, *data_meta = map_lookup_elem (&cilium_xdp_scratch, &zero);
+    if (always_succeeds (data_meta))
+        data_meta[off] = datum;
+    build_bug_on ((off + 1) * sizeof (__u32) > META_PIVOT);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused __u32 ctx_load_meta (const struct xdp_md * ctx __maybe_unused, const __u64 off)" startline="340" endline="349">
+static __always_inline __maybe_unused __u32 ctx_load_meta (const struct xdp_md * ctx __maybe_unused, const __u64 off)
+{
+    __u32 zero = 0, *data_meta = map_lookup_elem (&cilium_xdp_scratch, &zero);
+    if (always_succeeds (data_meta))
+        return data_meta[off];
+    build_bug_on ((off + 1) * sizeof (__u32) > META_PIVOT);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused __u16 ctx_get_protocol (const struct xdp_md *ctx)" startline="351" endline="361">
+static __always_inline __maybe_unused __u16 ctx_get_protocol (const struct xdp_md *ctx)
+{
+    void *data_end = ctx_data_end (ctx);
+    struct ethhdr *eth = ctx_data (ctx);
+    if (ctx_no_room (eth + 1, data_end))
+        return 0;
+    return eth->h_proto;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h" funcheader="static __always_inline __maybe_unused __u32 ctx_get_ifindex (const struct xdp_md *ctx)" startline="363" endline="367">
+static __always_inline __maybe_unused __u32 ctx_get_ifindex (const struct xdp_md *ctx)
+{
+    return ctx->ingress_ifindex;
+}
+</source>
+</doc>

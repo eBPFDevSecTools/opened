@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused int ctx_redirect (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags)" startline="60" endline="64">
+static __always_inline __maybe_unused int ctx_redirect (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags)
+{
+    return redirect (ifindex, flags);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused int ctx_redirect_peer (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags)" startline="66" endline="70">
+static __always_inline __maybe_unused int ctx_redirect_peer (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags)
+{
+    return redirect_peer (ifindex, flags);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused int ctx_adjust_troom (struct  __sk_buff *ctx, const __s32 len_diff)" startline="72" endline="76">
+static __always_inline __maybe_unused int ctx_adjust_troom (struct  __sk_buff *ctx, const __s32 len_diff)
+{
+    return skb_change_tail (ctx, ctx->len + len_diff, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused __u64 ctx_full_len (const struct  __sk_buff *ctx)" startline="78" endline="82">
+static __always_inline __maybe_unused __u64 ctx_full_len (const struct  __sk_buff *ctx)
+{
+    return ctx->len;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused __u32 ctx_wire_len (const struct  __sk_buff *ctx)" startline="84" endline="88">
+static __always_inline __maybe_unused __u32 ctx_wire_len (const struct  __sk_buff *ctx)
+{
+    return ctx->wire_len;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused void ctx_store_meta (struct  __sk_buff *ctx, const __u32 off, __u32 data)" startline="90" endline="94">
+static __always_inline __maybe_unused void ctx_store_meta (struct  __sk_buff *ctx, const __u32 off, __u32 data)
+{
+    ctx->cb[off] = data;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused __u32 ctx_load_meta (const struct  __sk_buff *ctx, const __u32 off)" startline="96" endline="100">
+static __always_inline __maybe_unused __u32 ctx_load_meta (const struct  __sk_buff *ctx, const __u32 off)
+{
+    return ctx->cb[off];
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused __u16 ctx_get_protocol (const struct  __sk_buff *ctx)" startline="102" endline="106">
+static __always_inline __maybe_unused __u16 ctx_get_protocol (const struct  __sk_buff *ctx)
+{
+    return (__u16) ctx->protocol;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h" funcheader="static __always_inline __maybe_unused __u32 ctx_get_ifindex (const struct  __sk_buff *ctx)" startline="108" endline="112">
+static __always_inline __maybe_unused __u32 ctx_get_ifindex (const struct  __sk_buff *ctx)
+{
+    return ctx->ifindex;
+}
+</source>
+</doc>

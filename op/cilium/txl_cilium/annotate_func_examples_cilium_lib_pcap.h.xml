@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len)" startline="48" endline="75">
+static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len)
+{
+    __u64 ctx_len = ctx_full_len (ctx);
+    __u64 cap_len = (!__cap_len || ctx_len < __cap_len) ? ctx_len : __cap_len;
+    struct capture_msg msg = {
+        .type = CILIUM_NOTIFY_CAPTURE,
+        .subtype = subtype,
+        .source = rule_id,
+        .hdr = {
+            .to = {
+                .tv_boot = tstamp,},
+            .caplen = cap_len,
+            .len = ctx_len,},}
+    ;
+    ctx_event_output (ctx, &EVENTS_MAP, (cap_len << 32) | BPF_F_CURRENT_CPU, &msg, sizeof (msg));
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void __cilium_capture_in (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)" startline="77" endline="86">
+static __always_inline void __cilium_capture_in (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)
+{
+    cilium_capture (ctx, CAPTURE_INGRESS, rule_id, bpf_ktime_cache_set (boot_ns), cap_len);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void __cilium_capture_out (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)" startline="88" endline="93">
+static __always_inline void __cilium_capture_out (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)
+{
+    cilium_capture (ctx, CAPTURE_EGRESS, rule_id, bpf_ktime_cache_get (), cap_len);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture4_masked_key (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out)" startline="158" endline="170">
+static __always_inline void cilium_capture4_masked_key (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out)
+{
+    out->daddr = orig->daddr & mask->daddr;
+    out->saddr = orig->saddr & mask->saddr;
+    out->dport = orig->dport & mask->dport;
+    out->sport = orig->sport & mask->sport;
+    out->nexthdr = orig->nexthdr & mask->nexthdr;
+    out->dmask = mask->dmask;
+    out->smask = mask->smask;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture4_classify_wcard (struct  __ctx_buff *ctx)" startline="217" endline="257">
+static __always_inline struct capture_rule *cilium_capture4_classify_wcard (struct  __ctx_buff *ctx)
+{
+    struct capture4_wcard prefix_masks [] = {PREFIX_MASKS4};
+    struct capture4_wcard okey, lkey;
+    struct capture_rule *match;
+    void *data, *data_end;
+    struct iphdr *ip4;
+    int i;
+    const int size = sizeof (prefix_masks) / sizeof (prefix_masks [0]);
+    if (!revalidate_data (ctx, &data, &data_end, &ip4))
+        return NULL;
+    okey.daddr = ip4->daddr;
+    okey.dmask = 32;
+    okey.saddr = ip4->saddr;
+    okey.smask = 32;
+    okey.nexthdr = ip4->protocol;
+    if (ip4->protocol != IPPROTO_TCP && ip4->protocol != IPPROTO_UDP)
+        return NULL;
+    if (ctx_load_bytes (ctx, ETH_HLEN + ipv4_hdrlen (ip4), &okey.sport, 4) < 0)
+        return NULL;
+    okey.flags = 0;
+    lkey.flags = 0;
+    _Pragma ("unroll")
+    for (i = 0; i < size; i++) {
+        cilium_capture4_masked_key (&okey, &prefix_masks[i], &lkey);
+        match = map_lookup_elem (& CAPTURE4_RULES, & lkey);
+        if (match)
+            return match;
+    }
+    return NULL;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture6_masked_key (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out)" startline="270" endline="284">
+static __always_inline void cilium_capture6_masked_key (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out)
+{
+    out->daddr.d1 = orig->daddr.d1 & mask->daddr.d1;
+    out->daddr.d2 = orig->daddr.d2 & mask->daddr.d2;
+    out->saddr.d1 = orig->saddr.d1 & mask->saddr.d1;
+    out->saddr.d2 = orig->saddr.d2 & mask->saddr.d2;
+    out->dport = orig->dport & mask->dport;
+    out->sport = orig->sport & mask->sport;
+    out->nexthdr = orig->nexthdr & mask->nexthdr;
+    out->dmask = mask->dmask;
+    out->smask = mask->smask;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture6_classify_wcard (struct  __ctx_buff *ctx)" startline="339" endline="382">
+static __always_inline struct capture_rule *cilium_capture6_classify_wcard (struct  __ctx_buff *ctx)
+{
+    struct capture6_wcard prefix_masks [] = {PREFIX_MASKS6};
+    struct capture6_wcard okey, lkey;
+    struct capture_rule *match;
+    void *data, *data_end;
+    struct ipv6hdr *ip6;
+    int i, ret, l3_off = ETH_HLEN;
+    const int size = sizeof (prefix_masks) / sizeof (prefix_masks [0]);
+    if (!revalidate_data (ctx, &data, &data_end, &ip6))
+        return NULL;
+    ipv6_addr_copy (&okey.daddr, (union v6addr *) &ip6->daddr);
+    okey.dmask = 128;
+    ipv6_addr_copy (&okey.saddr, (union v6addr *) &ip6->saddr);
+    okey.smask = 128;
+    okey.nexthdr = ip6->nexthdr;
+    ret = ipv6_hdrlen (ctx, & okey.nexthdr);
+    if (ret < 0)
+        return NULL;
+    if (okey.nexthdr != IPPROTO_TCP && okey.nexthdr != IPPROTO_UDP)
+        return NULL;
+    if (ctx_load_bytes (ctx, l3_off + ret, &okey.sport, 4) < 0)
+        return NULL;
+    okey.flags = 0;
+    lkey.flags = 0;
+    _Pragma ("unroll")
+    for (i = 0; i < size; i++) {
+        cilium_capture6_masked_key (&okey, &prefix_masks[i], &lkey);
+        match = map_lookup_elem (& CAPTURE6_RULES, & lkey);
+        if (match)
+            return match;
+    }
+    return NULL;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture_classify_wcard (struct  __ctx_buff *ctx)" startline="385" endline="408">
+static __always_inline struct capture_rule *cilium_capture_classify_wcard (struct  __ctx_buff *ctx)
+{
+    struct capture_rule *ret = NULL;
+    __u16 proto;
+    if (!validate_ethertype (ctx, &proto))
+        return ret;
+    switch (proto) {
+
+#ifdef ENABLE_IPV4
+    case bpf_htons (ETH_P_IP) :
+        ret = cilium_capture4_classify_wcard (ctx);
+        break;
+
+#endif
+
+#ifdef ENABLE_IPV6
+    case bpf_htons (ETH_P_IPV6) :
+        ret = cilium_capture6_classify_wcard (ctx);
+        break;
+
+#endif
+    default :
+        break;
+    }
+    return ret;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused)" startline="410" endline="432">
+static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused)
+{
+    if (capture_enabled) {
+        struct capture_cache *c;
+        struct capture_rule *r;
+        __u32 zero = 0;
+        c = map_lookup_elem (& cilium_capture_cache, & zero);
+        if (always_succeeds (c)) {
+            r = cilium_capture_classify_wcard (ctx);
+            c->rule_seen = r;
+            if (r) {
+                c->cap_len = *cap_len = (__u16) r->cap_len;
+                c->rule_id = *rule_id = r->rule_id;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused)" startline="434" endline="455">
+static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused)
+{
+    if (capture_enabled) {
+        struct capture_cache *c;
+        __u32 zero = 0;
+        c = map_lookup_elem (& cilium_capture_cache, & zero);
+        if (always_succeeds (c) && c->rule_seen) {
+            *cap_len = c->cap_len;
+            *rule_id = c->rule_id;
+            return true;
+        }
+    }
+    return false;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)" startline="457" endline="465">
+static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)
+{
+    __u16 cap_len;
+    __u16 rule_id;
+    if (cilium_capture_candidate (ctx, &rule_id, &cap_len))
+        __cilium_capture_in (ctx, rule_id, cap_len);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)" startline="467" endline="479">
+static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)
+{
+    __u32 cap_len;
+    __u16 rule_id;
+    if (cilium_capture_cached (ctx, &rule_id, &cap_len))
+        __cilium_capture_out (ctx, rule_id, cap_len);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)" startline="483" endline="486">
+static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)
+{
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)" startline="488" endline="491">
+static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)
+{
+}
+</source>
+</doc>

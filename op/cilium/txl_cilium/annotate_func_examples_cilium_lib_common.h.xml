@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/common.h" funcheader="static __always_inline bool validate_ethertype (struct  __ctx_buff *ctx, __u16 *proto)" startline="121" endline="142">
+static __always_inline bool validate_ethertype (struct  __ctx_buff *ctx, __u16 *proto)
+{
+    void *data = ctx_data (ctx);
+    void *data_end = ctx_data_end (ctx);
+    struct ethhdr *eth = data;
+    if (ETH_HLEN == 0) {
+        *proto = ctx_get_protocol (ctx);
+        return true;
+    }
+    if (data + ETH_HLEN > data_end)
+        return false;
+    *proto = eth->h_proto;
+    if (bpf_ntohs (*proto) < ETH_P_802_3_MIN)
+        return false;
+    return true;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/common.h" funcheader="static __always_inline __maybe_unused bool ____revalidate_data_pull (struct  __ctx_buff *ctx, void **data_, void **data_end_, void **l3, const __u32 l3_len, const bool pull, __u32 eth_hlen)" startline="144" endline="167">
+static __always_inline __maybe_unused bool ____revalidate_data_pull (struct  __ctx_buff *ctx, void **data_, void **data_end_, void **l3, const __u32 l3_len, const bool pull, __u32 eth_hlen)
+{
+    const __u64 tot_len = eth_hlen + l3_len;
+    void *data_end;
+    void *data;
+    if (pull)
+        ctx_pull_data (ctx, tot_len);
+    data_end = ctx_data_end (ctx);
+    data = ctx_data (ctx);
+    if (data + tot_len > data_end)
+        return false;
+    *data_ = data;
+    *data_end_ = data_end;
+    *l3 = data + eth_hlen;
+    return true;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/common.h" funcheader="static __always_inline __maybe_unused bool __revalidate_data_pull (struct  __ctx_buff *ctx, void **data, void **data_end, void **l3, const __u32 l3_len, const bool pull)" startline="169" endline="175">
+static __always_inline __maybe_unused bool __revalidate_data_pull (struct  __ctx_buff *ctx, void **data, void **data_end, void **l3, const __u32 l3_len, const bool pull)
+{
+    return ____revalidate_data_pull (ctx, data, data_end, l3, l3_len, pull, ETH_HLEN);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/common.h" funcheader="static __always_inline __u32 or_encrypt_key (__u8 key)" startline="605" endline="608">
+static __always_inline __u32 or_encrypt_key (__u8 key)
+{
+    return (((__u32) key & 0x0F) << 12) | MARK_MAGIC_ENCRYPT;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/common.h" funcheader="static __always_inline bool ct_state_is_from_l7lb (const struct ct_state * ct_state __maybe_unused)" startline="958" endline="965">
+static __always_inline bool ct_state_is_from_l7lb (const struct ct_state * ct_state __maybe_unused)
+{
+
+#ifdef ENABLE_L7_LB
+    return ct_state->from_l7lb;
+
+#else
+    return false;
+
+#endif
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/common.h" funcheader="static __always_inline int redirect_ep (struct  __ctx_buff * ctx __maybe_unused, int ifindex __maybe_unused, bool needs_backlog __maybe_unused)" startline="984" endline="1012">
+static __always_inline int redirect_ep (struct  __ctx_buff * ctx __maybe_unused, int ifindex __maybe_unused, bool needs_backlog __maybe_unused)
+{
+
+#ifdef ENABLE_HOST_REDIRECT
+    if (needs_backlog || !is_defined (ENABLE_HOST_ROUTING)) {
+        return ctx_redirect (ctx, ifindex, 0);
+    }
+    else {
+
+# ifdef ENCAP_IFINDEX
+        ctx_change_type (ctx, PACKET_HOST);
+
+# endif /* ENCAP_IFINDEX */
+        return ctx_redirect_peer (ctx, ifindex, 0);
+    }
+
+#else
+    return CTX_ACT_OK;
+
+#endif /* ENABLE_HOST_REDIRECT */
+}
+</source>
+</doc>
