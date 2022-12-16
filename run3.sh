@@ -31,4 +31,5 @@ python3 function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c -c f
 #python3 function-extractor.py -o op/cilium_handle_ipv6 -e extracted.c -c fcg/cilium.handle_ipv6.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium
 
 #Working
-#python3 function-extractor.py -o op/katran_xdpdecap -e extracted.c -c fcg/katran.xdpdecap.cg.out.cleaned -t txl_katran -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
+
+python3 function-extractor.py -o op/katran/katran_xdpdecap -e extracted.c -c op/fcg/katran.xdpdecap.cg.out.cleaned -t op/katran/txl_katran -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
