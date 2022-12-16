@@ -14,13 +14,13 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/fib.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/fib.h,
  Startline: 14,
  Endline: 66,
  Funcname: redirect_direct_v6,
  Input: (struct  __ctx_buff * ctx __maybe_unused, int l3_off __maybe_unused, struct ipv6hdr * ip6 __maybe_unused),
  Output: int,
- Helpers: [fib_lookup,redirect,],
+ Helpers: [redirect,fib_lookup,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -87,13 +87,13 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/fib.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/fib.h,
  Startline: 70,
  Endline: 126,
  Funcname: redirect_direct_v4,
  Input: (struct  __ctx_buff * ctx __maybe_unused, int l3_off __maybe_unused, struct iphdr * ip4 __maybe_unused),
  Output: int,
- Helpers: [fib_lookup,redirect,],
+ Helpers: [redirect,fib_lookup,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 

@@ -7,7 +7,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 7,
  Endline: 10,
  Funcname: bpf_clear_meta,
@@ -29,7 +29,7 @@ bpf_clear_meta(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 12,
  Endline: 16,
  Funcname: get_identity,
@@ -52,7 +52,7 @@ get_identity(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 18,
  Endline: 22,
  Funcname: set_encrypt_dip,
@@ -75,7 +75,7 @@ set_encrypt_dip(struct xdp_md *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 24,
  Endline: 27,
  Funcname: set_identity_mark,
@@ -97,7 +97,7 @@ set_identity_mark(struct xdp_md *ctx __maybe_unused, __u32 identity __maybe_unus
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 29,
  Endline: 33,
  Funcname: set_identity_meta,
@@ -120,7 +120,7 @@ set_identity_meta(struct xdp_md *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 35,
  Endline: 38,
  Funcname: set_encrypt_key_mark,
@@ -142,7 +142,7 @@ set_encrypt_key_mark(struct xdp_md *ctx __maybe_unused, __u8 key __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 40,
  Endline: 43,
  Funcname: set_encrypt_key_meta,
@@ -164,7 +164,7 @@ set_encrypt_key_meta(struct xdp_md *ctx __maybe_unused, __u8 key __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 45,
  Endline: 53,
  Funcname: redirect_self,
@@ -194,7 +194,7 @@ redirect_self(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 58,
  Endline: 64,
  Funcname: ctx_skip_nodeport_clear,
@@ -219,7 +219,7 @@ ctx_skip_nodeport_clear(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 66,
  Endline: 72,
  Funcname: ctx_skip_nodeport_set,
@@ -244,7 +244,7 @@ ctx_skip_nodeport_set(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 74,
  Endline: 82,
  Funcname: ctx_skip_nodeport,
@@ -271,7 +271,7 @@ ctx_skip_nodeport(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 84,
  Endline: 88,
  Funcname: ctx_get_xfer,
@@ -294,7 +294,7 @@ ctx_get_xfer(struct xdp_md *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 90,
  Endline: 94,
  Funcname: ctx_set_xfer,
@@ -317,7 +317,7 @@ static __always_inline __maybe_unused void ctx_set_xfer(struct xdp_md *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
  Startline: 96,
  Endline: 102,
  Funcname: ctx_change_head,

@@ -46,14 +46,14 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c,
+ File: /home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c,
  Startline: 46,
  Endline: 62,
  Funcname: pktcntr,
  Input: (struct xdp_md *ctx),
  Output: int,
  Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ cntrs_array, ctl_array,],
+ Read_maps: [ ctl_array, cntrs_array,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

@@ -30,7 +30,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 30,
  Endline: 39,
  Funcname: csum_fold_helper,
@@ -58,7 +58,7 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 41,
  Endline: 43,
  Funcname: min_helper,
@@ -79,7 +79,7 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 45,
  Endline: 49,
  Funcname: ipv4_csum,
@@ -102,7 +102,7 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 51,
  Endline: 60,
  Funcname: ipv4_csum_inline,
@@ -130,7 +130,7 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 62,
  Endline: 73,
  Funcname: ipv4_l4_csum,
@@ -160,7 +160,7 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 75,
  Endline: 88,
  Funcname: ipv6_csum,
@@ -197,7 +197,7 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 95,
  Endline: 127,
  Funcname: add_pseudo_ipv6_header,
@@ -248,7 +248,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 129,
  Endline: 158,
  Funcname: rem_pseudo_ipv6_header,
@@ -296,7 +296,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 160,
  Endline: 189,
  Funcname: add_pseudo_ipv4_header,
@@ -344,7 +344,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 191,
  Endline: 220,
  Funcname: rem_pseudo_ipv4_header,
@@ -404,7 +404,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 234,
  Endline: 268,
  Funcname: gue_csum_v6,
@@ -457,7 +457,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 270,
  Endline: 302,
  Funcname: gue_csum_v4,
@@ -508,7 +508,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 304,
  Endline: 336,
  Funcname: gue_csum_v4_in_v6,

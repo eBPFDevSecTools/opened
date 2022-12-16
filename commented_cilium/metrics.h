@@ -24,13 +24,13 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/metrics.h,
  Startline: 24,
  Endline: 43,
  Funcname: update_metrics,
  Input: (__u64 bytes, __u8 direction, __u8 reason),
  Output: void,
- Helpers: [map_lookup_elem,map_update_elem,],
+ Helpers: [map_update_elem,map_lookup_elem,],
  Read_maps: [  METRICS_MAP,],
  Update_maps: [ METRICS_MAP,],
  Func Description: TO BE ADDED, 
@@ -67,7 +67,7 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/metrics.h,
  Startline: 50,
  Endline: 62,
  Funcname: ct_to_metrics_dir,

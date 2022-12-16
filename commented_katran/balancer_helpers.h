@@ -46,13 +46,13 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/balancer_helpers.h,
  Startline: 46,
  Endline: 70,
  Funcname: submit_event,
  Input: (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only),
  Output: void,
- Helpers: [bpf_perf_event_output,bpf_map_lookup_elem,],
+ Helpers: [bpf_map_lookup_elem,bpf_perf_event_output,],
  Read_maps: [  ctl_array,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -91,7 +91,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/balancer_helpers.h,
  Startline: 74,
  Endline: 80,
  Funcname: recirculate,
@@ -117,7 +117,7 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/balancer_helpers.h,
  Startline: 83,
  Endline: 111,
  Funcname: decrement_ttl,

@@ -44,7 +44,8 @@ end redefine
 
 rule replaceStruct0
 	replace [function_definition_or_declaration]
-	  T [struct_or_union_definition] % U [declarator_opt_init_semi] %S [semi] 
+	  T [struct_or_union_definition] 
+% U [declarator_opt_init_semi] %S [semi] 
 
 	construct BEG [begin_marker]
 	 '< 'struct  '>
@@ -53,7 +54,7 @@ rule replaceStruct0
 	 '<  '/struct '>
 
 	by
-	   BEG  T   END
+	   BEG  T  END
 end rule
 
 function main 

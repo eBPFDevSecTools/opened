@@ -217,7 +217,7 @@ def dumpFns(f,e):
             #del fns[key]
         
 
-
+'''
 # parses output from c-extract-struct.txl
 def parseTXLStructOutputFile(fileName,f):
     #print("Parsing Struct Output FIle: ",fileName)
@@ -313,7 +313,7 @@ def parseTXLFunctionOutputFile(inputFile,f,e):
     if srcFile.endswith(".c"):
         addDefines(srcFile,f)
         #buildIncludesOrderingGraph(srcFile,f)
-    
+   ''' 
 # read cFile and included headers to headers dict
 def addDependsOn(cFile):
     with open(cFile) as iFile:

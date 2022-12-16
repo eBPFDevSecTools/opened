@@ -22,7 +22,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lxc.h,
  Startline: 22,
  Endline: 34,
  Funcname: is_valid_lxc_src_ip,
@@ -53,7 +53,7 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lxc.h,
  Startline: 36,
  Endline: 45,
  Funcname: is_valid_lxc_src_ipv4,
@@ -81,7 +81,7 @@ int is_valid_lxc_src_ipv4(const struct iphdr *ip4 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lxc.h,
  Startline: 47,
  Endline: 51,
  Funcname: is_valid_lxc_src_ip,
@@ -104,7 +104,7 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lxc.h,
  Startline: 53,
  Endline: 57,
  Funcname: is_valid_lxc_src_ipv4,

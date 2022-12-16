@@ -37,7 +37,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h,
  Startline: 37,
  Endline: 77,
  Funcname: set_hc_key,
@@ -96,13 +96,13 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h,
  Startline: 79,
  Endline: 139,
  Funcname: hc_encap_ipip,
  Input: (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6),
  Output: bool,
- Helpers: [bpf_skb_adjust_room,bpf_map_lookup_elem,],
+ Helpers: [bpf_map_lookup_elem,bpf_skb_adjust_room,],
  Read_maps: [  hc_pckt_srcs_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -175,7 +175,7 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h,
  Startline: 141,
  Endline: 143,
  Funcname: gue_sport,
@@ -196,13 +196,13 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h,
+ File: /home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h,
  Startline: 145,
  Endline: 213,
  Funcname: hc_encap_gue,
  Input: (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6),
  Output: bool,
- Helpers: [bpf_skb_adjust_room,bpf_map_lookup_elem,],
+ Helpers: [bpf_map_lookup_elem,bpf_skb_adjust_room,],
  Read_maps: [  hc_pckt_srcs_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 

@@ -26,7 +26,7 @@ enum {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 26,
  Endline: 32,
  Funcname: ct_entry_seen_both_syns,
@@ -79,7 +79,7 @@ union tcp_flags {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 62,
  Endline: 126,
  Funcname: __ct_update_timeout,
@@ -168,7 +168,7 @@ static __always_inline __u32 __ct_update_timeout(struct ct_entry *entry,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 134,
  Endline: 156,
  Funcname: ct_update_timeout,
@@ -209,7 +209,7 @@ static __always_inline __u32 ct_update_timeout(struct ct_entry *entry,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 158,
  Endline: 162,
  Funcname: ct_reset_closing,
@@ -232,7 +232,7 @@ static __always_inline void ct_reset_closing(struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 164,
  Endline: 167,
  Funcname: ct_entry_alive,
@@ -254,7 +254,7 @@ static __always_inline bool ct_entry_alive(const struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 169,
  Endline: 172,
  Funcname: ct_entry_closing,
@@ -276,7 +276,7 @@ static __always_inline bool ct_entry_closing(const struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 174,
  Endline: 183,
  Funcname: ct_entry_expired_rebalance,
@@ -304,13 +304,13 @@ ct_entry_expired_rebalance(const struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 185,
  Endline: 273,
  Funcname: __ct_lookup,
  Input: (const void *map, struct  __ctx_buff *ctx, const void *tuple, int action, int dir, struct ct_state *ct_state, bool is_tcp, union tcp_flags seen_flags, __u32 *monitor),
  Output: __u8,
- Helpers: [map_lookup_elem,redirect,],
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [ map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -411,7 +411,7 @@ ct_new: __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 275,
  Endline: 303,
  Funcname: ipv6_extract_tuple,
@@ -458,7 +458,7 @@ ipv6_extract_tuple(struct __ctx_buff *ctx, struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 305,
  Endline: 311,
  Funcname: ct_flip_tuple_dir6,
@@ -483,7 +483,7 @@ static __always_inline void ct_flip_tuple_dir6(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 313,
  Endline: 326,
  Funcname: __ipv6_ct_tuple_reverse,
@@ -515,7 +515,7 @@ __ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 328,
  Endline: 333,
  Funcname: ipv6_ct_tuple_reverse,
@@ -540,7 +540,7 @@ ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 336,
  Endline: 459,
  Funcname: ct_lookup6,
@@ -682,7 +682,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 461,
  Endline: 483,
  Funcname: ipv4_extract_tuple,
@@ -723,7 +723,7 @@ ipv4_extract_tuple(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 485,
  Endline: 491,
  Funcname: ct_flip_tuple_dir4,
@@ -748,7 +748,7 @@ static __always_inline void ct_flip_tuple_dir4(struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 493,
  Endline: 505,
  Funcname: __ipv4_ct_tuple_reverse,
@@ -779,7 +779,7 @@ __ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 507,
  Endline: 512,
  Funcname: ipv4_ct_tuple_reverse,
@@ -803,7 +803,7 @@ ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 514,
  Endline: 540,
  Funcname: ipv4_ct_extract_l4_ports,
@@ -848,7 +848,7 @@ static __always_inline int ipv4_ct_extract_l4_ports(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 542,
  Endline: 549,
  Funcname: ct4_cilium_dbg_tuple,
@@ -874,7 +874,7 @@ static __always_inline void ct4_cilium_dbg_tuple(struct __ctx_buff *ctx, __u8 ty
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 551,
  Endline: 606,
  Funcname: ct_extract_ports4,
@@ -956,7 +956,7 @@ ct_extract_ports4(struct __ctx_buff *ctx, int off, enum ct_dir dir,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 616,
  Endline: 631,
  Funcname: ct_is_reply4,
@@ -991,7 +991,7 @@ ct_is_reply4(const void *map, struct __ctx_buff *ctx, int off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 634,
  Endline: 757,
  Funcname: ct_lookup4,
@@ -1133,7 +1133,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 759,
  Endline: 770,
  Funcname: ct_update6_backend_id,
@@ -1163,7 +1163,7 @@ ct_update6_backend_id(const void *map, const struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 772,
  Endline: 783,
  Funcname: ct_update6_rev_nat_index,
@@ -1193,7 +1193,7 @@ ct_update6_rev_nat_index(const void *map, const struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 785,
  Endline: 796,
  Funcname: ct_update6_dsr,
@@ -1224,15 +1224,15 @@ ct_update6_dsr(const void *map, const struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 799,
  Endline: 865,
  Funcname: ct_create6,
  Input: (const void *map_main, const void *map_related, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx, const int dir, const struct ct_state *ct_state, bool proxy_redirect, bool from_l7lb),
  Output: int,
- Helpers: [send_signal,redirect,map_update_elem,],
+ Helpers: [send_signal,map_update_elem,redirect,],
  Read_maps: [],
- Update_maps: [ map_related, map_main,],
+ Update_maps: [ map_main, map_related,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -1309,7 +1309,7 @@ static __always_inline int ct_create6(const void *map_main, const void *map_rela
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 867,
  Endline: 878,
  Funcname: ct_update4_backend_id,
@@ -1339,7 +1339,7 @@ static __always_inline void ct_update4_backend_id(const void *map,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 880,
  Endline: 891,
  Funcname: ct_update4_rev_nat_index,
@@ -1369,7 +1369,7 @@ ct_update4_rev_nat_index(const void *map, const struct ipv4_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 893,
  Endline: 904,
  Funcname: ct_update4_dsr,
@@ -1399,15 +1399,15 @@ ct_update4_dsr(const void *map, const struct ipv4_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 906,
  Endline: 1006,
  Funcname: ct_create4,
  Input: (const void *map_main, const void *map_related, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx, const int dir, const struct ct_state *ct_state, bool proxy_redirect, bool from_l7lb),
  Output: int,
- Helpers: [send_signal,redirect,map_update_elem,],
+ Helpers: [send_signal,map_update_elem,redirect,],
  Read_maps: [],
- Update_maps: [ map_related, map_main,],
+ Update_maps: [ map_main, map_related,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -1527,7 +1527,7 @@ static __always_inline int ct_create4(const void *map_main,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 1017,
  Endline: 1032,
  Funcname: ct_has_nodeport_egress_entry4,
@@ -1561,7 +1561,7 @@ ct_has_nodeport_egress_entry4(const void *map,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 1034,
  Endline: 1049,
  Funcname: ct_has_nodeport_egress_entry6,
@@ -1595,7 +1595,7 @@ ct_has_nodeport_egress_entry6(const void *map,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h,
  Startline: 1051,
  Endline: 1061,
  Funcname: ct_update_nodeport,

@@ -40,7 +40,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack_map.h,
  Startline: 40,
  Endline: 47,
  Funcname: *get_ct_map6,
@@ -90,7 +90,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack_map.h,
  Startline: 73,
  Endline: 80,
  Funcname: *get_ct_map4,

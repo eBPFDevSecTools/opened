@@ -89,14 +89,14 @@ SEC("tc")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c,
+ File: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c,
  Startline: 89,
  Endline: 157,
  Funcname: healthcheck_encap,
  Input: (struct  __sk_buff *skb),
  Output: int,
- Helpers: [bpf_redirect,bpf_map_lookup_elem,bpf_skb_set_tunnel_key,],
- Read_maps: [  hc_stats_map, hc_reals_map, hc_ctrl_map,],
+ Helpers: [bpf_skb_set_tunnel_key,bpf_map_lookup_elem,bpf_redirect,],
+ Read_maps: [  hc_stats_map, hc_ctrl_map, hc_reals_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

@@ -13,7 +13,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/verifier.h,
  Startline: 13,
  Endline: 18,
  Funcname: relax_verifier,

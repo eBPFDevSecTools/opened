@@ -22,7 +22,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
  Startline: 22,
  Endline: 63,
  Funcname: ctx_redirect_to_proxy_hairpin,
@@ -83,7 +83,7 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
  Startline: 66,
  Endline: 70,
  Funcname: ctx_redirect_to_proxy_hairpin_ipv4,
@@ -108,7 +108,7 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
  Startline: 74,
  Endline: 78,
  Funcname: ctx_redirect_to_proxy_hairpin_ipv6,

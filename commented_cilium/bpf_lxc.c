@@ -157,7 +157,7 @@ int NAME(struct __ctx_buff *ctx)						\
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 157,
  Endline: 162,
  Funcname: redirect_to_proxy,
@@ -191,7 +191,7 @@ redirect_to_proxy(int verdict, enum ct_status status)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 174,
  Endline: 189,
  Funcname: encode_custom_prog_meta,
@@ -248,13 +248,13 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 214,
  Endline: 581,
  Funcname: handle_ipv6_from_lxc,
  Input: (struct  __ctx_buff *ctx, __u32 *dst_id),
  Output: int,
- Helpers: [map_lookup_elem,redirect,tail_call,],
+ Helpers: [tail_call,redirect,map_lookup_elem,],
  Read_maps: [  CT_TAIL_CALL_BUFFER6,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -635,7 +635,7 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 584,
  Endline: 603,
  Funcname: tail_handle_ipv6_cont,
@@ -677,7 +677,7 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 609,
  Endline: 694,
  Funcname: __tail_handle_ipv6,
@@ -782,7 +782,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_LXC)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 697,
  Endline: 705,
  Funcname: tail_handle_ipv6,
@@ -830,13 +830,13 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 728,
  Endline: 1157,
  Funcname: handle_ipv4_from_lxc,
  Input: (struct  __ctx_buff *ctx, __u32 *dst_id),
  Output: int,
- Helpers: [map_lookup_elem,redirect,tail_call,],
+ Helpers: [tail_call,redirect,map_lookup_elem,],
  Read_maps: [  CT_TAIL_CALL_BUFFER4,  VTEP_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1279,7 +1279,7 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1160,
  Endline: 1179,
  Funcname: tail_handle_ipv4_cont,
@@ -1321,7 +1321,7 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1185,
  Endline: 1256,
  Funcname: __tail_handle_ipv4,
@@ -1412,7 +1412,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_LXC)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1259,
  Endline: 1267,
  Funcname: tail_handle_ipv4,
@@ -1445,7 +1445,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1275,
  Endline: 1300,
  Funcname: tail_handle_arp,
@@ -1495,7 +1495,7 @@ __section("from-container")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1308,
  Endline: 1358,
  Funcname: handle_xgress,
@@ -1565,13 +1565,13 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1361,
  Endline: 1536,
  Funcname: ipv6_policy,
  Input: (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv6_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused),
  Output: int,
- Helpers: [map_lookup_elem,redirect,],
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [  CT_TAIL_CALL_BUFFER6,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1761,13 +1761,13 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1540,
  Endline: 1581,
  Funcname: tail_ipv6_policy,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [redirect,tail_call,],
+ Helpers: [tail_call,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1822,13 +1822,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1584,
  Endline: 1659,
  Funcname: tail_ipv6_to_endpoint,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [redirect,tail_call,],
+ Helpers: [tail_call,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1926,13 +1926,13 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1671,
  Endline: 1879,
  Funcname: ipv4_policy,
  Input: (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv4_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused),
  Output: int,
- Helpers: [map_lookup_elem,redirect,],
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [  CT_TAIL_CALL_BUFFER4,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -2155,13 +2155,13 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1883,
  Endline: 1924,
  Funcname: tail_ipv4_policy,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [redirect,tail_call,],
+ Helpers: [tail_call,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -2216,13 +2216,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 1927,
  Endline: 2001,
  Funcname: tail_ipv4_to_endpoint,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [redirect,tail_call,],
+ Helpers: [tail_call,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -2330,7 +2330,7 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 2024,
  Endline: 2061,
  Funcname: handle_policy,
@@ -2395,7 +2395,7 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 2072,
  Endline: 2113,
  Funcname: handle_policy_egress,
@@ -2460,7 +2460,7 @@ __section("to-container")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_lxc.c,
  Startline: 2120,
  Endline: 2195,
  Funcname: handle_to_container,

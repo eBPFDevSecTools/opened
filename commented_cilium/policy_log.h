@@ -39,7 +39,7 @@ struct policy_verdict_notify {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h,
  Startline: 39,
  Endline: 47,
  Funcname: policy_verdict_filter_allow,
@@ -66,7 +66,7 @@ static __always_inline bool policy_verdict_filter_allow(__u32 filter, __u8 dir)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h,
  Startline: 49,
  Endline: 77,
  Funcname: send_policy_verdict_notify,
@@ -113,7 +113,7 @@ send_policy_verdict_notify(struct __ctx_buff *ctx, __u32 remote_label, __u16 dst
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h,
  Startline: 79,
  Endline: 86,
  Funcname: send_policy_verdict_notify,

@@ -30,7 +30,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/xdp_root.c,
+ File: /home/palani/github/opened_extraction/examples/katran/xdp_root.c,
  Startline: 30,
  Endline: 37,
  Funcname: xdp_root,
@@ -57,7 +57,7 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/xdp_root.c,
+ File: /home/palani/github/opened_extraction/examples/katran/xdp_root.c,
  Startline: 40,
  Endline: 47,
  Funcname: xdp_val,

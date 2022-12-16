@@ -29,52 +29,6 @@ def run_cmd(cmd):
         print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
         exit(1)
     return output
-
-#does structStr contain map name that is of interest
-def doesStructContainMap(str):
-    for key in maps:
-        print("Checking if MOI: "+key)
-        #isMap = re.match(key,str)
-        if key in str.split():
-            print("MOI: map_name:  "+key+" struct: "+str)
-            return (True,key)
-        
-    return (False,None)
-
-
-# parses output from c-extract-struct.txl
-def parseTXLStructOutputFile(fileName):
-
-    iFile = open(fileName,'r')
-    lineCt = 1
-    inside = False;
-    structStr = ""
-    for line in iFile.readlines():
-        #print(line)
-        begin=re.match(r"<struct>",line)
-        end = re.match(r"</struct>",line)
-        
-        if begin:
-            startLine = lineCt + 1
-            inside = True;
-        elif end:
-            endLine = lineCt - 1
-            key = fileName+":"+str(startLine)+":"+str(endLine);
-            inside = False;
-            (isMap,mapName) = doesStructContainMap(structStr)
-            if isMap == True:
-                head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
-                structStr=head+structStr
-                opMaps[mapName].add(structStr)
-                map_def = fileName +":"+str(startLine)+":"+str(endLine)
-                map_file_def_dict[mapName].add(map_def)
-        
-            structStr= ""
-        elif inside == True:
-            structStr = structStr + line
-        lineCt = lineCt + 1;
-    iFile.close()
-    
     
 def get_src_file(line):
     line = line.replace('[','')
@@ -165,10 +119,6 @@ if __name__ == "__main__":
             help='sqlite3 database with cqmakedb info')
     my_parser.add_argument('-g','--function_call_graph_path',action='store',required=False,
             help='directory to put function and map dependency call graph file. Output of phase I')
-    my_parser.add_argument('-t','--txl_function_list',action='store',required=True,
-            help='JSON with information regarding functions present. output of foundation_maker.py')
-    my_parser.add_argument('-s','--txl_struct_list',action='store',required=True,
-            help='JSON with information regarding structures present. output of foundation_maker.py')
     my_parser.add_argument('-r','--repo_name',action='store',required=False,
             help='Project repository name')
 
@@ -187,28 +137,9 @@ if __name__ == "__main__":
         print("Cannot write fcg to: "+opf_file_path+" Exiting...")
         exit(1)
 
-
     db_file = args.db_file_name 
-
-    txl_func_list = args.txl_function_list
-    if (os.access(txl_func_list, os.R_OK) is not True):
-        print("Cannot read txl_function_list: "+txl_func_list+" Exiting...")
-        exit(1)
-
-    txl_struct_list = args.txl_struct_list
-    if (os.access(txl_struct_list, os.R_OK) is not True):
-        print("Cannot read txl_struct_list: "+txl_struct_list+" Exiting...")
-        exit(1)
-
-    with open(txl_func_list, "r") as outfile:
-        txl_dict_func = json.load(outfile)
-    outfile.close()
-    with open(txl_struct_list, "r") as outfile:
-        txl_dict_struct = json.load(outfile)
-    outfile.close()
-    
+   
     opMaps=defaultdict(set)
-    map_file_def_dict=defaultdict(set)
     maps = {}
     dup_map_dict = defaultdict(list)
     extracted_files = []
@@ -224,33 +155,4 @@ if __name__ == "__main__":
     ifile = open(opf_name,'r')
     parseFunctionList(ifile)
     ifile.close()
-
-    #Parse TXL annotated files
-    for fName in txl_dict_struct.values():
-        #print("annotatedFile: ",fName)
-        parseTXLStructOutputFile(fName)
-
-    #get duplicate map definitions
-    for map_name in map_file_def_dict:
-        if len(map_file_def_dict[map_name]) > 1:
-            for map_def in map_file_def_dict[map_name]: 
-                dup_map_dict[map_name].append(map_def)
-
-    # Write duplicate map definitions to func.out
-    out = open(opf_name,'a')
-    out.write("#DUPLICATE MAP DEFNS\n{#map_name,file_locations\n")
-
-    for map_name in dup_map_dict:
-        line = map_name +","+ str(len(dup_map_dict[map_name]))
-        for header  in dup_map_dict[map_name]:
-            tokens = header.split(":")
-            fname = tokens[0]
-            startLine = tokens[1]
-            line = line + ",["+fname+","+startLine+"]"
-        out.write(line)
-        out.write("\n")
-        
-
-    out.write("}\n")
-    out.close()
     print("Function graphs and map dependencies in: "+opf_name)

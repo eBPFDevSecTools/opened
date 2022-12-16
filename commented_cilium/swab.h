@@ -46,7 +46,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 46,
  Endline: 55,
  Funcname: __fswab16,
@@ -74,7 +74,7 @@ static __inline__  __u16 __fswab16(__u16 val)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 57,
  Endline: 66,
  Funcname: __fswab32,
@@ -102,7 +102,7 @@ static __inline__  __u32 __fswab32(__u32 val)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 68,
  Endline: 81,
  Funcname: __fswab64,
@@ -134,7 +134,7 @@ static __inline__  __u64 __fswab64(__u64 val)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 83,
  Endline: 90,
  Funcname: __fswahw32,
@@ -160,7 +160,7 @@ static __inline__  __u32 __fswahw32(__u32 val)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 92,
  Endline: 99,
  Funcname: __fswahb32,
@@ -239,7 +239,7 @@ static __inline__  __u32 __fswahb32(__u32 val)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 154,
  Endline: 161,
  Funcname: __swab16p,
@@ -269,7 +269,7 @@ static __inline__ __u16 __swab16p(const __u16 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 167,
  Endline: 174,
  Funcname: __swab32p,
@@ -299,7 +299,7 @@ static __inline__ __u32 __swab32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 180,
  Endline: 187,
  Funcname: __swab64p,
@@ -331,7 +331,7 @@ static __inline__ __u64 __swab64p(const __u64 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 195,
  Endline: 202,
  Funcname: __swahw32p,
@@ -363,7 +363,7 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 210,
  Endline: 217,
  Funcname: __swahb32p,
@@ -393,7 +393,7 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 223,
  Endline: 230,
  Funcname: __swab16s,
@@ -422,7 +422,7 @@ static __inline__ void __swab16s(__u16 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 235,
  Endline: 242,
  Funcname: __swab32s,
@@ -452,7 +452,7 @@ static __inline__ void __swab32s(__u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 248,
  Endline: 255,
  Funcname: __swab64s,
@@ -484,7 +484,7 @@ static __inline__ void __swab64s(__u64 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 263,
  Endline: 270,
  Funcname: __swahw32s,
@@ -516,7 +516,7 @@ static __inline__ void __swahw32s(__u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h,
  Startline: 278,
  Endline: 285,
  Funcname: __swahb32s,

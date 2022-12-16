@@ -30,7 +30,7 @@ static const uint64_t kernel_hz[] = { 100, 250, 300, 1000 };
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 30,
  Endline: 38,
  Funcname: pin_to_cpu,
@@ -57,7 +57,7 @@ static int pin_to_cpu(int cpu)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 40,
  Endline: 47,
  Funcname: fix_priority,
@@ -83,7 +83,7 @@ static int fix_priority(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 49,
  Endline: 52,
  Funcname: *timer_list_open,
@@ -105,7 +105,7 @@ static FILE *timer_list_open(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 54,
  Endline: 57,
  Funcname: timer_list_close,
@@ -127,7 +127,7 @@ static void timer_list_close(FILE *fp)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 59,
  Endline: 92,
  Funcname: prep_kern_jiffies,
@@ -179,7 +179,7 @@ static int prep_kern_jiffies(struct cpu_jiffies *before,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 94,
  Endline: 113,
  Funcname: fetch_kern_jiffies,
@@ -217,7 +217,7 @@ static int fetch_kern_jiffies(const struct cpu_jiffies *curr)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 115,
  Endline: 150,
  Funcname: dump_kern_jiffies,
@@ -271,7 +271,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 152,
  Endline: 194,
  Funcname: main,

@@ -7,7 +7,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/jhash.h,
+ File: /home/palani/github/opened_extraction/examples/katran/jhash.h,
  Startline: 7,
  Endline: 9,
  Funcname: rol32,
@@ -72,7 +72,7 @@ typedef unsigned int u32;
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/jhash.h,
+ File: /home/palani/github/opened_extraction/examples/katran/jhash.h,
  Startline: 55,
  Endline: 100,
  Funcname: jhash,
@@ -136,7 +136,7 @@ static inline u32 jhash(const void* key, u32 length, u32 initval) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/jhash.h,
+ File: /home/palani/github/opened_extraction/examples/katran/jhash.h,
  Startline: 102,
  Endline: 108,
  Funcname: __jhash_nwords,
@@ -161,7 +161,7 @@ static inline u32 __jhash_nwords(u32 a, u32 b, u32 c, u32 initval) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/jhash.h,
+ File: /home/palani/github/opened_extraction/examples/katran/jhash.h,
  Startline: 110,
  Endline: 112,
  Funcname: jhash_2words,
@@ -182,7 +182,7 @@ static inline u32 jhash_2words(u32 a, u32 b, u32 initval) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/jhash.h,
+ File: /home/palani/github/opened_extraction/examples/katran/jhash.h,
  Startline: 114,
  Endline: 116,
  Funcname: jhash_1word,

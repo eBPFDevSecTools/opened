@@ -15,7 +15,7 @@ __section("from-network")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_network.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_network.c,
  Startline: 15,
  Endline: 88,
  Funcname: from_network,

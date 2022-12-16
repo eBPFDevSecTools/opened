@@ -43,7 +43,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 43,
  Endline: 49,
  Funcname: icmp6_load_type,
@@ -68,13 +68,13 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 51,
  Endline: 90,
  Funcname: icmp6_send_reply,
  Input: (struct  __ctx_buff *ctx, int nh_off),
  Output: int,
- Helpers: [redirect,l4_csum_replace,csum_diff,],
+ Helpers: [l4_csum_replace,redirect,csum_diff,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -126,7 +126,7 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 92,
  Endline: 125,
  Funcname: __icmp6_send_echo_reply,
@@ -180,7 +180,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 129,
  Endline: 139,
  Funcname: tail_icmp6_send_echo_reply,
@@ -219,7 +219,7 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 151,
  Endline: 160,
  Funcname: icmp6_send_echo_reply,
@@ -256,7 +256,7 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 171,
  Endline: 232,
  Funcname: send_icmp6_ndisc_adv,
@@ -336,7 +336,7 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 234,
  Endline: 244,
  Funcname: compute_icmp6_csum,
@@ -366,7 +366,7 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 247,
  Endline: 327,
  Funcname: __icmp6_send_time_exceeded,
@@ -468,7 +468,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 332,
  Endline: 347,
  Funcname: tail_icmp6_send_time_exceeded,
@@ -512,7 +512,7 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 359,
  Endline: 368,
  Funcname: icmp6_send_time_exceeded,
@@ -540,7 +540,7 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 370,
  Endline: 398,
  Funcname: __icmp6_handle_ns,
@@ -589,7 +589,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 402,
  Endline: 412,
  Funcname: tail_icmp6_handle_ns,
@@ -629,7 +629,7 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 425,
  Endline: 434,
  Funcname: icmp6_handle_ns,
@@ -657,7 +657,7 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 436,
  Endline: 458,
  Funcname: icmp6_handle,
@@ -698,7 +698,7 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h,
  Startline: 460,
  Endline: 531,
  Funcname: icmp6_host_handle,

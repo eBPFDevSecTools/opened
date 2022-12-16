@@ -12,7 +12,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 12,
  Endline: 21,
  Funcname: *__lookup_ip6_endpoint,
@@ -40,7 +40,7 @@ __lookup_ip6_endpoint(const union v6addr *ip6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 23,
  Endline: 27,
  Funcname: *lookup_ip6_endpoint,
@@ -63,7 +63,7 @@ lookup_ip6_endpoint(const struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 29,
  Endline: 38,
  Funcname: *__lookup_ip4_endpoint,
@@ -91,7 +91,7 @@ __lookup_ip4_endpoint(__u32 ip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 40,
  Endline: 44,
  Funcname: *lookup_ip4_endpoint,
@@ -115,7 +115,7 @@ lookup_ip4_endpoint(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 47,
  Endline: 56,
  Funcname: *lookup_ip4_endpoint_policy_map,
@@ -152,7 +152,7 @@ lookup_ip4_endpoint_policy_map(__u32 ip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 67,
  Endline: 78,
  Funcname: *ipcache_lookup6,
@@ -184,7 +184,7 @@ ipcache_lookup6(const void *map, const union v6addr *addr,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 82,
  Endline: 92,
  Funcname: *ipcache_lookup4,

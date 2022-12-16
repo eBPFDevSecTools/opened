@@ -183,7 +183,7 @@ struct debug_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 183,
  Endline: 194,
  Funcname: cilium_dbg,
@@ -213,7 +213,7 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 196,
  Endline: 208,
  Funcname: cilium_dbg3,
@@ -250,7 +250,7 @@ struct debug_capture_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 216,
  Endline: 231,
  Funcname: cilium_dbg_capture2,
@@ -284,7 +284,7 @@ static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 typ
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 233,
  Endline: 237,
  Funcname: cilium_dbg_capture,
@@ -310,7 +310,7 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 242,
  Endline: 246,
  Funcname: cilium_dbg,
@@ -333,7 +333,7 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 248,
  Endline: 253,
  Funcname: cilium_dbg3,
@@ -357,7 +357,7 @@ void cilium_dbg3(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 255,
  Endline: 259,
  Funcname: cilium_dbg_capture,
@@ -380,7 +380,7 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 261,
  Endline: 266,
  Funcname: cilium_dbg_capture2,

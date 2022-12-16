@@ -46,7 +46,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 46,
  Endline: 180,
  Funcname: handle_ipv6,
@@ -200,7 +200,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 183,
  Endline: 192,
  Funcname: tail_handle_ipv6,
@@ -230,13 +230,13 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 196,
  Endline: 333,
  Funcname: handle_ipv4,
  Input: (struct  __ctx_buff *ctx, __u32 *identity),
  Output: int,
- Helpers: [map_lookup_elem,redirect,],
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [  VTEP_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -387,7 +387,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 336,
  Endline: 345,
  Funcname: tail_handle_ipv4,
@@ -421,13 +421,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 353,
  Endline: 395,
  Funcname: tail_handle_arp,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [map_lookup_elem,redirect,],
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [  VTEP_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -486,7 +486,7 @@ pass_to_stack:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 401,
  Endline: 428,
  Funcname: is_esp,
@@ -537,7 +537,7 @@ __section("from-overlay")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 435,
  Endline: 527,
  Funcname: from_overlay,
@@ -652,7 +652,7 @@ __section("to-overlay")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c,
  Startline: 533,
  Endline: 568,
  Funcname: to_overlay,

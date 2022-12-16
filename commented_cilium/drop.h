@@ -52,7 +52,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/drop.h,
  Startline: 52,
  Endline: 80,
  Funcname: __send_drop_notify,
@@ -112,7 +112,7 @@ int __send_drop_notify(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/drop.h,
  Startline: 95,
  Endline: 116,
  Funcname: _send_drop_notify,
@@ -152,7 +152,7 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/drop.h,
  Startline: 118,
  Endline: 126,
  Funcname: _send_drop_notify,

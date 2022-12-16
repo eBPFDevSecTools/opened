@@ -76,10 +76,55 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
     run_cmd("ctags --fields=+i -n -L "+cscope_files)
     run_cmd("cqmakedb -s "+ db_name+ " -c "+cscope_out+" -t "+tags_folder+" -p")
 
-def create_txl_annotation(cscope_file, opdir):
+# parses output from c-extract-function.txl
+def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
+    iFile = open(inputFile,'r')
+    lineCt = 1
+    srcSeen=False
+    lines = []
+    srcFile=""
+    for line in iFile.readlines():
+        ending = re.match(r"</source",line)
+        if ending:
+            srcSeen = False;
+            #dump to file
+            #print(lines)
+            lines = []
+            continue;
+        if srcSeen:
+            lines.append(line)
+            continue;
+        starting = re.match(r"<source",line)
+        if starting:
+            #print("Starting",line)
+            srcSeen = True
+            line = line.replace("funcheader","")
+            line = line.replace("startline","")
+            line = line.replace("endline","")
+            line = line.replace(">","")
+            line = line.replace("\n","")
+            line = line.replace("\"","")
+            tokens = line.split('=')
+            ##print("len",len(tokens),"tokens",tokens)
+            srcFile = tokens[-4]
+            srcFile = srcFile.replace(" ","")
+
+            funcName = tokens[-3].replace(" (","(")
+            ##print(funcName)
+            funcName = funcName.split('(')[-2].split(" ")[-1]
+            startLine = int(tokens[-2])
+            endLine = int(tokens[-1])
+            key=funcName
+            value=srcFile+":"+funcName+":"+str(startLine)+":"+str(endLine)
+            if key in func_file_def_dict:
+                func_file_def_dict[key]+=","+value
+            else:
+                func_file_def_dict[key]=value
+    return func_file_def_dict
+
+def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict):
     print("Read cscope files and generate function annotation ...")
-    txl_dict_func = {}
-    txl_dict_struct = {}
+    txl_dict_func_file = {}
     code_f = open(cscope_file,'r')
     for line in code_f.readlines():
         line = line.strip()
@@ -97,9 +142,10 @@ def create_txl_annotation(cscope_file, opdir):
         print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
         op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
-        txl_dict_func[full_line] = opfile_function_annotate
-        txl_dict_struct[full_line] = opfile_struct_annotate
-    return txl_dict_func,txl_dict_struct
+        func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict)
+        map_file_def_dict = parseTXLStructOutputFile(opfile_struct_annotate, map_file_def_dict)
+        txl_dict_func_file[full_line] = opfile_function_annotate
+    return func_file_def_dict, txl_dict_func_file, map_file_def_dict
 
 def create_cqmakedb(db_file, cscope_file, tags_folder):
     run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
@@ -122,17 +168,37 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
     return
 
 
-def is_dup_map_in_extracted_files(dup_map_dict,extracted_files):
-    op_map = defaultdict(list)
-    for dup_map in dup_map_dict:
-        def_files = dup_map_dict[dup_map]
-        print(def_files)
-        for dfile in def_files:
-            if ".c" in dfile and dfile in extracted_files:
-                print("Dup Struct" + dup_map+ " Defined in: "+dfile)
-                op_map[dup_map].append(dfile)
-    return op_map
-                
+
+# parses output from c-extract-struct.txl
+def parseTXLStructOutputFile(fileName, map_file_def_dict):
+
+    iFile = open(fileName,'r')
+    lineCt = 1
+    inside = False;
+    structStr = ""
+    for line in iFile.readlines():
+        #print(line)
+        begin=re.match(r"<struct>",line)
+        end = re.match(r"</struct>",line)
+        
+        if begin:
+            startLine = lineCt + 1
+            inside = True;
+        elif end:
+            endLine = lineCt - 1
+            key = fileName+":"+str(startLine)+":"+str(endLine);
+            inside = False;
+            head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
+            map_def = fileName +":"+str(startLine)+":"+str(endLine)
+            map_file_def_dict[structStr].add(map_def)
+            structStr=head+structStr
+            structStr= ""
+        elif inside == True:
+            structStr = structStr + line
+        lineCt = lineCt + 1;
+    iFile.close()
+    return map_file_def_dict
+    
 
 if __name__ == "__main__":
 
@@ -217,7 +283,9 @@ if __name__ == "__main__":
     intermediate_f_list.append(tags_folder)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
-    txl_dict_func,txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir)
+    txl_dict_struct = defaultdict(set)
+    txl_dict_func = defaultdict(set)
+    txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct)
     if (cmt_op_dir is not None):
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
@@ -225,7 +293,7 @@ if __name__ == "__main__":
             if(isCilium == True):
                 print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
                 bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
-        create_code_comments(txl_dict_func, bpf_helper_file, cmt_op_dir, isCilium)
+        create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium)
     else:
         print("no comment file found!")
     # run code query to generate annotated function call graph
@@ -234,12 +302,26 @@ if __name__ == "__main__":
         #clean up
         clean_intermediate_files(intermediate_f_list)
         exit(0)
-    
+ 
+    json_txl_func_dict = {}
+    for key in txl_dict_func.keys():
+        txt=""
+        for val in txl_dict_func[key]:
+            txt = txt + val + ","
+        json_txl_func_dict[key] = txt
+           
     with open(txl_func_list, "w") as outfile:
-        json.dump(txl_dict_func, outfile)
+        json.dump(json_txl_func_dict, outfile)
     outfile.close()
+    json_txl_struct_dict = {}
+    for key in txl_dict_struct.keys():
+        txt=""
+        for val in txl_dict_struct[key]:
+            txt = txt + val + ","
+        json_txl_struct_dict[key] = txt
+        
     with open(txl_struct_list, "w") as outfile:
-        json.dump(txl_dict_struct, outfile)
+        json.dump(json_txl_struct_dict, outfile)
     outfile.close()
     
     #clean up

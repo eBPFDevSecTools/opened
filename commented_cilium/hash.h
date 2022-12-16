@@ -13,7 +13,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/hash.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/hash.h,
  Startline: 13,
  Endline: 18,
  Funcname: hash_from_tuple_v4,
@@ -37,7 +37,7 @@ static __always_inline __u32 hash_from_tuple_v4(const struct ipv4_ct_tuple *tupl
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/hash.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/hash.h,
  Startline: 20,
  Endline: 35,
  Funcname: hash_from_tuple_v6,

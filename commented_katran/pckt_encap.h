@@ -41,7 +41,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 41,
  Endline: 91,
  Funcname: encap_v6,
@@ -110,7 +110,7 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 93,
  Endline: 133,
  Funcname: encap_v4,
@@ -171,7 +171,7 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 137,
  Endline: 156,
  Funcname: decap_v6,
@@ -209,7 +209,7 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 158,
  Endline: 173,
  Funcname: decap_v4,
@@ -245,7 +245,7 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 177,
  Endline: 249,
  Funcname: gue_csum,
@@ -336,7 +336,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 251,
  Endline: 307,
  Funcname: gue_encap_v4,
@@ -411,7 +411,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 309,
  Endline: 367,
  Funcname: gue_encap_v6,
@@ -491,7 +491,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 372,
  Endline: 389,
  Funcname: gue_decap_v4,
@@ -527,7 +527,7 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
+ File: /home/palani/github/opened_extraction/examples/katran/pckt_encap.h,
  Startline: 391,
  Endline: 412,
  Funcname: gue_decap_v6,

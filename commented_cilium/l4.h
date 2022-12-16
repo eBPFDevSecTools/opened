@@ -36,7 +36,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l4.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l4.h,
  Startline: 36,
  Endline: 47,
  Funcname: l4_modify_port,
@@ -66,7 +66,7 @@ static __always_inline int l4_modify_port(struct __ctx_buff *ctx, int l4_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l4.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l4.h,
  Startline: 49,
  Endline: 53,
  Funcname: l4_load_port,
