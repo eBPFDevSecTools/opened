@@ -464,8 +464,11 @@ if __name__ == "__main__":
     parser.add_argument('-e','--extractedFileName', type=str,required=True,
                     help='Output file with extracted function')
 
-    parser.add_argument('-t','--txlDir', type=str,required=True,
-                    help='Directory contaning TXL annotated files with function and map listings')
+    parser.add_argument('-t','--struct_info', type=str,required=True,
+                    help='json file containing struct definitions in the repo')
+
+    parser.add_argument('-f','--func_info', type=str,required=True,
+                    help='json file containing function definitions in the repo')
 
     parser.add_argument('-s','--srcdir', type=str,required=True,
                     help='Directory containing source files for function  to be extraced from')
@@ -479,7 +482,7 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
 
-    #print("Args",args)
+    print("Args",args)
     isCilium=False
     if(args.isCilium is True):
         isCilium = True
@@ -489,7 +492,8 @@ if __name__ == "__main__":
     codequeryOutputFile=args.codequeryOutputFile
     extractedFileName = opdir+"/"+args.extractedFileName
 
-    TXLDir =args.txlDir
+    struct_info =args.struct_info
+    func_info =args.funcinfo
     srcdir = args.srcdir
     basedir=args.basedir
 
@@ -497,7 +501,7 @@ if __name__ == "__main__":
     dupFileName=opdir+"/"+"duplicates.out"
     extractedFunctionListFile="extractedFuncList.out"
     missedFunctionListFile="missedFuncList.out"
-    
+    exit(1)
     
     #dict containing function definitions
     #fns = {}
