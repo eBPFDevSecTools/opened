@@ -38,7 +38,8 @@ Code extraction consists of two phases 1) Generating annotated function call gra
  1. Run the docker. ``docker run -it --privileged --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
 
 2. Run annotator phase1, 
-``python3 src/annotator.py
+```
+python3 src/annotator.py
 usage: annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE]
                     [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] [--isCilium]
 
@@ -59,11 +60,11 @@ optional arguments:
                         JSON with information regarding structures present. output of foundation_maker.py
   --isCilium            whether repository is cilium
 
-``
-NOTE: **example is iven in run1.sh**
+```
+NOTE: **example is given in run1.sh**
  
- 3. Run actual function extraction phase , 
-``
+3. Run annotated function call graph extraction phase, 
+```
 python3 src/extraction_runner.py -h
 usage: extraction_runner.py [-h] [-annotate_only ANNOTATE_ONLY] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] [-r REPO_NAME]
 
@@ -79,15 +80,38 @@ optional arguments:
   -r REPO_NAME, --repo_name REPO_NAME
                         Project repository name
 
-``
+```
 NOTE:  **example is given in run2.sh**.
 ### Phase II
 1. Open the func.out file and remove the duplicate function and struct definitions. A cleaned **func.out.cleaned is shown in asset folder**. This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.
 
 ### Phase III: Extracting Required Code
-2. ``python3 function-extractor.py -o/--opdir, -c/--codequeryOutputFile, -e/--extractedFileName,  -t/--txlDir, -s/--srcdir,`` an **example is given in run3.sh**. The usage of the command is as follows: ``function-extractor.py [-h] -o OPDIR -c CODEQUERYOUTPUTFILE -e EXTRACTEDFILENAME -t TXLDIR -s SRCDIR -b BASEDIR``
+2. Run the function extractor to extract and dump required functions and map definitions.
 
+```
+python3 src/function-extractor.py -h
+usage: function-extractor.py [-h] -o OPDIR -c CODEQUERYOUTPUTFILE -e EXTRACTEDFILENAME -t STRUCT_INFO -f FUNC_INFO -s SRCDIR -b BASEDIR [--isCilium]
 
+Function Extractor
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OPDIR, --opdir OPDIR
+                        directory to dump extracted files to
+  -c CODEQUERYOUTPUTFILE, --codequeryOutputFile CODEQUERYOUTPUTFILE
+                        Function and Map dependency output from codequery
+  -e EXTRACTEDFILENAME, --extractedFileName EXTRACTEDFILENAME
+                        Output file with extracted function
+  -t STRUCT_INFO, --struct_info STRUCT_INFO
+                        json file containing struct definitions in the repo
+  -f FUNC_INFO, --func_info FUNC_INFO
+                        json file containing function definitions in the repo
+  -s SRCDIR, --srcdir SRCDIR
+                        Directory containing source files for function to be extraced from
+  -b BASEDIR, --basedir BASEDIR
+                        Base Directory path relative to which directory structure in opdir will be created
+  --isCilium            whether repository is cilium
+```
 Note that extracted.c may contain duplicate eBPF Map defintions within and ```ATTENTION``` section. We expect the developer to choose the right map definition and delete the offending defintion.
 
 
