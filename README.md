@@ -38,8 +38,10 @@ Code extraction consists of two phases 1) Generating annotated function call gra
  1. Run the docker. ``docker run -it --privileged --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
 
 2. Run annotator phase1, 
-``usage: annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE]
-                    [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] -q ISCILIUM
+``python3 src/annotator.py
+usage: annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE]
+                    [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] [--isCilium]
+
 optional arguments:
   -h, --help            show this help message and exit
   -annotate_only ANNOTATE_ONLY
@@ -55,15 +57,29 @@ optional arguments:
                         JSON with information regarding functions present. output of foundation_maker.py
   -u TXL_STRUCT_LIST, --txl_struct_list TXL_STRUCT_LIST
                         JSON with information regarding structures present. output of foundation_maker.py
-  -q ISCILIUM, --isCilium ISCILIUM
-                        whether repository is cilium
+  --isCilium            whether repository is cilium
+
 ``
 NOTE: **example is iven in run1.sh**
  
  3. Run actual function extraction phase , 
-``python3 extraction_runner.py``
-`` usage: extraction_runner.py [-h] [-annotate_only ANNOTATE_ONLY] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] -t TXL_FUNCTION_LIST -s
-       TXL_STRUCT_LIST [-r REPO_NAME]``
+``
+python3 src/extraction_runner.py -h
+usage: extraction_runner.py [-h] [-annotate_only ANNOTATE_ONLY] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] [-r REPO_NAME]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -annotate_only ANNOTATE_ONLY
+  -f FUNCTION_NAME, --function_name FUNCTION_NAME
+                        function name to be extracted
+  -d DB_FILE_NAME, --db_file_name DB_FILE_NAME
+                        sqlite3 database with cqmakedb info
+  -g FUNCTION_CALL_GRAPH_PATH, --function_call_graph_path FUNCTION_CALL_GRAPH_PATH
+                        directory to put function and map dependency call graph file. Output of phase I
+  -r REPO_NAME, --repo_name REPO_NAME
+                        Project repository name
+
+``
 NOTE:  **example is given in run2.sh**.
 ### Phase II
 1. Open the func.out file and remove the duplicate function and struct definitions. A cleaned **func.out.cleaned is shown in asset folder**. This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.

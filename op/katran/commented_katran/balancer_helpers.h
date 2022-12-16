@@ -46,7 +46,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
+ File: /root/examples/katran/balancer_helpers.h,
  Startline: 46,
  Endline: 70,
  Funcname: submit_event,
@@ -91,7 +91,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
+ File: /root/examples/katran/balancer_helpers.h,
  Startline: 74,
  Endline: 80,
  Funcname: recirculate,
@@ -117,7 +117,7 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
+ File: /root/examples/katran/balancer_helpers.h,
  Startline: 83,
  Endline: 111,
  Funcname: decrement_ttl,

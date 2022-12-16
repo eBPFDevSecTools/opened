@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_addrcmp (const union macaddr *a, const union macaddr *b)" startline="25" endline="35">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_addrcmp (const union macaddr *a, const union macaddr *b)" startline="25" endline="35">
 static __always_inline int eth_addrcmp (const union macaddr *a, const union macaddr *b)
 {
     int tmp;
@@ -10,7 +10,7 @@ static __always_inline int eth_addrcmp (const union macaddr *a, const union maca
     return tmp;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_is_bcast (const union macaddr *a)" startline="37" endline="48">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_is_bcast (const union macaddr *a)" startline="37" endline="48">
 static __always_inline int eth_is_bcast (const union macaddr *a)
 {
     union macaddr bcast;
@@ -22,19 +22,19 @@ static __always_inline int eth_is_bcast (const union macaddr *a)
         return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_load_saddr (struct  __ctx_buff *ctx, __u8 *mac, int off)" startline="50" endline="54">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_load_saddr (struct  __ctx_buff *ctx, __u8 *mac, int off)" startline="50" endline="54">
 static __always_inline int eth_load_saddr (struct  __ctx_buff *ctx, __u8 *mac, int off)
 {
     return ctx_load_bytes (ctx, off + ETH_ALEN, mac, ETH_ALEN);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_saddr_aligned (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="56" endline="60">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_saddr_aligned (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="56" endline="60">
 static __always_inline int eth_store_saddr_aligned (struct  __ctx_buff *ctx, const __u8 *mac, int off)
 {
     return ctx_store_bytes (ctx, off + ETH_ALEN, mac, ETH_ALEN, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_saddr (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="62" endline="79">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_saddr (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="62" endline="79">
 static __always_inline int eth_store_saddr (struct  __ctx_buff *ctx, const __u8 *mac, int off)
 {
 
@@ -52,19 +52,19 @@ static __always_inline int eth_store_saddr (struct  __ctx_buff *ctx, const __u8 
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_load_daddr (struct  __ctx_buff *ctx, __u8 *mac, int off)" startline="81" endline="85">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_load_daddr (struct  __ctx_buff *ctx, __u8 *mac, int off)" startline="81" endline="85">
 static __always_inline int eth_load_daddr (struct  __ctx_buff *ctx, __u8 *mac, int off)
 {
     return ctx_load_bytes (ctx, off, mac, ETH_ALEN);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_daddr_aligned (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="87" endline="91">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_daddr_aligned (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="87" endline="91">
 static __always_inline int eth_store_daddr_aligned (struct  __ctx_buff *ctx, const __u8 *mac, int off)
 {
     return ctx_store_bytes (ctx, off, mac, ETH_ALEN, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_daddr (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="93" endline="110">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_daddr (struct  __ctx_buff *ctx, const __u8 *mac, int off)" startline="93" endline="110">
 static __always_inline int eth_store_daddr (struct  __ctx_buff *ctx, const __u8 *mac, int off)
 {
 
@@ -82,7 +82,7 @@ static __always_inline int eth_store_daddr (struct  __ctx_buff *ctx, const __u8 
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_proto (struct  __ctx_buff *ctx, const __u16 proto, int off)" startline="112" endline="117">
+<source file="/root/examples/cilium/lib/eth.h" funcheader="static __always_inline int eth_store_proto (struct  __ctx_buff *ctx, const __u16 proto, int off)" startline="112" endline="117">
 static __always_inline int eth_store_proto (struct  __ctx_buff *ctx, const __u16 proto, int off)
 {
     return ctx_store_bytes (ctx, off + ETH_ALEN + ETH_ALEN, &proto, sizeof (proto), 0);

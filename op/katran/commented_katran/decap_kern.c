@@ -34,7 +34,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
+ File: /root/examples/katran/decap_kern.c,
  Startline: 34,
  Endline: 83,
  Funcname: process_l3_headers,
@@ -102,7 +102,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
+ File: /root/examples/katran/decap_kern.c,
  Startline: 85,
  Endline: 120,
  Funcname: process_encaped_ipip_pckt,
@@ -157,7 +157,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
+ File: /root/examples/katran/decap_kern.c,
  Startline: 123,
  Endline: 161,
  Funcname: process_encaped_gue_pckt,
@@ -215,7 +215,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
+ File: /root/examples/katran/decap_kern.c,
  Startline: 164,
  Endline: 221,
  Funcname: process_packet,
@@ -292,7 +292,7 @@ SEC("decap")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
+ File: /root/examples/katran/decap_kern.c,
  Startline: 224,
  Endline: 247,
  Funcname: xdpdecap,

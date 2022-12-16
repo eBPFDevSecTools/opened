@@ -18,7 +18,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
+ File: /root/examples/cilium/lib/l3.h,
  Startline: 18,
  Endline: 38,
  Funcname: ipv6_l3,
@@ -58,7 +58,7 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
+ File: /root/examples/cilium/lib/l3.h,
  Startline: 41,
  Endline: 56,
  Funcname: ipv4_l3,
@@ -99,7 +99,7 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
+ File: /root/examples/cilium/lib/l3.h,
  Startline: 65,
  Endline: 106,
  Funcname: ipv6_local_delivery,
@@ -165,7 +165,7 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
+ File: /root/examples/cilium/lib/l3.h,
  Startline: 114,
  Endline: 154,
  Funcname: ipv4_local_delivery,
@@ -225,7 +225,7 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
+ File: /root/examples/cilium/lib/l3.h,
  Startline: 157,
  Endline: 185,
  Funcname: get_min_encrypt_key,

@@ -11,7 +11,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/custom/bytecount.h,
+ File: /root/examples/cilium/custom/bytecount.h,
  Startline: 11,
  Endline: 24,
  Funcname: custom_prog,

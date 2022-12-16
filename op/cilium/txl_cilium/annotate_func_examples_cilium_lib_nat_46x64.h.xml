@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline __maybe_unused bool is_v4_in_v6 (const union v6addr *daddr)" startline="22" endline="35">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline __maybe_unused bool is_v4_in_v6 (const union v6addr *daddr)" startline="22" endline="35">
 static __always_inline __maybe_unused bool is_v4_in_v6 (const union v6addr *daddr)
 {
     union v6addr dprobe = {
@@ -14,7 +14,7 @@ static __always_inline __maybe_unused bool is_v4_in_v6 (const union v6addr *dadd
     return ipv6_addrcmp (&dprobe, &dmasked) == 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline __maybe_unused void build_v4_in_v6 (union v6addr *daddr, __be32 v4)" startline="37" endline="44">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline __maybe_unused void build_v4_in_v6 (union v6addr *daddr, __be32 v4)" startline="37" endline="44">
 static __always_inline __maybe_unused void build_v4_in_v6 (union v6addr *daddr, __be32 v4)
 {
     memset (daddr, 0, sizeof (*daddr));
@@ -23,13 +23,13 @@ static __always_inline __maybe_unused void build_v4_in_v6 (union v6addr *daddr, 
     daddr->p4 = v4;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline __maybe_unused void build_v4_from_v6 (const union v6addr *v6, __be32 *daddr)" startline="46" endline="50">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline __maybe_unused void build_v4_from_v6 (const union v6addr *v6, __be32 *daddr)" startline="46" endline="50">
 static __always_inline __maybe_unused void build_v4_from_v6 (const union v6addr *v6, __be32 *daddr)
 {
     *daddr = v6->p4;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int get_csum_offset (__u8 protocol)" startline="52" endline="74">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int get_csum_offset (__u8 protocol)" startline="52" endline="74">
 static __always_inline int get_csum_offset (__u8 protocol)
 {
     int csum_off;
@@ -52,7 +52,7 @@ static __always_inline int get_csum_offset (__u8 protocol)
     return csum_off;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int icmp4_to_icmp6 (struct  __ctx_buff *ctx, int nh_off)" startline="76" endline="154">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int icmp4_to_icmp6 (struct  __ctx_buff *ctx, int nh_off)" startline="76" endline="154">
 static __always_inline int icmp4_to_icmp6 (struct  __ctx_buff *ctx, int nh_off)
 {
     struct icmphdr icmp4 __align_stack_8;
@@ -131,7 +131,7 @@ static __always_inline int icmp4_to_icmp6 (struct  __ctx_buff *ctx, int nh_off)
     return csum_diff (&icmp4, sizeof (icmp4), &icmp6, sizeof (icmp6), 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int icmp6_to_icmp4 (struct  __ctx_buff *ctx, int nh_off)" startline="156" endline="231">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int icmp6_to_icmp4 (struct  __ctx_buff *ctx, int nh_off)" startline="156" endline="231">
 static __always_inline int icmp6_to_icmp4 (struct  __ctx_buff *ctx, int nh_off)
 {
     struct icmphdr icmp4 __align_stack_8 = {}
@@ -209,7 +209,7 @@ static __always_inline int icmp6_to_icmp4 (struct  __ctx_buff *ctx, int nh_off)
     return csum_diff (&icmp6, sizeof (icmp6), &icmp4, sizeof (icmp4), 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int ipv4_to_ipv6 (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6)" startline="233" endline="288">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int ipv4_to_ipv6 (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6)" startline="233" endline="288">
 static __always_inline int ipv4_to_ipv6 (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6)
 {
     __be16 protocol = bpf_htons (ETH_P_IPV6);
@@ -264,7 +264,7 @@ static __always_inline int ipv4_to_ipv6 (struct  __ctx_buff *ctx, int nh_off, co
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int ipv6_to_ipv4 (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4)" startline="290" endline="345">
+<source file="/root/examples/cilium/lib/nat_46x64.h" funcheader="static __always_inline int ipv6_to_ipv4 (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4)" startline="290" endline="345">
 static __always_inline int ipv6_to_ipv4 (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4)
 {
     __be16 protocol = bpf_htons (ETH_P_IP);

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len)" startline="48" endline="75">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len)" startline="48" endline="75">
 static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len)
 {
     __u64 ctx_len = ctx_full_len (ctx);
@@ -18,19 +18,19 @@ static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 
     ctx_event_output (ctx, &EVENTS_MAP, (cap_len << 32) | BPF_F_CURRENT_CPU, &msg, sizeof (msg));
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void __cilium_capture_in (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)" startline="77" endline="86">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void __cilium_capture_in (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)" startline="77" endline="86">
 static __always_inline void __cilium_capture_in (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)
 {
     cilium_capture (ctx, CAPTURE_INGRESS, rule_id, bpf_ktime_cache_set (boot_ns), cap_len);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void __cilium_capture_out (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)" startline="88" endline="93">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void __cilium_capture_out (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)" startline="88" endline="93">
 static __always_inline void __cilium_capture_out (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)
 {
     cilium_capture (ctx, CAPTURE_EGRESS, rule_id, bpf_ktime_cache_get (), cap_len);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture4_masked_key (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out)" startline="158" endline="170">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture4_masked_key (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out)" startline="158" endline="170">
 static __always_inline void cilium_capture4_masked_key (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out)
 {
     out->daddr = orig->daddr & mask->daddr;
@@ -42,7 +42,7 @@ static __always_inline void cilium_capture4_masked_key (const struct capture4_wc
     out->smask = mask->smask;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture4_classify_wcard (struct  __ctx_buff *ctx)" startline="217" endline="257">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture4_classify_wcard (struct  __ctx_buff *ctx)" startline="217" endline="257">
 static __always_inline struct capture_rule *cilium_capture4_classify_wcard (struct  __ctx_buff *ctx)
 {
     struct capture4_wcard prefix_masks [] = {PREFIX_MASKS4};
@@ -75,7 +75,7 @@ static __always_inline struct capture_rule *cilium_capture4_classify_wcard (stru
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture6_masked_key (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out)" startline="270" endline="284">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture6_masked_key (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out)" startline="270" endline="284">
 static __always_inline void cilium_capture6_masked_key (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out)
 {
     out->daddr.d1 = orig->daddr.d1 & mask->daddr.d1;
@@ -89,7 +89,7 @@ static __always_inline void cilium_capture6_masked_key (const struct capture6_wc
     out->smask = mask->smask;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture6_classify_wcard (struct  __ctx_buff *ctx)" startline="339" endline="382">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture6_classify_wcard (struct  __ctx_buff *ctx)" startline="339" endline="382">
 static __always_inline struct capture_rule *cilium_capture6_classify_wcard (struct  __ctx_buff *ctx)
 {
     struct capture6_wcard prefix_masks [] = {PREFIX_MASKS6};
@@ -125,7 +125,7 @@ static __always_inline struct capture_rule *cilium_capture6_classify_wcard (stru
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture_classify_wcard (struct  __ctx_buff *ctx)" startline="385" endline="408">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline struct capture_rule *cilium_capture_classify_wcard (struct  __ctx_buff *ctx)" startline="385" endline="408">
 static __always_inline struct capture_rule *cilium_capture_classify_wcard (struct  __ctx_buff *ctx)
 {
     struct capture_rule *ret = NULL;
@@ -153,7 +153,7 @@ static __always_inline struct capture_rule *cilium_capture_classify_wcard (struc
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused)" startline="410" endline="432">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused)" startline="410" endline="432">
 static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused)
 {
     if (capture_enabled) {
@@ -174,7 +174,7 @@ static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx _
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused)" startline="434" endline="455">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused)" startline="434" endline="455">
 static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused)
 {
     if (capture_enabled) {
@@ -190,7 +190,7 @@ static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __ma
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)" startline="457" endline="465">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)" startline="457" endline="465">
 static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)
 {
     __u16 cap_len;
@@ -199,7 +199,7 @@ static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_
         __cilium_capture_in (ctx, rule_id, cap_len);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)" startline="467" endline="479">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)" startline="467" endline="479">
 static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)
 {
     __u32 cap_len;
@@ -208,12 +208,12 @@ static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe
         __cilium_capture_out (ctx, rule_id, cap_len);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)" startline="483" endline="486">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)" startline="483" endline="486">
 static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)
 {
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)" startline="488" endline="491">
+<source file="/root/examples/cilium/lib/pcap.h" funcheader="static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)" startline="488" endline="491">
 static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)
 {
 }

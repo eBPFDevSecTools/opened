@@ -48,7 +48,7 @@ struct capture_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 48,
  Endline: 75,
  Funcname: cilium_capture,
@@ -94,7 +94,7 @@ static __always_inline void cilium_capture(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 77,
  Endline: 86,
  Funcname: __cilium_capture_in,
@@ -122,7 +122,7 @@ static __always_inline void __cilium_capture_in(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 88,
  Endline: 93,
  Funcname: __cilium_capture_out,
@@ -209,7 +209,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 158,
  Endline: 170,
  Funcname: cilium_capture4_masked_key,
@@ -285,7 +285,7 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 217,
  Endline: 257,
  Funcname: *cilium_capture4_classify_wcard,
@@ -355,7 +355,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 270,
  Endline: 284,
  Funcname: cilium_capture6_masked_key,
@@ -441,7 +441,7 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 339,
  Endline: 382,
  Funcname: *cilium_capture6_classify_wcard,
@@ -504,7 +504,7 @@ _Pragma("unroll")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 385,
  Endline: 408,
  Funcname: *cilium_capture_classify_wcard,
@@ -546,7 +546,7 @@ cilium_capture_classify_wcard(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 410,
  Endline: 432,
  Funcname: cilium_capture_candidate,
@@ -587,7 +587,7 @@ cilium_capture_candidate(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 434,
  Endline: 455,
  Funcname: cilium_capture_cached,
@@ -627,7 +627,7 @@ cilium_capture_cached(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 457,
  Endline: 465,
  Funcname: cilium_capture_in,
@@ -654,7 +654,7 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 467,
  Endline: 479,
  Funcname: cilium_capture_out,
@@ -687,7 +687,7 @@ cilium_capture_out(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 483,
  Endline: 486,
  Funcname: cilium_capture_in,
@@ -709,7 +709,7 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
+ File: /root/examples/cilium/lib/pcap.h,
  Startline: 488,
  Endline: 491,
  Funcname: cilium_capture_out,

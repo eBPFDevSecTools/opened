@@ -14,7 +14,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/fib.h,
+ File: /root/examples/cilium/lib/fib.h,
  Startline: 14,
  Endline: 66,
  Funcname: redirect_direct_v6,
@@ -87,7 +87,7 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/fib.h,
+ File: /root/examples/cilium/lib/fib.h,
  Startline: 70,
  Endline: 126,
  Funcname: redirect_direct_v4,

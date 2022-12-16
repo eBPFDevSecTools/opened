@@ -10,7 +10,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h,
+ File: /root/examples/cilium/include/bpf/tailcall.h,
  Startline: 10,
  Endline: 33,
  Funcname: tail_call_static,
@@ -52,7 +52,7 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h,
+ File: /root/examples/cilium/include/bpf/tailcall.h,
  Startline: 35,
  Endline: 46,
  Funcname: tail_call_dynamic,

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_load_daddr (struct  __ctx_buff *ctx, int off, __u32 *dst)" startline="35" endline="39">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_load_daddr (struct  __ctx_buff *ctx, int off, __u32 *dst)" startline="35" endline="39">
 static __always_inline int ipv4_load_daddr (struct  __ctx_buff *ctx, int off, __u32 *dst)
 {
     return ctx_load_bytes (ctx, off + offsetof (struct iphdr, daddr), dst, 4);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_dec_ttl (struct  __ctx_buff *ctx, int off, const struct iphdr *ip4)" startline="41" endline="55">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_dec_ttl (struct  __ctx_buff *ctx, int off, const struct iphdr *ip4)" startline="41" endline="55">
 static __always_inline int ipv4_dec_ttl (struct  __ctx_buff *ctx, int off, const struct iphdr *ip4)
 {
     __u8 new_ttl, ttl = ip4->ttl;
@@ -18,37 +18,37 @@ static __always_inline int ipv4_dec_ttl (struct  __ctx_buff *ctx, int off, const
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_hdrlen (const struct iphdr *ip4)" startline="57" endline="60">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_hdrlen (const struct iphdr *ip4)" startline="57" endline="60">
 static __always_inline int ipv4_hdrlen (const struct iphdr *ip4)
 {
     return ip4->ihl * 4;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_is_fragment (const struct iphdr *ip4)" startline="62" endline="74">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_is_fragment (const struct iphdr *ip4)" startline="62" endline="74">
 static __always_inline bool ipv4_is_fragment (const struct iphdr *ip4)
 {
     return ip4->frag_off & bpf_htons (0x3FFF);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_is_not_first_fragment (const struct iphdr *ip4)" startline="76" endline="80">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_is_not_first_fragment (const struct iphdr *ip4)" startline="76" endline="80">
 static __always_inline bool ipv4_is_not_first_fragment (const struct iphdr *ip4)
 {
     return ip4->frag_off & bpf_htons (0x1FFF);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_has_l4_header (const struct iphdr *ip4)" startline="83" endline="86">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_has_l4_header (const struct iphdr *ip4)" startline="83" endline="86">
 static __always_inline bool ipv4_has_l4_header (const struct iphdr *ip4)
 {
     return !ipv4_is_not_first_fragment (ip4);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_is_in_subnet (__be32 addr, __be32 subnet, int prefixlen)" startline="88" endline="92">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline bool ipv4_is_in_subnet (__be32 addr, __be32 subnet, int prefixlen)" startline="88" endline="92">
 static __always_inline bool ipv4_is_in_subnet (__be32 addr, __be32 subnet, int prefixlen)
 {
     return (addr & bpf_htonl (~((1 << (32 - prefixlen)) - 1))) == subnet;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_frag_get_l4ports (const struct ipv4_frag_id *frag_id, struct ipv4_frag_l4ports *ports)" startline="95" endline="108">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_frag_get_l4ports (const struct ipv4_frag_id *frag_id, struct ipv4_frag_l4ports *ports)" startline="95" endline="108">
 static __always_inline int ipv4_frag_get_l4ports (const struct ipv4_frag_id *frag_id, struct ipv4_frag_l4ports *ports)
 {
     struct ipv4_frag_l4ports *tmp;
@@ -59,7 +59,7 @@ static __always_inline int ipv4_frag_get_l4ports (const struct ipv4_frag_id *fra
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_handle_fragmentation (struct  __ctx_buff *ctx, const struct iphdr *ip4, int l4_off, enum ct_dir ct_dir, struct ipv4_frag_l4ports *ports, bool *has_l4_header)" startline="110" endline="161">
+<source file="/root/examples/cilium/lib/ipv4.h" funcheader="static __always_inline int ipv4_handle_fragmentation (struct  __ctx_buff *ctx, const struct iphdr *ip4, int l4_off, enum ct_dir ct_dir, struct ipv4_frag_l4ports *ports, bool *has_l4_header)" startline="110" endline="161">
 static __always_inline int ipv4_handle_fragmentation (struct  __ctx_buff *ctx, const struct iphdr *ip4, int l4_off, enum ct_dir ct_dir, struct ipv4_frag_l4ports *ports, bool *has_l4_header)
 {
     bool is_fragment, not_first_fragment;

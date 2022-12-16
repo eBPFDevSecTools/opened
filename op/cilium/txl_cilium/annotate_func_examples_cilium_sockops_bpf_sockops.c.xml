@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c" funcheader="static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, struct sock_key *key)" startline="26" endline="40">
+<source file="/root/examples/cilium/sockops/bpf_sockops.c" funcheader="static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, struct sock_key *key)" startline="26" endline="40">
 static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, struct sock_key *key)
 {
     key->dip4 = ops->remote_ip4;
@@ -10,20 +10,20 @@ static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, str
     key->dport = READ_ONCE (ops->remote_port) >> 16;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c" funcheader="static __always_inline void sk_lb4_key (struct lb4_key *lb4, const struct sock_key *key)" startline="42" endline="48">
+<source file="/root/examples/cilium/sockops/bpf_sockops.c" funcheader="static __always_inline void sk_lb4_key (struct lb4_key *lb4, const struct sock_key *key)" startline="42" endline="48">
 static __always_inline void sk_lb4_key (struct lb4_key *lb4, const struct sock_key *key)
 {
     lb4->address = key->dip4;
     lb4->dport = (__u16) key->dport;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c" funcheader="static __always_inline bool redirect_to_proxy (int verdict)" startline="50" endline="53">
+<source file="/root/examples/cilium/sockops/bpf_sockops.c" funcheader="static __always_inline bool redirect_to_proxy (int verdict)" startline="50" endline="53">
 static __always_inline bool redirect_to_proxy (int verdict)
 {
     return verdict > 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c" funcheader="static inline void bpf_sock_ops_ipv4 (struct bpf_sock_ops *skops)" startline="55" endline="118">
+<source file="/root/examples/cilium/sockops/bpf_sockops.c" funcheader="static inline void bpf_sock_ops_ipv4 (struct bpf_sock_ops *skops)" startline="55" endline="118">
 static inline void bpf_sock_ops_ipv4 (struct bpf_sock_ops *skops)
 {
     struct lb4_key lb4_key = {}
@@ -69,14 +69,14 @@ static inline void bpf_sock_ops_ipv4 (struct bpf_sock_ops *skops)
     sock_hash_update (skops, &SOCK_OPS_MAP, &key, BPF_NOEXIST);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c" funcheader="static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)" startline="122" endline="126">
+<source file="/root/examples/cilium/sockops/bpf_sockops.c" funcheader="static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)" startline="122" endline="126">
 static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)
 {
     if (skops->remote_ip4)
         bpf_sock_ops_ipv4 (skops);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c" funcheader="int bpf_sockmap (struct bpf_sock_ops *skops)" startline="130" endline="154">
+<source file="/root/examples/cilium/sockops/bpf_sockops.c" funcheader="int bpf_sockmap (struct bpf_sock_ops *skops)" startline="130" endline="154">
 int bpf_sockmap (struct bpf_sock_ops *skops)
 {
     __u32 family, op;

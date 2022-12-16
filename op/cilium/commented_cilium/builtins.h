@@ -38,7 +38,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 38,
  Endline: 45,
  Funcname: __bpf_memset_builtin,
@@ -64,7 +64,7 @@ __bpf_memset_builtin(void *d, __u8 c, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 47,
  Endline: 126,
  Funcname: __bpf_memzero,
@@ -162,7 +162,7 @@ static __always_inline void __bpf_memzero(void *d, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 128,
  Endline: 133,
  Funcname: __bpf_no_builtin_memset,
@@ -189,7 +189,7 @@ __bpf_no_builtin_memset(void *d __maybe_unused, __u8 c __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 138,
  Endline: 145,
  Funcname: memset,
@@ -215,7 +215,7 @@ static __always_inline __nobuiltin("memset") void memset(void *d, int c,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 147,
  Endline: 152,
  Funcname: __bpf_memcpy_builtin,
@@ -239,7 +239,7 @@ __bpf_memcpy_builtin(void *d, const void *s, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 154,
  Endline: 239,
  Funcname: __bpf_memcpy,
@@ -343,7 +343,7 @@ static __always_inline void __bpf_memcpy(void *d, const void *s, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 241,
  Endline: 246,
  Funcname: __bpf_no_builtin_memcpy,
@@ -370,7 +370,7 @@ __bpf_no_builtin_memcpy(void *d __maybe_unused, const void *s __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 251,
  Endline: 255,
  Funcname: memcpy,
@@ -393,7 +393,7 @@ static __always_inline __nobuiltin("memcpy") void memcpy(void *d, const void *s,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 257,
  Endline: 270,
  Funcname: __bpf_memcmp_builtin,
@@ -425,7 +425,7 @@ __bpf_memcmp_builtin(const void *x, const void *y, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 272,
  Endline: 345,
  Funcname: __bpf_memcmp,
@@ -517,7 +517,7 @@ static __always_inline __u64 __bpf_memcmp(const void *x, const void *y,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 347,
  Endline: 353,
  Funcname: __bpf_no_builtin_memcmp,
@@ -548,7 +548,7 @@ __bpf_no_builtin_memcmp(const void *x __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 361,
  Endline: 366,
  Funcname: memcmp,
@@ -572,7 +572,7 @@ static __always_inline __nobuiltin("memcmp") __u64 memcmp(const void *x,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 368,
  Endline: 373,
  Funcname: __bpf_memmove_builtin,
@@ -596,7 +596,7 @@ __bpf_memmove_builtin(void *d, const void *s, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 375,
  Endline: 379,
  Funcname: __bpf_memmove_bwd,
@@ -619,7 +619,7 @@ static __always_inline void __bpf_memmove_bwd(void *d, const void *s, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 381,
  Endline: 458,
  Funcname: __bpf_memmove_fwd,
@@ -715,7 +715,7 @@ static __always_inline void __bpf_memmove_fwd(void *d, const void *s, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 460,
  Endline: 465,
  Funcname: __bpf_no_builtin_memmove,
@@ -742,7 +742,7 @@ __bpf_no_builtin_memmove(void *d __maybe_unused, const void *s __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 470,
  Endline: 485,
  Funcname: __bpf_memmove,
@@ -776,7 +776,7 @@ static __always_inline void __bpf_memmove(void *d, const void *s, __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
+ File: /root/examples/cilium/include/bpf/builtins.h,
  Startline: 487,
  Endline: 492,
  Funcname: memmove,

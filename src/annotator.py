@@ -115,11 +115,15 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
             startLine = int(tokens[-2])
             endLine = int(tokens[-1])
             key=funcName
-            value=srcFile+":"+funcName+":"+str(startLine)+":"+str(endLine)
+            map_def = {}
+            map_def['fileName'] = srcFile
+            map_def['startLine'] = str(startLine)
+            map_def['endLine'] = str(endLine)
+
             if key in func_file_def_dict:
-                func_file_def_dict[key]+=","+value
+                func_file_def_dict[key]+=","+json.dumps(map_def)
             else:
-                func_file_def_dict[key]=value
+                func_file_def_dict[key]=json.dumps(map_def)
     return func_file_def_dict
 
 def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict):
@@ -189,11 +193,14 @@ def parseTXLStructOutputFile(fileName, map_file_def_dict):
             key = fileName+":"+str(startLine)+":"+str(endLine);
             inside = False;
             head="//fileName "+fileName+" startLine: "+str(startLine)+" endLine: "+str(endLine)+"\n"
-            map_def = fileName +":"+str(startLine)+":"+str(endLine)
+            map_def = {}
+            map_def['fileName'] = fileName
+            map_def['startLine'] = str(startLine)
+            map_def['endLine'] = str(endLine)
             if structStr in map_file_def_dict:
-                map_file_def_dict[structStr] += ","+map_def
+                map_file_def_dict[structStr] += ","+json.dumps(map_def)
             else:
-                map_file_def_dict[structStr] = map_def
+                map_file_def_dict[structStr] = json.dumps(map_def)
             structStr=head+structStr
             structStr= ""
         elif inside == True:
@@ -305,27 +312,11 @@ if __name__ == "__main__":
         #clean up
         clean_intermediate_files(intermediate_f_list)
         exit(0)
- 
-    '''
-    json_txl_func_dict = {}
-    for key in txl_dict_func.keys():
-        txt=""
-        for val in txl_dict_func[key]:
-            txt = txt + val + ","
-        json_txl_func_dict[key] = txt
-           
-    '''
+
     with open(txl_func_list, "w") as outfile:
         json.dump(txl_dict_func, outfile)
     outfile.close()
-    '''
-    json_txl_struct_dict = {}
-    for key in txl_dict_struct.keys():
-        txt=""
-        for val in txl_dict_struct[key]:
-            txt = txt + val + ","
-        json_txl_struct_dict[key] = txt
-    ''' 
+
     with open(txl_struct_list, "w") as outfile:
         json.dump(txl_dict_struct, outfile)
     outfile.close()

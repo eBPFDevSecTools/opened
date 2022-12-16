@@ -14,7 +14,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 14,
  Endline: 42,
  Funcname: assign_socket_tcp,
@@ -61,13 +61,13 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 44,
  Endline: 67,
  Funcname: assign_socket_udp,
  Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused),
  Output: int,
- Helpers: [sk_lookup_udp,sk_release,],
+ Helpers: [sk_release,sk_lookup_udp,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -103,7 +103,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 69,
  Endline: 86,
  Funcname: assign_socket,
@@ -143,7 +143,7 @@ assign_socket(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 92,
  Endline: 96,
  Funcname: combine_ports,
@@ -258,7 +258,7 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 190,
  Endline: 220,
  Funcname: __ctx_redirect_to_proxy,
@@ -308,7 +308,7 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 223,
  Endline: 228,
  Funcname: ctx_redirect_to_proxy4,
@@ -334,7 +334,7 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 232,
  Endline: 237,
  Funcname: ctx_redirect_to_proxy6,
@@ -399,7 +399,7 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 280,
  Endline: 337,
  Funcname: ctx_redirect_to_proxy_first,
@@ -478,7 +478,7 @@ out: __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 342,
  Endline: 351,
  Funcname: tc_index_skip_ingress_proxy,
@@ -509,7 +509,7 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /root/examples/cilium/lib/proxy.h,
  Startline: 356,
  Endline: 365,
  Funcname: tc_index_skip_egress_proxy,
