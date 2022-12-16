@@ -549,8 +549,6 @@ if __name__ == "__main__":
     cscopeFile="./cscope.files"
     dupFileName=opdir+"/"+"duplicates.out"
     extractedFunctionListFile="extractedFuncList.out"
-    missedFunctionListFile="missedFuncList.out"
-
     
     #dict containing function definitions
     #fns = {}
