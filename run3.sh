@@ -18,6 +18,8 @@
 
 #After PARTITION
 
+python3 function-extractor.py -o op/cilium_redirect_to-proxy -e extracted.c -c fcg/cilium.redirect_to_proxy.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium --isCilium
+
 #Semi working..need to fix headers
 #python3 function-extractor.py -o op/cilium_sock4_connect -e extracted.c -c fcg/cilium.sock4_connect.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium
 
@@ -29,4 +31,4 @@
 #python3 function-extractor.py -o op/cilium_handle_ipv6 -e extracted.c -c fcg/cilium.handle_ipv6.cg.out.cleaned -t txl_cilium -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium
 
 #Working
-python3 function-extractor.py -o op/katran_xdpdecap -e extracted.c -c fcg/katran.xdpdecap.cg.out.cleaned -t txl_katran -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
+#python3 function-extractor.py -o op/katran_xdpdecap -e extracted.c -c fcg/katran.xdpdecap.cg.out.cleaned -t txl_katran -s examples/katran -b /home/palani/github/opened_extraction/examples/katran

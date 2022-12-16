@@ -8,8 +8,16 @@
 # works 
 
 #python3 extraction_runner.py -f xdpdecap -o txl_katran -s examples/katran -g fcg
-python3 extraction_runner.py -f xdpdecap -d katran.db -g fcg -t op/katran.function_list.json -s op/katran.struct_list.json -r katran
-python3 extraction_runner.py -f handle_ipv4 -d cilium.db -g fcg -t op/cilium.function_list.json -s op/cilium.struct_list.json -r cilium 
+
+#python3 extraction_runner.py -f handle_ipv4 -d cilium.db -g fcg -t op/cilium.function_list.json -s op/cilium.struct_list.json -r cilium 
+
+
+#AFTER PARITITION
+
+
+python3 extraction_runner.py -f redirect_to_proxy -d cilium.db -g fcg -r cilium
+
+
 
 #not works
 #python3 extraction_runner.py -f handle_ipv6 -o txl_cilium -s examples/cilium
@@ -18,3 +26,7 @@ python3 extraction_runner.py -f handle_ipv4 -d cilium.db -g fcg -t op/cilium.fun
 # got this error: error: ./lib/maps.h:279:2: in function tail_icmp6_handle_ns i32 (%struct.__sk_buff*): A call to built-in function 'abort' is not supported.
 
 #python3 extraction_runner.py -f sock4_connect -o txl_cilium -s examples/cilium -g fcg -c commented_cilium -r asset/helper_hookpoint_map.json
+
+
+#works
+#python3 extraction_runner.py -f xdpdecap -d katran.db -g fcg -t op/katran.function_list.json -s op/katran.struct_list.json -r katran
