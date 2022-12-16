@@ -24,7 +24,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,
+ File: /root/examples/cilium/lib/metrics.h,
  Startline: 24,
  Endline: 43,
  Funcname: update_metrics,
@@ -67,7 +67,7 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,
+ File: /root/examples/cilium/lib/metrics.h,
  Startline: 50,
  Endline: 62,
  Funcname: ct_to_metrics_dir,

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_network.c" funcheader="int from_network (struct  __ctx_buff *ctx)" startline="15" endline="88">
+<source file="/root/examples/cilium/bpf_network.c" funcheader="int from_network (struct  __ctx_buff *ctx)" startline="15" endline="88">
 int from_network (struct  __ctx_buff *ctx)
 {
     int ret = CTX_ACT_OK;

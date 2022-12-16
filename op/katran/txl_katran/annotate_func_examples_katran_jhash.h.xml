@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/jhash.h" funcheader="static inline __u32 rol32 (__u32 word, unsigned int shift)" startline="7" endline="9">
+<source file="/root/examples/katran/jhash.h" funcheader="static inline __u32 rol32 (__u32 word, unsigned int shift)" startline="7" endline="9">
 static inline __u32 rol32 (__u32 word, unsigned int shift)
 {
     return (word << shift) | (word >> ((-shift) & 31));
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/jhash.h" funcheader="static inline u32 jhash (const void *key, u32 length, u32 initval)" startline="55" endline="100">
+<source file="/root/examples/katran/jhash.h" funcheader="static inline u32 jhash (const void *key, u32 length, u32 initval)" startline="55" endline="100">
 static inline u32 jhash (const void *key, u32 length, u32 initval)
 {
     u32 a, b, c;
@@ -52,7 +52,7 @@ static inline u32 jhash (const void *key, u32 length, u32 initval)
     return c;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/jhash.h" funcheader="static inline u32 __jhash_nwords (u32 a, u32 b, u32 c, u32 initval)" startline="102" endline="108">
+<source file="/root/examples/katran/jhash.h" funcheader="static inline u32 __jhash_nwords (u32 a, u32 b, u32 c, u32 initval)" startline="102" endline="108">
 static inline u32 __jhash_nwords (u32 a, u32 b, u32 c, u32 initval)
 {
     a += initval;
@@ -62,13 +62,13 @@ static inline u32 __jhash_nwords (u32 a, u32 b, u32 c, u32 initval)
     return c;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/jhash.h" funcheader="static inline u32 jhash_2words (u32 a, u32 b, u32 initval)" startline="110" endline="112">
+<source file="/root/examples/katran/jhash.h" funcheader="static inline u32 jhash_2words (u32 a, u32 b, u32 initval)" startline="110" endline="112">
 static inline u32 jhash_2words (u32 a, u32 b, u32 initval)
 {
     return __jhash_nwords (a, b, 0, initval + JHASH_INITVAL + (2 << 2));
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/jhash.h" funcheader="static inline u32 jhash_1word (u32 a, u32 initval)" startline="114" endline="116">
+<source file="/root/examples/katran/jhash.h" funcheader="static inline u32 jhash_1word (u32 a, u32 initval)" startline="114" endline="116">
 static inline u32 jhash_1word (u32 a, u32 initval)
 {
     return __jhash_nwords (a, 0, 0, initval + JHASH_INITVAL + (1 << 2));

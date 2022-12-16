@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unused)" startline="22" endline="34">
+<source file="/root/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unused)" startline="22" endline="34">
 static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unused)
 {
 
@@ -16,7 +16,7 @@ static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unu
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ipv4 (const struct iphdr * ip4 __maybe_unused)" startline="36" endline="45">
+<source file="/root/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ipv4 (const struct iphdr * ip4 __maybe_unused)" startline="36" endline="45">
 static __always_inline int is_valid_lxc_src_ipv4 (const struct iphdr * ip4 __maybe_unused)
 {
 
@@ -29,13 +29,13 @@ static __always_inline int is_valid_lxc_src_ipv4 (const struct iphdr * ip4 __may
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unused)" startline="47" endline="51">
+<source file="/root/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unused)" startline="47" endline="51">
 static __always_inline int is_valid_lxc_src_ip (struct ipv6hdr * ip6 __maybe_unused)
 {
     return 1;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ipv4 (struct iphdr * ip4 __maybe_unused)" startline="53" endline="57">
+<source file="/root/examples/cilium/lib/lxc.h" funcheader="static __always_inline int is_valid_lxc_src_ipv4 (struct iphdr * ip4 __maybe_unused)" startline="53" endline="57">
 static __always_inline int is_valid_lxc_src_ipv4 (struct iphdr * ip4 __maybe_unused)
 {
     return 1;

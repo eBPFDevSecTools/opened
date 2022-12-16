@@ -60,7 +60,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 60,
  Endline: 64,
  Funcname: ctx_redirect,
@@ -83,7 +83,7 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 66,
  Endline: 70,
  Funcname: ctx_redirect_peer,
@@ -106,7 +106,7 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 72,
  Endline: 76,
  Funcname: ctx_adjust_troom,
@@ -129,7 +129,7 @@ ctx_adjust_troom(struct __sk_buff *ctx, const __s32 len_diff)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 78,
  Endline: 82,
  Funcname: ctx_full_len,
@@ -152,7 +152,7 @@ ctx_full_len(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 84,
  Endline: 88,
  Funcname: ctx_wire_len,
@@ -175,7 +175,7 @@ ctx_wire_len(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 90,
  Endline: 94,
  Funcname: ctx_store_meta,
@@ -198,7 +198,7 @@ ctx_store_meta(struct __sk_buff *ctx, const __u32 off, __u32 data)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 96,
  Endline: 100,
  Funcname: ctx_load_meta,
@@ -221,7 +221,7 @@ ctx_load_meta(const struct __sk_buff *ctx, const __u32 off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 102,
  Endline: 106,
  Funcname: ctx_get_protocol,
@@ -244,7 +244,7 @@ ctx_get_protocol(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
+ File: /root/examples/cilium/include/bpf/ctx/skb.h,
  Startline: 108,
  Endline: 112,
  Funcname: ctx_get_ifindex,

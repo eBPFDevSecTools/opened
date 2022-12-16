@@ -32,7 +32,7 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c,
+ File: /root/examples/cilium/custom/bpf_custom.c,
  Startline: 32,
  Endline: 45,
  Funcname: custom_hook,

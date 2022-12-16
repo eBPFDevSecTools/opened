@@ -276,7 +276,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/maps.h,
+ File: /root/examples/cilium/lib/maps.h,
  Startline: 276,
  Endline: 280,
  Funcname: ep_tail_call,

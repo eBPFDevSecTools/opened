@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_loadbalancer (const struct lb4_service * svc __maybe_unused)" startline="192" endline="196">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_loadbalancer (const struct lb4_service * svc __maybe_unused)" startline="192" endline="196">
 static __always_inline bool lb4_svc_is_loadbalancer (const struct lb4_service * svc __maybe_unused)
 {
     return svc->flags & SVC_FLAG_LOADBALANCER;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_loadbalancer (const struct lb6_service * svc __maybe_unused)" startline="198" endline="202">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_loadbalancer (const struct lb6_service * svc __maybe_unused)" startline="198" endline="202">
 static __always_inline bool lb6_svc_is_loadbalancer (const struct lb6_service * svc __maybe_unused)
 {
     return svc->flags & SVC_FLAG_LOADBALANCER;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_nodeport (const struct lb4_service * svc __maybe_unused)" startline="204" endline="212">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_nodeport (const struct lb4_service * svc __maybe_unused)" startline="204" endline="212">
 static __always_inline bool lb4_svc_is_nodeport (const struct lb4_service * svc __maybe_unused)
 {
 
@@ -25,7 +25,7 @@ static __always_inline bool lb4_svc_is_nodeport (const struct lb4_service * svc 
 #endif /* ENABLE_NODEPORT */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_nodeport (const struct lb6_service * svc __maybe_unused)" startline="214" endline="222">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_nodeport (const struct lb6_service * svc __maybe_unused)" startline="214" endline="222">
 static __always_inline bool lb6_svc_is_nodeport (const struct lb6_service * svc __maybe_unused)
 {
 
@@ -38,31 +38,31 @@ static __always_inline bool lb6_svc_is_nodeport (const struct lb6_service * svc 
 #endif /* ENABLE_NODEPORT */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_external_ip (const struct lb4_service * svc __maybe_unused)" startline="224" endline="228">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_external_ip (const struct lb4_service * svc __maybe_unused)" startline="224" endline="228">
 static __always_inline bool lb4_svc_is_external_ip (const struct lb4_service * svc __maybe_unused)
 {
     return svc->flags & SVC_FLAG_EXTERNAL_IP;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_external_ip (const struct lb6_service * svc __maybe_unused)" startline="230" endline="234">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_external_ip (const struct lb6_service * svc __maybe_unused)" startline="230" endline="234">
 static __always_inline bool lb6_svc_is_external_ip (const struct lb6_service * svc __maybe_unused)
 {
     return svc->flags & SVC_FLAG_EXTERNAL_IP;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_hostport (const struct lb4_service * svc __maybe_unused)" startline="236" endline="240">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_hostport (const struct lb4_service * svc __maybe_unused)" startline="236" endline="240">
 static __always_inline bool lb4_svc_is_hostport (const struct lb4_service * svc __maybe_unused)
 {
     return svc->flags & SVC_FLAG_HOSTPORT;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_hostport (const struct lb6_service * svc __maybe_unused)" startline="242" endline="246">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_hostport (const struct lb6_service * svc __maybe_unused)" startline="242" endline="246">
 static __always_inline bool lb6_svc_is_hostport (const struct lb6_service * svc __maybe_unused)
 {
     return svc->flags & SVC_FLAG_HOSTPORT;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_has_src_range_check (const struct lb4_service * svc __maybe_unused)" startline="248" endline="256">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_has_src_range_check (const struct lb4_service * svc __maybe_unused)" startline="248" endline="256">
 static __always_inline bool lb4_svc_has_src_range_check (const struct lb4_service * svc __maybe_unused)
 {
 
@@ -75,7 +75,7 @@ static __always_inline bool lb4_svc_has_src_range_check (const struct lb4_servic
 #endif /* ENABLE_SRC_RANGE_CHECK */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_has_src_range_check (const struct lb6_service * svc __maybe_unused)" startline="258" endline="266">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_has_src_range_check (const struct lb6_service * svc __maybe_unused)" startline="258" endline="266">
 static __always_inline bool lb6_svc_has_src_range_check (const struct lb6_service * svc __maybe_unused)
 {
 
@@ -88,61 +88,61 @@ static __always_inline bool lb6_svc_has_src_range_check (const struct lb6_servic
 #endif /* ENABLE_SRC_RANGE_CHECK */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb_skip_l4_dnat (void)" startline="268" endline="271">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb_skip_l4_dnat (void)" startline="268" endline="271">
 static __always_inline bool lb_skip_l4_dnat (void)
 {
     return DSR_XLATE_MODE == DSR_XLATE_FRONTEND;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_local_scope (const struct lb4_service *svc)" startline="273" endline="277">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_local_scope (const struct lb4_service *svc)" startline="273" endline="277">
 static __always_inline bool lb4_svc_is_local_scope (const struct lb4_service *svc)
 {
     return svc->flags & SVC_FLAG_LOCAL_SCOPE;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_local_scope (const struct lb6_service *svc)" startline="279" endline="283">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_local_scope (const struct lb6_service *svc)" startline="279" endline="283">
 static __always_inline bool lb6_svc_is_local_scope (const struct lb6_service *svc)
 {
     return svc->flags & SVC_FLAG_LOCAL_SCOPE;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_affinity (const struct lb4_service *svc)" startline="285" endline="289">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_affinity (const struct lb4_service *svc)" startline="285" endline="289">
 static __always_inline bool lb4_svc_is_affinity (const struct lb4_service *svc)
 {
     return svc->flags & SVC_FLAG_AFFINITY;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_affinity (const struct lb6_service *svc)" startline="291" endline="295">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_affinity (const struct lb6_service *svc)" startline="291" endline="295">
 static __always_inline bool lb6_svc_is_affinity (const struct lb6_service *svc)
 {
     return svc->flags & SVC_FLAG_AFFINITY;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool __lb_svc_is_routable (__u8 flags)" startline="297" endline="300">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool __lb_svc_is_routable (__u8 flags)" startline="297" endline="300">
 static __always_inline bool __lb_svc_is_routable (__u8 flags)
 {
     return (flags & SVC_FLAG_ROUTABLE) != 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_routable (const struct lb4_service *svc)" startline="302" endline="306">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_routable (const struct lb4_service *svc)" startline="302" endline="306">
 static __always_inline bool lb4_svc_is_routable (const struct lb4_service *svc)
 {
     return __lb_svc_is_routable (svc->flags);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_routable (const struct lb6_service *svc)" startline="308" endline="312">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_routable (const struct lb6_service *svc)" startline="308" endline="312">
 static __always_inline bool lb6_svc_is_routable (const struct lb6_service *svc)
 {
     return __lb_svc_is_routable (svc->flags);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_localredirect (const struct lb4_service *svc)" startline="314" endline="318">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_localredirect (const struct lb4_service *svc)" startline="314" endline="318">
 static __always_inline bool lb4_svc_is_localredirect (const struct lb4_service *svc)
 {
     return svc->flags2 & SVC_FLAG_LOCALREDIRECT;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_l7loadbalancer (const struct lb4_service * svc __maybe_unused)" startline="320" endline="328">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_svc_is_l7loadbalancer (const struct lb4_service * svc __maybe_unused)" startline="320" endline="328">
 static __always_inline bool lb4_svc_is_l7loadbalancer (const struct lb4_service * svc __maybe_unused)
 {
 
@@ -155,7 +155,7 @@ static __always_inline bool lb4_svc_is_l7loadbalancer (const struct lb4_service 
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_l7loadbalancer (const struct lb6_service * svc __maybe_unused)" startline="330" endline="338">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_svc_is_l7loadbalancer (const struct lb6_service * svc __maybe_unused)" startline="330" endline="338">
 static __always_inline bool lb6_svc_is_l7loadbalancer (const struct lb6_service * svc __maybe_unused)
 {
 
@@ -168,7 +168,7 @@ static __always_inline bool lb6_svc_is_l7loadbalancer (const struct lb6_service 
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int extract_l4_port (struct  __ctx_buff *ctx, __u8 nexthdr, int l4_off, enum ct_dir dir __maybe_unused, __be16 *port, __maybe_unused struct iphdr *ip4)" startline="340" endline="380">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int extract_l4_port (struct  __ctx_buff *ctx, __u8 nexthdr, int l4_off, enum ct_dir dir __maybe_unused, __be16 *port, __maybe_unused struct iphdr *ip4)" startline="340" endline="380">
 static __always_inline int extract_l4_port (struct  __ctx_buff *ctx, __u8 nexthdr, int l4_off, enum ct_dir dir __maybe_unused, __be16 *port, __maybe_unused struct iphdr *ip4)
 {
     int ret;
@@ -201,7 +201,7 @@ static __always_inline int extract_l4_port (struct  __ctx_buff *ctx, __u8 nexthd
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int reverse_map_l4_port (struct  __ctx_buff *ctx, __u8 nexthdr, __be16 port, int l4_off, struct csum_offset *csum_off)" startline="382" endline="416">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int reverse_map_l4_port (struct  __ctx_buff *ctx, __u8 nexthdr, __be16 port, int l4_off, struct csum_offset *csum_off)" startline="382" endline="416">
 static __always_inline int reverse_map_l4_port (struct  __ctx_buff *ctx, __u8 nexthdr, __be16 port, int l4_off, struct csum_offset *csum_off)
 {
     switch (nexthdr) {
@@ -229,7 +229,7 @@ static __always_inline int reverse_map_l4_port (struct  __ctx_buff *ctx, __u8 ne
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int __lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, struct ipv6_ct_tuple *tuple, int flags, struct lb6_reverse_nat *nat)" startline="419" endline="459">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int __lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, struct ipv6_ct_tuple *tuple, int flags, struct lb6_reverse_nat *nat)" startline="419" endline="459">
 static __always_inline int __lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, struct ipv6_ct_tuple *tuple, int flags, struct lb6_reverse_nat *nat)
 {
     union v6addr old_saddr;
@@ -263,7 +263,7 @@ static __always_inline int __lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, s
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, __u16 index, struct ipv6_ct_tuple *tuple, int flags)" startline="470" endline="482">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, __u16 index, struct ipv6_ct_tuple *tuple, int flags)" startline="470" endline="482">
 static __always_inline int lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, __u16 index, struct ipv6_ct_tuple *tuple, int flags)
 {
     struct lb6_reverse_nat *nat;
@@ -274,7 +274,7 @@ static __always_inline int lb6_rev_nat (struct  __ctx_buff *ctx, int l4_off, str
     return __lb6_rev_nat (ctx, l4_off, csum_off, tuple, flags, nat);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_extract_key (struct  __ctx_buff * ctx __maybe_unused, struct ipv6_ct_tuple *tuple, int l4_off __maybe_unused, struct lb6_key *key, struct csum_offset *csum_off, enum ct_dir dir)" startline="500" endline="516">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_extract_key (struct  __ctx_buff * ctx __maybe_unused, struct ipv6_ct_tuple *tuple, int l4_off __maybe_unused, struct lb6_key *key, struct csum_offset *csum_off, enum ct_dir dir)" startline="500" endline="516">
 static __always_inline int lb6_extract_key (struct  __ctx_buff * ctx __maybe_unused, struct ipv6_ct_tuple *tuple, int l4_off __maybe_unused, struct lb6_key *key, struct csum_offset *csum_off, enum ct_dir dir)
 {
     union v6addr *addr;
@@ -285,7 +285,7 @@ static __always_inline int lb6_extract_key (struct  __ctx_buff * ctx __maybe_unu
     return extract_l4_port (ctx, tuple->nexthdr, l4_off, dir, &key->dport, NULL);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_src_range_ok (const struct lb6_service * svc __maybe_unused, const union v6addr * saddr __maybe_unused)" startline="518" endline="541">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_src_range_ok (const struct lb6_service * svc __maybe_unused, const union v6addr * saddr __maybe_unused)" startline="518" endline="541">
 static __always_inline bool lb6_src_range_ok (const struct lb6_service * svc __maybe_unused, const union v6addr * saddr __maybe_unused)
 {
 
@@ -308,7 +308,7 @@ static __always_inline bool lb6_src_range_ok (const struct lb6_service * svc __m
 #endif /* ENABLE_SRC_RANGE_CHECK */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc __maybe_unused)" startline="543" endline="551">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc __maybe_unused)" startline="543" endline="551">
 static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc __maybe_unused)
 {
 
@@ -321,7 +321,7 @@ static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc _
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key *key, const bool scope_switch)" startline="553" endline="573">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key *key, const bool scope_switch)" startline="553" endline="573">
 static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key *key, const bool scope_switch)
 {
     struct lb6_service *svc;
@@ -339,13 +339,13 @@ static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key *k
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_backend *__lb6_lookup_backend (__u32 backend_id)" startline="575" endline="578">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_backend *__lb6_lookup_backend (__u32 backend_id)" startline="575" endline="578">
 static __always_inline struct lb6_backend *__lb6_lookup_backend (__u32 backend_id)
 {
     return map_lookup_elem (&LB6_BACKEND_MAP_V2, &backend_id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_backend *lb6_lookup_backend (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id)" startline="580" endline="590">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_backend *lb6_lookup_backend (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id)" startline="580" endline="590">
 static __always_inline struct lb6_backend *lb6_lookup_backend (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id)
 {
     struct lb6_backend *backend;
@@ -355,13 +355,13 @@ static __always_inline struct lb6_backend *lb6_lookup_backend (struct  __ctx_buf
     return backend;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *__lb6_lookup_backend_slot (struct lb6_key *key)" startline="592" endline="596">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *__lb6_lookup_backend_slot (struct lb6_key *key)" startline="592" endline="596">
 static __always_inline struct lb6_service *__lb6_lookup_backend_slot (struct lb6_key *key)
 {
     return map_lookup_elem (&LB6_SERVICES_MAP_V2, key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *lb6_lookup_backend_slot (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key *key, __u16 slot)" startline="598" endline="613">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *lb6_lookup_backend_slot (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key *key, __u16 slot)" startline="598" endline="613">
 static __always_inline struct lb6_service *lb6_lookup_backend_slot (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key *key, __u16 slot)
 {
     struct lb6_service *svc;
@@ -374,7 +374,7 @@ static __always_inline struct lb6_service *lb6_lookup_backend_slot (struct  __ct
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff *ctx, struct lb6_key *key, const struct ipv6_ct_tuple * tuple __maybe_unused, const struct lb6_service *svc)" startline="617" endline="627">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff *ctx, struct lb6_key *key, const struct ipv6_ct_tuple * tuple __maybe_unused, const struct lb6_service *svc)" startline="617" endline="627">
 static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff *ctx, struct lb6_key *key, const struct ipv6_ct_tuple * tuple __maybe_unused, const struct lb6_service *svc)
 {
     __u16 slot = (get_prandom_u32 () % svc->count) + 1;
@@ -382,7 +382,7 @@ static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff *ctx, str
     return be ? be->backend_id : 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key * key __maybe_unused, const struct ipv6_ct_tuple *tuple, const struct lb6_service *svc)" startline="629" endline="649">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key * key __maybe_unused, const struct ipv6_ct_tuple *tuple, const struct lb6_service *svc)" startline="629" endline="649">
 static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key * key __maybe_unused, const struct ipv6_ct_tuple *tuple, const struct lb6_service *svc)
 {
     __u32 zero = 0, index = svc->rev_nat_index;
@@ -398,7 +398,7 @@ static __always_inline __u32 lb6_select_backend_id (struct  __ctx_buff * ctx __m
     return map_array_get_32 (backend_ids, index, (LB_MAGLEV_LUT_SIZE - 1) << 2);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_xlate (struct  __ctx_buff *ctx, const union v6addr *new_dst, __u8 nexthdr, int l3_off, int l4_off, struct csum_offset *csum_off, const struct lb6_key *key, const struct lb6_backend *backend, const bool skip_l3_xlate)" startline="654" endline="689">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_xlate (struct  __ctx_buff *ctx, const union v6addr *new_dst, __u8 nexthdr, int l3_off, int l4_off, struct csum_offset *csum_off, const struct lb6_key *key, const struct lb6_backend *backend, const bool skip_l3_xlate)" startline="654" endline="689">
 static __always_inline int lb6_xlate (struct  __ctx_buff *ctx, const union v6addr *new_dst, __u8 nexthdr, int l3_off, int l4_off, struct csum_offset *csum_off, const struct lb6_key *key, const struct lb6_backend *backend, const bool skip_l3_xlate)
 {
     if (skip_l3_xlate)
@@ -420,7 +420,7 @@ l4_xlate :
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 __lb6_affinity_backend_id (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id)" startline="692" endline="728">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 __lb6_affinity_backend_id (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id)" startline="692" endline="728">
 static __always_inline __u32 __lb6_affinity_backend_id (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id)
 {
     struct lb6_affinity_key key = {
@@ -450,13 +450,13 @@ static __always_inline __u32 __lb6_affinity_backend_id (const struct lb6_service
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_affinity_backend_id_by_addr (const struct lb6_service *svc, union lb6_affinity_client_id *id)" startline="730" endline="735">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_affinity_backend_id_by_addr (const struct lb6_service *svc, union lb6_affinity_client_id *id)" startline="730" endline="735">
 static __always_inline __u32 lb6_affinity_backend_id_by_addr (const struct lb6_service *svc, union lb6_affinity_client_id *id)
 {
     return __lb6_affinity_backend_id (svc, false, id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void __lb6_update_affinity (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id, __u32 backend_id)" startline="737" endline="754">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void __lb6_update_affinity (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id, __u32 backend_id)" startline="737" endline="754">
 static __always_inline void __lb6_update_affinity (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id, __u32 backend_id)
 {
     __u32 now = bpf_mono_now ();
@@ -472,13 +472,13 @@ static __always_inline void __lb6_update_affinity (const struct lb6_service *svc
     map_update_elem (&LB6_AFFINITY_MAP, &key, &val, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_update_affinity_by_addr (const struct lb6_service *svc, union lb6_affinity_client_id *id, __u32 backend_id)" startline="756" endline="761">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_update_affinity_by_addr (const struct lb6_service *svc, union lb6_affinity_client_id *id, __u32 backend_id)" startline="756" endline="761">
 static __always_inline void lb6_update_affinity_by_addr (const struct lb6_service *svc, union lb6_affinity_client_id *id, __u32 backend_id)
 {
     __lb6_update_affinity (svc, false, id, backend_id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_affinity_backend_id_by_netns (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused)" startline="764" endline="773">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb6_affinity_backend_id_by_netns (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused)" startline="764" endline="773">
 static __always_inline __u32 lb6_affinity_backend_id_by_netns (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused)
 {
 
@@ -491,7 +491,7 @@ static __always_inline __u32 lb6_affinity_backend_id_by_netns (const struct lb6_
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_update_affinity_by_netns (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused)" startline="775" endline="783">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_update_affinity_by_netns (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused)" startline="775" endline="783">
 static __always_inline void lb6_update_affinity_by_netns (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused)
 {
 
@@ -501,7 +501,7 @@ static __always_inline void lb6_update_affinity_by_netns (const struct lb6_servi
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_to_lb4 (struct  __ctx_buff * ctx __maybe_unused, const struct ipv6hdr * ip6 __maybe_unused)" startline="785" endline="799">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_to_lb4 (struct  __ctx_buff * ctx __maybe_unused, const struct ipv6hdr * ip6 __maybe_unused)" startline="785" endline="799">
 static __always_inline int lb6_to_lb4 (struct  __ctx_buff * ctx __maybe_unused, const struct ipv6hdr * ip6 __maybe_unused)
 {
 
@@ -517,7 +517,7 @@ static __always_inline int lb6_to_lb4 (struct  __ctx_buff * ctx __maybe_unused, 
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_local (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb6_key *key, struct ipv6_ct_tuple *tuple, const struct lb6_service *svc, struct ct_state *state, const bool skip_l3_xlate)" startline="801" endline="926">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb6_local (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb6_key *key, struct ipv6_ct_tuple *tuple, const struct lb6_service *svc, struct ct_state *state, const bool skip_l3_xlate)" startline="801" endline="926">
 static __always_inline int lb6_local (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb6_key *key, struct ipv6_ct_tuple *tuple, const struct lb6_service *svc, struct ct_state *state, const bool skip_l3_xlate)
 {
     __u32 monitor;
@@ -620,7 +620,7 @@ drop_no_service :
     return DROP_NO_SERVICE;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_ctx_store_state (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port)" startline="935" endline="942">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_ctx_store_state (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port)" startline="935" endline="942">
 static __always_inline void lb6_ctx_store_state (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port)
 {
     ctx_store_meta (ctx, CB_PROXY_MAGIC, (__u32) proxy_port << 16);
@@ -628,7 +628,7 @@ static __always_inline void lb6_ctx_store_state (struct  __ctx_buff *ctx, const 
     ctx_store_meta (ctx, CB_CT_STATE, (__u32) state->rev_nat_index);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_ctx_restore_state (struct  __ctx_buff *ctx, struct ct_state *state, __u16 *proxy_port)" startline="949" endline="965">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb6_ctx_restore_state (struct  __ctx_buff *ctx, struct ct_state *state, __u16 *proxy_port)" startline="949" endline="965">
 static __always_inline void lb6_ctx_restore_state (struct  __ctx_buff *ctx, struct ct_state *state, __u16 *proxy_port)
 {
     state->rev_nat_index = (__u16) ctx_load_meta (ctx, CB_CT_STATE);
@@ -639,31 +639,31 @@ static __always_inline void lb6_ctx_restore_state (struct  __ctx_buff *ctx, stru
     ctx_store_meta (ctx, CB_PROXY_MAGIC, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key * key __maybe_unused, const bool scope_switch __maybe_unused)" startline="972" endline="977">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key * key __maybe_unused, const bool scope_switch __maybe_unused)" startline="972" endline="977">
 static __always_inline struct lb6_service *lb6_lookup_service (struct lb6_key * key __maybe_unused, const bool scope_switch __maybe_unused)
 {
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *__lb6_lookup_backend_slot (struct lb6_key * key __maybe_unused)" startline="979" endline="983">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_service *__lb6_lookup_backend_slot (struct lb6_key * key __maybe_unused)" startline="979" endline="983">
 static __always_inline struct lb6_service *__lb6_lookup_backend_slot (struct lb6_key * key __maybe_unused)
 {
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_backend *__lb6_lookup_backend (__u16 backend_id __maybe_unused)" startline="985" endline="989">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb6_backend *__lb6_lookup_backend (__u16 backend_id __maybe_unused)" startline="985" endline="989">
 static __always_inline struct lb6_backend *__lb6_lookup_backend (__u16 backend_id __maybe_unused)
 {
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc __maybe_unused)" startline="991" endline="995">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc __maybe_unused)" startline="991" endline="995">
 static __always_inline bool lb6_to_lb4_service (const struct lb6_service * svc __maybe_unused)
 {
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int __lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ipv4_ct_tuple *tuple, int flags, const struct lb4_reverse_nat *nat, const struct ct_state *ct_state, bool has_l4_header)" startline="999" endline="1066">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int __lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ipv4_ct_tuple *tuple, int flags, const struct lb4_reverse_nat *nat, const struct ct_state *ct_state, bool has_l4_header)" startline="999" endline="1066">
 static __always_inline int __lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ipv4_ct_tuple *tuple, int flags, const struct lb4_reverse_nat *nat, const struct ct_state *ct_state, bool has_l4_header)
 {
     __be32 old_sip, new_sip, sum = 0;
@@ -707,7 +707,7 @@ static __always_inline int __lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, i
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ct_state *ct_state, struct ipv4_ct_tuple *tuple, int flags, bool has_l4_header)" startline="1078" endline="1092">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ct_state *ct_state, struct ipv4_ct_tuple *tuple, int flags, bool has_l4_header)" startline="1078" endline="1092">
 static __always_inline int lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ct_state *ct_state, struct ipv4_ct_tuple *tuple, int flags, bool has_l4_header)
 {
     struct lb4_reverse_nat *nat;
@@ -718,7 +718,7 @@ static __always_inline int lb4_rev_nat (struct  __ctx_buff *ctx, int l3_off, int
     return __lb4_rev_nat (ctx, l3_off, l4_off, csum_off, tuple, flags, nat, ct_state, has_l4_header);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_extract_key (struct  __ctx_buff * ctx __maybe_unused, struct iphdr *ip4, int l4_off __maybe_unused, struct lb4_key *key, struct csum_offset *csum_off, enum ct_dir dir)" startline="1107" endline="1121">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_extract_key (struct  __ctx_buff * ctx __maybe_unused, struct iphdr *ip4, int l4_off __maybe_unused, struct lb4_key *key, struct csum_offset *csum_off, enum ct_dir dir)" startline="1107" endline="1121">
 static __always_inline int lb4_extract_key (struct  __ctx_buff * ctx __maybe_unused, struct iphdr *ip4, int l4_off __maybe_unused, struct lb4_key *key, struct csum_offset *csum_off, enum ct_dir dir)
 {
     key->proto = 0;
@@ -728,7 +728,7 @@ static __always_inline int lb4_extract_key (struct  __ctx_buff * ctx __maybe_unu
     return extract_l4_port (ctx, ip4->protocol, l4_off, dir, &key->dport, ip4);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_src_range_ok (const struct lb4_service * svc __maybe_unused, __u32 saddr __maybe_unused)" startline="1123" endline="1146">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_src_range_ok (const struct lb4_service * svc __maybe_unused, __u32 saddr __maybe_unused)" startline="1123" endline="1146">
 static __always_inline bool lb4_src_range_ok (const struct lb4_service * svc __maybe_unused, __u32 saddr __maybe_unused)
 {
 
@@ -751,7 +751,7 @@ static __always_inline bool lb4_src_range_ok (const struct lb4_service * svc __m
 #endif /* ENABLE_SRC_RANGE_CHECK */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_populate_ports (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off)" startline="1148" endline="1164">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_populate_ports (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off)" startline="1148" endline="1164">
 static __always_inline int lb4_populate_ports (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off)
 {
     if (tuple->nexthdr == IPPROTO_TCP || tuple->nexthdr == IPPROTO_UDP) {
@@ -769,7 +769,7 @@ static __always_inline int lb4_populate_ports (struct  __ctx_buff *ctx, struct i
     return -ENOTSUP;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_to_lb6_service (const struct lb4_service * svc __maybe_unused)" startline="1166" endline="1174">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline bool lb4_to_lb6_service (const struct lb4_service * svc __maybe_unused)" startline="1166" endline="1174">
 static __always_inline bool lb4_to_lb6_service (const struct lb4_service * svc __maybe_unused)
 {
 
@@ -782,7 +782,7 @@ static __always_inline bool lb4_to_lb6_service (const struct lb4_service * svc _
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_service *lb4_lookup_service (struct lb4_key *key, const bool scope_switch)" startline="1176" endline="1197">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_service *lb4_lookup_service (struct lb4_key *key, const bool scope_switch)" startline="1176" endline="1197">
 static __always_inline struct lb4_service *lb4_lookup_service (struct lb4_key *key, const bool scope_switch)
 {
     struct lb4_service *svc;
@@ -800,13 +800,13 @@ static __always_inline struct lb4_service *lb4_lookup_service (struct lb4_key *k
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_backend *__lb4_lookup_backend (__u32 backend_id)" startline="1199" endline="1202">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_backend *__lb4_lookup_backend (__u32 backend_id)" startline="1199" endline="1202">
 static __always_inline struct lb4_backend *__lb4_lookup_backend (__u32 backend_id)
 {
     return map_lookup_elem (&LB4_BACKEND_MAP_V2, &backend_id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_backend *lb4_lookup_backend (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id)" startline="1204" endline="1214">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_backend *lb4_lookup_backend (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id)" startline="1204" endline="1214">
 static __always_inline struct lb4_backend *lb4_lookup_backend (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id)
 {
     struct lb4_backend *backend;
@@ -816,13 +816,13 @@ static __always_inline struct lb4_backend *lb4_lookup_backend (struct  __ctx_buf
     return backend;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_service *__lb4_lookup_backend_slot (struct lb4_key *key)" startline="1216" endline="1220">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_service *__lb4_lookup_backend_slot (struct lb4_key *key)" startline="1216" endline="1220">
 static __always_inline struct lb4_service *__lb4_lookup_backend_slot (struct lb4_key *key)
 {
     return map_lookup_elem (&LB4_SERVICES_MAP_V2, key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_service *lb4_lookup_backend_slot (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key *key, __u16 slot)" startline="1222" endline="1237">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline struct lb4_service *lb4_lookup_backend_slot (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key *key, __u16 slot)" startline="1222" endline="1237">
 static __always_inline struct lb4_service *lb4_lookup_backend_slot (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key *key, __u16 slot)
 {
     struct lb4_service *svc;
@@ -835,7 +835,7 @@ static __always_inline struct lb4_service *lb4_lookup_backend_slot (struct  __ct
     return NULL;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff *ctx, struct lb4_key *key, const struct ipv4_ct_tuple * tuple __maybe_unused, const struct lb4_service *svc)" startline="1241" endline="1251">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff *ctx, struct lb4_key *key, const struct ipv4_ct_tuple * tuple __maybe_unused, const struct lb4_service *svc)" startline="1241" endline="1251">
 static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff *ctx, struct lb4_key *key, const struct ipv4_ct_tuple * tuple __maybe_unused, const struct lb4_service *svc)
 {
     __u16 slot = (get_prandom_u32 () % svc->count) + 1;
@@ -843,7 +843,7 @@ static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff *ctx, str
     return be ? be->backend_id : 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key * key __maybe_unused, const struct ipv4_ct_tuple *tuple, const struct lb4_service *svc)" startline="1253" endline="1273">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key * key __maybe_unused, const struct ipv4_ct_tuple *tuple, const struct lb4_service *svc)" startline="1253" endline="1273">
 static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key * key __maybe_unused, const struct ipv4_ct_tuple *tuple, const struct lb4_service *svc)
 {
     __u32 zero = 0, index = svc->rev_nat_index;
@@ -859,7 +859,7 @@ static __always_inline __u32 lb4_select_backend_id (struct  __ctx_buff * ctx __m
     return map_array_get_32 (backend_ids, index, (LB_MAGLEV_LUT_SIZE - 1) << 2);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_xlate (struct  __ctx_buff *ctx, __be32 *new_daddr, __be32 * new_saddr __maybe_unused, __be32 * old_saddr __maybe_unused, __u8 nexthdr __maybe_unused, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, const struct lb4_backend * backend __maybe_unused, bool has_l4_header, const bool skip_l3_xlate)" startline="1278" endline="1332">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_xlate (struct  __ctx_buff *ctx, __be32 *new_daddr, __be32 * new_saddr __maybe_unused, __be32 * old_saddr __maybe_unused, __u8 nexthdr __maybe_unused, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, const struct lb4_backend * backend __maybe_unused, bool has_l4_header, const bool skip_l3_xlate)" startline="1278" endline="1332">
 static __always_inline int lb4_xlate (struct  __ctx_buff *ctx, __be32 *new_daddr, __be32 * new_saddr __maybe_unused, __be32 * old_saddr __maybe_unused, __u8 nexthdr __maybe_unused, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, const struct lb4_backend * backend __maybe_unused, bool has_l4_header, const bool skip_l3_xlate)
 {
     __be32 sum;
@@ -897,7 +897,7 @@ l4_xlate :
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 __lb4_affinity_backend_id (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id)" startline="1335" endline="1375">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 __lb4_affinity_backend_id (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id)" startline="1335" endline="1375">
 static __always_inline __u32 __lb4_affinity_backend_id (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id)
 {
     struct lb4_affinity_key key = {
@@ -927,13 +927,13 @@ static __always_inline __u32 __lb4_affinity_backend_id (const struct lb4_service
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_affinity_backend_id_by_addr (const struct lb4_service *svc, union lb4_affinity_client_id *id)" startline="1377" endline="1382">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_affinity_backend_id_by_addr (const struct lb4_service *svc, union lb4_affinity_client_id *id)" startline="1377" endline="1382">
 static __always_inline __u32 lb4_affinity_backend_id_by_addr (const struct lb4_service *svc, union lb4_affinity_client_id *id)
 {
     return __lb4_affinity_backend_id (svc, false, id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void __lb4_update_affinity (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id, __u32 backend_id)" startline="1384" endline="1401">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void __lb4_update_affinity (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id, __u32 backend_id)" startline="1384" endline="1401">
 static __always_inline void __lb4_update_affinity (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id, __u32 backend_id)
 {
     __u32 now = bpf_mono_now ();
@@ -949,13 +949,13 @@ static __always_inline void __lb4_update_affinity (const struct lb4_service *svc
     map_update_elem (&LB4_AFFINITY_MAP, &key, &val, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_update_affinity_by_addr (const struct lb4_service *svc, union lb4_affinity_client_id *id, __u32 backend_id)" startline="1403" endline="1408">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_update_affinity_by_addr (const struct lb4_service *svc, union lb4_affinity_client_id *id, __u32 backend_id)" startline="1403" endline="1408">
 static __always_inline void lb4_update_affinity_by_addr (const struct lb4_service *svc, union lb4_affinity_client_id *id, __u32 backend_id)
 {
     __lb4_update_affinity (svc, false, id, backend_id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_affinity_backend_id_by_netns (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused)" startline="1411" endline="1420">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline __u32 lb4_affinity_backend_id_by_netns (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused)" startline="1411" endline="1420">
 static __always_inline __u32 lb4_affinity_backend_id_by_netns (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused)
 {
 
@@ -968,7 +968,7 @@ static __always_inline __u32 lb4_affinity_backend_id_by_netns (const struct lb4_
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_update_affinity_by_netns (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused)" startline="1422" endline="1430">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_update_affinity_by_netns (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused)" startline="1422" endline="1430">
 static __always_inline void lb4_update_affinity_by_netns (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused)
 {
 
@@ -978,7 +978,7 @@ static __always_inline void lb4_update_affinity_by_netns (const struct lb4_servi
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_to_lb6 (struct  __ctx_buff * ctx __maybe_unused, const struct iphdr * ip4 __maybe_unused, int l3_off __maybe_unused)" startline="1432" endline="1447">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_to_lb6 (struct  __ctx_buff * ctx __maybe_unused, const struct iphdr * ip4 __maybe_unused, int l3_off __maybe_unused)" startline="1432" endline="1447">
 static __always_inline int lb4_to_lb6 (struct  __ctx_buff * ctx __maybe_unused, const struct iphdr * ip4 __maybe_unused, int l3_off __maybe_unused)
 {
 
@@ -994,7 +994,7 @@ static __always_inline int lb4_to_lb6 (struct  __ctx_buff * ctx __maybe_unused, 
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_local (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, struct ipv4_ct_tuple *tuple, const struct lb4_service *svc, struct ct_state *state, __be32 saddr, bool has_l4_header, const bool skip_l3_xlate)" startline="1449" endline="1604">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline int lb4_local (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, struct ipv4_ct_tuple *tuple, const struct lb4_service *svc, struct ct_state *state, __be32 saddr, bool has_l4_header, const bool skip_l3_xlate)" startline="1449" endline="1604">
 static __always_inline int lb4_local (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, struct ipv4_ct_tuple *tuple, const struct lb4_service *svc, struct ct_state *state, __be32 saddr, bool has_l4_header, const bool skip_l3_xlate)
 {
     __u32 monitor;
@@ -1109,7 +1109,7 @@ drop_no_service :
     return DROP_NO_SERVICE;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_ctx_store_state (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port)" startline="1613" endline="1621">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_ctx_store_state (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port)" startline="1613" endline="1621">
 static __always_inline void lb4_ctx_store_state (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port)
 {
     ctx_store_meta (ctx, CB_PROXY_MAGIC, (__u32) proxy_port << 16);
@@ -1117,7 +1117,7 @@ static __always_inline void lb4_ctx_store_state (struct  __ctx_buff *ctx, const 
     ctx_store_meta (ctx, CB_CT_STATE, (__u32) state->rev_nat_index << 16 | state->loopback);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_ctx_restore_state (struct  __ctx_buff *ctx, struct ct_state *state, __u32 daddr __maybe_unused, __u16 *proxy_port)" startline="1628" endline="1651">
+<source file="/root/examples/cilium/lib/lb.h" funcheader="static __always_inline void lb4_ctx_restore_state (struct  __ctx_buff *ctx, struct ct_state *state, __u32 daddr __maybe_unused, __u16 *proxy_port)" startline="1628" endline="1651">
 static __always_inline void lb4_ctx_restore_state (struct  __ctx_buff *ctx, struct ct_state *state, __u32 daddr __maybe_unused, __u16 *proxy_port)
 {
     __u32 meta = ctx_load_meta (ctx, CB_CT_STATE);

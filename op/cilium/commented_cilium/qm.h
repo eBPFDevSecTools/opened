@@ -9,7 +9,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/qm.h,
+ File: /root/examples/cilium/lib/qm.h,
  Startline: 9,
  Endline: 22,
  Funcname: reset_queue_mapping,

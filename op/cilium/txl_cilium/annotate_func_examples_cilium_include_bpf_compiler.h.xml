@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/compiler.h" funcheader="static __always_inline void bpf_barrier (void)" startline="86" endline="93">
+<source file="/root/examples/cilium/include/bpf/compiler.h" funcheader="static __always_inline void bpf_barrier (void)" startline="86" endline="93">
 static __always_inline void bpf_barrier (void)
 {
     barrier ();

@@ -36,7 +36,7 @@ struct signal_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
+ File: /root/examples/cilium/lib/signal.h,
  Startline: 36,
  Endline: 41,
  Funcname: send_signal,
@@ -60,7 +60,7 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
+ File: /root/examples/cilium/lib/signal.h,
  Startline: 43,
  Endline: 52,
  Funcname: send_signal_nat_fill_up,
@@ -88,7 +88,7 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
+ File: /root/examples/cilium/lib/signal.h,
  Startline: 54,
  Endline: 63,
  Funcname: send_signal_ct_fill_up,

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u16 __fswab16 (__u16 val)" startline="46" endline="55">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u16 __fswab16 (__u16 val)" startline="46" endline="55">
 static __inline__ __u16 __fswab16 (__u16 val)
 {
 
@@ -16,7 +16,7 @@ static __inline__ __u16 __fswab16 (__u16 val)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __fswab32 (__u32 val)" startline="57" endline="66">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __fswab32 (__u32 val)" startline="57" endline="66">
 static __inline__ __u32 __fswab32 (__u32 val)
 {
 
@@ -32,7 +32,7 @@ static __inline__ __u32 __fswab32 (__u32 val)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u64 __fswab64 (__u64 val)" startline="68" endline="81">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u64 __fswab64 (__u64 val)" startline="68" endline="81">
 static __inline__ __u64 __fswab64 (__u64 val)
 {
 
@@ -53,7 +53,7 @@ static __inline__ __u64 __fswab64 (__u64 val)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __fswahw32 (__u32 val)" startline="83" endline="90">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __fswahw32 (__u32 val)" startline="83" endline="90">
 static __inline__ __u32 __fswahw32 (__u32 val)
 {
 
@@ -66,7 +66,7 @@ static __inline__ __u32 __fswahw32 (__u32 val)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __fswahb32 (__u32 val)" startline="92" endline="99">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __fswahb32 (__u32 val)" startline="92" endline="99">
 static __inline__ __u32 __fswahb32 (__u32 val)
 {
 
@@ -79,7 +79,7 @@ static __inline__ __u32 __fswahb32 (__u32 val)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u16 __swab16p (const __u16 *p)" startline="154" endline="161">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u16 __swab16p (const __u16 *p)" startline="154" endline="161">
 static __inline__ __u16 __swab16p (const __u16 *p)
 {
 
@@ -92,7 +92,7 @@ static __inline__ __u16 __swab16p (const __u16 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __swab32p (const __u32 *p)" startline="167" endline="174">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __swab32p (const __u32 *p)" startline="167" endline="174">
 static __inline__ __u32 __swab32p (const __u32 *p)
 {
 
@@ -105,7 +105,7 @@ static __inline__ __u32 __swab32p (const __u32 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u64 __swab64p (const __u64 *p)" startline="180" endline="187">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u64 __swab64p (const __u64 *p)" startline="180" endline="187">
 static __inline__ __u64 __swab64p (const __u64 *p)
 {
 
@@ -118,7 +118,7 @@ static __inline__ __u64 __swab64p (const __u64 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __swahw32p (const __u32 *p)" startline="195" endline="202">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __swahw32p (const __u32 *p)" startline="195" endline="202">
 static __inline__ __u32 __swahw32p (const __u32 *p)
 {
 
@@ -131,7 +131,7 @@ static __inline__ __u32 __swahw32p (const __u32 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __swahb32p (const __u32 *p)" startline="210" endline="217">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ __u32 __swahb32p (const __u32 *p)" startline="210" endline="217">
 static __inline__ __u32 __swahb32p (const __u32 *p)
 {
 
@@ -144,7 +144,7 @@ static __inline__ __u32 __swahb32p (const __u32 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swab16s (__u16 *p)" startline="223" endline="230">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swab16s (__u16 *p)" startline="223" endline="230">
 static __inline__ void __swab16s (__u16 *p)
 {
 
@@ -157,7 +157,7 @@ static __inline__ void __swab16s (__u16 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swab32s (__u32 *p)" startline="235" endline="242">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swab32s (__u32 *p)" startline="235" endline="242">
 static __inline__ void __swab32s (__u32 *p)
 {
 
@@ -170,7 +170,7 @@ static __inline__ void __swab32s (__u32 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swab64s (__u64 *p)" startline="248" endline="255">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swab64s (__u64 *p)" startline="248" endline="255">
 static __inline__ void __swab64s (__u64 *p)
 {
 
@@ -183,7 +183,7 @@ static __inline__ void __swab64s (__u64 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swahw32s (__u32 *p)" startline="263" endline="270">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swahw32s (__u32 *p)" startline="263" endline="270">
 static __inline__ void __swahw32s (__u32 *p)
 {
 
@@ -196,7 +196,7 @@ static __inline__ void __swahw32s (__u32 *p)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swahb32s (__u32 *p)" startline="278" endline="285">
+<source file="/root/examples/cilium/include/linux/swab.h" funcheader="static __inline__ void __swahb32s (__u32 *p)" startline="278" endline="285">
 static __inline__ void __swahb32s (__u32 *p)
 {
 

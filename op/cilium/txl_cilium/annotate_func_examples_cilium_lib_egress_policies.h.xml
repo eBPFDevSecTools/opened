@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy (__be32 saddr, __be32 daddr)" startline="20" endline="29">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy (__be32 saddr, __be32 daddr)" startline="20" endline="29">
 static __always_inline struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy (__be32 saddr, __be32 daddr)
 {
     struct egress_gw_policy_key key = {
@@ -12,7 +12,7 @@ static __always_inline struct egress_gw_policy_entry *lookup_ip4_egress_gw_polic
     return map_lookup_elem (&EGRESS_POLICY_MAP, &key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u32 *srv6_lookup_vrf4 (__be32 sip, __be32 dip)" startline="44" endline="53">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u32 *srv6_lookup_vrf4 (__be32 sip, __be32 dip)" startline="44" endline="53">
 static __always_inline __u32 *srv6_lookup_vrf4 (__be32 sip, __be32 dip)
 {
     struct srv6_vrf_key4 key = {
@@ -24,7 +24,7 @@ static __always_inline __u32 *srv6_lookup_vrf4 (__be32 sip, __be32 dip)
     return map_lookup_elem (&SRV6_VRF_MAP4, &key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline union v6addr *srv6_lookup_policy4 (__u32 vrf_id, __be32 dip)" startline="63" endline="72">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline union v6addr *srv6_lookup_policy4 (__u32 vrf_id, __be32 dip)" startline="63" endline="72">
 static __always_inline union v6addr *srv6_lookup_policy4 (__u32 vrf_id, __be32 dip)
 {
     struct srv6_policy_key4 key = {
@@ -36,7 +36,7 @@ static __always_inline union v6addr *srv6_lookup_policy4 (__u32 vrf_id, __be32 d
     return map_lookup_elem (&SRV6_POLICY_MAP4, &key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u32 *srv6_lookup_vrf6 (const struct in6_addr *sip, const struct in6_addr *dip)" startline="83" endline="92">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u32 *srv6_lookup_vrf6 (const struct in6_addr *sip, const struct in6_addr *dip)" startline="83" endline="92">
 static __always_inline __u32 *srv6_lookup_vrf6 (const struct in6_addr *sip, const struct in6_addr *dip)
 {
     struct srv6_vrf_key6 key = {
@@ -48,7 +48,7 @@ static __always_inline __u32 *srv6_lookup_vrf6 (const struct in6_addr *sip, cons
     return map_lookup_elem (&SRV6_VRF_MAP6, &key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline union v6addr *srv6_lookup_policy6 (__u32 vrf_id, const struct in6_addr *dip)" startline="103" endline="112">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline union v6addr *srv6_lookup_policy6 (__u32 vrf_id, const struct in6_addr *dip)" startline="103" endline="112">
 static __always_inline union v6addr *srv6_lookup_policy6 (__u32 vrf_id, const struct in6_addr *dip)
 {
     struct srv6_policy_key6 key = {
@@ -60,7 +60,7 @@ static __always_inline union v6addr *srv6_lookup_policy6 (__u32 vrf_id, const st
     return map_lookup_elem (&SRV6_POLICY_MAP6, &key);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u32 srv6_lookup_sid (const struct in6_addr *sid)" startline="114" endline="123">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u32 srv6_lookup_sid (const struct in6_addr *sid)" startline="114" endline="123">
 static __always_inline __u32 srv6_lookup_sid (const struct in6_addr *sid)
 {
     __u32 *vrf_id;
@@ -70,7 +70,7 @@ static __always_inline __u32 srv6_lookup_sid (const struct in6_addr *sid)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline bool is_srv6_packet (const struct ipv6hdr *ip6)" startline="125" endline="134">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline bool is_srv6_packet (const struct ipv6hdr *ip6)" startline="125" endline="134">
 static __always_inline bool is_srv6_packet (const struct ipv6hdr *ip6)
 {
 
@@ -82,7 +82,7 @@ static __always_inline bool is_srv6_packet (const struct ipv6hdr *ip6)
     return ip6->nexthdr == IPPROTO_IPIP || ip6->nexthdr == IPPROTO_IPV6;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u64 ctx_adjust_hroom_flags (void)" startline="137" endline="144">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline __u64 ctx_adjust_hroom_flags (void)" startline="137" endline="144">
 static __always_inline __u64 ctx_adjust_hroom_flags (void)
 {
 
@@ -95,7 +95,7 @@ static __always_inline __u64 ctx_adjust_hroom_flags (void)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_encapsulation (struct  __ctx_buff *ctx, int growth, __u16 new_payload_len, __u8 nexthdr, union v6addr *saddr, struct in6_addr *sid)" startline="146" endline="171">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_encapsulation (struct  __ctx_buff *ctx, int growth, __u16 new_payload_len, __u8 nexthdr, union v6addr *saddr, struct in6_addr *sid)" startline="146" endline="171">
 static __always_inline int srv6_encapsulation (struct  __ctx_buff *ctx, int growth, __u16 new_payload_len, __u8 nexthdr, union v6addr *saddr, struct in6_addr *sid)
 {
     __u32 len = sizeof (struct ipv6hdr) - 2 * sizeof (struct in6_addr);
@@ -116,7 +116,7 @@ static __always_inline int srv6_encapsulation (struct  __ctx_buff *ctx, int grow
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_decapsulation (struct  __ctx_buff *ctx)" startline="173" endline="210">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_decapsulation (struct  __ctx_buff *ctx)" startline="173" endline="210">
 static __always_inline int srv6_decapsulation (struct  __ctx_buff *ctx)
 {
     __u16 new_proto = bpf_htons (ETH_P_IP);
@@ -144,7 +144,7 @@ static __always_inline int srv6_decapsulation (struct  __ctx_buff *ctx)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_create_state_entry (struct  __ctx_buff *ctx)" startline="212" endline="252">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_create_state_entry (struct  __ctx_buff *ctx)" startline="212" endline="252">
 static __always_inline int srv6_create_state_entry (struct  __ctx_buff *ctx)
 {
     struct srv6_ipv6_2tuple *outer_ips;
@@ -182,19 +182,19 @@ static __always_inline int srv6_create_state_entry (struct  __ctx_buff *ctx)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry4 (struct iphdr *ip4)" startline="255" endline="260">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry4 (struct iphdr *ip4)" startline="255" endline="260">
 static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry4 (struct iphdr *ip4)
 {
     return map_lookup_elem (&SRV6_STATE_MAP4, (struct srv6_ipv4_2tuple *) &ip4->saddr);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry6 (struct ipv6hdr *ip6)" startline="263" endline="268">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry6 (struct ipv6hdr *ip6)" startline="263" endline="268">
 static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry6 (struct ipv6hdr *ip6)
 {
     return map_lookup_elem (&SRV6_STATE_MAP6, (struct srv6_ipv6_2tuple *) &ip6->saddr);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_handling4 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)" startline="270" endline="310">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_handling4 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)" startline="270" endline="310">
 static __always_inline int srv6_handling4 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)
 {
     __u16 new_payload_len, outer_proto = bpf_htons (ETH_P_IPV6);
@@ -214,7 +214,7 @@ static __always_inline int srv6_handling4 (struct  __ctx_buff *ctx, union v6addr
     return srv6_encapsulation (ctx, growth, new_payload_len, nexthdr, src_sid, dst_sid);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_handling6 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)" startline="312" endline="331">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_handling6 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)" startline="312" endline="331">
 static __always_inline int srv6_handling6 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)
 {
     __u16 new_payload_len;
@@ -230,7 +230,7 @@ static __always_inline int srv6_handling6 (struct  __ctx_buff *ctx, union v6addr
     return srv6_encapsulation (ctx, growth, new_payload_len, nexthdr, src_sid, dst_sid);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_handling (struct  __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)" startline="333" endline="373">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_handling (struct  __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)" startline="333" endline="373">
 static __always_inline int srv6_handling (struct  __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
 {
     union v6addr *src_sid;
@@ -272,7 +272,7 @@ static __always_inline int srv6_handling (struct  __ctx_buff *ctx, __u32 vrf_id,
     }
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_reply (struct  __ctx_buff *ctx)" startline="375" endline="413">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline int srv6_reply (struct  __ctx_buff *ctx)" startline="375" endline="413">
 static __always_inline int srv6_reply (struct  __ctx_buff *ctx)
 {
     struct srv6_ipv6_2tuple *outer_ips;
@@ -305,7 +305,7 @@ static __always_inline int srv6_reply (struct  __ctx_buff *ctx)
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline void srv6_load_meta_sid (struct  __ctx_buff *ctx, struct in6_addr *sid)" startline="415" endline="422">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline void srv6_load_meta_sid (struct  __ctx_buff *ctx, struct in6_addr *sid)" startline="415" endline="422">
 static __always_inline void srv6_load_meta_sid (struct  __ctx_buff *ctx, struct in6_addr *sid)
 {
     sid->s6_addr32[0] = ctx_load_meta (ctx, CB_SRV6_SID_1);
@@ -314,7 +314,7 @@ static __always_inline void srv6_load_meta_sid (struct  __ctx_buff *ctx, struct 
     sid->s6_addr32[3] = ctx_load_meta (ctx, CB_SRV6_SID_4);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline void srv6_store_meta_sid (struct  __ctx_buff *ctx, const union v6addr *sid)" startline="424" endline="431">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="static __always_inline void srv6_store_meta_sid (struct  __ctx_buff *ctx, const union v6addr *sid)" startline="424" endline="431">
 static __always_inline void srv6_store_meta_sid (struct  __ctx_buff *ctx, const union v6addr *sid)
 {
     ctx_store_meta (ctx, CB_SRV6_SID_1, sid->p1);
@@ -323,7 +323,7 @@ static __always_inline void srv6_store_meta_sid (struct  __ctx_buff *ctx, const 
     ctx_store_meta (ctx, CB_SRV6_SID_4, sid->p4);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="int tail_srv6_encap (struct  __ctx_buff *ctx)" startline="434" endline="452">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="int tail_srv6_encap (struct  __ctx_buff *ctx)" startline="434" endline="452">
 int tail_srv6_encap (struct  __ctx_buff *ctx)
 {
     struct in6_addr dst_sid;
@@ -338,7 +338,7 @@ int tail_srv6_encap (struct  __ctx_buff *ctx)
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="int tail_srv6_decap (struct  __ctx_buff *ctx)" startline="455" endline="473">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="int tail_srv6_decap (struct  __ctx_buff *ctx)" startline="455" endline="473">
 int tail_srv6_decap (struct  __ctx_buff *ctx)
 {
     int ret = 0;
@@ -354,7 +354,7 @@ error_drop :
     return send_drop_notify_error (ctx, SECLABEL, ret, CTX_ACT_DROP, METRIC_EGRESS);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h" funcheader="int tail_srv6_reply (struct  __ctx_buff *ctx)" startline="476" endline="485">
+<source file="/root/examples/cilium/lib/egress_policies.h" funcheader="int tail_srv6_reply (struct  __ctx_buff *ctx)" startline="476" endline="485">
 int tail_srv6_reply (struct  __ctx_buff *ctx)
 {
     int ret;

@@ -17,7 +17,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
+ File: /root/examples/cilium/lib/host_firewall.h,
  Startline: 17,
  Endline: 100,
  Funcname: ipv6_host_policy_egress,
@@ -119,7 +119,7 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
+ File: /root/examples/cilium/lib/host_firewall.h,
  Startline: 102,
  Endline: 199,
  Funcname: ipv6_host_policy_ingress,
@@ -238,7 +238,7 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
+ File: /root/examples/cilium/lib/host_firewall.h,
  Startline: 204,
  Endline: 249,
  Funcname: whitelist_snated_egress_connections,
@@ -303,7 +303,7 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
+ File: /root/examples/cilium/lib/host_firewall.h,
  Startline: 252,
  Endline: 337,
  Funcname: ipv4_host_policy_egress,
@@ -407,7 +407,7 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
+ File: /root/examples/cilium/lib/host_firewall.h,
  Startline: 339,
  Endline: 439,
  Funcname: ipv4_host_policy_ingress,

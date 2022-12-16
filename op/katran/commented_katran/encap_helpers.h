@@ -31,7 +31,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/encap_helpers.h,
+ File: /root/examples/katran/encap_helpers.h,
  Startline: 31,
  Endline: 55,
  Funcname: create_v4_hdr,
@@ -74,7 +74,7 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/encap_helpers.h,
+ File: /root/examples/katran/encap_helpers.h,
  Startline: 57,
  Endline: 77,
  Funcname: create_v6_hdr,
@@ -113,7 +113,7 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/encap_helpers.h,
+ File: /root/examples/katran/encap_helpers.h,
  Startline: 79,
  Endline: 89,
  Funcname: create_udp_hdr,

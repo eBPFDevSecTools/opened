@@ -62,7 +62,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 62,
  Endline: 64,
  Funcname: allow_vlan,
@@ -84,7 +84,7 @@ static __always_inline bool allow_vlan(__u32 __maybe_unused ifindex, __u32 __may
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 67,
  Endline: 82,
  Funcname: rewrite_dmac_to_host,
@@ -123,7 +123,7 @@ static __always_inline int rewrite_dmac_to_host(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 89,
  Endline: 92,
  Funcname: identity_from_ipcache_ok,
@@ -147,7 +147,7 @@ static __always_inline bool identity_from_ipcache_ok(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 96,
  Endline: 112,
  Funcname: derive_src_id,
@@ -183,7 +183,7 @@ derive_src_id(const union v6addr *node_ip, struct ipv6hdr *ip6, __u32 *identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 115,
  Endline: 133,
  Funcname: ipcache_lookup_srcid6,
@@ -221,7 +221,7 @@ ipcache_lookup_srcid6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 136,
  Endline: 176,
  Funcname: resolve_srcid_ipv6,
@@ -280,7 +280,7 @@ resolve_srcid_ipv6(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 178,
  Endline: 351,
  Funcname: handle_ipv6,
@@ -472,7 +472,7 @@ skip_host_firewall:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 353,
  Endline: 366,
  Funcname: tail_handle_ipv6,
@@ -505,7 +505,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_HOST)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 369,
  Endline: 372,
  Funcname: tail_handle_ipv6_from_host,
@@ -528,7 +528,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 375,
  Endline: 378,
  Funcname: tail_handle_ipv6_from_netdev,
@@ -551,7 +551,7 @@ int tail_handle_ipv6_from_netdev(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 381,
  Endline: 409,
  Funcname: handle_to_netdev_ipv6,
@@ -601,7 +601,7 @@ handle_to_netdev_ipv6(struct __ctx_buff *ctx, struct trace_ctx *trace)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 414,
  Endline: 469,
  Funcname: resolve_srcid_ipv4,
@@ -675,7 +675,7 @@ resolve_srcid_ipv4(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 471,
  Endline: 671,
  Funcname: handle_ipv4,
@@ -894,7 +894,7 @@ skip_vtep:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 673,
  Endline: 686,
  Funcname: tail_handle_ipv4,
@@ -927,7 +927,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_HOST)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 689,
  Endline: 699,
  Funcname: tail_handle_ipv4_from_host,
@@ -957,7 +957,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 702,
  Endline: 705,
  Funcname: tail_handle_ipv4_from_netdev,
@@ -980,7 +980,7 @@ int tail_handle_ipv4_from_netdev(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 708,
  Endline: 727,
  Funcname: handle_to_netdev_ipv4,
@@ -1022,7 +1022,7 @@ handle_to_netdev_ipv4(struct __ctx_buff *ctx, struct trace_ctx *trace)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 733,
  Endline: 788,
  Funcname: do_netdev_encrypt_pools,
@@ -1096,7 +1096,7 @@ drop_err:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 790,
  Endline: 853,
  Funcname: do_netdev_encrypt_fib,
@@ -1178,7 +1178,7 @@ drop_err_fib:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 855,
  Endline: 885,
  Funcname: do_netdev_encrypt,
@@ -1228,7 +1228,7 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 888,
  Endline: 902,
  Funcname: do_netdev_encrypt_encap,
@@ -1261,7 +1261,7 @@ static __always_inline int do_netdev_encrypt_encap(struct __ctx_buff *ctx, __u32
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 904,
  Endline: 908,
  Funcname: do_netdev_encrypt,
@@ -1286,7 +1286,7 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 912,
  Endline: 1022,
  Funcname: do_netdev,
@@ -1422,7 +1422,7 @@ do_netdev(struct __ctx_buff *ctx, __u16 proto, const bool from_host)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1031,
  Endline: 1051,
  Funcname: handle_netdev,
@@ -1462,7 +1462,7 @@ handle_netdev(struct __ctx_buff *ctx, const bool from_host)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1054,
  Endline: 1142,
  Funcname: handle_srv6,
@@ -1577,7 +1577,7 @@ __section("from-netdev")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1152,
  Endline: 1170,
  Funcname: from_netdev,
@@ -1619,7 +1619,7 @@ __section("from-host")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1177,
  Endline: 1184,
  Funcname: from_host,
@@ -1652,7 +1652,7 @@ __section("to-netdev")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1193,
  Endline: 1319,
  Funcname: to_netdev,
@@ -1802,7 +1802,7 @@ __section("to-host")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1326,
  Endline: 1406,
  Funcname: to_host,
@@ -1905,7 +1905,7 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1412,
  Endline: 1426,
  Funcname: tail_ipv6_host_policy_ingress,
@@ -1942,7 +1942,7 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1432,
  Endline: 1446,
  Funcname: tail_ipv4_host_policy_ingress,
@@ -1976,7 +1976,7 @@ int tail_ipv4_host_policy_ingress(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1449,
  Endline: 1497,
  Funcname: to_host_from_lxc,
@@ -2047,7 +2047,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1503,
  Endline: 1545,
  Funcname: from_host_to_lxc,
@@ -2114,7 +2114,7 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_HOST_EP_ID)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_host.c,
+ File: /root/examples/cilium/bpf_host.c,
  Startline: 1553,
  Endline: 1572,
  Funcname: handle_lxc_traffic,

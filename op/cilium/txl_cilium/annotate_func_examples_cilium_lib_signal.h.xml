@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/signal.h" funcheader="static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)" startline="36" endline="41">
+<source file="/root/examples/cilium/lib/signal.h" funcheader="static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)" startline="36" endline="41">
 static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)
 {
     ctx_event_output (ctx, &SIGNAL_MAP, BPF_F_CURRENT_CPU, msg, sizeof (*msg));
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/signal.h" funcheader="static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)" startline="43" endline="52">
+<source file="/root/examples/cilium/lib/signal.h" funcheader="static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)" startline="43" endline="52">
 static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)
 {
     struct signal_msg msg = {
@@ -16,7 +16,7 @@ static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __
     send_signal (ctx, &msg);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/signal.h" funcheader="static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)" startline="54" endline="63">
+<source file="/root/examples/cilium/lib/signal.h" funcheader="static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)" startline="54" endline="63">
 static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)
 {
     struct signal_msg msg = {

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h" funcheader="static inline __u32 get_next_ports (void *transport_hdr, __u8 proto, void *data_end)" startline="29" endline="53">
+<source file="/root/examples/katran/flow_debug_helpers.h" funcheader="static inline __u32 get_next_ports (void *transport_hdr, __u8 proto, void *data_end)" startline="29" endline="53">
 static inline __u32 get_next_ports (void *transport_hdr, __u8 proto, void *data_end)
 {
     __u32 ports = 0;
@@ -25,7 +25,7 @@ static inline __u32 get_next_ports (void *transport_hdr, __u8 proto, void *data_
     return ports;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h" funcheader="static inline void gue_record_route (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4)" startline="55" endline="128">
+<source file="/root/examples/katran/flow_debug_helpers.h" funcheader="static inline void gue_record_route (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4)" startline="55" endline="128">
 static inline void gue_record_route (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4)
 {
     struct flow_key flow = {0}

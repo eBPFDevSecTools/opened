@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_in_range (__u32 identity, __u32 range_start, __u32 range_end)" startline="9" endline="12">
+<source file="/root/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_in_range (__u32 identity, __u32 range_start, __u32 range_end)" startline="9" endline="12">
 static __always_inline bool identity_in_range (__u32 identity, __u32 range_start, __u32 range_end)
 {
     return range_start <= identity && identity <= range_end;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_remote_node (__u32 identity)" startline="14" endline="32">
+<source file="/root/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_remote_node (__u32 identity)" startline="14" endline="32">
 static __always_inline bool identity_is_remote_node (__u32 identity)
 {
     return identity == REMOTE_NODE_ID || identity == KUBE_APISERVER_NODE_ID;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_node (__u32 identity)" startline="34" endline="37">
+<source file="/root/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_node (__u32 identity)" startline="34" endline="37">
 static __always_inline bool identity_is_node (__u32 identity)
 {
     return identity == HOST_ID || identity_is_remote_node (identity);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_reserved (__u32 identity)" startline="57" endline="60">
+<source file="/root/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_reserved (__u32 identity)" startline="57" endline="60">
 static __always_inline bool identity_is_reserved (__u32 identity)
 {
     return identity < UNMANAGED_ID || identity_is_remote_node (identity);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_cluster (__u32 identity)" startline="80" endline="90">
+<source file="/root/examples/cilium/lib/identity.h" funcheader="static __always_inline bool identity_is_cluster (__u32 identity)" startline="80" endline="90">
 static __always_inline bool identity_is_cluster (__u32 identity)
 {
     if (identity == WORLD_ID)
@@ -34,7 +34,7 @@ static __always_inline bool identity_is_cluster (__u32 identity)
     return true;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/identity.h" funcheader="static __always_inline __u32 inherit_identity_from_host (struct  __ctx_buff *ctx, __u32 *identity)" startline="93" endline="137">
+<source file="/root/examples/cilium/lib/identity.h" funcheader="static __always_inline __u32 inherit_identity_from_host (struct  __ctx_buff *ctx, __u32 *identity)" startline="93" endline="137">
 static __always_inline __u32 inherit_identity_from_host (struct  __ctx_buff *ctx, __u32 *identity)
 {
     __u32 magic = ctx->mark & MARK_MAGIC_HOST_MASK;

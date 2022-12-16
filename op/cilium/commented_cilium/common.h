@@ -16,7 +16,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /root/examples/cilium/include/bpf/ctx/common.h,
  Startline: 16,
  Endline: 19,
  Funcname: *ctx_data,
@@ -38,7 +38,7 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /root/examples/cilium/include/bpf/ctx/common.h,
  Startline: 21,
  Endline: 24,
  Funcname: *ctx_data_meta,
@@ -60,7 +60,7 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /root/examples/cilium/include/bpf/ctx/common.h,
  Startline: 26,
  Endline: 29,
  Funcname: *ctx_data_end,
@@ -82,7 +82,7 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /root/examples/cilium/include/bpf/ctx/common.h,
  Startline: 31,
  Endline: 34,
  Funcname: ctx_no_room,

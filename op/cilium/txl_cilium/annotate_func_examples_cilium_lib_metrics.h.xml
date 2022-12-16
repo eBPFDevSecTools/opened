@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h" funcheader="static __always_inline void update_metrics (__u64 bytes, __u8 direction, __u8 reason)" startline="24" endline="43">
+<source file="/root/examples/cilium/lib/metrics.h" funcheader="static __always_inline void update_metrics (__u64 bytes, __u8 direction, __u8 reason)" startline="24" endline="43">
 static __always_inline void update_metrics (__u64 bytes, __u8 direction, __u8 reason)
 {
     struct metrics_value *entry, new_entry = {};
@@ -20,7 +20,7 @@ static __always_inline void update_metrics (__u64 bytes, __u8 direction, __u8 re
     }
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h" funcheader="static __always_inline enum metric_dir ct_to_metrics_dir (enum ct_dir ct_dir)" startline="50" endline="62">
+<source file="/root/examples/cilium/lib/metrics.h" funcheader="static __always_inline enum metric_dir ct_to_metrics_dir (enum ct_dir ct_dir)" startline="50" endline="62">
 static __always_inline enum metric_dir ct_to_metrics_dir (enum ct_dir ct_dir)
 {
     switch (ct_dir) {

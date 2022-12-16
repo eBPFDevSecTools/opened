@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool is_v4_loopback (__be32 daddr)" startline="27" endline="31">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool is_v4_loopback (__be32 daddr)" startline="27" endline="31">
 static __always_inline __maybe_unused bool is_v4_loopback (__be32 daddr)
 {
     return (daddr & bpf_htonl (0x7f000000)) == bpf_htonl (0x7f000000);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool is_v6_loopback (const union v6addr *daddr)" startline="33" endline="39">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool is_v6_loopback (const union v6addr *daddr)" startline="33" endline="39">
 static __always_inline __maybe_unused bool is_v6_loopback (const union v6addr *daddr)
 {
     union v6addr loopback = {
@@ -15,27 +15,27 @@ static __always_inline __maybe_unused bool is_v6_loopback (const union v6addr *d
     return ipv6_addrcmp (&loopback, daddr) == 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __be16 ctx_dst_port (const struct bpf_sock_addr *ctx)" startline="42" endline="48">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __be16 ctx_dst_port (const struct bpf_sock_addr *ctx)" startline="42" endline="48">
 static __always_inline __maybe_unused __be16 ctx_dst_port (const struct bpf_sock_addr *ctx)
 {
     volatile __u32 dport = ctx->user_port;
     return (__be16) dport;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __be16 ctx_src_port (const struct bpf_sock *ctx)" startline="50" endline="56">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __be16 ctx_src_port (const struct bpf_sock *ctx)" startline="50" endline="56">
 static __always_inline __maybe_unused __be16 ctx_src_port (const struct bpf_sock *ctx)
 {
     volatile __u16 sport = (__u16) ctx->src_port;
     return (__be16) bpf_htons (sport);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused void ctx_set_port (struct bpf_sock_addr *ctx, __be16 dport)" startline="58" endline="62">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused void ctx_set_port (struct bpf_sock_addr *ctx, __be16 dport)" startline="58" endline="62">
 static __always_inline __maybe_unused void ctx_set_port (struct bpf_sock_addr *ctx, __be16 dport)
 {
     ctx->user_port = (__u32) dport;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool task_in_extended_hostns (void)" startline="64" endline="72">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool task_in_extended_hostns (void)" startline="64" endline="72">
 static __always_inline __maybe_unused bool task_in_extended_hostns (void)
 {
 
@@ -48,7 +48,7 @@ static __always_inline __maybe_unused bool task_in_extended_hostns (void)
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool ctx_in_hostns (void * ctx __maybe_unused, __net_cookie *cookie)" startline="74" endline="89">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool ctx_in_hostns (void * ctx __maybe_unused, __net_cookie *cookie)" startline="74" endline="89">
 static __always_inline __maybe_unused bool ctx_in_hostns (void * ctx __maybe_unused, __net_cookie *cookie)
 {
 
@@ -66,7 +66,7 @@ static __always_inline __maybe_unused bool ctx_in_hostns (void * ctx __maybe_unu
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __sock_cookie sock_local_cookie (struct bpf_sock_addr *ctx)" startline="91" endline="119">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __sock_cookie sock_local_cookie (struct bpf_sock_addr *ctx)" startline="91" endline="119">
 static __always_inline __maybe_unused __sock_cookie sock_local_cookie (struct bpf_sock_addr *ctx)
 {
 
@@ -79,7 +79,7 @@ static __always_inline __maybe_unused __sock_cookie sock_local_cookie (struct bp
 #endif
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool sock_is_health_check (struct bpf_sock_addr * ctx __maybe_unused)" startline="121" endline="131">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool sock_is_health_check (struct bpf_sock_addr * ctx __maybe_unused)" startline="121" endline="131">
 static __always_inline __maybe_unused bool sock_is_health_check (struct bpf_sock_addr * ctx __maybe_unused)
 {
 
@@ -92,13 +92,13 @@ static __always_inline __maybe_unused bool sock_is_health_check (struct bpf_sock
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __u64 sock_select_slot (struct bpf_sock_addr *ctx)" startline="133" endline="138">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused __u64 sock_select_slot (struct bpf_sock_addr *ctx)" startline="133" endline="138">
 static __always_inline __maybe_unused __u64 sock_select_slot (struct bpf_sock_addr *ctx)
 {
     return ctx->protocol == IPPROTO_TCP ? get_prandom_u32 () : sock_local_cookie (ctx);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool sock_proto_enabled (__u32 proto)" startline="140" endline="156">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool sock_proto_enabled (__u32 proto)" startline="140" endline="156">
 static __always_inline __maybe_unused bool sock_proto_enabled (__u32 proto)
 {
     switch (proto) {
@@ -120,7 +120,7 @@ static __always_inline __maybe_unused bool sock_proto_enabled (__u32 proto)
     }
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock4_update_revnat (struct bpf_sock_addr *ctx, const struct lb4_backend *backend, const struct lb4_key *orig_key, __u16 rev_nat_id)" startline="168" endline="190">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock4_update_revnat (struct bpf_sock_addr *ctx, const struct lb4_backend *backend, const struct lb4_key *orig_key, __u16 rev_nat_id)" startline="168" endline="190">
 static __always_inline int sock4_update_revnat (struct bpf_sock_addr *ctx, const struct lb4_backend *backend, const struct lb4_key *orig_key, __u16 rev_nat_id)
 {
     struct ipv4_revnat_entry val = {}, *tmp;
@@ -139,13 +139,13 @@ static __always_inline int sock4_update_revnat (struct bpf_sock_addr *ctx, const
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock4_update_revnat (struct bpf_sock_addr * ctx __maybe_unused, struct lb4_backend * backend __maybe_unused, struct lb4_key * orig_key __maybe_unused, __u16 rev_nat_id __maybe_unused)" startline="192" endline="199">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock4_update_revnat (struct bpf_sock_addr * ctx __maybe_unused, struct lb4_backend * backend __maybe_unused, struct lb4_key * orig_key __maybe_unused, __u16 rev_nat_id __maybe_unused)" startline="192" endline="199">
 static __always_inline int sock4_update_revnat (struct bpf_sock_addr * ctx __maybe_unused, struct lb4_backend * backend __maybe_unused, struct lb4_key * orig_key __maybe_unused, __u16 rev_nat_id __maybe_unused)
 {
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline bool sock4_skip_xlate (struct lb4_service *svc, __be32 address)" startline="202" endline="218">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline bool sock4_skip_xlate (struct lb4_service *svc, __be32 address)" startline="202" endline="218">
 static __always_inline bool sock4_skip_xlate (struct lb4_service *svc, __be32 address)
 {
     if (lb4_to_lb6_service (svc))
@@ -159,7 +159,7 @@ static __always_inline bool sock4_skip_xlate (struct lb4_service *svc, __be32 ad
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline struct lb4_service *sock4_wildcard_lookup (struct lb4_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused)" startline="221" endline="251">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline struct lb4_service *sock4_wildcard_lookup (struct lb4_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused)" startline="221" endline="251">
 static __always_inline struct lb4_service *sock4_wildcard_lookup (struct lb4_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused)
 {
     struct remote_endpoint_info *info;
@@ -178,7 +178,7 @@ wildcard_lookup :
     return lb4_lookup_service (key, true);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline struct lb4_service *sock4_wildcard_lookup_full (struct lb4_key * key __maybe_unused, const bool in_hostns __maybe_unused)" startline="254" endline="272">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline struct lb4_service *sock4_wildcard_lookup_full (struct lb4_key * key __maybe_unused, const bool in_hostns __maybe_unused)" startline="254" endline="272">
 static __always_inline struct lb4_service *sock4_wildcard_lookup_full (struct lb4_key * key __maybe_unused, const bool in_hostns __maybe_unused)
 {
     struct lb4_service *svc = NULL;
@@ -197,7 +197,7 @@ static __always_inline struct lb4_service *sock4_wildcard_lookup_full (struct lb
     return svc;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline bool sock4_skip_xlate_if_same_netns (struct bpf_sock_addr * ctx __maybe_unused, const struct lb4_backend * backend __maybe_unused)" startline="293" endline="321">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline bool sock4_skip_xlate_if_same_netns (struct bpf_sock_addr * ctx __maybe_unused, const struct lb4_backend * backend __maybe_unused)" startline="293" endline="321">
 static __always_inline bool sock4_skip_xlate_if_same_netns (struct bpf_sock_addr * ctx __maybe_unused, const struct lb4_backend * backend __maybe_unused)
 {
 
@@ -224,7 +224,7 @@ static __always_inline bool sock4_skip_xlate_if_same_netns (struct bpf_sock_addr
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_xlate_fwd (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full, const bool udp_only)" startline="323" endline="458">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_xlate_fwd (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full, const bool udp_only)" startline="323" endline="458">
 static __always_inline int __sock4_xlate_fwd (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full, const bool udp_only)
 {
     union lb4_affinity_client_id id;
@@ -310,7 +310,7 @@ out :
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_health_fwd (struct bpf_sock_addr * ctx __maybe_unused)" startline="460" endline="476">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_health_fwd (struct bpf_sock_addr * ctx __maybe_unused)" startline="460" endline="476">
 static __always_inline int __sock4_health_fwd (struct bpf_sock_addr * ctx __maybe_unused)
 {
     int ret = lb_skip_l4_dnat () ? SYS_PROCEED : SYS_REJECT;
@@ -329,7 +329,7 @@ static __always_inline int __sock4_health_fwd (struct bpf_sock_addr * ctx __mayb
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock4_connect (struct bpf_sock_addr *ctx)" startline="479" endline="486">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock4_connect (struct bpf_sock_addr *ctx)" startline="479" endline="486">
 int sock4_connect (struct bpf_sock_addr *ctx)
 {
     if (sock_is_health_check (ctx))
@@ -338,7 +338,7 @@ int sock4_connect (struct bpf_sock_addr *ctx)
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_post_bind (struct bpf_sock *ctx, struct bpf_sock *ctx_full)" startline="489" endline="520">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_post_bind (struct bpf_sock *ctx, struct bpf_sock *ctx_full)" startline="489" endline="520">
 static __always_inline int __sock4_post_bind (struct bpf_sock *ctx, struct bpf_sock *ctx_full)
 {
     struct lb4_service *svc;
@@ -356,7 +356,7 @@ static __always_inline int __sock4_post_bind (struct bpf_sock *ctx, struct bpf_s
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock4_post_bind (struct bpf_sock *ctx)" startline="523" endline="529">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock4_post_bind (struct bpf_sock *ctx)" startline="523" endline="529">
 int sock4_post_bind (struct bpf_sock *ctx)
 {
     if (__sock4_post_bind (ctx, ctx) < 0)
@@ -364,14 +364,14 @@ int sock4_post_bind (struct bpf_sock *ctx)
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline void sock4_auto_bind (struct bpf_sock_addr *ctx)" startline="533" endline="537">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline void sock4_auto_bind (struct bpf_sock_addr *ctx)" startline="533" endline="537">
 static __always_inline void sock4_auto_bind (struct bpf_sock_addr *ctx)
 {
     ctx->user_ip4 = 0;
     ctx_set_port (ctx, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_pre_bind (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full)" startline="539" endline="559">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_pre_bind (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full)" startline="539" endline="559">
 static __always_inline int __sock4_pre_bind (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full)
 {
     __sock_cookie key = get_socket_cookie (ctx_full);
@@ -388,7 +388,7 @@ static __always_inline int __sock4_pre_bind (struct bpf_sock_addr *ctx, struct b
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock4_pre_bind (struct bpf_sock_addr *ctx)" startline="562" endline="573">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock4_pre_bind (struct bpf_sock_addr *ctx)" startline="562" endline="573">
 int sock4_pre_bind (struct bpf_sock_addr *ctx)
 {
     int ret = SYS_PROCEED;
@@ -399,7 +399,7 @@ int sock4_pre_bind (struct bpf_sock_addr *ctx)
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_xlate_rev (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full)" startline="577" endline="611">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock4_xlate_rev (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full)" startline="577" endline="611">
 static __always_inline int __sock4_xlate_rev (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full)
 {
     struct ipv4_revnat_entry *val;
@@ -430,28 +430,28 @@ static __always_inline int __sock4_xlate_rev (struct bpf_sock_addr *ctx, struct 
     return -ENXIO;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock4_sendmsg (struct bpf_sock_addr *ctx)" startline="614" endline="618">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock4_sendmsg (struct bpf_sock_addr *ctx)" startline="614" endline="618">
 int sock4_sendmsg (struct bpf_sock_addr *ctx)
 {
     __sock4_xlate_fwd (ctx, ctx, true);
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock4_recvmsg (struct bpf_sock_addr *ctx)" startline="621" endline="625">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock4_recvmsg (struct bpf_sock_addr *ctx)" startline="621" endline="625">
 int sock4_recvmsg (struct bpf_sock_addr *ctx)
 {
     __sock4_xlate_rev (ctx, ctx);
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock4_getpeername (struct bpf_sock_addr *ctx)" startline="628" endline="632">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock4_getpeername (struct bpf_sock_addr *ctx)" startline="628" endline="632">
 int sock4_getpeername (struct bpf_sock_addr *ctx)
 {
     __sock4_xlate_rev (ctx, ctx);
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_update_revnat (struct bpf_sock_addr *ctx, const struct lb6_backend *backend, const struct lb6_key *orig_key, __u16 rev_nat_index)" startline="647" endline="669">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_update_revnat (struct bpf_sock_addr *ctx, const struct lb6_backend *backend, const struct lb6_key *orig_key, __u16 rev_nat_index)" startline="647" endline="669">
 static __always_inline int sock6_update_revnat (struct bpf_sock_addr *ctx, const struct lb6_backend *backend, const struct lb6_key *orig_key, __u16 rev_nat_index)
 {
     struct ipv6_revnat_entry val = {}, *tmp;
@@ -470,13 +470,13 @@ static __always_inline int sock6_update_revnat (struct bpf_sock_addr *ctx, const
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_update_revnat (struct bpf_sock_addr * ctx __maybe_unused, struct lb6_backend * backend __maybe_unused, struct lb6_key * orig_key __maybe_unused, __u16 rev_nat_index __maybe_unused)" startline="671" endline="678">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_update_revnat (struct bpf_sock_addr * ctx __maybe_unused, struct lb6_backend * backend __maybe_unused, struct lb6_key * orig_key __maybe_unused, __u16 rev_nat_index __maybe_unused)" startline="671" endline="678">
 static __always_inline int sock6_update_revnat (struct bpf_sock_addr * ctx __maybe_unused, struct lb6_backend * backend __maybe_unused, struct lb6_key * orig_key __maybe_unused, __u16 rev_nat_index __maybe_unused)
 {
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline void ctx_get_v6_address (const struct bpf_sock_addr *ctx, union v6addr *addr)" startline="682" endline="693">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline void ctx_get_v6_address (const struct bpf_sock_addr *ctx, union v6addr *addr)" startline="682" endline="693">
 static __always_inline void ctx_get_v6_address (const struct bpf_sock_addr *ctx, union v6addr *addr)
 {
     addr->p1 = ctx->user_ip6[0];
@@ -489,7 +489,7 @@ static __always_inline void ctx_get_v6_address (const struct bpf_sock_addr *ctx,
     barrier ();
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline void ctx_get_v6_src_address (const struct bpf_sock *ctx, union v6addr *addr)" startline="696" endline="707">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline void ctx_get_v6_src_address (const struct bpf_sock *ctx, union v6addr *addr)" startline="696" endline="707">
 static __always_inline void ctx_get_v6_src_address (const struct bpf_sock *ctx, union v6addr *addr)
 {
     addr->p1 = ctx->src_ip6[0];
@@ -502,7 +502,7 @@ static __always_inline void ctx_get_v6_src_address (const struct bpf_sock *ctx, 
     barrier ();
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline void ctx_set_v6_address (struct bpf_sock_addr *ctx, const union v6addr *addr)" startline="710" endline="721">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline void ctx_set_v6_address (struct bpf_sock_addr *ctx, const union v6addr *addr)" startline="710" endline="721">
 static __always_inline void ctx_set_v6_address (struct bpf_sock_addr *ctx, const union v6addr *addr)
 {
     ctx->user_ip6[0] = addr->p1;
@@ -515,7 +515,7 @@ static __always_inline void ctx_set_v6_address (struct bpf_sock_addr *ctx, const
     barrier ();
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool sock6_skip_xlate (struct lb6_service *svc, const union v6addr *address)" startline="723" endline="739">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused bool sock6_skip_xlate (struct lb6_service *svc, const union v6addr *address)" startline="723" endline="739">
 static __always_inline __maybe_unused bool sock6_skip_xlate (struct lb6_service *svc, const union v6addr *address)
 {
     if (lb6_to_lb4_service (svc))
@@ -529,7 +529,7 @@ static __always_inline __maybe_unused bool sock6_skip_xlate (struct lb6_service 
     return false;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup (struct lb6_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused)" startline="742" endline="772">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup (struct lb6_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused)" startline="742" endline="772">
 static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup (struct lb6_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused)
 {
     struct remote_endpoint_info *info;
@@ -548,7 +548,7 @@ wildcard_lookup :
     return lb6_lookup_service (key, true);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup_full (struct lb6_key * key __maybe_unused, const bool in_hostns __maybe_unused)" startline="775" endline="793">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup_full (struct lb6_key * key __maybe_unused, const bool in_hostns __maybe_unused)" startline="775" endline="793">
 static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup_full (struct lb6_key * key __maybe_unused, const bool in_hostns __maybe_unused)
 {
     struct lb6_service *svc = NULL;
@@ -567,7 +567,7 @@ static __always_inline __maybe_unused struct lb6_service *sock6_wildcard_lookup_
     return svc;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_xlate_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused, const bool udp_only __maybe_unused)" startline="795" endline="824">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_xlate_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused, const bool udp_only __maybe_unused)" startline="795" endline="824">
 static __always_inline int sock6_xlate_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused, const bool udp_only __maybe_unused)
 {
 
@@ -594,7 +594,7 @@ static __always_inline int sock6_xlate_v4_in_v6 (struct bpf_sock_addr * ctx __ma
     return -ENXIO;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_post_bind_v4_in_v6 (struct bpf_sock * ctx __maybe_unused)" startline="827" endline="846">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_post_bind_v4_in_v6 (struct bpf_sock * ctx __maybe_unused)" startline="827" endline="846">
 static __always_inline int sock6_post_bind_v4_in_v6 (struct bpf_sock * ctx __maybe_unused)
 {
 
@@ -614,7 +614,7 @@ static __always_inline int sock6_post_bind_v4_in_v6 (struct bpf_sock * ctx __may
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_post_bind (struct bpf_sock *ctx)" startline="848" endline="874">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_post_bind (struct bpf_sock *ctx)" startline="848" endline="874">
 static __always_inline int __sock6_post_bind (struct bpf_sock *ctx)
 {
     struct lb6_service *svc;
@@ -635,7 +635,7 @@ static __always_inline int __sock6_post_bind (struct bpf_sock *ctx)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock6_post_bind (struct bpf_sock *ctx)" startline="877" endline="883">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock6_post_bind (struct bpf_sock *ctx)" startline="877" endline="883">
 int sock6_post_bind (struct bpf_sock *ctx)
 {
     if (__sock6_post_bind (ctx) < 0)
@@ -643,7 +643,7 @@ int sock6_post_bind (struct bpf_sock *ctx)
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_pre_bind_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused)" startline="887" endline="911">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_pre_bind_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused)" startline="887" endline="911">
 static __always_inline int sock6_pre_bind_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused)
 {
 
@@ -667,7 +667,7 @@ static __always_inline int sock6_pre_bind_v4_in_v6 (struct bpf_sock_addr * ctx _
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline void sock6_auto_bind (struct bpf_sock_addr *ctx)" startline="914" endline="920">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline void sock6_auto_bind (struct bpf_sock_addr *ctx)" startline="914" endline="920">
 static __always_inline void sock6_auto_bind (struct bpf_sock_addr *ctx)
 {
     union v6addr zero = {}
@@ -676,7 +676,7 @@ static __always_inline void sock6_auto_bind (struct bpf_sock_addr *ctx)
     ctx_set_port (ctx, 0);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_pre_bind (struct bpf_sock_addr *ctx)" startline="923" endline="944">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_pre_bind (struct bpf_sock_addr *ctx)" startline="923" endline="944">
 static __always_inline int __sock6_pre_bind (struct bpf_sock_addr *ctx)
 {
     __sock_cookie key __maybe_unused;
@@ -700,7 +700,7 @@ static __always_inline int __sock6_pre_bind (struct bpf_sock_addr *ctx)
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock6_pre_bind (struct bpf_sock_addr *ctx)" startline="947" endline="958">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock6_pre_bind (struct bpf_sock_addr *ctx)" startline="947" endline="958">
 int sock6_pre_bind (struct bpf_sock_addr *ctx)
 {
     int ret = SYS_PROCEED;
@@ -711,7 +711,7 @@ int sock6_pre_bind (struct bpf_sock_addr *ctx)
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_xlate_fwd (struct bpf_sock_addr *ctx, const bool udp_only)" startline="961" endline="1062">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_xlate_fwd (struct bpf_sock_addr *ctx, const bool udp_only)" startline="961" endline="1062">
 static __always_inline int __sock6_xlate_fwd (struct bpf_sock_addr *ctx, const bool udp_only)
 {
 
@@ -806,7 +806,7 @@ out :
 #endif /* ENABLE_IPV6 */
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_health_fwd (struct bpf_sock_addr * ctx __maybe_unused)" startline="1064" endline="1089">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_health_fwd (struct bpf_sock_addr * ctx __maybe_unused)" startline="1064" endline="1089">
 static __always_inline int __sock6_health_fwd (struct bpf_sock_addr * ctx __maybe_unused)
 {
     int ret = lb_skip_l4_dnat () ? SYS_PROCEED : SYS_REJECT;
@@ -836,7 +836,7 @@ static __always_inline int __sock6_health_fwd (struct bpf_sock_addr * ctx __mayb
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock6_connect (struct bpf_sock_addr *ctx)" startline="1092" endline="1099">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock6_connect (struct bpf_sock_addr *ctx)" startline="1092" endline="1099">
 int sock6_connect (struct bpf_sock_addr *ctx)
 {
     if (sock_is_health_check (ctx))
@@ -845,7 +845,7 @@ int sock6_connect (struct bpf_sock_addr *ctx)
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_xlate_rev_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused)" startline="1102" endline="1130">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int sock6_xlate_rev_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused)" startline="1102" endline="1130">
 static __always_inline int sock6_xlate_rev_v4_in_v6 (struct bpf_sock_addr * ctx __maybe_unused)
 {
 
@@ -872,7 +872,7 @@ static __always_inline int sock6_xlate_rev_v4_in_v6 (struct bpf_sock_addr * ctx 
     return -ENXIO;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_xlate_rev (struct bpf_sock_addr *ctx)" startline="1132" endline="1167">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="static __always_inline int __sock6_xlate_rev (struct bpf_sock_addr *ctx)" startline="1132" endline="1167">
 static __always_inline int __sock6_xlate_rev (struct bpf_sock_addr *ctx)
 {
 
@@ -907,21 +907,21 @@ static __always_inline int __sock6_xlate_rev (struct bpf_sock_addr *ctx)
     return sock6_xlate_rev_v4_in_v6 (ctx);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock6_sendmsg (struct bpf_sock_addr *ctx)" startline="1170" endline="1174">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock6_sendmsg (struct bpf_sock_addr *ctx)" startline="1170" endline="1174">
 int sock6_sendmsg (struct bpf_sock_addr *ctx)
 {
     __sock6_xlate_fwd (ctx, true);
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock6_recvmsg (struct bpf_sock_addr *ctx)" startline="1177" endline="1181">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock6_recvmsg (struct bpf_sock_addr *ctx)" startline="1177" endline="1181">
 int sock6_recvmsg (struct bpf_sock_addr *ctx)
 {
     __sock6_xlate_rev (ctx);
     return SYS_PROCEED;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c" funcheader="int sock6_getpeername (struct bpf_sock_addr *ctx)" startline="1184" endline="1188">
+<source file="/root/examples/cilium/bpf_sock.c" funcheader="int sock6_getpeername (struct bpf_sock_addr *ctx)" startline="1184" endline="1188">
 int sock6_getpeername (struct bpf_sock_addr *ctx)
 {
     __sock6_xlate_rev (ctx);

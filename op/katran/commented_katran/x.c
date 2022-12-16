@@ -9,7 +9,7 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/sayandes/opened_extraction/examples/katran/x.c,
+ File: /root/examples/katran/x.c,
  Startline: 9,
  Endline: 13,
  Funcname: xdp_prog_simple,
