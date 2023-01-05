@@ -89,6 +89,7 @@ def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
             name = tokens[1]
             stack.append((ifdefstring,name,lc))
             if name in preprocessor_names:
+                print("DUPLICATE $DEFINE: "+name)
                 dup_preprocessor_names[name]=1
             else:
                 preprocessor_names[name]=1
@@ -100,6 +101,7 @@ def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
             name = tokens[1]
             stack.append((ifstring,name,lc))
             if name in preprocessor_names:
+                print("DUPLICATE $DEFINE: "+name)
                 dup_preprocessor_names[name]=1
             else:
                 preprocessor_names[name]=1
@@ -111,6 +113,7 @@ def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
             name = tokens[1]
             stack.append((ifndefstring,name,lc))
             if name in preprocessor_names:
+                print("DUPLICATE $DEFINE: "+name)
                 dup_preprocessor_names[name]=1
             else:
                 preprocessor_names[name]=1
