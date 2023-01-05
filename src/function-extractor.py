@@ -284,7 +284,7 @@ def addDependsOn(cFile):
     iFile.close()
 
 #dump #defines to output file
-def addDefines(cFile,ofile):
+def addDefines(cFile,ofile,preprocessor_names,dup_preprocessor_names):
     full_line = run_cmd("readlink -f "+cFile) 
     with open(full_line) as iFile:
         multi = False
@@ -301,6 +301,12 @@ def addDefines(cFile,ofile):
                 line_arr=line.split("#define")
                 tokens = line_arr[1].split()
                 var_name=tokens[0]
+                if var_name in preprocessor_names.keys():
+                    print("DUPLICATE #define "+var_name+" cFile: "+cFile+" lineCt: "+str(lineCt))
+                    dup_preprocessor_names[var_name]=1
+                else:
+                    preprocessor_names[var_name]=1
+
                 cont_char = sline[-1]
                 ofile.write("//OPENED COMMENT BEGIN: From: "+full_line+" startLine: "+str(lineCt)+"\n")
                 ofile.write("#ifndef "+var_name+"//OPENED define "+var_name+" BEG\n")
@@ -478,6 +484,10 @@ if __name__ == "__main__":
     #list of c files from which to include #defines
     extract_defines_files_set = set()
 
+    #dict containing duplicate #defines
+    preprocessor_names={}
+    dup_preprocessor_names = {}
+
     make_extraction_dir(opdir)
     copy_include_files(cscopeFile, opdir,basedir)
     copyMakefile(srcdir,opdir)
@@ -510,7 +520,7 @@ if __name__ == "__main__":
     extract_maps_from_struct_defs(txl_struct_dict,maps,opMaps,extract_defines_files_set)
     build_fn_list_to_extract(txl_func_dict,fns,extract_defines_files_set)
     for c_file in extract_defines_files_set:
-        addDefines(c_file,f)
+        addDefines(c_file,f,preprocessor_names,dup_preprocessor_names)
     
     ##print("HEADERS\n")
     for header in headers.keys():
@@ -564,6 +574,9 @@ if __name__ == "__main__":
     f.close()
     eFile.close()
 
+    print("DUPLICATE #Defines")
+    for name in dup_preprocessor_names.keys():
+        print(name)
     
     print("MAPS\n")
     for mapName  in opMaps:
