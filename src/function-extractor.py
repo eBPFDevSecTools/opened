@@ -62,7 +62,7 @@ def make_extraction_dir(path):
     #os.chdir(path)
 # string to search in file
 
-def create_preprocessor_map(filename):
+def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
 
     fp = open(filename, 'r')
         # read all lines using readline()
@@ -88,14 +88,21 @@ def create_preprocessor_map(filename):
             tokens = line.split()
             name = tokens[1]
             stack.append((ifdefstring,name,lc))
-
+            if name in preprocessor_names:
+                dup_preprocessor_names[name]=1
+            else:
+                preprocessor_names[name]=1
+            
         if line.find(ifstring) == 0:
             #print('string #if exists in file')
             #print('line Number:', lc,line)
             tokens = line.split()
             name = tokens[1]
             stack.append((ifstring,name,lc))
-
+            if name in preprocessor_names:
+                dup_preprocessor_names[name]=1
+            else:
+                preprocessor_names[name]=1
 
         if line.find(ifndefstring) == 0:
             #print('string #ifndef exists in file')
@@ -103,7 +110,11 @@ def create_preprocessor_map(filename):
             tokens = line.split()
             name = tokens[1]
             stack.append((ifndefstring,name,lc))
-
+            if name in preprocessor_names:
+                dup_preprocessor_names[name]=1
+            else:
+                preprocessor_names[name]=1
+            
 
         if line.find(elifstring) == 0:
            #print('string #elif exists in file')
@@ -112,7 +123,7 @@ def create_preprocessor_map(filename):
            pres.append((t,name,bg,lc-1))
            tokens = line.split()
            stack.append((ifdefstring,tokens[1],lc))
-
+           
         if line.find(elsestring) == 0:
            #print('string #else exists in file')
            #print('line Number:', lc,line)
@@ -217,7 +228,7 @@ def dumpFns(f,e):
             #del fns[key]
 
 # Check if struct definition could be an eBPF map definition based on map name
-def extract_maps_from_struct_defs(txl_struct_dict,fcg_maps,op_maps,extract_defines_files_set):
+def extract_maps_from_struct_defs(txl_struct_dict,fcg_maps,op_maps,extract_defines_files_set,preprocessor_names,dup_preprocessor_names):
     for structStr in txl_struct_dict:
         struct_defn_list = txl_struct_dict[structStr]
         #print("struct_defn_list: ")
@@ -228,7 +239,7 @@ def extract_maps_from_struct_defs(txl_struct_dict,fcg_maps,op_maps,extract_defin
             startLine = struct_defn_dict["startLine"]
             endLine = struct_defn_dict["endLine"]
             if not fileName in presDict:
-                p = create_preprocessor_map(fileName)
+                p = create_preprocessor_map(fileName,preprocessor_names,dup_preprocessor_names)
                 presDict[fileName]=p
             (isMap,mapName) = doesStructContainMap(structStr,fcg_maps)
             if isMap == True:
@@ -241,7 +252,7 @@ def extract_maps_from_struct_defs(txl_struct_dict,fcg_maps,op_maps,extract_defin
                     extract_defines_files_set.add(fileNmae)
                     
 
-def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set):
+def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set,preprocessor_names,dup_preprocessor_names):
     for func_name in txl_func_dict:
         func_defn_list = txl_func_dict[func_name]
         print("func_defn_list: ")
@@ -252,7 +263,7 @@ def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set):
             startLine = func_defn_dict["startLine"]
             endLine = func_defn_dict["endLine"]
             if not fileName in presDict:
-                p = create_preprocessor_map(fileName)
+                p = create_preprocessor_map(fileName,preprocessor_names,dup_preprocessor_names)
                 presDict[fileName]=p
             key=func_name+":"+fileName
             #print("Checking if need to extract",key)
@@ -478,6 +489,11 @@ if __name__ == "__main__":
     #list of c files from which to include #defines
     extract_defines_files_set = set()
 
+    #dict containing duplicate #defines
+    dup_preprocessor_names = {}
+    preprocessor_names = {}
+
+
     make_extraction_dir(opdir)
     copy_include_files(cscopeFile, opdir,basedir)
     copyMakefile(srcdir,opdir)
@@ -507,8 +523,8 @@ if __name__ == "__main__":
         print("TXL_FUNC_DICT:")
         print(txl_func_dict)
 
-    extract_maps_from_struct_defs(txl_struct_dict,maps,opMaps,extract_defines_files_set)
-    build_fn_list_to_extract(txl_func_dict,fns,extract_defines_files_set)
+    extract_maps_from_struct_defs(txl_struct_dict,maps,opMaps,extract_defines_files_set,preprocessor_names,dup_preprocessor_names)
+    build_fn_list_to_extract(txl_func_dict,fns,extract_defines_files_set,preprocessor_names,dup_preprocessor_names)
     for c_file in extract_defines_files_set:
         addDefines(c_file,f)
     
