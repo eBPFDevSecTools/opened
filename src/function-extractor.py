@@ -89,7 +89,7 @@ def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
             name = tokens[1]
             stack.append((ifdefstring,name,lc))
             if filename.endswith(".c") and name in preprocessor_names.keys():
-                print("DUPLICATE $DEFINE: "+name)
+                print("DUPLICATE $DEFINE: "+name+ " fileName: "+filename+" lc: "+lc)
                 dup_preprocessor_names[name]=1
             else:
                 preprocessor_names[name]=1
@@ -101,7 +101,7 @@ def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
             name = tokens[1]
             stack.append((ifstring,name,lc))
             if filename.endswith(".c") and name in preprocessor_names.keys():
-                print("DUPLICATE $DEFINE: "+name)
+                print("DUPLICATE $DEFINE: "+name+ " fileName: "+filename+" lc: "+lc)
                 dup_preprocessor_names[name]=1
             else:
                 preprocessor_names[name]=1
@@ -113,7 +113,7 @@ def create_preprocessor_map(filename,preprocessor_names,dup_preprocessor_names):
             name = tokens[1]
             stack.append((ifndefstring,name,lc))
             if filename.endswith(".c") and name in preprocessor_names.keys():
-                print("DUPLICATE $DEFINE: "+name)
+                print("DUPLICATE $DEFINE: "+name+ " fileName: "+filename+ " lc: "+lc)
                 dup_preprocessor_names[name]=1
             else:
                 preprocessor_names[name]=1
