@@ -580,7 +580,11 @@ if __name__ == "__main__":
     f.close()
     eFile.close()
 
-    
+    print("DUPLICATE #DEFINES")
+    for name in dup_preprocessor_names:
+        print(name)
+
+
     print("MAPS\n")
     for mapName  in opMaps:
         if len(opMaps[mapName]) > 1:
