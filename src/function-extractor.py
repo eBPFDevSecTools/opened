@@ -219,11 +219,11 @@ def dumpFns(f,e):
 # Check if struct definition could be an eBPF map definition based on map name
 def extract_maps_from_struct_defs(txl_struct_dict,fcg_maps,op_maps,extract_defines_files_set):
     for structStr in txl_struct_dict:
+        #print("structStr: "+structStr)
         struct_defn_list = txl_struct_dict[structStr]
         #print("struct_defn_list: ")
         #print(struct_defn_list)
-        for struct_defn in struct_defn_list:
-            struct_defn_dict = json.loads(struct_defn)
+        for struct_defn_dict in struct_defn_list:
             fileName = struct_defn_dict["fileName"]
             startLine = struct_defn_dict["startLine"]
             endLine = struct_defn_dict["endLine"]
@@ -247,7 +247,8 @@ def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set):
         print("func_defn_list: ")
         print(func_defn_list)
         for func_defn in func_defn_list:
-            func_defn_dict = json.loads(func_defn)
+            func_defn_dict = func_defn
+            #func_defn_dict = json.loads(func_defn)
             fileName = func_defn_dict["fileName"]
             startLine = func_defn_dict["startLine"]
             endLine = func_defn_dict["endLine"]
