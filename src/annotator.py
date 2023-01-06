@@ -115,15 +115,11 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
             startLine = int(tokens[-2])
             endLine = int(tokens[-1])
             key=funcName
-            map_def = {}
-            map_def['fileName'] = srcFile
-            map_def['startLine'] = str(startLine)
-            map_def['endLine'] = str(endLine)
-
-            if key in func_file_def_dict:
-                func_file_def_dict[key]+=","+json.dumps(map_def)
-            else:
-                func_file_def_dict[key]=json.dumps(map_def)
+            fn_def = {}
+            fn_def['fileName'] = srcFile
+            fn_def['startLine'] = str(startLine)
+            fn_def['endLine'] = str(endLine)
+            func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
 def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict):
@@ -197,10 +193,7 @@ def parseTXLStructOutputFile(fileName, map_file_def_dict):
             map_def['fileName'] = fileName
             map_def['startLine'] = str(startLine)
             map_def['endLine'] = str(endLine)
-            if structStr in map_file_def_dict:
-                map_file_def_dict[structStr] += ","+json.dumps(map_def)
-            else:
-                map_file_def_dict[structStr] = json.dumps(map_def)
+            map_file_def_dict[structStr].append(map_def)
             structStr=head+structStr
             structStr= ""
         elif inside == True:
@@ -293,8 +286,8 @@ if __name__ == "__main__":
     intermediate_f_list.append(tags_folder)
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
 
-    txl_dict_struct = {} #defaultdict(set)
-    txl_dict_func = {} #defaultdict(set)
+    txl_dict_struct = defaultdict(list)
+    txl_dict_func = defaultdict(list)
     txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct)
     if (cmt_op_dir is not None):
         if(args.bpfHelperFile is not None):
