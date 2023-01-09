@@ -1,42 +1,42 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void bpf_clear_meta (struct xdp_md * ctx __maybe_unused)" startline="7" endline="10">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void bpf_clear_meta (struct xdp_md * ctx __maybe_unused)" startline="7" endline="10">
 static __always_inline __maybe_unused void bpf_clear_meta (struct xdp_md * ctx __maybe_unused)
 {
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused int get_identity (struct xdp_md * ctx __maybe_unused)" startline="12" endline="16">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused int get_identity (struct xdp_md * ctx __maybe_unused)" startline="12" endline="16">
 static __always_inline __maybe_unused int get_identity (struct xdp_md * ctx __maybe_unused)
 {
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_encrypt_dip (struct xdp_md * ctx __maybe_unused, __u32 ip_endpoint __maybe_unused)" startline="18" endline="22">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_encrypt_dip (struct xdp_md * ctx __maybe_unused, __u32 ip_endpoint __maybe_unused)" startline="18" endline="22">
 static __always_inline __maybe_unused void set_encrypt_dip (struct xdp_md * ctx __maybe_unused, __u32 ip_endpoint __maybe_unused)
 {
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_identity_mark (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused)" startline="24" endline="27">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_identity_mark (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused)" startline="24" endline="27">
 static __always_inline __maybe_unused void set_identity_mark (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused)
 {
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_identity_meta (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused)" startline="29" endline="33">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_identity_meta (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused)" startline="29" endline="33">
 static __always_inline __maybe_unused void set_identity_meta (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused)
 {
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_encrypt_key_mark (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused)" startline="35" endline="38">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_encrypt_key_mark (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused)" startline="35" endline="38">
 static __always_inline __maybe_unused void set_encrypt_key_mark (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused)
 {
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_encrypt_key_meta (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused)" startline="40" endline="43">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void set_encrypt_key_meta (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused)" startline="40" endline="43">
 static __always_inline __maybe_unused void set_encrypt_key_meta (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused)
 {
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused int redirect_self (struct xdp_md * ctx __maybe_unused)" startline="45" endline="53">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused int redirect_self (struct xdp_md * ctx __maybe_unused)" startline="45" endline="53">
 static __always_inline __maybe_unused int redirect_self (struct xdp_md * ctx __maybe_unused)
 {
 
@@ -49,7 +49,7 @@ static __always_inline __maybe_unused int redirect_self (struct xdp_md * ctx __m
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void ctx_skip_nodeport_clear (struct xdp_md * ctx __maybe_unused)" startline="58" endline="64">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void ctx_skip_nodeport_clear (struct xdp_md * ctx __maybe_unused)" startline="58" endline="64">
 static __always_inline __maybe_unused void ctx_skip_nodeport_clear (struct xdp_md * ctx __maybe_unused)
 {
 
@@ -59,7 +59,7 @@ static __always_inline __maybe_unused void ctx_skip_nodeport_clear (struct xdp_m
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void ctx_skip_nodeport_set (struct xdp_md * ctx __maybe_unused)" startline="66" endline="72">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void ctx_skip_nodeport_set (struct xdp_md * ctx __maybe_unused)" startline="66" endline="72">
 static __always_inline __maybe_unused void ctx_skip_nodeport_set (struct xdp_md * ctx __maybe_unused)
 {
 
@@ -69,7 +69,7 @@ static __always_inline __maybe_unused void ctx_skip_nodeport_set (struct xdp_md 
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused bool ctx_skip_nodeport (struct xdp_md * ctx __maybe_unused)" startline="74" endline="82">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused bool ctx_skip_nodeport (struct xdp_md * ctx __maybe_unused)" startline="74" endline="82">
 static __always_inline __maybe_unused bool ctx_skip_nodeport (struct xdp_md * ctx __maybe_unused)
 {
 
@@ -82,19 +82,19 @@ static __always_inline __maybe_unused bool ctx_skip_nodeport (struct xdp_md * ct
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused __u32 ctx_get_xfer (struct xdp_md * ctx __maybe_unused)" startline="84" endline="88">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused __u32 ctx_get_xfer (struct xdp_md * ctx __maybe_unused)" startline="84" endline="88">
 static __always_inline __maybe_unused __u32 ctx_get_xfer (struct xdp_md * ctx __maybe_unused)
 {
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void ctx_set_xfer (struct xdp_md *ctx, __u32 meta)" startline="90" endline="94">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused void ctx_set_xfer (struct xdp_md *ctx, __u32 meta)" startline="90" endline="94">
 static __always_inline __maybe_unused void ctx_set_xfer (struct xdp_md *ctx, __u32 meta)
 {
     ctx_store_meta (ctx, XFER_MARKER, meta);
 }
 </source>
-<source file="/root/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused int ctx_change_head (struct xdp_md * ctx __maybe_unused, __u32 head_room __maybe_unused, __u64 flags __maybe_unused)" startline="96" endline="102">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_xdp.h" funcheader="static __always_inline __maybe_unused int ctx_change_head (struct xdp_md * ctx __maybe_unused, __u32 head_room __maybe_unused, __u64 flags __maybe_unused)" startline="96" endline="102">
 static __always_inline __maybe_unused int ctx_change_head (struct xdp_md * ctx __maybe_unused, __u32 head_room __maybe_unused, __u64 flags __maybe_unused)
 {
     return 0;

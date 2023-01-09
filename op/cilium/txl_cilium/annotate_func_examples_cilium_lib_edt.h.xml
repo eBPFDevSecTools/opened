@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/edt.h" funcheader="static __always_inline void edt_set_aggregate (struct  __ctx_buff *ctx, __u32 aggregate)" startline="17" endline="22">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/edt.h" funcheader="static __always_inline void edt_set_aggregate (struct  __ctx_buff *ctx, __u32 aggregate)" startline="17" endline="22">
 static __always_inline void edt_set_aggregate (struct  __ctx_buff *ctx, __u32 aggregate)
 {
     ctx->queue_mapping = aggregate;
 }
 </source>
-<source file="/root/examples/cilium/lib/edt.h" funcheader="static __always_inline __u32 edt_get_aggregate (struct  __ctx_buff *ctx)" startline="24" endline="34">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/edt.h" funcheader="static __always_inline __u32 edt_get_aggregate (struct  __ctx_buff *ctx)" startline="24" endline="34">
 static __always_inline __u32 edt_get_aggregate (struct  __ctx_buff *ctx)
 {
     __u32 aggregate = ctx->queue_mapping;
@@ -14,7 +14,7 @@ static __always_inline __u32 edt_get_aggregate (struct  __ctx_buff *ctx)
     return aggregate;
 }
 </source>
-<source file="/root/examples/cilium/lib/edt.h" funcheader="static __always_inline int edt_sched_departure (struct  __ctx_buff *ctx)" startline="36" endline="77">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/edt.h" funcheader="static __always_inline int edt_sched_departure (struct  __ctx_buff *ctx)" startline="36" endline="77">
 static __always_inline int edt_sched_departure (struct  __ctx_buff *ctx)
 {
     __u64 delay, now, t, t_next;
@@ -48,7 +48,7 @@ static __always_inline int edt_sched_departure (struct  __ctx_buff *ctx)
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/edt.h" funcheader="static __always_inline void edt_set_aggregate (struct  __ctx_buff * ctx __maybe_unused, __u32 aggregate __maybe_unused)" startline="79" endline="83">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/edt.h" funcheader="static __always_inline void edt_set_aggregate (struct  __ctx_buff * ctx __maybe_unused, __u32 aggregate __maybe_unused)" startline="79" endline="83">
 static __always_inline void edt_set_aggregate (struct  __ctx_buff * ctx __maybe_unused, __u32 aggregate __maybe_unused)
 {
 }

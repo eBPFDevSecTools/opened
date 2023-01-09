@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_optlen (const struct ipv6_opt_hdr *opthdr)" startline="38" endline="41">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_optlen (const struct ipv6_opt_hdr *opthdr)" startline="38" endline="41">
 static __always_inline int ipv6_optlen (const struct ipv6_opt_hdr *opthdr)
 {
     return (opthdr->hdrlen + 1) << 3;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_authlen (const struct ipv6_opt_hdr *opthdr)" startline="43" endline="46">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_authlen (const struct ipv6_opt_hdr *opthdr)" startline="43" endline="46">
 static __always_inline int ipv6_authlen (const struct ipv6_opt_hdr *opthdr)
 {
     return (opthdr->hdrlen + 2) << 2;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_hdrlen (struct  __ctx_buff *ctx, __u8 *nexthdr)" startline="48" endline="85">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_hdrlen (struct  __ctx_buff *ctx, __u8 *nexthdr)" startline="48" endline="85">
 static __always_inline int ipv6_hdrlen (struct  __ctx_buff *ctx, __u8 *nexthdr)
 {
     int i, len = sizeof (struct ipv6hdr);
@@ -46,14 +46,14 @@ static __always_inline int ipv6_hdrlen (struct  __ctx_buff *ctx, __u8 *nexthdr)
     return DROP_INVALID_EXTHDR;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline void ipv6_addr_copy (union v6addr *dst, const union v6addr *src)" startline="87" endline="92">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline void ipv6_addr_copy (union v6addr *dst, const union v6addr *src)" startline="87" endline="92">
 static __always_inline void ipv6_addr_copy (union v6addr *dst, const union v6addr *src)
 {
     dst->d1 = src->d1;
     dst->d2 = src->d2;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline __u64 ipv6_addrcmp (const union v6addr *a, const union v6addr *b)" startline="94" endline="103">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline __u64 ipv6_addrcmp (const union v6addr *a, const union v6addr *b)" startline="94" endline="103">
 static __always_inline __u64 ipv6_addrcmp (const union v6addr *a, const union v6addr *b)
 {
     __u64 tmp;
@@ -63,13 +63,13 @@ static __always_inline __u64 ipv6_addrcmp (const union v6addr *a, const union v6
     return tmp;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_addr_in_net (const union v6addr *addr, const union v6addr *net, const union v6addr *mask)" startline="106" endline="116">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_addr_in_net (const union v6addr *addr, const union v6addr *net, const union v6addr *mask)" startline="106" endline="116">
 static __always_inline int ipv6_addr_in_net (const union v6addr *addr, const union v6addr *net, const union v6addr *mask)
 {
     return ((addr->p1 & mask->p1) == net->p1) && (!mask->p2 || (((addr->p2 & mask->p2) == net->p2) && (!mask->p3 || (((addr->p3 & mask->p3) == net->p3) && (!mask->p4 || ((addr->p4 & mask->p4) == net->p4))))));
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline void ipv6_addr_clear_suffix (union v6addr *addr, int prefix)" startline="122" endline="132">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline void ipv6_addr_clear_suffix (union v6addr *addr, int prefix)" startline="122" endline="132">
 static __always_inline void ipv6_addr_clear_suffix (union v6addr *addr, int prefix)
 {
     addr->p1 &= GET_PREFIX (prefix);
@@ -81,7 +81,7 @@ static __always_inline void ipv6_addr_clear_suffix (union v6addr *addr, int pref
     addr->p4 &= GET_PREFIX (prefix);
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_match_prefix_64 (const union v6addr *addr, const union v6addr *prefix)" startline="134" endline="144">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_match_prefix_64 (const union v6addr *addr, const union v6addr *prefix)" startline="134" endline="144">
 static __always_inline int ipv6_match_prefix_64 (const union v6addr *addr, const union v6addr *prefix)
 {
     int tmp;
@@ -91,7 +91,7 @@ static __always_inline int ipv6_match_prefix_64 (const union v6addr *addr, const
     return !tmp;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_dec_hoplimit (struct  __ctx_buff *ctx, int off)" startline="146" endline="161">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_dec_hoplimit (struct  __ctx_buff *ctx, int off)" startline="146" endline="161">
 static __always_inline int ipv6_dec_hoplimit (struct  __ctx_buff *ctx, int off)
 {
     __u8 hl;
@@ -105,55 +105,55 @@ static __always_inline int ipv6_dec_hoplimit (struct  __ctx_buff *ctx, int off)
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_saddr (struct  __ctx_buff *ctx, int off, union v6addr *dst)" startline="163" endline="168">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_saddr (struct  __ctx_buff *ctx, int off, union v6addr *dst)" startline="163" endline="168">
 static __always_inline int ipv6_load_saddr (struct  __ctx_buff *ctx, int off, union v6addr *dst)
 {
     return ctx_load_bytes (ctx, off + offsetof (struct ipv6hdr, saddr), dst->addr, sizeof (((struct ipv6hdr *) NULL)->saddr));
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_saddr (struct  __ctx_buff *ctx, __u8 *addr, int off)" startline="171" endline="175">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_saddr (struct  __ctx_buff *ctx, __u8 *addr, int off)" startline="171" endline="175">
 static __always_inline int ipv6_store_saddr (struct  __ctx_buff *ctx, __u8 *addr, int off)
 {
     return ctx_store_bytes (ctx, off + offsetof (struct ipv6hdr, saddr), addr, 16, 0);
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_daddr (struct  __ctx_buff *ctx, int off, union v6addr *dst)" startline="177" endline="182">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_daddr (struct  __ctx_buff *ctx, int off, union v6addr *dst)" startline="177" endline="182">
 static __always_inline int ipv6_load_daddr (struct  __ctx_buff *ctx, int off, union v6addr *dst)
 {
     return ctx_load_bytes (ctx, off + offsetof (struct ipv6hdr, daddr), dst->addr, sizeof (((struct ipv6hdr *) NULL)->daddr));
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_daddr (struct  __ctx_buff *ctx, const __u8 *addr, int off)" startline="185" endline="189">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_daddr (struct  __ctx_buff *ctx, const __u8 *addr, int off)" startline="185" endline="189">
 static __always_inline int ipv6_store_daddr (struct  __ctx_buff *ctx, const __u8 *addr, int off)
 {
     return ctx_store_bytes (ctx, off + offsetof (struct ipv6hdr, daddr), addr, 16, 0);
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_nexthdr (struct  __ctx_buff *ctx, int off, __u8 *nexthdr)" startline="191" endline="196">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_nexthdr (struct  __ctx_buff *ctx, int off, __u8 *nexthdr)" startline="191" endline="196">
 static __always_inline int ipv6_load_nexthdr (struct  __ctx_buff *ctx, int off, __u8 *nexthdr)
 {
     return ctx_load_bytes (ctx, off + offsetof (struct ipv6hdr, nexthdr), nexthdr, sizeof (__u8));
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_nexthdr (struct  __ctx_buff *ctx, __u8 *nexthdr, int off)" startline="199" endline="204">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_nexthdr (struct  __ctx_buff *ctx, __u8 *nexthdr, int off)" startline="199" endline="204">
 static __always_inline int ipv6_store_nexthdr (struct  __ctx_buff *ctx, __u8 *nexthdr, int off)
 {
     return ctx_store_bytes (ctx, off + offsetof (struct ipv6hdr, nexthdr), nexthdr, sizeof (__u8), 0);
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_paylen (struct  __ctx_buff *ctx, int off, __be16 *len)" startline="206" endline="211">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_load_paylen (struct  __ctx_buff *ctx, int off, __be16 *len)" startline="206" endline="211">
 static __always_inline int ipv6_load_paylen (struct  __ctx_buff *ctx, int off, __be16 *len)
 {
     return ctx_load_bytes (ctx, off + offsetof (struct ipv6hdr, payload_len), len, sizeof (*len));
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_paylen (struct  __ctx_buff *ctx, int off, __be16 *len)" startline="214" endline="219">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_paylen (struct  __ctx_buff *ctx, int off, __be16 *len)" startline="214" endline="219">
 static __always_inline int ipv6_store_paylen (struct  __ctx_buff *ctx, int off, __be16 *len)
 {
     return ctx_store_bytes (ctx, off + offsetof (struct ipv6hdr, payload_len), len, sizeof (*len), 0);
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_flowlabel (struct  __ctx_buff *ctx, int off, __be32 label)" startline="221" endline="237">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_store_flowlabel (struct  __ctx_buff *ctx, int off, __be32 label)" startline="221" endline="237">
 static __always_inline int ipv6_store_flowlabel (struct  __ctx_buff *ctx, int off, __be32 label)
 {
     __be32 old;
@@ -166,7 +166,7 @@ static __always_inline int ipv6_store_flowlabel (struct  __ctx_buff *ctx, int of
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline __be32 ipv6_pseudohdr_checksum (struct ipv6hdr *hdr, __u8 next_hdr, __u16 payload_len, __be32 sum)" startline="239" endline="252">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline __be32 ipv6_pseudohdr_checksum (struct ipv6hdr *hdr, __u8 next_hdr, __u16 payload_len, __be32 sum)" startline="239" endline="252">
 static __always_inline __be32 ipv6_pseudohdr_checksum (struct ipv6hdr *hdr, __u8 next_hdr, __u16 payload_len, __be32 sum)
 {
     __be32 len = bpf_htonl ((__u32) payload_len);
@@ -178,7 +178,7 @@ static __always_inline __be32 ipv6_pseudohdr_checksum (struct ipv6hdr *hdr, __u8
     return sum;
 }
 </source>
-<source file="/root/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_addr_is_mapped (const union v6addr *addr)" startline="257" endline="260">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/ipv6.h" funcheader="static __always_inline int ipv6_addr_is_mapped (const union v6addr *addr)" startline="257" endline="260">
 static __always_inline int ipv6_addr_is_mapped (const union v6addr *addr)
 {
     return addr->p1 == 0 && addr->p2 == 0 && addr->p3 == 0xFFFF0000;

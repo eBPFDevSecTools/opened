@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_sk_egress (__u32 identity, __u32 ip, __u16 dport)" startline="15" endline="79">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_sk_egress (__u32 identity, __u32 ip, __u16 dport)" startline="15" endline="79">
 static __always_inline int policy_sk_egress (__u32 identity, __u32 ip, __u16 dport)
 {
     void *map = lookup_ip4_endpoint_policy_map (ip);
@@ -52,14 +52,14 @@ static __always_inline int policy_sk_egress (__u32 identity, __u32 ip, __u16 dpo
     return DROP_POLICY;
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline void account (struct  __ctx_buff *ctx, struct policy_entry *policy)" startline="81" endline="87">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline void account (struct  __ctx_buff *ctx, struct policy_entry *policy)" startline="81" endline="87">
 static __always_inline void account (struct  __ctx_buff *ctx, struct policy_entry *policy)
 {
     __sync_fetch_and_add (&policy->packets, 1);
     __sync_fetch_and_add (&policy->bytes, ctx_full_len (ctx));
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline int __policy_can_access (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type)" startline="89" endline="222">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline int __policy_can_access (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type)" startline="89" endline="222">
 static __always_inline int __policy_can_access (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type)
 {
     struct policy_entry *policy;
@@ -162,7 +162,7 @@ static __always_inline int __policy_can_access (const void *map, struct  __ctx_b
     return DROP_POLICY;
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_access_ingress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, bool is_untracked_fragment, __u8 *match_type, __u8 *audited)" startline="240" endline="264">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_access_ingress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, bool is_untracked_fragment, __u8 *match_type, __u8 *audited)" startline="240" endline="264">
 static __always_inline int policy_can_access_ingress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, bool is_untracked_fragment, __u8 *match_type, __u8 *audited)
 {
     int ret;
@@ -182,13 +182,13 @@ static __always_inline int policy_can_access_ingress (struct  __ctx_buff *ctx, _
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline bool is_encap (__u16 dport, __u8 proto)" startline="267" endline="270">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline bool is_encap (__u16 dport, __u8 proto)" startline="267" endline="270">
 static __always_inline bool is_encap (__u16 dport, __u8 proto)
 {
     return proto == IPPROTO_UDP && dport == bpf_htons (TUNNEL_PORT);
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, __u8 *match_type, __u8 *audited)" startline="273" endline="296">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, __u8 *match_type, __u8 *audited)" startline="273" endline="296">
 static __always_inline int policy_can_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, __u8 *match_type, __u8 *audited)
 {
     int ret;
@@ -214,25 +214,25 @@ static __always_inline int policy_can_egress (struct  __ctx_buff *ctx, __u32 src
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_egress6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)" startline="298" endline="305">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_egress6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)" startline="298" endline="305">
 static __always_inline int policy_can_egress6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)
 {
     return policy_can_egress (ctx, src_id, dst_id, tuple->dport, tuple->nexthdr, match_type, audited);
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_egress4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)" startline="307" endline="314">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline int policy_can_egress4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)" startline="307" endline="314">
 static __always_inline int policy_can_egress4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)
 {
     return policy_can_egress (ctx, src_id, dst_id, tuple->dport, tuple->nexthdr, match_type, audited);
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline void policy_mark_skip (struct  __ctx_buff *ctx)" startline="323" endline="326">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline void policy_mark_skip (struct  __ctx_buff *ctx)" startline="323" endline="326">
 static __always_inline void policy_mark_skip (struct  __ctx_buff *ctx)
 {
     ctx_store_meta (ctx, CB_POLICY, 1);
 }
 </source>
-<source file="/root/examples/cilium/lib/policy.h" funcheader="static __always_inline void policy_clear_mark (struct  __ctx_buff *ctx)" startline="328" endline="331">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy.h" funcheader="static __always_inline void policy_clear_mark (struct  __ctx_buff *ctx)" startline="328" endline="331">
 static __always_inline void policy_clear_mark (struct  __ctx_buff *ctx)
 {
     ctx_store_meta (ctx, CB_POLICY, 0);

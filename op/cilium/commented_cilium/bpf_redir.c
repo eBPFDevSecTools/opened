@@ -25,7 +25,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/sockops/bpf_redir.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c,
  Startline: 25,
  Endline: 39,
  Funcname: sk_msg_extract4_key,
@@ -59,7 +59,7 @@ __section("sk_msg")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/sockops/bpf_redir.c,
+ File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c,
  Startline: 42,
  Endline: 67,
  Funcname: bpf_redir_proxy,

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/csum.h" funcheader="static __always_inline void csum_l4_offset_and_flags (__u8 nexthdr, struct csum_offset *off)" startline="29" endline="49">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/csum.h" funcheader="static __always_inline void csum_l4_offset_and_flags (__u8 nexthdr, struct csum_offset *off)" startline="29" endline="49">
 static __always_inline void csum_l4_offset_and_flags (__u8 nexthdr, struct csum_offset *off)
 {
     switch (nexthdr) {
@@ -19,7 +19,7 @@ static __always_inline void csum_l4_offset_and_flags (__u8 nexthdr, struct csum_
     }
 }
 </source>
-<source file="/root/examples/cilium/lib/csum.h" funcheader="static __always_inline int csum_l4_replace (struct  __ctx_buff *ctx, __u64 l4_off, const struct csum_offset *csum, __be32 from, __be32 to, int flags)" startline="60" endline="65">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/csum.h" funcheader="static __always_inline int csum_l4_replace (struct  __ctx_buff *ctx, __u64 l4_off, const struct csum_offset *csum, __be32 from, __be32 to, int flags)" startline="60" endline="65">
 static __always_inline int csum_l4_replace (struct  __ctx_buff *ctx, __u64 l4_off, const struct csum_offset *csum, __be32 from, __be32 to, int flags)
 {
     return l4_csum_replace (ctx, l4_off + csum->offset, from, to, flags | csum->flags);

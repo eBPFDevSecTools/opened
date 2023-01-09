@@ -21,7 +21,7 @@ struct arp_eth {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/arp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 21,
  Endline: 30,
  Funcname: arp_check,
@@ -49,7 +49,7 @@ static __always_inline int arp_check(struct ethhdr *eth,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/arp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 32,
  Endline: 49,
  Funcname: arp_prepare_response,
@@ -85,7 +85,7 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/arp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 51,
  Endline: 73,
  Funcname: arp_validate,
@@ -126,7 +126,7 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/arp.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 75,
  Endline: 90,
  Funcname: arp_respond,

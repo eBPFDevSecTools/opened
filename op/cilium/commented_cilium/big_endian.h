@@ -45,7 +45,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 45,
  Endline: 48,
  Funcname: __cpu_to_le64p,
@@ -66,7 +66,7 @@ static __inline__ __le64 __cpu_to_le64p(const __u64 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 49,
  Endline: 52,
  Funcname: __le64_to_cpup,
@@ -87,7 +87,7 @@ static __inline__ __u64 __le64_to_cpup(const __le64 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 53,
  Endline: 56,
  Funcname: __cpu_to_le32p,
@@ -108,7 +108,7 @@ static __inline__ __le32 __cpu_to_le32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 57,
  Endline: 60,
  Funcname: __le32_to_cpup,
@@ -129,7 +129,7 @@ static __inline__ __u32 __le32_to_cpup(const __le32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 61,
  Endline: 64,
  Funcname: __cpu_to_le16p,
@@ -150,7 +150,7 @@ static __inline__ __le16 __cpu_to_le16p(const __u16 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 65,
  Endline: 68,
  Funcname: __le16_to_cpup,
@@ -171,7 +171,7 @@ static __inline__ __u16 __le16_to_cpup(const __le16 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 69,
  Endline: 72,
  Funcname: __cpu_to_be64p,
@@ -192,7 +192,7 @@ static __inline__ __be64 __cpu_to_be64p(const __u64 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 73,
  Endline: 76,
  Funcname: __be64_to_cpup,
@@ -213,7 +213,7 @@ static __inline__ __u64 __be64_to_cpup(const __be64 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 77,
  Endline: 80,
  Funcname: __cpu_to_be32p,
@@ -234,7 +234,7 @@ static __inline__ __be32 __cpu_to_be32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 81,
  Endline: 84,
  Funcname: __be32_to_cpup,
@@ -255,7 +255,7 @@ static __inline__ __u32 __be32_to_cpup(const __be32 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 85,
  Endline: 88,
  Funcname: __cpu_to_be16p,
@@ -276,7 +276,7 @@ static __inline__ __be16 __cpu_to_be16p(const __u16 *p)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/linux/byteorder/big_endian.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
  Startline: 89,
  Endline: 92,
  Funcname: __be16_to_cpup,

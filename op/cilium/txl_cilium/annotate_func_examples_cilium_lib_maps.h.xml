@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/maps.h" funcheader="static __always_inline void ep_tail_call (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused)" startline="276" endline="280">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/maps.h" funcheader="static __always_inline void ep_tail_call (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused)" startline="276" endline="280">
 static __always_inline void ep_tail_call (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused)
 {
     tail_call_static (ctx, &CALLS_MAP, index);

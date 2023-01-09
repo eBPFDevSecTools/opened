@@ -80,7 +80,7 @@ enum {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 80,
  Endline: 124,
  Funcname: update_trace_metrics,
@@ -171,7 +171,7 @@ struct trace_notify {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 154,
  Endline: 182,
  Funcname: emit_trace_notify,
@@ -218,7 +218,7 @@ emit_trace_notify(enum trace_point obs_point, __u32 monitor)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 184,
  Endline: 213,
  Funcname: send_trace_notify,
@@ -266,7 +266,7 @@ send_trace_notify(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 215,
  Endline: 245,
  Funcname: send_trace_notify4,
@@ -315,7 +315,7 @@ send_trace_notify4(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 247,
  Endline: 279,
  Funcname: send_trace_notify6,
@@ -366,7 +366,7 @@ send_trace_notify6(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 281,
  Endline: 288,
  Funcname: send_trace_notify,
@@ -392,7 +392,7 @@ send_trace_notify(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 290,
  Endline: 298,
  Funcname: send_trace_notify4,
@@ -419,7 +419,7 @@ send_trace_notify4(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/trace.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 300,
  Endline: 308,
  Funcname: send_trace_notify6,

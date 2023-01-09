@@ -15,7 +15,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 15,
  Endline: 79,
  Funcname: policy_sk_egress,
@@ -98,7 +98,7 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 81,
  Endline: 87,
  Funcname: account,
@@ -123,7 +123,7 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 89,
  Endline: 222,
  Funcname: __policy_can_access,
@@ -291,7 +291,7 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 240,
  Endline: 264,
  Funcname: policy_can_access_ingress,
@@ -335,7 +335,7 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 267,
  Endline: 270,
  Funcname: is_encap,
@@ -358,7 +358,7 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 273,
  Endline: 296,
  Funcname: policy_can_egress,
@@ -400,7 +400,7 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 298,
  Endline: 305,
  Funcname: policy_can_egress6,
@@ -426,7 +426,7 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 307,
  Endline: 314,
  Funcname: policy_can_egress4,
@@ -459,7 +459,7 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 323,
  Endline: 326,
  Funcname: policy_mark_skip,
@@ -481,7 +481,7 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/policy.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 328,
  Endline: 331,
  Funcname: policy_clear_mark,

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/sockops/bpf_redir.c" funcheader="static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)" startline="25" endline="39">
+<source file="/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c" funcheader="static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)" startline="25" endline="39">
 static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)
 {
     key->dip4 = msg->remote_ip4;
@@ -10,7 +10,7 @@ static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, st
     key->dport = READ_ONCE (msg->remote_port) >> 16;
 }
 </source>
-<source file="/root/examples/cilium/sockops/bpf_redir.c" funcheader="int bpf_redir_proxy (struct sk_msg_md *msg)" startline="42" endline="67">
+<source file="/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c" funcheader="int bpf_redir_proxy (struct sk_msg_md *msg)" startline="42" endline="67">
 int bpf_redir_proxy (struct sk_msg_md *msg)
 {
     struct remote_endpoint_info *info;

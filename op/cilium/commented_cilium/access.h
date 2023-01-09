@@ -10,7 +10,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/access.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/access.h,
  Startline: 10,
  Endline: 33,
  Funcname: map_array_get_32,

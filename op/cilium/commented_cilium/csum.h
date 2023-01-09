@@ -10,7 +10,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/csum.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 10,
  Endline: 15,
  Funcname: csum_fold,
@@ -34,7 +34,7 @@ static __always_inline __sum16 csum_fold(__wsum csum)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/csum.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 17,
  Endline: 20,
  Funcname: csum_unfold,
@@ -56,7 +56,7 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/csum.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 22,
  Endline: 26,
  Funcname: csum_add,
@@ -79,7 +79,7 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/csum.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 28,
  Endline: 31,
  Funcname: csum_sub,
@@ -101,7 +101,7 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/csum.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 33,
  Endline: 52,
  Funcname: csum_diff,

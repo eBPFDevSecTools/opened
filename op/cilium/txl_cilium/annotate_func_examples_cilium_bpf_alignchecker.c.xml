@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/bpf_alignchecker.c" funcheader="int main (void)" startline="44" endline="99">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_alignchecker.c" funcheader="int main (void)" startline="44" endline="99">
 int main (void)
 {
     DECLARE (struct ipv4_ct_tuple);

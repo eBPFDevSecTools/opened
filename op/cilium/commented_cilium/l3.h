@@ -18,7 +18,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/l3.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 18,
  Endline: 38,
  Funcname: ipv6_l3,
@@ -58,7 +58,7 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/l3.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 41,
  Endline: 56,
  Funcname: ipv4_l3,
@@ -99,13 +99,13 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/l3.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 65,
  Endline: 106,
  Funcname: ipv6_local_delivery,
  Input: (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, const struct endpoint_info *ep, __u8 direction, bool from_host __maybe_unused),
  Output: int,
- Helpers: [tail_call,redirect,],
+ Helpers: [redirect,tail_call,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -165,13 +165,13 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/l3.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 114,
  Endline: 154,
  Funcname: ipv4_local_delivery,
  Input: (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, struct iphdr *ip4, const struct endpoint_info *ep, __u8 direction __maybe_unused, bool from_host __maybe_unused),
  Output: int,
- Helpers: [tail_call,redirect,],
+ Helpers: [redirect,tail_call,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -225,7 +225,7 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/l3.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 157,
  Endline: 185,
  Funcname: get_min_encrypt_key,

@@ -2,80 +2,49 @@ clang -I. -D__NR_CPUS__=48 -O2 -g  -I/usr/include -I/include -I./include -I./lib
 -DSKIP_DEBUG -D__KERNEL__ -Wno-unused-value -Wno-pointer-sign \
         -Wno-compare-distinct-pointer-types \
 -O2 -emit-llvm -c -g -o  extracted.ll extracted.c
-extracted.c:71:12: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
-#ifndef abs(x)//OPENED define abs(x) BEG
-           ^
-           //
-extracted.c:267:16: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
-#ifndef DECLARE(type)//OPENED define DECLARE(type) BEG
-               ^
-               //
-extracted.c:309:24: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
-#ifndef TAIL_CT_LOOKUP4(ID,//OPENED define TAIL_CT_LOOKUP4(ID, BEG
-                       ^
-                       //
-extracted.c:351:24: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
-#ifndef TAIL_CT_LOOKUP6(ID,//OPENED define TAIL_CT_LOOKUP6(ID, BEG
-                       ^
-                       //
-extracted.c:397:18: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
-#ifndef TO_STRING(X)//OPENED define TO_STRING(X) BEG
-                 ^
-                 //
-extracted.c:404:18: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
-#ifndef STRINGIFY(X)//OPENED define STRINGIFY(X) BEG
-                 ^
-                 //
-In file included from extracted.c:438:
+In file included from extracted.c:102:
 ./netdev_config.h:12:9: warning: 'SECLABEL' macro redefined [-Wmacro-redefined]
 #define SECLABEL 2
         ^
 ./ep_config.h:20:9: note: previous definition is here
 #define SECLABEL fetch_u32(SECLABEL)
         ^
-In file included from extracted.c:438:
+In file included from extracted.c:102:
 ./netdev_config.h:13:9: warning: 'SECLABEL_NB' macro redefined [-Wmacro-redefined]
 #define SECLABEL_NB 0xfffff
         ^
 ./ep_config.h:22:9: note: previous definition is here
 #define SECLABEL_NB fetch_u32(SECLABEL_NB)
         ^
-In file included from extracted.c:457:
-./lib/eps.h:100:9: warning: 'LPM_LOOKUP_FN' macro redefined [-Wmacro-redefined]
-#define LPM_LOOKUP_FN(NAME, IPTYPE, PREFIXES, MAP, LOOKUP_FN)           \
+In file included from extracted.c:182:
+In file included from ./lib/arp.h:11:
+./lib/drop.h:113:2: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+        ep_tail_call(ctx, CILIUM_CALL_DROP_NOTIFY);
         ^
-./lib/maps.h:148:9: note: previous definition is here
-#define LPM_LOOKUP_FN(NAME, IPTYPE, PREFIXES, MAP, LOOKUP_FN)           \
-        ^
-extracted.c:520:35: error: redefinition of 'test_cilium_calls_65535'
-struct bpf_elf_map __section_maps CALLS_MAP = {
-                                  ^
-./netdev_config.h:14:19: note: expanded from macro 'CALLS_MAP'
-#define CALLS_MAP test_cilium_calls_65535
-                  ^
-./lib/maps.h:92:35: note: previous definition is here
-struct bpf_elf_map __section_maps CALLS_MAP = {
-                                  ^
-./netdev_config.h:14:19: note: expanded from macro 'CALLS_MAP'
-#define CALLS_MAP test_cilium_calls_65535
-                  ^
-extracted.c:529:29: error: redefinition of 'ep_tail_call'
-static __always_inline void ep_tail_call(struct __ctx_buff *ctx __maybe_unused,
-                            ^
-./lib/maps.h:276:29: note: previous definition is here
-static __always_inline void ep_tail_call(struct __ctx_buff *ctx __maybe_unused,
-                            ^
-extracted.c:938:50: warning: taking address of packed member 'client_cookie' of class or structure 'lb4_affinity_client_id' may result in an unaligned pointer value [-Waddress-of-packed-member]
+In file included from extracted.c:308:
+./lib/nodeport.h:1705:4: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                        ep_tail_call(ctx, CILIUM_CALL_IPV4_FROM_NETDEV);
+                        ^
+./lib/nodeport.h:1723:3: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                ep_tail_call(ctx, CILIUM_CALL_IPV4_NODEPORT_REVNAT);
+                ^
+./lib/nodeport.h:1863:4: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                        ep_tail_call(ctx, CILIUM_CALL_IPV6_NODEPORT_NAT);
+                        ^
+./lib/nodeport.h:1865:4: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                        ep_tail_call(ctx, CILIUM_CALL_IPV4_NODEPORT_NAT);
+                        ^
+./lib/nodeport.h:1932:4: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                        ep_tail_call(ctx, CILIUM_CALL_IPV4_NODEPORT_DSR);
+                        ^
+./lib/nodeport.h:1935:4: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                        ep_tail_call(ctx, CILIUM_CALL_IPV4_NODEPORT_NAT);
+                        ^
+./lib/nodeport.h:2101:4: warning: implicit declaration of function 'ep_tail_call' is invalid in C99 [-Wimplicit-function-declaration]
+                        ep_tail_call(ctx, CILIUM_CALL_IPV4_FROM_NETDEV);
+                        ^
+extracted.c:639:50: warning: taking address of packed member 'client_cookie' of class or structure 'lb4_affinity_client_id' may result in an unaligned pointer value [-Waddress-of-packed-member]
         const bool in_hostns = ctx_in_hostns(ctx_full, &id.client_cookie);
                                                         ^~~~~~~~~~~~~~~~
-extracted.c:964:9: warning: implicit declaration of function 'sock4_wildcard_lookup_full' is invalid in C99 [-Wimplicit-function-declaration]
-                svc = sock4_wildcard_lookup_full(&key, in_hostns);
-                      ^
-extracted.c:964:7: warning: incompatible integer to pointer conversion assigning to 'struct lb4_service *' from 'int' [-Wint-conversion]
-                svc = sock4_wildcard_lookup_full(&key, in_hostns);
-                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-extracted.c:1058:6: warning: implicit declaration of function 'sock4_update_revnat' is invalid in C99 [-Wimplicit-function-declaration]
-        if (sock4_update_revnat(ctx_full, backend, &orig_key,
-            ^
-13 warnings and 2 errors generated.
-make: *** [Makefile:36: extracted.o] Error 1
+11 warnings generated.
+llc -march=bpf -filetype=obj -o extracted.o extracted.ll

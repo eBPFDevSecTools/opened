@@ -133,6 +133,3 @@ LB_AFFINITY_MATCH_MAP,/home/palani/github/opened_extraction/examples/cilium/lib/
 METRICS_MAP,/home/palani/github/opened_extraction/examples/cilium/lib/metrics.h,34,0
 map,/home/palani/github/opened_extraction/examples/cilium/lib/eps.h,91,0
 }
-#DUPLICATE MAP DEFNS
-{#map_name,file_locations
-}

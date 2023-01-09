@@ -31,7 +31,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/ghash.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/ghash.h,
  Startline: 31,
  Endline: 35,
  Funcname: hash_32,
@@ -54,7 +54,7 @@ static __always_inline __u32 hash_32(__u32 val, __u32 bits)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/ghash.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/ghash.h,
  Startline: 37,
  Endline: 40,
  Funcname: hash_64,

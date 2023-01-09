@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/policy_log.h" funcheader="static __always_inline bool policy_verdict_filter_allow (__u32 filter, __u8 dir)" startline="39" endline="47">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h" funcheader="static __always_inline bool policy_verdict_filter_allow (__u32 filter, __u8 dir)" startline="39" endline="47">
 static __always_inline bool policy_verdict_filter_allow (__u32 filter, __u8 dir)
 {
     volatile __u8 d = dir;
     return ((filter & d) > 0);
 }
 </source>
-<source file="/root/examples/cilium/lib/policy_log.h" funcheader="static __always_inline void send_policy_verdict_notify (struct  __ctx_buff *ctx, __u32 remote_label, __u16 dst_port, __u8 proto, __u8 dir, __u8 is_ipv6, int verdict, __u8 match_type, __u8 is_audited)" startline="49" endline="77">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h" funcheader="static __always_inline void send_policy_verdict_notify (struct  __ctx_buff *ctx, __u32 remote_label, __u16 dst_port, __u8 proto, __u8 dir, __u8 is_ipv6, int verdict, __u8 match_type, __u8 is_audited)" startline="49" endline="77">
 static __always_inline void send_policy_verdict_notify (struct  __ctx_buff *ctx, __u32 remote_label, __u16 dst_port, __u8 proto, __u8 dir, __u8 is_ipv6, int verdict, __u8 match_type, __u8 is_audited)
 {
     __u64 ctx_len = ctx_full_len (ctx);
@@ -27,7 +27,7 @@ static __always_inline void send_policy_verdict_notify (struct  __ctx_buff *ctx,
     ctx_event_output (ctx, &EVENTS_MAP, (cap_len << 32) | BPF_F_CURRENT_CPU, &msg, sizeof (msg));
 }
 </source>
-<source file="/root/examples/cilium/lib/policy_log.h" funcheader="static __always_inline void send_policy_verdict_notify (struct  __ctx_buff * ctx __maybe_unused, __u32 remote_label __maybe_unused, __u16 dst_port __maybe_unused, __u8 proto __maybe_unused, __u8 dir __maybe_unused, __u8 is_ipv6 __maybe_unused, int verdict __maybe_unused, __u8 match_type __maybe_unused, __u8 is_audited __maybe_unused)" startline="79" endline="86">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h" funcheader="static __always_inline void send_policy_verdict_notify (struct  __ctx_buff * ctx __maybe_unused, __u32 remote_label __maybe_unused, __u16 dst_port __maybe_unused, __u8 proto __maybe_unused, __u8 dir __maybe_unused, __u8 is_ipv6 __maybe_unused, int verdict __maybe_unused, __u8 match_type __maybe_unused, __u8 is_audited __maybe_unused)" startline="79" endline="86">
 static __always_inline void send_policy_verdict_notify (struct  __ctx_buff * ctx __maybe_unused, __u32 remote_label __maybe_unused, __u16 dst_port __maybe_unused, __u8 proto __maybe_unused, __u8 dir __maybe_unused, __u8 is_ipv6 __maybe_unused, int verdict __maybe_unused, __u8 match_type __maybe_unused, __u8 is_audited __maybe_unused)
 {
 }

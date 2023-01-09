@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/include/bpf/access.h" funcheader="static __always_inline __maybe_unused __u32 map_array_get_32 (const __u32 *array, __u32 index, const __u32 limit)" startline="10" endline="33">
+<source file="/home/palani/github/opened_extraction/examples/cilium/include/bpf/access.h" funcheader="static __always_inline __maybe_unused __u32 map_array_get_32 (const __u32 *array, __u32 index, const __u32 limit)" startline="10" endline="33">
 static __always_inline __maybe_unused __u32 map_array_get_32 (const __u32 *array, __u32 index, const __u32 limit)
 {
     __u32 datum = 0;

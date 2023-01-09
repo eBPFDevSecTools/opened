@@ -192,7 +192,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 192,
  Endline: 196,
  Funcname: lb4_svc_is_loadbalancer,
@@ -215,7 +215,7 @@ bool lb4_svc_is_loadbalancer(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 198,
  Endline: 202,
  Funcname: lb6_svc_is_loadbalancer,
@@ -238,7 +238,7 @@ bool lb6_svc_is_loadbalancer(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 204,
  Endline: 212,
  Funcname: lb4_svc_is_nodeport,
@@ -265,7 +265,7 @@ bool lb4_svc_is_nodeport(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 214,
  Endline: 222,
  Funcname: lb6_svc_is_nodeport,
@@ -292,7 +292,7 @@ bool lb6_svc_is_nodeport(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 224,
  Endline: 228,
  Funcname: lb4_svc_is_external_ip,
@@ -315,7 +315,7 @@ bool lb4_svc_is_external_ip(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 230,
  Endline: 234,
  Funcname: lb6_svc_is_external_ip,
@@ -338,7 +338,7 @@ bool lb6_svc_is_external_ip(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 236,
  Endline: 240,
  Funcname: lb4_svc_is_hostport,
@@ -361,7 +361,7 @@ bool lb4_svc_is_hostport(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 242,
  Endline: 246,
  Funcname: lb6_svc_is_hostport,
@@ -384,7 +384,7 @@ bool lb6_svc_is_hostport(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 248,
  Endline: 256,
  Funcname: lb4_svc_has_src_range_check,
@@ -411,7 +411,7 @@ bool lb4_svc_has_src_range_check(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 258,
  Endline: 266,
  Funcname: lb6_svc_has_src_range_check,
@@ -438,7 +438,7 @@ bool lb6_svc_has_src_range_check(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 268,
  Endline: 271,
  Funcname: lb_skip_l4_dnat,
@@ -460,7 +460,7 @@ static __always_inline bool lb_skip_l4_dnat(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 273,
  Endline: 277,
  Funcname: lb4_svc_is_local_scope,
@@ -483,7 +483,7 @@ bool lb4_svc_is_local_scope(const struct lb4_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 279,
  Endline: 283,
  Funcname: lb6_svc_is_local_scope,
@@ -506,7 +506,7 @@ bool lb6_svc_is_local_scope(const struct lb6_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 285,
  Endline: 289,
  Funcname: lb4_svc_is_affinity,
@@ -529,7 +529,7 @@ bool lb4_svc_is_affinity(const struct lb4_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 291,
  Endline: 295,
  Funcname: lb6_svc_is_affinity,
@@ -552,7 +552,7 @@ bool lb6_svc_is_affinity(const struct lb6_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 297,
  Endline: 300,
  Funcname: __lb_svc_is_routable,
@@ -574,7 +574,7 @@ static __always_inline bool __lb_svc_is_routable(__u8 flags)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 302,
  Endline: 306,
  Funcname: lb4_svc_is_routable,
@@ -597,7 +597,7 @@ bool lb4_svc_is_routable(const struct lb4_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 308,
  Endline: 312,
  Funcname: lb6_svc_is_routable,
@@ -620,7 +620,7 @@ bool lb6_svc_is_routable(const struct lb6_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 314,
  Endline: 318,
  Funcname: lb4_svc_is_localredirect,
@@ -643,7 +643,7 @@ bool lb4_svc_is_localredirect(const struct lb4_service *svc)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 320,
  Endline: 328,
  Funcname: lb4_svc_is_l7loadbalancer,
@@ -670,7 +670,7 @@ bool lb4_svc_is_l7loadbalancer(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 330,
  Endline: 338,
  Funcname: lb6_svc_is_l7loadbalancer,
@@ -697,7 +697,7 @@ bool lb6_svc_is_l7loadbalancer(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 340,
  Endline: 380,
  Funcname: extract_l4_port,
@@ -756,7 +756,7 @@ static __always_inline int extract_l4_port(struct __ctx_buff *ctx, __u8 nexthdr,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 382,
  Endline: 416,
  Funcname: reverse_map_l4_port,
@@ -810,7 +810,7 @@ static __always_inline int reverse_map_l4_port(struct __ctx_buff *ctx, __u8 next
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 419,
  Endline: 459,
  Funcname: __lb6_rev_nat,
@@ -878,7 +878,7 @@ static __always_inline int __lb6_rev_nat(struct __ctx_buff *ctx, int l4_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 470,
  Endline: 482,
  Funcname: lb6_rev_nat,
@@ -925,7 +925,7 @@ static __always_inline int lb6_rev_nat(struct __ctx_buff *ctx, int l4_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 500,
  Endline: 516,
  Funcname: lb6_extract_key,
@@ -960,7 +960,7 @@ static __always_inline int lb6_extract_key(struct __ctx_buff *ctx __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 518,
  Endline: 541,
  Funcname: lb6_src_range_ok,
@@ -1002,7 +1002,7 @@ bool lb6_src_range_ok(const struct lb6_service *svc __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 543,
  Endline: 551,
  Funcname: lb6_to_lb4_service,
@@ -1029,7 +1029,7 @@ lb6_to_lb4_service(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 553,
  Endline: 573,
  Funcname: *lb6_lookup_service,
@@ -1068,7 +1068,7 @@ struct lb6_service *lb6_lookup_service(struct lb6_key *key,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 575,
  Endline: 578,
  Funcname: *__lb6_lookup_backend,
@@ -1090,7 +1090,7 @@ static __always_inline struct lb6_backend *__lb6_lookup_backend(__u32 backend_id
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 580,
  Endline: 590,
  Funcname: *lb6_lookup_backend,
@@ -1119,7 +1119,7 @@ lb6_lookup_backend(struct __ctx_buff *ctx __maybe_unused, __u32 backend_id)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 592,
  Endline: 596,
  Funcname: *__lb6_lookup_backend_slot,
@@ -1142,7 +1142,7 @@ struct lb6_service *__lb6_lookup_backend_slot(struct lb6_key *key)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 598,
  Endline: 613,
  Funcname: *lb6_lookup_backend_slot,
@@ -1178,7 +1178,7 @@ struct lb6_service *lb6_lookup_backend_slot(struct __ctx_buff *ctx __maybe_unuse
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 617,
  Endline: 627,
  Funcname: lb6_select_backend_id,
@@ -1207,7 +1207,7 @@ lb6_select_backend_id(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 629,
  Endline: 649,
  Funcname: lb6_select_backend_id,
@@ -1249,7 +1249,7 @@ lb6_select_backend_id(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 654,
  Endline: 689,
  Funcname: lb6_xlate,
@@ -1304,13 +1304,13 @@ l4_xlate:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 692,
  Endline: 728,
  Funcname: __lb6_affinity_backend_id,
  Input: (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id),
  Output: __u32,
- Helpers: [map_delete_elem,map_lookup_elem,],
+ Helpers: [map_lookup_elem,map_delete_elem,],
  Read_maps: [  LB6_AFFINITY_MAP, LB_AFFINITY_MATCH_MAP,],
  Update_maps: [ LB6_AFFINITY_MAP,],
  Func Description: TO BE ADDED, 
@@ -1359,7 +1359,7 @@ __lb6_affinity_backend_id(const struct lb6_service *svc, bool netns_cookie,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 730,
  Endline: 735,
  Funcname: lb6_affinity_backend_id_by_addr,
@@ -1383,7 +1383,7 @@ lb6_affinity_backend_id_by_addr(const struct lb6_service *svc,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 737,
  Endline: 754,
  Funcname: __lb6_update_affinity,
@@ -1419,7 +1419,7 @@ __lb6_update_affinity(const struct lb6_service *svc, bool netns_cookie,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 756,
  Endline: 761,
  Funcname: lb6_update_affinity_by_addr,
@@ -1444,7 +1444,7 @@ lb6_update_affinity_by_addr(const struct lb6_service *svc,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 764,
  Endline: 773,
  Funcname: lb6_affinity_backend_id_by_netns,
@@ -1472,7 +1472,7 @@ lb6_affinity_backend_id_by_netns(const struct lb6_service *svc __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 775,
  Endline: 783,
  Funcname: lb6_update_affinity_by_netns,
@@ -1499,7 +1499,7 @@ lb6_update_affinity_by_netns(const struct lb6_service *svc __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 785,
  Endline: 799,
  Funcname: lb6_to_lb4,
@@ -1532,7 +1532,7 @@ lb6_to_lb4(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 801,
  Endline: 926,
  Funcname: lb6_local,
@@ -1683,7 +1683,7 @@ drop_no_service:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 935,
  Endline: 942,
  Funcname: lb6_ctx_store_state,
@@ -1714,7 +1714,7 @@ static __always_inline void lb6_ctx_store_state(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 949,
  Endline: 965,
  Funcname: lb6_ctx_restore_state,
@@ -1754,7 +1754,7 @@ static __always_inline void lb6_ctx_restore_state(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 972,
  Endline: 977,
  Funcname: *lb6_lookup_service,
@@ -1778,7 +1778,7 @@ struct lb6_service *lb6_lookup_service(struct lb6_key *key __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 979,
  Endline: 983,
  Funcname: *__lb6_lookup_backend_slot,
@@ -1801,7 +1801,7 @@ struct lb6_service *__lb6_lookup_backend_slot(struct lb6_key *key __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 985,
  Endline: 989,
  Funcname: *__lb6_lookup_backend,
@@ -1824,7 +1824,7 @@ __lb6_lookup_backend(__u16 backend_id __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 991,
  Endline: 995,
  Funcname: lb6_to_lb4_service,
@@ -1849,7 +1849,7 @@ lb6_to_lb4_service(const struct lb6_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 999,
  Endline: 1066,
  Funcname: __lb4_rev_nat,
@@ -1945,7 +1945,7 @@ static __always_inline int __lb4_rev_nat(struct __ctx_buff *ctx, int l3_off, int
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1078,
  Endline: 1092,
  Funcname: lb4_rev_nat,
@@ -1991,7 +1991,7 @@ static __always_inline int lb4_rev_nat(struct __ctx_buff *ctx, int l3_off, int l
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1107,
  Endline: 1121,
  Funcname: lb4_extract_key,
@@ -2024,7 +2024,7 @@ static __always_inline int lb4_extract_key(struct __ctx_buff *ctx __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1123,
  Endline: 1146,
  Funcname: lb4_src_range_ok,
@@ -2066,7 +2066,7 @@ bool lb4_src_range_ok(const struct lb4_service *svc __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1148,
  Endline: 1164,
  Funcname: lb4_populate_ports,
@@ -2101,7 +2101,7 @@ lb4_populate_ports(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1166,
  Endline: 1174,
  Funcname: lb4_to_lb6_service,
@@ -2128,7 +2128,7 @@ lb4_to_lb6_service(const struct lb4_service *svc __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1176,
  Endline: 1197,
  Funcname: *lb4_lookup_service,
@@ -2168,7 +2168,7 @@ struct lb4_service *lb4_lookup_service(struct lb4_key *key,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1199,
  Endline: 1202,
  Funcname: *__lb4_lookup_backend,
@@ -2190,7 +2190,7 @@ static __always_inline struct lb4_backend *__lb4_lookup_backend(__u32 backend_id
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1204,
  Endline: 1214,
  Funcname: *lb4_lookup_backend,
@@ -2219,7 +2219,7 @@ lb4_lookup_backend(struct __ctx_buff *ctx __maybe_unused, __u32 backend_id)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1216,
  Endline: 1220,
  Funcname: *__lb4_lookup_backend_slot,
@@ -2242,7 +2242,7 @@ struct lb4_service *__lb4_lookup_backend_slot(struct lb4_key *key)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1222,
  Endline: 1237,
  Funcname: *lb4_lookup_backend_slot,
@@ -2278,7 +2278,7 @@ struct lb4_service *lb4_lookup_backend_slot(struct __ctx_buff *ctx __maybe_unuse
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1241,
  Endline: 1251,
  Funcname: lb4_select_backend_id,
@@ -2307,14 +2307,14 @@ lb4_select_backend_id(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1253,
  Endline: 1273,
  Funcname: lb4_select_backend_id,
  Input: (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key * key __maybe_unused, const struct ipv4_ct_tuple *tuple, const struct lb4_service *svc),
  Output: __u32,
  Helpers: [map_lookup_elem,],
- Read_maps: [ maglev_lut,  LB4_MAGLEV_MAP_OUTER,],
+ Read_maps: [  LB4_MAGLEV_MAP_OUTER, maglev_lut,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -2349,7 +2349,7 @@ lb4_select_backend_id(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1278,
  Endline: 1332,
  Funcname: lb4_xlate,
@@ -2423,13 +2423,13 @@ l4_xlate:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1335,
  Endline: 1375,
  Funcname: __lb4_affinity_backend_id,
  Input: (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id),
  Output: __u32,
- Helpers: [map_delete_elem,map_lookup_elem,],
+ Helpers: [map_lookup_elem,map_delete_elem,],
  Read_maps: [  LB4_AFFINITY_MAP, LB_AFFINITY_MATCH_MAP,],
  Update_maps: [ LB4_AFFINITY_MAP,],
  Func Description: TO BE ADDED, 
@@ -2482,7 +2482,7 @@ __lb4_affinity_backend_id(const struct lb4_service *svc, bool netns_cookie,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1377,
  Endline: 1382,
  Funcname: lb4_affinity_backend_id_by_addr,
@@ -2506,7 +2506,7 @@ lb4_affinity_backend_id_by_addr(const struct lb4_service *svc,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1384,
  Endline: 1401,
  Funcname: __lb4_update_affinity,
@@ -2542,7 +2542,7 @@ __lb4_update_affinity(const struct lb4_service *svc, bool netns_cookie,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1403,
  Endline: 1408,
  Funcname: lb4_update_affinity_by_addr,
@@ -2567,7 +2567,7 @@ lb4_update_affinity_by_addr(const struct lb4_service *svc,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1411,
  Endline: 1420,
  Funcname: lb4_affinity_backend_id_by_netns,
@@ -2595,7 +2595,7 @@ lb4_affinity_backend_id_by_netns(const struct lb4_service *svc __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1422,
  Endline: 1430,
  Funcname: lb4_update_affinity_by_netns,
@@ -2622,7 +2622,7 @@ lb4_update_affinity_by_netns(const struct lb4_service *svc __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1432,
  Endline: 1447,
  Funcname: lb4_to_lb6,
@@ -2656,7 +2656,7 @@ lb4_to_lb6(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1449,
  Endline: 1604,
  Funcname: lb4_local,
@@ -2837,7 +2837,7 @@ drop_no_service:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1613,
  Endline: 1621,
  Funcname: lb4_ctx_store_state,
@@ -2869,7 +2869,7 @@ static __always_inline void lb4_ctx_store_state(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/lb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/lb.h,
  Startline: 1628,
  Endline: 1651,
  Funcname: lb4_ctx_restore_state,

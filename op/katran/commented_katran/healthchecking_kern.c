@@ -41,7 +41,7 @@ SEC("tc")
  Input: (struct  __sk_buff *skb),
  Output: int,
  Helpers: [bpf_redirect,bpf_map_lookup_elem,],
- Read_maps: [  hc_pckt_macs, hc_ctrl_map, per_hckey_stats,  hc_stats_map, hc_key_map, hc_reals_map,],
+ Read_maps: [ hc_key_map,  hc_stats_map, hc_ctrl_map,  hc_pckt_macs, per_hckey_stats, hc_reals_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

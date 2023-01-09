@@ -349,7 +349,7 @@ def buildIncludesOrderingGraph(cFile):
     iFile.close()
 
 def processFuncLine(line,fns):
-    ###print("Processing", line)
+    print("Processing", line)
     line = line.replace('[','')
     line = line.replace(']','')
     tokens = line.split(',')

@@ -86,7 +86,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/include/bpf/compiler.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/compiler.h,
  Startline: 86,
  Endline: 93,
  Funcname: bpf_barrier,

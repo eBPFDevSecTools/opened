@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void update_trace_metrics (struct  __ctx_buff *ctx, enum trace_point obs_point, enum trace_reason reason)" startline="80" endline="124">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void update_trace_metrics (struct  __ctx_buff *ctx, enum trace_point obs_point, enum trace_reason reason)" startline="80" endline="124">
 static __always_inline void update_trace_metrics (struct  __ctx_buff *ctx, enum trace_point obs_point, enum trace_reason reason)
 {
     __u8 encrypted;
@@ -31,7 +31,7 @@ static __always_inline void update_trace_metrics (struct  __ctx_buff *ctx, enum 
     }
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline bool emit_trace_notify (enum trace_point obs_point, __u32 monitor)" startline="154" endline="182">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline bool emit_trace_notify (enum trace_point obs_point, __u32 monitor)" startline="154" endline="182">
 static __always_inline bool emit_trace_notify (enum trace_point obs_point, __u32 monitor)
 {
     if (MONITOR_AGGREGATION >= TRACE_AGGREGATE_RX) {
@@ -52,7 +52,7 @@ static __always_inline bool emit_trace_notify (enum trace_point obs_point, __u32
     return true;
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)" startline="184" endline="213">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)" startline="184" endline="213">
 static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)
 {
     __u64 ctx_len = ctx_full_len (ctx);
@@ -71,7 +71,7 @@ static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum tra
     ctx_event_output (ctx, &EVENTS_MAP, (cap_len << 32) | BPF_F_CURRENT_CPU, &msg, sizeof (msg));
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __be32 orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)" startline="215" endline="245">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __be32 orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)" startline="215" endline="245">
 static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __be32 orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)
 {
     __u64 ctx_len = ctx_full_len (ctx);
@@ -91,7 +91,7 @@ static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum tr
     ctx_event_output (ctx, &EVENTS_MAP, (cap_len << 32) | BPF_F_CURRENT_CPU, &msg, sizeof (msg));
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, const union v6addr *orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)" startline="247" endline="279">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, const union v6addr *orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)" startline="247" endline="279">
 static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, const union v6addr *orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor)
 {
     __u64 ctx_len = ctx_full_len (ctx);
@@ -111,19 +111,19 @@ static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum tr
     ctx_event_output (ctx, &EVENTS_MAP, (cap_len << 32) | BPF_F_CURRENT_CPU, &msg, sizeof (msg));
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)" startline="281" endline="288">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)" startline="281" endline="288">
 static __always_inline void send_trace_notify (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)
 {
     update_trace_metrics (ctx, obs_point, reason);
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __be32 orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)" startline="290" endline="298">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __be32 orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)" startline="290" endline="298">
 static __always_inline void send_trace_notify4 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __be32 orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)
 {
     update_trace_metrics (ctx, obs_point, reason);
 }
 </source>
-<source file="/root/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, union v6addr * orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)" startline="300" endline="308">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/trace.h" funcheader="static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, union v6addr * orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)" startline="300" endline="308">
 static __always_inline void send_trace_notify6 (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, union v6addr * orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused)
 {
     update_trace_metrics (ctx, obs_point, reason);

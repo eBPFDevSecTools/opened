@@ -1,193 +1,120 @@
 /* SPDX-License-Identifier: GPL-2.0 */
 #define RECORD_FLOW_INFO
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/decap_kern.c startLine: 31
+//OPENED COMMENT BEGIN: From: /root/examples/katran/decap_kern.c startLine: 31
 #ifndef DECAP_PROG_SEC//OPENED define DECAP_PROG_SEC BEG
 #define DECAP_PROG_SEC "xdp"
 #endif //OPENED define DECAP_PROG_SEC END
 
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/decap_kern.c endLine: 31
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c startLine: 28
-#ifndef CTRL_ARRAY_SIZE//OPENED define CTRL_ARRAY_SIZE BEG
-#define CTRL_ARRAY_SIZE 2
-#endif //OPENED define CTRL_ARRAY_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c endLine: 28
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c startLine: 29
-#ifndef CNTRS_ARRAY_SIZE//OPENED define CNTRS_ARRAY_SIZE BEG
-#define CNTRS_ARRAY_SIZE 512
-#endif //OPENED define CNTRS_ARRAY_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c endLine: 29
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 25
-#ifndef CTRL_MAP_SIZE//OPENED define CTRL_MAP_SIZE BEG
-#define CTRL_MAP_SIZE 4
-#endif //OPENED define CTRL_MAP_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 25
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 28
-#ifndef REALS_MAP_SIZE//OPENED define REALS_MAP_SIZE BEG
-#define REALS_MAP_SIZE 4096
-#endif //OPENED define REALS_MAP_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 28
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 31
-#ifndef REDIRECT_EGRESS//OPENED define REDIRECT_EGRESS BEG
-#define REDIRECT_EGRESS 0
-#endif //OPENED define REDIRECT_EGRESS END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 31
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 32
-#ifndef DEFAULT_TTL//OPENED define DEFAULT_TTL BEG
-#define DEFAULT_TTL 64
-#endif //OPENED define DEFAULT_TTL END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 32
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 36
-#ifndef MAX_PACKET_SIZE//OPENED define MAX_PACKET_SIZE BEG
-#define MAX_PACKET_SIZE 1474
-#endif //OPENED define MAX_PACKET_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 36
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 40
-#ifndef GENERIC_STATS_INDEX//OPENED define GENERIC_STATS_INDEX BEG
-#define GENERIC_STATS_INDEX 0
-#endif //OPENED define GENERIC_STATS_INDEX END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 40
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 43
-#ifndef STATS_SIZE//OPENED define STATS_SIZE BEG
-#define STATS_SIZE 1
-#endif //OPENED define STATS_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 43
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 45
-#ifndef NO_FLAGS//OPENED define NO_FLAGS BEG
-#define NO_FLAGS 0
-#endif //OPENED define NO_FLAGS END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 45
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c startLine: 47
-#ifndef V6DADDR//OPENED define V6DADDR BEG
-#define V6DADDR (1 << 0)
-#endif //OPENED define V6DADDR END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c endLine: 47
-
-//OPENED COMMENT BEGIN: From: /home/palani/github/opened_extraction/examples/katran/xdp_root.c startLine: 20
-#ifndef ROOT_ARRAY_SIZE//OPENED define ROOT_ARRAY_SIZE BEG
-#define ROOT_ARRAY_SIZE 3
-#endif //OPENED define ROOT_ARRAY_SIZE END
-
-//OPENED COMMENT END : From: /home/palani/github/opened_extraction/examples/katran/xdp_root.c endLine: 20
+//OPENED COMMENT END : From: /root/examples/katran/decap_kern.c endLine: 31
 
 #include <linux/in.h>
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #include <linux/ip.h>
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #include <linux/ipv6.h>
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #include <stdbool.h>
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #include <stddef.h>
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #ifndef BALANCER_CONSTS_H_OPENED_FRAMEWORK
 #define BALANCER_CONSTS_H_OPENED_FRAMEWORK
 #include "balancer_consts.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #ifndef BPF_H_OPENED_FRAMEWORK
 #define BPF_H_OPENED_FRAMEWORK
 #include "bpf.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #ifndef BPF_HELPERS_H_OPENED_FRAMEWORK
 #define BPF_HELPERS_H_OPENED_FRAMEWORK
 #include "bpf_helpers.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #ifndef DECAP_MAPS_H_OPENED_FRAMEWORK
 #define DECAP_MAPS_H_OPENED_FRAMEWORK
 #include "decap_maps.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #ifndef PCKT_ENCAP_H_OPENED_FRAMEWORK
 #define PCKT_ENCAP_H_OPENED_FRAMEWORK
 #include "pckt_encap.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #ifndef PCKT_PARSING_H_OPENED_FRAMEWORK
 #define PCKT_PARSING_H_OPENED_FRAMEWORK
 #include "pckt_parsing.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/decap_kern.c
+//OPENED: included from: /root/examples/katran/decap_kern.c
 
 #include <string.h>
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/balancer_kern.c
+//OPENED: included from: /root/examples/katran/balancer_kern.c
 
 #ifndef BALANCER_HELPERS_H_OPENED_FRAMEWORK
 #define BALANCER_HELPERS_H_OPENED_FRAMEWORK
 #include "balancer_helpers.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/balancer_kern.c
+//OPENED: included from: /root/examples/katran/balancer_kern.c
 
 #ifndef BALANCER_MAPS_H_OPENED_FRAMEWORK
 #define BALANCER_MAPS_H_OPENED_FRAMEWORK
 #include "balancer_maps.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/balancer_kern.c
+//OPENED: included from: /root/examples/katran/balancer_kern.c
 
 #ifndef BALANCER_STRUCTS_H_OPENED_FRAMEWORK
 #define BALANCER_STRUCTS_H_OPENED_FRAMEWORK
 #include "balancer_structs.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/balancer_kern.c
+//OPENED: included from: /root/examples/katran/balancer_kern.c
 
 #ifndef HANDLE_ICMP_H_OPENED_FRAMEWORK
 #define HANDLE_ICMP_H_OPENED_FRAMEWORK
 #include "handle_icmp.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/balancer_kern.c
+//OPENED: included from: /root/examples/katran/balancer_kern.c
 
 #ifndef JHASH_H_OPENED_FRAMEWORK
 #define JHASH_H_OPENED_FRAMEWORK
 #include "jhash.h"
 #endif 
 
-//OPENED: included from: /home/palani/github/opened_extraction/examples/katran/balancer_kern.c
+//OPENED: included from: /root/examples/katran/balancer_kern.c
 
+//ATTENTION BEGIN: DUPLICATE MAP DEFNS
+//fileName /root/op/katran/txl_katran/annotate_struct_examples_katran_xdp_pktcntr.c.out startLine: 24 endLine: 30
+struct {
+    __uint (type, BPF_MAP_TYPE_ARRAY);
+    __type (key, __u32);
+    __type (value, __u32);
+    __uint (max_entries, CTRL_ARRAY_SIZE);
+} ctl_array SEC (".maps");
+
+//DUP Defn at: fileName /root/op/katran/txl_katran/annotate_struct_examples_katran_control_data_maps.h.out startLine: 14 endLine: 21
+//ATTENTION END 
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/decap_kern.c 
+ /root/examples/katran/decap_kern.c 
  startLine: 34 endLine: 83
  */ 
 __attribute__((__always_inline__)) static inline int process_l3_headers(
@@ -242,7 +169,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 }
 #ifdef  INLINE_DECAP_GENERIC
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 233 endLine: 255
  */ 
 __attribute__((__always_inline__)) static inline int
@@ -270,7 +197,7 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
 }
 #endif 
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/decap_kern.c 
+ /root/examples/katran/decap_kern.c 
  startLine: 85 endLine: 120
  */ 
 __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
@@ -311,7 +238,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 }
 #ifdef  INLINE_DECAP_GUE
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/decap_kern.c 
+ /root/examples/katran/decap_kern.c 
  startLine: 123 endLine: 161
  */ 
 __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
@@ -355,7 +282,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 }
 #endif 
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 444 endLine: 457
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -373,7 +300,7 @@ increment_quic_cid_version_stats(int host_id) {
   }
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 470 endLine: 478
  */ 
 __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_real_0() {
@@ -386,7 +313,7 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   quic_drop->v2 += 1;
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 459 endLine: 468
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -400,7 +327,7 @@ increment_quic_cid_drop_no_real() {
   quic_drop->v1 += 1;
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 133 endLine: 156
  */ 
 __attribute__((__always_inline__)) static inline void connection_table_lookup(
@@ -428,7 +355,7 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
   return;
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 25 endLine: 50
  */ 
 	static inline bool is_under_flood(
@@ -458,7 +385,7 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
   return false;
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 818 endLine: 827
  */ 
 __attribute__((__always_inline__)) static inline __u32 get_packet_hash(struct packet_description* pckt,bool hash_16bytes) {
@@ -472,7 +399,7 @@ __attribute__((__always_inline__)) static inline __u32 get_packet_hash(struct pa
   }
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 53 endLine: 131
  */ 
 	static inline bool get_packet_dst(
@@ -556,7 +483,7 @@ __attribute__((__always_inline__)) static inline __u32 get_packet_hash(struct pa
 }
 #ifdef  GLOBAL_LRU_LOOKUP
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 261 endLine: 277
  */ 
 __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
@@ -579,7 +506,7 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
 #endif 
 #ifdef  GLOBAL_LRU_LOOKUP
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/balancer_kern.c 
+ /root/examples/katran/balancer_kern.c 
  startLine: 279 endLine: 335
  */ 
 __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
@@ -641,7 +568,7 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 }
 #endif 
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/decap_kern.c 
+ /root/examples/katran/decap_kern.c 
  startLine: 164 endLine: 221
  */ 
 __attribute__((__always_inline__)) static inline int process_packet(
@@ -703,7 +630,7 @@ __attribute__((__always_inline__)) static inline int process_packet(
   return XDP_PASS;
 }
 /* Extracted from 
- /home/palani/github/opened_extraction/examples/katran/decap_kern.c 
+ /root/examples/katran/decap_kern.c 
  startLine: 224 endLine: 247
  */ 
 int xdpdecap(struct xdp_md* ctx) {

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline __maybe_unused int bpf_xdp_exit (struct  __ctx_buff *ctx, const int verdict)" startline="96" endline="117">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline __maybe_unused int bpf_xdp_exit (struct  __ctx_buff *ctx, const int verdict)" startline="96" endline="117">
 static __always_inline __maybe_unused int bpf_xdp_exit (struct  __ctx_buff *ctx, const int verdict)
 {
     if (verdict == CTX_ACT_OK) {
@@ -17,7 +17,7 @@ static __always_inline __maybe_unused int bpf_xdp_exit (struct  __ctx_buff *ctx,
     return verdict;
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="int tail_lb_ipv4 (struct  __ctx_buff *ctx)" startline="122" endline="140">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="int tail_lb_ipv4 (struct  __ctx_buff *ctx)" startline="122" endline="140">
 int tail_lb_ipv4 (struct  __ctx_buff *ctx)
 {
     int ret = CTX_ACT_OK;
@@ -34,20 +34,20 @@ int tail_lb_ipv4 (struct  __ctx_buff *ctx)
     return bpf_xdp_exit (ctx, ret);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4_lb (struct  __ctx_buff *ctx)" startline="142" endline="147">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4_lb (struct  __ctx_buff *ctx)" startline="142" endline="147">
 static __always_inline int check_v4_lb (struct  __ctx_buff *ctx)
 {
     ep_tail_call (ctx, CILIUM_CALL_IPV4_FROM_NETDEV);
     return send_drop_notify_error (ctx, 0, DROP_MISSED_TAIL_CALL, CTX_ACT_DROP, METRIC_INGRESS);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4_lb (struct  __ctx_buff * ctx __maybe_unused)" startline="149" endline="152">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4_lb (struct  __ctx_buff * ctx __maybe_unused)" startline="149" endline="152">
 static __always_inline int check_v4_lb (struct  __ctx_buff * ctx __maybe_unused)
 {
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4 (struct  __ctx_buff *ctx)" startline="156" endline="179">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4 (struct  __ctx_buff *ctx)" startline="156" endline="179">
 static __always_inline int check_v4 (struct  __ctx_buff *ctx)
 {
     void *data_end = ctx_data_end (ctx);
@@ -74,13 +74,13 @@ static __always_inline int check_v4 (struct  __ctx_buff *ctx)
 #endif /* CIDR4_FILTER */
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4 (struct  __ctx_buff *ctx)" startline="181" endline="184">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v4 (struct  __ctx_buff *ctx)" startline="181" endline="184">
 static __always_inline int check_v4 (struct  __ctx_buff *ctx)
 {
     return check_v4_lb (ctx);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="int tail_lb_ipv6 (struct  __ctx_buff *ctx)" startline="191" endline="203">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="int tail_lb_ipv6 (struct  __ctx_buff *ctx)" startline="191" endline="203">
 int tail_lb_ipv6 (struct  __ctx_buff *ctx)
 {
     int ret = CTX_ACT_OK;
@@ -92,20 +92,20 @@ int tail_lb_ipv6 (struct  __ctx_buff *ctx)
     return bpf_xdp_exit (ctx, ret);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6_lb (struct  __ctx_buff *ctx)" startline="205" endline="210">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6_lb (struct  __ctx_buff *ctx)" startline="205" endline="210">
 static __always_inline int check_v6_lb (struct  __ctx_buff *ctx)
 {
     ep_tail_call (ctx, CILIUM_CALL_IPV6_FROM_NETDEV);
     return send_drop_notify_error (ctx, 0, DROP_MISSED_TAIL_CALL, CTX_ACT_DROP, METRIC_INGRESS);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6_lb (struct  __ctx_buff * ctx __maybe_unused)" startline="212" endline="215">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6_lb (struct  __ctx_buff * ctx __maybe_unused)" startline="212" endline="215">
 static __always_inline int check_v6_lb (struct  __ctx_buff * ctx __maybe_unused)
 {
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6 (struct  __ctx_buff *ctx)" startline="219" endline="242">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6 (struct  __ctx_buff *ctx)" startline="219" endline="242">
 static __always_inline int check_v6 (struct  __ctx_buff *ctx)
 {
     void *data_end = ctx_data_end (ctx);
@@ -132,13 +132,13 @@ static __always_inline int check_v6 (struct  __ctx_buff *ctx)
 #endif /* CIDR6_FILTER */
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6 (struct  __ctx_buff *ctx)" startline="244" endline="247">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_v6 (struct  __ctx_buff *ctx)" startline="244" endline="247">
 static __always_inline int check_v6 (struct  __ctx_buff *ctx)
 {
     return check_v6_lb (ctx);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_filters (struct  __ctx_buff *ctx)" startline="251" endline="278">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="static __always_inline int check_filters (struct  __ctx_buff *ctx)" startline="251" endline="278">
 static __always_inline int check_filters (struct  __ctx_buff *ctx)
 {
     int ret = CTX_ACT_OK;
@@ -168,7 +168,7 @@ static __always_inline int check_filters (struct  __ctx_buff *ctx)
     return bpf_xdp_exit (ctx, ret);
 }
 </source>
-<source file="/root/examples/cilium/bpf_xdp.c" funcheader="int bpf_xdp_entry (struct  __ctx_buff *ctx)" startline="281" endline="284">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c" funcheader="int bpf_xdp_entry (struct  __ctx_buff *ctx)" startline="281" endline="284">
 int bpf_xdp_entry (struct  __ctx_buff *ctx)
 {
     return check_filters (ctx);

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv6_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, struct trace_ctx *trace)" startline="17" endline="100">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv6_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, struct trace_ctx *trace)" startline="17" endline="100">
 static __always_inline int ipv6_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, struct trace_ctx *trace)
 {
     int ret, verdict, l3_off = ETH_HLEN, l4_off, hdrlen;
@@ -59,7 +59,7 @@ static __always_inline int ipv6_host_policy_egress (struct  __ctx_buff *ctx, __u
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv6_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)" startline="102" endline="199">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv6_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)" startline="102" endline="199">
 static __always_inline int ipv6_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)
 {
     struct ct_state ct_state_new = {}, ct_state = {};
@@ -123,7 +123,7 @@ static __always_inline int ipv6_host_policy_ingress (struct  __ctx_buff *ctx, __
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int whitelist_snated_egress_connections (struct  __ctx_buff *ctx, __u32 ipcache_srcid, struct trace_ctx *trace)" startline="204" endline="249">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int whitelist_snated_egress_connections (struct  __ctx_buff *ctx, __u32 ipcache_srcid, struct trace_ctx *trace)" startline="204" endline="249">
 static __always_inline int whitelist_snated_egress_connections (struct  __ctx_buff *ctx, __u32 ipcache_srcid, struct trace_ctx *trace)
 {
     struct ct_state ct_state_new = {}, ct_state = {};
@@ -152,7 +152,7 @@ static __always_inline int whitelist_snated_egress_connections (struct  __ctx_bu
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv4_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 ipcache_srcid __maybe_unused, struct trace_ctx *trace)" startline="252" endline="337">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv4_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 ipcache_srcid __maybe_unused, struct trace_ctx *trace)" startline="252" endline="337">
 static __always_inline int ipv4_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 ipcache_srcid __maybe_unused, struct trace_ctx *trace)
 {
     struct ct_state ct_state_new = {}, ct_state = {};
@@ -214,7 +214,7 @@ static __always_inline int ipv4_host_policy_egress (struct  __ctx_buff *ctx, __u
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv4_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)" startline="339" endline="439">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/host_firewall.h" funcheader="static __always_inline int ipv4_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)" startline="339" endline="439">
 static __always_inline int ipv4_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)
 {
     struct ct_state ct_state_new = {}, ct_state = {};

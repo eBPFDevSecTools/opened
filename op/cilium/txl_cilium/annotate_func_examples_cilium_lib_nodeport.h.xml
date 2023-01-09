@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __maybe_unused void bpf_skip_nodeport_clear (struct  __ctx_buff *ctx)" startline="31" endline="35">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __maybe_unused void bpf_skip_nodeport_clear (struct  __ctx_buff *ctx)" startline="31" endline="35">
 static __always_inline __maybe_unused void bpf_skip_nodeport_clear (struct  __ctx_buff *ctx)
 {
     ctx_skip_nodeport_clear (ctx);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __maybe_unused void bpf_skip_nodeport_set (struct  __ctx_buff *ctx)" startline="37" endline="41">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __maybe_unused void bpf_skip_nodeport_set (struct  __ctx_buff *ctx)" startline="37" endline="41">
 static __always_inline __maybe_unused void bpf_skip_nodeport_set (struct  __ctx_buff *ctx)
 {
     ctx_skip_nodeport_set (ctx);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __maybe_unused bool bpf_skip_nodeport (struct  __ctx_buff *ctx)" startline="43" endline="47">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __maybe_unused bool bpf_skip_nodeport (struct  __ctx_buff *ctx)" startline="43" endline="47">
 static __always_inline __maybe_unused bool bpf_skip_nodeport (struct  __ctx_buff *ctx)
 {
     return ctx_skip_nodeport (ctx);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool nodeport_uses_dsr (__u8 nexthdr __maybe_unused)" startline="81" endline="92">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool nodeport_uses_dsr (__u8 nexthdr __maybe_unused)" startline="81" endline="92">
 static __always_inline bool nodeport_uses_dsr (__u8 nexthdr __maybe_unused)
 {
 
@@ -36,7 +36,7 @@ static __always_inline bool nodeport_uses_dsr (__u8 nexthdr __maybe_unused)
 # endif
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline void bpf_mark_snat_done (struct  __ctx_buff * ctx __maybe_unused)" startline="94" endline="103">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline void bpf_mark_snat_done (struct  __ctx_buff * ctx __maybe_unused)" startline="94" endline="103">
 static __always_inline void bpf_mark_snat_done (struct  __ctx_buff * ctx __maybe_unused)
 {
 
@@ -46,7 +46,7 @@ static __always_inline void bpf_mark_snat_done (struct  __ctx_buff * ctx __maybe
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool bpf_skip_recirculation (const struct  __ctx_buff * ctx __maybe_unused)" startline="105" endline="116">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool bpf_skip_recirculation (const struct  __ctx_buff * ctx __maybe_unused)" startline="105" endline="116">
 static __always_inline bool bpf_skip_recirculation (const struct  __ctx_buff * ctx __maybe_unused)
 {
 
@@ -59,7 +59,7 @@ static __always_inline bool bpf_skip_recirculation (const struct  __ctx_buff * c
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __u64 ctx_adjust_hroom_dsr_flags (void)" startline="118" endline="125">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __u64 ctx_adjust_hroom_dsr_flags (void)" startline="118" endline="125">
 static __always_inline __u64 ctx_adjust_hroom_dsr_flags (void)
 {
 
@@ -72,7 +72,7 @@ static __always_inline __u64 ctx_adjust_hroom_dsr_flags (void)
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool dsr_fail_needs_reply (int code __maybe_unused)" startline="127" endline="134">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool dsr_fail_needs_reply (int code __maybe_unused)" startline="127" endline="134">
 static __always_inline bool dsr_fail_needs_reply (int code __maybe_unused)
 {
 
@@ -84,7 +84,7 @@ static __always_inline bool dsr_fail_needs_reply (int code __maybe_unused)
     return false;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool dsr_is_too_big (struct  __ctx_buff * ctx __maybe_unused, __u16 expanded_len __maybe_unused)" startline="136" endline="144">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool dsr_is_too_big (struct  __ctx_buff * ctx __maybe_unused, __u16 expanded_len __maybe_unused)" startline="136" endline="144">
 static __always_inline bool dsr_is_too_big (struct  __ctx_buff * ctx __maybe_unused, __u16 expanded_len __maybe_unused)
 {
 
@@ -96,7 +96,7 @@ static __always_inline bool dsr_is_too_big (struct  __ctx_buff * ctx __maybe_unu
     return false;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int maybe_add_l2_hdr (struct  __ctx_buff * ctx __maybe_unused, __u32 ifindex __maybe_unused, bool * l2_hdr_required __maybe_unused)" startline="146" endline="170">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int maybe_add_l2_hdr (struct  __ctx_buff * ctx __maybe_unused, __u32 ifindex __maybe_unused, bool * l2_hdr_required __maybe_unused)" startline="146" endline="170">
 static __always_inline int maybe_add_l2_hdr (struct  __ctx_buff * ctx __maybe_unused, __u32 ifindex __maybe_unused, bool * l2_hdr_required __maybe_unused)
 {
     if (IS_L3_DEV (ifindex))
@@ -111,13 +111,13 @@ static __always_inline int maybe_add_l2_hdr (struct  __ctx_buff * ctx __maybe_un
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool nodeport_uses_dsr6 (const struct ipv6_ct_tuple *tuple)" startline="173" endline="176">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool nodeport_uses_dsr6 (const struct ipv6_ct_tuple *tuple)" startline="173" endline="176">
 static __always_inline bool nodeport_uses_dsr6 (const struct ipv6_ct_tuple *tuple)
 {
     return nodeport_uses_dsr (tuple->nexthdr);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool snat_v6_needed (struct  __ctx_buff *ctx, const union v6addr *addr)" startline="181" endline="203">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool snat_v6_needed (struct  __ctx_buff *ctx, const union v6addr *addr)" startline="181" endline="203">
 static __always_inline bool snat_v6_needed (struct  __ctx_buff *ctx, const union v6addr *addr)
 {
     void *data, *data_end;
@@ -140,7 +140,7 @@ static __always_inline bool snat_v6_needed (struct  __ctx_buff *ctx, const union
     return !ipv6_addrcmp ((union v6addr *) &ip6->saddr, addr);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_nat_ipv6_fwd (struct  __ctx_buff *ctx, const union v6addr *addr)" startline="205" endline="221">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_nat_ipv6_fwd (struct  __ctx_buff *ctx, const union v6addr *addr)" startline="205" endline="221">
 static __always_inline int nodeport_nat_ipv6_fwd (struct  __ctx_buff *ctx, const union v6addr *addr)
 {
     struct ipv6_nat_target target = {
@@ -155,7 +155,7 @@ static __always_inline int nodeport_nat_ipv6_fwd (struct  __ctx_buff *ctx, const
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline void rss_gen_src6 (union v6addr *src, const union v6addr *client, __be32 l4_hint)" startline="225" endline="252">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline void rss_gen_src6 (union v6addr *src, const union v6addr *client, __be32 l4_hint)" startline="225" endline="252">
 static __always_inline void rss_gen_src6 (union v6addr *src, const union v6addr *client, __be32 l4_hint)
 {
     __u32 bits = 128 - IPV6_RSS_PREFIX_BITS;
@@ -181,7 +181,7 @@ static __always_inline void rss_gen_src6 (union v6addr *src, const union v6addr 
     }
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_ipip6 (struct  __ctx_buff *ctx, const struct ipv6hdr *ip6, const union v6addr *backend_addr, __be32 l4_hint, int *ohead)" startline="254" endline="292">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_ipip6 (struct  __ctx_buff *ctx, const struct ipv6hdr *ip6, const union v6addr *backend_addr, __be32 l4_hint, int *ohead)" startline="254" endline="292">
 static __always_inline int dsr_set_ipip6 (struct  __ctx_buff *ctx, const struct ipv6hdr *ip6, const union v6addr *backend_addr, __be32 l4_hint, int *ohead)
 {
     __u16 payload_len = bpf_ntohs (ip6->payload_len) + sizeof (*ip6);
@@ -212,7 +212,7 @@ static __always_inline int dsr_set_ipip6 (struct  __ctx_buff *ctx, const struct 
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_ext6 (struct  __ctx_buff *ctx, struct ipv6hdr *ip6, const union v6addr *svc_addr, __be16 svc_port, int *ohead)" startline="294" endline="327">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_ext6 (struct  __ctx_buff *ctx, struct ipv6hdr *ip6, const union v6addr *svc_addr, __be16 svc_port, int *ohead)" startline="294" endline="327">
 static __always_inline int dsr_set_ext6 (struct  __ctx_buff *ctx, struct ipv6hdr *ip6, const union v6addr *svc_addr, __be16 svc_port, int *ohead)
 {
     struct dsr_opt_v6 opt __align_stack_8 = {}
@@ -238,7 +238,7 @@ static __always_inline int dsr_set_ext6 (struct  __ctx_buff *ctx, struct ipv6hdr
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int find_dsr_v6 (struct  __ctx_buff *ctx, __u8 nexthdr, struct dsr_opt_v6 *dsr_opt, bool *found)" startline="330" endline="378">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int find_dsr_v6 (struct  __ctx_buff *ctx, __u8 nexthdr, struct dsr_opt_v6 *dsr_opt, bool *found)" startline="330" endline="378">
 static __always_inline int find_dsr_v6 (struct  __ctx_buff *ctx, __u8 nexthdr, struct dsr_opt_v6 *dsr_opt, bool *found)
 {
     struct ipv6_opt_hdr opthdr __align_stack_8;
@@ -279,7 +279,7 @@ static __always_inline int find_dsr_v6 (struct  __ctx_buff *ctx, __u8 nexthdr, s
     return DROP_INVALID_EXTHDR;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int handle_dsr_v6 (struct  __ctx_buff *ctx, bool *dsr)" startline="380" endline="400">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int handle_dsr_v6 (struct  __ctx_buff *ctx, bool *dsr)" startline="380" endline="400">
 static __always_inline int handle_dsr_v6 (struct  __ctx_buff *ctx, bool *dsr)
 {
     struct dsr_opt_v6 opt __align_stack_8 = {}
@@ -299,7 +299,7 @@ static __always_inline int handle_dsr_v6 (struct  __ctx_buff *ctx, bool *dsr)
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int xlate_dsr_v6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, int l4_off)" startline="402" endline="418">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int xlate_dsr_v6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, int l4_off)" startline="402" endline="418">
 static __always_inline int xlate_dsr_v6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, int l4_off)
 {
     struct ipv6_ct_tuple nat_tup = *tuple;
@@ -314,7 +314,7 @@ static __always_inline int xlate_dsr_v6 (struct  __ctx_buff *ctx, const struct i
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_reply_icmp6 (struct  __ctx_buff *ctx, const struct ipv6hdr * ip6 __maybe_unused, int code, int ohead __maybe_unused)" startline="420" endline="492">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_reply_icmp6 (struct  __ctx_buff *ctx, const struct ipv6hdr * ip6 __maybe_unused, int code, int ohead __maybe_unused)" startline="420" endline="492">
 static __always_inline int dsr_reply_icmp6 (struct  __ctx_buff *ctx, const struct ipv6hdr * ip6 __maybe_unused, int code, int ohead __maybe_unused)
 {
 
@@ -376,7 +376,7 @@ drop_err :
     return send_drop_notify_error (ctx, 0, code, CTX_ACT_DROP, METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_ipv6_dsr (struct  __ctx_buff *ctx)" startline="495" endline="571">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_ipv6_dsr (struct  __ctx_buff *ctx)" startline="495" endline="571">
 int tail_nodeport_ipv6_dsr (struct  __ctx_buff *ctx)
 {
     struct bpf_fib_lookup_padded fib_params = {
@@ -449,7 +449,7 @@ drop_err :
     return send_drop_notify_error_ext (ctx, 0, ret, ext_err, CTX_ACT_DROP, METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_nat_ipv6 (struct  __ctx_buff *ctx)" startline="575" endline="715">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_nat_ipv6 (struct  __ctx_buff *ctx)" startline="575" endline="715">
 int tail_nodeport_nat_ipv6 (struct  __ctx_buff *ctx)
 {
     enum nat_dir dir = (enum nat_dir) ctx_load_meta (ctx, CB_NAT);
@@ -571,7 +571,7 @@ drop_err :
     return send_drop_notify_error_ext (ctx, 0, ret, ext_err, CTX_ACT_DROP, dir == NAT_DIR_INGRESS ? METRIC_INGRESS : METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_lb6 (struct  __ctx_buff *ctx, __u32 src_identity)" startline="718" endline="881">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_lb6 (struct  __ctx_buff *ctx, __u32 src_identity)" startline="718" endline="881">
 static __always_inline int nodeport_lb6 (struct  __ctx_buff *ctx, __u32 src_identity)
 {
     int ret, l3_off = ETH_HLEN, l4_off, hdrlen;
@@ -707,7 +707,7 @@ static __always_inline int nodeport_lb6 (struct  __ctx_buff *ctx, __u32 src_iden
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int rev_nodeport_lb6 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)" startline="884" endline="1006">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int rev_nodeport_lb6 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)" startline="884" endline="1006">
 static __always_inline int rev_nodeport_lb6 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)
 {
     int ret, fib_ret, ret2, l3_off = ETH_HLEN, l4_off, hdrlen;
@@ -808,7 +808,7 @@ static __always_inline int rev_nodeport_lb6 (struct  __ctx_buff *ctx, int *ifind
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_rev_nodeport_lb6 (struct  __ctx_buff *ctx)" startline="1009" endline="1052">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_rev_nodeport_lb6 (struct  __ctx_buff *ctx)" startline="1009" endline="1052">
 int tail_rev_nodeport_lb6 (struct  __ctx_buff *ctx)
 {
     int ifindex = 0, ret = 0;
@@ -845,7 +845,7 @@ drop :
     return send_drop_notify_error_ext (ctx, 0, ret, ext_err, CTX_ACT_DROP, METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_handle_nat_fwd_ipv6 (struct  __ctx_buff *ctx)" startline="1059" endline="1078">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_handle_nat_fwd_ipv6 (struct  __ctx_buff *ctx)" startline="1059" endline="1078">
 int tail_handle_nat_fwd_ipv6 (struct  __ctx_buff *ctx)
 {
     int ret;
@@ -870,13 +870,13 @@ int tail_handle_nat_fwd_ipv6 (struct  __ctx_buff *ctx)
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool nodeport_uses_dsr4 (const struct ipv4_ct_tuple *tuple)" startline="1082" endline="1085">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool nodeport_uses_dsr4 (const struct ipv4_ct_tuple *tuple)" startline="1082" endline="1085">
 static __always_inline bool nodeport_uses_dsr4 (const struct ipv4_ct_tuple *tuple)
 {
     return nodeport_uses_dsr (tuple->nexthdr);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool snat_v4_needed (struct  __ctx_buff *ctx, __be32 *addr, bool * from_endpoint __maybe_unused)" startline="1101" endline="1259">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline bool snat_v4_needed (struct  __ctx_buff *ctx, __be32 *addr, bool * from_endpoint __maybe_unused)" startline="1101" endline="1259">
 static __always_inline bool snat_v4_needed (struct  __ctx_buff *ctx, __be32 *addr, bool * from_endpoint __maybe_unused)
 {
     void *data, *data_end;
@@ -976,7 +976,7 @@ skip_egress_gateway :
     return false;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_nat_ipv4_fwd (struct  __ctx_buff *ctx)" startline="1261" endline="1278">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_nat_ipv4_fwd (struct  __ctx_buff *ctx)" startline="1261" endline="1278">
 static __always_inline int nodeport_nat_ipv4_fwd (struct  __ctx_buff *ctx)
 {
     bool from_endpoint = false;
@@ -993,7 +993,7 @@ static __always_inline int nodeport_nat_ipv4_fwd (struct  __ctx_buff *ctx)
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __be32 rss_gen_src4 (__be32 client, __be32 l4_hint)" startline="1282" endline="1290">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline __be32 rss_gen_src4 (__be32 client, __be32 l4_hint)" startline="1282" endline="1290">
 static __always_inline __be32 rss_gen_src4 (__be32 client, __be32 l4_hint)
 {
     const __u32 bits = 32 - IPV4_RSS_PREFIX_BITS;
@@ -1003,7 +1003,7 @@ static __always_inline __be32 rss_gen_src4 (__be32 client, __be32 l4_hint)
     return src;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_ipip4 (struct  __ctx_buff *ctx, const struct iphdr *ip4, __be32 backend_addr, __be32 l4_hint, __be16 *ohead)" startline="1298" endline="1350">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_ipip4 (struct  __ctx_buff *ctx, const struct iphdr *ip4, __be32 backend_addr, __be32 l4_hint, __be16 *ohead)" startline="1298" endline="1350">
 static __always_inline int dsr_set_ipip4 (struct  __ctx_buff *ctx, const struct iphdr *ip4, __be32 backend_addr, __be32 l4_hint, __be16 *ohead)
 {
     __u16 tot_len = bpf_ntohs (ip4->tot_len) + sizeof (*ip4);
@@ -1047,7 +1047,7 @@ static __always_inline int dsr_set_ipip4 (struct  __ctx_buff *ctx, const struct 
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_opt4 (struct  __ctx_buff *ctx, struct iphdr *ip4, __be32 svc_addr, __be32 svc_port, __be16 *ohead)" startline="1352" endline="1404">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_set_opt4 (struct  __ctx_buff *ctx, struct iphdr *ip4, __be32 svc_addr, __be32 svc_port, __be16 *ohead)" startline="1352" endline="1404">
 static __always_inline int dsr_set_opt4 (struct  __ctx_buff *ctx, struct iphdr *ip4, __be32 svc_addr, __be32 svc_port, __be16 *ohead)
 {
     __u32 iph_old, iph_new, opt [2];
@@ -1083,7 +1083,7 @@ static __always_inline int dsr_set_opt4 (struct  __ctx_buff *ctx, struct iphdr *
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int handle_dsr_v4 (struct  __ctx_buff *ctx, bool *dsr)" startline="1407" endline="1446">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int handle_dsr_v4 (struct  __ctx_buff *ctx, bool *dsr)" startline="1407" endline="1446">
 static __always_inline int handle_dsr_v4 (struct  __ctx_buff *ctx, bool *dsr)
 {
     void *data, *data_end;
@@ -1111,7 +1111,7 @@ static __always_inline int handle_dsr_v4 (struct  __ctx_buff *ctx, bool *dsr)
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int xlate_dsr_v4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, int l4_off, bool has_l4_header)" startline="1448" endline="1464">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int xlate_dsr_v4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, int l4_off, bool has_l4_header)" startline="1448" endline="1464">
 static __always_inline int xlate_dsr_v4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, int l4_off, bool has_l4_header)
 {
     struct ipv4_ct_tuple nat_tup = *tuple;
@@ -1126,7 +1126,7 @@ static __always_inline int xlate_dsr_v4 (struct  __ctx_buff *ctx, const struct i
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_reply_icmp4 (struct  __ctx_buff *ctx, struct iphdr * ip4 __maybe_unused, int code, __be16 ohead __maybe_unused)" startline="1466" endline="1549">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int dsr_reply_icmp4 (struct  __ctx_buff *ctx, struct iphdr * ip4 __maybe_unused, int code, __be16 ohead __maybe_unused)" startline="1466" endline="1549">
 static __always_inline int dsr_reply_icmp4 (struct  __ctx_buff *ctx, struct iphdr * ip4 __maybe_unused, int code, __be16 ohead __maybe_unused)
 {
 
@@ -1192,7 +1192,7 @@ drop_err :
     return send_drop_notify_error (ctx, 0, code, CTX_ACT_DROP, METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_ipv4_dsr (struct  __ctx_buff *ctx)" startline="1552" endline="1621">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_ipv4_dsr (struct  __ctx_buff *ctx)" startline="1552" endline="1621">
 int tail_nodeport_ipv4_dsr (struct  __ctx_buff *ctx)
 {
     struct bpf_fib_lookup_padded fib_params = {
@@ -1258,7 +1258,7 @@ drop_err :
     return send_drop_notify_error_ext (ctx, 0, ret, ext_err, CTX_ACT_DROP, METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_nat_ipv4 (struct  __ctx_buff *ctx)" startline="1625" endline="1767">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_nodeport_nat_ipv4 (struct  __ctx_buff *ctx)" startline="1625" endline="1767">
 int tail_nodeport_nat_ipv4 (struct  __ctx_buff *ctx)
 {
     enum nat_dir dir = (enum nat_dir) ctx_load_meta (ctx, CB_NAT);
@@ -1359,7 +1359,7 @@ drop_err :
     return send_drop_notify_error_ext (ctx, 0, ret, ext_err, CTX_ACT_DROP, dir == NAT_DIR_INGRESS ? METRIC_INGRESS : METRIC_EGRESS);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_lb4 (struct  __ctx_buff *ctx, __u32 src_identity)" startline="1773" endline="1943">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int nodeport_lb4 (struct  __ctx_buff *ctx, __u32 src_identity)" startline="1773" endline="1943">
 static __always_inline int nodeport_lb4 (struct  __ctx_buff *ctx, __u32 src_identity)
 {
     struct ipv4_ct_tuple tuple = {}
@@ -1503,7 +1503,7 @@ static __always_inline int nodeport_lb4 (struct  __ctx_buff *ctx, __u32 src_iden
     return CTX_ACT_OK;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int rev_nodeport_lb4 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)" startline="1955" endline="2126">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int rev_nodeport_lb4 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)" startline="1955" endline="2126">
 static __always_inline int rev_nodeport_lb4 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)
 {
     struct ipv4_ct_tuple tuple = {}
@@ -1628,7 +1628,7 @@ encap_redirect :
 #endif
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_rev_nodeport_lb4 (struct  __ctx_buff *ctx)" startline="2129" endline="2162">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_rev_nodeport_lb4 (struct  __ctx_buff *ctx)" startline="2129" endline="2162">
 int tail_rev_nodeport_lb4 (struct  __ctx_buff *ctx)
 {
     int ifindex = 0;
@@ -1655,7 +1655,7 @@ int tail_rev_nodeport_lb4 (struct  __ctx_buff *ctx)
     return ctx_redirect (ctx, ifindex, 0);
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="int tail_handle_nat_fwd_ipv4 (struct  __ctx_buff *ctx)" startline="2170" endline="2188">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="int tail_handle_nat_fwd_ipv4 (struct  __ctx_buff *ctx)" startline="2170" endline="2188">
 int tail_handle_nat_fwd_ipv4 (struct  __ctx_buff *ctx)
 {
     int ret;
@@ -1675,7 +1675,7 @@ int tail_handle_nat_fwd_ipv4 (struct  __ctx_buff *ctx)
     return ret;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int health_encap_v4 (struct  __ctx_buff *ctx, __u32 tunnel_ep, __u32 seclabel)" startline="2192" endline="2211">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int health_encap_v4 (struct  __ctx_buff *ctx, __u32 tunnel_ep, __u32 seclabel)" startline="2192" endline="2211">
 static __always_inline int health_encap_v4 (struct  __ctx_buff *ctx, __u32 tunnel_ep, __u32 seclabel)
 {
     struct bpf_tunnel_key key;
@@ -1688,7 +1688,7 @@ static __always_inline int health_encap_v4 (struct  __ctx_buff *ctx, __u32 tunne
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int health_encap_v6 (struct  __ctx_buff *ctx, const union v6addr *tunnel_ep, __u32 seclabel)" startline="2213" endline="2232">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int health_encap_v6 (struct  __ctx_buff *ctx, const union v6addr *tunnel_ep, __u32 seclabel)" startline="2213" endline="2232">
 static __always_inline int health_encap_v6 (struct  __ctx_buff *ctx, const union v6addr *tunnel_ep, __u32 seclabel)
 {
     struct bpf_tunnel_key key;
@@ -1704,7 +1704,7 @@ static __always_inline int health_encap_v6 (struct  __ctx_buff *ctx, const union
     return 0;
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int lb_handle_health (struct  __ctx_buff * ctx __maybe_unused)" startline="2234" endline="2280">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int lb_handle_health (struct  __ctx_buff * ctx __maybe_unused)" startline="2234" endline="2280">
 static __always_inline int lb_handle_health (struct  __ctx_buff * ctx __maybe_unused)
 {
     void * data __maybe_unused, * data_end __maybe_unused;
@@ -1754,7 +1754,7 @@ static __always_inline int lb_handle_health (struct  __ctx_buff * ctx __maybe_un
     }
 }
 </source>
-<source file="/root/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int handle_nat_fwd (struct  __ctx_buff *ctx)" startline="2283" endline="2319">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h" funcheader="static __always_inline int handle_nat_fwd (struct  __ctx_buff *ctx)" startline="2283" endline="2319">
 static __always_inline int handle_nat_fwd (struct  __ctx_buff *ctx)
 {
     int ret = CTX_ACT_OK;

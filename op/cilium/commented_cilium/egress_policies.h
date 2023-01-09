@@ -20,7 +20,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 20,
  Endline: 29,
  Funcname: *lookup_ip4_egress_gw_policy,
@@ -61,7 +61,7 @@ struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy(__be32 saddr, __be32 
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 44,
  Endline: 53,
  Funcname: *srv6_lookup_vrf4,
@@ -97,7 +97,7 @@ srv6_lookup_vrf4(__be32 sip, __be32 dip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 63,
  Endline: 72,
  Funcname: *srv6_lookup_policy4,
@@ -134,7 +134,7 @@ srv6_lookup_policy4(__u32 vrf_id, __be32 dip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 83,
  Endline: 92,
  Funcname: *srv6_lookup_vrf6,
@@ -171,7 +171,7 @@ srv6_lookup_vrf6(const struct in6_addr *sip, const struct in6_addr *dip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 103,
  Endline: 112,
  Funcname: *srv6_lookup_policy6,
@@ -199,7 +199,7 @@ srv6_lookup_policy6(__u32 vrf_id, const struct in6_addr *dip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 114,
  Endline: 123,
  Funcname: srv6_lookup_sid,
@@ -227,7 +227,7 @@ srv6_lookup_sid(const struct in6_addr *sid)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 125,
  Endline: 134,
  Funcname: is_srv6_packet,
@@ -256,7 +256,7 @@ is_srv6_packet(const struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 137,
  Endline: 144,
  Funcname: ctx_adjust_hroom_flags,
@@ -282,7 +282,7 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 146,
  Endline: 171,
  Funcname: srv6_encapsulation,
@@ -326,7 +326,7 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 173,
  Endline: 210,
  Funcname: srv6_decapsulation,
@@ -382,7 +382,7 @@ srv6_decapsulation(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 212,
  Endline: 252,
  Funcname: srv6_create_state_entry,
@@ -390,7 +390,7 @@ srv6_decapsulation(struct __ctx_buff *ctx)
  Output: int,
  Helpers: [map_update_elem,],
  Read_maps: [],
- Update_maps: [ SRV6_STATE_MAP4, SRV6_STATE_MAP6,],
+ Update_maps: [ SRV6_STATE_MAP6, SRV6_STATE_MAP4,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -442,7 +442,7 @@ srv6_create_state_entry(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 255,
  Endline: 260,
  Funcname: *srv6_lookup_state_entry4,
@@ -467,7 +467,7 @@ srv6_lookup_state_entry4(struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 263,
  Endline: 268,
  Funcname: *srv6_lookup_state_entry6,
@@ -491,7 +491,7 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 270,
  Endline: 310,
  Funcname: srv6_handling4,
@@ -550,7 +550,7 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 312,
  Endline: 331,
  Funcname: srv6_handling6,
@@ -588,7 +588,7 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 333,
  Endline: 373,
  Funcname: srv6_handling,
@@ -647,7 +647,7 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 375,
  Endline: 413,
  Funcname: srv6_reply,
@@ -704,7 +704,7 @@ srv6_reply(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 415,
  Endline: 422,
  Funcname: srv6_load_meta_sid,
@@ -730,7 +730,7 @@ srv6_load_meta_sid(struct __ctx_buff *ctx, struct in6_addr *sid)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 424,
  Endline: 431,
  Funcname: srv6_store_meta_sid,
@@ -757,7 +757,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 434,
  Endline: 452,
  Funcname: tail_srv6_encap,
@@ -795,7 +795,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 455,
  Endline: 473,
  Funcname: tail_srv6_decap,
@@ -833,7 +833,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_REPLY)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/egress_policies.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/egress_policies.h,
  Startline: 476,
  Endline: 485,
  Funcname: tail_srv6_reply,

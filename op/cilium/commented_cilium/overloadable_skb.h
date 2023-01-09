@@ -7,7 +7,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 7,
  Endline: 17,
  Funcname: bpf_clear_meta,
@@ -39,7 +39,7 @@ bpf_clear_meta(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 22,
  Endline: 26,
  Funcname: get_identity,
@@ -65,7 +65,7 @@ get_identity(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 31,
  Endline: 35,
  Funcname: get_epid,
@@ -88,7 +88,7 @@ get_epid(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 37,
  Endline: 41,
  Funcname: set_encrypt_dip,
@@ -114,7 +114,7 @@ set_encrypt_dip(struct __sk_buff *ctx, __u32 ip_endpoint)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 46,
  Endline: 51,
  Funcname: set_identity_mark,
@@ -138,7 +138,7 @@ set_identity_mark(struct __sk_buff *ctx, __u32 identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 53,
  Endline: 57,
  Funcname: set_identity_meta,
@@ -164,7 +164,7 @@ set_identity_meta(struct __sk_buff *ctx, __u32 identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 62,
  Endline: 66,
  Funcname: set_encrypt_key_mark,
@@ -187,7 +187,7 @@ set_encrypt_key_mark(struct __sk_buff *ctx, __u8 key)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 68,
  Endline: 72,
  Funcname: set_encrypt_key_meta,
@@ -215,7 +215,7 @@ set_encrypt_key_meta(struct __sk_buff *ctx, __u8 key)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 79,
  Endline: 83,
  Funcname: set_encrypt_mark,
@@ -238,7 +238,7 @@ set_encrypt_mark(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 85,
  Endline: 99,
  Funcname: redirect_self,
@@ -271,7 +271,7 @@ redirect_self(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 101,
  Endline: 107,
  Funcname: ctx_skip_nodeport_clear,
@@ -296,7 +296,7 @@ ctx_skip_nodeport_clear(struct __sk_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 109,
  Endline: 115,
  Funcname: ctx_skip_nodeport_set,
@@ -321,7 +321,7 @@ ctx_skip_nodeport_set(struct __sk_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 117,
  Endline: 127,
  Funcname: ctx_skip_nodeport,
@@ -351,7 +351,7 @@ ctx_skip_nodeport(struct __sk_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 130,
  Endline: 134,
  Funcname: ctx_skip_host_fw_set,
@@ -374,7 +374,7 @@ ctx_skip_host_fw_set(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 136,
  Endline: 143,
  Funcname: ctx_skip_host_fw,
@@ -401,7 +401,7 @@ ctx_skip_host_fw(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 146,
  Endline: 152,
  Funcname: ctx_get_xfer,
@@ -426,7 +426,7 @@ static __always_inline __maybe_unused __u32 ctx_get_xfer(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 154,
  Endline: 158,
  Funcname: ctx_set_xfer,
@@ -449,7 +449,7 @@ ctx_set_xfer(struct __sk_buff *ctx __maybe_unused, __u32 meta __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/overloadable_skb.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h,
  Startline: 160,
  Endline: 164,
  Funcname: ctx_change_head,

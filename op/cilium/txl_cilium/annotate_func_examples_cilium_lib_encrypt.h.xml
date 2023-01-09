@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/lib/encrypt.h" funcheader="static __always_inline int do_decrypt (struct  __ctx_buff *ctx, __u16 proto)" startline="15" endline="75">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h" funcheader="static __always_inline int do_decrypt (struct  __ctx_buff *ctx, __u16 proto)" startline="15" endline="75">
 static __always_inline int do_decrypt (struct  __ctx_buff *ctx, __u16 proto)
 {
     void *data, *data_end;
@@ -61,7 +61,7 @@ static __always_inline int do_decrypt (struct  __ctx_buff *ctx, __u16 proto)
 #endif /* ENABLE_ROUTING */
 }
 </source>
-<source file="/root/examples/cilium/lib/encrypt.h" funcheader="static __always_inline int do_decrypt (struct  __ctx_buff  __maybe_unused *ctx, __u16 __maybe_unused proto)" startline="77" endline="81">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h" funcheader="static __always_inline int do_decrypt (struct  __ctx_buff  __maybe_unused *ctx, __u16 __maybe_unused proto)" startline="77" endline="81">
 static __always_inline int do_decrypt (struct  __ctx_buff  __maybe_unused *ctx, __u16 __maybe_unused proto)
 {
     return CTX_ACT_OK;

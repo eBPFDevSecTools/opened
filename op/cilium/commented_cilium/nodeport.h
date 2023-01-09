@@ -31,7 +31,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 31,
  Endline: 35,
  Funcname: bpf_skip_nodeport_clear,
@@ -54,7 +54,7 @@ bpf_skip_nodeport_clear(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 37,
  Endline: 41,
  Funcname: bpf_skip_nodeport_set,
@@ -77,7 +77,7 @@ bpf_skip_nodeport_set(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 43,
  Endline: 47,
  Funcname: bpf_skip_nodeport,
@@ -132,7 +132,7 @@ struct dsr_opt_v6 {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 81,
  Endline: 92,
  Funcname: nodeport_uses_dsr,
@@ -162,7 +162,7 @@ static __always_inline bool nodeport_uses_dsr(__u8 nexthdr __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 94,
  Endline: 103,
  Funcname: bpf_mark_snat_done,
@@ -190,7 +190,7 @@ bpf_mark_snat_done(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 105,
  Endline: 116,
  Funcname: bpf_skip_recirculation,
@@ -220,7 +220,7 @@ bpf_skip_recirculation(const struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 118,
  Endline: 125,
  Funcname: ctx_adjust_hroom_dsr_flags,
@@ -246,7 +246,7 @@ static __always_inline __u64 ctx_adjust_hroom_dsr_flags(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 127,
  Endline: 134,
  Funcname: dsr_fail_needs_reply,
@@ -272,7 +272,7 @@ static __always_inline bool dsr_fail_needs_reply(int code __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 136,
  Endline: 144,
  Funcname: dsr_is_too_big,
@@ -299,7 +299,7 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 146,
  Endline: 170,
  Funcname: maybe_add_l2_hdr,
@@ -343,7 +343,7 @@ maybe_add_l2_hdr(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 173,
  Endline: 176,
  Funcname: nodeport_uses_dsr6,
@@ -368,7 +368,7 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 181,
  Endline: 203,
  Funcname: snat_v6_needed,
@@ -409,7 +409,7 @@ static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 205,
  Endline: 221,
  Funcname: nodeport_nat_ipv6_fwd,
@@ -446,7 +446,7 @@ static __always_inline int nodeport_nat_ipv6_fwd(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 225,
  Endline: 252,
  Funcname: rss_gen_src6,
@@ -492,7 +492,7 @@ static __always_inline void rss_gen_src6(union v6addr *src,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 254,
  Endline: 292,
  Funcname: dsr_set_ipip6,
@@ -549,7 +549,7 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 294,
  Endline: 327,
  Funcname: dsr_set_ext6,
@@ -602,7 +602,7 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 330,
  Endline: 378,
  Funcname: find_dsr_v6,
@@ -669,7 +669,7 @@ static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 380,
  Endline: 400,
  Funcname: handle_dsr_v6,
@@ -708,7 +708,7 @@ static __always_inline int handle_dsr_v6(struct __ctx_buff *ctx, bool *dsr)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 402,
  Endline: 418,
  Funcname: xlate_dsr_v6,
@@ -743,7 +743,7 @@ static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 420,
  Endline: 492,
  Funcname: dsr_reply_icmp6,
@@ -835,13 +835,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 495,
  Endline: 571,
  Funcname: tail_nodeport_ipv6_dsr,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [fib_lookup,redirect,],
+ Helpers: [redirect,fib_lookup,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -932,13 +932,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 575,
  Endline: 715,
  Funcname: tail_nodeport_nat_ipv6,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [fib_lookup,tail_call,redirect,],
+ Helpers: [tail_call,redirect,fib_lookup,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1092,13 +1092,13 @@ drop_err:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 718,
  Endline: 881,
  Funcname: nodeport_lb6,
  Input: (struct  __ctx_buff *ctx, __u32 src_identity),
  Output: int,
- Helpers: [map_lookup_elem,tail_call,redirect,map_update_elem,],
+ Helpers: [map_lookup_elem,map_update_elem,redirect,tail_call,],
  Read_maps: [  NODEPORT_NEIGH6,],
  Update_maps: [  NODEPORT_NEIGH6,],
  Func Description: TO BE ADDED, 
@@ -1275,13 +1275,13 @@ redo:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 884,
  Endline: 1006,
  Funcname: rev_nodeport_lb6,
  Input: (struct  __ctx_buff *ctx, int *ifindex, int *ext_err),
  Output: int,
- Helpers: [fib_lookup,tail_call,map_lookup_elem,],
+ Helpers: [map_lookup_elem,tail_call,fib_lookup,],
  Read_maps: [  NODEPORT_NEIGH6,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1417,7 +1417,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1009,
  Endline: 1052,
  Funcname: tail_rev_nodeport_lb6,
@@ -1484,7 +1484,7 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4),
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1059,
  Endline: 1078,
  Funcname: tail_handle_nat_fwd_ipv6,
@@ -1524,7 +1524,7 @@ int tail_handle_nat_fwd_ipv6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1082,
  Endline: 1085,
  Funcname: nodeport_uses_dsr4,
@@ -1560,7 +1560,7 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1101,
  Endline: 1259,
  Funcname: snat_v4_needed,
@@ -1737,7 +1737,7 @@ skip_egress_gateway:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1261,
  Endline: 1278,
  Funcname: nodeport_nat_ipv4_fwd,
@@ -1775,7 +1775,7 @@ static __always_inline int nodeport_nat_ipv4_fwd(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1282,
  Endline: 1290,
  Funcname: rss_gen_src4,
@@ -1808,7 +1808,7 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1298,
  Endline: 1350,
  Funcname: dsr_set_ipip4,
@@ -1879,7 +1879,7 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1352,
  Endline: 1404,
  Funcname: dsr_set_opt4,
@@ -1951,7 +1951,7 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1407,
  Endline: 1446,
  Funcname: handle_dsr_v4,
@@ -2009,7 +2009,7 @@ static __always_inline int handle_dsr_v4(struct __ctx_buff *ctx, bool *dsr)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1448,
  Endline: 1464,
  Funcname: xlate_dsr_v4,
@@ -2044,7 +2044,7 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1466,
  Endline: 1549,
  Funcname: dsr_reply_icmp4,
@@ -2147,13 +2147,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1552,
  Endline: 1621,
  Funcname: tail_nodeport_ipv4_dsr,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [fib_lookup,redirect,],
+ Helpers: [redirect,fib_lookup,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -2237,13 +2237,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1625,
  Endline: 1767,
  Funcname: tail_nodeport_nat_ipv4,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [fib_lookup,tail_call,redirect,],
+ Helpers: [tail_call,redirect,fib_lookup,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -2402,13 +2402,13 @@ drop_err:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1773,
  Endline: 1943,
  Funcname: nodeport_lb4,
  Input: (struct  __ctx_buff *ctx, __u32 src_identity),
  Output: int,
- Helpers: [map_lookup_elem,tail_call,redirect,map_update_elem,],
+ Helpers: [map_lookup_elem,map_update_elem,redirect,tail_call,],
  Read_maps: [  NODEPORT_NEIGH4,],
  Update_maps: [  NODEPORT_NEIGH4,],
  Func Description: TO BE ADDED, 
@@ -2601,13 +2601,13 @@ redo:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 1955,
  Endline: 2126,
  Funcname: rev_nodeport_lb4,
  Input: (struct  __ctx_buff *ctx, int *ifindex, int *ext_err),
  Output: int,
- Helpers: [fib_lookup,tail_call,redirect,map_lookup_elem,],
+ Helpers: [map_lookup_elem,tail_call,redirect,fib_lookup,],
  Read_maps: [  NODEPORT_NEIGH4,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -2792,7 +2792,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 2129,
  Endline: 2162,
  Funcname: tail_rev_nodeport_lb4,
@@ -2850,7 +2850,7 @@ declare_tailcall_if(__or3(__and(is_defined(ENABLE_IPV4),
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 2170,
  Endline: 2188,
  Funcname: tail_handle_nat_fwd_ipv4,
@@ -2889,7 +2889,7 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 2192,
  Endline: 2211,
  Funcname: health_encap_v4,
@@ -2927,7 +2927,7 @@ health_encap_v4(struct __ctx_buff *ctx, __u32 tunnel_ep,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 2213,
  Endline: 2232,
  Funcname: health_encap_v6,
@@ -2965,7 +2965,7 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 2234,
  Endline: 2280,
  Funcname: lb_handle_health,
@@ -3031,7 +3031,7 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/nodeport.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/nodeport.h,
  Startline: 2283,
  Endline: 2319,
  Funcname: handle_nat_fwd,

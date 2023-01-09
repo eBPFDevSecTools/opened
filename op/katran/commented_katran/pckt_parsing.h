@@ -273,8 +273,8 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
  Funcname: tcp_hdr_opt_lookup,
  Input: (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map),
  Output: int,
- Helpers: [bpf_map_lookup_elem,bpf_map_update_elem,],
- Read_maps: [ reals, server_id_map, lru_map,],
+ Helpers: [bpf_map_update_elem,bpf_map_lookup_elem,],
+ Read_maps: [ reals, lru_map, server_id_map,],
  Update_maps: [ lru_map,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

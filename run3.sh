@@ -32,4 +32,6 @@
 
 #Working
 
-python3 src/function-extractor.py -o op/katran_xdpdecap -e extracted.c -c op/fcg/katran.xdpdecap.cg.out.cleaned -t op/katran/katran.struct_file_list.json -f op/katran/katran.function_file_list.json -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
+#python3 src/function-extractor.py -o op/katran_xdpdecap -e extracted.c -c op/fcg/katran.xdpdecap.cg.out.cleaned -t op/katran/katran.struct_file_list.json -f op/katran/katran.function_file_list.json -s examples/katran -b /home/palani/github/opened_extraction/examples/katran
+
+python3 src/function-extractor.py -o op/cilium_sock4_connect -e extracted.c -c op/fcg/cilium.sock4_connect.cg.out.cleaned -t op/cilium/cilium.struct_file_list.json -f op/cilium/cilium.function_file_list.json -s examples/cilium -b /home/palani/github/opened_extraction/examples/cilium --isCilium

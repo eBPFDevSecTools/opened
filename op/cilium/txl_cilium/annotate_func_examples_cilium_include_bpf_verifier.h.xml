@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/cilium/include/bpf/verifier.h" funcheader="static __always_inline void relax_verifier (void)" startline="13" endline="18">
+<source file="/home/palani/github/opened_extraction/examples/cilium/include/bpf/verifier.h" funcheader="static __always_inline void relax_verifier (void)" startline="13" endline="18">
 static __always_inline void relax_verifier (void)
 {
 

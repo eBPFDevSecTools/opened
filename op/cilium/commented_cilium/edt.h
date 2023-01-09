@@ -17,7 +17,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/edt.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/edt.h,
  Startline: 17,
  Endline: 22,
  Funcname: edt_set_aggregate,
@@ -41,7 +41,7 @@ static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/edt.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/edt.h,
  Startline: 24,
  Endline: 34,
  Funcname: edt_get_aggregate,
@@ -70,13 +70,13 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/edt.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/edt.h,
  Startline: 36,
  Endline: 77,
  Funcname: edt_sched_departure,
  Input: (struct  __ctx_buff *ctx),
  Output: int,
- Helpers: [ktime_get_ns,map_lookup_elem,],
+ Helpers: [map_lookup_elem,ktime_get_ns,],
  Read_maps: [  THROTTLE_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -130,7 +130,7 @@ static __always_inline int edt_sched_departure(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/edt.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/edt.h,
  Startline: 79,
  Endline: 83,
  Funcname: edt_set_aggregate,

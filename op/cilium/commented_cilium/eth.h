@@ -25,7 +25,7 @@ union macaddr {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 25,
  Endline: 35,
  Funcname: eth_addrcmp,
@@ -54,7 +54,7 @@ static __always_inline int eth_addrcmp(const union macaddr *a,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 37,
  Endline: 48,
  Funcname: eth_is_bcast,
@@ -84,7 +84,7 @@ static __always_inline int eth_is_bcast(const union macaddr *a)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 50,
  Endline: 54,
  Funcname: eth_load_saddr,
@@ -107,7 +107,7 @@ static __always_inline int eth_load_saddr(struct __ctx_buff *ctx, __u8 *mac,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 56,
  Endline: 60,
  Funcname: eth_store_saddr_aligned,
@@ -130,7 +130,7 @@ static __always_inline int eth_store_saddr_aligned(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 62,
  Endline: 79,
  Funcname: eth_store_saddr,
@@ -166,7 +166,7 @@ static __always_inline int eth_store_saddr(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 81,
  Endline: 85,
  Funcname: eth_load_daddr,
@@ -189,7 +189,7 @@ static __always_inline int eth_load_daddr(struct __ctx_buff *ctx, __u8 *mac,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 87,
  Endline: 91,
  Funcname: eth_store_daddr_aligned,
@@ -212,7 +212,7 @@ static __always_inline int eth_store_daddr_aligned(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 93,
  Endline: 110,
  Funcname: eth_store_daddr,
@@ -248,7 +248,7 @@ static __always_inline int eth_store_daddr(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/cilium/lib/eth.h,
+ File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 112,
  Endline: 117,
  Funcname: eth_store_proto,
