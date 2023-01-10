@@ -61,10 +61,9 @@ def dump_comment(fname,startLineDict, ofname):
     ct = 0
     for line in ifile.readlines():
         ct=ct + 1
+        if ct in startLineDict:
+            ofile.write(startLineDict.get(ct))
         ofile.write(line)
-        nextLine = ct + 1
-        if nextLine in startLineDict:
-            ofile.write(startLineDict.get(nextLine))
     ofile.flush()
     ofile.close()
     ifile.close()
@@ -109,6 +108,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             #dump_comment(srcFile,startLine,comment)
             
             startLineDict[startLine] = comment
+            #print(comment)
             lines = []
             continue;
         if srcSeen:
@@ -126,23 +126,28 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             line = line.replace("\n","")
             line = line.replace("\"","")
             tokens = line.split('=')
-            #print("len",len(tokens),"tokens",tokens)
+            print("len",len(tokens),"tokens",tokens)
 
             funcHeader=tokens[2]
-            #print("funcHeader: ",funcHeader)
+            print("funcHeader: ",funcHeader)
             funcArgs = funcHeader.split('(')[-1]
             funcArgs = funcArgs.split(')')[0]
             #funcArgs = funcArgs.replace(" ","")
-            #print("args ",funcArgs)
-   
+            print("args ",funcArgs)
+            if(funcArgs is None or not funcArgs or funcArgs.isspace() is True):
+                funcArgs = "NA"
+
             
             srcFile = tokens[-4]
             srcFile = srcFile.replace(" ","")
 
             funcName = tokens[-3].replace(" (","(")
-            output= funcName.split('(')[-2].split(" ")[-2]
+            print("funcName: ",funcName)
+            print("funcName.split('(')[-2]: ",funcName.split('(')[-2])
+            output= "".join(funcName.split('(')[-2].split(" ")[:-1])
             output = output.replace(" ","")
-            #print("funcName: ",funcName)
+            if(output is None or not output or output.isspace() is True):
+                output = "NA"
             funcName = funcName.split('(')[-2].split(" ")[-1]
 
             startLine = int(tokens[-2])
@@ -152,7 +157,8 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             key=funcName+":"+srcFile
             #print("Checking if need to extract",key
     if srcFile != "":
-        print("Going to call dump_comment for: "+srcFile)
+        #print("Going to call dump_comment for: "+srcFile)
+        #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
 
         

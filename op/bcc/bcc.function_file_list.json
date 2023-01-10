@@ -1,0 +1,1 @@
+{"hello": [{"fileName": "/home/sayandes/opened_extraction/examples/bcc/trace_fields.c", "startLine": "2", "endLine": "6"}], "TRACEPOINT_PROBE": [{"fileName": "/home/sayandes/opened_extraction/examples/bcc/urandomread.c", "startLine": "1", "endLine": "5"}]}
