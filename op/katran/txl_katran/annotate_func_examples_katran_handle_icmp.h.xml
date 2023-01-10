@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int swap_mac_and_send (void *data, void *data_end)" startline="38" endline="48">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int swap_mac_and_send (void *data, void *data_end)" startline="38" endline="48">
 static inline int swap_mac_and_send (void *data, void *data_end)
 {
     struct ethhdr *eth;
@@ -12,7 +12,7 @@ static inline int swap_mac_and_send (void *data, void *data_end)
     return XDP_TX;
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline void swap_mac (void *data, struct ethhdr *orig_eth)" startline="50" endline="58">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline void swap_mac (void *data, struct ethhdr *orig_eth)" startline="50" endline="58">
 static inline void swap_mac (void *data, struct ethhdr *orig_eth)
 {
     struct ethhdr *eth;
@@ -22,7 +22,7 @@ static inline void swap_mac (void *data, struct ethhdr *orig_eth)
     eth->h_proto = orig_eth->h_proto;
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp_reply (void *data, void *data_end)" startline="60" endline="90">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp_reply (void *data, void *data_end)" startline="60" endline="90">
 static inline int send_icmp_reply (void *data, void *data_end)
 {
     struct iphdr *iph;
@@ -49,7 +49,7 @@ static inline int send_icmp_reply (void *data, void *data_end)
     return swap_mac_and_send (data, data_end);
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp6_reply (void *data, void *data_end)" startline="92" endline="117">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp6_reply (void *data, void *data_end)" startline="92" endline="117">
 static inline int send_icmp6_reply (void *data, void *data_end)
 {
     struct ipv6hdr *ip6h;
@@ -72,7 +72,7 @@ static inline int send_icmp6_reply (void *data, void *data_end)
     return swap_mac_and_send (data, data_end);
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp4_too_big (struct xdp_md *xdp)" startline="119" endline="162">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp4_too_big (struct xdp_md *xdp)" startline="119" endline="162">
 static inline int send_icmp4_too_big (struct xdp_md *xdp)
 {
     int headroom = (int) sizeof (struct iphdr) + (int) sizeof (struct icmphdr);
@@ -118,7 +118,7 @@ static inline int send_icmp4_too_big (struct xdp_md *xdp)
     return XDP_TX;
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp6_too_big (struct xdp_md *xdp)" startline="164" endline="203">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp6_too_big (struct xdp_md *xdp)" startline="164" endline="203">
 static inline int send_icmp6_too_big (struct xdp_md *xdp)
 {
     int headroom = (int) sizeof (struct ipv6hdr) + (int) sizeof (struct icmp6hdr);
@@ -160,7 +160,7 @@ static inline int send_icmp6_too_big (struct xdp_md *xdp)
     return XDP_TX;
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp_too_big (struct xdp_md *xdp, bool is_ipv6, int pckt_size)" startline="205" endline="221">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int send_icmp_too_big (struct xdp_md *xdp, bool is_ipv6, int pckt_size)" startline="205" endline="221">
 static inline int send_icmp_too_big (struct xdp_md *xdp, bool is_ipv6, int pckt_size)
 {
     int offset = pckt_size;
@@ -181,7 +181,7 @@ static inline int send_icmp_too_big (struct xdp_md *xdp, bool is_ipv6, int pckt_
     }
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int parse_icmpv6 (void *data, void *data_end, __u64 off, struct packet_description *pckt)" startline="223" endline="253">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int parse_icmpv6 (void *data, void *data_end, __u64 off, struct packet_description *pckt)" startline="223" endline="253">
 static inline int parse_icmpv6 (void *data, void *data_end, __u64 off, struct packet_description *pckt)
 {
     struct icmp6hdr *icmp_hdr;
@@ -208,7 +208,7 @@ static inline int parse_icmpv6 (void *data, void *data_end, __u64 off, struct pa
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/handle_icmp.h" funcheader="static inline int parse_icmp (void *data, void *data_end, __u64 off, struct packet_description *pckt)" startline="255" endline="285">
+<source file="/home/sayandes/opened_extraction/examples/katran/handle_icmp.h" funcheader="static inline int parse_icmp (void *data, void *data_end, __u64 off, struct packet_description *pckt)" startline="255" endline="285">
 static inline int parse_icmp (void *data, void *data_end, __u64 off, struct packet_description *pckt)
 {
     struct icmphdr *icmp_hdr;

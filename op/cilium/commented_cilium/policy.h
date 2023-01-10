@@ -15,12 +15,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 15,
  Endline: 79,
  Funcname: policy_sk_egress,
  Input: (__u32 identity, __u32 ip, __u16 dport),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [map_lookup_elem,],
  Read_maps: [ map,],
  Update_maps: [],
@@ -98,12 +98,12 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 81,
  Endline: 87,
  Funcname: account,
  Input: (struct  __ctx_buff *ctx, struct policy_entry *policy),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -123,12 +123,12 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 89,
  Endline: 222,
  Funcname: __policy_can_access,
  Input: (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [map_lookup_elem,],
  Read_maps: [ map,],
  Update_maps: [],
@@ -291,12 +291,12 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 240,
  Endline: 264,
  Funcname: policy_can_access_ingress,
  Input: (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, bool is_untracked_fragment, __u8 *match_type, __u8 *audited),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -335,12 +335,12 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 267,
  Endline: 270,
  Funcname: is_encap,
  Input: (__u16 dport, __u8 proto),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -358,12 +358,12 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 273,
  Endline: 296,
  Funcname: policy_can_egress,
  Input: (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, __u8 *match_type, __u8 *audited),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -400,12 +400,12 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 298,
  Endline: 305,
  Funcname: policy_can_egress6,
  Input: (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -426,12 +426,12 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 307,
  Endline: 314,
  Funcname: policy_can_egress4,
  Input: (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -459,12 +459,12 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 323,
  Endline: 326,
  Funcname: policy_mark_skip,
  Input: (struct  __ctx_buff *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -481,12 +481,12 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/policy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
  Startline: 328,
  Endline: 331,
  Funcname: policy_clear_mark,
  Input: (struct  __ctx_buff *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

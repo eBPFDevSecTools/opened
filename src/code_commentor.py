@@ -126,14 +126,14 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             line = line.replace("\n","")
             line = line.replace("\"","")
             tokens = line.split('=')
-            print("len",len(tokens),"tokens",tokens)
+            #print("len",len(tokens),"tokens",tokens)
 
             funcHeader=tokens[2]
-            print("funcHeader: ",funcHeader)
+            #print("funcHeader: ",funcHeader)
             funcArgs = funcHeader.split('(')[-1]
             funcArgs = funcArgs.split(')')[0]
             #funcArgs = funcArgs.replace(" ","")
-            print("args ",funcArgs)
+            #print("args ",funcArgs)
             if(funcArgs is None or not funcArgs or funcArgs.isspace() is True):
                 funcArgs = "NA"
 
@@ -142,8 +142,8 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcFile = srcFile.replace(" ","")
 
             funcName = tokens[-3].replace(" (","(")
-            print("funcName: ",funcName)
-            print("funcName.split('(')[-2]: ",funcName.split('(')[-2])
+            #print("funcName: ",funcName)
+            #print("funcName.split('(')[-2]: ",funcName.split('(')[-2])
             output= "".join(funcName.split('(')[-2].split(" ")[:-1])
             output = output.replace(" ","")
             if(output is None or not output or output.isspace() is True):

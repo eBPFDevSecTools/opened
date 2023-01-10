@@ -183,12 +183,12 @@ struct debug_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 183,
  Endline: 194,
  Funcname: cilium_dbg,
  Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -213,12 +213,12 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 196,
  Endline: 208,
  Funcname: cilium_dbg3,
  Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2, __u32 arg3),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -250,12 +250,12 @@ struct debug_capture_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 216,
  Endline: 231,
  Funcname: cilium_dbg_capture2,
  Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -284,12 +284,12 @@ static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 typ
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 233,
  Endline: 237,
  Funcname: cilium_dbg_capture,
  Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -310,12 +310,12 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 242,
  Endline: 246,
  Funcname: cilium_dbg,
  Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -333,12 +333,12 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 248,
  Endline: 253,
  Funcname: cilium_dbg3,
  Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused, __u32 arg3 __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -357,12 +357,12 @@ void cilium_dbg3(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 255,
  Endline: 259,
  Funcname: cilium_dbg_capture,
  Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -380,12 +380,12 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/dbg.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
  Startline: 261,
  Endline: 266,
  Funcname: cilium_dbg_capture2,
  Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

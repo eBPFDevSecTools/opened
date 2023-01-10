@@ -38,12 +38,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 38,
  Endline: 48,
  Funcname: swap_mac_and_send,
  Input: (void *data, void *data_end),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -67,12 +67,12 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 50,
  Endline: 58,
  Funcname: swap_mac,
  Input: (void *data, struct ethhdr *orig_eth),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -94,12 +94,12 @@ __attribute__((__always_inline__)) static inline void swap_mac(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 60,
  Endline: 90,
  Funcname: send_icmp_reply,
  Input: (void *data, void *data_end),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -143,12 +143,12 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 92,
  Endline: 117,
  Funcname: send_icmp6_reply,
  Input: (void *data, void *data_end),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -187,12 +187,12 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 119,
  Endline: 162,
  Funcname: send_icmp4_too_big,
  Input: (struct xdp_md *xdp),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_xdp_adjust_head,],
  Read_maps: [],
  Update_maps: [],
@@ -249,12 +249,12 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 164,
  Endline: 203,
  Funcname: send_icmp6_too_big,
  Input: (struct xdp_md *xdp),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_xdp_adjust_head,],
  Read_maps: [],
  Update_maps: [],
@@ -307,12 +307,12 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 205,
  Endline: 221,
  Funcname: send_icmp_too_big,
  Input: (struct xdp_md *xdp, bool is_ipv6, int pckt_size),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_xdp_adjust_tail,],
  Read_maps: [],
  Update_maps: [],
@@ -342,12 +342,12 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 223,
  Endline: 253,
  Funcname: parse_icmpv6,
  Input: (void *data, void *data_end, __u64 off, struct packet_description *pckt),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -391,12 +391,12 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/handle_icmp.h,
+ File: /home/sayandes/opened_extraction/examples/katran/handle_icmp.h,
  Startline: 255,
  Endline: 285,
  Funcname: parse_icmp,
  Input: (void *data, void *data_end, __u64 off, struct packet_description *pckt),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

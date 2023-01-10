@@ -80,12 +80,12 @@ enum {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 80,
  Endline: 124,
  Funcname: update_trace_metrics,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, enum trace_reason reason),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -171,12 +171,12 @@ struct trace_notify {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 154,
  Endline: 182,
  Funcname: emit_trace_notify,
  Input: (enum trace_point obs_point, __u32 monitor),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -218,12 +218,12 @@ emit_trace_notify(enum trace_point obs_point, __u32 monitor)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 184,
  Endline: 213,
  Funcname: send_trace_notify,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -266,12 +266,12 @@ send_trace_notify(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 215,
  Endline: 245,
  Funcname: send_trace_notify4,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, __be32 orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -315,12 +315,12 @@ send_trace_notify4(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 247,
  Endline: 279,
  Funcname: send_trace_notify6,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src, __u32 dst, const union v6addr *orig_addr, __u16 dst_id, __u32 ifindex, enum trace_reason reason, __u32 monitor),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -366,12 +366,12 @@ send_trace_notify6(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 281,
  Endline: 288,
  Funcname: send_trace_notify,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -392,12 +392,12 @@ send_trace_notify(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 290,
  Endline: 298,
  Funcname: send_trace_notify4,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, __be32 orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -419,12 +419,12 @@ send_trace_notify4(struct __ctx_buff *ctx, enum trace_point obs_point,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/trace.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/trace.h,
  Startline: 300,
  Endline: 308,
  Funcname: send_trace_notify6,
  Input: (struct  __ctx_buff *ctx, enum trace_point obs_point, __u32 src __maybe_unused, __u32 dst __maybe_unused, union v6addr * orig_addr __maybe_unused, __u16 dst_id __maybe_unused, __u32 ifindex __maybe_unused, enum trace_reason reason, __u32 monitor __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

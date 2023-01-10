@@ -31,12 +31,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/encap_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/encap_helpers.h,
  Startline: 31,
  Endline: 55,
  Funcname: create_v4_hdr,
  Input: (struct iphdr *iph, __u8 tos, __u32 saddr, __u32 daddr, __u16 pkt_bytes, __u8 proto),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -74,12 +74,12 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/encap_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/encap_helpers.h,
  Startline: 57,
  Endline: 77,
  Funcname: create_v6_hdr,
  Input: (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, __u32 *daddr, __u16 payload_len, __u8 proto),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -113,12 +113,12 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/encap_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/encap_helpers.h,
  Startline: 79,
  Endline: 89,
  Funcname: create_udp_hdr,
  Input: (struct udphdr *udph, __u16 sport, __u16 dport, __u16 len, __u16 csum),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

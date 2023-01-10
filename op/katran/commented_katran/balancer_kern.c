@@ -25,12 +25,12 @@ __attribute__((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 25,
  Endline: 50,
  Funcname: is_under_flood,
  Input: (__u64 *cur_time),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [bpf_ktime_get_ns,bpf_map_lookup_elem,],
  Read_maps: [ stats,],
  Update_maps: [],
@@ -70,14 +70,14 @@ __attribute__((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 53,
  Endline: 131,
  Funcname: get_packet_dst,
  Input: (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map),
- Output: bool,
- Helpers: [bpf_map_update_elem,bpf_map_lookup_elem,],
- Read_maps: [ reals,  lpm_src_v6, stats,  lpm_src_v4,  ch_rings,],
+ Output: staticinlinebool,
+ Helpers: [bpf_map_lookup_elem,bpf_map_update_elem,],
+ Read_maps: [  lpm_src_v4,  ch_rings, reals,  lpm_src_v6, stats,],
  Update_maps: [ lru_map,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -167,12 +167,12 @@ __attribute__((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 133,
  Endline: 156,
  Funcname: connection_table_lookup,
  Input: (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_ktime_get_ns,bpf_map_lookup_elem,],
  Read_maps: [ lru_map, reals,],
  Update_maps: [],
@@ -209,12 +209,12 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 158,
  Endline: 230,
  Funcname: process_l3_headers,
  Input: (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -301,14 +301,14 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 233,
  Endline: 255,
  Funcname: check_decap_dst,
  Input: (struct packet_description *pckt, bool is_ipv6, bool *pass),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ decap_dst,  stats,],
+ Read_maps: [  stats, decap_dst,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -346,12 +346,12 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 261,
  Endline: 277,
  Funcname: reals_have_same_addr,
  Input: (struct real_definition *a, struct real_definition *b),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -381,12 +381,12 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 279,
  Endline: 335,
  Funcname: perform_global_lru_lookup,
  Input: (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_map_lookup_elem,],
  Read_maps: [ stats, global_lru_maps,],
  Update_maps: [],
@@ -459,12 +459,12 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 340,
  Endline: 387,
  Funcname: process_encaped_ipip_pckt,
  Input: (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, __u8 *protocol, bool pass),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -527,12 +527,12 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 391,
  Endline: 441,
  Funcname: process_encaped_gue_pckt,
  Input: (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6, bool pass),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -597,12 +597,12 @@ process_encaped_gue_pckt(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 444,
  Endline: 457,
  Funcname: increment_quic_cid_version_stats,
  Input: (int host_id),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_map_lookup_elem,],
  Read_maps: [ stats,],
  Update_maps: [],
@@ -629,12 +629,12 @@ increment_quic_cid_version_stats(int host_id) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 459,
  Endline: 468,
  Funcname: increment_quic_cid_drop_no_real,
- Input: (),
- Output: void,
+ Input: (NA),
+ Output: staticinlinevoid,
  Helpers: [bpf_map_lookup_elem,],
  Read_maps: [ stats,],
  Update_maps: [],
@@ -657,12 +657,12 @@ increment_quic_cid_drop_no_real() {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 470,
  Endline: 478,
  Funcname: increment_quic_cid_drop_real_0,
- Input: (),
- Output: void,
+ Input: (NA),
+ Output: staticinlinevoid,
  Helpers: [bpf_map_lookup_elem,],
  Read_maps: [ stats,],
  Update_maps: [],
@@ -684,14 +684,14 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 480,
  Endline: 791,
  Funcname: process_packet,
  Input: (struct xdp_md *xdp, __u64 off, bool is_ipv6),
- Output: int,
- Helpers: [bpf_get_smp_processor_id,bpf_map_lookup_elem,],
- Read_maps: [ lru_mapping,  vip_map,  reals_stats,  ctl_array, server_id_map,  reals, stats,  stats,],
+ Output: staticinlineint,
+ Helpers: [bpf_map_lookup_elem,bpf_get_smp_processor_id,],
+ Read_maps: [  stats, lru_mapping,  vip_map, server_id_map,  reals_stats,  ctl_array, stats,  reals,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -1015,7 +1015,7 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 794,
  Endline: 817,
  Funcname: balancer_ingress,
@@ -1056,12 +1056,12 @@ int balancer_ingress(struct xdp_md* ctx) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_kern.c,
  Startline: 818,
  Endline: 827,
  Funcname: get_packet_hash,
  Input: (struct packet_description *pckt, bool hash_16bytes),
- Output: __u32,
+ Output: staticinline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

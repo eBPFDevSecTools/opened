@@ -22,12 +22,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 22,
  Endline: 35,
  Funcname: is_v4_in_v6,
  Input: (const union v6addr *daddr),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -54,12 +54,12 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 37,
  Endline: 44,
  Funcname: build_v4_in_v6,
  Input: (union v6addr *daddr, __be32 v4),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -80,12 +80,12 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 46,
  Endline: 50,
  Funcname: build_v4_from_v6,
  Input: (const union v6addr *v6, __be32 *daddr),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -103,12 +103,12 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 52,
  Endline: 74,
  Funcname: get_csum_offset,
  Input: (__u8 protocol),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -144,12 +144,12 @@ static __always_inline int get_csum_offset(__u8 protocol)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 76,
  Endline: 154,
  Funcname: icmp4_to_icmp6,
  Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -241,12 +241,12 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 156,
  Endline: 231,
  Funcname: icmp6_to_icmp4,
  Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -335,12 +335,12 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 233,
  Endline: 288,
  Funcname: ipv4_to_ipv6,
  Input: (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [csum_diff,l4_csum_replace,],
  Read_maps: [],
  Update_maps: [],
@@ -409,12 +409,12 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
  Startline: 290,
  Endline: 345,
  Funcname: ipv6_to_ipv4,
  Input: (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [csum_diff,l4_csum_replace,l3_csum_replace,],
  Read_maps: [],
  Update_maps: [],

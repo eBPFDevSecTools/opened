@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/katran/xdp_root.c" funcheader="int SEC (\"xdp\") xdp_root (struct xdp_md *ctx)" startline="30" endline="37">
+<source file="/home/sayandes/opened_extraction/examples/katran/xdp_root.c" funcheader="int SEC (\"xdp\") xdp_root (struct xdp_md *ctx)" startline="30" endline="37">
 int SEC ("xdp") xdp_root (struct xdp_md *ctx)
 {
     __u32 *fd;
@@ -12,7 +12,7 @@ int SEC ("xdp") xdp_root (struct xdp_md *ctx)
     return XDP_PASS;
 }
 </source>
-<source file="/root/examples/katran/xdp_root.c" funcheader="int SEC (\"xdp\") xdp_val (struct xdp_md *ctx)" startline="40" endline="47">
+<source file="/home/sayandes/opened_extraction/examples/katran/xdp_root.c" funcheader="int SEC (\"xdp\") xdp_val (struct xdp_md *ctx)" startline="40" endline="47">
 int SEC ("xdp") xdp_val (struct xdp_md *ctx)
 {
     __u32 *fd;

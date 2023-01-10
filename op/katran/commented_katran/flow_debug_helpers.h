@@ -29,12 +29,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/flow_debug_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h,
  Startline: 29,
  Endline: 53,
  Funcname: get_next_ports,
  Input: (void *transport_hdr, __u8 proto, void *data_end),
- Output: __u32,
+ Output: staticinline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -72,12 +72,12 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/flow_debug_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h,
  Startline: 55,
  Endline: 128,
  Funcname: gue_record_route,
  Input: (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_get_smp_processor_id,],
  Read_maps: [],
  Update_maps: [],

@@ -25,12 +25,12 @@ union macaddr {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 25,
  Endline: 35,
  Funcname: eth_addrcmp,
  Input: (const union macaddr *a, const union macaddr *b),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -54,12 +54,12 @@ static __always_inline int eth_addrcmp(const union macaddr *a,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 37,
  Endline: 48,
  Funcname: eth_is_bcast,
  Input: (const union macaddr *a),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -84,12 +84,12 @@ static __always_inline int eth_is_bcast(const union macaddr *a)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 50,
  Endline: 54,
  Funcname: eth_load_saddr,
  Input: (struct  __ctx_buff *ctx, __u8 *mac, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -107,12 +107,12 @@ static __always_inline int eth_load_saddr(struct __ctx_buff *ctx, __u8 *mac,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 56,
  Endline: 60,
  Funcname: eth_store_saddr_aligned,
  Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -130,12 +130,12 @@ static __always_inline int eth_store_saddr_aligned(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 62,
  Endline: 79,
  Funcname: eth_store_saddr,
  Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -166,12 +166,12 @@ static __always_inline int eth_store_saddr(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 81,
  Endline: 85,
  Funcname: eth_load_daddr,
  Input: (struct  __ctx_buff *ctx, __u8 *mac, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -189,12 +189,12 @@ static __always_inline int eth_load_daddr(struct __ctx_buff *ctx, __u8 *mac,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 87,
  Endline: 91,
  Funcname: eth_store_daddr_aligned,
  Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -212,12 +212,12 @@ static __always_inline int eth_store_daddr_aligned(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 93,
  Endline: 110,
  Funcname: eth_store_daddr,
  Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -248,12 +248,12 @@ static __always_inline int eth_store_daddr(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eth.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
  Startline: 112,
  Endline: 117,
  Funcname: eth_store_proto,
  Input: (struct  __ctx_buff *ctx, const __u16 proto, int off),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

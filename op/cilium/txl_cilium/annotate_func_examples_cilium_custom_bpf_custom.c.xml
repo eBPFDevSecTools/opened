@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/palani/github/opened_extraction/examples/cilium/custom/bpf_custom.c" funcheader="int custom_hook (const struct  __ctx_buff *ctx)" startline="32" endline="45">
+<source file="/home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c" funcheader="int custom_hook (const struct  __ctx_buff *ctx)" startline="32" endline="45">
 int custom_hook (const struct  __ctx_buff *ctx)
 {
     __u32 custom_meta = ctx_load_meta (ctx, CB_CUSTOM_CALLS);

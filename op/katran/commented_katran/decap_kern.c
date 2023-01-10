@@ -34,12 +34,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/decap_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
  Startline: 34,
  Endline: 83,
  Funcname: process_l3_headers,
  Input: (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -102,12 +102,12 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/decap_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
  Startline: 85,
  Endline: 120,
  Funcname: process_encaped_ipip_pckt,
  Input: (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -157,12 +157,12 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/decap_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
  Startline: 123,
  Endline: 161,
  Funcname: process_encaped_gue_pckt,
  Input: (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -215,12 +215,12 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/decap_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
  Startline: 164,
  Endline: 221,
  Funcname: process_packet,
  Input: (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_map_lookup_elem,],
  Read_maps: [  decap_counters,],
  Update_maps: [],
@@ -292,7 +292,7 @@ SEC("decap")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/decap_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
  Startline: 224,
  Endline: 247,
  Funcname: xdpdecap,

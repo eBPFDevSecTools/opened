@@ -36,12 +36,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l4.h,
  Startline: 36,
  Endline: 47,
  Funcname: l4_modify_port,
  Input: (struct  __ctx_buff *ctx, int l4_off, int off, struct csum_offset *csum_off, __be16 port, __be16 old_port),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -66,12 +66,12 @@ static __always_inline int l4_modify_port(struct __ctx_buff *ctx, int l4_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l4.h,
  Startline: 49,
  Endline: 53,
  Funcname: l4_load_port,
  Input: (struct  __ctx_buff *ctx, int off, __be16 *port),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

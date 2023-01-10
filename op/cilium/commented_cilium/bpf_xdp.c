@@ -96,12 +96,12 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 96,
  Endline: 117,
  Funcname: bpf_xdp_exit,
  Input: (struct  __ctx_buff *ctx, const int verdict),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -139,7 +139,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 122,
  Endline: 140,
  Funcname: tail_lb_ipv4,
@@ -176,12 +176,12 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 142,
  Endline: 147,
  Funcname: check_v4_lb,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],
@@ -200,12 +200,12 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 149,
  Endline: 152,
  Funcname: check_v4_lb,
  Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -224,12 +224,12 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 156,
  Endline: 179,
  Funcname: check_v4,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [map_lookup_elem,],
  Read_maps: [ CIDR4_HMAP_NAME, CIDR4_LMAP_NAME,],
  Update_maps: [],
@@ -266,12 +266,12 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 181,
  Endline: 184,
  Funcname: check_v4,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -293,7 +293,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 191,
  Endline: 203,
  Funcname: tail_lb_ipv6,
@@ -324,12 +324,12 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 205,
  Endline: 210,
  Funcname: check_v6_lb,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],
@@ -348,12 +348,12 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 212,
  Endline: 215,
  Funcname: check_v6_lb,
  Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -372,14 +372,14 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 219,
  Endline: 242,
  Funcname: check_v6,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [map_lookup_elem,],
- Read_maps: [ CIDR6_HMAP_NAME, CIDR6_LMAP_NAME,],
+ Read_maps: [ CIDR6_LMAP_NAME, CIDR6_HMAP_NAME,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -414,12 +414,12 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 244,
  Endline: 247,
  Funcname: check_v6,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -438,12 +438,12 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 251,
  Endline: 278,
  Funcname: check_filters,
  Input: (struct  __ctx_buff *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -485,7 +485,7 @@ __section("from-netdev")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
  Startline: 281,
  Endline: 284,
  Funcname: bpf_xdp_entry,

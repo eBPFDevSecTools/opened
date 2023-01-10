@@ -36,12 +36,12 @@ struct signal_msg {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/signal.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
  Startline: 36,
  Endline: 41,
  Funcname: send_signal,
  Input: (struct  __ctx_buff *ctx, struct signal_msg *msg),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [send_signal,],
  Read_maps: [],
  Update_maps: [],
@@ -60,12 +60,12 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/signal.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
  Startline: 43,
  Endline: 52,
  Funcname: send_signal_nat_fill_up,
  Input: (struct  __ctx_buff *ctx, __u32 proto),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [send_signal,],
  Read_maps: [],
  Update_maps: [],
@@ -88,12 +88,12 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/signal.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
  Startline: 54,
  Endline: 63,
  Funcname: send_signal_ct_fill_up,
  Input: (struct  __ctx_buff *ctx, __u32 proto),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [send_signal,],
  Read_maps: [],
  Update_maps: [],

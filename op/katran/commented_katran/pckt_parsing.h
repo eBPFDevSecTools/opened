@@ -58,12 +58,12 @@ struct quic_short_header {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/pckt_parsing.h,
+ File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
  Startline: 58,
  Endline: 74,
  Funcname: calc_offset,
  Input: (bool is_ipv6, bool is_icmp),
- Output: __u64,
+ Output: staticinline__u64,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -93,12 +93,12 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/pckt_parsing.h,
+ File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
  Startline: 76,
  Endline: 100,
  Funcname: parse_udp,
  Input: (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -136,12 +136,12 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/pckt_parsing.h,
+ File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
  Startline: 102,
  Endline: 130,
  Funcname: parse_tcp,
  Input: (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -195,7 +195,7 @@ __attribute__ ((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/pckt_parsing.h,
+ File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
  Startline: 144,
  Endline: 197,
  Funcname: parse_hdr_opt,
@@ -267,14 +267,14 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/pckt_parsing.h,
+ File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
  Startline: 199,
  Endline: 273,
  Funcname: tcp_hdr_opt_lookup,
  Input: (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map),
- Output: int,
- Helpers: [bpf_map_update_elem,bpf_map_lookup_elem,],
- Read_maps: [ reals, lru_map, server_id_map,],
+ Output: staticinlineint,
+ Helpers: [bpf_map_lookup_elem,bpf_map_update_elem,],
+ Read_maps: [ server_id_map, lru_map, reals,],
  Update_maps: [ lru_map,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -361,12 +361,12 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/pckt_parsing.h,
+ File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
  Startline: 276,
  Endline: 335,
  Funcname: parse_quic,
  Input: (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

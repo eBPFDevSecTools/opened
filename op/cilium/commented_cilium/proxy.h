@@ -14,12 +14,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 14,
  Endline: 42,
  Funcname: assign_socket_tcp,
  Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [skc_lookup_tcp,sk_release,],
  Read_maps: [],
  Update_maps: [],
@@ -61,13 +61,13 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 44,
  Endline: 67,
  Funcname: assign_socket_udp,
  Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused),
- Output: int,
- Helpers: [sk_lookup_udp,sk_release,],
+ Output: static__always_inlineint,
+ Helpers: [sk_release,sk_lookup_udp,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -103,12 +103,12 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 69,
  Endline: 86,
  Funcname: assign_socket,
  Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -143,12 +143,12 @@ assign_socket(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 92,
  Endline: 96,
  Funcname: combine_ports,
  Input: (__u16 dport, __u16 sport),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -258,12 +258,12 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 190,
  Endline: 220,
  Funcname: __ctx_redirect_to_proxy,
  Input: (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused, bool ipv4 __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -308,12 +308,12 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 223,
  Endline: 228,
  Funcname: ctx_redirect_to_proxy4,
  Input: (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -334,12 +334,12 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 232,
  Endline: 237,
  Funcname: ctx_redirect_to_proxy6,
  Input: (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -399,12 +399,12 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 280,
  Endline: 337,
  Funcname: ctx_redirect_to_proxy_first,
  Input: (struct  __ctx_buff *ctx, __be16 proxy_port),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -478,12 +478,12 @@ out: __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 342,
  Endline: 351,
  Funcname: tc_index_skip_ingress_proxy,
  Input: (struct  __ctx_buff *ctx),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -509,12 +509,12 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/proxy.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
  Startline: 356,
  Endline: 365,
  Funcname: tc_index_skip_egress_proxy,
  Input: (struct  __ctx_buff *ctx),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

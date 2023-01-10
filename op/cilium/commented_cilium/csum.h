@@ -10,12 +10,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 10,
  Endline: 15,
  Funcname: csum_fold,
  Input: (__wsum csum),
- Output: __sum16,
+ Output: static__always_inline__sum16,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -34,12 +34,12 @@ static __always_inline __sum16 csum_fold(__wsum csum)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 17,
  Endline: 20,
  Funcname: csum_unfold,
  Input: (__sum16 csum),
- Output: __wsum,
+ Output: static__always_inline__wsum,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -56,12 +56,12 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 22,
  Endline: 26,
  Funcname: csum_add,
  Input: (__wsum csum, __wsum addend),
- Output: __wsum,
+ Output: static__always_inline__wsum,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -79,12 +79,12 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 28,
  Endline: 31,
  Funcname: csum_sub,
  Input: (__wsum csum, __wsum addend),
- Output: __wsum,
+ Output: static__always_inline__wsum,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -101,12 +101,12 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
  Startline: 33,
  Endline: 52,
  Funcname: csum_diff,
  Input: (const void *from, __u32 size_from, const void *to, __u32 size_to, __u32 seed),
- Output: __wsum,
+ Output: static__always_inline__wsum,
  Helpers: [csum_diff,],
  Read_maps: [],
  Update_maps: [],

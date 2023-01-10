@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __be16 __snat_clamp_port_range (__u16 start, __u16 end, __u16 val)" startline="51" endline="55">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __be16 __snat_clamp_port_range (__u16 start, __u16 end, __u16 val)" startline="51" endline="55">
 static __always_inline __be16 __snat_clamp_port_range (__u16 start, __u16 end, __u16 val)
 {
     return (val % (__u16) (end - start)) + start;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused __be16 __snat_try_keep_port (__u16 start, __u16 end, __u16 val)" startline="57" endline="62">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused __be16 __snat_try_keep_port (__u16 start, __u16 end, __u16 val)" startline="57" endline="62">
 static __always_inline __maybe_unused __be16 __snat_try_keep_port (__u16 start, __u16 end, __u16 val)
 {
     return val >= start && val <= end ? val : __snat_clamp_port_range (start, end, (__u16) get_prandom_u32 ());
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void *__snat_lookup (const void *map, const void *tuple)" startline="64" endline="68">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void *__snat_lookup (const void *map, const void *tuple)" startline="64" endline="68">
 static __always_inline __maybe_unused void *__snat_lookup (const void *map, const void *tuple)
 {
     return map_lookup_elem (map, tuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int __snat_update (const void *map, const void *otuple, const void *ostate, const void *rtuple, const void *rstate)" startline="70" endline="83">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int __snat_update (const void *map, const void *otuple, const void *ostate, const void *rtuple, const void *rstate)" startline="70" endline="83">
 static __always_inline __maybe_unused int __snat_update (const void *map, const void *otuple, const void *ostate, const void *rtuple, const void *rstate)
 {
     int ret;
@@ -31,32 +31,32 @@ static __always_inline __maybe_unused int __snat_update (const void *map, const 
     return ret;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void __snat_delete (const void *map, const void *otuple, const void *rtuple)" startline="85" endline="90">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void __snat_delete (const void *map, const void *otuple, const void *rtuple)" startline="85" endline="90">
 static __always_inline __maybe_unused void __snat_delete (const void *map, const void *otuple, const void *rtuple)
 {
     map_delete_elem (map, otuple);
     map_delete_elem (map, rtuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline struct ipv4_nat_entry *snat_v4_lookup (const struct ipv4_ct_tuple *tuple)" startline="136" endline="140">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline struct ipv4_nat_entry *snat_v4_lookup (const struct ipv4_ct_tuple *tuple)" startline="136" endline="140">
 static __always_inline struct ipv4_nat_entry *snat_v4_lookup (const struct ipv4_ct_tuple *tuple)
 {
     return __snat_lookup (&SNAT_MAPPING_IPV4, tuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_update (const struct ipv4_ct_tuple *otuple, const struct ipv4_nat_entry *ostate, const struct ipv4_ct_tuple *rtuple, const struct ipv4_nat_entry *rstate)" startline="142" endline="149">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_update (const struct ipv4_ct_tuple *otuple, const struct ipv4_nat_entry *ostate, const struct ipv4_ct_tuple *rtuple, const struct ipv4_nat_entry *rstate)" startline="142" endline="149">
 static __always_inline int snat_v4_update (const struct ipv4_ct_tuple *otuple, const struct ipv4_nat_entry *ostate, const struct ipv4_ct_tuple *rtuple, const struct ipv4_nat_entry *rstate)
 {
     return __snat_update (&SNAT_MAPPING_IPV4, otuple, ostate, rtuple, rstate);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_delete (const struct ipv4_ct_tuple *otuple, const struct ipv4_ct_tuple *rtuple)" startline="151" endline="155">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_delete (const struct ipv4_ct_tuple *otuple, const struct ipv4_ct_tuple *rtuple)" startline="151" endline="155">
 static __always_inline void snat_v4_delete (const struct ipv4_ct_tuple *otuple, const struct ipv4_ct_tuple *rtuple)
 {
     __snat_delete (&SNAT_MAPPING_IPV4, otuple, rtuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_swap_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)" startline="157" endline="168">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_swap_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)" startline="157" endline="168">
 static __always_inline void snat_v4_swap_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)
 {
     memset (rtuple, 0, sizeof (*rtuple));
@@ -68,7 +68,7 @@ static __always_inline void snat_v4_swap_tuple (const struct ipv4_ct_tuple *otup
     rtuple->flags = otuple->flags == NAT_DIR_EGRESS ? NAT_DIR_INGRESS : NAT_DIR_EGRESS;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_reverse_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)" startline="170" endline="183">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_reverse_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)" startline="170" endline="183">
 static __always_inline int snat_v4_reverse_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)
 {
     struct ipv4_nat_entry *ostate;
@@ -81,7 +81,7 @@ static __always_inline int snat_v4_reverse_tuple (const struct ipv4_ct_tuple *ot
     return ostate ? 0 : -1;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_ct_canonicalize (struct ipv4_ct_tuple *otuple)" startline="185" endline="193">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_ct_canonicalize (struct ipv4_ct_tuple *otuple)" startline="185" endline="193">
 static __always_inline void snat_v4_ct_canonicalize (struct ipv4_ct_tuple *otuple)
 {
     __be32 addr = otuple->saddr;
@@ -90,7 +90,7 @@ static __always_inline void snat_v4_ct_canonicalize (struct ipv4_ct_tuple *otupl
     otuple->daddr = addr;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_delete_tuples (struct ipv4_ct_tuple *otuple)" startline="195" endline="204">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v4_delete_tuples (struct ipv4_ct_tuple *otuple)" startline="195" endline="204">
 static __always_inline void snat_v4_delete_tuples (struct ipv4_ct_tuple *otuple)
 {
     struct ipv4_ct_tuple rtuple;
@@ -101,7 +101,7 @@ static __always_inline void snat_v4_delete_tuples (struct ipv4_ct_tuple *otuple)
         snat_v4_delete (otuple, &rtuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_new_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *otuple, struct ipv4_nat_entry *ostate, const struct ipv4_nat_target *target)" startline="206" endline="258">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_new_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *otuple, struct ipv4_nat_entry *ostate, const struct ipv4_nat_target *target)" startline="206" endline="258">
 static __always_inline int snat_v4_new_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *otuple, struct ipv4_nat_entry *ostate, const struct ipv4_nat_target *target)
 {
     int ret = DROP_NAT_NO_MAPPING, retries;
@@ -139,7 +139,7 @@ static __always_inline int snat_v4_new_mapping (struct  __ctx_buff *ctx, struct 
     return !ret ? 0 : DROP_NAT_NO_MAPPING;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_track_local (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, const struct ipv4_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)" startline="260" endline="299">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_track_local (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, const struct ipv4_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)" startline="260" endline="299">
 static __always_inline int snat_v4_track_local (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, const struct ipv4_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)
 {
     struct ct_state ct_state;
@@ -172,7 +172,7 @@ static __always_inline int snat_v4_track_local (struct  __ctx_buff *ctx, const s
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_handle_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry **state, struct ipv4_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)" startline="301" endline="322">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_handle_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry **state, struct ipv4_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)" startline="301" endline="322">
 static __always_inline int snat_v4_handle_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry **state, struct ipv4_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)
 {
     int ret;
@@ -188,7 +188,7 @@ static __always_inline int snat_v4_handle_mapping (struct  __ctx_buff *ctx, stru
         return snat_v4_new_mapping (ctx, tuple, (*state = tmp), target);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_rewrite_egress (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry *state, __u32 off, bool has_l4_header)" startline="324" endline="380">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_rewrite_egress (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry *state, __u32 off, bool has_l4_header)" startline="324" endline="380">
 static __always_inline int snat_v4_rewrite_egress (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry *state, __u32 off, bool has_l4_header)
 {
     int ret, flags = BPF_F_PSEUDO_HDR;
@@ -234,7 +234,7 @@ static __always_inline int snat_v4_rewrite_egress (struct  __ctx_buff *ctx, stru
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry *state, __u32 off)" startline="382" endline="435">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v4_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry *state, __u32 off)" startline="382" endline="435">
 static __always_inline int snat_v4_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry *state, __u32 off)
 {
     int ret, flags = BPF_F_PSEUDO_HDR;
@@ -278,7 +278,7 @@ static __always_inline int snat_v4_rewrite_ingress (struct  __ctx_buff *ctx, str
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline bool snat_v4_can_skip (const struct ipv4_nat_target *target, const struct ipv4_ct_tuple *tuple, enum nat_dir dir, bool from_endpoint, bool icmp_echoreply)" startline="437" endline="452">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline bool snat_v4_can_skip (const struct ipv4_nat_target *target, const struct ipv4_ct_tuple *tuple, enum nat_dir dir, bool from_endpoint, bool icmp_echoreply)" startline="437" endline="452">
 static __always_inline bool snat_v4_can_skip (const struct ipv4_nat_target *target, const struct ipv4_ct_tuple *tuple, enum nat_dir dir, bool from_endpoint, bool icmp_echoreply)
 {
     __u16 dport = bpf_ntohs (tuple->dport), sport = bpf_ntohs (tuple->sport);
@@ -289,7 +289,7 @@ static __always_inline bool snat_v4_can_skip (const struct ipv4_nat_target *targ
     return false;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v4_create_dsr (struct  __ctx_buff *ctx, __be32 to_saddr, __be16 to_sport)" startline="454" endline="505">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v4_create_dsr (struct  __ctx_buff *ctx, __be32 to_saddr, __be16 to_sport)" startline="454" endline="505">
 static __always_inline __maybe_unused int snat_v4_create_dsr (struct  __ctx_buff *ctx, __be32 to_saddr, __be16 to_sport)
 {
     void *data, *data_end;
@@ -333,7 +333,7 @@ static __always_inline __maybe_unused int snat_v4_create_dsr (struct  __ctx_buff
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff *ctx, enum nat_dir dir, const struct ipv4_nat_target *target, bool from_endpoint)" startline="507" endline="572">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff *ctx, enum nat_dir dir, const struct ipv4_nat_target *target, bool from_endpoint)" startline="507" endline="572">
 static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff *ctx, enum nat_dir dir, const struct ipv4_nat_target *target, bool from_endpoint)
 {
     struct icmphdr icmphdr __align_stack_8;
@@ -394,36 +394,36 @@ static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff *c
     return dir == NAT_DIR_EGRESS ? snat_v4_rewrite_egress (ctx, &tuple, state, off, ipv4_has_l4_header (ip4)) : snat_v4_rewrite_ingress (ctx, &tuple, state, off);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff * ctx __maybe_unused, enum nat_dir dir __maybe_unused, const struct ipv4_nat_target * target __maybe_unused, bool from_endpoint __maybe_unused)" startline="574" endline="581">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff * ctx __maybe_unused, enum nat_dir dir __maybe_unused, const struct ipv4_nat_target * target __maybe_unused, bool from_endpoint __maybe_unused)" startline="574" endline="581">
 static __always_inline __maybe_unused int snat_v4_process (struct  __ctx_buff * ctx __maybe_unused, enum nat_dir dir __maybe_unused, const struct ipv4_nat_target * target __maybe_unused, bool from_endpoint __maybe_unused)
 {
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void snat_v4_delete_tuples (struct ipv4_ct_tuple * tuple __maybe_unused)" startline="583" endline="586">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void snat_v4_delete_tuples (struct ipv4_ct_tuple * tuple __maybe_unused)" startline="583" endline="586">
 static __always_inline __maybe_unused void snat_v4_delete_tuples (struct ipv4_ct_tuple * tuple __maybe_unused)
 {
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline struct ipv6_nat_entry *snat_v6_lookup (struct ipv6_ct_tuple *tuple)" startline="622" endline="626">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline struct ipv6_nat_entry *snat_v6_lookup (struct ipv6_ct_tuple *tuple)" startline="622" endline="626">
 static __always_inline struct ipv6_nat_entry *snat_v6_lookup (struct ipv6_ct_tuple *tuple)
 {
     return __snat_lookup (&SNAT_MAPPING_IPV6, tuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_update (struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, struct ipv6_ct_tuple *rtuple, struct ipv6_nat_entry *rstate)" startline="628" endline="635">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_update (struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, struct ipv6_ct_tuple *rtuple, struct ipv6_nat_entry *rstate)" startline="628" endline="635">
 static __always_inline int snat_v6_update (struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, struct ipv6_ct_tuple *rtuple, struct ipv6_nat_entry *rstate)
 {
     return __snat_update (&SNAT_MAPPING_IPV6, otuple, ostate, rtuple, rstate);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_delete (const struct ipv6_ct_tuple *otuple, const struct ipv6_ct_tuple *rtuple)" startline="637" endline="641">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_delete (const struct ipv6_ct_tuple *otuple, const struct ipv6_ct_tuple *rtuple)" startline="637" endline="641">
 static __always_inline void snat_v6_delete (const struct ipv6_ct_tuple *otuple, const struct ipv6_ct_tuple *rtuple)
 {
     __snat_delete (&SNAT_MAPPING_IPV6, otuple, rtuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_swap_tuple (const struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)" startline="643" endline="654">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_swap_tuple (const struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)" startline="643" endline="654">
 static __always_inline void snat_v6_swap_tuple (const struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)
 {
     memset (rtuple, 0, sizeof (*rtuple));
@@ -435,7 +435,7 @@ static __always_inline void snat_v6_swap_tuple (const struct ipv6_ct_tuple *otup
     rtuple->flags = otuple->flags == NAT_DIR_EGRESS ? NAT_DIR_INGRESS : NAT_DIR_EGRESS;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_reverse_tuple (struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)" startline="656" endline="669">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_reverse_tuple (struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)" startline="656" endline="669">
 static __always_inline int snat_v6_reverse_tuple (struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)
 {
     struct ipv6_nat_entry *ostate;
@@ -448,7 +448,7 @@ static __always_inline int snat_v6_reverse_tuple (struct ipv6_ct_tuple *otuple, 
     return ostate ? 0 : -1;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_ct_canonicalize (struct ipv6_ct_tuple *otuple)" startline="671" endline="680">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_ct_canonicalize (struct ipv6_ct_tuple *otuple)" startline="671" endline="680">
 static __always_inline void snat_v6_ct_canonicalize (struct ipv6_ct_tuple *otuple)
 {
     union v6addr addr = {}
@@ -459,7 +459,7 @@ static __always_inline void snat_v6_ct_canonicalize (struct ipv6_ct_tuple *otupl
     ipv6_addr_copy (&otuple->daddr, &addr);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_delete_tuples (struct ipv6_ct_tuple *otuple)" startline="682" endline="691">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline void snat_v6_delete_tuples (struct ipv6_ct_tuple *otuple)" startline="682" endline="691">
 static __always_inline void snat_v6_delete_tuples (struct ipv6_ct_tuple *otuple)
 {
     struct ipv6_ct_tuple rtuple;
@@ -470,7 +470,7 @@ static __always_inline void snat_v6_delete_tuples (struct ipv6_ct_tuple *otuple)
         snat_v6_delete (otuple, &rtuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_new_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, const struct ipv6_nat_target *target)" startline="693" endline="745">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_new_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, const struct ipv6_nat_target *target)" startline="693" endline="745">
 static __always_inline int snat_v6_new_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, const struct ipv6_nat_target *target)
 {
     int ret = DROP_NAT_NO_MAPPING, retries;
@@ -508,7 +508,7 @@ static __always_inline int snat_v6_new_mapping (struct  __ctx_buff *ctx, struct 
     return !ret ? 0 : DROP_NAT_NO_MAPPING;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_track_local (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, const struct ipv6_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)" startline="747" endline="785">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_track_local (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, const struct ipv6_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)" startline="747" endline="785">
 static __always_inline int snat_v6_track_local (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, const struct ipv6_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)
 {
     struct ct_state ct_state;
@@ -540,7 +540,7 @@ static __always_inline int snat_v6_track_local (struct  __ctx_buff *ctx, struct 
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_handle_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry **state, struct ipv6_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)" startline="787" endline="808">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_handle_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry **state, struct ipv6_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)" startline="787" endline="808">
 static __always_inline int snat_v6_handle_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry **state, struct ipv6_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)
 {
     int ret;
@@ -556,7 +556,7 @@ static __always_inline int snat_v6_handle_mapping (struct  __ctx_buff *ctx, stru
         return snat_v6_new_mapping (ctx, tuple, (*state = tmp), target);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_rewrite_egress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)" startline="810" endline="855">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_rewrite_egress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)" startline="810" endline="855">
 static __always_inline int snat_v6_rewrite_egress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)
 {
     struct csum_offset csum = {}
@@ -594,7 +594,7 @@ static __always_inline int snat_v6_rewrite_egress (struct  __ctx_buff *ctx, stru
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)" startline="857" endline="904">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline int snat_v6_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)" startline="857" endline="904">
 static __always_inline int snat_v6_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)
 {
     struct csum_offset csum = {}
@@ -632,7 +632,7 @@ static __always_inline int snat_v6_rewrite_ingress (struct  __ctx_buff *ctx, str
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline bool snat_v6_can_skip (const struct ipv6_nat_target *target, const struct ipv6_ct_tuple *tuple, enum nat_dir dir, bool icmp_echoreply)" startline="906" endline="920">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline bool snat_v6_can_skip (const struct ipv6_nat_target *target, const struct ipv6_ct_tuple *tuple, enum nat_dir dir, bool icmp_echoreply)" startline="906" endline="920">
 static __always_inline bool snat_v6_can_skip (const struct ipv6_nat_target *target, const struct ipv6_ct_tuple *tuple, enum nat_dir dir, bool icmp_echoreply)
 {
     __u16 dport = bpf_ntohs (tuple->dport), sport = bpf_ntohs (tuple->sport);
@@ -643,7 +643,7 @@ static __always_inline bool snat_v6_can_skip (const struct ipv6_nat_target *targ
     return false;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v6_create_dsr (struct  __ctx_buff *ctx, const union v6addr *to_saddr, __be16 to_sport)" startline="922" endline="977">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v6_create_dsr (struct  __ctx_buff *ctx, const union v6addr *to_saddr, __be16 to_sport)" startline="922" endline="977">
 static __always_inline __maybe_unused int snat_v6_create_dsr (struct  __ctx_buff *ctx, const union v6addr *to_saddr, __be16 to_sport)
 {
     void *data, *data_end;
@@ -690,7 +690,7 @@ static __always_inline __maybe_unused int snat_v6_create_dsr (struct  __ctx_buff
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff *ctx, enum nat_dir dir, const struct ipv6_nat_target *target)" startline="979" endline="1054">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff *ctx, enum nat_dir dir, const struct ipv6_nat_target *target)" startline="979" endline="1054">
 static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff *ctx, enum nat_dir dir, const struct ipv6_nat_target *target)
 {
     struct icmp6hdr icmp6hdr __align_stack_8;
@@ -758,18 +758,18 @@ static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff *c
     return dir == NAT_DIR_EGRESS ? snat_v6_rewrite_egress (ctx, &tuple, state, off) : snat_v6_rewrite_ingress (ctx, &tuple, state, off);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff * ctx __maybe_unused, enum nat_dir dir __maybe_unused, const struct ipv6_nat_target * target __maybe_unused)" startline="1056" endline="1062">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff * ctx __maybe_unused, enum nat_dir dir __maybe_unused, const struct ipv6_nat_target * target __maybe_unused)" startline="1056" endline="1062">
 static __always_inline __maybe_unused int snat_v6_process (struct  __ctx_buff * ctx __maybe_unused, enum nat_dir dir __maybe_unused, const struct ipv6_nat_target * target __maybe_unused)
 {
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void snat_v6_delete_tuples (struct ipv6_ct_tuple * tuple __maybe_unused)" startline="1064" endline="1067">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void snat_v6_delete_tuples (struct ipv6_ct_tuple * tuple __maybe_unused)" startline="1064" endline="1067">
 static __always_inline __maybe_unused void snat_v6_delete_tuples (struct ipv6_ct_tuple * tuple __maybe_unused)
 {
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline bool snat_v6_has_v4_match (const struct ipv4_ct_tuple * tuple4 __maybe_unused)" startline="1070" endline="1088">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline bool snat_v6_has_v4_match (const struct ipv4_ct_tuple * tuple4 __maybe_unused)" startline="1070" endline="1088">
 static __always_inline bool snat_v6_has_v4_match (const struct ipv4_ct_tuple * tuple4 __maybe_unused)
 {
 
@@ -790,7 +790,7 @@ static __always_inline bool snat_v6_has_v4_match (const struct ipv4_ct_tuple * t
 #endif
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void ct_delete4 (const void *map, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx)" startline="1090" endline="1100">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void ct_delete4 (const void *map, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx)" startline="1090" endline="1100">
 static __always_inline __maybe_unused void ct_delete4 (const void *map, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx)
 {
     int err;
@@ -801,7 +801,7 @@ static __always_inline __maybe_unused void ct_delete4 (const void *map, struct i
         snat_v4_delete_tuples (tuple);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void ct_delete6 (const void *map, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx)" startline="1102" endline="1112">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/nat.h" funcheader="static __always_inline __maybe_unused void ct_delete6 (const void *map, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx)" startline="1102" endline="1112">
 static __always_inline __maybe_unused void ct_delete6 (const void *map, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx)
 {
     int err;

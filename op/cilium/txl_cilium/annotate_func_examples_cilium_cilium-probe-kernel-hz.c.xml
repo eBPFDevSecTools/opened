@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int pin_to_cpu (int cpu)" startline="30" endline="38">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int pin_to_cpu (int cpu)" startline="30" endline="38">
 static int pin_to_cpu (int cpu)
 {
     cpu_set_t set;
@@ -9,7 +9,7 @@ static int pin_to_cpu (int cpu)
     return sched_setaffinity (0, sizeof (set), &set);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int fix_priority (void)" startline="40" endline="47">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int fix_priority (void)" startline="40" endline="47">
 static int fix_priority (void)
 {
     struct sched_param sp = {
@@ -18,19 +18,19 @@ static int fix_priority (void)
     return sched_setscheduler (0, SCHED_FIFO, &sp);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static FILE *timer_list_open (void)" startline="49" endline="52">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static FILE *timer_list_open (void)" startline="49" endline="52">
 static FILE *timer_list_open (void)
 {
     return fopen ("/proc/timer_list", "r");
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static void timer_list_close (FILE *fp)" startline="54" endline="57">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static void timer_list_close (FILE *fp)" startline="54" endline="57">
 static void timer_list_close (FILE *fp)
 {
     fclose (fp);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int prep_kern_jiffies (struct cpu_jiffies *before, struct cpu_jiffies *after)" startline="59" endline="92">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int prep_kern_jiffies (struct cpu_jiffies *before, struct cpu_jiffies *after)" startline="59" endline="92">
 static int prep_kern_jiffies (struct cpu_jiffies *before, struct cpu_jiffies *after)
 {
     uint64_t jiffies = 0;
@@ -59,7 +59,7 @@ static int prep_kern_jiffies (struct cpu_jiffies *before, struct cpu_jiffies *af
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int fetch_kern_jiffies (const struct cpu_jiffies *curr)" startline="94" endline="113">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int fetch_kern_jiffies (const struct cpu_jiffies *curr)" startline="94" endline="113">
 static int fetch_kern_jiffies (const struct cpu_jiffies *curr)
 {
     char buff [512];
@@ -78,7 +78,7 @@ static int fetch_kern_jiffies (const struct cpu_jiffies *curr)
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int dump_kern_jiffies (const struct cpu_jiffies *fixed, const struct cpu_jiffies *result, bool macro)" startline="115" endline="150">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="static int dump_kern_jiffies (const struct cpu_jiffies *fixed, const struct cpu_jiffies *result, bool macro)" startline="115" endline="150">
 static int dump_kern_jiffies (const struct cpu_jiffies *fixed, const struct cpu_jiffies *result, bool macro)
 {
     uint64_t delta, warp = 0;
@@ -111,7 +111,7 @@ out :
     return ret;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="int main (int argc, char **argv)" startline="152" endline="194">
+<source file="/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c" funcheader="int main (int argc, char **argv)" startline="152" endline="194">
 int main (int argc, char **argv)
 {
     struct cpu_jiffies before, after;

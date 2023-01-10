@@ -30,12 +30,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 30,
  Endline: 39,
  Funcname: csum_fold_helper,
  Input: (__u64 csum),
- Output: __u16,
+ Output: staticinline__u16,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -58,12 +58,12 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 41,
  Endline: 43,
  Funcname: min_helper,
  Input: (int a, int b),
- Output: int,
+ Output: staticint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -79,12 +79,12 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 45,
  Endline: 49,
  Funcname: ipv4_csum,
  Input: (void *data_start, int data_size, __u64 *csum),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -102,12 +102,12 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 51,
  Endline: 60,
  Funcname: ipv4_csum_inline,
  Input: (void *iph, __u64 *csum),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -130,12 +130,12 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 62,
  Endline: 73,
  Funcname: ipv4_l4_csum,
  Input: (void *data_start, int data_size, __u64 *csum, struct iphdr *iph),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -160,12 +160,12 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 75,
  Endline: 88,
  Funcname: ipv6_csum,
  Input: (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -197,12 +197,12 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 95,
  Endline: 127,
  Funcname: add_pseudo_ipv6_header,
  Input: (struct ipv6hdr *ip6h, __u64 *csum),
- Output: __s64,
+ Output: staticinline__s64,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -248,12 +248,12 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 129,
  Endline: 158,
  Funcname: rem_pseudo_ipv6_header,
  Input: (struct ipv6hdr *ip6h, __u64 *csum),
- Output: __s64,
+ Output: staticinline__s64,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -296,12 +296,12 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 160,
  Endline: 189,
  Funcname: add_pseudo_ipv4_header,
  Input: (struct iphdr *iph, __u64 *csum),
- Output: __s64,
+ Output: staticinline__s64,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -344,12 +344,12 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 191,
  Endline: 220,
  Funcname: rem_pseudo_ipv4_header,
  Input: (struct iphdr *iph, __u64 *csum),
- Output: __s64,
+ Output: staticinline__s64,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -404,12 +404,12 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 234,
  Endline: 268,
  Funcname: gue_csum_v6,
  Input: (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -457,12 +457,12 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 270,
  Endline: 302,
  Funcname: gue_csum_v4,
  Input: (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -508,12 +508,12 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/csum_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/csum_helpers.h,
  Startline: 304,
  Endline: 336,
  Funcname: gue_csum_v4_in_v6,
  Input: (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr),
- Output: bool,
+ Output: staticinlinebool,
  Helpers: [bpf_csum_diff,],
  Read_maps: [],
  Update_maps: [],

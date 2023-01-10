@@ -52,7 +52,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/drop.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
  Startline: 52,
  Endline: 80,
  Funcname: __send_drop_notify,
@@ -112,12 +112,12 @@ int __send_drop_notify(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/drop.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
  Startline: 95,
  Endline: 116,
  Funcname: _send_drop_notify,
  Input: (__u8 file, __u16 line, struct  __ctx_buff *ctx, __u32 src, __u32 dst, __u32 dst_id, __u32 reason, __u32 exitcode, enum metric_dir direction),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],
@@ -152,12 +152,12 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/drop.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
  Startline: 118,
  Endline: 126,
  Funcname: _send_drop_notify,
  Input: (__u8 file __maybe_unused, __u16 line __maybe_unused, struct  __ctx_buff *ctx, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u32 dst_id __maybe_unused, __u32 reason, __u32 exitcode, enum metric_dir direction),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

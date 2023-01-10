@@ -30,12 +30,12 @@ static const uint64_t kernel_hz[] = { 100, 250, 300, 1000 };
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 30,
  Endline: 38,
  Funcname: pin_to_cpu,
  Input: (int cpu),
- Output: int,
+ Output: staticint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -57,12 +57,12 @@ static int pin_to_cpu(int cpu)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 40,
  Endline: 47,
  Funcname: fix_priority,
  Input: (void),
- Output: int,
+ Output: staticint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -83,12 +83,12 @@ static int fix_priority(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 49,
  Endline: 52,
  Funcname: *timer_list_open,
  Input: (void),
- Output: FILE,
+ Output: staticFILE,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -105,12 +105,12 @@ static FILE *timer_list_open(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 54,
  Endline: 57,
  Funcname: timer_list_close,
  Input: (FILE *fp),
- Output: void,
+ Output: staticvoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -127,12 +127,12 @@ static void timer_list_close(FILE *fp)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 59,
  Endline: 92,
  Funcname: prep_kern_jiffies,
  Input: (struct cpu_jiffies *before, struct cpu_jiffies *after),
- Output: int,
+ Output: staticint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -179,12 +179,12 @@ static int prep_kern_jiffies(struct cpu_jiffies *before,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 94,
  Endline: 113,
  Funcname: fetch_kern_jiffies,
  Input: (const struct cpu_jiffies *curr),
- Output: int,
+ Output: staticint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -217,12 +217,12 @@ static int fetch_kern_jiffies(const struct cpu_jiffies *curr)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 115,
  Endline: 150,
  Funcname: dump_kern_jiffies,
  Input: (const struct cpu_jiffies *fixed, const struct cpu_jiffies *result, bool macro),
- Output: int,
+ Output: staticint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -271,7 +271,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
  Startline: 152,
  Endline: 194,
  Funcname: main,

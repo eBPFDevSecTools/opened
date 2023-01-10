@@ -26,12 +26,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
  Startline: 26,
  Endline: 40,
  Funcname: sk_extract4_key,
  Input: (const struct bpf_sock_ops *ops, struct sock_key *key),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -59,12 +59,12 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
  Startline: 42,
  Endline: 48,
  Funcname: sk_lb4_key,
  Input: (struct lb4_key *lb4, const struct sock_key *key),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -84,12 +84,12 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
  Startline: 50,
  Endline: 53,
  Funcname: redirect_to_proxy,
  Input: (int verdict),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -106,12 +106,12 @@ static __always_inline bool redirect_to_proxy(int verdict)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
  Startline: 55,
  Endline: 118,
  Funcname: bpf_sock_ops_ipv4,
  Input: (struct bpf_sock_ops *skops),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [sock_hash_update,redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -190,12 +190,12 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
  Startline: 122,
  Endline: 126,
  Funcname: bpf_sock_ops_ipv6,
  Input: (struct bpf_sock_ops *skops),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -215,7 +215,7 @@ __section("sockops")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
  Startline: 130,
  Endline: 154,
  Funcname: bpf_sockmap,

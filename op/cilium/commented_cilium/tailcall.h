@@ -10,12 +10,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/tailcall.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h,
  Startline: 10,
  Endline: 33,
  Funcname: tail_call_static,
  Input: (const struct  __ctx_buff *ctx, const void *map, const __u32 slot),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],
@@ -52,12 +52,12 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/tailcall.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h,
  Startline: 35,
  Endline: 46,
  Funcname: tail_call_dynamic,
  Input: (struct  __ctx_buff *ctx, const void *map, __u32 slot),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],

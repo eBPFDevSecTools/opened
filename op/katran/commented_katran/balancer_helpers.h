@@ -46,12 +46,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
  Startline: 46,
  Endline: 70,
  Funcname: submit_event,
  Input: (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [bpf_perf_event_output,bpf_map_lookup_elem,],
  Read_maps: [  ctl_array,],
  Update_maps: [],
@@ -91,12 +91,12 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
  Startline: 74,
  Endline: 80,
  Funcname: recirculate,
  Input: (struct xdp_md *ctx),
- Output: int,
+ Output: staticinlineint,
  Helpers: [bpf_tail_call,],
  Read_maps: [],
  Update_maps: [],
@@ -117,12 +117,12 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/balancer_helpers.h,
+ File: /home/sayandes/opened_extraction/examples/katran/balancer_helpers.h,
  Startline: 83,
  Endline: 111,
  Funcname: decrement_ttl,
  Input: (void *data, void *data_end, int offset, bool is_ipv6),
- Output: int,
+ Output: staticinlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

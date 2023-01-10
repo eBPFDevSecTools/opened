@@ -25,12 +25,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c,
  Startline: 25,
  Endline: 39,
  Funcname: sk_msg_extract4_key,
  Input: (const struct sk_msg_md *msg, struct sock_key *key),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -59,7 +59,7 @@ __section("sk_msg")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c,
  Startline: 42,
  Endline: 67,
  Funcname: bpf_redir_proxy,

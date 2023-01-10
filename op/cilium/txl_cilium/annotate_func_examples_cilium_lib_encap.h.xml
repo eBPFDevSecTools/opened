@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)" startline="18" endline="40">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)" startline="18" endline="40">
 static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)
 {
     ctx_store_meta (ctx, CB_ENCRYPT_MAGIC, or_encrypt_key (key));
@@ -9,7 +9,7 @@ static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *
     return IPSEC_ENDPOINT;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)" startline="42" endline="57">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)" startline="42" endline="57">
 static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)
 {
     set_encrypt_key_mark (ctx, key);
@@ -18,7 +18,7 @@ static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __
     return IPSEC_ENDPOINT;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)" startline="60" endline="117">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)" startline="60" endline="117">
 static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)
 {
 
@@ -74,7 +74,7 @@ static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)" startline="119" endline="154">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)" startline="119" endline="154">
 static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)
 {
     struct bpf_tunnel_key key = {}
@@ -102,7 +102,7 @@ static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 t
     return 0;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)" startline="156" endline="167">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)" startline="156" endline="167">
 static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)
 {
     int ret = __encap_with_nodeid (ctx, tunnel_endpoint, seclabel, vni, trace -> reason, trace -> monitor);
@@ -111,7 +111,7 @@ static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff 
     return ctx_redirect (ctx, ENCAP_IFINDEX, 0);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)" startline="174" endline="185">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)" startline="174" endline="185">
 static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)
 {
 
@@ -123,7 +123,7 @@ static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *c
     return __encap_and_redirect_with_nodeid (ctx, tunnel_endpoint, seclabel, NOT_VTEP_DST, trace);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)" startline="197" endline="242">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)" startline="197" endline="242">
 static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)
 {
     struct endpoint_key *tunnel;
@@ -157,7 +157,7 @@ static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u3
     return __encap_and_redirect_with_nodeid (ctx, tunnel->ip4, seclabel, NOT_VTEP_DST, trace);
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)" startline="244" endline="264">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/encap.h" funcheader="static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)" startline="244" endline="264">
 static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)
 {
     struct endpoint_key *tunnel;

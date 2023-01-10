@@ -34,14 +34,14 @@ SEC("tc")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /root/examples/katran/healthchecking_kern.c,
+ File: /home/sayandes/opened_extraction/examples/katran/healthchecking_kern.c,
  Startline: 34,
  Endline: 139,
  Funcname: healthcheck_encap,
  Input: (struct  __sk_buff *skb),
  Output: int,
- Helpers: [bpf_redirect,bpf_map_lookup_elem,],
- Read_maps: [ hc_key_map,  hc_stats_map, hc_ctrl_map,  hc_pckt_macs, per_hckey_stats, hc_reals_map,],
+ Helpers: [bpf_map_lookup_elem,bpf_redirect,],
+ Read_maps: [  hc_pckt_macs,  hc_stats_map, hc_reals_map, per_hckey_stats, hc_key_map, hc_ctrl_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
