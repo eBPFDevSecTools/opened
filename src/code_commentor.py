@@ -144,7 +144,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             funcName = tokens[-3].replace(" (","(")
             #print("funcName: ",funcName)
             #print("funcName.split('(')[-2]: ",funcName.split('(')[-2])
-            output= "".join(funcName.split('(')[-2].split(" ")[:-1])
+            output= " ".join(funcName.split('(')[-2].split(" ")[:-1])
             output = output.replace(" ","")
             if(output is None or not output or output.isspace() is True):
                 output = "NA"

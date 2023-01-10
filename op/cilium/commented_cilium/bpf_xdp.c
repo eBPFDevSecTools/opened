@@ -231,7 +231,7 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
  Input: (struct  __ctx_buff *ctx),
  Output: static__always_inlineint,
  Helpers: [map_lookup_elem,],
- Read_maps: [ CIDR4_HMAP_NAME, CIDR4_LMAP_NAME,],
+ Read_maps: [ CIDR4_LMAP_NAME, CIDR4_HMAP_NAME,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 

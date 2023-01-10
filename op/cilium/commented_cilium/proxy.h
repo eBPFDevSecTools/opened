@@ -20,7 +20,7 @@
  Funcname: assign_socket_tcp,
  Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established),
  Output: static__always_inlineint,
- Helpers: [skc_lookup_tcp,sk_release,],
+ Helpers: [sk_release,skc_lookup_tcp,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
