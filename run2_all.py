@@ -1,6 +1,7 @@
 import json
 
-fname = "op/cilium/cilium.function_file_list.json"
+#fname = "op/cilium/cilium.function_file_list.json"
+fname = "op/katran/katran.function_file_list.json"
 func_dict = []
 
 with open(fname) as txl_struct_file:
