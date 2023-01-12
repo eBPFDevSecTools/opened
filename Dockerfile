@@ -72,4 +72,6 @@ ADD src src
 ADD run1.sh run1.sh
 ADD run2.sh run2.sh
 ADD run3.sh run3.sh
+#ADD op op
+#ADD examples examples
 #RUN ./run.sh
