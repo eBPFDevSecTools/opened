@@ -1,15 +1,46 @@
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/hello_fields.c,
- Startline: 1,
- Endline: 4,
- Funcname: hello,
- Input: (void *ctx),
- Output: int,
- Helpers: [bpf_trace_printk,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_trace_printk": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t\\\"Hello\",\n  \" World!\\\\\\\\n\\\"\"\n ]\n}"
+    ]
+  },
+  "startLine": 1,
+  "endLine": 4,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/hello_fields.c",
+  "Funcname": "hello",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *ctx"
+  ],
+  "Output": "int",
+  "Helper": "bpf_trace_printk,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

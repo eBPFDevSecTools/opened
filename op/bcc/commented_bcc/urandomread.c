@@ -1,15 +1,47 @@
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/urandomread.c,
- Startline: 1,
- Endline: 5,
- Funcname: TRACEPOINT_PROBE,
- Input: (random, urandom_read),
- Output: NA,
- Helpers: [bpf_trace_printk,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_trace_printk": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t     \\\"%d\\\\\\\\n\\\"\",\n  \" args->got_bits\"\n ]\n}"
+    ]
+  },
+  "startLine": 1,
+  "endLine": 5,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/urandomread.c",
+  "Funcname": "TRACEPOINT_PROBE",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "random",
+    " urandom_read"
+  ],
+  "Output": "NA",
+  "Helper": "bpf_trace_printk,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

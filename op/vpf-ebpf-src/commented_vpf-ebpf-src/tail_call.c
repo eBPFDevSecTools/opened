@@ -23,16 +23,47 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c,
- Startline: 24,
- Endline: 31,
- Funcname: caller,
- Input: (struct xdp_md *ctx),
- Output: int,
- Helpers: [bpf_tail_call,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_tail_call": [
+      "{\n \"opVar\": \"    long error \",\n \"inpVar\": [\n  \" ctx\",\n  \" &map\",\n  \" 0\"\n ]\n}"
+    ]
+  },
+  "startLine": 24,
+  "endLine": 31,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
+  "Funcname": "caller",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *ctx"
+  ],
+  "Output": "int",
+  "Helper": "bpf_tail_call,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -49,16 +80,43 @@ caller(struct xdp_md* ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c,
- Startline: 33,
- Endline: 37,
- Funcname: callee,
- Input: (struct xdp_md *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 33,
+  "endLine": 37,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
+  "Funcname": "callee",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *ctx"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

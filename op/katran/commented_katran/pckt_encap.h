@@ -40,16 +40,67 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 41,
- Endline: 91,
- Funcname: encap_v6,
- Input: (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" 0 - intsizeofstruct ipv6hdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 41,
+  "endLine": 91,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "encap_v6",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " struct ctl_value *cval",
+    " bool is_ipv6",
+    " struct packet_description *pckt",
+    " struct real_definition *dst",
+    " __u32 pkt_bytes"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -109,16 +160,66 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 93,
- Endline: 133,
- Funcname: encap_v4,
- Input: (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" 0 - intsizeofstruct iphdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 93,
+  "endLine": 133,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "encap_v4",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " struct ctl_value *cval",
+    " struct packet_description *pckt",
+    " struct real_definition *dst",
+    " __u32 pkt_bytes"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -170,16 +271,65 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
 // done. otherwise verifier wont like it
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 137,
- Endline: 156,
- Funcname: decap_v6,
- Input: (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" intsizeofstruct ipv6hdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 137,
+  "endLine": 156,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "decap_v6",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " void **data",
+    " void **data_end",
+    " bool inner_v4"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -208,16 +358,64 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 158,
- Endline: 173,
- Funcname: decap_v4,
- Input: (struct xdp_md *xdp, void **data, void **data_end),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if xdp\",\n  \" intsizeofstruct iphdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 158,
+  "endLine": 173,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "decap_v4",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " void **data",
+    " void **data_end"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -244,16 +442,48 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 177,
- Endline: 249,
- Funcname: gue_csum,
- Input: (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum),
- Output: staticinlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 177,
+  "endLine": 249,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "gue_csum",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data",
+    " void *data_end",
+    " bool outer_v6",
+    " bool inner_v6",
+    " struct packet_description *pckt",
+    " __u64 *csum"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -335,16 +565,84 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 251,
- Endline: 307,
- Funcname: gue_encap_v4,
- Input: (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,bpf_map_lookup_elem,],
- Read_maps: [  pckt_srcs,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    },
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"  src \",\n \"inpVar\": [\n  \" &pckt_srcs\",\n  \" &ipv4_src\"\n ]\n}"
+    ],
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if           xdp\",\n  \" 0 - intsizeofstruct iphdr + intsizeofstruct udphdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 251,
+  "endLine": 307,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "gue_encap_v4",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    "  pckt_srcs",
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " struct ctl_value *cval",
+    " struct packet_description *pckt",
+    " struct real_definition *dst",
+    " __u32 pkt_bytes"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -410,16 +708,85 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 309,
- Endline: 367,
- Funcname: gue_encap_v6,
- Input: (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,bpf_map_lookup_elem,],
- Read_maps: [  pckt_srcs,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    },
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"  src \",\n \"inpVar\": [\n  \" &pckt_srcs\",\n  \" &key\"\n ]\n}"
+    ],
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if           xdp\",\n  \"          0 - intsizeofstruct ipv6hdr + intsizeofstruct udphdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 309,
+  "endLine": 367,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "gue_encap_v6",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    "  pckt_srcs",
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " struct ctl_value *cval",
+    " bool is_ipv6",
+    " struct packet_description *pckt",
+    " struct real_definition *dst",
+    " __u32 pkt_bytes"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -490,16 +857,64 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 372,
- Endline: 389,
- Funcname: gue_decap_v4,
- Input: (struct xdp_md *xdp, void **data, void **data_end),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if           xdp\",\n  \" intsizeofstruct iphdr + sizeofstruct udphdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 372,
+  "endLine": 389,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "gue_decap_v4",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " void **data",
+    " void **data_end"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -526,16 +941,65 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_encap.h,
- Startline: 391,
- Endline: 412,
- Funcname: gue_decap_v6,
- Input: (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4),
- Output: staticinlinebool,
- Helpers: [bpf_xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_xdp_adjust_head": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if           xdp\",\n  \" intsizeofstruct ipv6hdr + sizeofstruct udphdr \"\n ]\n}"
+    ]
+  },
+  "startLine": 391,
+  "endLine": 412,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "Funcname": "gue_decap_v6",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *xdp",
+    " void **data",
+    " void **data_end",
+    " bool inner_v4"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_xdp_adjust_head,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

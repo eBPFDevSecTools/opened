@@ -7,16 +7,61 @@ BPF_PERCPU_ARRAY(lat_1ms, u64, 100);
 BPF_PERCPU_ARRAY(lat_10us, u64, 100);
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/biolatpcts.c,
- Startline: 8,
- Endline: 29,
- Funcname: RAW_TRACEPOINT_PROBE,
- Input: (block_rq_complete),
- Output: NA,
- Helpers: [bpf_ktime_get_ns,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_sys_info": [
+        {
+          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
+          "Return": "Current ktime.",
+          "Return Type": "u64",
+          "Function Name": "bpf_ktime_get_ns",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_ktime_get_ns": [
+      "{\n \"opVar\": \"\\tdur \",\n \"inpVar\": [\n  \"  - rq->io_start_time_ns\"\n ]\n}"
+    ]
+  },
+  "startLine": 8,
+  "endLine": 29,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
+  "Funcname": "RAW_TRACEPOINT_PROBE",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "block_rq_complete"
+  ],
+  "Output": "NA",
+  "Helper": "bpf_ktime_get_ns,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

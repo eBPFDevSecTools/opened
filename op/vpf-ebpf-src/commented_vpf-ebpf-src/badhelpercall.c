@@ -7,16 +7,62 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c,
- Startline: 8,
- Endline: 15,
- Funcname: func,
- Input: (NA),
- Output: int,
- Helpers: [bpf_get_current_comm,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_sys_info": [
+        {
+          "Description": "Copy the comm attribute of the current task into <[ buf ]>(IP: 0) of size_of_buf. The comm attribute contains the name of the executable (excluding the path) for the current task. The <[ size_of_buf ]>(IP: 1) must be strictly positive. On success , the helper makes sure that the <[ buf ]>(IP: 0) is NUL-terminated. On failure , it is filled with zeroes. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_get_current_comm",
+          "Input Params": [
+            "{Type: char ,Var: *buf}",
+            "{Type:  u32 ,Var: size_of_buf}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_get_current_comm": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"            return ebuffer\",\n  \" 20\"\n ]\n}"
+    ]
+  },
+  "startLine": 8,
+  "endLine": 15,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
+  "Funcname": "func",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "NA"
+  ],
+  "Output": "int",
+  "Helper": "bpf_get_current_comm,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
