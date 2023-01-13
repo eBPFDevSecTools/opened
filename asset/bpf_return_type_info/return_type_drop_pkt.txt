@@ -1,0 +1,7 @@
+#capability,pkt_stop_processing_drop_packet
+XDP_DROP,1
+TC_ACT_SHOT,1
+XDP_ABORTED,1
+TC_ACT_TRAP,1
+TC_ACT_STOLEN,1
+CTX_ACT_DROP,1

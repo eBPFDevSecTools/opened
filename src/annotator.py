@@ -9,6 +9,7 @@ import glob
 #import command
 import shutil
 import code_commentor as cmt
+import summarizer as sm
 import argparse
 import json
 from collections import defaultdict
@@ -77,7 +78,7 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
     run_cmd("cqmakedb -s "+ db_name+ " -c "+cscope_out+" -t "+tags_folder+" -p")
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
+def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium):
     iFile = open(inputFile,'r')
     lineCt = 1
     srcSeen=False
@@ -119,6 +120,7 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
             fn_def['fileName'] = srcFile
             fn_def['startLine'] = str(startLine)
             fn_def['endLine'] = str(endLine)
+            fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
