@@ -27,12 +27,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 27,
  Endline: 31,
  Funcname: is_v4_loopback,
  Input: (__be32 daddr),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -50,12 +50,12 @@ static __always_inline __maybe_unused bool is_v4_loopback(__be32 daddr)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 33,
  Endline: 39,
  Funcname: is_v6_loopback,
  Input: (const union v6addr *daddr),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -76,12 +76,12 @@ static __always_inline __maybe_unused bool is_v6_loopback(const union v6addr *da
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 42,
  Endline: 48,
  Funcname: ctx_dst_port,
  Input: (const struct bpf_sock_addr *ctx),
- Output: __be16,
+ Output: static__always_inline__maybe_unused__be16,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -101,12 +101,12 @@ ctx_dst_port(const struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 50,
  Endline: 56,
  Funcname: ctx_src_port,
  Input: (const struct bpf_sock *ctx),
- Output: __be16,
+ Output: static__always_inline__maybe_unused__be16,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -126,12 +126,12 @@ ctx_src_port(const struct bpf_sock *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 58,
  Endline: 62,
  Funcname: ctx_set_port,
  Input: (struct bpf_sock_addr *ctx, __be16 dport),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -149,12 +149,12 @@ void ctx_set_port(struct bpf_sock_addr *ctx, __be16 dport)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 64,
  Endline: 72,
  Funcname: task_in_extended_hostns,
  Input: (void),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [get_cgroup_classid,],
  Read_maps: [],
  Update_maps: [],
@@ -176,12 +176,12 @@ static __always_inline __maybe_unused bool task_in_extended_hostns(void)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 74,
  Endline: 89,
  Funcname: ctx_in_hostns,
  Input: (void * ctx __maybe_unused, __net_cookie *cookie),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -210,13 +210,13 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 91,
  Endline: 119,
  Funcname: sock_local_cookie,
  Input: (struct bpf_sock_addr *ctx),
- Output: __sock_cookie,
- Helpers: [get_socket_cookie,get_prandom_u32,],
+ Output: static__always_inline__maybe_unused__sock_cookie,
+ Helpers: [get_prandom_u32,get_socket_cookie,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -257,12 +257,12 @@ __sock_cookie sock_local_cookie(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 121,
  Endline: 131,
  Funcname: sock_is_health_check,
  Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -286,12 +286,12 @@ bool sock_is_health_check(struct bpf_sock_addr *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 133,
  Endline: 138,
  Funcname: sock_select_slot,
  Input: (struct bpf_sock_addr *ctx),
- Output: __u64,
+ Output: static__always_inline__maybe_unused__u64,
  Helpers: [get_prandom_u32,],
  Read_maps: [],
  Update_maps: [],
@@ -310,12 +310,12 @@ __u64 sock_select_slot(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 140,
  Endline: 156,
  Funcname: sock_proto_enabled,
  Input: (__u32 proto),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -355,13 +355,13 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 168,
  Endline: 190,
  Funcname: sock4_update_revnat,
  Input: (struct bpf_sock_addr *ctx, const struct lb4_backend *backend, const struct lb4_key *orig_key, __u16 rev_nat_id),
- Output: int,
- Helpers: [map_lookup_elem,map_update_elem,],
+ Output: static__always_inlineint,
+ Helpers: [map_update_elem,map_lookup_elem,],
  Read_maps: [  LB4_REVERSE_NAT_SK_MAP,],
  Update_maps: [ LB4_REVERSE_NAT_SK_MAP,],
  Func Description: TO BE ADDED, 
@@ -396,12 +396,12 @@ static __always_inline int sock4_update_revnat(struct bpf_sock_addr *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 192,
  Endline: 199,
  Funcname: sock4_update_revnat,
  Input: (struct bpf_sock_addr * ctx __maybe_unused, struct lb4_backend * backend __maybe_unused, struct lb4_key * orig_key __maybe_unused, __u16 rev_nat_id __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -423,12 +423,12 @@ int sock4_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 202,
  Endline: 218,
  Funcname: sock4_skip_xlate,
  Input: (struct lb4_service *svc, __be32 address),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -459,12 +459,12 @@ sock4_skip_xlate(struct lb4_service *svc, __be32 address)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 221,
  Endline: 251,
  Funcname: *sock4_wildcard_lookup,
  Input: (struct lb4_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused),
- Output: lb4_service,
+ Output: static__always_inlinestructlb4_service,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -509,12 +509,12 @@ wildcard_lookup:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 254,
  Endline: 272,
  Funcname: *sock4_wildcard_lookup_full,
  Input: (struct lb4_key * key __maybe_unused, const bool in_hostns __maybe_unused),
- Output: lb4_service,
+ Output: static__always_inlinestructlb4_service,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -565,13 +565,13 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 293,
  Endline: 321,
  Funcname: sock4_skip_xlate_if_same_netns,
  Input: (struct bpf_sock_addr * ctx __maybe_unused, const struct lb4_backend * backend __maybe_unused),
- Output: bool,
- Helpers: [sk_lookup_tcp,sk_lookup_udp,sk_release,],
+ Output: static__always_inlinebool,
+ Helpers: [sk_release,sk_lookup_tcp,sk_lookup_udp,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -612,12 +612,12 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 323,
  Endline: 458,
  Funcname: __sock4_xlate_fwd,
  Input: (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full, const bool udp_only),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -766,13 +766,13 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 460,
  Endline: 476,
  Funcname: __sock4_health_fwd,
  Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: int,
- Helpers: [map_lookup_elem,get_socket_cookie,],
+ Output: static__always_inlineint,
+ Helpers: [get_socket_cookie,map_lookup_elem,],
  Read_maps: [ LB4_HEALTH_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -802,7 +802,7 @@ __section("cgroup/connect4")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 479,
  Endline: 486,
  Funcname: sock4_connect,
@@ -829,12 +829,12 @@ int sock4_connect(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 489,
  Endline: 520,
  Funcname: __sock4_post_bind,
  Input: (struct bpf_sock *ctx, struct bpf_sock *ctx_full),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [bind,],
  Read_maps: [],
  Update_maps: [],
@@ -880,7 +880,7 @@ __section("cgroup/post_bind4")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 523,
  Endline: 529,
  Funcname: sock4_post_bind,
@@ -907,12 +907,12 @@ int sock4_post_bind(struct bpf_sock *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 533,
  Endline: 537,
  Funcname: sock4_auto_bind,
  Input: (struct bpf_sock_addr *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [bind,],
  Read_maps: [],
  Update_maps: [],
@@ -930,13 +930,13 @@ static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 539,
  Endline: 559,
  Funcname: __sock4_pre_bind,
  Input: (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full),
- Output: int,
- Helpers: [map_update_elem,bind,get_socket_cookie,],
+ Output: static__always_inlineint,
+ Helpers: [get_socket_cookie,bind,map_update_elem,],
  Read_maps: [],
  Update_maps: [  LB4_HEALTH_MAP,],
  Func Description: TO BE ADDED, 
@@ -970,7 +970,7 @@ __section("cgroup/bind4")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 562,
  Endline: 573,
  Funcname: sock4_pre_bind,
@@ -1002,13 +1002,13 @@ int sock4_pre_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 577,
  Endline: 611,
  Funcname: __sock4_xlate_rev,
  Input: (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full),
- Output: int,
- Helpers: [map_lookup_elem,map_delete_elem,],
+ Output: static__always_inlineint,
+ Helpers: [map_delete_elem,map_lookup_elem,],
  Read_maps: [  LB4_REVERSE_NAT_SK_MAP,],
  Update_maps: [ LB4_REVERSE_NAT_SK_MAP,],
  Func Description: TO BE ADDED, 
@@ -1056,7 +1056,7 @@ __section("cgroup/sendmsg4")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 614,
  Endline: 618,
  Funcname: sock4_sendmsg,
@@ -1080,7 +1080,7 @@ __section("cgroup/recvmsg4")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 621,
  Endline: 625,
  Funcname: sock4_recvmsg,
@@ -1104,7 +1104,7 @@ __section("cgroup/getpeername4")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 628,
  Endline: 632,
  Funcname: sock4_getpeername,
@@ -1140,13 +1140,13 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 647,
  Endline: 669,
  Funcname: sock6_update_revnat,
  Input: (struct bpf_sock_addr *ctx, const struct lb6_backend *backend, const struct lb6_key *orig_key, __u16 rev_nat_index),
- Output: int,
- Helpers: [map_lookup_elem,map_update_elem,],
+ Output: static__always_inlineint,
+ Helpers: [map_update_elem,map_lookup_elem,],
  Read_maps: [  LB6_REVERSE_NAT_SK_MAP,],
  Update_maps: [ LB6_REVERSE_NAT_SK_MAP,],
  Func Description: TO BE ADDED, 
@@ -1181,12 +1181,12 @@ static __always_inline int sock6_update_revnat(struct bpf_sock_addr *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 671,
  Endline: 678,
  Funcname: sock6_update_revnat,
  Input: (struct bpf_sock_addr * ctx __maybe_unused, struct lb6_backend * backend __maybe_unused, struct lb6_key * orig_key __maybe_unused, __u16 rev_nat_index __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1209,12 +1209,12 @@ int sock6_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 682,
  Endline: 693,
  Funcname: ctx_get_v6_address,
  Input: (const struct bpf_sock_addr *ctx, union v6addr *addr),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1240,12 +1240,12 @@ static __always_inline void ctx_get_v6_address(const struct bpf_sock_addr *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 696,
  Endline: 707,
  Funcname: ctx_get_v6_src_address,
  Input: (const struct bpf_sock *ctx, union v6addr *addr),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1271,12 +1271,12 @@ static __always_inline void ctx_get_v6_src_address(const struct bpf_sock *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 710,
  Endline: 721,
  Funcname: ctx_set_v6_address,
  Input: (struct bpf_sock_addr *ctx, const union v6addr *addr),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1301,12 +1301,12 @@ static __always_inline void ctx_set_v6_address(struct bpf_sock_addr *ctx,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 723,
  Endline: 739,
  Funcname: sock6_skip_xlate,
  Input: (struct lb6_service *svc, const union v6addr *address),
- Output: bool,
+ Output: static__always_inline__maybe_unusedbool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1337,12 +1337,12 @@ sock6_skip_xlate(struct lb6_service *svc, const union v6addr *address)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 742,
  Endline: 772,
  Funcname: *sock6_wildcard_lookup,
  Input: (struct lb6_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused),
- Output: lb6_service,
+ Output: static__always_inline__maybe_unusedstructlb6_service,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1387,12 +1387,12 @@ wildcard_lookup:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 775,
  Endline: 793,
  Funcname: *sock6_wildcard_lookup_full,
  Input: (struct lb6_key * key __maybe_unused, const bool in_hostns __maybe_unused),
- Output: lb6_service,
+ Output: static__always_inline__maybe_unusedstructlb6_service,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1424,12 +1424,12 @@ sock6_wildcard_lookup_full(struct lb6_key *key __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 795,
  Endline: 824,
  Funcname: sock6_xlate_v4_in_v6,
  Input: (struct bpf_sock_addr * ctx __maybe_unused, const bool udp_only __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1473,12 +1473,12 @@ int sock6_xlate_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 827,
  Endline: 846,
  Funcname: sock6_post_bind_v4_in_v6,
  Input: (struct bpf_sock * ctx __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [bind,],
  Read_maps: [],
  Update_maps: [],
@@ -1511,12 +1511,12 @@ sock6_post_bind_v4_in_v6(struct bpf_sock *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 848,
  Endline: 874,
  Funcname: __sock6_post_bind,
  Input: (struct bpf_sock *ctx),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [bind,],
  Read_maps: [],
  Update_maps: [],
@@ -1557,7 +1557,7 @@ __section("cgroup/post_bind6")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 877,
  Endline: 883,
  Funcname: sock6_post_bind,
@@ -1584,12 +1584,12 @@ int sock6_post_bind(struct bpf_sock *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 887,
  Endline: 911,
  Funcname: sock6_pre_bind_v4_in_v6,
  Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [bind,],
  Read_maps: [],
  Update_maps: [],
@@ -1628,12 +1628,12 @@ sock6_pre_bind_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 914,
  Endline: 920,
  Funcname: sock6_auto_bind,
  Input: (struct bpf_sock_addr *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [bind,],
  Read_maps: [],
  Update_maps: [],
@@ -1654,13 +1654,13 @@ static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 923,
  Endline: 944,
  Funcname: __sock6_pre_bind,
  Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [map_update_elem,bind,get_socket_cookie,],
+ Output: static__always_inlineint,
+ Helpers: [get_socket_cookie,bind,map_update_elem,],
  Read_maps: [],
  Update_maps: [  LB6_HEALTH_MAP,],
  Func Description: TO BE ADDED, 
@@ -1695,7 +1695,7 @@ __section("cgroup/bind6")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 947,
  Endline: 958,
  Funcname: sock6_pre_bind,
@@ -1726,12 +1726,12 @@ int sock6_pre_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 961,
  Endline: 1062,
  Funcname: __sock6_xlate_fwd,
  Input: (struct bpf_sock_addr *ctx, const bool udp_only),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1846,13 +1846,13 @@ out:
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1064,
  Endline: 1089,
  Funcname: __sock6_health_fwd,
  Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: int,
- Helpers: [map_lookup_elem,get_socket_cookie,],
+ Output: static__always_inlineint,
+ Helpers: [get_socket_cookie,map_lookup_elem,],
  Read_maps: [ LB6_HEALTH_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -1891,7 +1891,7 @@ __section("cgroup/connect6")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1092,
  Endline: 1099,
  Funcname: sock6_connect,
@@ -1918,12 +1918,12 @@ int sock6_connect(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1102,
  Endline: 1130,
  Funcname: sock6_xlate_rev_v4_in_v6,
  Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -1965,13 +1965,13 @@ sock6_xlate_rev_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1132,
  Endline: 1167,
  Funcname: __sock6_xlate_rev,
  Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [map_lookup_elem,map_delete_elem,],
+ Output: static__always_inlineint,
+ Helpers: [map_delete_elem,map_lookup_elem,],
  Read_maps: [  LB6_REVERSE_NAT_SK_MAP,],
  Update_maps: [ LB6_REVERSE_NAT_SK_MAP,],
  Func Description: TO BE ADDED, 
@@ -2020,7 +2020,7 @@ __section("cgroup/sendmsg6")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1170,
  Endline: 1174,
  Funcname: sock6_sendmsg,
@@ -2044,7 +2044,7 @@ __section("cgroup/recvmsg6")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1177,
  Endline: 1181,
  Funcname: sock6_recvmsg,
@@ -2068,7 +2068,7 @@ __section("cgroup/getpeername6")
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_sock.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
  Startline: 1184,
  Endline: 1188,
  Funcname: sock6_getpeername,

@@ -1,0 +1,7 @@
+#capability,pkt_alter_or_redo_processing_or_interface
+TC_ACT_REDIRECT,1
+XDP_REDIRECT,1
+XDP_TX,1
+TC_ACT_REPEAT,1
+CTX_ACT_REDIRECT,1
+CTX_ACT_TX,1

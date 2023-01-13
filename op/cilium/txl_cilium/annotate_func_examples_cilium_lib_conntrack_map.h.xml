@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/conntrack_map.h" funcheader="static __always_inline void *get_ct_map6 (const struct ipv6_ct_tuple *tuple)" startline="40" endline="47">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h" funcheader="static __always_inline void *get_ct_map6 (const struct ipv6_ct_tuple *tuple)" startline="40" endline="47">
 static __always_inline void *get_ct_map6 (const struct ipv6_ct_tuple *tuple)
 {
     if (tuple->nexthdr == IPPROTO_TCP)
@@ -8,7 +8,7 @@ static __always_inline void *get_ct_map6 (const struct ipv6_ct_tuple *tuple)
     return &CT_MAP_ANY6;
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/lib/conntrack_map.h" funcheader="static __always_inline void *get_ct_map4 (const struct ipv4_ct_tuple *tuple)" startline="73" endline="80">
+<source file="/home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h" funcheader="static __always_inline void *get_ct_map4 (const struct ipv4_ct_tuple *tuple)" startline="73" endline="80">
 static __always_inline void *get_ct_map4 (const struct ipv4_ct_tuple *tuple)
 {
     if (tuple->nexthdr == IPPROTO_TCP)

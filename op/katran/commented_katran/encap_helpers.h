@@ -30,16 +30,48 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/encap_helpers.h,
- Startline: 31,
- Endline: 55,
- Funcname: create_v4_hdr,
- Input: (struct iphdr *iph, __u8 tos, __u32 saddr, __u32 daddr, __u16 pkt_bytes, __u8 proto),
- Output: void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 31,
+  "endLine": 55,
+  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
+  "Funcname": "create_v4_hdr",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct iphdr *iph",
+    " __u8 tos",
+    " __u32 saddr",
+    " __u32 daddr",
+    " __u16 pkt_bytes",
+    " __u8 proto"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -73,16 +105,48 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/encap_helpers.h,
- Startline: 57,
- Endline: 77,
- Funcname: create_v6_hdr,
- Input: (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, __u32 *daddr, __u16 payload_len, __u8 proto),
- Output: void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 57,
+  "endLine": 77,
+  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
+  "Funcname": "create_v6_hdr",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ipv6hdr *ip6h",
+    " __u8 tc",
+    " __u32 *saddr",
+    " __u32 *daddr",
+    " __u16 payload_len",
+    " __u8 proto"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -112,16 +176,47 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/encap_helpers.h,
- Startline: 79,
- Endline: 89,
- Funcname: create_udp_hdr,
- Input: (struct udphdr *udph, __u16 sport, __u16 dport, __u16 len, __u16 csum),
- Output: void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 79,
+  "endLine": 89,
+  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
+  "Funcname": "create_udp_hdr",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct udphdr *udph",
+    " __u16 sport",
+    " __u16 dport",
+    " __u16 len",
+    " __u16 csum"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

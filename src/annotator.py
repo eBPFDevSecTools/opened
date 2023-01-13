@@ -9,6 +9,7 @@ import glob
 #import command
 import shutil
 import code_commentor as cmt
+import summarizer as sm
 import argparse
 import json
 from collections import defaultdict
@@ -77,7 +78,7 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
     run_cmd("cqmakedb -s "+ db_name+ " -c "+cscope_out+" -t "+tags_folder+" -p")
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
+def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium):
     iFile = open(inputFile,'r')
     lineCt = 1
     srcSeen=False
@@ -119,10 +120,12 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict):
             fn_def['fileName'] = srcFile
             fn_def['startLine'] = str(startLine)
             fn_def['endLine'] = str(endLine)
+            fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
+            print(fn_def)
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
-def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict):
+def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict, isCilium):
     print("Read cscope files and generate function annotation ...")
     txl_dict_func_file = {}
     code_f = open(cscope_file,'r')
@@ -142,7 +145,8 @@ def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_di
         print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
         op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
-        func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict)
+        func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict, isCilium)
+        print(func_file_def_dict)
         map_file_def_dict = parseTXLStructOutputFile(opfile_struct_annotate, map_file_def_dict)
         txl_dict_func_file[full_line] = opfile_function_annotate
     return func_file_def_dict, txl_dict_func_file, map_file_def_dict
@@ -163,7 +167,7 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')
-        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
+        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium)
         xmlFile.close()
     return
 
@@ -288,7 +292,7 @@ if __name__ == "__main__":
 
     txl_dict_struct = defaultdict(list)
     txl_dict_func = defaultdict(list)
-    txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct)
+    txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct, isCilium)
     if (cmt_op_dir is not None):
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile

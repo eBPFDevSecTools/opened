@@ -8,16 +8,43 @@
 SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/x.c,
- Startline: 9,
- Endline: 13,
- Funcname: xdp_prog_simple,
- Input: (struct xdp_md *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 9,
+  "endLine": 13,
+  "File": "/home/sayandes/opened_extraction/examples/katran/x.c",
+  "Funcname": "xdp_prog_simple",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *ctx"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

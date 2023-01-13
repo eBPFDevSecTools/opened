@@ -36,16 +36,45 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/healthchecking_helpers.h,
- Startline: 37,
- Endline: 77,
- Funcname: set_hc_key,
- Input: (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6),
- Output: bool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 37,
+  "endLine": 77,
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "Funcname": "set_hc_key",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "const struct  __sk_buff *skb",
+    " struct hc_key *hckey",
+    " bool is_ipv6"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -95,16 +124,87 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/healthchecking_helpers.h,
- Startline: 79,
- Endline: 139,
- Funcname: hc_encap_ipip,
- Input: (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6),
- Output: bool,
- Helpers: [bpf_skb_adjust_room,bpf_map_lookup_elem,],
- Read_maps: [  hc_pckt_srcs_map,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There is a single supported <[ mode ]>(IP: 2) at this time:BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). All values for <[ flags ]>(IP: 3) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_skb_adjust_room",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: len_diff}",
+            "{Type:  u32 ,Var: mode}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    },
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}",
+      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}"
+    ],
+    "bpf_skb_adjust_room": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}",
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}"
+    ]
+  },
+  "startLine": 79,
+  "endLine": 139,
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "Funcname": "hc_encap_ipip",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    "  hc_pckt_srcs_map",
+    ""
+  ],
+  "Input": [
+    "struct  __sk_buff *skb",
+    " struct hc_real_definition *real",
+    " struct ethhdr *ethh",
+    " bool is_ipv6"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_map_lookup_elem,bpf_skb_adjust_room,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -174,16 +274,43 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/healthchecking_helpers.h,
- Startline: 141,
- Endline: 143,
- Funcname: gue_sport,
- Input: (__u32 seed),
- Output: __u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 141,
+  "endLine": 143,
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "Funcname": "gue_sport",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "__u32 seed"
+  ],
+  "Output": "staticinline__u16",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -195,16 +322,87 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/healthchecking_helpers.h,
- Startline: 145,
- Endline: 213,
- Funcname: hc_encap_gue,
- Input: (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6),
- Output: bool,
- Helpers: [bpf_skb_adjust_room,bpf_map_lookup_elem,],
- Read_maps: [  hc_pckt_srcs_map,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There is a single supported <[ mode ]>(IP: 2) at this time:BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). All values for <[ flags ]>(IP: 3) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_skb_adjust_room",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: len_diff}",
+            "{Type:  u32 ,Var: mode}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    },
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}",
+      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}"
+    ],
+    "bpf_skb_adjust_room": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}",
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}"
+    ]
+  },
+  "startLine": 145,
+  "endLine": 213,
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "Funcname": "hc_encap_gue",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    "  hc_pckt_srcs_map",
+    ""
+  ],
+  "Input": [
+    "struct  __sk_buff *skb",
+    " struct hc_real_definition *real",
+    " struct ethhdr *ethh",
+    " bool is_ipv6"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_map_lookup_elem,bpf_skb_adjust_room,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

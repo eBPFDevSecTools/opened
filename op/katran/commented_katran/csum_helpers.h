@@ -29,16 +29,43 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 30,
- Endline: 39,
- Funcname: csum_fold_helper,
- Input: (__u64 csum),
- Output: __u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 30,
+  "endLine": 39,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "csum_fold_helper",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "__u64 csum"
+  ],
+  "Output": "staticinline__u16",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -57,16 +84,44 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 41,
- Endline: 43,
- Funcname: min_helper,
- Input: (int a, int b),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 41,
+  "endLine": 43,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "min_helper",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "int a",
+    " int b"
+  ],
+  "Output": "staticint",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -78,16 +133,67 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 45,
- Endline: 49,
- Funcname: ipv4_csum,
- Input: (void *data_start, int data_size, __u64 *csum),
- Output: void,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" data_start\",\n  \" data_size\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 45,
+  "endLine": 49,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "ipv4_csum",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data_start",
+    " int data_size",
+    " __u64 *csum"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -101,16 +207,44 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 51,
- Endline: 60,
- Funcname: ipv4_csum_inline,
- Input: (void *iph, __u64 *csum),
- Output: void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 51,
+  "endLine": 60,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "ipv4_csum_inline",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *iph",
+    " __u64 *csum"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -129,16 +263,72 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 62,
- Endline: 73,
- Funcname: ipv4_l4_csum,
- Input: (void *data_start, int data_size, __u64 *csum, struct iphdr *iph),
- Output: void,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->saddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->daddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" data_start\",\n  \" data_size\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 62,
+  "endLine": 73,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "ipv4_l4_csum",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data_start",
+    " int data_size",
+    " __u64 *csum",
+    " struct iphdr *iph"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -159,16 +349,72 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 75,
- Endline: 88,
- Funcname: ipv6_csum,
- Input: (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h),
- Output: void,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->saddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->daddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"    *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" data_start\",\n  \" data_size\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 75,
+  "endLine": 88,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "ipv6_csum",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data_start",
+    " int data_size",
+    " __u64 *csum",
+    " struct ipv6hdr *ip6h"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -196,16 +442,69 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 95,
- Endline: 127,
- Funcname: add_pseudo_ipv6_header,
- Input: (struct ipv6hdr *ip6h, __u64 *csum),
- Output: __s64,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->saddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->daddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 95,
+  "endLine": 127,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "add_pseudo_ipv6_header",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ipv6hdr *ip6h",
+    " __u64 *csum"
+  ],
+  "Output": "staticinline__s64",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -247,16 +546,69 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 129,
- Endline: 158,
- Funcname: rem_pseudo_ipv6_header,
- Input: (struct ipv6hdr *ip6h, __u64 *csum),
- Output: __s64,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &ip6h->saddr\",\n  \" sizeofstruct in6_addr\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &ip6h->daddr\",\n  \" sizeofstruct in6_addr\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 129,
+  "endLine": 158,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "rem_pseudo_ipv6_header",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ipv6hdr *ip6h",
+    " __u64 *csum"
+  ],
+  "Output": "staticinline__s64",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -295,16 +647,69 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 160,
- Endline: 189,
- Funcname: add_pseudo_ipv4_header,
- Input: (struct iphdr *iph, __u64 *csum),
- Output: __s64,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->saddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->daddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 160,
+  "endLine": 189,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "add_pseudo_ipv4_header",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct iphdr *iph",
+    " __u64 *csum"
+  ],
+  "Output": "staticinline__s64",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -343,16 +748,69 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 191,
- Endline: 220,
- Funcname: rem_pseudo_ipv4_header,
- Input: (struct iphdr *iph, __u64 *csum),
- Output: __s64,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &iph->saddr\",\n  \" sizeof__be32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &iph->daddr\",\n  \" sizeof__be32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}"
+    ]
+  },
+  "startLine": 191,
+  "endLine": 220,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "rem_pseudo_ipv4_header",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct iphdr *iph",
+    " __u64 *csum"
+  ],
+  "Output": "staticinline__s64",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -403,16 +861,70 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 234,
- Endline: 268,
- Funcname: gue_csum_v6,
- Input: (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr),
- Output: bool,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &orig_csum\",\n  \" sizeof__u32\",\n  \" seed\"\n ]\n}",
+      "{\n \"opVar\": \"    ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" inner_ip6h\",\n  \" sizeofstruct ipv6hdr\",\n  \" *csum_in_hdr\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" udph\",\n  \" sizeofstruct udphdr\",\n  \" *csum_in_hdr\"\n ]\n}"
+    ]
+  },
+  "startLine": 234,
+  "endLine": 268,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "gue_csum_v6",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ipv6hdr *outer_ip6h",
+    " struct udphdr *udph",
+    " struct ipv6hdr *inner_ip6h",
+    " __u64 *csum_in_hdr"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -456,16 +968,70 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 270,
- Endline: 302,
- Funcname: gue_csum_v4,
- Input: (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr),
- Output: bool,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &orig_csum\",\n  \" sizeof__u32\",\n  \" seed\"\n ]\n}",
+      "{\n \"opVar\": \"    ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" inner_iph\",\n  \" sizeofstruct iphdr\",\n  \" *csum_in_hdr\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" udph\",\n  \" sizeofstruct udphdr\",\n  \" *csum_in_hdr\"\n ]\n}"
+    ]
+  },
+  "startLine": 270,
+  "endLine": 302,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "gue_csum_v4",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct iphdr *outer_iph",
+    " struct udphdr *udph",
+    " struct iphdr *inner_iph",
+    " __u64 *csum_in_hdr"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -507,16 +1073,70 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/csum_helpers.h,
- Startline: 304,
- Endline: 336,
- Funcname: gue_csum_v4_in_v6,
- Input: (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr),
- Output: bool,
- Helpers: [bpf_csum_diff,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_skb": [
+        {
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways:With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
+          "Return": "The checksum result, or a negative error code in case of failure.",
+          "Return Type": "s64",
+          "Function Name": "bpf_csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_csum_diff": [
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &orig_csum\",\n  \" sizeof__u32\",\n  \" seed\"\n ]\n}",
+      "{\n \"opVar\": \"    ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" inner_iph\",\n  \" sizeofstruct iphdr\",\n  \" *csum_in_hdr\"\n ]\n}",
+      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" udph\",\n  \" sizeofstruct udphdr\",\n  \" *csum_in_hdr\"\n ]\n}"
+    ]
+  },
+  "startLine": 304,
+  "endLine": 336,
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
+  "Funcname": "gue_csum_v4_in_v6",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ipv6hdr *outer_ip6h",
+    " struct udphdr *udph",
+    " struct iphdr *inner_iph",
+    " __u64 *csum_in_hdr"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "bpf_csum_diff,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

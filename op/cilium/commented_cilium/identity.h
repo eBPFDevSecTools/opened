@@ -9,12 +9,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/identity.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
  Startline: 9,
  Endline: 12,
  Funcname: identity_in_range,
  Input: (__u32 identity, __u32 range_start, __u32 range_end),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -31,12 +31,12 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/identity.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
  Startline: 14,
  Endline: 32,
  Funcname: identity_is_remote_node,
  Input: (__u32 identity),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -68,12 +68,12 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/identity.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
  Startline: 34,
  Endline: 37,
  Funcname: identity_is_node,
  Input: (__u32 identity),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -108,12 +108,12 @@ static __always_inline bool identity_is_node(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/identity.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
  Startline: 57,
  Endline: 60,
  Funcname: identity_is_reserved,
  Input: (__u32 identity),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -148,12 +148,12 @@ static __always_inline bool identity_is_reserved(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/identity.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
  Startline: 80,
  Endline: 90,
  Funcname: identity_is_cluster,
  Input: (__u32 identity),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -178,12 +178,12 @@ static __always_inline bool identity_is_cluster(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/identity.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
  Startline: 93,
  Endline: 137,
  Funcname: inherit_identity_from_host,
  Input: (struct  __ctx_buff *ctx, __u32 *identity),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

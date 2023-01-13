@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c" funcheader="int func (void *ctx)" startline="8" endline="19">
+int func (void *ctx)
+{
+    char array [256] = "";
+    uint32_t rand32 = get_prandom_u32 ();
+    uint32_t index = *(unsignedchar*) &rand32;
+    return array[index];
+}
+</source>
+</doc>

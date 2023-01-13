@@ -6,16 +6,44 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/jhash.h,
- Startline: 7,
- Endline: 9,
- Funcname: rol32,
- Input: (__u32 word, unsigned int shift),
- Output: __u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 7,
+  "endLine": 9,
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
+  "Funcname": "rol32",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "__u32 word",
+    " unsigned int shift"
+  ],
+  "Output": "staticinline__u32",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -71,16 +99,45 @@ typedef unsigned int u32;
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/jhash.h,
- Startline: 55,
- Endline: 100,
- Funcname: jhash,
- Input: (const void *key, u32 length, u32 initval),
- Output: u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 55,
+  "endLine": 100,
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
+  "Funcname": "jhash",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "const void *key",
+    " u32 length",
+    " u32 initval"
+  ],
+  "Output": "staticinlineu32",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -135,16 +192,46 @@ static inline u32 jhash(const void* key, u32 length, u32 initval) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/jhash.h,
- Startline: 102,
- Endline: 108,
- Funcname: __jhash_nwords,
- Input: (u32 a, u32 b, u32 c, u32 initval),
- Output: u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 102,
+  "endLine": 108,
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
+  "Funcname": "__jhash_nwords",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "u32 a",
+    " u32 b",
+    " u32 c",
+    " u32 initval"
+  ],
+  "Output": "staticinlineu32",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -160,16 +247,45 @@ static inline u32 __jhash_nwords(u32 a, u32 b, u32 c, u32 initval) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/jhash.h,
- Startline: 110,
- Endline: 112,
- Funcname: jhash_2words,
- Input: (u32 a, u32 b, u32 initval),
- Output: u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 110,
+  "endLine": 112,
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
+  "Funcname": "jhash_2words",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "u32 a",
+    " u32 b",
+    " u32 initval"
+  ],
+  "Output": "staticinlineu32",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -181,16 +297,44 @@ static inline u32 jhash_2words(u32 a, u32 b, u32 initval) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/jhash.h,
- Startline: 114,
- Endline: 116,
- Funcname: jhash_1word,
- Input: (u32 a, u32 initval),
- Output: u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 114,
+  "endLine": 116,
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
+  "Funcname": "jhash_1word",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "u32 a",
+    " u32 initval"
+  ],
+  "Output": "staticinlineu32",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

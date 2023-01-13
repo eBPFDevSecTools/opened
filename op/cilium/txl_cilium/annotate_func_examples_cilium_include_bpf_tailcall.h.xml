@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/palani/github/opened_extraction/examples/cilium/include/bpf/tailcall.h" funcheader="static __always_inline __maybe_unused void tail_call_static (const struct  __ctx_buff *ctx, const void *map, const __u32 slot)" startline="10" endline="33">
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h" funcheader="static __always_inline __maybe_unused void tail_call_static (const struct  __ctx_buff *ctx, const void *map, const __u32 slot)" startline="10" endline="33">
 static __always_inline __maybe_unused void tail_call_static (const struct  __ctx_buff *ctx, const void *map, const __u32 slot)
 {
     if (!__builtin_constant_p (slot))
@@ -21,7 +21,7 @@ static __always_inline __maybe_unused void tail_call_static (const struct  __ctx
         );
 }
 </source>
-<source file="/home/palani/github/opened_extraction/examples/cilium/include/bpf/tailcall.h" funcheader="static __always_inline __maybe_unused void tail_call_dynamic (struct  __ctx_buff *ctx, const void *map, __u32 slot)" startline="35" endline="46">
+<source file="/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h" funcheader="static __always_inline __maybe_unused void tail_call_dynamic (struct  __ctx_buff *ctx, const void *map, __u32 slot)" startline="35" endline="46">
 static __always_inline __maybe_unused void tail_call_dynamic (struct  __ctx_buff *ctx, const void *map, __u32 slot)
 {
     if (__builtin_constant_p (slot))

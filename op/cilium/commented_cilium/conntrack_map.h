@@ -40,12 +40,12 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack_map.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h,
  Startline: 40,
  Endline: 47,
  Funcname: *get_ct_map6,
  Input: (const struct ipv6_ct_tuple *tuple),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -90,12 +90,12 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/conntrack_map.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h,
  Startline: 73,
  Endline: 80,
  Funcname: *get_ct_map4,
  Input: (const struct ipv4_ct_tuple *tuple),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

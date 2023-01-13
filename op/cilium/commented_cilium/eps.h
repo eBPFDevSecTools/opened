@@ -12,12 +12,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 12,
  Endline: 21,
  Funcname: *__lookup_ip6_endpoint,
  Input: (const union v6addr *ip6),
- Output: endpoint_info,
+ Output: static__always_inline__maybe_unusedstructendpoint_info,
  Helpers: [map_lookup_elem,],
  Read_maps: [ ENDPOINTS_MAP,],
  Update_maps: [],
@@ -40,12 +40,12 @@ __lookup_ip6_endpoint(const union v6addr *ip6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 23,
  Endline: 27,
  Funcname: *lookup_ip6_endpoint,
  Input: (const struct ipv6hdr *ip6),
- Output: endpoint_info,
+ Output: static__always_inline__maybe_unusedstructendpoint_info,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -63,12 +63,12 @@ lookup_ip6_endpoint(const struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 29,
  Endline: 38,
  Funcname: *__lookup_ip4_endpoint,
  Input: (__u32 ip),
- Output: endpoint_info,
+ Output: static__always_inline__maybe_unusedstructendpoint_info,
  Helpers: [map_lookup_elem,],
  Read_maps: [ ENDPOINTS_MAP,],
  Update_maps: [],
@@ -91,12 +91,12 @@ __lookup_ip4_endpoint(__u32 ip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 40,
  Endline: 44,
  Funcname: *lookup_ip4_endpoint,
  Input: (const struct iphdr *ip4),
- Output: endpoint_info,
+ Output: static__always_inline__maybe_unusedstructendpoint_info,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -115,12 +115,12 @@ lookup_ip4_endpoint(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 47,
  Endline: 56,
  Funcname: *lookup_ip4_endpoint_policy_map,
  Input: (__u32 ip),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [map_lookup_elem,],
  Read_maps: [ EP_POLICY_MAP,],
  Update_maps: [],
@@ -152,12 +152,12 @@ lookup_ip4_endpoint_policy_map(__u32 ip)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 67,
  Endline: 78,
  Funcname: *ipcache_lookup6,
  Input: (const void *map, const union v6addr *addr, __u32 prefix),
- Output: remote_endpoint_info,
+ Output: static__always_inline__maybe_unusedstructremote_endpoint_info,
  Helpers: [map_lookup_elem,],
  Read_maps: [ map,],
  Update_maps: [],
@@ -184,12 +184,12 @@ ipcache_lookup6(const void *map, const union v6addr *addr,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/eps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
  Startline: 82,
  Endline: 92,
  Funcname: *ipcache_lookup4,
  Input: (const void *map, __be32 addr, __u32 prefix),
- Output: remote_endpoint_info,
+ Output: static__always_inline__maybe_unusedstructremote_endpoint_info,
  Helpers: [map_lookup_elem,],
  Read_maps: [ map,],
  Update_maps: [],

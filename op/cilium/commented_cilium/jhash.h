@@ -14,12 +14,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/jhash.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
  Startline: 14,
  Endline: 17,
  Funcname: rol32,
  Input: (__u32 word, __u32 shift),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -57,12 +57,12 @@ static __always_inline __u32 rol32(__u32 word, __u32 shift)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/jhash.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
  Startline: 40,
  Endline: 81,
  Funcname: jhash,
  Input: (const void *key, __u32 length, __u32 initval),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -117,12 +117,12 @@ static __always_inline __u32 jhash(const void *key, __u32 length,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/jhash.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
  Startline: 83,
  Endline: 91,
  Funcname: __jhash_nwords,
  Input: (__u32 a, __u32 b, __u32 c, __u32 initval),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -144,12 +144,12 @@ static __always_inline __u32 __jhash_nwords(__u32 a, __u32 b, __u32 c,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/jhash.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
  Startline: 93,
  Endline: 97,
  Funcname: jhash_3words,
  Input: (__u32 a, __u32 b, __u32 c, __u32 initval),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -167,12 +167,12 @@ static __always_inline __u32 jhash_3words(__u32 a, __u32 b, __u32 c,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/jhash.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
  Startline: 99,
  Endline: 102,
  Funcname: jhash_2words,
  Input: (__u32 a, __u32 b, __u32 initval),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -189,12 +189,12 @@ static __always_inline __u32 jhash_2words(__u32 a, __u32 b, __u32 initval)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/jhash.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
  Startline: 104,
  Endline: 107,
  Funcname: jhash_1word,
  Input: (__u32 a, __u32 initval),
- Output: __u32,
+ Output: static__always_inline__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

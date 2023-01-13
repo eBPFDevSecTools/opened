@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/katran/decap_kern.c" funcheader="static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)" startline="34" endline="83">
+<source file="/home/sayandes/opened_extraction/examples/katran/decap_kern.c" funcheader="static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)" startline="34" endline="83">
 static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)
 {
     __u64 iph_len;
@@ -39,7 +39,7 @@ static inline int process_l3_headers (struct packet_description *pckt, __u8 *pro
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/decap_kern.c" funcheader="static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes)" startline="85" endline="120">
+<source file="/home/sayandes/opened_extraction/examples/katran/decap_kern.c" funcheader="static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes)" startline="85" endline="120">
 static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes)
 {
     if (*protocol == IPPROTO_IPIP) {
@@ -71,7 +71,7 @@ static inline int process_encaped_ipip_pckt (void **data, void **data_end, struc
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/decap_kern.c" funcheader="static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6)" startline="123" endline="161">
+<source file="/home/sayandes/opened_extraction/examples/katran/decap_kern.c" funcheader="static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6)" startline="123" endline="161">
 static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6)
 {
     int offset = 0;
@@ -106,7 +106,7 @@ static inline int process_encaped_gue_pckt (void **data, void **data_end, struct
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/decap_kern.c" funcheader="static inline int process_packet (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp)" startline="164" endline="221">
+<source file="/home/sayandes/opened_extraction/examples/katran/decap_kern.c" funcheader="static inline int process_packet (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp)" startline="164" endline="221">
 static inline int process_packet (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp)
 {
     struct packet_description pckt = {}
@@ -162,7 +162,7 @@ static inline int process_packet (void *data, __u64 off, void *data_end, bool is
     return XDP_PASS;
 }
 </source>
-<source file="/root/examples/katran/decap_kern.c" funcheader="int xdpdecap (struct xdp_md *ctx)" startline="224" endline="247">
+<source file="/home/sayandes/opened_extraction/examples/katran/decap_kern.c" funcheader="int xdpdecap (struct xdp_md *ctx)" startline="224" endline="247">
 int xdpdecap (struct xdp_md *ctx)
 {
     void *data = (void *) (long) ctx->data;

@@ -1,8 +1,9 @@
 import re
 import os
 import json
-
+import summarizer as smt
 import argparse
+from collections import defaultdict
 
 def load_bpf_helper_map(fname):
     with open(fname, 'r') as f:
@@ -61,10 +62,9 @@ def dump_comment(fname,startLineDict, ofname):
     ct = 0
     for line in ifile.readlines():
         ct=ct + 1
+        if ct in startLineDict:
+            ofile.write(startLineDict.get(ct))
         ofile.write(line)
-        nextLine = ct + 1
-        if nextLine in startLineDict:
-            ofile.write(startLineDict.get(nextLine))
     ofile.flush()
     ofile.close()
     ifile.close()
@@ -79,14 +79,14 @@ def check_map_access(my_arr,line):
     return None
 
 
-def generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps):
-    comment="/* \n OPENED COMMENT BEGIN \n { \n File: "+srcFile + ",\n Startline: "+ str(startLine) + ",\n Endline: "+str(endLine) + ",\n Funcname: "+funcName + ",\n Input: ("+ funcArgs + "),\n Output: "+output + ",\n Helpers: [" + encoding + "]" + ",\n Read_maps: [" + read_maps + "],\n Update_maps: [" + update_maps + "] \n } \n OPENED COMMENT END \n */ \n"
-    #print("COMMENT File: ",srcFile, " startline: ",startLine," endline: ",endLine," funcname: ",funcName, "Input: (", funcArgs, ") Output: ",output, "Helpers: [",encoding,"]", "read_maps: [",read_maps,"] update_maps: [",update_maps,"]")
+
+def generate_comment(capability_dict):
+    comment="/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
     return comment
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -104,11 +104,41 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             encoding = get_helper_encoding(lines,helperdict)
             read_maps=get_read_maps(lines, map_read_fn)
             update_maps=get_update_maps(lines, map_update_fn)
-            #print("Encoding: ",encoding)
-            comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps)
+            #print("funcName: ",funcName," srcFile: ",srcFile)
+            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
+            capability_dict['startLine'] = startLine
+            capability_dict['endLine'] = endLine
+            capability_dict['File'] = srcFile
+            capability_dict['Funcname'] = funcName
+            capability_dict['Update_maps'] = update_maps.split(",")
+            capability_dict['Read_maps'] = read_maps.split(",")
+            capability_dict['Input'] = funcArgs.split(',')
+            capability_dict['Output'] = output
+            capability_dict['Helper'] = encoding
+            func_desc_list = []
+            empty_desc = {}
+            empty_desc['description'] = ""
+            empty_desc['author'] = ""
+            empty_desc['author_email'] = ""
+            empty_desc['date'] = ""
+
+            func_desc_list.append(empty_desc)
+            capability_dict['human_func_description'] = func_desc_list
+            empty_desc_auto = {}
+            empty_desc_auto['description'] = ""
+            empty_desc_auto['author'] = ""
+            empty_desc_auto['author_email'] = ""
+            empty_desc_auto['date'] = ""
+            empty_desc_auto['params'] = ""
+            ai_func_desc_list = []
+            ai_func_desc_list.append(empty_desc_auto)
+            capability_dict['AI_func_description'] = ai_func_desc_list
+            #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
+            comment = generate_comment(capability_dict)
             #dump_comment(srcFile,startLine,comment)
             
             startLineDict[startLine] = comment
+            #print(comment)
             lines = []
             continue;
         if srcSeen:
@@ -134,15 +164,20 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             funcArgs = funcArgs.split(')')[0]
             #funcArgs = funcArgs.replace(" ","")
             #print("args ",funcArgs)
-   
+            if(funcArgs is None or not funcArgs or funcArgs.isspace() is True):
+                funcArgs = "NA"
+
             
             srcFile = tokens[-4]
             srcFile = srcFile.replace(" ","")
 
             funcName = tokens[-3].replace(" (","(")
-            output= funcName.split('(')[-2].split(" ")[-2]
-            output = output.replace(" ","")
             #print("funcName: ",funcName)
+            #print("funcName.split('(')[-2]: ",funcName.split('(')[-2])
+            output= " ".join(funcName.split('(')[-2].split(" ")[:-1])
+            output = output.replace(" ","")
+            if(output is None or not output or output.isspace() is True):
+                output = "NA"
             funcName = funcName.split('(')[-2].split(" ")[-1]
 
             startLine = int(tokens[-2])
@@ -152,7 +187,8 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             key=funcName+":"+srcFile
             #print("Checking if need to extract",key
     if srcFile != "":
-        print("Going to call dump_comment for: "+srcFile)
+        #print("Going to call dump_comment for: "+srcFile)
+        #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
 
         
@@ -196,7 +232,7 @@ if __name__ =="__main__":
             map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
         xmlFile = open(txlFile,'r')
-        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
+        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium)
         xmlFile.close()
         '''
         ifile = open("./txl_annotate/annotate_func_test_decap_kern.c.xml",'r')

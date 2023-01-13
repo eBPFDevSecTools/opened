@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c" funcheader="int func (void *ctx)" startline="29" endline="37">
+int func (void *ctx)
+{
+    uint32_t key = 1;
+    int result = bpf_sock_map_update (ctx, & map, & key, 0);
+    return result;
+}
+</source>
+</doc>

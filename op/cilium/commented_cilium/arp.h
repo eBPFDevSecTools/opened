@@ -21,12 +21,12 @@ struct arp_eth {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 21,
  Endline: 30,
  Funcname: arp_check,
  Input: (struct ethhdr *eth, const struct arphdr *arp, union macaddr *mac),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -49,12 +49,12 @@ static __always_inline int arp_check(struct ethhdr *eth,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 32,
  Endline: 49,
  Funcname: arp_prepare_response,
  Input: (struct  __ctx_buff *ctx, union macaddr *smac, __be32 sip, union macaddr *dmac, __be32 tip),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -85,12 +85,12 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 51,
  Endline: 73,
  Funcname: arp_validate,
  Input: (const struct  __ctx_buff *ctx, union macaddr *mac, union macaddr *smac, __be32 *sip, __be32 *tip),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -126,12 +126,12 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/arp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
  Startline: 75,
  Endline: 90,
  Funcname: arp_respond,
  Input: (struct  __ctx_buff *ctx, union macaddr *smac, __be32 sip, union macaddr *dmac, __be32 tip, int direction),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],

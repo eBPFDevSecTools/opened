@@ -276,12 +276,12 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/maps.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/maps.h,
  Startline: 276,
  Endline: 280,
  Funcname: ep_tail_call,
  Input: (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [tail_call,],
  Read_maps: [],
  Update_maps: [],

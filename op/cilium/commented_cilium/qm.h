@@ -9,12 +9,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/qm.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/qm.h,
  Startline: 9,
  Endline: 22,
  Funcname: reset_queue_mapping,
  Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: void,
+ Output: staticinlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

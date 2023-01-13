@@ -18,12 +18,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 18,
  Endline: 40,
  Funcname: encap_and_redirect_nomark_ipsec,
  Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -59,12 +59,12 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 42,
  Endline: 57,
  Funcname: encap_and_redirect_ipsec,
  Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -94,12 +94,12 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 60,
  Endline: 117,
  Funcname: encap_remap_v6_host_address,
  Input: (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [csum_diff,],
  Read_maps: [],
  Update_maps: [],
@@ -170,12 +170,12 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 119,
  Endline: 154,
  Funcname: __encap_with_nodeid,
  Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -224,12 +224,12 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 156,
  Endline: 167,
  Funcname: __encap_and_redirect_with_nodeid,
  Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -259,12 +259,12 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 174,
  Endline: 185,
  Funcname: encap_and_redirect_with_nodeid,
  Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -299,13 +299,13 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 197,
  Endline: 242,
  Funcname: encap_and_redirect_lxc,
  Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace),
- Output: int,
- Helpers: [map_lookup_elem,redirect,],
+ Output: static__always_inlineint,
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [  TUNNEL_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -363,13 +363,13 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encap.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
  Startline: 244,
  Endline: 264,
  Funcname: encap_and_redirect_netdev,
  Input: (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace),
- Output: int,
- Helpers: [map_lookup_elem,redirect,],
+ Output: static__always_inlineint,
+ Helpers: [redirect,map_lookup_elem,],
  Read_maps: [  TUNNEL_MAP,],
  Update_maps: [],
  Func Description: TO BE ADDED, 

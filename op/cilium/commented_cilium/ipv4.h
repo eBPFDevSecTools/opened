@@ -35,12 +35,12 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 35,
  Endline: 39,
  Funcname: ipv4_load_daddr,
  Input: (struct  __ctx_buff *ctx, int off, __u32 *dst),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -58,12 +58,12 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 41,
  Endline: 55,
  Funcname: ipv4_dec_ttl,
  Input: (struct  __ctx_buff *ctx, int off, const struct iphdr *ip4),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [l3_csum_replace,],
  Read_maps: [],
  Update_maps: [],
@@ -91,12 +91,12 @@ static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 57,
  Endline: 60,
  Funcname: ipv4_hdrlen,
  Input: (const struct iphdr *ip4),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -113,12 +113,12 @@ static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 62,
  Endline: 74,
  Funcname: ipv4_is_fragment,
  Input: (const struct iphdr *ip4),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -144,12 +144,12 @@ static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 76,
  Endline: 80,
  Funcname: ipv4_is_not_first_fragment,
  Input: (const struct iphdr *ip4),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -168,12 +168,12 @@ static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 83,
  Endline: 86,
  Funcname: ipv4_has_l4_header,
  Input: (const struct iphdr *ip4),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -190,12 +190,12 @@ static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 88,
  Endline: 92,
  Funcname: ipv4_is_in_subnet,
  Input: (__be32 addr, __be32 subnet, int prefixlen),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -214,12 +214,12 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 95,
  Endline: 108,
  Funcname: ipv4_frag_get_l4ports,
  Input: (const struct ipv4_frag_id *frag_id, struct ipv4_frag_l4ports *ports),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [map_lookup_elem,],
  Read_maps: [  IPV4_FRAG_DATAGRAMS_MAP,],
  Update_maps: [],
@@ -246,12 +246,12 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
  Startline: 110,
  Endline: 161,
  Funcname: ipv4_handle_fragmentation,
  Input: (struct  __ctx_buff *ctx, const struct iphdr *ip4, int l4_off, enum ct_dir ct_dir, struct ipv4_frag_l4ports *ports, bool *has_l4_header),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [map_update_elem,],
  Read_maps: [],
  Update_maps: [ IPV4_FRAG_DATAGRAMS_MAP,],

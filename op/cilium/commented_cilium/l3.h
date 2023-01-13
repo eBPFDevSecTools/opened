@@ -18,12 +18,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 18,
  Endline: 38,
  Funcname: ipv6_l3,
  Input: (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, __u8 direction),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -58,12 +58,12 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 41,
  Endline: 56,
  Funcname: ipv4_l3,
  Input: (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, struct iphdr *ip4),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -99,13 +99,13 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 65,
  Endline: 106,
  Funcname: ipv6_local_delivery,
  Input: (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, const struct endpoint_info *ep, __u8 direction, bool from_host __maybe_unused),
- Output: int,
- Helpers: [redirect,tail_call,],
+ Output: static__always_inlineint,
+ Helpers: [tail_call,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -165,13 +165,13 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 114,
  Endline: 154,
  Funcname: ipv4_local_delivery,
  Input: (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, struct iphdr *ip4, const struct endpoint_info *ep, __u8 direction __maybe_unused, bool from_host __maybe_unused),
- Output: int,
- Helpers: [redirect,tail_call,],
+ Output: static__always_inlineint,
+ Helpers: [tail_call,redirect,],
  Read_maps: [],
  Update_maps: [],
  Func Description: TO BE ADDED, 
@@ -225,12 +225,12 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/l3.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
  Startline: 157,
  Endline: 185,
  Funcname: get_min_encrypt_key,
  Input: (__u8 peer_key __maybe_unused),
- Output: __u8,
+ Output: static__always_inline__u8,
  Helpers: [map_lookup_elem,],
  Read_maps: [  ENCRYPT_MAP,],
  Update_maps: [],

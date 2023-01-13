@@ -15,12 +15,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h,
  Startline: 15,
  Endline: 75,
  Funcname: do_decrypt,
  Input: (struct  __ctx_buff *ctx, __u16 proto),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -94,12 +94,12 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h,
  Startline: 77,
  Endline: 81,
  Funcname: do_decrypt,
  Input: (struct  __ctx_buff  __maybe_unused *ctx, __u16 __maybe_unused proto),
- Output: int,
+ Output: static__always_inlineint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

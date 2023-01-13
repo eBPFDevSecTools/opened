@@ -86,12 +86,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/compiler.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/compiler.h,
  Startline: 86,
  Endline: 93,
  Funcname: bpf_barrier,
  Input: (void),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

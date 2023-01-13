@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/katran/healthchecking_helpers.h" funcheader="static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6)" startline="37" endline="77">
+<source file="/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h" funcheader="static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6)" startline="37" endline="77">
 static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6)
 {
     void *iphdr = (void *) (long) skb->data + sizeof (struct ethhdr);
@@ -43,7 +43,7 @@ static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hcke
     return true;
 }
 </source>
-<source file="/root/examples/katran/healthchecking_helpers.h" funcheader="static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)" startline="79" endline="139">
+<source file="/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h" funcheader="static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)" startline="79" endline="139">
 static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)
 {
     struct hc_real_definition *src;
@@ -95,13 +95,13 @@ static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definit
     return true;
 }
 </source>
-<source file="/root/examples/katran/healthchecking_helpers.h" funcheader="static inline __u16 gue_sport (__u32 seed)" startline="141" endline="143">
+<source file="/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h" funcheader="static inline __u16 gue_sport (__u32 seed)" startline="141" endline="143">
 static inline __u16 gue_sport (__u32 seed)
 {
     return (__u16) ((seed ^ (seed >> 16)) & 0xFFFF);
 }
 </source>
-<source file="/root/examples/katran/healthchecking_helpers.h" funcheader="static inline bool hc_encap_gue (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)" startline="145" endline="213">
+<source file="/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h" funcheader="static inline bool hc_encap_gue (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)" startline="145" endline="213">
 static inline bool hc_encap_gue (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)
 {
     struct hc_real_definition *src;

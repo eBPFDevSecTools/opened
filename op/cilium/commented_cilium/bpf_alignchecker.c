@@ -44,7 +44,7 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/bpf_alignchecker.c,
+ File: /home/sayandes/opened_extraction/examples/cilium/bpf_alignchecker.c,
  Startline: 44,
  Endline: 99,
  Funcname: main,

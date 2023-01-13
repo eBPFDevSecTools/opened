@@ -11,13 +11,13 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/custom/bytecount.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/custom/bytecount.h,
  Startline: 11,
  Endline: 24,
  Funcname: custom_prog,
  Input: (const struct  __ctx_buff *ctx, __u32 identity),
- Output: void,
- Helpers: [map_lookup_elem,map_update_elem,],
+ Output: static__always_inlinevoid,
+ Helpers: [map_update_elem,map_lookup_elem,],
  Read_maps: [  bytecount_map,],
  Update_maps: [ bytecount_map,],
  Func Description: TO BE ADDED, 

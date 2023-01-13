@@ -16,12 +16,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
  Startline: 16,
  Endline: 19,
  Funcname: *ctx_data,
  Input: (const struct  __ctx_buff *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -38,12 +38,12 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
  Startline: 21,
  Endline: 24,
  Funcname: *ctx_data_meta,
  Input: (const struct  __ctx_buff *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -60,12 +60,12 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
  Startline: 26,
  Endline: 29,
  Funcname: *ctx_data_end,
  Input: (const struct  __ctx_buff *ctx),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -82,12 +82,12 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
  Startline: 31,
  Endline: 34,
  Funcname: ctx_no_room,
  Input: (const void *needed, const void *limit),
- Output: bool,
+ Output: static__always_inlinebool,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

@@ -34,12 +34,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 34,
  Endline: 60,
  Funcname: xdp_load_bytes,
  Input: (const struct xdp_md *ctx, __u64 off, void *to, const __u64 len),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -79,12 +79,12 @@ xdp_load_bytes(const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 62,
  Endline: 86,
  Funcname: xdp_store_bytes,
  Input: (const struct xdp_md *ctx, __u64 off, const void *from, const __u64 len, __u64 flags __maybe_unused),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -144,12 +144,12 @@ xdp_store_bytes(const struct xdp_md *ctx, __u64 off, const void *from,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 110,
  Endline: 114,
  Funcname: __csum_replace_by_diff,
  Input: (__sum16 *sum, __wsum diff),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -167,12 +167,12 @@ __csum_replace_by_diff(__sum16 *sum, __wsum diff)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 116,
  Endline: 120,
  Funcname: __csum_replace_by_4,
  Input: (__sum16 *sum, __wsum from, __wsum to),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -190,12 +190,12 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 122,
  Endline: 154,
  Funcname: l3_csum_replace,
  Input: (const struct xdp_md *ctx, __u64 off, const __u32 from, __u32 to, __u32 flags),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [l3_csum_replace,],
  Read_maps: [],
  Update_maps: [],
@@ -243,12 +243,12 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 158,
  Endline: 196,
  Funcname: l4_csum_replace,
  Input: (const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to, __u32 flags),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [l4_csum_replace,],
  Read_maps: [],
  Update_maps: [],
@@ -300,12 +300,12 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 198,
  Endline: 234,
  Funcname: ctx_change_proto,
  Input: (struct xdp_md * ctx __maybe_unused, const __be16 proto __maybe_unused, const __u64 flags __maybe_unused),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [xdp_adjust_head,],
  Read_maps: [],
  Update_maps: [],
@@ -355,12 +355,12 @@ ctx_change_proto(struct xdp_md *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 236,
  Endline: 240,
  Funcname: ctx_adjust_troom,
  Input: (struct xdp_md *ctx, const __s32 len_diff),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [xdp_adjust_tail,],
  Read_maps: [],
  Update_maps: [],
@@ -378,12 +378,12 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 242,
  Endline: 289,
  Funcname: ctx_adjust_hroom,
  Input: (struct xdp_md *ctx, const __s32 len_diff, const __u32 mode, const __u64 flags __maybe_unused),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [xdp_adjust_head,],
  Read_maps: [],
  Update_maps: [],
@@ -444,12 +444,12 @@ ctx_adjust_hroom(struct xdp_md *ctx, const __s32 len_diff, const __u32 mode,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 291,
  Endline: 298,
  Funcname: ctx_redirect,
  Input: (const struct xdp_md *ctx, int ifindex, const __u32 flags),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -470,12 +470,12 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 300,
  Endline: 307,
  Funcname: ctx_redirect_peer,
  Input: (const struct xdp_md * ctx __maybe_unused, int ifindex __maybe_unused, const __u32 flags __maybe_unused),
- Output: int,
+ Output: static__always_inline__maybe_unusedint,
  Helpers: [redirect,],
  Read_maps: [],
  Update_maps: [],
@@ -496,12 +496,12 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 309,
  Endline: 314,
  Funcname: ctx_full_len,
  Input: (const struct xdp_md *ctx),
- Output: __u64,
+ Output: static__always_inline__maybe_unused__u64,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -520,12 +520,12 @@ ctx_full_len(const struct xdp_md *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 316,
  Endline: 320,
  Funcname: ctx_wire_len,
  Input: (const struct xdp_md *ctx),
- Output: __u32,
+ Output: static__always_inline__maybe_unused__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -551,12 +551,12 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 330,
  Endline: 338,
  Funcname: ctx_store_meta,
  Input: (struct xdp_md * ctx __maybe_unused, const __u64 off, __u32 datum),
- Output: void,
+ Output: static__always_inline__maybe_unusedvoid,
  Helpers: [map_lookup_elem,],
  Read_maps: [ cilium_xdp_scratch,],
  Update_maps: [],
@@ -578,12 +578,12 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 340,
  Endline: 349,
  Funcname: ctx_load_meta,
  Input: (const struct xdp_md * ctx __maybe_unused, const __u64 off),
- Output: __u32,
+ Output: static__always_inline__maybe_unused__u32,
  Helpers: [map_lookup_elem,],
  Read_maps: [ cilium_xdp_scratch,],
  Update_maps: [],
@@ -606,12 +606,12 @@ ctx_load_meta(const struct xdp_md *ctx __maybe_unused, const __u64 off)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 351,
  Endline: 361,
  Funcname: ctx_get_protocol,
  Input: (const struct xdp_md *ctx),
- Output: __u16,
+ Output: static__always_inline__maybe_unused__u16,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],
@@ -635,12 +635,12 @@ ctx_get_protocol(const struct xdp_md *ctx)
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
  Startline: 363,
  Endline: 367,
  Funcname: ctx_get_ifindex,
  Input: (const struct xdp_md *ctx),
- Output: __u32,
+ Output: static__always_inline__maybe_unused__u32,
  Helpers: [],
  Read_maps: [],
  Update_maps: [],

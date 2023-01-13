@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badmapptr.c" funcheader="int test_repro (void *ctx)" startline="28" endline="40">
+int test_repro (void *ctx)
+{
+    uint32_t key = 1;
+    bpf_map_def_t *map = &test_map;
+    uint32_t *value = ebpf_map_lookup_elem (map + 1, &key);
+    return (value != 0);
+}
+</source>
+</doc>

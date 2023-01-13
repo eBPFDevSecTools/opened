@@ -45,16 +45,76 @@ struct {
 SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /root/examples/katran/xdp_pktcntr.c,
- Startline: 46,
- Endline: 62,
- Funcname: pktcntr,
- Input: (struct xdp_md *ctx),
- Output: int,
- Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ ctl_array, cntrs_array,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "pkt_go_to_next_module": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"  __u32* flag \",\n \"inpVar\": [\n  \" &ctl_array\",\n  \" &ctl_flag_pos\"\n ]\n}",
+      "{\n \"opVar\": \"  __u64* cntr_val \",\n \"inpVar\": [\n  \" &cntrs_array\",\n  \" &cntr_pos\"\n ]\n}"
+    ]
+  },
+  "startLine": 46,
+  "endLine": 62,
+  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
+  "Funcname": "pktcntr",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    " cntrs_array",
+    " ctl_array",
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *ctx"
+  ],
+  "Output": "int",
+  "Helper": "bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

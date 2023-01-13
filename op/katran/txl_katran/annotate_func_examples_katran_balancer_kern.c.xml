@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline bool is_under_flood (__u64 *cur_time)" startline="25" endline="50">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline bool is_under_flood (__u64 *cur_time)" startline="25" endline="50">
 static inline bool is_under_flood (__u64 *cur_time)
 {
     __u32 conn_rate_key = MAX_VIPS + NEW_CONN_RATE_CNTR;
@@ -22,7 +22,7 @@ static inline bool is_under_flood (__u64 *cur_time)
     return false;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline bool get_packet_dst (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map)" startline="53" endline="131">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline bool get_packet_dst (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map)" startline="53" endline="131">
 static inline bool get_packet_dst (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map)
 {
     struct real_pos_lru new_dst_lru = {}
@@ -98,7 +98,7 @@ static inline bool get_packet_dst (struct real_definition **real, struct packet_
     return true;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline void connection_table_lookup (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru)" startline="133" endline="156">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline void connection_table_lookup (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru)" startline="133" endline="156">
 static inline void connection_table_lookup (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru)
 {
     struct real_pos_lru *dst_lru;
@@ -121,7 +121,7 @@ static inline void connection_table_lookup (struct real_definition **real, struc
     return;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)" startline="158" endline="230">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)" startline="158" endline="230">
 static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)
 {
     __u64 iph_len;
@@ -184,7 +184,7 @@ static inline int process_l3_headers (struct packet_description *pckt, __u8 *pro
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline int check_decap_dst (struct packet_description *pckt, bool is_ipv6, bool *pass)" startline="233" endline="255">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline int check_decap_dst (struct packet_description *pckt, bool is_ipv6, bool *pass)" startline="233" endline="255">
 static inline int check_decap_dst (struct packet_description *pckt, bool is_ipv6, bool *pass)
 {
     struct address dst_addr = {}
@@ -209,7 +209,7 @@ static inline int check_decap_dst (struct packet_description *pckt, bool is_ipv6
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline bool reals_have_same_addr (struct real_definition *a, struct real_definition *b)" startline="261" endline="277">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline bool reals_have_same_addr (struct real_definition *a, struct real_definition *b)" startline="261" endline="277">
 static inline bool reals_have_same_addr (struct real_definition *a, struct real_definition *b)
 {
     if (a->flags != b->flags) {
@@ -228,7 +228,7 @@ static inline bool reals_have_same_addr (struct real_definition *a, struct real_
     }
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline int perform_global_lru_lookup (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6)" startline="279" endline="335">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline int perform_global_lru_lookup (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6)" startline="279" endline="335">
 static inline int perform_global_lru_lookup (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6)
 {
     void *g_lru_map = bpf_map_lookup_elem (&global_lru_maps, &cpu_num);
@@ -261,7 +261,7 @@ static inline int perform_global_lru_lookup (struct real_definition **dst, struc
     return FURTHER_PROCESSING;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, __u8 *protocol, bool pass)" startline="340" endline="387">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, __u8 *protocol, bool pass)" startline="340" endline="387">
 static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, __u8 *protocol, bool pass)
 {
     int action;
@@ -307,7 +307,7 @@ static inline int process_encaped_ipip_pckt (void **data, void **data_end, struc
     return recirculate (xdp);
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6, bool pass)" startline="391" endline="441">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6, bool pass)" startline="391" endline="441">
 static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6, bool pass)
 {
     int offset = 0;
@@ -352,7 +352,7 @@ static inline int process_encaped_gue_pckt (void **data, void **data_end, struct
     return recirculate (xdp);
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline void increment_quic_cid_version_stats (int host_id)" startline="444" endline="457">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline void increment_quic_cid_version_stats (int host_id)" startline="444" endline="457">
 static inline void increment_quic_cid_version_stats (int host_id)
 {
     __u32 quic_version_stats_key = MAX_VIPS + QUIC_CID_VERSION_STATS;
@@ -368,7 +368,7 @@ static inline void increment_quic_cid_version_stats (int host_id)
     }
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline void increment_quic_cid_drop_no_real ()" startline="459" endline="468">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline void increment_quic_cid_drop_no_real ()" startline="459" endline="468">
 static inline void increment_quic_cid_drop_no_real ()
 {
     __u32 quic_drop_stats_key = MAX_VIPS + QUIC_CID_DROP_STATS;
@@ -379,7 +379,7 @@ static inline void increment_quic_cid_drop_no_real ()
     quic_drop->v1 += 1;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline void increment_quic_cid_drop_real_0 ()" startline="470" endline="478">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline void increment_quic_cid_drop_real_0 ()" startline="470" endline="478">
 static inline void increment_quic_cid_drop_real_0 ()
 {
     __u32 quic_drop_stats_key = MAX_VIPS + QUIC_CID_DROP_STATS;
@@ -390,7 +390,7 @@ static inline void increment_quic_cid_drop_real_0 ()
     quic_drop->v2 += 1;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline int process_packet (struct xdp_md *xdp, __u64 off, bool is_ipv6)" startline="480" endline="791">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline int process_packet (struct xdp_md *xdp, __u64 off, bool is_ipv6)" startline="480" endline="791">
 static inline int process_packet (struct xdp_md *xdp, __u64 off, bool is_ipv6)
 {
     void *data = (void *) (long) xdp->data;
@@ -649,7 +649,7 @@ static inline int process_packet (struct xdp_md *xdp, __u64 off, bool is_ipv6)
     return XDP_TX;
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="int balancer_ingress (struct xdp_md *ctx)" startline="794" endline="817">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="int balancer_ingress (struct xdp_md *ctx)" startline="794" endline="817">
 int balancer_ingress (struct xdp_md *ctx)
 {
     void *data = (void *) (long) ctx->data;
@@ -673,7 +673,7 @@ int balancer_ingress (struct xdp_md *ctx)
     }
 }
 </source>
-<source file="/root/examples/katran/balancer_kern.c" funcheader="static inline __u32 get_packet_hash (struct packet_description *pckt, bool hash_16bytes)" startline="818" endline="827">
+<source file="/home/sayandes/opened_extraction/examples/katran/balancer_kern.c" funcheader="static inline __u32 get_packet_hash (struct packet_description *pckt, bool hash_16bytes)" startline="818" endline="827">
 static inline __u32 get_packet_hash (struct packet_description *pckt, bool hash_16bytes)
 {
     if (hash_16bytes) {

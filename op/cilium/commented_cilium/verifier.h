@@ -13,12 +13,12 @@
 /* 
  OPENED COMMENT BEGIN 
  { 
- File: /home/palani/github/opened_extraction/examples/cilium/include/bpf/verifier.h,
+ File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h,
  Startline: 13,
  Endline: 18,
  Funcname: relax_verifier,
  Input: (void),
- Output: void,
+ Output: static__always_inlinevoid,
  Helpers: [get_smp_processor_id,],
  Read_maps: [],
  Update_maps: [],
