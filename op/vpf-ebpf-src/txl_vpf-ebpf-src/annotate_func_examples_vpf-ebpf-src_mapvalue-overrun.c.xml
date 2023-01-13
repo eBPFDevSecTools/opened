@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapvalue-overrun.c" funcheader="int func (void *ctx)" startline="26" endline="39">
+int func (void *ctx)
+{
+    uint32_t key = 1;
+    uint64_t *ptr = bpf_map_lookup_elem (&map, &key);
+    if (ptr == 0) {
+        return 0;
+    }
+    uint64_t i = *ptr;
+    return (uint32_t) i;
+}
+</source>
+</doc>
