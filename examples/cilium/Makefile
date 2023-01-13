@@ -19,9 +19,12 @@ BPF_ASM := $(patsubst %.o,%.s,$(BPF))
 
 #ebpf3
 #ebpf1
-#BASEDIR=/home/sayandes/
+BASEDIR=/home/sayandes/
 CLANG=clang
 LLC=llc
+CLANG=$(BASEDIR)/katran/_build//deps/clang/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/clang 
+LLC=$(BASEDIR)/katran/_build//deps/clang/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/llc
+
 INCLUDE_LOCAL=$(ROOT_DIR)/include
 INCLUDE_LOCAL_LIB=$(ROOT_DIR)/lib
 INLCUDE_SYS=/usr/include
@@ -36,7 +39,7 @@ $(XDP_OBJ): %.o: %.c
 	$(CLANG) $(FLAGS)  $(BPF_CFLAGS) \
 	-DSKIP_DEBUG -D__KERNEL__ -Wno-unused-value -Wno-pointer-sign \
         -Wno-compare-distinct-pointer-types \
-	-O2 -emit-llvm -c -g -o  ${@:.o=.ll} $<
+	-O2 -target bpf -std=gnu89   -emit-llvm -c -g -o  ${@:.o=.ll} $<
 	$(LLC) -march=bpf -filetype=obj -o $@ ${@:.o=.ll}
 clean:
 	rm *.o *.ll
