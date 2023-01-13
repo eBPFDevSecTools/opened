@@ -124,7 +124,7 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium):
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
-def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict):
+def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_dict, isCilium):
     print("Read cscope files and generate function annotation ...")
     txl_dict_func_file = {}
     code_f = open(cscope_file,'r')
@@ -144,7 +144,7 @@ def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_di
         print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
         op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
-        func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict)
+        func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict, isCilium)
         map_file_def_dict = parseTXLStructOutputFile(opfile_struct_annotate, map_file_def_dict)
         txl_dict_func_file[full_line] = opfile_function_annotate
     return func_file_def_dict, txl_dict_func_file, map_file_def_dict
@@ -290,7 +290,7 @@ if __name__ == "__main__":
 
     txl_dict_struct = defaultdict(list)
     txl_dict_func = defaultdict(list)
-    txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct)
+    txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct, isCilium)
     if (cmt_op_dir is not None):
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
