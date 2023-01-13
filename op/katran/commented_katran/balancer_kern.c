@@ -76,8 +76,8 @@ __attribute__((__always_inline__))
  Funcname: get_packet_dst,
  Input: (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map),
  Output: staticinlinebool,
- Helpers: [bpf_map_lookup_elem,bpf_map_update_elem,],
- Read_maps: [  lpm_src_v4,  ch_rings, reals,  lpm_src_v6, stats,],
+ Helpers: [bpf_map_update_elem,bpf_map_lookup_elem,],
+ Read_maps: [  ch_rings, stats, reals,  lpm_src_v6,  lpm_src_v4,],
  Update_maps: [ lru_map,],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -174,7 +174,7 @@ __attribute__((__always_inline__))
  Input: (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru),
  Output: staticinlinevoid,
  Helpers: [bpf_ktime_get_ns,bpf_map_lookup_elem,],
- Read_maps: [ lru_map, reals,],
+ Read_maps: [ reals, lru_map,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -308,7 +308,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
  Input: (struct packet_description *pckt, bool is_ipv6, bool *pass),
  Output: staticinlineint,
  Helpers: [bpf_map_lookup_elem,],
- Read_maps: [  stats, decap_dst,],
+ Read_maps: [ decap_dst,  stats,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -388,7 +388,7 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
  Input: (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6),
  Output: staticinlineint,
  Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ stats, global_lru_maps,],
+ Read_maps: [ global_lru_maps, stats,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
@@ -690,8 +690,8 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
  Funcname: process_packet,
  Input: (struct xdp_md *xdp, __u64 off, bool is_ipv6),
  Output: staticinlineint,
- Helpers: [bpf_map_lookup_elem,bpf_get_smp_processor_id,],
- Read_maps: [  stats, lru_mapping,  vip_map, server_id_map,  reals_stats,  ctl_array, stats,  reals,],
+ Helpers: [bpf_get_smp_processor_id,bpf_map_lookup_elem,],
+ Read_maps: [ stats, lru_mapping,  vip_map,  reals_stats,  reals,  stats, server_id_map,  ctl_array,],
  Update_maps: [],
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
