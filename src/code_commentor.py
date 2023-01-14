@@ -3,53 +3,9 @@ import os
 import json
 
 import argparse
-
-def load_bpf_helper_map(fname):
-    with open(fname, 'r') as f:
-        data = json.load(f)
-    return data
+import summarizer as sm
 
 
-def check_and_return_helper_present(my_dict,line):
-    for key in my_dict.keys():
-        if line.find(key)>=0:
-            return key
-    return None
-
-def get_helper_encoding(lines,helperdict):
-    helper_set= set()
-    for line in lines:
-        present=check_and_return_helper_present(helperdict,line)
-        if present != None:
-            helper_set.add(present)
-    str =  ""
-    for helper in helper_set:
-        str = str + helper +","
-    return str
-
-
-def set_to_string(my_set):
-    str =  ""
-    for elem in my_set:
-        str = str + elem +","
-    return str
-
-
-def get_read_maps(lines, map_read_fn):
-    map_read_set=set()
-    for line in lines:
-        mapname= check_map_access(map_read_fn,line)
-        if mapname != None:
-            map_read_set.add(mapname)
-    return set_to_string(map_read_set)
-            
-def get_update_maps(lines, map_update_fn):
-    map_update_set=set()
-    for line in lines:
-        mapname= check_map_access(map_update_fn,line)
-        if mapname != None:
-            map_update_set.add(mapname)
-    return set_to_string(map_update_set)
 
 def dump_comment(fname,startLineDict, ofname):
     if fname  == "":
@@ -100,9 +56,9 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcSeen = False;
             #dump to file
             #print(lines)
-            encoding = get_helper_encoding(lines,helperdict)
-            read_maps=get_read_maps(lines, map_read_fn)
-            update_maps=get_update_maps(lines, map_update_fn)
+            encoding = sm.get_helper_encoding(lines,helperdict)
+            read_maps= sm.get_read_maps(lines, map_read_fn)
+            update_maps= sm.get_update_maps(lines, map_update_fn)
             #print("Encoding: ",encoding)
             comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps)
             #dump_comment(srcFile,startLine,comment)
@@ -193,7 +149,7 @@ if __name__ =="__main__":
     if txlFile.endswith(".xml"):
         bpf_helper_file= args.bpfHelperFile #'./helper_hookpoint_map.json'
         startLineDict = {}
-        helperdict = load_bpf_helper_map(bpf_helper_file)
+        helperdict = sm.load_bpf_helper_map(bpf_helper_file)
         if(isCilium == False):
             map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
             map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]

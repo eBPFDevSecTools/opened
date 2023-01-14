@@ -150,7 +150,9 @@ def append_helper_details(line, helper, helper_set, helperCallParams):
         rest = line
     rest = rest.replace(helper,"").replace("(","").replace(")","")
     details_dict["inpVar"] = rest.split(",")
-    helperCallParams[helper].append(json.dumps(details_dict,indent=1))
+    #helperCallParams[helper].append(json.dumps(details_dict,indent=1))
+    helperCallParams[helper].append(details_dict)
+
 def append_return_details(ret_type, rettypedict, ret_set):
     #print("RETURN TYPE: "+ret_type+" value: "+str(rettypedict[ret_type]))
     ret_set.add(ret_type)
