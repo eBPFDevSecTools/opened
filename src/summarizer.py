@@ -55,7 +55,21 @@ def generate_capabilities(helper_list,cap_dict):
             #capabilities[cap_name]=set_to_string(helpers)
             capabilities[cap_name]=helpers
     return capabilities
-        
+
+def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
+    hook_set = None
+    for helper in helpers:
+        hookpoint_list = helper_hookpoint_dict[helper]
+        #print(hookpoint_list)
+        hookpoints = hookpoint_list.split(",")
+        helper_set=set(hookpoints)
+        if hook_set == None:
+            hook_set = helper_set
+        else:
+            hook_set = hook_set.intersection(helper_set)
+
+    return list(hook_set)
+
 '''
 #Sample:
 #capability,map_read
