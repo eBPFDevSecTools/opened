@@ -8,6 +8,14 @@ import json
 import summarizer as smt
 import argparse
 from collections import defaultdict
+from tinydb import TinyDB
+
+def insert_to_db(db,startLineDict):
+    for comment_dict in startLineDict.values():
+        comment_json = json.dumps(comment_dict)
+        print("Adding comments: "+ comment_json +" to DB ")
+        db.insert(comment_json)
+
 
 def dump_comment(fname,startLineDict, ofname):
     if fname  == "":
@@ -20,7 +28,7 @@ def dump_comment(fname,startLineDict, ofname):
     for line in ifile.readlines():
         ct=ct + 1
         if ct in startLineDict:
-            ofile.write(startLineDict.get(ct))
+            ofile.write(startLineDict.get(ct))    
         ofile.write(line)
     ofile.flush()
     ofile.close()
@@ -33,7 +41,7 @@ def generate_comment(capability_dict):
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -135,6 +143,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
         #print("Going to call dump_comment for: "+srcFile)
         #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
+        insert_to_db(comments_db,startLineDict)
 
         
         #print("XML: ",inputFile," StartLineDict: ",startLineDict)
