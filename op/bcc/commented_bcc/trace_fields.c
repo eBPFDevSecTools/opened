@@ -1,16 +1,47 @@
 //int hello (void *ctx)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/trace_fields.c,
- Startline: 2,
- Endline: 6,
- Funcname: hello,
- Input: (NA),
- Output: int,
- Helpers: [bpf_trace_printk,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_trace_printk": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t     \\\"Hello\",\n  \" World!\\\\\\\\n\\\"\"\n ]\n}"
+    ]
+  },
+  "startLine": 2,
+  "endLine": 6,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/trace_fields.c",
+  "Funcname": "hello",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "NA"
+  ],
+  "Output": "int",
+  "Helper": "bpf_trace_printk,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

@@ -28,16 +28,63 @@ struct ctx;
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c,
- Startline: 29,
- Endline: 48,
- Funcname: func,
- Input: (struct ctx *ctx),
- Output: int,
- Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"    uint8_t* map_value \",\n \"inpVar\": [\n  \" uint8_t*&map\",\n  \" &map_key\"\n ]\n}"
+    ]
+  },
+  "startLine": 29,
+  "endLine": 48,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
+  "Funcname": "func",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    " map",
+    ""
+  ],
+  "Input": [
+    "struct ctx *ctx"
+  ],
+  "Output": "int",
+  "Helper": "bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

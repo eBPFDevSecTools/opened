@@ -88,16 +88,112 @@ struct {
 SEC("tc")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c,
- Startline: 89,
- Endline: 157,
- Funcname: healthcheck_encap,
- Input: (struct  __sk_buff *skb),
- Output: int,
- Helpers: [bpf_skb_set_tunnel_key,bpf_redirect,bpf_map_lookup_elem,],
- Read_maps: [ hc_reals_map, hc_ctrl_map,  hc_stats_map,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "update_pkt": [
+        {
+          "Description": "Populate tunnel metadata for packet associated to skb. The tunnel metadata is set to the contents of <[ key ]>(IP: 1) , of size. The <[ flags ]>(IP: 3) can be set to a combination of the following values:BPF_F_TUNINFO_IPV6Indicate that the tunnel is based on IPv6 protocol instead of IPv4. BPF_F_ZERO_CSUM_TXFor IPv4 packets , add a flag to tunnel metadata indicating that checksum computation should be skipped and checksum set to zeroes. BPF_F_DONT_FRAGMENTAdd a flag to tunnel metadata indicating that the packet should not be fragmented. BPF_F_SEQ_NUMBERAdd a flag to tunnel metadata indicating that a sequence number should be added to tunnel header before sending the packet. This flag was added for GRE encapsulation , but might be used with other protocols as well in the future. Here is a typical usage on the transmit path:struct bpf_tunnel_key key; populate <[ key ]>(IP: 1) . . . bpf_skb_set_tunnel_key(skb , &key , sizeof(key) , 0);bpf_clone_redirect(skb , vxlan_dev_ifindex , 0);See also the description of the bpf_skb_get_tunnel_key() helper for additional information. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_skb_set_tunnel_key",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  struct bpf_tunnel_key ,Var: *key}",
+            "{Type:  u32 ,Var: size}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    },
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\"."
+        }
+      ]
+    },
+    {
+      "pkt_go_to_next_module": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_UNSPEC",
+          "Return": -1,
+          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"  prog_stats \",\n \"inpVar\": [\n  \" &hc_stats_map\",\n  \" &stats_key\"\n ]\n}",
+      "{\n \"opVar\": \"    struct hc_real_definition* real \",\n \"inpVar\": [\n  \" &hc_reals_map\",\n  \" &somark\"\n ]\n}",
+      "{\n \"opVar\": \"    __u32* v4_intf_ifindex \",\n \"inpVar\": [\n  \" &hc_ctrl_map\",\n  \" &v4_intf_pos\"\n ]\n}",
+      "{\n \"opVar\": \"    __u32* v6_intf_ifindex \",\n \"inpVar\": [\n  \" &hc_ctrl_map\",\n  \" &v6_intf_pos\"\n ]\n}"
+    ],
+    "bpf_skb_set_tunnel_key": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  skb\",\n  \" &tkey\",\n  \" sizeoftkey\",\n  \" tun_flag\"\n ]\n}"
+    ],
+    "bpf_redirect": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  return ifindex\",\n  \" REDIRECT_EGRESS\"\n ]\n}"
+    ]
+  },
+  "startLine": 89,
+  "endLine": 157,
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
+  "Funcname": "healthcheck_encap",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    "  hc_stats_map",
+    " hc_reals_map",
+    " hc_ctrl_map",
+    ""
+  ],
+  "Input": [
+    "struct  __sk_buff *skb"
+  ],
+  "Output": "int",
+  "Helper": "bpf_redirect,bpf_skb_set_tunnel_key,bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

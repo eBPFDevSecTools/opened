@@ -2,16 +2,48 @@
 BPF_HASH(start, u8, u8);
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c,
- Startline: 3,
- Endline: 11,
- Funcname: TRACEPOINT_PROBE,
- Input: (kvm, kvm_exit),
- Output: NA,
- Helpers: [bpf_trace_printk,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_trace_printk": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t\\t\\\"KVM_EXIT exit_reason : %d\\\\\\\\n\\\"\",\n  \" args->exit_reason\"\n ]\n}"
+    ]
+  },
+  "startLine": 3,
+  "endLine": 11,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
+  "Funcname": "TRACEPOINT_PROBE",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "kvm",
+    " kvm_exit"
+  ],
+  "Output": "NA",
+  "Helper": "bpf_trace_printk,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -28,16 +60,48 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c,
- Startline: 12,
- Endline: 21,
- Funcname: TRACEPOINT_PROBE,
- Input: (kvm, kvm_entry),
- Output: NA,
- Helpers: [bpf_trace_printk,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_trace_printk": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t\\t\\\"KVM_ENTRY vcpu_id : %u\\\\\\\\n\\\"\",\n  \" args->vcpu_id\"\n ]\n}"
+    ]
+  },
+  "startLine": 12,
+  "endLine": 21,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
+  "Funcname": "TRACEPOINT_PROBE",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "kvm",
+    " kvm_entry"
+  ],
+  "Output": "NA",
+  "Helper": "bpf_trace_printk,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -55,16 +119,48 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c,
- Startline: 22,
- Endline: 30,
- Funcname: TRACEPOINT_PROBE,
- Input: (kvm, kvm_hypercall),
- Output: NA,
- Helpers: [bpf_trace_printk,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {
+    "bpf_trace_printk": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t\\t\\\"HYPERCALL nr : %d\\\\\\\\n\\\"\",\n  \" args->nr\"\n ]\n}"
+    ]
+  },
+  "startLine": 22,
+  "endLine": 30,
+  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
+  "Funcname": "TRACEPOINT_PROBE",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "kvm",
+    " kvm_hypercall"
+  ],
+  "Output": "NA",
+  "Helper": "bpf_trace_printk,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

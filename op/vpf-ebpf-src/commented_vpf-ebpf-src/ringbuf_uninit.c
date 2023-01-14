@@ -23,16 +23,43 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c,
- Startline: 24,
- Endline: 32,
- Funcname: test,
- Input: (void *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 24,
+  "endLine": 32,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c",
+  "Funcname": "test",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *ctx"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

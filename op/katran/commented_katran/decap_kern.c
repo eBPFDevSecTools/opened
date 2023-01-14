@@ -33,16 +33,61 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
- Startline: 34,
- Endline: 83,
- Funcname: process_l3_headers,
- Input: (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6),
- Output: staticinlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
+  "startLine": 34,
+  "endLine": 83,
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "Funcname": "process_l3_headers",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct packet_description *pckt",
+    " __u8 *protocol",
+    " __u64 off",
+    " __u16 *pkt_bytes",
+    " void *data",
+    " void *data_end",
+    " bool is_ipv6"
+  ],
+  "Output": "staticinlineint",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -101,16 +146,62 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
- Startline: 85,
- Endline: 120,
- Funcname: process_encaped_ipip_pckt,
- Input: (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes),
- Output: staticinlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
+  "startLine": 85,
+  "endLine": 120,
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "Funcname": "process_encaped_ipip_pckt",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void **data",
+    " void **data_end",
+    " struct xdp_md *xdp",
+    " bool *is_ipv6",
+    " struct packet_description *pckt",
+    " __u8 *protocol",
+    " __u64 off",
+    " __u16 *pkt_bytes"
+  ],
+  "Output": "staticinlineint",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -156,16 +247,58 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 #ifdef INLINE_DECAP_GUE
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
- Startline: 123,
- Endline: 161,
- Funcname: process_encaped_gue_pckt,
- Input: (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6),
- Output: staticinlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
+  "startLine": 123,
+  "endLine": 161,
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "Funcname": "process_encaped_gue_pckt",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void **data",
+    " void **data_end",
+    " struct xdp_md *xdp",
+    " bool is_ipv6"
+  ],
+  "Output": "staticinlineint",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -214,16 +347,78 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
- Startline: 164,
- Endline: 221,
- Funcname: process_packet,
- Input: (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp),
- Output: staticinlineint,
- Helpers: [bpf_map_lookup_elem,],
- Read_maps: [  decap_counters,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "pkt_go_to_next_module": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"  data_stats \",\n \"inpVar\": [\n  \" &decap_counters\",\n  \" &key\"\n ]\n}"
+    ]
+  },
+  "startLine": 164,
+  "endLine": 221,
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "Funcname": "process_packet",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    "  decap_counters",
+    ""
+  ],
+  "Input": [
+    "void *data",
+    " __u64 off",
+    " void *data_end",
+    " bool is_ipv6",
+    " struct xdp_md *xdp"
+  ],
+  "Output": "staticinlineint",
+  "Helper": "bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -291,16 +486,66 @@ __attribute__((__always_inline__)) static inline int process_packet(
 SEC("decap")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/decap_kern.c,
- Startline: 224,
- Endline: 247,
- Funcname: xdpdecap,
- Input: (struct xdp_md *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
+        }
+      ]
+    },
+    {
+      "pkt_go_to_next_module": [
+        {
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
+  "startLine": 224,
+  "endLine": 247,
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "Funcname": "xdpdecap",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *ctx"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

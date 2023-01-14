@@ -27,16 +27,63 @@ bpf_map_def_t test_map = {
 #pragma clang section text = "test"
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c,
- Startline: 28,
- Endline: 40,
- Funcname: test_repro,
- Input: (void *ctx),
- Output: int,
- Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ test_map,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"    uint32_t* value \",\n \"inpVar\": [\n  \" e&test_map\",\n  \" &key\"\n ]\n}"
+    ]
+  },
+  "startLine": 28,
+  "endLine": 40,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
+  "Funcname": "test_repro",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    " test_map",
+    ""
+  ],
+  "Input": [
+    "void *ctx"
+  ],
+  "Output": "int",
+  "Helper": "bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

@@ -1,8 +1,40 @@
 import re
 import os
 import json
-
+import summarizer as smt
 import argparse
+from collections import defaultdict
+
+def load_bpf_helper_map(fname):
+    with open(fname, 'r') as f:
+        data = json.load(f)
+    return data
+
+
+def check_and_return_helper_present(my_dict,line):
+    for key in my_dict.keys():
+        if line.find(key)>=0:
+            return key
+    return None
+
+def get_helper_encoding(lines,helperdict):
+    helper_set= set()
+    for line in lines:
+        present=check_and_return_helper_present(helperdict,line)
+        if present != None:
+            helper_set.add(present)
+    return list(helper_set)
+    #str =  ""
+    #for helper in helper_set:
+    #    str = str + helper +","
+    #return str
+
+
+def set_to_string(my_set):
+    str =  ""
+    for elem in my_set:
+        str = str + elem +","
+    return str
 import summarizer as sm
 
 
@@ -34,14 +66,14 @@ def check_map_access(my_arr,line):
     return None
 
 
-def generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps):
-    comment="/* \n OPENED COMMENT BEGIN \n { \n File: "+srcFile + ",\n Startline: "+ str(startLine) + ",\n Endline: "+str(endLine) + ",\n Funcname: "+funcName + ",\n Input: ("+ funcArgs + "),\n Output: "+output + ",\n Helpers: [" + encoding + "]" + ",\n Read_maps: [" + read_maps + "],\n Update_maps: [" + update_maps + "],\n Func Description: TO BE ADDED, \n Commentor: TO BE ADDED (<name>,<email>) \n } \n OPENED COMMENT END \n */ \n"
-    #print("COMMENT File: ",srcFile, " startline: ",startLine," endline: ",endLine," funcname: ",funcName, "Input: (", funcArgs, ") Output: ",output, "Helpers: [",encoding,"]", "read_maps: [",read_maps,"] update_maps: [",update_maps,"]")
+
+def generate_comment(capability_dict):
+    comment="/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
     return comment
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -59,8 +91,37 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             encoding = sm.get_helper_encoding(lines,helperdict)
             read_maps= sm.get_read_maps(lines, map_read_fn)
             update_maps= sm.get_update_maps(lines, map_update_fn)
-            #print("Encoding: ",encoding)
-            comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps)
+            #print("funcName: ",funcName," srcFile: ",srcFile)
+            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
+            capability_dict['startLine'] = startLine
+            capability_dict['endLine'] = endLine
+            capability_dict['File'] = srcFile
+            capability_dict['Funcname'] = funcName
+            capability_dict['Update_maps'] = update_maps.split(",")
+            capability_dict['Read_maps'] = read_maps.split(",")
+            capability_dict['Input'] = funcArgs.split(',')
+            capability_dict['Output'] = output
+            capability_dict['Helper'] = encoding
+            func_desc_list = []
+            empty_desc = {}
+            empty_desc['description'] = ""
+            empty_desc['author'] = ""
+            empty_desc['author_email'] = ""
+            empty_desc['date'] = ""
+
+            func_desc_list.append(empty_desc)
+            capability_dict['human_func_description'] = func_desc_list
+            empty_desc_auto = {}
+            empty_desc_auto['description'] = ""
+            empty_desc_auto['author'] = ""
+            empty_desc_auto['author_email'] = ""
+            empty_desc_auto['date'] = ""
+            empty_desc_auto['params'] = ""
+            ai_func_desc_list = []
+            ai_func_desc_list.append(empty_desc_auto)
+            capability_dict['AI_func_description'] = ai_func_desc_list
+            #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
+            comment = generate_comment(capability_dict)
             #dump_comment(srcFile,startLine,comment)
             
             startLineDict[startLine] = comment
@@ -158,7 +219,7 @@ if __name__ =="__main__":
             map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
         xmlFile = open(txlFile,'r')
-        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
+        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium)
         xmlFile.close()
         '''
         ifile = open("./txl_annotate/annotate_func_test_decap_kern.c.xml",'r')

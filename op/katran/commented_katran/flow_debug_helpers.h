@@ -28,16 +28,45 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h,
- Startline: 29,
- Endline: 53,
- Funcname: get_next_ports,
- Input: (void *transport_hdr, __u8 proto, void *data_end),
- Output: staticinline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 29,
+  "endLine": 53,
+  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
+  "Funcname": "get_next_ports",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *transport_hdr",
+    " __u8 proto",
+    " void *data_end"
+  ],
+  "Output": "staticinline__u32",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -71,16 +100,65 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h,
- Startline: 55,
- Endline: 128,
- Funcname: gue_record_route,
- Input: (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4),
- Output: staticinlinevoid,
- Helpers: [bpf_get_smp_processor_id,],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "read_sys_info": [
+        {
+          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
+          "Return": "The SMP id of the processor running the program.",
+          "Return Type": "u32",
+          "Function Name": "bpf_get_smp_processor_id",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_get_smp_processor_id": [
+      "{\n \"opVar\": \"  __u32 cpu_num \",\n \"inpVar\": [\n  \" \"\n ]\n}"
+    ]
+  },
+  "startLine": 55,
+  "endLine": 128,
+  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
+  "Funcname": "gue_record_route",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ethhdr *outer_eth",
+    " struct ethhdr *inner_eth",
+    " void *data_end",
+    " bool outer_v4",
+    " bool inner_v4"
+  ],
+  "Output": "staticinlinevoid",
+  "Helper": "bpf_get_smp_processor_id,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

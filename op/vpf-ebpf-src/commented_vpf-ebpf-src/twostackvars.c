@@ -9,16 +9,43 @@ static int (*get_prandom_u32)() = (void*)7;
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c,
- Startline: 10,
- Endline: 46,
- Funcname: func,
- Input: (struct ctx *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 10,
+  "endLine": 46,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c",
+  "Funcname": "func",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct ctx *ctx"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

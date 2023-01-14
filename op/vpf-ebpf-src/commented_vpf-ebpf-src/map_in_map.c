@@ -34,16 +34,67 @@ struct ebpf_map inner_map =
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c,
- Startline: 35,
- Endline: 49,
- Funcname: func,
- Input: (void *ctx),
- Output: int,
- Helpers: [bpf_map_lookup_elem,],
- Read_maps: [ array_of_maps, nolocal_lru_map,  inner_map,],
- Update_maps: [],
+{
+  "capability": [
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"    void* nolocal_lru_map \",\n \"inpVar\": [\n  \" &array_of_maps\",\n  \" &outer_key\"\n ]\n}",
+      "{\n \"opVar\": \"        void* ret \",\n \"inpVar\": [\n  \" nolocal_lru_map\",\n  \" &inner_key\"\n ]\n}",
+      "{\n \"opVar\": \"            ret \",\n \"inpVar\": [\n  \" &inner_map\",\n  \" &inner_key\"\n ]\n}"
+    ]
+  },
+  "startLine": 35,
+  "endLine": 49,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c",
+  "Funcname": "func",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    " nolocal_lru_map",
+    "  inner_map",
+    " array_of_maps",
+    ""
+  ],
+  "Input": [
+    "void *ctx"
+  ],
+  "Output": "int",
+  "Helper": "bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

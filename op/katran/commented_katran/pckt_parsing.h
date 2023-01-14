@@ -57,16 +57,44 @@ struct quic_short_header {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
- Startline: 58,
- Endline: 74,
- Funcname: calc_offset,
- Input: (bool is_ipv6, bool is_icmp),
- Output: staticinline__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 58,
+  "endLine": 74,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "Funcname": "calc_offset",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "bool is_ipv6",
+    " bool is_icmp"
+  ],
+  "Output": "staticinline__u64",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -92,16 +120,46 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
- Startline: 76,
- Endline: 100,
- Funcname: parse_udp,
- Input: (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt),
- Output: staticinlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 76,
+  "endLine": 100,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "Funcname": "parse_udp",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data",
+    " void *data_end",
+    " bool is_ipv6",
+    " struct packet_description *pckt"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -135,16 +193,46 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
- Startline: 102,
- Endline: 130,
- Funcname: parse_tcp,
- Input: (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt),
- Output: staticinlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 102,
+  "endLine": 130,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "Funcname": "parse_tcp",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data",
+    " void *data_end",
+    " bool is_ipv6",
+    " struct packet_description *pckt"
+  ],
+  "Output": "staticinlinebool",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -194,16 +282,44 @@ __attribute__ ((__always_inline__))
 #endif
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
- Startline: 144,
- Endline: 197,
- Funcname: parse_hdr_opt,
- Input: (const struct xdp_md *xdp, struct hdr_opt_state *state),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 144,
+  "endLine": 197,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "Funcname": "parse_hdr_opt",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "const struct xdp_md *xdp",
+    " struct hdr_opt_state *state"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -266,16 +382,92 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
- Startline: 199,
- Endline: 273,
- Funcname: tcp_hdr_opt_lookup,
- Input: (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map),
- Output: staticinlineint,
- Helpers: [bpf_map_update_elem,bpf_map_lookup_elem,],
- Read_maps: [ reals, lru_map, server_id_map,],
- Update_maps: [ lru_map,],
+{
+  "capability": [
+    {
+      "map_read": [
+        {
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": "Map value associated to key, or NULL if no entry was found.",
+          "Return Type": "void",
+          "Function Name": "*bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "map_update": [
+        {
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of:BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": "0 on success, or a negative error in case of failure.",
+          "Return Type": "int",
+          "Function Name": "bpf_map_update_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      "{\n \"opVar\": \"  __u32* real_pos \",\n \"inpVar\": [\n  \" &server_id_map\",\n  \" &key\"\n ]\n}",
+      "{\n \"opVar\": \"  *real \",\n \"inpVar\": [\n  \" &reals\",\n  \" &key\"\n ]\n}",
+      "{\n \"opVar\": \"    struct real_pos_lru* dst_lru \",\n \"inpVar\": [\n  \" lru_map\",\n  \" &pckt->flow\"\n ]\n}"
+    ],
+    "bpf_map_update_elem": [
+      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    lru_map\",\n  \" &pckt->flow\",\n  \" &new_dst_lru\",\n  \" BPF_ANY\"\n ]\n}"
+    ]
+  },
+  "startLine": 199,
+  "endLine": 273,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "Funcname": "tcp_hdr_opt_lookup",
+  "Update_maps": [
+    " lru_map",
+    ""
+  ],
+  "Read_maps": [
+    " server_id_map",
+    " reals",
+    " lru_map",
+    ""
+  ],
+  "Input": [
+    "const struct xdp_md *xdp",
+    " bool is_ipv6",
+    " struct real_definition **real",
+    " struct packet_description *pckt",
+    " bool bypass_lru",
+    " void *lru_map"
+  ],
+  "Output": "staticinlineint",
+  "Helper": "bpf_map_update_elem,bpf_map_lookup_elem,",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
@@ -360,16 +552,46 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/katran/pckt_parsing.h,
- Startline: 276,
- Endline: 335,
- Funcname: parse_quic,
- Input: (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt),
- Output: staticinlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 276,
+  "endLine": 335,
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "Funcname": "parse_quic",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "void *data",
+    " void *data_end",
+    " bool is_ipv6",
+    " struct packet_description *pckt"
+  ],
+  "Output": "staticinlineint",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 

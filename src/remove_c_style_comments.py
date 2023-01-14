@@ -1,4 +1,5 @@
 #COPIED from here: <script src="https://gist.github.com/ChunMinChang/88bfa5842396c1fbbc5b.js"></script>
+#Copyright with authors mentioned at above link.
 #!/usr/bin/python
 import re
 import sys

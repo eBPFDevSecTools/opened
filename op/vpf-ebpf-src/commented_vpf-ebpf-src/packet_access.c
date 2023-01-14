@@ -17,16 +17,43 @@ static int (*get_prandom_u32)() = (void*)7;
 __attribute__((section("xdp"), used))
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c,
- Startline: 18,
- Endline: 58,
- Funcname: test_packet_access,
- Input: (struct xdp_md *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 18,
+  "endLine": 58,
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
+  "Funcname": "test_packet_access",
+  "Update_maps": [
+    ""
+  ],
+  "Read_maps": [
+    ""
+  ],
+  "Input": [
+    "struct xdp_md *ctx"
+  ],
+  "Output": "int",
+  "Helper": "",
+  "human_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "author_email": "",
+      "date": "",
+      "params": ""
+    }
+  ]
+}
+,
  Func Description: TO BE ADDED, 
  Commentor: TO BE ADDED (<name>,<email>) 
  } 
