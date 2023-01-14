@@ -6,7 +6,6 @@ import os
 import re
 import subprocess
 import glob
-#import command
 import shutil
 import code_commentor as cmt
 import summarizer as sm
@@ -260,8 +259,6 @@ if __name__ == "__main__":
     if (cmt_op_dir is not None and os.access(cmt_op_dir, os.W_OK) is not True):
         print("Cannot write to commented_file dir: "+cmt_op_dir+" Exiting...")
         exit(1)
-
-
 
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
