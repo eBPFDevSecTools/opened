@@ -48,7 +48,8 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcSeen = False;
             #dump to file
             #print(lines)
-            encoding = smt.get_helper_encoding(lines,helperdict)
+            encoding = smt.get_helper_list(lines,helperdict)
+            hookpoints = smt.get_compatible_hookpoints(encoding, helperdict)
             read_maps= smt.get_read_maps(lines, map_read_fn)
             update_maps= smt.get_update_maps(lines, map_update_fn)
             #print("funcName: ",funcName," srcFile: ",srcFile)
@@ -56,27 +57,28 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
-            capability_dict['Funcname'] = funcName
-            capability_dict['Update_maps'] = update_maps
-            capability_dict['Read_maps'] = read_maps
-            capability_dict['Input'] = funcArgs.split(',')
-            capability_dict['Output'] = output
-            capability_dict['Helper'] = encoding
+            capability_dict['funcName'] = funcName
+            capability_dict['updateMaps'] = update_maps
+            capability_dict['readMaps'] = read_maps
+            capability_dict['input'] = funcArgs.split(',')
+            capability_dict['output'] = output
+            capability_dict['helper'] = encoding
+            capability_dict['compatibleHookpoints']
             func_desc_list = []
             empty_desc = {}
             empty_desc['description'] = ""
             empty_desc['author'] = ""
-            empty_desc['author_email'] = ""
+            empty_desc['authorEmail'] = ""
             empty_desc['date'] = ""
 
             func_desc_list.append(empty_desc)
-            capability_dict['human_func_description'] = func_desc_list
+            capability_dict['humanFuncDescription'] = func_desc_list
             empty_desc_auto = {}
             empty_desc_auto['description'] = ""
             empty_desc_auto['author'] = ""
-            empty_desc_auto['author_email'] = ""
+            empty_desc_auto['authorEmail'] = ""
             empty_desc_auto['date'] = ""
-            empty_desc_auto['params'] = ""
+            empty_desc_auto['invocationParameters'] = ""
             ai_func_desc_list = []
             ai_func_desc_list.append(empty_desc_auto)
             capability_dict['AI_func_description'] = ai_func_desc_list

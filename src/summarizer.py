@@ -168,6 +168,20 @@ def append_return_details(ret_type, rettypedict, ret_set):
     ret_set.add(ret_type)
     return
 
+def check_and_return_helper_present(my_dict,line):
+    for key in my_dict.keys():
+        if line.find(key)>=0:
+            return key
+    return None
+
+def get_helper_list(lines,helperdict):
+    helper_set= set()
+    for line in lines:
+        present= check_and_return_helper_present(helperdict,line)
+        if present != None:
+            helper_set.add(present)
+    return list(helper_set)
+
 def get_helper_encoding(lines, helperdict, helperCallParams, rettypedict):
     helper_set= set()
     ret_set= set()
@@ -178,13 +192,7 @@ def get_helper_encoding(lines, helperdict, helperCallParams, rettypedict):
         ret_type = check_and_return_func_present(rettypedict, line)
         if ret_type != None:
             append_return_details(ret_type, rettypedict, ret_set)
-    str =  ""
-    for helper in helper_set:
-        str = str + helper +","
-    for ret in ret_set:
-        str = str + ret +","
-    #print(str)
-    return str
+    return list(helper_set)
 
 def get_read_maps(lines):
     map_read_set=set()
@@ -269,8 +277,8 @@ def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
 
     code_lines = read_src_file(example_file,begL,endL)
     helperCallParams = defaultdict(list)
-    helpers = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict).split(',')
-    caps = generate_capabilities(helpers, cap_dict)
+    helpers_list = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict)
+    caps = generate_capabilities(helpers_list, cap_dict)
 
     #print(caps)
     manpage_info_dict = load_manpage_helper_map(manpage_info_file)
