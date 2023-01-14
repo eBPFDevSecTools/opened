@@ -1,3 +1,7 @@
+#Authors:
+# Sayandeep Sen (sayandes@in.ibm.com)
+# Palani Kodeswaran (palani@in.ibm.com)
+
 import json
 import re
 
@@ -34,7 +38,6 @@ def enrich_desc_with_input_marking(text,ip_list,helper):
         text = text.replace(",", " ,")
 
         text = text.replace(var_name,replace)
-
     #clean up text before returning    
     #text.strip()
     tokens = text.split()
@@ -43,6 +46,7 @@ def enrich_desc_with_input_marking(text,ip_list,helper):
     for token in tokens:
         temp = temp + token + " "
     return temp
+
 def build_helper_desc_dict(fname,out,my_dict):
     DELIM="<>"
     ofile = open(out,'w')
@@ -102,5 +106,5 @@ if __name__ == "__main__":
     map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
     map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem"]
 
-    build_helper_desc_dict("./man_bpf_helpers.txt","bpf_helpers_desc.txt",data)
+    build_helper_desc_dict("./man_bpf_helpers.txt","bpf_helpers_desc.txt", data)
 

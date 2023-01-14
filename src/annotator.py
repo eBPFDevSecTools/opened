@@ -30,10 +30,6 @@ def check_if_file_available():
             return False
     print("All necessary asset files found...")
     return True
-#1. make cscope db
-#2. do txl annotation
-#3. comment generation
-#4. cqsearch
 
 #rm cscope.files cscope.out tags myproject.db 
 def clean_intermediate_files(file_list):
@@ -108,7 +104,6 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium):
             ##print("len",len(tokens),"tokens",tokens)
             srcFile = tokens[-4]
             srcFile = srcFile.replace(" ","")
-
             funcName = tokens[-3].replace(" (","(")
             ##print(funcName)
             funcName = funcName.split('(')[-2].split(" ")[-1]
@@ -169,7 +164,6 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
         cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium)
         xmlFile.close()
     return
-
 
 
 # parses output from c-extract-struct.txl

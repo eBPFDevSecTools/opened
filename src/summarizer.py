@@ -7,7 +7,6 @@ import subprocess
 import argparse
 import json
 import re
-from helper_summarizer import build_helper_desc_dict
 import remove_c_style_comments as rmc
 from collections import defaultdict
 
@@ -102,7 +101,6 @@ def decompile(prog_file):
         print(line)
     return lines
 
-
 def load_bpf_helper_map(fname):
     data = {}
     try:
@@ -126,7 +124,6 @@ def load_manpage_helper_map(fname):
         for keys in entry:
             ret[keys] = entry[keys]
     return ret
-
 
 
 def check_and_return_func_present(my_dict,line):
@@ -156,6 +153,7 @@ def append_return_details(ret_type, rettypedict, ret_set):
     #print("RETURN TYPE: "+ret_type+" value: "+str(rettypedict[ret_type]))
     ret_set.add(ret_type)
     return
+
 def get_helper_encoding(lines, helperdict, helperCallParams, rettypedict):
     helper_set= set()
     ret_set= set()
@@ -221,11 +219,52 @@ def run_cmd(cmd):
 
 def read_src_file(fname,beg,end):
     ifile = open(fname,'r')
-    #TODO: we need to ignore commented code.
     lines = "".join(ifile.readlines()[beg:end])
     lines = rmc.removeComments(lines)
     lines = lines.replace("}","").replace("{",";").replace("\n","");
     return lines.split(";")
+    
+def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
+    #Default init values
+    read_pkt_file= "asset/bpf_helper_info/bpf_helpers_read_skb.txt"
+    update_pkt_file= "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt"
+    read_map_file= "asset/bpf_helper_info/bpf_helpers_map_read.txt"
+    update_map_file= "asset/bpf_helper_info/bpf_helpers_map_update.txt"
+    read_sys_info_file= "asset/bpf_helper_info/bpf_helpers_read_sys_info.txt"
+    capability_files = ["asset/bpf_helper_info/bpf_helpers_read_skb.txt", "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt","asset/bpf_helper_info/bpf_helpers_map_read.txt","asset/bpf_helper_info/bpf_helpers_map_update.txt","asset/bpf_helper_info/bpf_helpers_read_sys_info.txt","asset/bpf_return_type_info/return_type_drop_pkt.txt","asset/bpf_return_type_info/return_type_pass_pkt.txt", "asset/bpf_return_type_info/return_type_redirect_pkt.txt"]
+    bpf_helper_file= './asset/helper_hookpoint_map.json'
+    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
+    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
+    manpage_info_file = "./asset/bpf_helpers_desc_mod.json"
+    
+    if(isCilium is True):
+        print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
+        bpf_helper_file = "./asset/cilium.helper_hookpoint_map.json"
+        map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
+        map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
+        manpage_info_file = "./asset/cilium.bpf_helpers_desc_mod.json"
+    
+    cap_dict = {}
+    for file_name in capability_files:
+        load_capability_file(file_name,cap_dict)
+    
+    if(bpfHelperFile is not None):
+        bpf_helper_file = bpfHelperFile
+    helperdict = load_bpf_helper_map(bpf_helper_file)
+    rettypedict = load_bpf_helper_map("./asset/PktRetTypesInfo.json")
+
+    code_lines = read_src_file(example_file,begL,endL)
+    helperCallParams = defaultdict(list)
+    helpers = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict).split(',')
+    caps = generate_capabilities(helpers, cap_dict)
+
+    #print(caps)
+    manpage_info_dict = load_manpage_helper_map(manpage_info_file)
+    op_dict = {}
+    op_dict["capability"] = create_capability_json(caps, manpage_info_dict)
+    op_dict["helperCallParams"] = helperCallParams
+    return op_dict
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='eBPF Code Summarizer')
@@ -267,19 +306,7 @@ if __name__ == "__main__":
     helperdict = load_bpf_helper_map(bpf_helper_file)
 
     helper_to_desc_dict = {}
-    '''
-    cmd = "bpftool prog loadall " + fname+ " /sys/fs/bpf/check type tc"
-    run_cmd(cmd)
-    cmd =  "bpftool prog show"
-    output = run_cmd(cmd)
-    prog_id = get_prog_id(sec_name,output)
-    cmd = "bpftool prog dump xlated id " + prog_id +  " > out"
-    output = run_cmd(cmd)
-    print(output)
-    cmd = "grep \";\" out > decompiled.c"
-    output = run_cmd(cmd)
-    print(output)
-'''
+
     ifile = open('decompiled.c','r')
     lines = ifile.readlines();
     helperCallParams = {}
@@ -291,43 +318,3 @@ if __name__ == "__main__":
     
     #print(rc.decode("utf-8"))
     #runbpftool()
-def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
-    #Default init values
-    read_pkt_file= "asset/bpf_helper_info/bpf_helpers_read_skb.txt"
-    update_pkt_file= "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt"
-    read_map_file= "asset/bpf_helper_info/bpf_helpers_map_read.txt"
-    update_map_file= "asset/bpf_helper_info/bpf_helpers_map_update.txt"
-    read_sys_info_file= "asset/bpf_helper_info/bpf_helpers_read_sys_info.txt"
-    capability_files = ["asset/bpf_helper_info/bpf_helpers_read_skb.txt", "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt","asset/bpf_helper_info/bpf_helpers_map_read.txt","asset/bpf_helper_info/bpf_helpers_map_update.txt","asset/bpf_helper_info/bpf_helpers_read_sys_info.txt","asset/bpf_return_type_info/return_type_drop_pkt.txt","asset/bpf_return_type_info/return_type_pass_pkt.txt", "asset/bpf_return_type_info/return_type_redirect_pkt.txt"]
-    bpf_helper_file= './asset/helper_hookpoint_map.json'
-    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
-    manpage_info_file = "./asset/bpf_helpers_desc_mod.json"
-    
-    if(isCilium is True):
-        print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
-        bpf_helper_file = "./asset/cilium.helper_hookpoint_map.json"
-        map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
-        map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
-        manpage_info_file = "./asset/cilium.bpf_helpers_desc_mod.json"
-    
-    cap_dict = {}
-    for file_name in capability_files:
-        load_capability_file(file_name,cap_dict)
-    
-    if(bpfHelperFile is not None):
-        bpf_helper_file = bpfHelperFile
-    helperdict = load_bpf_helper_map(bpf_helper_file)
-    rettypedict = load_bpf_helper_map("./asset/PktRetTypesInfo.json")
-
-    code_lines = read_src_file(example_file,begL,endL)
-    helperCallParams = defaultdict(list)
-    helpers = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict).split(',')
-    caps = generate_capabilities(helpers, cap_dict)
-
-    #print(caps)
-    manpage_info_dict = load_manpage_helper_map(manpage_info_file)
-    op_dict = {}
-    op_dict["capability"] = create_capability_json(caps, manpage_info_dict)
-    op_dict["helperCallParams"] = helperCallParams
-    return op_dict

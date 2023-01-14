@@ -50,12 +50,9 @@ RUN ls /root
 WORKDIR /root/deps/txl
 RUN ./InstallTxl
 
-
-
 RUN rm -rf /root/deps/codequery
 RUN mkdir /root/deps/codequery
 ADD codequery /root/deps/codequery
-#ADD codequery_tmp /root/deps/codequery
 RUN rm -rf /root/deps/codequery/build
 RUN mkdir /root/deps/codequery/build
 WORKDIR /root/deps/codequery/build
