@@ -23,10 +23,11 @@ def get_helper_encoding(lines,helperdict):
         present=check_and_return_helper_present(helperdict,line)
         if present != None:
             helper_set.add(present)
-    str =  ""
-    for helper in helper_set:
-        str = str + helper +","
-    return str
+    return list(helper_set)
+    #str =  ""
+    #for helper in helper_set:
+    #    str = str + helper +","
+    #return str
 
 
 def set_to_string(my_set):
