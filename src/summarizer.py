@@ -58,6 +58,7 @@ def generate_capabilities(helper_list,cap_dict):
     return capabilities
         
 '''
+#Sample:
 #capability,map_read
 bpf_map_peek_elem,1
 bpf_map_lookup_elem,1
@@ -84,8 +85,6 @@ def load_capability_file(file_name, cap_dict):
                     add_helper_to_dict(cap_dict,cap_name,helper_name)
     except Exception as e:
         print(e)
-    
-    
 
 def decompile(prog_file):
     lines = []
@@ -175,21 +174,13 @@ def get_helper_encoding(lines, helperdict, helperCallParams, rettypedict):
     #print(str)
     return str
 
-
-def set_to_string(my_set):
-    str =  ""
-    for elem in my_set:
-        str = str + elem +","
-    return str
-
-
 def get_read_maps(lines):
     map_read_set=set()
     for line in lines:
         mapname= check_map_access(map_read_fn,line)
         if mapname != None:
             map_read_set.add(mapname)
-    return set_to_string(map_read_set)
+    return list(map_read_set)
             
 def get_update_maps(lines):
     map_update_set=set()
@@ -197,8 +188,7 @@ def get_update_maps(lines):
         mapname= check_map_access(map_update_fn,line)
         if mapname != None:
             map_update_set.add(mapname)
-    return set_to_string(map_update_set)
-
+    return list(map_update_set)
 
 def get_prog_id(sec_name,output):
     lines = output.split("\n")
@@ -221,7 +211,6 @@ def check_map_access(my_arr,line):
             first_entry_end = chunks.find(',')
             return chunks[:first_entry_end].replace("&","")
     return None
-
 
 
 def run_cmd(cmd):

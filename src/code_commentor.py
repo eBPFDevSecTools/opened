@@ -1,43 +1,13 @@
+#Authors:
+# Sayandeep Sen (sayandes@in.ibm.com)
+# Palani Kodeswaran (palani@in.ibm.com)
+
 import re
 import os
 import json
 import summarizer as smt
 import argparse
 from collections import defaultdict
-
-def load_bpf_helper_map(fname):
-    with open(fname, 'r') as f:
-        data = json.load(f)
-    return data
-
-
-def check_and_return_helper_present(my_dict,line):
-    for key in my_dict.keys():
-        if line.find(key)>=0:
-            return key
-    return None
-
-def get_helper_encoding(lines,helperdict):
-    helper_set= set()
-    for line in lines:
-        present=check_and_return_helper_present(helperdict,line)
-        if present != None:
-            helper_set.add(present)
-    return list(helper_set)
-    #str =  ""
-    #for helper in helper_set:
-    #    str = str + helper +","
-    #return str
-
-
-def set_to_string(my_set):
-    str =  ""
-    for elem in my_set:
-        str = str + elem +","
-    return str
-import summarizer as sm
-
-
 
 def dump_comment(fname,startLineDict, ofname):
     if fname  == "":
@@ -55,16 +25,6 @@ def dump_comment(fname,startLineDict, ofname):
     ofile.flush()
     ofile.close()
     ifile.close()
-            
-def check_map_access(my_arr,line):
-    for func in my_arr:
-        idx = line.find(func)
-        if idx>=0:
-            chunks = line[len(func)+idx:].replace('(','')
-            first_entry_end = chunks.find(',')
-            return chunks[:first_entry_end].replace("&","")
-    return None
-
 
 
 def generate_comment(capability_dict):
@@ -88,17 +48,17 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcSeen = False;
             #dump to file
             #print(lines)
-            encoding = sm.get_helper_encoding(lines,helperdict)
-            read_maps= sm.get_read_maps(lines, map_read_fn)
-            update_maps= sm.get_update_maps(lines, map_update_fn)
+            encoding = smt.get_helper_encoding(lines,helperdict)
+            read_maps= smt.get_read_maps(lines, map_read_fn)
+            update_maps= smt.get_update_maps(lines, map_update_fn)
             #print("funcName: ",funcName," srcFile: ",srcFile)
             capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
             capability_dict['Funcname'] = funcName
-            capability_dict['Update_maps'] = update_maps.split(",")
-            capability_dict['Read_maps'] = read_maps.split(",")
+            capability_dict['Update_maps'] = update_maps
+            capability_dict['Read_maps'] = read_maps
             capability_dict['Input'] = funcArgs.split(',')
             capability_dict['Output'] = output
             capability_dict['Helper'] = encoding
@@ -154,7 +114,6 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             if(funcArgs is None or not funcArgs or funcArgs.isspace() is True):
                 funcArgs = "NA"
 
-            
             srcFile = tokens[-4]
             srcFile = srcFile.replace(" ","")
 
@@ -170,9 +129,6 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             startLine = int(tokens[-2])
             endLine = int(tokens[-1])
             #print("File: ",srcFile, " startline: ",startLine," endline: ",endLine," funcname: ",funcName, "Input: (", funcArgs, ") Output: ",output)
-            #key=funcName+":"+srcFile+":"+str(startLine)
-            key=funcName+":"+srcFile
-            #print("Checking if need to extract",key
     if srcFile != "":
         #print("Going to call dump_comment for: "+srcFile)
         #print(startLineDict)
@@ -210,7 +166,7 @@ if __name__ =="__main__":
     if txlFile.endswith(".xml"):
         bpf_helper_file= args.bpfHelperFile #'./helper_hookpoint_map.json'
         startLineDict = {}
-        helperdict = sm.load_bpf_helper_map(bpf_helper_file)
+        helperdict = smt.load_bpf_helper_map(bpf_helper_file)
         if(isCilium == False):
             map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
             map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
