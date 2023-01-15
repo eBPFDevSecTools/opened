@@ -59,7 +59,7 @@ def generate_capabilities(helper_list,cap_dict):
 def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
     if helpers is None or helpers.equals(""):
-        return list()
+        return ["All_hookpoints"]
     for helper in helpers:
         hookpoint_list = helper_hookpoint_dict[helper]
         #print(hookpoint_list)
