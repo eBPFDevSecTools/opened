@@ -63,7 +63,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['input'] = funcArgs.split(',')
             capability_dict['output'] = output
             capability_dict['helper'] = encoding
-            capability_dict['compatibleHookpoints']
+            capability_dict['compatibleHookpoints'] = hookpoints
             func_desc_list = []
             empty_desc = {}
             empty_desc['description'] = ""

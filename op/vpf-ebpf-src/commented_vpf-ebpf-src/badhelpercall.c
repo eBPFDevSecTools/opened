@@ -26,29 +26,40 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
   ],
   "helperCallParams": {
     "bpf_get_current_comm": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"            return ebuffer\",\n  \" 20\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "            return ebuffer",
+          " 20"
+        ]
+      }
     ]
   },
   "startLine": 8,
   "endLine": 15,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
-  "Funcname": "func",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/badhelpercall.c",
+  "funcName": "func",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "NA"
   ],
-  "Output": "int",
-  "Helper": "bpf_get_current_comm,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_get_current_comm"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "perf_event",
+    "kprobe",
+    "raw_tracepoint"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -56,16 +67,12 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func()

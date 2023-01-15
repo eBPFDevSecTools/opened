@@ -30,44 +30,60 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {
     "bpf_tail_call": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    ctx\",\n  \" &root_array\",\n  \" i\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    ctx",
+          " &root_array",
+          " i"
+        ]
+      }
     ]
   },
   "startLine": 30,
   "endLine": 37,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
-  "Funcname": "xdp_root",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/xdp_root.c",
+  "funcName": "xdp_root",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "\\xdp\\)",
-  "Helper": "bpf_tail_call,",
-  "human_func_description": [
+  "output": "\\xdp\\)",
+  "helper": [
+    "bpf_tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -75,16 +91,12 @@ struct {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int SEC("xdp") xdp_root(struct xdp_md* ctx) {
@@ -100,44 +112,60 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {
     "bpf_tail_call": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    ctx\",\n  \" &root_array\",\n  \" i\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    ctx",
+          " &root_array",
+          " i"
+        ]
+      }
     ]
   },
   "startLine": 40,
   "endLine": 47,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
-  "Funcname": "xdp_val",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/xdp_root.c",
+  "funcName": "xdp_val",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "\\xdp\\)",
-  "Helper": "bpf_tail_call,",
-  "human_func_description": [
+  "output": "\\xdp\\)",
+  "helper": [
+    "bpf_tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -145,16 +173,12 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int SEC("xdp") xdp_val(struct xdp_md* ctx) {

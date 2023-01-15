@@ -60,47 +60,72 @@ SEC("xdp")
           ]
         }
       ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  __u32* flag \",\n \"inpVar\": [\n  \" &ctl_array\",\n  \" &ctl_flag_pos\"\n ]\n}",
-      "{\n \"opVar\": \"  __u64* cntr_val \",\n \"inpVar\": [\n  \" &cntrs_array\",\n  \" &cntr_pos\"\n ]\n}"
+      {
+        "opVar": "  __u32* flag ",
+        "inpVar": [
+          " &ctl_array",
+          " &ctl_flag_pos"
+        ]
+      },
+      {
+        "opVar": "  __u64* cntr_val ",
+        "inpVar": [
+          " &cntrs_array",
+          " &cntr_pos"
+        ]
+      }
     ]
   },
   "startLine": 46,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
-  "Funcname": "pktcntr",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    " cntrs_array",
+  "File": "/root/examples/katran/xdp_pktcntr.c",
+  "funcName": "pktcntr",
+  "updateMaps": [],
+  "readMaps": [
     " ctl_array",
-    ""
+    " cntrs_array"
   ],
-  "Input": [
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -108,16 +133,12 @@ SEC("xdp")
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int pktcntr(struct xdp_md* ctx) {

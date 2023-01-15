@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/bcc/trace_fields.c" funcheader="int hello ()" startline="2" endline="6">
+<source file="/root/examples/bcc/trace_fields.c" funcheader="int hello ()" startline="2" endline="6">
 int hello ()
 {
     bpf_trace_printk ("Hello, World!\\n");

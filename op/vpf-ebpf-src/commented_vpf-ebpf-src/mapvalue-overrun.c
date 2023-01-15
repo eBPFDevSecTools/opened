@@ -44,30 +44,60 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    uint64_t* ptr \",\n \"inpVar\": [\n  \" &map\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "    uint64_t* ptr ",
+        "inpVar": [
+          " &map",
+          " &key"
+        ]
+      }
     ]
   },
   "startLine": 26,
   "endLine": 39,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapvalue-overrun.c",
-  "Funcname": "func",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/vpf-ebpf-src/mapvalue-overrun.c",
+  "funcName": "func",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
   ],
-  "Read_maps": [
-    " map",
-    ""
-  ],
-  "Input": [
+  "input": [
     "void *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "perf_event",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_sock",
+    "flow_dissector",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_cls",
+    "lwt_seg6local",
+    "lwt_in",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "cgroup_device",
+    "kprobe",
+    "sched_act",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -75,16 +105,12 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(void* ctx)

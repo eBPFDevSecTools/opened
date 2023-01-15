@@ -4,30 +4,59 @@
   "capability": [],
   "helperCallParams": {
     "bpf_trace_printk": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t     \\\"%d\\\\\\\\n\\\"\",\n  \" args->got_bits\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t     \"%d\\\\n\"",
+          " args->got_bits"
+        ]
+      }
     ]
   },
   "startLine": 1,
   "endLine": 5,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/urandomread.c",
-  "Funcname": "TRACEPOINT_PROBE",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/bcc/urandomread.c",
+  "funcName": "TRACEPOINT_PROBE",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "random",
     " urandom_read"
   ],
-  "Output": "NA",
-  "Helper": "bpf_trace_printk,",
-  "human_func_description": [
+  "output": "NA",
+  "helper": [
+    "bpf_trace_printk"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "xdp",
+    "socket_filter",
+    "lwt_seg6local",
+    "cgroup_device",
+    "cgroup_sock",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_skb",
+    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "sched_act",
+    "lwt_xmit",
+    "flow_dissector",
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -35,16 +64,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 TRACEPOINT_PROBE (random, urandom_read)

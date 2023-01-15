@@ -38,41 +38,26 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 38,
   "endLine": 48,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "swap_mac_and_send",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "swap_mac_and_send",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -80,16 +65,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int swap_mac_and_send(
@@ -111,25 +92,22 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 58,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "swap_mac",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "swap_mac",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " struct ethhdr *orig_eth"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -137,16 +115,12 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void swap_mac(
@@ -162,41 +136,26 @@ __attribute__((__always_inline__)) static inline void swap_mac(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 60,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "send_icmp_reply",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "send_icmp_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -204,16 +163,12 @@ __attribute__((__always_inline__)) static inline void swap_mac(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int send_icmp_reply(
@@ -251,41 +206,26 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 117,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "send_icmp6_reply",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "send_icmp6_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -293,16 +233,12 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int send_icmp6_reply(
@@ -349,55 +285,40 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
           ]
         }
       ]
-    },
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if xdp\",\n  \" 0 - headroom \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "  if xdp",
+          " 0 - headroom "
+        ]
+      }
     ]
   },
   "startLine": 119,
   "endLine": 162,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "send_icmp4_too_big",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "send_icmp4_too_big",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -405,16 +326,12 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
@@ -479,55 +396,40 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
           ]
         }
       ]
-    },
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if xdp\",\n  \" 0 - headroom \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "  if xdp",
+          " 0 - headroom "
+        ]
+      }
     ]
   },
   "startLine": 164,
   "endLine": 203,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "send_icmp6_too_big",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "send_icmp6_too_big",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -535,16 +437,12 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
@@ -605,46 +503,42 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
           ]
         }
       ]
-    },
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_tail": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" 0 - offset \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    if xdp",
+          " 0 - offset "
+        ]
+      }
     ]
   },
   "startLine": 205,
   "endLine": 221,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "send_icmp_too_big",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "send_icmp_too_big",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " bool is_ipv6",
     " int pckt_size"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_xdp_adjust_tail,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_xdp_adjust_tail"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -652,16 +546,12 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int
@@ -685,54 +575,28 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 223,
   "endLine": 253,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "parse_icmpv6",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "parse_icmpv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " __u64 off",
     " struct packet_description *pckt"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -740,16 +604,12 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int parse_icmpv6(
@@ -787,54 +647,28 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 255,
   "endLine": 285,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
-  "Funcname": "parse_icmp",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/handle_icmp.h",
+  "funcName": "parse_icmp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " __u64 off",
     " struct packet_description *pckt"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -842,16 +676,12 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int parse_icmp(

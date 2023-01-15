@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c" funcheader="int func (struct ctx *ctx)" startline="10" endline="46">
+<source file="/root/examples/vpf-ebpf-src/twostackvars.c" funcheader="int func (struct ctx *ctx)" startline="10" endline="46">
 int func (struct ctx *ctx)
 {
     int stack_buffer [16];

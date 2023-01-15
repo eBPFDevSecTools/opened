@@ -157,7 +157,7 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
         map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
         map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
-    helperdict = cmt.load_bpf_helper_map(bpf_helper_file)  
+    helperdict = sm.load_bpf_helper_map(bpf_helper_file)  
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')

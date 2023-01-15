@@ -58,6 +58,8 @@ def generate_capabilities(helper_list,cap_dict):
 
 def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
+    if helpers is None or helpers.equals(""):
+        return list()
     for helper in helpers:
         hookpoint_list = helper_hookpoint_dict[helper]
         #print(hookpoint_list)
@@ -67,7 +69,8 @@ def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
             hook_set = helper_set
         else:
             hook_set = hook_set.intersection(helper_set)
-
+    if hook_set is None:
+        return None
     return list(hook_set)
 
 '''
@@ -194,7 +197,7 @@ def get_helper_encoding(lines, helperdict, helperCallParams, rettypedict):
             append_return_details(ret_type, rettypedict, ret_set)
     return list(helper_set)
 
-def get_read_maps(lines):
+def get_read_maps(lines, map_read_fn):
     map_read_set=set()
     for line in lines:
         mapname= check_map_access(map_read_fn,line)
@@ -202,7 +205,7 @@ def get_read_maps(lines):
             map_read_set.add(mapname)
     return list(map_read_set)
             
-def get_update_maps(lines):
+def get_update_maps(lines, map_update_fn):
     map_update_set=set()
     for line in lines:
         mapname= check_map_access(map_update_fn,line)

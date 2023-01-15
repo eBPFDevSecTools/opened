@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c" funcheader="int test (void *ctx)" startline="24" endline="32">
+<source file="/root/examples/vpf-ebpf-src/ringbuf_uninit.c" funcheader="int test (void *ctx)" startline="24" endline="32">
 int test (void *ctx)
 {
     uint64_t test;

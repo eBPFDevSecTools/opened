@@ -27,29 +27,57 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
   "capability": [],
   "helperCallParams": {
     "bpf_tail_call": [
-      "{\n \"opVar\": \"    long error \",\n \"inpVar\": [\n  \" ctx\",\n  \" &map\",\n  \" 0\"\n ]\n}"
+      {
+        "opVar": "    long error ",
+        "inpVar": [
+          " ctx",
+          " &map",
+          " 0"
+        ]
+      }
     ]
   },
   "startLine": 24,
   "endLine": 31,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
-  "Funcname": "caller",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/tail_call.c",
+  "funcName": "caller",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_tail_call,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_tail_call"
+  ],
+  "compatibleHookpoints": [
+    "perf_event",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_sock",
+    "flow_dissector",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_cls",
+    "lwt_seg6local",
+    "lwt_in",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "kprobe",
+    "sched_act",
+    "sk_reuseport",
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -57,16 +85,12 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((section("xdp_prog"), used)) int
@@ -85,24 +109,21 @@ caller(struct xdp_md* ctx)
   "helperCallParams": {},
   "startLine": 33,
   "endLine": 37,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
-  "Funcname": "callee",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/tail_call.c",
+  "funcName": "callee",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -110,16 +131,12 @@ caller(struct xdp_md* ctx)
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((section("xdp_prog/0"), used)) int

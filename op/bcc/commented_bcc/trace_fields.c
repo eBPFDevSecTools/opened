@@ -5,29 +5,58 @@
   "capability": [],
   "helperCallParams": {
     "bpf_trace_printk": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"\\t     \\\"Hello\",\n  \" World!\\\\\\\\n\\\"\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t     \"Hello",
+          " World!\\\\n\""
+        ]
+      }
     ]
   },
   "startLine": 2,
   "endLine": 6,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/trace_fields.c",
-  "Funcname": "hello",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/bcc/trace_fields.c",
+  "funcName": "hello",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "NA"
   ],
-  "Output": "int",
-  "Helper": "bpf_trace_printk,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_trace_printk"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "xdp",
+    "socket_filter",
+    "lwt_seg6local",
+    "cgroup_device",
+    "cgroup_sock",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_skb",
+    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "sched_act",
+    "lwt_xmit",
+    "flow_dissector",
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -35,16 +64,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int hello ()

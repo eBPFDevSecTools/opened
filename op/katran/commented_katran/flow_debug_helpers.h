@@ -33,26 +33,23 @@
   "helperCallParams": {},
   "startLine": 29,
   "endLine": 53,
-  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
-  "Funcname": "get_next_ports",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/flow_debug_helpers.h",
+  "funcName": "get_next_ports",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *transport_hdr",
     " __u8 proto",
     " void *data_end"
   ],
-  "Output": "staticinline__u32",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinline__u32",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -60,16 +57,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __u32
@@ -118,33 +111,59 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
   ],
   "helperCallParams": {
     "bpf_get_smp_processor_id": [
-      "{\n \"opVar\": \"  __u32 cpu_num \",\n \"inpVar\": [\n  \" \"\n ]\n}"
+      {
+        "opVar": "  __u32 cpu_num ",
+        "inpVar": [
+          " "
+        ]
+      }
     ]
   },
   "startLine": 55,
   "endLine": 128,
-  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
-  "Funcname": "gue_record_route",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/flow_debug_helpers.h",
+  "funcName": "gue_record_route",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ethhdr *outer_eth",
     " struct ethhdr *inner_eth",
     " void *data_end",
     " bool outer_v4",
     " bool inner_v4"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_get_smp_processor_id,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_get_smp_processor_id"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -152,16 +171,12 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void gue_record_route(
