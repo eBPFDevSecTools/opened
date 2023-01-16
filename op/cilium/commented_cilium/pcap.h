@@ -47,19 +47,45 @@ struct capture_msg {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 48,
- Endline: 75,
- Funcname: cilium_capture,
- Input: (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 48,
+  "endLine": 75,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const __u8 subtype",
+    " const __u16 rule_id",
+    " const __u64 tstamp",
+    " __u64  __cap_len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void cilium_capture(struct __ctx_buff *ctx,
@@ -93,19 +119,43 @@ static __always_inline void cilium_capture(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 77,
- Endline: 86,
- Funcname: __cilium_capture_in,
- Input: (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 77,
+  "endLine": 86,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "__cilium_capture_in",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u16 rule_id",
+    " __u32 cap_len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __cilium_capture_in(struct __ctx_buff *ctx,
@@ -121,19 +171,43 @@ static __always_inline void __cilium_capture_in(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 88,
- Endline: 93,
- Funcname: __cilium_capture_out,
- Input: (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 88,
+  "endLine": 93,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "__cilium_capture_out",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u16 rule_id",
+    " __u32 cap_len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __cilium_capture_out(struct __ctx_buff *ctx,
@@ -208,19 +282,43 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 158,
- Endline: 170,
- Funcname: cilium_capture4_masked_key,
- Input: (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 158,
+  "endLine": 170,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture4_masked_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct capture4_wcard *orig",
+    " const struct capture4_wcard *mask",
+    " struct capture4_wcard *out"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -284,19 +382,77 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 217,
- Endline: 257,
- Funcname: *cilium_capture4_classify_wcard,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinestructcapture_rule,
- Helpers: [map_lookup_elem,],
- Read_maps: [  CAPTURE4_RULES,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tmatch ",
+        "inpVar": [
+          " &CAPTURE4_RULES",
+          " &lkey"
+        ]
+      }
+    ]
+  },
+  "startLine": 217,
+  "endLine": 257,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "*cilium_capture4_classify_wcard",
+  "updateMaps": [],
+  "readMaps": [
+    "  CAPTURE4_RULES"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinestructcapture_rule",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct capture_rule *
@@ -354,19 +510,43 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 270,
- Endline: 284,
- Funcname: cilium_capture6_masked_key,
- Input: (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 270,
+  "endLine": 284,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture6_masked_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct capture6_wcard *orig",
+    " const struct capture6_wcard *mask",
+    " struct capture6_wcard *out"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -440,19 +620,77 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 339,
- Endline: 382,
- Funcname: *cilium_capture6_classify_wcard,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinestructcapture_rule,
- Helpers: [map_lookup_elem,],
- Read_maps: [  CAPTURE6_RULES,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tmatch ",
+        "inpVar": [
+          " &CAPTURE6_RULES",
+          " &lkey"
+        ]
+      }
+    ]
+  },
+  "startLine": 339,
+  "endLine": 382,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "*cilium_capture6_classify_wcard",
+  "updateMaps": [],
+  "readMaps": [
+    "  CAPTURE6_RULES"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinestructcapture_rule",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct capture_rule *
@@ -503,19 +741,41 @@ _Pragma("unroll")
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 385,
- Endline: 408,
- Funcname: *cilium_capture_classify_wcard,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinestructcapture_rule,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 385,
+  "endLine": 408,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "*cilium_capture_classify_wcard",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinestructcapture_rule",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct capture_rule *
@@ -545,19 +805,79 @@ cilium_capture_classify_wcard(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 410,
- Endline: 432,
- Funcname: cilium_capture_candidate,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [  cilium_capture_cache,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tc ",
+        "inpVar": [
+          " &cilium_capture_cache",
+          " &zero"
+        ]
+      }
+    ]
+  },
+  "startLine": 410,
+  "endLine": 432,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture_candidate",
+  "updateMaps": [],
+  "readMaps": [
+    "  cilium_capture_cache"
+  ],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u16 * rule_id __maybe_unused",
+    " __u16 * cap_len __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -586,19 +906,79 @@ cilium_capture_candidate(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 434,
- Endline: 455,
- Funcname: cilium_capture_cached,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [  cilium_capture_cache,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\t\t\tc ",
+        "inpVar": [
+          " &cilium_capture_cache",
+          " &zero"
+        ]
+      }
+    ]
+  },
+  "startLine": 434,
+  "endLine": 455,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture_cached",
+  "updateMaps": [],
+  "readMaps": [
+    "  cilium_capture_cache"
+  ],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u16 * rule_id __maybe_unused",
+    " __u32 * cap_len __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -626,19 +1006,41 @@ cilium_capture_cached(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 457,
- Endline: 465,
- Funcname: cilium_capture_in,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 457,
+  "endLine": 465,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture_in",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -653,19 +1055,41 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 467,
- Endline: 479,
- Funcname: cilium_capture_out,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 467,
+  "endLine": 479,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture_out",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -686,19 +1110,41 @@ cilium_capture_out(struct __ctx_buff *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 483,
- Endline: 486,
- Funcname: cilium_capture_in,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 483,
+  "endLine": 486,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture_in",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -708,19 +1154,41 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/pcap.h,
- Startline: 488,
- Endline: 491,
- Funcname: cilium_capture_out,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 488,
+  "endLine": 491,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
+  "funcName": "cilium_capture_out",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void

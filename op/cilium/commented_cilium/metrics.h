@@ -23,19 +23,93 @@
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,
- Startline: 24,
- Endline: 43,
- Funcname: update_metrics,
- Input: (__u64 bytes, __u8 direction, __u8 reason),
- Output: static__always_inlinevoid,
- Helpers: [map_update_elem,map_lookup_elem,],
- Read_maps: [  METRICS_MAP,],
- Update_maps: [ METRICS_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " &METRICS_MAP",
+          " &key"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t&METRICS_MAP",
+          " &key",
+          " &new_entry",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 24,
+  "endLine": 43,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h",
+  "funcName": "update_metrics",
+  "updateMaps": [
+    " METRICS_MAP"
+  ],
+  "readMaps": [
+    "  METRICS_MAP"
+  ],
+  "input": [
+    "__u64 bytes",
+    " __u8 direction",
+    " __u8 reason"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_update_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void update_metrics(__u64 bytes, __u8 direction,
@@ -66,19 +140,41 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/metrics.h,
- Startline: 50,
- Endline: 62,
- Funcname: ct_to_metrics_dir,
- Input: (enum ct_dir ct_dir),
- Output: static__always_inlineenummetric_dir,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 50,
+  "endLine": 62,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h",
+  "funcName": "ct_to_metrics_dir",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "enum ct_dir ct_dir"
+  ],
+  "output": "static__always_inlineenummetric_dir",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline enum metric_dir ct_to_metrics_dir(enum ct_dir ct_dir)

@@ -275,19 +275,75 @@ struct {
 #ifndef SKIP_CALLS_MAP
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/maps.h,
- Startline: 276,
- Endline: 280,
- Funcname: ep_tail_call,
- Input: (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t_staticctx",
+          " &CALLS_MAP",
+          " index"
+        ]
+      }
+    ]
+  },
+  "startLine": 276,
+  "endLine": 280,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/maps.h",
+  "funcName": "ep_tail_call",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " const __u32 index __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ep_tail_call(struct __ctx_buff *ctx __maybe_unused,

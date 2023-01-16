@@ -182,19 +182,44 @@ struct debug_msg {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 183,
- Endline: 194,
- Funcname: cilium_dbg,
- Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 183,
+  "endLine": 194,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 type",
+    " __u32 arg1",
+    " __u32 arg2"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
@@ -212,19 +237,45 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 196,
- Endline: 208,
- Funcname: cilium_dbg3,
- Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2, __u32 arg3),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 196,
+  "endLine": 208,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg3",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 type",
+    " __u32 arg1",
+    " __u32 arg2",
+    " __u32 arg3"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void cilium_dbg3(struct __ctx_buff *ctx, __u8 type,
@@ -249,19 +300,44 @@ struct debug_capture_msg {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 216,
- Endline: 231,
- Funcname: cilium_dbg_capture2,
- Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 216,
+  "endLine": 231,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg_capture2",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 type",
+    " __u32 arg1",
+    " __u32 arg2"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 type,
@@ -283,19 +359,43 @@ static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 typ
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 233,
- Endline: 237,
- Funcname: cilium_dbg_capture,
- Input: (struct  __ctx_buff *ctx, __u8 type, __u32 arg1),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 233,
+  "endLine": 237,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg_capture",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 type",
+    " __u32 arg1"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type,
@@ -309,19 +409,44 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 242,
- Endline: 246,
- Funcname: cilium_dbg,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 242,
+  "endLine": 246,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u8 type __maybe_unused",
+    " __u32 arg1 __maybe_unused",
+    " __u32 arg2 __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -332,19 +457,45 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 248,
- Endline: 253,
- Funcname: cilium_dbg3,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused, __u32 arg3 __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 248,
+  "endLine": 253,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg3",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u8 type __maybe_unused",
+    " __u32 arg1 __maybe_unused",
+    " __u32 arg2 __maybe_unused",
+    " __u32 arg3 __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -356,19 +507,43 @@ void cilium_dbg3(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 255,
- Endline: 259,
- Funcname: cilium_dbg_capture,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 255,
+  "endLine": 259,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg_capture",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u8 type __maybe_unused",
+    " __u32 arg1 __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -379,19 +554,44 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/dbg.h,
- Startline: 261,
- Endline: 266,
- Funcname: cilium_dbg_capture2,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 261,
+  "endLine": 266,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "funcName": "cilium_dbg_capture2",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u8 type __maybe_unused",
+    " __u32 arg1 __maybe_unused",
+    " __u32 arg2 __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline

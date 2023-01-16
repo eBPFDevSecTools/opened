@@ -21,19 +21,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 22,
- Endline: 35,
- Funcname: is_v4_in_v6,
- Input: (const union v6addr *daddr),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 22,
+  "endLine": 35,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "is_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const union v6addr *daddr"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr)
@@ -53,19 +75,42 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 37,
- Endline: 44,
- Funcname: build_v4_in_v6,
- Input: (union v6addr *daddr, __be32 v4),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 37,
+  "endLine": 44,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "build_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "union v6addr *daddr",
+    " __be32 v4"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -79,19 +124,42 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 46,
- Endline: 50,
- Funcname: build_v4_from_v6,
- Input: (const union v6addr *v6, __be32 *daddr),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 46,
+  "endLine": 50,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "build_v4_from_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const union v6addr *v6",
+    " __be32 *daddr"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -102,19 +170,41 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 52,
- Endline: 74,
- Funcname: get_csum_offset,
- Input: (__u8 protocol),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 52,
+  "endLine": 74,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "get_csum_offset",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u8 protocol"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int get_csum_offset(__u8 protocol)
@@ -143,19 +233,63 @@ static __always_inline int get_csum_offset(__u8 protocol)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 76,
- Endline: 154,
- Funcname: icmp4_to_icmp6,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inlineint,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &icmp4",
+          " sizeoficmp4",
+          " &icmp6",
+          " sizeoficmp6",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 76,
+  "endLine": 154,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "icmp4_to_icmp6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
@@ -240,19 +374,63 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 156,
- Endline: 231,
- Funcname: icmp6_to_icmp4,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inlineint,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &icmp6",
+          " sizeoficmp6",
+          " &icmp4",
+          " sizeoficmp4",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 156,
+  "endLine": 231,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "icmp6_to_icmp4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
@@ -334,19 +512,84 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 233,
- Endline: 288,
- Funcname: ipv4_to_ipv6,
- Input: (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6),
- Output: static__always_inlineint,
- Helpers: [l4_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v4.saddr",
+          " 4",
+          " &v6.saddr",
+          " 16",
+          " csum"
+        ]
+      },
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v4.daddr",
+          " 4",
+          " &v6.daddr",
+          " 16",
+          " csum"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " nh_off + csum_off",
+          " 0",
+          " csum",
+          " csum_flags < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
+  "startLine": 233,
+  "endLine": 288,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "ipv4_to_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off",
+    " const union v6addr *src6",
+    " const union v6addr *dst6"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l4_csum_replace",
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
@@ -408,19 +651,106 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h,
- Startline: 290,
- Endline: 345,
- Funcname: ipv6_to_ipv4,
- Input: (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4),
- Output: static__always_inlineint,
- Helpers: [l3_csum_replace,csum_diff,l4_csum_replace,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tcsum ",
+        "inpVar": [
+          " NULL",
+          " 0",
+          " &v4",
+          " sizeofv4",
+          " csum"
+        ]
+      },
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v6.saddr",
+          " 16",
+          " &v4.saddr",
+          " 4",
+          " csum"
+        ]
+      },
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v6.daddr",
+          " 16",
+          " &v4.daddr",
+          " 4",
+          " csum"
+        ]
+      }
+    ],
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " nh_off + csum_off",
+          " 0",
+          " csum",
+          " 0 < 0\t\treturn DROP_CSUM_L3"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " nh_off + csum_off",
+          " 0",
+          " csum",
+          " csum_flags < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
+  "startLine": 290,
+  "endLine": 345,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "funcName": "ipv6_to_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be32 src4",
+    " __be32 dst4"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l4_csum_replace",
+    "csum_diff",
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv6_to_ipv4(struct __ctx_buff *ctx,

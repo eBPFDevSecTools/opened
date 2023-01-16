@@ -59,20 +59,22 @@
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" 0 - intsizeofstruct ipv6hdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    if xdp",
+          " 0 - intsizeofstruct ipv6hdr "
+        ]
+      }
     ]
   },
   "startLine": 41,
   "endLine": 91,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "encap_v6",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "encap_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " struct ctl_value *cval",
     " bool is_ipv6",
@@ -80,13 +82,18 @@
     " struct real_definition *dst",
     " __u32 pkt_bytes"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -94,16 +101,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool encap_v6(
@@ -179,33 +182,40 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" 0 - intsizeofstruct iphdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    if xdp",
+          " 0 - intsizeofstruct iphdr "
+        ]
+      }
     ]
   },
   "startLine": 93,
   "endLine": 133,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "encap_v4",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "encap_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " struct ctl_value *cval",
     " struct packet_description *pckt",
     " struct real_definition *dst",
     " __u32 pkt_bytes"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -213,16 +223,12 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool encap_v4(
@@ -290,32 +296,39 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if xdp\",\n  \" intsizeofstruct ipv6hdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    if xdp",
+          " intsizeofstruct ipv6hdr "
+        ]
+      }
     ]
   },
   "startLine": 137,
   "endLine": 156,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "decap_v6",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "decap_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " void **data",
     " void **data_end",
     " bool inner_v4"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -323,16 +336,12 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool
@@ -377,31 +386,38 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if xdp\",\n  \" intsizeofstruct iphdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "  if xdp",
+          " intsizeofstruct iphdr "
+        ]
+      }
     ]
   },
   "startLine": 158,
   "endLine": 173,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "decap_v4",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "decap_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " void **data",
     " void **data_end"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -409,16 +425,12 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool
@@ -447,15 +459,11 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "helperCallParams": {},
   "startLine": 177,
   "endLine": 249,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "gue_csum",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "gue_csum",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " bool outer_v6",
@@ -463,13 +471,14 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     " struct packet_description *pckt",
     " __u64 *csum"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -477,16 +486,12 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool gue_csum(
@@ -598,37 +603,52 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  src \",\n \"inpVar\": [\n  \" &pckt_srcs\",\n  \" &ipv4_src\"\n ]\n}"
+      {
+        "opVar": "  src ",
+        "inpVar": [
+          " &pckt_srcs",
+          " &ipv4_src"
+        ]
+      }
     ],
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if           xdp\",\n  \" 0 - intsizeofstruct iphdr + intsizeofstruct udphdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "  if           xdp",
+          " 0 - intsizeofstruct iphdr + intsizeofstruct udphdr "
+        ]
+      }
     ]
   },
   "startLine": 251,
   "endLine": 307,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "gue_encap_v4",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "gue_encap_v4",
+  "updateMaps": [],
+  "readMaps": [
+    "  pckt_srcs"
   ],
-  "Read_maps": [
-    "  pckt_srcs",
-    ""
-  ],
-  "Input": [
+  "input": [
     "struct xdp_md *xdp",
     " struct ctl_value *cval",
     " struct packet_description *pckt",
     " struct real_definition *dst",
     " __u32 pkt_bytes"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -636,16 +656,12 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool gue_encap_v4(
@@ -741,24 +757,33 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  src \",\n \"inpVar\": [\n  \" &pckt_srcs\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "  src ",
+        "inpVar": [
+          " &pckt_srcs",
+          " &key"
+        ]
+      }
     ],
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if           xdp\",\n  \"          0 - intsizeofstruct ipv6hdr + intsizeofstruct udphdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    if           xdp",
+          "          0 - intsizeofstruct ipv6hdr + intsizeofstruct udphdr "
+        ]
+      }
     ]
   },
   "startLine": 309,
   "endLine": 367,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "gue_encap_v6",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "gue_encap_v6",
+  "updateMaps": [],
+  "readMaps": [
+    "  pckt_srcs"
   ],
-  "Read_maps": [
-    "  pckt_srcs",
-    ""
-  ],
-  "Input": [
+  "input": [
     "struct xdp_md *xdp",
     " struct ctl_value *cval",
     " bool is_ipv6",
@@ -766,13 +791,19 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
     " struct real_definition *dst",
     " __u32 pkt_bytes"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -780,16 +811,12 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool gue_encap_v6(
@@ -876,31 +903,38 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  if           xdp\",\n  \" intsizeofstruct iphdr + sizeofstruct udphdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "  if           xdp",
+          " intsizeofstruct iphdr + sizeofstruct udphdr "
+        ]
+      }
     ]
   },
   "startLine": 372,
   "endLine": 389,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "gue_decap_v4",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "gue_decap_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " void **data",
     " void **data_end"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -908,16 +942,12 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool
@@ -960,32 +990,39 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   ],
   "helperCallParams": {
     "bpf_xdp_adjust_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    if           xdp\",\n  \" intsizeofstruct ipv6hdr + sizeofstruct udphdr \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    if           xdp",
+          " intsizeofstruct ipv6hdr + sizeofstruct udphdr "
+        ]
+      }
     ]
   },
   "startLine": 391,
   "endLine": 412,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
-  "Funcname": "gue_decap_v6",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_encap.h",
+  "funcName": "gue_decap_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *xdp",
     " void **data",
     " void **data_end",
     " bool inner_v4"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_xdp_adjust_head,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -993,16 +1030,12 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool

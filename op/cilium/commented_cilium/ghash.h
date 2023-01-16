@@ -30,19 +30,42 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ghash.h,
- Startline: 31,
- Endline: 35,
- Funcname: hash_32,
- Input: (__u32 val, __u32 bits),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 31,
+  "endLine": 35,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ghash.h",
+  "funcName": "hash_32",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 val",
+    " __u32 bits"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 hash_32(__u32 val, __u32 bits)
@@ -53,19 +76,42 @@ static __always_inline __u32 hash_32(__u32 val, __u32 bits)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ghash.h,
- Startline: 37,
- Endline: 40,
- Funcname: hash_64,
- Input: (__u64 val, __u32 bits),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 37,
+  "endLine": 40,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ghash.h",
+  "funcName": "hash_64",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u64 val",
+    " __u32 bits"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 hash_64(__u64 val, __u32 bits)

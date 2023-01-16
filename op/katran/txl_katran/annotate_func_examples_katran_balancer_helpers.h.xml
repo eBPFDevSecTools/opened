@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h" funcheader="static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)" startline="46" endline="70">
+<source file="/root/examples/katran/balancer_helpers.h" funcheader="static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)" startline="46" endline="70">
 static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)
 {
     struct ctl_value *gk;
@@ -24,7 +24,7 @@ static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, 
     bpf_perf_event_output (ctx, map, flags, &md, sizeof (struct event_metadata));
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h" funcheader="static inline int recirculate (struct xdp_md *ctx)" startline="74" endline="80">
+<source file="/root/examples/katran/balancer_helpers.h" funcheader="static inline int recirculate (struct xdp_md *ctx)" startline="74" endline="80">
 static inline int recirculate (struct xdp_md *ctx)
 {
     int i = RECIRCULATION_INDEX;
@@ -32,7 +32,7 @@ static inline int recirculate (struct xdp_md *ctx)
     return XDP_PASS;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h" funcheader="static inline int decrement_ttl (void *data, void *data_end, int offset, bool is_ipv6)" startline="83" endline="111">
+<source file="/root/examples/katran/balancer_helpers.h" funcheader="static inline int decrement_ttl (void *data, void *data_end, int offset, bool is_ipv6)" startline="83" endline="111">
 static inline int decrement_ttl (void *data, void *data_end, int offset, bool is_ipv6)
 {
     struct iphdr *iph;

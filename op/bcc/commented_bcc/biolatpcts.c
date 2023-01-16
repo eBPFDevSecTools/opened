@@ -25,29 +25,55 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   ],
   "helperCallParams": {
     "bpf_ktime_get_ns": [
-      "{\n \"opVar\": \"\\tdur \",\n \"inpVar\": [\n  \"  - rq->io_start_time_ns\"\n ]\n}"
+      {
+        "opVar": "\tdur ",
+        "inpVar": [
+          "  - rq->io_start_time_ns"
+        ]
+      }
     ]
   },
   "startLine": 8,
   "endLine": 29,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
-  "Funcname": "RAW_TRACEPOINT_PROBE",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/bcc/biolatpcts.c",
+  "funcName": "RAW_TRACEPOINT_PROBE",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "block_rq_complete"
   ],
-  "Output": "NA",
-  "Helper": "bpf_ktime_get_ns,",
-  "human_func_description": [
+  "output": "NA",
+  "helper": [
+    "bpf_ktime_get_ns"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "xdp",
+    "socket_filter",
+    "lwt_seg6local",
+    "cgroup_sock",
+    "tracepoint",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_skb",
+    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "sched_act",
+    "lwt_xmit",
+    "flow_dissector",
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -55,16 +81,12 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 RAW_TRACEPOINT_PROBE(block_rq_complete)

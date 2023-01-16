@@ -35,15 +35,11 @@
   "helperCallParams": {},
   "startLine": 31,
   "endLine": 55,
-  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
-  "Funcname": "create_v4_hdr",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/encap_helpers.h",
+  "funcName": "create_v4_hdr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct iphdr *iph",
     " __u8 tos",
     " __u32 saddr",
@@ -51,13 +47,14 @@
     " __u16 pkt_bytes",
     " __u8 proto"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -65,16 +62,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void create_v4_hdr(
@@ -110,15 +103,11 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
-  "Funcname": "create_v6_hdr",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/encap_helpers.h",
+  "funcName": "create_v6_hdr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ipv6hdr *ip6h",
     " __u8 tc",
     " __u32 *saddr",
@@ -126,13 +115,14 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
     " __u16 payload_len",
     " __u8 proto"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -140,16 +130,12 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void create_v6_hdr(
@@ -181,28 +167,25 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
   "helperCallParams": {},
   "startLine": 79,
   "endLine": 89,
-  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
-  "Funcname": "create_udp_hdr",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/encap_helpers.h",
+  "funcName": "create_udp_hdr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct udphdr *udph",
     " __u16 sport",
     " __u16 dport",
     " __u16 len",
     " __u16 csum"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -210,16 +193,12 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void create_udp_hdr(

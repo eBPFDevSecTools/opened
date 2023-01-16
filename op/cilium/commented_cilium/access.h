@@ -9,19 +9,43 @@
 #if !defined(__non_bpf_context) && defined(__bpf__)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/access.h,
- Startline: 10,
- Endline: 33,
- Funcname: map_array_get_32,
- Input: (const __u32 *array, __u32 index, const __u32 limit),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 10,
+  "endLine": 33,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/access.h",
+  "funcName": "map_array_get_32",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u32 *array",
+    " __u32 index",
+    " const __u32 limit"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32

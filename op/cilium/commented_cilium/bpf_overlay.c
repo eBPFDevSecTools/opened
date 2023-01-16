@@ -45,19 +45,58 @@
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 46,
- Endline: 180,
- Funcname: handle_ipv6,
- Input: (struct  __ctx_buff *ctx, __u32 *identity),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " HOST_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 46,
+  "endLine": 180,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "handle_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *identity"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_ipv6(struct __ctx_buff *ctx,
@@ -199,19 +238,41 @@ to_host:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 183,
- Endline: 192,
- Funcname: tail_handle_ipv6,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 183,
+  "endLine": 192,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "tail_handle_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_ipv6(struct __ctx_buff *ctx)
@@ -229,19 +290,70 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 196,
- Endline: 333,
- Funcname: handle_ipv4,
- Input: (struct  __ctx_buff *ctx, __u32 *identity),
- Output: static__always_inlineint,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [  VTEP_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\t\tinfo ",
+        "inpVar": [
+          " &VTEP_MAP",
+          " &vkey"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " HOST_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 196,
+  "endLine": 333,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "handle_ipv4",
+  "updateMaps": [],
+  "readMaps": [
+    "  VTEP_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *identity"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_ipv4(struct __ctx_buff *ctx, __u32 *identity)
@@ -386,19 +498,41 @@ to_host:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 336,
- Endline: 345,
- Funcname: tail_handle_ipv4,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 336,
+  "endLine": 345,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "tail_handle_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_ipv4(struct __ctx_buff *ctx)
@@ -420,19 +554,71 @@ int tail_handle_ipv4(struct __ctx_buff *ctx)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 353,
- Endline: 395,
- Funcname: tail_handle_arp,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [  VTEP_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tinfo ",
+        "inpVar": [
+          " &VTEP_MAP",
+          " &vkey"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif info->tunnel_endpoint\t\treturn __encap_and__with_nodeidctx",
+          "\t\t\t\t\t\t\tinfo->tunnel_endpoint",
+          "\t\t\t\t\t\t\tSECLABEL",
+          "\t\t\t\t\t\t\tWORLD_ID",
+          "\t\t\t\t\t\t\t&trace"
+        ]
+      }
+    ]
+  },
+  "startLine": 353,
+  "endLine": 395,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "tail_handle_arp",
+  "updateMaps": [],
+  "readMaps": [
+    "  VTEP_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_arp(struct __ctx_buff *ctx)
@@ -485,19 +671,42 @@ pass_to_stack:
 #ifdef ENABLE_IPSEC
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 401,
- Endline: 428,
- Funcname: is_esp,
- Input: (struct  __ctx_buff *ctx, __u16 proto),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 401,
+  "endLine": 428,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "is_esp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u16 proto"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool is_esp(struct __ctx_buff *ctx, __u16 proto)
@@ -536,19 +745,87 @@ static __always_inline bool is_esp(struct __ctx_buff *ctx, __u16 proto)
 __section("from-overlay")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 435,
- Endline: 527,
- Funcname: from_overlay,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tcase bpf_htonsETH_P_IPV6:#ifdef ENABLE_IPV6\t\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_OVERLAY"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tcase bpf_htonsETH_P_IP:#ifdef ENABLE_IPV4\t\tep_ctx",
+          " CILIUM_CALL_IPV4_FROM_OVERLAY"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_VTEP\tcase bpf_htonsETH_P_ARP:\t\tep_ctx",
+          " CILIUM_CALL_ARP"
+        ]
+      }
+    ]
+  },
+  "startLine": 435,
+  "endLine": 527,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "from_overlay",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int from_overlay(struct __ctx_buff *ctx)
@@ -651,19 +928,41 @@ out:
 __section("to-overlay")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c,
- Startline: 533,
- Endline: 568,
- Funcname: to_overlay,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 533,
+  "endLine": 568,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "funcName": "to_overlay",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int to_overlay(struct __ctx_buff *ctx)

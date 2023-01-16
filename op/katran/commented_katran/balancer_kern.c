@@ -56,33 +56,67 @@ __attribute__((__always_inline__))
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  struct lb_stats* conn_rate_stats \",\n \"inpVar\": [\n  \"      &stats\",\n  \" &conn_rate_key\"\n ]\n}"
+      {
+        "opVar": "  struct lb_stats* conn_rate_stats ",
+        "inpVar": [
+          "      &stats",
+          " &conn_rate_key"
+        ]
+      }
     ],
     "bpf_ktime_get_ns": [
-      "{\n \"opVar\": \"    *cur_time \",\n \"inpVar\": [\n  \" \"\n ]\n}"
+      {
+        "opVar": "    *cur_time ",
+        "inpVar": [
+          " "
+        ]
+      }
     ]
   },
   "startLine": 25,
   "endLine": 50,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "is_under_flood",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "is_under_flood",
+  "updateMaps": [],
+  "readMaps": [
+    " stats"
   ],
-  "Read_maps": [
-    " stats",
-    ""
-  ],
-  "Input": [
+  "input": [
     "__u64 *cur_time"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_ktime_get_ns,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_ktime_get_ns"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -90,16 +124,12 @@ __attribute__((__always_inline__))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 	static inline bool is_under_flood(
@@ -167,46 +197,110 @@ __attribute__((__always_inline__))
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"      lpm_val \",\n \"inpVar\": [\n  \" &lpm_src_v6\",\n  \" &lpm_key_v6\"\n ]\n}",
-      "{\n \"opVar\": \"      lpm_val \",\n \"inpVar\": [\n  \" &lpm_src_v4\",\n  \" &lpm_key_v4\"\n ]\n}",
-      "{\n \"opVar\": \"    struct lb_stats* data_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"    real_pos \",\n \"inpVar\": [\n  \" &ch_rings\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"  *real \",\n \"inpVar\": [\n  \" &reals\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "      lpm_val ",
+        "inpVar": [
+          " &lpm_src_v6",
+          " &lpm_key_v6"
+        ]
+      },
+      {
+        "opVar": "      lpm_val ",
+        "inpVar": [
+          " &lpm_src_v4",
+          " &lpm_key_v4"
+        ]
+      },
+      {
+        "opVar": "    struct lb_stats* data_stats ",
+        "inpVar": [
+          " &stats",
+          " &stats_key"
+        ]
+      },
+      {
+        "opVar": "    real_pos ",
+        "inpVar": [
+          " &ch_rings",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "  *real ",
+        "inpVar": [
+          " &reals",
+          " &key"
+        ]
+      }
     ],
     "bpf_map_update_elem": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    lru_map\",\n  \" &pckt->flow\",\n  \" &new_dst_lru\",\n  \" BPF_ANY\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    lru_map",
+          " &pckt->flow",
+          " &new_dst_lru",
+          " BPF_ANY"
+        ]
+      }
     ]
   },
   "startLine": 53,
   "endLine": 131,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "get_packet_dst",
-  "Update_maps": [
-    " lru_map",
-    ""
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "get_packet_dst",
+  "updateMaps": [
+    " lru_map"
   ],
-  "Read_maps": [
-    "  lpm_src_v6",
-    "  lpm_src_v4",
+  "readMaps": [
     " reals",
-    " stats",
+    "  lpm_src_v4",
+    "  lpm_src_v6",
     "  ch_rings",
-    ""
+    " stats"
   ],
-  "Input": [
+  "input": [
     "struct real_definition **real",
     " struct packet_description *pckt",
     " struct vip_meta *vip_info",
     " bool is_ipv6",
     " void *lru_map"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_map_update_elem,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -214,16 +308,12 @@ __attribute__((__always_inline__))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 	static inline bool get_packet_dst(
@@ -340,38 +430,78 @@ __attribute__((__always_inline__))
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  dst_lru \",\n \"inpVar\": [\n  \" lru_map\",\n  \" &pckt->flow\"\n ]\n}",
-      "{\n \"opVar\": \"  *real \",\n \"inpVar\": [\n  \" &reals\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "  dst_lru ",
+        "inpVar": [
+          " lru_map",
+          " &pckt->flow"
+        ]
+      },
+      {
+        "opVar": "  *real ",
+        "inpVar": [
+          " &reals",
+          " &key"
+        ]
+      }
     ],
     "bpf_ktime_get_ns": [
-      "{\n \"opVar\": \"    cur_time \",\n \"inpVar\": [\n  \" \"\n ]\n}"
+      {
+        "opVar": "    cur_time ",
+        "inpVar": [
+          " "
+        ]
+      }
     ]
   },
   "startLine": 133,
   "endLine": 156,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "connection_table_lookup",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    " reals",
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "connection_table_lookup",
+  "updateMaps": [],
+  "readMaps": [
     " lru_map",
-    ""
+    " reals"
   ],
-  "Input": [
+  "input": [
     "struct real_definition **real",
     " struct packet_description *pckt",
     " void *lru_map",
     " bool isGlobalLru"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_ktime_get_ns,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_ktime_get_ns"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -379,16 +509,12 @@ __attribute__((__always_inline__))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void connection_table_lookup(
@@ -419,31 +545,15 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 158,
   "endLine": 230,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "process_l3_headers",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "process_l3_headers",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct packet_description *pckt",
     " __u8 *protocol",
     " __u64 off",
@@ -452,13 +562,14 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
     " void *data_end",
     " bool is_ipv6"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -466,16 +577,12 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int process_l3_headers(
@@ -570,49 +677,74 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
           ]
         }
       ]
-    },
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    __u32* decap_dst_flags \",\n \"inpVar\": [\n  \" &decap_dst\",\n  \" &dst_addr\"\n ]\n}",
-      "{\n \"opVar\": \"    data_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &stats_key\"\n ]\n}"
+      {
+        "opVar": "    __u32* decap_dst_flags ",
+        "inpVar": [
+          " &decap_dst",
+          " &dst_addr"
+        ]
+      },
+      {
+        "opVar": "    data_stats ",
+        "inpVar": [
+          " &stats",
+          " &stats_key"
+        ]
+      }
     ]
   },
   "startLine": 233,
   "endLine": 255,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "check_decap_dst",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "check_decap_dst",
+  "updateMaps": [],
+  "readMaps": [
     " decap_dst",
-    "  stats",
-    ""
+    "  stats"
   ],
-  "Input": [
+  "input": [
     "struct packet_description *pckt",
     " bool is_ipv6",
     " bool *pass"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -620,16 +752,12 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int
@@ -667,25 +795,22 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   "helperCallParams": {},
   "startLine": 261,
   "endLine": 277,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "reals_have_same_addr",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "reals_have_same_addr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct real_definition *a",
     " struct real_definition *b"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -693,16 +818,12 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
@@ -740,52 +861,83 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
           ]
         }
       ]
-    },
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    void* g_lru_map \",\n \"inpVar\": [\n  \" &global_lru_maps\",\n  \" &cpu_num\"\n ]\n}",
-      "{\n \"opVar\": \"  struct lb_stats* global_lru_stats \",\n \"inpVar\": [\n  \"      &stats\",\n  \" &global_lru_stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"      struct lb_stats* global_lru_mismatch_stats \",\n \"inpVar\": [\n  \"          &stats\",\n  \" &global_lru_mismatch_stats_key\"\n ]\n}"
+      {
+        "opVar": "    void* g_lru_map ",
+        "inpVar": [
+          " &global_lru_maps",
+          " &cpu_num"
+        ]
+      },
+      {
+        "opVar": "  struct lb_stats* global_lru_stats ",
+        "inpVar": [
+          "      &stats",
+          " &global_lru_stats_key"
+        ]
+      },
+      {
+        "opVar": "      struct lb_stats* global_lru_mismatch_stats ",
+        "inpVar": [
+          "          &stats",
+          " &global_lru_mismatch_stats_key"
+        ]
+      }
     ]
   },
   "startLine": 279,
   "endLine": 335,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "perform_global_lru_lookup",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    " stats",
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "perform_global_lru_lookup",
+  "updateMaps": [],
+  "readMaps": [
     " global_lru_maps",
-    ""
+    " stats"
   ],
-  "Input": [
+  "input": [
     "struct real_definition **dst",
     " struct packet_description *pckt",
     " __u32 cpu_num",
     " struct vip_meta *vip_info",
     " bool is_ipv6"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -793,16 +945,12 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
@@ -869,42 +1017,15 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 340,
   "endLine": 387,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "process_encaped_ipip_pckt",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "process_encaped_ipip_pckt",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void **data",
     " void **data_end",
     " struct xdp_md *xdp",
@@ -912,13 +1033,14 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
     " __u8 *protocol",
     " bool pass"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -926,16 +1048,12 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
@@ -992,55 +1110,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 391,
   "endLine": 441,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "process_encaped_gue_pckt",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "process_encaped_gue_pckt",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void **data",
     " void **data_end",
     " struct xdp_md *xdp",
     " bool is_ipv6",
     " bool pass"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1048,16 +1140,12 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int 
@@ -1134,30 +1222,60 @@ process_encaped_gue_pckt(
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  struct lb_stats* quic_version \",\n \"inpVar\": [\n  \"      &stats\",\n  \" &quic_version_stats_key\"\n ]\n}"
+      {
+        "opVar": "  struct lb_stats* quic_version ",
+        "inpVar": [
+          "      &stats",
+          " &quic_version_stats_key"
+        ]
+      }
     ]
   },
   "startLine": 444,
   "endLine": 457,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "increment_quic_cid_version_stats",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "increment_quic_cid_version_stats",
+  "updateMaps": [],
+  "readMaps": [
+    " stats"
   ],
-  "Read_maps": [
-    " stats",
-    ""
-  ],
-  "Input": [
+  "input": [
     "int host_id"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1165,16 +1283,12 @@ process_encaped_gue_pckt(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -1213,30 +1327,60 @@ increment_quic_cid_version_stats(int host_id) {
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  struct lb_stats* quic_drop \",\n \"inpVar\": [\n  \"      &stats\",\n  \" &quic_drop_stats_key\"\n ]\n}"
+      {
+        "opVar": "  struct lb_stats* quic_drop ",
+        "inpVar": [
+          "      &stats",
+          " &quic_drop_stats_key"
+        ]
+      }
     ]
   },
   "startLine": 459,
   "endLine": 468,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "increment_quic_cid_drop_no_real",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "increment_quic_cid_drop_no_real",
+  "updateMaps": [],
+  "readMaps": [
+    " stats"
   ],
-  "Read_maps": [
-    " stats",
-    ""
-  ],
-  "Input": [
+  "input": [
     "NA"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1244,16 +1388,12 @@ increment_quic_cid_version_stats(int host_id) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -1288,30 +1428,60 @@ increment_quic_cid_drop_no_real() {
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  struct lb_stats* quic_drop \",\n \"inpVar\": [\n  \"      &stats\",\n  \" &quic_drop_stats_key\"\n ]\n}"
+      {
+        "opVar": "  struct lb_stats* quic_drop ",
+        "inpVar": [
+          "      &stats",
+          " &quic_drop_stats_key"
+        ]
+      }
     ]
   },
   "startLine": 470,
   "endLine": 478,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "increment_quic_cid_drop_real_0",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "increment_quic_cid_drop_real_0",
+  "updateMaps": [],
+  "readMaps": [
+    " stats"
   ],
-  "Read_maps": [
-    " stats",
-    ""
-  ],
-  "Input": [
+  "input": [
     "NA"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1319,16 +1489,12 @@ increment_quic_cid_drop_no_real() {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_real_0() {
@@ -1371,92 +1537,171 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
           ]
         }
       ]
-    },
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    },
-    {
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF."
-        }
-      ]
     }
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  vip_info \",\n \"inpVar\": [\n  \" &vip_map\",\n  \" &vip\"\n ]\n}",
-      "{\n \"opVar\": \"    vip_info \",\n \"inpVar\": [\n  \" &vip_map\",\n  \" &vip\"\n ]\n}",
-      "{\n \"opVar\": \"    data_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"  data_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"    struct lb_stats* quic_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &quic_stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"      __u32* real_pos \",\n \"inpVar\": [\n  \" &server_id_map\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"          dst \",\n \"inpVar\": [\n  \" &reals\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"    void* lru_map \",\n \"inpVar\": [\n  \" &lru_mapping\",\n  \" &cpu_num\"\n ]\n}",
-      "{\n \"opVar\": \"      struct lb_stats* lru_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &lru_stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"      struct lb_stats* routing_stats \",\n \"inpVar\": [\n  \"          &stats\",\n  \" &routing_stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"        struct lb_stats* lru_stats \",\n \"inpVar\": [\n  \"            &stats\",\n  \" &lru_stats_key\"\n ]\n}",
-      "{\n \"opVar\": \"        cval \",\n \"inpVar\": [\n  \" &ctl_array\",\n  \" &mac_addr_pos\"\n ]\n}",
-      "{\n \"opVar\": \"  data_stats \",\n \"inpVar\": [\n  \" &stats\",\n  \" &vip_num\"\n ]\n}",
-      "{\n \"opVar\": \"    data_stats \",\n \"inpVar\": [\n  \" &reals_stats\",\n  \" &pckt.real_index\"\n ]\n}"
+      {
+        "opVar": "  vip_info ",
+        "inpVar": [
+          " &vip_map",
+          " &vip"
+        ]
+      },
+      {
+        "opVar": "    vip_info ",
+        "inpVar": [
+          " &vip_map",
+          " &vip"
+        ]
+      },
+      {
+        "opVar": "    data_stats ",
+        "inpVar": [
+          " &stats",
+          " &stats_key"
+        ]
+      },
+      {
+        "opVar": "  data_stats ",
+        "inpVar": [
+          " &stats",
+          " &stats_key"
+        ]
+      },
+      {
+        "opVar": "    struct lb_stats* quic_stats ",
+        "inpVar": [
+          " &stats",
+          " &quic_stats_key"
+        ]
+      },
+      {
+        "opVar": "      __u32* real_pos ",
+        "inpVar": [
+          " &server_id_map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "          dst ",
+        "inpVar": [
+          " &reals",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "    void* lru_map ",
+        "inpVar": [
+          " &lru_mapping",
+          " &cpu_num"
+        ]
+      },
+      {
+        "opVar": "      struct lb_stats* lru_stats ",
+        "inpVar": [
+          " &stats",
+          " &lru_stats_key"
+        ]
+      },
+      {
+        "opVar": "      struct lb_stats* routing_stats ",
+        "inpVar": [
+          "          &stats",
+          " &routing_stats_key"
+        ]
+      },
+      {
+        "opVar": "        struct lb_stats* lru_stats ",
+        "inpVar": [
+          "            &stats",
+          " &lru_stats_key"
+        ]
+      },
+      {
+        "opVar": "        cval ",
+        "inpVar": [
+          " &ctl_array",
+          " &mac_addr_pos"
+        ]
+      },
+      {
+        "opVar": "  data_stats ",
+        "inpVar": [
+          " &stats",
+          " &vip_num"
+        ]
+      },
+      {
+        "opVar": "    data_stats ",
+        "inpVar": [
+          " &reals_stats",
+          " &pckt.real_index"
+        ]
+      }
     ],
     "bpf_get_smp_processor_id": [
-      "{\n \"opVar\": \"        __u32 cpu_num \",\n \"inpVar\": [\n  \" \"\n ]\n}"
+      {
+        "opVar": "        __u32 cpu_num ",
+        "inpVar": [
+          " "
+        ]
+      }
     ]
   },
   "startLine": 480,
   "endLine": 791,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "process_packet",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    "  reals_stats",
-    " server_id_map",
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "process_packet",
+  "updateMaps": [],
+  "readMaps": [
+    "  stats",
     " lru_mapping",
     "  reals",
-    "  stats",
-    "  vip_map",
-    " stats",
+    "  reals_stats",
     "  ctl_array",
-    ""
+    " server_id_map",
+    " stats",
+    "  vip_map"
   ],
-  "Input": [
+  "input": [
     "struct xdp_md *xdp",
     " __u64 off",
     " bool is_ipv6"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_get_smp_processor_id,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_get_smp_processor_id",
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1464,16 +1709,12 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int process_packet(struct xdp_md* xdp, __u64 off, bool is_ipv6) {
@@ -1793,51 +2034,25 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    },
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 794,
   "endLine": 817,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "balancer_ingress",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "balancer_ingress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1845,16 +2060,12 @@ SEC("xdp")
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int balancer_ingress(struct xdp_md* ctx) {
@@ -1888,25 +2099,22 @@ int balancer_ingress(struct xdp_md* ctx) {
   "helperCallParams": {},
   "startLine": 818,
   "endLine": 827,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
-  "Funcname": "get_packet_hash",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_kern.c",
+  "funcName": "get_packet_hash",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct packet_description *pckt",
     " bool hash_16bytes"
   ],
-  "Output": "staticinline__u32",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinline__u32",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1914,16 +2122,12 @@ int balancer_ingress(struct xdp_md* ctx) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __u32 get_packet_hash(struct packet_description* pckt,bool hash_16bytes) {

@@ -37,19 +37,43 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 38,
- Endline: 45,
- Funcname: __bpf_memset_builtin,
- Input: (void *d, __u8 c, __u64 len),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 38,
+  "endLine": 45,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memset_builtin",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " __u8 c",
+    " __u64 len"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -63,19 +87,42 @@ __bpf_memset_builtin(void *d, __u8 c, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 47,
- Endline: 126,
- Funcname: __bpf_memzero,
- Input: (void *d, __u64 len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 47,
+  "endLine": 126,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memzero",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " __u64 len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __bpf_memzero(void *d, __u64 len)
@@ -161,19 +208,43 @@ static __always_inline void __bpf_memzero(void *d, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 128,
- Endline: 133,
- Funcname: __bpf_no_builtin_memset,
- Input: (void * d __maybe_unused, __u8 c __maybe_unused, __u64 len __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 128,
+  "endLine": 133,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_no_builtin_memset",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void * d __maybe_unused",
+    " __u8 c __maybe_unused",
+    " __u64 len __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -188,19 +259,43 @@ __bpf_no_builtin_memset(void *d __maybe_unused, __u8 c __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 138,
- Endline: 145,
- Funcname: memset,
- Input: (void *d, int c, __u64 len),
- Output: \memset\)void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 138,
+  "endLine": 145,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "memset",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " int c",
+    " __u64 len"
+  ],
+  "output": "\\memset\\)void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __nobuiltin("memset") void memset(void *d, int c,
@@ -214,19 +309,43 @@ static __always_inline __nobuiltin("memset") void memset(void *d, int c,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 147,
- Endline: 152,
- Funcname: __bpf_memcpy_builtin,
- Input: (void *d, const void *s, __u64 len),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 147,
+  "endLine": 152,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memcpy_builtin",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -238,19 +357,43 @@ __bpf_memcpy_builtin(void *d, const void *s, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 154,
- Endline: 239,
- Funcname: __bpf_memcpy,
- Input: (void *d, const void *s, __u64 len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 154,
+  "endLine": 239,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memcpy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __bpf_memcpy(void *d, const void *s, __u64 len)
@@ -342,19 +485,43 @@ static __always_inline void __bpf_memcpy(void *d, const void *s, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 241,
- Endline: 246,
- Funcname: __bpf_no_builtin_memcpy,
- Input: (void * d __maybe_unused, const void * s __maybe_unused, __u64 len __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 241,
+  "endLine": 246,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_no_builtin_memcpy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void * d __maybe_unused",
+    " const void * s __maybe_unused",
+    " __u64 len __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -369,19 +536,43 @@ __bpf_no_builtin_memcpy(void *d __maybe_unused, const void *s __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 251,
- Endline: 255,
- Funcname: memcpy,
- Input: (void *d, const void *s, __u64 len),
- Output: \memcpy\)void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 251,
+  "endLine": 255,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "memcpy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "\\memcpy\\)void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __nobuiltin("memcpy") void memcpy(void *d, const void *s,
@@ -392,19 +583,43 @@ static __always_inline __nobuiltin("memcpy") void memcpy(void *d, const void *s,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 257,
- Endline: 270,
- Funcname: __bpf_memcmp_builtin,
- Input: (const void *x, const void *y, __u64 len),
- Output: static__always_inline__maybe_unused__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 257,
+  "endLine": 270,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memcmp_builtin",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *x",
+    " const void *y",
+    " __u64 len"
+  ],
+  "output": "static__always_inline__maybe_unused__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u64
@@ -424,19 +639,43 @@ __bpf_memcmp_builtin(const void *x, const void *y, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 272,
- Endline: 345,
- Funcname: __bpf_memcmp,
- Input: (const void *x, const void *y, __u64 len),
- Output: static__always_inline__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 272,
+  "endLine": 345,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memcmp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *x",
+    " const void *y",
+    " __u64 len"
+  ],
+  "output": "static__always_inline__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u64 __bpf_memcmp(const void *x, const void *y,
@@ -516,19 +755,43 @@ static __always_inline __u64 __bpf_memcmp(const void *x, const void *y,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 347,
- Endline: 353,
- Funcname: __bpf_no_builtin_memcmp,
- Input: (const void * x __maybe_unused, const void * y __maybe_unused, __u64 len __maybe_unused),
- Output: static__always_inline__maybe_unused__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 347,
+  "endLine": 353,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_no_builtin_memcmp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void * x __maybe_unused",
+    " const void * y __maybe_unused",
+    " __u64 len __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unused__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u64
@@ -547,19 +810,43 @@ __bpf_no_builtin_memcmp(const void *x __maybe_unused,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 361,
- Endline: 366,
- Funcname: memcmp,
- Input: (const void *x, const void *y, __u64 len),
- Output: \memcmp\)__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 361,
+  "endLine": 366,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "memcmp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *x",
+    " const void *y",
+    " __u64 len"
+  ],
+  "output": "\\memcmp\\)__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __nobuiltin("memcmp") __u64 memcmp(const void *x,
@@ -571,19 +858,43 @@ static __always_inline __nobuiltin("memcmp") __u64 memcmp(const void *x,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 368,
- Endline: 373,
- Funcname: __bpf_memmove_builtin,
- Input: (void *d, const void *s, __u64 len),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 368,
+  "endLine": 373,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memmove_builtin",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -595,19 +906,43 @@ __bpf_memmove_builtin(void *d, const void *s, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 375,
- Endline: 379,
- Funcname: __bpf_memmove_bwd,
- Input: (void *d, const void *s, __u64 len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 375,
+  "endLine": 379,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memmove_bwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __bpf_memmove_bwd(void *d, const void *s, __u64 len)
@@ -618,19 +953,43 @@ static __always_inline void __bpf_memmove_bwd(void *d, const void *s, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 381,
- Endline: 458,
- Funcname: __bpf_memmove_fwd,
- Input: (void *d, const void *s, __u64 len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 381,
+  "endLine": 458,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memmove_fwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __bpf_memmove_fwd(void *d, const void *s, __u64 len)
@@ -714,19 +1073,43 @@ static __always_inline void __bpf_memmove_fwd(void *d, const void *s, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 460,
- Endline: 465,
- Funcname: __bpf_no_builtin_memmove,
- Input: (void * d __maybe_unused, const void * s __maybe_unused, __u64 len __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 460,
+  "endLine": 465,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_no_builtin_memmove",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void * d __maybe_unused",
+    " const void * s __maybe_unused",
+    " __u64 len __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -741,19 +1124,43 @@ __bpf_no_builtin_memmove(void *d __maybe_unused, const void *s __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 470,
- Endline: 485,
- Funcname: __bpf_memmove,
- Input: (void *d, const void *s, __u64 len),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 470,
+  "endLine": 485,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "__bpf_memmove",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void __bpf_memmove(void *d, const void *s, __u64 len)
@@ -775,19 +1182,43 @@ static __always_inline void __bpf_memmove(void *d, const void *s, __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h,
- Startline: 487,
- Endline: 492,
- Funcname: memmove,
- Input: (void *d, const void *s, __u64 len),
- Output: \memmove\)void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 487,
+  "endLine": 492,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/builtins.h",
+  "funcName": "memmove",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void *d",
+    " const void *s",
+    " __u64 len"
+  ],
+  "output": "\\memmove\\)void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __nobuiltin("memmove") void memmove(void *d,

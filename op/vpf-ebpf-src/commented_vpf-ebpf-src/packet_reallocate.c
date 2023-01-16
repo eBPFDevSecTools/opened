@@ -36,29 +36,40 @@ __attribute__((section("socket_filter"), used))
   ],
   "helperCallParams": {
     "bpf_skb_change_head": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    ctx\",\n  \" 4\",\n  \" 0\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    ctx",
+          " 4",
+          " 0"
+        ]
+      }
     ]
   },
   "startLine": 17,
   "endLine": 34,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
-  "Funcname": "reallocate_invalidates",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/packet_reallocate.c",
+  "funcName": "reallocate_invalidates",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct sk_buff *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_skb_change_head,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_skb_change_head"
+  ],
+  "compatibleHookpoints": [
+    "sk_skb",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -66,16 +77,12 @@ __attribute__((section("socket_filter"), used))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int reallocate_invalidates(struct sk_buff* ctx)

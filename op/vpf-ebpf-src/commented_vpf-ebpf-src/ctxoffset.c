@@ -49,30 +49,40 @@ __attribute__((section("sockops"), used))
   ],
   "helperCallParams": {
     "bpf_sock_map_update": [
-      "{\n \"opVar\": \"    int result \",\n \"inpVar\": [\n  \" ctx\",\n  \" &map\",\n  \" &key\",\n  \" 0\"\n ]\n}"
+      {
+        "opVar": "    int result ",
+        "inpVar": [
+          " ctx",
+          " &map",
+          " &key",
+          " 0"
+        ]
+      }
     ]
   },
   "startLine": 29,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
-  "Funcname": "func",
-  "Update_maps": [
-    " ctx",
-    ""
+  "File": "/root/examples/vpf-ebpf-src/ctxoffset.c",
+  "funcName": "func",
+  "updateMaps": [
+    " ctx"
   ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "readMaps": [],
+  "input": [
     "void *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_sock_map_update,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_sock_map_update"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -80,16 +90,12 @@ __attribute__((section("sockops"), used))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(void* ctx)

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/loop.c" funcheader="int foo (struct test_md *ctx)" startline="13" endline="31">
+<source file="/root/examples/vpf-ebpf-src/loop.c" funcheader="int foo (struct test_md *ctx)" startline="13" endline="31">
 int foo (struct test_md *ctx)
 {
     int index;

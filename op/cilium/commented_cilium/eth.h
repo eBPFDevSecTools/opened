@@ -24,19 +24,42 @@ union macaddr {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 25,
- Endline: 35,
- Funcname: eth_addrcmp,
- Input: (const union macaddr *a, const union macaddr *b),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 25,
+  "endLine": 35,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_addrcmp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const union macaddr *a",
+    " const union macaddr *b"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_addrcmp(const union macaddr *a,
@@ -53,19 +76,41 @@ static __always_inline int eth_addrcmp(const union macaddr *a,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 37,
- Endline: 48,
- Funcname: eth_is_bcast,
- Input: (const union macaddr *a),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 37,
+  "endLine": 48,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_is_bcast",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const union macaddr *a"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_is_bcast(const union macaddr *a)
@@ -83,19 +128,43 @@ static __always_inline int eth_is_bcast(const union macaddr *a)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 50,
- Endline: 54,
- Funcname: eth_load_saddr,
- Input: (struct  __ctx_buff *ctx, __u8 *mac, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 50,
+  "endLine": 54,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_load_saddr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 *mac",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_load_saddr(struct __ctx_buff *ctx, __u8 *mac,
@@ -106,19 +175,43 @@ static __always_inline int eth_load_saddr(struct __ctx_buff *ctx, __u8 *mac,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 56,
- Endline: 60,
- Funcname: eth_store_saddr_aligned,
- Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 56,
+  "endLine": 60,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_store_saddr_aligned",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const __u8 *mac",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_store_saddr_aligned(struct __ctx_buff *ctx,
@@ -129,19 +222,43 @@ static __always_inline int eth_store_saddr_aligned(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 62,
- Endline: 79,
- Funcname: eth_store_saddr,
- Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 62,
+  "endLine": 79,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_store_saddr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const __u8 *mac",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_store_saddr(struct __ctx_buff *ctx,
@@ -165,19 +282,43 @@ static __always_inline int eth_store_saddr(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 81,
- Endline: 85,
- Funcname: eth_load_daddr,
- Input: (struct  __ctx_buff *ctx, __u8 *mac, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 81,
+  "endLine": 85,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_load_daddr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 *mac",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_load_daddr(struct __ctx_buff *ctx, __u8 *mac,
@@ -188,19 +329,43 @@ static __always_inline int eth_load_daddr(struct __ctx_buff *ctx, __u8 *mac,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 87,
- Endline: 91,
- Funcname: eth_store_daddr_aligned,
- Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 87,
+  "endLine": 91,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_store_daddr_aligned",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const __u8 *mac",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_store_daddr_aligned(struct __ctx_buff *ctx,
@@ -211,19 +376,43 @@ static __always_inline int eth_store_daddr_aligned(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 93,
- Endline: 110,
- Funcname: eth_store_daddr,
- Input: (struct  __ctx_buff *ctx, const __u8 *mac, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 93,
+  "endLine": 110,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_store_daddr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const __u8 *mac",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_store_daddr(struct __ctx_buff *ctx,
@@ -247,19 +436,43 @@ static __always_inline int eth_store_daddr(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eth.h,
- Startline: 112,
- Endline: 117,
- Funcname: eth_store_proto,
- Input: (struct  __ctx_buff *ctx, const __u16 proto, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 112,
+  "endLine": 117,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eth.h",
+  "funcName": "eth_store_proto",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const __u16 proto",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int eth_store_proto(struct __ctx_buff *ctx,

@@ -12,24 +12,21 @@ static int (*get_prandom_u32)() = (void*)7;
   "helperCallParams": {},
   "startLine": 8,
   "endLine": 19,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c",
-  "Funcname": "func",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/stackok.c",
+  "funcName": "func",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *ctx"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -37,16 +34,12 @@ static int (*get_prandom_u32)() = (void*)7;
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(void* ctx)

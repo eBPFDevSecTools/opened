@@ -51,19 +51,41 @@ struct drop_notify {
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
- Startline: 52,
- Endline: 80,
- Funcname: __send_drop_notify,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 52,
+  "endLine": 80,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
+  "funcName": "__send_drop_notify",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int __send_drop_notify(struct __ctx_buff *ctx)
@@ -111,19 +133,81 @@ int __send_drop_notify(struct __ctx_buff *ctx)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
- Startline: 95,
- Endline: 116,
- Funcname: _send_drop_notify,
- Input: (__u8 file, __u16 line, struct  __ctx_buff *ctx, __u32 src, __u32 dst, __u32 dst_id, __u32 reason, __u32 exitcode, enum metric_dir direction),
- Output: static__always_inlineint,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tep_ctx",
+          " CILIUM_CALL_DROP_NOTIFY"
+        ]
+      }
+    ]
+  },
+  "startLine": 95,
+  "endLine": 116,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
+  "funcName": "_send_drop_notify",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u8 file",
+    " __u16 line",
+    " struct  __ctx_buff *ctx",
+    " __u32 src",
+    " __u32 dst",
+    " __u32 dst_id",
+    " __u32 reason",
+    " __u32 exitcode",
+    " enum metric_dir direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -151,19 +235,49 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/drop.h,
- Startline: 118,
- Endline: 126,
- Funcname: _send_drop_notify,
- Input: (__u8 file __maybe_unused, __u16 line __maybe_unused, struct  __ctx_buff *ctx, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u32 dst_id __maybe_unused, __u32 reason, __u32 exitcode, enum metric_dir direction),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 118,
+  "endLine": 126,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
+  "funcName": "_send_drop_notify",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u8 file __maybe_unused",
+    " __u16 line __maybe_unused",
+    " struct  __ctx_buff *ctx",
+    " __u32 src __maybe_unused",
+    " __u32 dst __maybe_unused",
+    " __u32 dst_id __maybe_unused",
+    " __u32 reason",
+    " __u32 exitcode",
+    " enum metric_dir direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline

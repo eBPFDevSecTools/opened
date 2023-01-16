@@ -95,19 +95,42 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 96,
- Endline: 117,
- Funcname: bpf_xdp_exit,
- Input: (struct  __ctx_buff *ctx, const int verdict),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 96,
+  "endLine": 117,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "bpf_xdp_exit",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const int verdict"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -138,19 +161,73 @@ bpf_xdp_exit(struct __ctx_buff *ctx, const int verdict)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 122,
- Endline: 140,
- Funcname: tail_lb_ipv4,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_NETDEV"
+        ]
+      }
+    ]
+  },
+  "startLine": 122,
+  "endLine": 140,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "tail_lb_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_lb_ipv4(struct __ctx_buff *ctx)
@@ -175,19 +252,73 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 142,
- Endline: 147,
- Funcname: check_v4_lb,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tep_ctx",
+          " CILIUM_CALL_IPV4_FROM_NETDEV"
+        ]
+      }
+    ]
+  },
+  "startLine": 142,
+  "endLine": 147,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v4_lb",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
@@ -199,19 +330,41 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 149,
- Endline: 152,
- Funcname: check_v4_lb,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 149,
+  "endLine": 152,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v4_lb",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
@@ -223,19 +376,85 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
 #ifdef ENABLE_PREFILTER
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 156,
- Endline: 179,
- Funcname: check_v4,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [ CIDR4_LMAP_NAME, CIDR4_HMAP_NAME,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef CIDR4_LPM_PREFILTER\tif &CIDR4_LMAP_NAME",
+          " &pfx\t\treturn CTX_ACT_DROP"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif \treturn &CIDR4_HMAP_NAME",
+          " &pfx ?\t\tCTX_ACT_DROP : check_v4_lbctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 156,
+  "endLine": 179,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v4",
+  "updateMaps": [],
+  "readMaps": [
+    " CIDR4_HMAP_NAME",
+    " CIDR4_LMAP_NAME"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v4(struct __ctx_buff *ctx)
@@ -265,19 +484,41 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 181,
- Endline: 184,
- Funcname: check_v4,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 181,
+  "endLine": 184,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v4(struct __ctx_buff *ctx)
@@ -292,19 +533,41 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 191,
- Endline: 203,
- Funcname: tail_lb_ipv6,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 191,
+  "endLine": 203,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "tail_lb_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_lb_ipv6(struct __ctx_buff *ctx)
@@ -323,19 +586,73 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 205,
- Endline: 210,
- Funcname: check_v6_lb,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_NETDEV"
+        ]
+      }
+    ]
+  },
+  "startLine": 205,
+  "endLine": 210,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v6_lb",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
@@ -347,19 +664,41 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 212,
- Endline: 215,
- Funcname: check_v6_lb,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 212,
+  "endLine": 215,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v6_lb",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
@@ -371,19 +710,85 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
 #ifdef ENABLE_PREFILTER
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 219,
- Endline: 242,
- Funcname: check_v6,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [ CIDR6_LMAP_NAME, CIDR6_HMAP_NAME,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef CIDR6_LPM_PREFILTER\tif &CIDR6_LMAP_NAME",
+          " &pfx\t\treturn CTX_ACT_DROP"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif \treturn &CIDR6_HMAP_NAME",
+          " &pfx ?\t\tCTX_ACT_DROP : check_v6_lbctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 219,
+  "endLine": 242,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v6",
+  "updateMaps": [],
+  "readMaps": [
+    " CIDR6_HMAP_NAME",
+    " CIDR6_LMAP_NAME"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v6(struct __ctx_buff *ctx)
@@ -413,19 +818,41 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 244,
- Endline: 247,
- Funcname: check_v6,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 244,
+  "endLine": 247,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_v6(struct __ctx_buff *ctx)
@@ -437,19 +864,41 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 251,
- Endline: 278,
- Funcname: check_filters,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 251,
+  "endLine": 278,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "check_filters",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int check_filters(struct __ctx_buff *ctx)
@@ -484,19 +933,41 @@ static __always_inline int check_filters(struct __ctx_buff *ctx)
 __section("from-netdev")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c,
- Startline: 281,
- Endline: 284,
- Funcname: bpf_xdp_entry,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 281,
+  "endLine": 284,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "funcName": "bpf_xdp_entry",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int bpf_xdp_entry(struct __ctx_buff *ctx)

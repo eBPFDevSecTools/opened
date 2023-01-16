@@ -49,30 +49,62 @@ struct ctx;
   ],
   "helperCallParams": {
     "bpf_map_update_elem": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"            return e&map\",\n  \" &key\",\n  \" &ctx\",\n  \" 0\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "            return e&map",
+          " &key",
+          " &ctx",
+          " 0"
+        ]
+      }
     ]
   },
   "startLine": 29,
   "endLine": 36,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr.c",
-  "Funcname": "func",
-  "Update_maps": [
-    " map",
-    ""
+  "File": "/root/examples/vpf-ebpf-src/exposeptr.c",
+  "funcName": "func",
+  "updateMaps": [
+    " map"
   ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "readMaps": [],
+  "input": [
     "struct ctx *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_map_update_elem,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "perf_event",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_sock",
+    "flow_dissector",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_cls",
+    "lwt_seg6local",
+    "lwt_in",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "cgroup_device",
+    "kprobe",
+    "sched_act",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -80,16 +112,12 @@ struct ctx;
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(struct ctx* ctx)

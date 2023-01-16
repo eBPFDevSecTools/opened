@@ -59,19 +59,66 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 60,
- Endline: 64,
- Funcname: ctx_redirect,
- Input: (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx_const struct __sk_buff *ctx __maybe_unused",
+          " int ifindex",
+          " __u32 flags"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ifindex",
+          " flags"
+        ]
+      }
+    ]
+  },
+  "startLine": 60,
+  "endLine": 64,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_redirect",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff * ctx __maybe_unused",
+    " int ifindex",
+    " __u32 flags"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -82,19 +129,66 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 66,
- Endline: 70,
- Funcname: ctx_redirect_peer,
- Input: (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__peerconst struct __sk_buff *ctx __maybe_unused",
+          " int ifindex",
+          " __u32 flags"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn _peerifindex",
+          " flags"
+        ]
+      }
+    ]
+  },
+  "startLine": 66,
+  "endLine": 70,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_redirect_peer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff * ctx __maybe_unused",
+    " int ifindex",
+    " __u32 flags"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -105,19 +199,58 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 72,
- Endline: 76,
- Funcname: ctx_adjust_troom,
- Input: (struct  __sk_buff *ctx, const __s32 len_diff),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [skb_change_tail,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "skb_change_tail": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx",
+          " ctx->len + len_diff",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 72,
+  "endLine": 76,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_adjust_troom",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __sk_buff *ctx",
+    " const __s32 len_diff"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "skb_change_tail"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sk_skb",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -128,19 +261,41 @@ ctx_adjust_troom(struct __sk_buff *ctx, const __s32 len_diff)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 78,
- Endline: 82,
- Funcname: ctx_full_len,
- Input: (const struct  __sk_buff *ctx),
- Output: static__always_inline__maybe_unused__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 78,
+  "endLine": 82,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_full_len",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u64
@@ -151,19 +306,41 @@ ctx_full_len(const struct __sk_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 84,
- Endline: 88,
- Funcname: ctx_wire_len,
- Input: (const struct  __sk_buff *ctx),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 84,
+  "endLine": 88,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_wire_len",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32
@@ -174,19 +351,43 @@ ctx_wire_len(const struct __sk_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 90,
- Endline: 94,
- Funcname: ctx_store_meta,
- Input: (struct  __sk_buff *ctx, const __u32 off, __u32 data),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 90,
+  "endLine": 94,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_store_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __sk_buff *ctx",
+    " const __u32 off",
+    " __u32 data"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -197,19 +398,42 @@ ctx_store_meta(struct __sk_buff *ctx, const __u32 off, __u32 data)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 96,
- Endline: 100,
- Funcname: ctx_load_meta,
- Input: (const struct  __sk_buff *ctx, const __u32 off),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 96,
+  "endLine": 100,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_load_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff *ctx",
+    " const __u32 off"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32
@@ -220,19 +444,41 @@ ctx_load_meta(const struct __sk_buff *ctx, const __u32 off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 102,
- Endline: 106,
- Funcname: ctx_get_protocol,
- Input: (const struct  __sk_buff *ctx),
- Output: static__always_inline__maybe_unused__u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 102,
+  "endLine": 106,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_get_protocol",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u16
@@ -243,19 +489,41 @@ ctx_get_protocol(const struct __sk_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h,
- Startline: 108,
- Endline: 112,
- Funcname: ctx_get_ifindex,
- Input: (const struct  __sk_buff *ctx),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 108,
+  "endLine": 112,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "funcName": "ctx_get_ifindex",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __sk_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32

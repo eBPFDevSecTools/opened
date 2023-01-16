@@ -16,19 +16,43 @@
 # ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
- Startline: 17,
- Endline: 100,
- Funcname: ipv6_host_policy_egress,
- Input: (struct  __ctx_buff *ctx, __u32 src_id, struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 17,
+  "endLine": 100,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
+  "funcName": "ipv6_host_policy_egress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 src_id",
+    " struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -118,19 +142,43 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
- Startline: 102,
- Endline: 199,
- Funcname: ipv6_host_policy_ingress,
- Input: (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 102,
+  "endLine": 199,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
+  "funcName": "ipv6_host_policy_ingress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *src_id",
+    " struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -237,19 +285,43 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
 #  ifndef ENABLE_MASQUERADE
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
- Startline: 204,
- Endline: 249,
- Funcname: whitelist_snated_egress_connections,
- Input: (struct  __ctx_buff *ctx, __u32 ipcache_srcid, struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 204,
+  "endLine": 249,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
+  "funcName": "whitelist_snated_egress_connections",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 ipcache_srcid",
+    " struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -302,19 +374,44 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
- Startline: 252,
- Endline: 337,
- Funcname: ipv4_host_policy_egress,
- Input: (struct  __ctx_buff *ctx, __u32 src_id, __u32 ipcache_srcid __maybe_unused, struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 252,
+  "endLine": 337,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
+  "funcName": "ipv4_host_policy_egress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 src_id",
+    " __u32 ipcache_srcid __maybe_unused",
+    " struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -406,19 +503,43 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h,
- Startline: 339,
- Endline: 439,
- Funcname: ipv4_host_policy_ingress,
- Input: (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 339,
+  "endLine": 439,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
+  "funcName": "ipv4_host_policy_ingress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *src_id",
+    " struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

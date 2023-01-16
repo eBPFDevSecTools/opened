@@ -14,19 +14,58 @@
 #ifdef ENABLE_IPSEC
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h,
- Startline: 15,
- Endline: 75,
- Funcname: do_decrypt,
- Input: (struct  __ctx_buff *ctx, __u16 proto),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#else\treturn ctx_ctx",
+          " CILIUM_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 15,
+  "endLine": 75,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
+  "funcName": "do_decrypt",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u16 proto"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -93,19 +132,42 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h,
- Startline: 77,
- Endline: 81,
- Funcname: do_decrypt,
- Input: (struct  __ctx_buff  __maybe_unused *ctx, __u16 __maybe_unused proto),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 77,
+  "endLine": 81,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
+  "funcName": "do_decrypt",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff  __maybe_unused *ctx",
+    " __u16 __maybe_unused proto"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
