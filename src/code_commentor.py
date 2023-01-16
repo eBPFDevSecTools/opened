@@ -8,6 +8,13 @@ import json
 import summarizer as smt
 import argparse
 from collections import defaultdict
+from tinydb import TinyDB
+
+def insert_to_db(db,comment_dict):
+    comment_json = json.dumps(comment_dict)
+    print("Inserting comments to DB: "+ comment_json )
+    db.insert(comment_dict)
+
 
 def dump_comment(fname,startLineDict, ofname):
     if fname  == "":
@@ -20,7 +27,7 @@ def dump_comment(fname,startLineDict, ofname):
     for line in ifile.readlines():
         ct=ct + 1
         if ct in startLineDict:
-            ofile.write(startLineDict.get(ct))
+            ofile.write(startLineDict.get(ct))    
         ofile.write(line)
     ofile.flush()
     ofile.close()
@@ -32,7 +39,7 @@ def generate_comment(capability_dict):
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -79,6 +86,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['AI_func_description'] = ai_func_desc_list
             #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
             comment = generate_comment(capability_dict)
+            insert_to_db(comments_db,capability_dict)
             #dump_comment(srcFile,startLine,comment)
             
             startLineDict[startLine] = comment
@@ -130,6 +138,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
         #print("Going to call dump_comment for: "+srcFile)
         #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
+
 
         
         #print("XML: ",inputFile," StartLineDict: ",startLineDict)
