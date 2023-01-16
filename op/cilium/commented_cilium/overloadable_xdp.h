@@ -6,19 +6,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 7,
- Endline: 10,
- Funcname: bpf_clear_meta,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 7,
+  "endLine": 10,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "bpf_clear_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -28,19 +50,41 @@ bpf_clear_meta(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 12,
- Endline: 16,
- Funcname: get_identity,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 12,
+  "endLine": 16,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "get_identity",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -51,19 +95,42 @@ get_identity(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 18,
- Endline: 22,
- Funcname: set_encrypt_dip,
- Input: (struct xdp_md * ctx __maybe_unused, __u32 ip_endpoint __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 18,
+  "endLine": 22,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "set_encrypt_dip",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " __u32 ip_endpoint __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -74,19 +141,42 @@ set_encrypt_dip(struct xdp_md *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 24,
- Endline: 27,
- Funcname: set_identity_mark,
- Input: (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 24,
+  "endLine": 27,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "set_identity_mark",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " __u32 identity __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -96,19 +186,42 @@ set_identity_mark(struct xdp_md *ctx __maybe_unused, __u32 identity __maybe_unus
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 29,
- Endline: 33,
- Funcname: set_identity_meta,
- Input: (struct xdp_md * ctx __maybe_unused, __u32 identity __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 29,
+  "endLine": 33,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "set_identity_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " __u32 identity __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -119,19 +232,42 @@ set_identity_meta(struct xdp_md *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 35,
- Endline: 38,
- Funcname: set_encrypt_key_mark,
- Input: (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 35,
+  "endLine": 38,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "set_encrypt_key_mark",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " __u8 key __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -141,19 +277,42 @@ set_encrypt_key_mark(struct xdp_md *ctx __maybe_unused, __u8 key __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 40,
- Endline: 43,
- Funcname: set_encrypt_key_meta,
- Input: (struct xdp_md * ctx __maybe_unused, __u8 key __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 40,
+  "endLine": 43,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "set_encrypt_key_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " __u8 key __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -163,19 +322,55 @@ set_encrypt_key_meta(struct xdp_md *ctx __maybe_unused, __u8 key __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 45,
- Endline: 53,
- Funcname: redirect_self,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_selfstruct xdp_md *ctx __maybe_unused"
+        ]
+      }
+    ]
+  },
+  "startLine": 45,
+  "endLine": 53,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "redirect_self",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -193,19 +388,41 @@ redirect_self(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 58,
- Endline: 64,
- Funcname: ctx_skip_nodeport_clear,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 58,
+  "endLine": 64,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "ctx_skip_nodeport_clear",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -218,19 +435,41 @@ ctx_skip_nodeport_clear(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 66,
- Endline: 72,
- Funcname: ctx_skip_nodeport_set,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 66,
+  "endLine": 72,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "ctx_skip_nodeport_set",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -243,19 +482,41 @@ ctx_skip_nodeport_set(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 74,
- Endline: 82,
- Funcname: ctx_skip_nodeport,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 74,
+  "endLine": 82,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "ctx_skip_nodeport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool
@@ -270,19 +531,41 @@ ctx_skip_nodeport(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 84,
- Endline: 88,
- Funcname: ctx_get_xfer,
- Input: (struct xdp_md * ctx __maybe_unused),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 84,
+  "endLine": 88,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "ctx_get_xfer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32
@@ -293,19 +576,42 @@ ctx_get_xfer(struct xdp_md *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 90,
- Endline: 94,
- Funcname: ctx_set_xfer,
- Input: (struct xdp_md *ctx, __u32 meta),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 90,
+  "endLine": 94,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "ctx_set_xfer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md *ctx",
+    " __u32 meta"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void ctx_set_xfer(struct xdp_md *ctx,
@@ -316,19 +622,43 @@ static __always_inline __maybe_unused void ctx_set_xfer(struct xdp_md *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h,
- Startline: 96,
- Endline: 102,
- Funcname: ctx_change_head,
- Input: (struct xdp_md * ctx __maybe_unused, __u32 head_room __maybe_unused, __u64 flags __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 96,
+  "endLine": 102,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_xdp.h",
+  "funcName": "ctx_change_head",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " __u32 head_room __maybe_unused",
+    " __u64 flags __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int

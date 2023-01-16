@@ -35,19 +35,48 @@ struct signal_msg {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
- Startline: 36,
- Endline: 41,
- Funcname: send_signal,
- Input: (struct  __ctx_buff *ctx, struct signal_msg *msg),
- Output: static__always_inlinevoid,
- Helpers: [send_signal,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 36,
+  "endLine": 41,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "funcName": "send_signal",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct signal_msg *msg"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "send_signal"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint",
+    "kprobe",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "tracepoint"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void send_signal(struct __ctx_buff *ctx,
@@ -59,19 +88,58 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
- Startline: 43,
- Endline: 52,
- Funcname: send_signal_nat_fill_up,
- Input: (struct  __ctx_buff *ctx, __u32 proto),
- Output: static__always_inlinevoid,
- Helpers: [send_signal,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "send_signal": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tctx",
+          " &msg"
+        ]
+      }
+    ]
+  },
+  "startLine": 43,
+  "endLine": 52,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "funcName": "send_signal_nat_fill_up",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 proto"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "send_signal"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint",
+    "kprobe",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "tracepoint"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
@@ -87,19 +155,58 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/signal.h,
- Startline: 54,
- Endline: 63,
- Funcname: send_signal_ct_fill_up,
- Input: (struct  __ctx_buff *ctx, __u32 proto),
- Output: static__always_inlinevoid,
- Helpers: [send_signal,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "send_signal": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tctx",
+          " &msg"
+        ]
+      }
+    ]
+  },
+  "startLine": 54,
+  "endLine": 63,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "funcName": "send_signal_ct_fill_up",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 proto"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "send_signal"
+  ],
+  "compatibleHookpoints": [
+    "raw_tracepoint",
+    "kprobe",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "tracepoint"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void send_signal_ct_fill_up(struct __ctx_buff *ctx,

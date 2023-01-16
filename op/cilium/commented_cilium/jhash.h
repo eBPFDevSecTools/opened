@@ -13,19 +13,42 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
- Startline: 14,
- Endline: 17,
- Funcname: rol32,
- Input: (__u32 word, __u32 shift),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 14,
+  "endLine": 17,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "funcName": "rol32",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 word",
+    " __u32 shift"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 rol32(__u32 word, __u32 shift)
@@ -56,19 +79,43 @@ static __always_inline __u32 rol32(__u32 word, __u32 shift)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
- Startline: 40,
- Endline: 81,
- Funcname: jhash,
- Input: (const void *key, __u32 length, __u32 initval),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 40,
+  "endLine": 81,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "funcName": "jhash",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *key",
+    " __u32 length",
+    " __u32 initval"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 jhash(const void *key, __u32 length,
@@ -116,19 +163,44 @@ static __always_inline __u32 jhash(const void *key, __u32 length,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
- Startline: 83,
- Endline: 91,
- Funcname: __jhash_nwords,
- Input: (__u32 a, __u32 b, __u32 c, __u32 initval),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 83,
+  "endLine": 91,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "funcName": "__jhash_nwords",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 a",
+    " __u32 b",
+    " __u32 c",
+    " __u32 initval"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 __jhash_nwords(__u32 a, __u32 b, __u32 c,
@@ -143,19 +215,44 @@ static __always_inline __u32 __jhash_nwords(__u32 a, __u32 b, __u32 c,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
- Startline: 93,
- Endline: 97,
- Funcname: jhash_3words,
- Input: (__u32 a, __u32 b, __u32 c, __u32 initval),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 93,
+  "endLine": 97,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "funcName": "jhash_3words",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 a",
+    " __u32 b",
+    " __u32 c",
+    " __u32 initval"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 jhash_3words(__u32 a, __u32 b, __u32 c,
@@ -166,19 +263,43 @@ static __always_inline __u32 jhash_3words(__u32 a, __u32 b, __u32 c,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
- Startline: 99,
- Endline: 102,
- Funcname: jhash_2words,
- Input: (__u32 a, __u32 b, __u32 initval),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 99,
+  "endLine": 102,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "funcName": "jhash_2words",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 a",
+    " __u32 b",
+    " __u32 initval"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 jhash_2words(__u32 a, __u32 b, __u32 initval)
@@ -188,19 +309,42 @@ static __always_inline __u32 jhash_2words(__u32 a, __u32 b, __u32 initval)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/jhash.h,
- Startline: 104,
- Endline: 107,
- Funcname: jhash_1word,
- Input: (__u32 a, __u32 initval),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 104,
+  "endLine": 107,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "funcName": "jhash_1word",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 a",
+    " __u32 initval"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 jhash_1word(__u32 a, __u32 initval)

@@ -34,19 +34,43 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 35,
- Endline: 39,
- Funcname: ipv4_load_daddr,
- Input: (struct  __ctx_buff *ctx, int off, __u32 *dst),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 35,
+  "endLine": 39,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_load_daddr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int off",
+    " __u32 *dst"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
@@ -57,19 +81,61 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 41,
- Endline: 55,
- Funcname: ipv4_dec_ttl,
- Input: (struct  __ctx_buff *ctx, int off, const struct iphdr *ip4),
- Output: static__always_inlineint,
- Helpers: [l3_csum_replace,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tctx",
+          " off + offsetofstruct iphdr",
+          " check",
+          " ttl",
+          " new_ttl",
+          " 2"
+        ]
+      }
+    ]
+  },
+  "startLine": 41,
+  "endLine": 55,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_dec_ttl",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int off",
+    " const struct iphdr *ip4"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
@@ -90,19 +156,41 @@ static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 57,
- Endline: 60,
- Funcname: ipv4_hdrlen,
- Input: (const struct iphdr *ip4),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 57,
+  "endLine": 60,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_hdrlen",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct iphdr *ip4"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
@@ -112,19 +200,41 @@ static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 62,
- Endline: 74,
- Funcname: ipv4_is_fragment,
- Input: (const struct iphdr *ip4),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 62,
+  "endLine": 74,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_is_fragment",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct iphdr *ip4"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
@@ -143,19 +253,41 @@ static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 76,
- Endline: 80,
- Funcname: ipv4_is_not_first_fragment,
- Input: (const struct iphdr *ip4),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 76,
+  "endLine": 80,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_is_not_first_fragment",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct iphdr *ip4"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
@@ -167,19 +299,41 @@ static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
 /* Simply a reverse of ipv4_is_not_first_fragment to avoid double negative. */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 83,
- Endline: 86,
- Funcname: ipv4_has_l4_header,
- Input: (const struct iphdr *ip4),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 83,
+  "endLine": 86,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_has_l4_header",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct iphdr *ip4"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
@@ -189,19 +343,43 @@ static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 88,
- Endline: 92,
- Funcname: ipv4_is_in_subnet,
- Input: (__be32 addr, __be32 subnet, int prefixlen),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 88,
+  "endLine": 92,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_is_in_subnet",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__be32 addr",
+    " __be32 subnet",
+    " int prefixlen"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ipv4_is_in_subnet(__be32 addr,
@@ -213,19 +391,78 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
 #ifdef ENABLE_IPV4_FRAGMENTS
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 95,
- Endline: 108,
- Funcname: ipv4_frag_get_l4ports,
- Input: (const struct ipv4_frag_id *frag_id, struct ipv4_frag_l4ports *ports),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [  IPV4_FRAG_DATAGRAMS_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\ttmp ",
+        "inpVar": [
+          " &IPV4_FRAG_DATAGRAMS_MAP",
+          " frag_id"
+        ]
+      }
+    ]
+  },
+  "startLine": 95,
+  "endLine": 108,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_frag_get_l4ports",
+  "updateMaps": [],
+  "readMaps": [
+    "  IPV4_FRAG_DATAGRAMS_MAP"
+  ],
+  "input": [
+    "const struct ipv4_frag_id *frag_id",
+    " struct ipv4_frag_l4ports *ports"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -245,19 +482,86 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h,
- Startline: 110,
- Endline: 161,
- Funcname: ipv4_handle_fragmentation,
- Input: (struct  __ctx_buff *ctx, const struct iphdr *ip4, int l4_off, enum ct_dir ct_dir, struct ipv4_frag_l4ports *ports, bool *has_l4_header),
- Output: static__always_inlineint,
- Helpers: [map_update_elem,],
- Read_maps: [],
- Update_maps: [ IPV4_FRAG_DATAGRAMS_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tif &IPV4_FRAG_DATAGRAMS_MAP",
+          " &frag_id",
+          " ports",
+          " BPF_ANY\t\t\tupdate_metricsctx_full_lenctx",
+          " dir",
+          " REASON_FRAG_PACKET_UPDATE"
+        ]
+      }
+    ]
+  },
+  "startLine": 110,
+  "endLine": 161,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "funcName": "ipv4_handle_fragmentation",
+  "updateMaps": [
+    " IPV4_FRAG_DATAGRAMS_MAP"
+  ],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct iphdr *ip4",
+    " int l4_off",
+    " enum ct_dir ct_dir",
+    " struct ipv4_frag_l4ports *ports",
+    " bool *has_l4_header"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

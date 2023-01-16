@@ -38,19 +38,42 @@ struct policy_verdict_notify {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h,
- Startline: 39,
- Endline: 47,
- Funcname: policy_verdict_filter_allow,
- Input: (__u32 filter, __u8 dir),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 39,
+  "endLine": 47,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h",
+  "funcName": "policy_verdict_filter_allow",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 filter",
+    " __u8 dir"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool policy_verdict_filter_allow(__u32 filter, __u8 dir)
@@ -65,19 +88,49 @@ static __always_inline bool policy_verdict_filter_allow(__u32 filter, __u8 dir)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h,
- Startline: 49,
- Endline: 77,
- Funcname: send_policy_verdict_notify,
- Input: (struct  __ctx_buff *ctx, __u32 remote_label, __u16 dst_port, __u8 proto, __u8 dir, __u8 is_ipv6, int verdict, __u8 match_type, __u8 is_audited),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 49,
+  "endLine": 77,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h",
+  "funcName": "send_policy_verdict_notify",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 remote_label",
+    " __u16 dst_port",
+    " __u8 proto",
+    " __u8 dir",
+    " __u8 is_ipv6",
+    " int verdict",
+    " __u8 match_type",
+    " __u8 is_audited"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -112,19 +165,49 @@ send_policy_verdict_notify(struct __ctx_buff *ctx, __u32 remote_label, __u16 dst
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h,
- Startline: 79,
- Endline: 86,
- Funcname: send_policy_verdict_notify,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u32 remote_label __maybe_unused, __u16 dst_port __maybe_unused, __u8 proto __maybe_unused, __u8 dir __maybe_unused, __u8 is_ipv6 __maybe_unused, int verdict __maybe_unused, __u8 match_type __maybe_unused, __u8 is_audited __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 79,
+  "endLine": 86,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h",
+  "funcName": "send_policy_verdict_notify",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u32 remote_label __maybe_unused",
+    " __u16 dst_port __maybe_unused",
+    " __u8 proto __maybe_unused",
+    " __u8 dir __maybe_unused",
+    " __u8 is_ipv6 __maybe_unused",
+    " int verdict __maybe_unused",
+    " __u8 match_type __maybe_unused",
+    " __u8 is_audited __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void

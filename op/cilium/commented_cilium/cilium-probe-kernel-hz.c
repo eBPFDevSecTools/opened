@@ -29,19 +29,41 @@ static const uint64_t kernel_hz[] = { 100, 250, 300, 1000 };
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 30,
- Endline: 38,
- Funcname: pin_to_cpu,
- Input: (int cpu),
- Output: staticint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 30,
+  "endLine": 38,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "pin_to_cpu",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "int cpu"
+  ],
+  "output": "staticint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static int pin_to_cpu(int cpu)
@@ -56,19 +78,41 @@ static int pin_to_cpu(int cpu)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 40,
- Endline: 47,
- Funcname: fix_priority,
- Input: (void),
- Output: staticint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 40,
+  "endLine": 47,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "fix_priority",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "staticint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static int fix_priority(void)
@@ -82,19 +126,41 @@ static int fix_priority(void)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 49,
- Endline: 52,
- Funcname: *timer_list_open,
- Input: (void),
- Output: staticFILE,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 49,
+  "endLine": 52,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "*timer_list_open",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "staticFILE",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static FILE *timer_list_open(void)
@@ -104,19 +170,41 @@ static FILE *timer_list_open(void)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 54,
- Endline: 57,
- Funcname: timer_list_close,
- Input: (FILE *fp),
- Output: staticvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 54,
+  "endLine": 57,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "timer_list_close",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "FILE *fp"
+  ],
+  "output": "staticvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static void timer_list_close(FILE *fp)
@@ -126,19 +214,42 @@ static void timer_list_close(FILE *fp)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 59,
- Endline: 92,
- Funcname: prep_kern_jiffies,
- Input: (struct cpu_jiffies *before, struct cpu_jiffies *after),
- Output: staticint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 59,
+  "endLine": 92,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "prep_kern_jiffies",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct cpu_jiffies *before",
+    " struct cpu_jiffies *after"
+  ],
+  "output": "staticint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static int prep_kern_jiffies(struct cpu_jiffies *before,
@@ -178,19 +289,41 @@ static int prep_kern_jiffies(struct cpu_jiffies *before,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 94,
- Endline: 113,
- Funcname: fetch_kern_jiffies,
- Input: (const struct cpu_jiffies *curr),
- Output: staticint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 94,
+  "endLine": 113,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "fetch_kern_jiffies",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct cpu_jiffies *curr"
+  ],
+  "output": "staticint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static int fetch_kern_jiffies(const struct cpu_jiffies *curr)
@@ -216,19 +349,43 @@ static int fetch_kern_jiffies(const struct cpu_jiffies *curr)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 115,
- Endline: 150,
- Funcname: dump_kern_jiffies,
- Input: (const struct cpu_jiffies *fixed, const struct cpu_jiffies *result, bool macro),
- Output: staticint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 115,
+  "endLine": 150,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "dump_kern_jiffies",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct cpu_jiffies *fixed",
+    " const struct cpu_jiffies *result",
+    " bool macro"
+  ],
+  "output": "staticint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static int dump_kern_jiffies(const struct cpu_jiffies *fixed,
@@ -270,19 +427,42 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c,
- Startline: 152,
- Endline: 194,
- Funcname: main,
- Input: (int argc, char **argv),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 152,
+  "endLine": 194,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "funcName": "main",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "int argc",
+    " char **argv"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int main(int argc, char **argv)

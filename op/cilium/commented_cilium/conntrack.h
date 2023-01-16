@@ -25,19 +25,41 @@ enum {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 26,
- Endline: 32,
- Funcname: ct_entry_seen_both_syns,
- Input: (const struct ct_entry *entry),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 26,
+  "endLine": 32,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_entry_seen_both_syns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ct_entry *entry"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ct_entry_seen_both_syns(const struct ct_entry *entry)
@@ -78,19 +100,45 @@ union tcp_flags {
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 62,
- Endline: 126,
- Funcname: __ct_update_timeout,
- Input: (struct ct_entry *entry, __u32 lifetime, int dir, union tcp_flags flags, __u8 report_mask),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 62,
+  "endLine": 126,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "__ct_update_timeout",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ct_entry *entry",
+    " __u32 lifetime",
+    " int dir",
+    " union tcp_flags flags",
+    " __u8 report_mask"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 __ct_update_timeout(struct ct_entry *entry,
@@ -167,19 +215,44 @@ static __always_inline __u32 __ct_update_timeout(struct ct_entry *entry,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 134,
- Endline: 156,
- Funcname: ct_update_timeout,
- Input: (struct ct_entry *entry, bool tcp, int dir, union tcp_flags seen_flags),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 134,
+  "endLine": 156,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update_timeout",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ct_entry *entry",
+    " bool tcp",
+    " int dir",
+    " union tcp_flags seen_flags"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 ct_update_timeout(struct ct_entry *entry,
@@ -208,19 +281,41 @@ static __always_inline __u32 ct_update_timeout(struct ct_entry *entry,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 158,
- Endline: 162,
- Funcname: ct_reset_closing,
- Input: (struct ct_entry *entry),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 158,
+  "endLine": 162,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_reset_closing",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ct_entry *entry"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ct_reset_closing(struct ct_entry *entry)
@@ -231,19 +326,41 @@ static __always_inline void ct_reset_closing(struct ct_entry *entry)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 164,
- Endline: 167,
- Funcname: ct_entry_alive,
- Input: (const struct ct_entry *entry),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 164,
+  "endLine": 167,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_entry_alive",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ct_entry *entry"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ct_entry_alive(const struct ct_entry *entry)
@@ -253,19 +370,41 @@ static __always_inline bool ct_entry_alive(const struct ct_entry *entry)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 169,
- Endline: 172,
- Funcname: ct_entry_closing,
- Input: (const struct ct_entry *entry),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 169,
+  "endLine": 172,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_entry_closing",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ct_entry *entry"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ct_entry_closing(const struct ct_entry *entry)
@@ -275,19 +414,41 @@ static __always_inline bool ct_entry_closing(const struct ct_entry *entry)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 174,
- Endline: 183,
- Funcname: ct_entry_expired_rebalance,
- Input: (const struct ct_entry *entry),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 174,
+  "endLine": 183,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_entry_expired_rebalance",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ct_entry *entry"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -303,19 +464,75 @@ ct_entry_expired_rebalance(const struct ct_entry *entry)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 185,
- Endline: 273,
- Funcname: __ct_lookup,
- Input: (const void *map, struct  __ctx_buff *ctx, const void *tuple, int action, int dir, struct ct_state *ct_state, bool is_tcp, union tcp_flags seen_flags, __u32 *monitor),
- Output: static__always_inline__u8,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "\t\t\tct_state->proxy_redirect ",
+        "inpVar": [
+          " entry->proxy_"
+        ]
+      }
+    ]
+  },
+  "startLine": 185,
+  "endLine": 273,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "__ct_lookup",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " struct  __ctx_buff *ctx",
+    " const void *tuple",
+    " int action",
+    " int dir",
+    " struct ct_state *ct_state",
+    " bool is_tcp",
+    " union tcp_flags seen_flags",
+    " __u32 *monitor"
+  ],
+  "output": "static__always_inline__u8",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u8 __ct_lookup(const void *map, struct __ctx_buff *ctx,
@@ -410,19 +627,43 @@ ct_new: __maybe_unused
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 275,
- Endline: 303,
- Funcname: ipv6_extract_tuple,
- Input: (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, int *l4_off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 275,
+  "endLine": 303,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ipv6_extract_tuple",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct ipv6_ct_tuple *tuple",
+    " int *l4_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -457,19 +698,41 @@ ipv6_extract_tuple(struct __ctx_buff *ctx, struct ipv6_ct_tuple *tuple,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 305,
- Endline: 311,
- Funcname: ct_flip_tuple_dir6,
- Input: (struct ipv6_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 305,
+  "endLine": 311,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_flip_tuple_dir6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv6_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ct_flip_tuple_dir6(struct ipv6_ct_tuple *tuple)
@@ -482,19 +745,41 @@ static __always_inline void ct_flip_tuple_dir6(struct ipv6_ct_tuple *tuple)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 313,
- Endline: 326,
- Funcname: __ipv6_ct_tuple_reverse,
- Input: (struct ipv6_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 313,
+  "endLine": 326,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "__ipv6_ct_tuple_reverse",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv6_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -514,19 +799,41 @@ __ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 328,
- Endline: 333,
- Funcname: ipv6_ct_tuple_reverse,
- Input: (struct ipv6_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 328,
+  "endLine": 333,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ipv6_ct_tuple_reverse",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv6_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -539,19 +846,47 @@ ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
 /* Offset must point to IPv6 */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 336,
- Endline: 459,
- Funcname: ct_lookup6,
- Input: (const void *map, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx, int l4_off, int dir, struct ct_state *ct_state, __u32 *monitor),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 336,
+  "endLine": 459,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_lookup6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *map",
+    " struct ipv6_ct_tuple *tuple",
+    " struct  __ctx_buff *ctx",
+    " int l4_off",
+    " int dir",
+    " struct ct_state *ct_state",
+    " __u32 *monitor"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ct_lookup6(const void *map,
@@ -681,19 +1016,43 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 461,
- Endline: 483,
- Funcname: ipv4_extract_tuple,
- Input: (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int *l4_off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 461,
+  "endLine": 483,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ipv4_extract_tuple",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct ipv4_ct_tuple *tuple",
+    " int *l4_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -722,19 +1081,41 @@ ipv4_extract_tuple(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 485,
- Endline: 491,
- Funcname: ct_flip_tuple_dir4,
- Input: (struct ipv4_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 485,
+  "endLine": 491,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_flip_tuple_dir4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ct_flip_tuple_dir4(struct ipv4_ct_tuple *tuple)
@@ -747,19 +1128,41 @@ static __always_inline void ct_flip_tuple_dir4(struct ipv4_ct_tuple *tuple)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 493,
- Endline: 505,
- Funcname: __ipv4_ct_tuple_reverse,
- Input: (struct ipv4_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 493,
+  "endLine": 505,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "__ipv4_ct_tuple_reverse",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -778,19 +1181,41 @@ __ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 507,
- Endline: 512,
- Funcname: ipv4_ct_tuple_reverse,
- Input: (struct ipv4_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 507,
+  "endLine": 512,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ipv4_ct_tuple_reverse",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -802,19 +1227,45 @@ ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 514,
- Endline: 540,
- Funcname: ipv4_ct_extract_l4_ports,
- Input: (struct  __ctx_buff *ctx, int off, enum ct_dir dir __maybe_unused, struct ipv4_ct_tuple *tuple, bool * has_l4_header __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 514,
+  "endLine": 540,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ipv4_ct_extract_l4_ports",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int off",
+    " enum ct_dir dir __maybe_unused",
+    " struct ipv4_ct_tuple *tuple",
+    " bool * has_l4_header __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_ct_extract_l4_ports(struct __ctx_buff *ctx,
@@ -847,19 +1298,45 @@ static __always_inline int ipv4_ct_extract_l4_ports(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 542,
- Endline: 549,
- Funcname: ct4_cilium_dbg_tuple,
- Input: (struct  __ctx_buff *ctx, __u8 type, const struct ipv4_ct_tuple *tuple, __u32 rev_nat_index, int dir),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 542,
+  "endLine": 549,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct4_cilium_dbg_tuple",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 type",
+    " const struct ipv4_ct_tuple *tuple",
+    " __u32 rev_nat_index",
+    " int dir"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ct4_cilium_dbg_tuple(struct __ctx_buff *ctx, __u8 type,
@@ -873,19 +1350,44 @@ static __always_inline void ct4_cilium_dbg_tuple(struct __ctx_buff *ctx, __u8 ty
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 551,
- Endline: 606,
- Funcname: ct_extract_ports4,
- Input: (struct  __ctx_buff *ctx, int off, enum ct_dir dir, struct ipv4_ct_tuple *tuple),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 551,
+  "endLine": 606,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_extract_ports4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int off",
+    " enum ct_dir dir",
+    " struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -955,19 +1457,81 @@ ct_extract_ports4(struct __ctx_buff *ctx, int off, enum ct_dir dir,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 616,
- Endline: 631,
- Funcname: ct_is_reply4,
- Input: (const void *map, struct  __ctx_buff *ctx, int off, struct ipv4_ct_tuple *tuple, bool *is_reply),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t*is_reply ",
+        "inpVar": [
+          " map",
+          " tuple !"
+        ]
+      }
+    ]
+  },
+  "startLine": 616,
+  "endLine": 631,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_is_reply4",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " struct  __ctx_buff *ctx",
+    " int off",
+    " struct ipv4_ct_tuple *tuple",
+    " bool *is_reply"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -990,19 +1554,47 @@ ct_is_reply4(const void *map, struct __ctx_buff *ctx, int off,
 /* Offset must point to IPv4 header */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 634,
- Endline: 757,
- Funcname: ct_lookup4,
- Input: (const void *map, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx, int off, enum ct_dir dir, struct ct_state *ct_state, __u32 *monitor),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 634,
+  "endLine": 757,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_lookup4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *map",
+    " struct ipv4_ct_tuple *tuple",
+    " struct  __ctx_buff *ctx",
+    " int off",
+    " enum ct_dir dir",
+    " struct ct_state *ct_state",
+    " __u32 *monitor"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ct_lookup4(const void *map,
@@ -1132,19 +1724,79 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 759,
- Endline: 770,
- Funcname: ct_update6_backend_id,
- Input: (const void *map, const struct ipv6_ct_tuple *tuple, const struct ct_state *state),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 759,
+  "endLine": 770,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update6_backend_id",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const struct ipv6_ct_tuple *tuple",
+    " const struct ct_state *state"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1162,19 +1814,79 @@ ct_update6_backend_id(const void *map, const struct ipv6_ct_tuple *tuple,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 772,
- Endline: 783,
- Funcname: ct_update6_rev_nat_index,
- Input: (const void *map, const struct ipv6_ct_tuple *tuple, const struct ct_state *state),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 772,
+  "endLine": 783,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update6_rev_nat_index",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const struct ipv6_ct_tuple *tuple",
+    " const struct ct_state *state"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1192,19 +1904,79 @@ ct_update6_rev_nat_index(const void *map, const struct ipv6_ct_tuple *tuple,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 785,
- Endline: 796,
- Funcname: ct_update6_dsr,
- Input: (const void *map, const struct ipv6_ct_tuple *tuple, const bool dsr),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 785,
+  "endLine": 796,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update6_dsr",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const struct ipv6_ct_tuple *tuple",
+    " const bool dsr"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1223,19 +1995,109 @@ ct_update6_dsr(const void *map, const struct ipv6_ct_tuple *tuple,
 /* Offset must point to IPv6 */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 799,
- Endline: 865,
- Funcname: ct_create6,
- Input: (const void *map_main, const void *map_related, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx, const int dir, const struct ct_state *ct_state, bool proxy_redirect, bool from_l7lb),
- Output: static__always_inlineint,
- Helpers: [send_signal,redirect,map_update_elem,],
- Read_maps: [],
- Update_maps: [ map_main, map_related,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\t      struct ipv6_ct_tuple *tuple",
+          "\t\t\t\t      struct __ctx_buff *ctx",
+          " const int dir",
+          "\t\t\t\t      const struct ct_state *ct_state",
+          "\t\t\t\t      bool proxy_",
+          " bool from_l7lb"
+        ]
+      },
+      {
+        "opVar": "\t\tentry.proxy_redirect ",
+        "inpVar": [
+          " proxy_"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif map_main",
+          " tuple",
+          " &entry",
+          " 0 < 0 "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif map_related",
+          " &icmp_tuple",
+          " &entry",
+          " 0 < 0 "
+        ]
+      }
+    ],
+    "send_signal": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_ct_fill_upctx",
+          " SIGNAL_PROTO_V6"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t_ct_fill_upctx",
+          " SIGNAL_PROTO_V6"
+        ]
+      }
+    ]
+  },
+  "startLine": 799,
+  "endLine": 865,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_create6",
+  "updateMaps": [
+    " map_main",
+    " map_related"
+  ],
+  "readMaps": [],
+  "input": [
+    "const void *map_main",
+    " const void *map_related",
+    " struct ipv6_ct_tuple *tuple",
+    " struct  __ctx_buff *ctx",
+    " const int dir",
+    " const struct ct_state *ct_state",
+    " bool proxy_redirect",
+    " bool from_l7lb"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "send_signal",
+    "map_update_elem",
+    "redirect"
+  ],
+  "compatibleHookpoints": [],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ct_create6(const void *map_main, const void *map_related,
@@ -1308,19 +2170,79 @@ static __always_inline int ct_create6(const void *map_main, const void *map_rela
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 867,
- Endline: 878,
- Funcname: ct_update4_backend_id,
- Input: (const void *map, const struct ipv4_ct_tuple *tuple, const struct ct_state *state),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 867,
+  "endLine": 878,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update4_backend_id",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const struct ipv4_ct_tuple *tuple",
+    " const struct ct_state *state"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ct_update4_backend_id(const void *map,
@@ -1338,19 +2260,79 @@ static __always_inline void ct_update4_backend_id(const void *map,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 880,
- Endline: 891,
- Funcname: ct_update4_rev_nat_index,
- Input: (const void *map, const struct ipv4_ct_tuple *tuple, const struct ct_state *state),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 880,
+  "endLine": 891,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update4_rev_nat_index",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const struct ipv4_ct_tuple *tuple",
+    " const struct ct_state *state"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1368,19 +2350,79 @@ ct_update4_rev_nat_index(const void *map, const struct ipv4_ct_tuple *tuple,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 893,
- Endline: 904,
- Funcname: ct_update4_dsr,
- Input: (const void *map, const struct ipv4_ct_tuple *tuple, const bool dsr),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 893,
+  "endLine": 904,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update4_dsr",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const struct ipv4_ct_tuple *tuple",
+    " const bool dsr"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1398,19 +2440,126 @@ ct_update4_dsr(const void *map, const struct ipv4_ct_tuple *tuple,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 906,
- Endline: 1006,
- Funcname: ct_create4,
- Input: (const void *map_main, const void *map_related, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx, const int dir, const struct ct_state *ct_state, bool proxy_redirect, bool from_l7lb),
- Output: static__always_inlineint,
- Helpers: [send_signal,redirect,map_update_elem,],
- Read_maps: [],
- Update_maps: [ map_main, map_related,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\t      const void *map_related",
+          "\t\t\t\t      struct ipv4_ct_tuple *tuple",
+          "\t\t\t\t      struct __ctx_buff *ctx",
+          " const int dir",
+          "\t\t\t\t      const struct ct_state *ct_state",
+          "\t\t\t\t      bool proxy_",
+          " bool from_l7lb"
+        ]
+      },
+      {
+        "opVar": "\t\tentry.proxy_redirect ",
+        "inpVar": [
+          " proxy_"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif map_main",
+          " tuple",
+          " &entry",
+          " 0 < 0 "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tif map_main",
+          " tuple",
+          " &entry",
+          " 0 < 0 "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          " \t\t\t\tif map_related",
+          " &icmp_tuple",
+          " &entry",
+          " 0 < 0 "
+        ]
+      }
+    ],
+    "send_signal": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_ct_fill_upctx",
+          " SIGNAL_PROTO_V4"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t_ct_fill_upctx",
+          " SIGNAL_PROTO_V4"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t_ct_fill_upctx",
+          " SIGNAL_PROTO_V4"
+        ]
+      }
+    ]
+  },
+  "startLine": 906,
+  "endLine": 1006,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_create4",
+  "updateMaps": [
+    " map_main",
+    " map_related"
+  ],
+  "readMaps": [],
+  "input": [
+    "const void *map_main",
+    " const void *map_related",
+    " struct ipv4_ct_tuple *tuple",
+    " struct  __ctx_buff *ctx",
+    " const int dir",
+    " const struct ct_state *ct_state",
+    " bool proxy_redirect",
+    " bool from_l7lb"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "send_signal",
+    "map_update_elem",
+    "redirect"
+  ],
+  "compatibleHookpoints": [],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ct_create4(const void *map_main,
@@ -1526,19 +2675,78 @@ static __always_inline int ct_create4(const void *map_main,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 1017,
- Endline: 1032,
- Funcname: ct_has_nodeport_egress_entry4,
- Input: (const void *map, struct ipv4_ct_tuple *ingress_tuple),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " ingress_tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 1017,
+  "endLine": 1032,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_has_nodeport_egress_entry4",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " struct ipv4_ct_tuple *ingress_tuple"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -1560,19 +2768,78 @@ ct_has_nodeport_egress_entry4(const void *map,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 1034,
- Endline: 1049,
- Funcname: ct_has_nodeport_egress_entry6,
- Input: (const void *map, struct ipv6_ct_tuple *ingress_tuple),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " ingress_tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 1034,
+  "endLine": 1049,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_has_nodeport_egress_entry6",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " struct ipv6_ct_tuple *ingress_tuple"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -1594,19 +2861,79 @@ ct_has_nodeport_egress_entry6(const void *map,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h,
- Startline: 1051,
- Endline: 1061,
- Funcname: ct_update_nodeport,
- Input: (const void *map, const void *tuple, const bool node_port),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tentry ",
+        "inpVar": [
+          " map",
+          " tuple"
+        ]
+      }
+    ]
+  },
+  "startLine": 1051,
+  "endLine": 1061,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "funcName": "ct_update_nodeport",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const void *tuple",
+    " const bool node_port"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void

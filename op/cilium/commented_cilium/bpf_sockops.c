@@ -25,19 +25,42 @@
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
- Startline: 26,
- Endline: 40,
- Funcname: sk_extract4_key,
- Input: (const struct bpf_sock_ops *ops, struct sock_key *key),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 26,
+  "endLine": 40,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "funcName": "sk_extract4_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct bpf_sock_ops *ops",
+    " struct sock_key *key"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
@@ -58,19 +81,42 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
- Startline: 42,
- Endline: 48,
- Funcname: sk_lb4_key,
- Input: (struct lb4_key *lb4, const struct sock_key *key),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 42,
+  "endLine": 48,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "funcName": "sk_lb4_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb4_key *lb4",
+    " const struct sock_key *key"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void sk_lb4_key(struct lb4_key *lb4,
@@ -83,19 +129,46 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
- Startline: 50,
- Endline: 53,
- Funcname: redirect_to_proxy,
- Input: (int verdict),
- Output: static__always_inlinebool,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 50,
+  "endLine": 53,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "funcName": "redirect_to_proxy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "int verdict"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool redirect_to_proxy(int verdict)
@@ -105,19 +178,71 @@ static __always_inline bool redirect_to_proxy(int verdict)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
- Startline: 55,
- Endline: 118,
- Funcname: bpf_sock_ops_ipv4,
- Input: (struct bpf_sock_ops *skops),
- Output: staticinlinevoid,
- Helpers: [redirect,sock_hash_update,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif _to_proxyverdict "
+        ]
+      }
+    ],
+    "sock_hash_update": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tskops",
+          " &SOCK_OPS_MAP",
+          " &key",
+          " BPF_NOEXIST"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tskops",
+          " &SOCK_OPS_MAP",
+          " &key",
+          " BPF_NOEXIST"
+        ]
+      }
+    ]
+  },
+  "startLine": 55,
+  "endLine": 118,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "funcName": "bpf_sock_ops_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_ops *skops"
+  ],
+  "output": "staticinlinevoid",
+  "helper": [
+    "redirect",
+    "sock_hash_update"
+  ],
+  "compatibleHookpoints": [],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
@@ -189,19 +314,41 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
- Startline: 122,
- Endline: 126,
- Funcname: bpf_sock_ops_ipv6,
- Input: (struct bpf_sock_ops *skops),
- Output: staticinlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 122,
+  "endLine": 126,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "funcName": "bpf_sock_ops_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_ops *skops"
+  ],
+  "output": "staticinlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static inline void bpf_sock_ops_ipv6(struct bpf_sock_ops *skops)
@@ -214,19 +361,41 @@ static inline void bpf_sock_ops_ipv6(struct bpf_sock_ops *skops)
 __section("sockops")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c,
- Startline: 130,
- Endline: 154,
- Funcname: bpf_sockmap,
- Input: (struct bpf_sock_ops *skops),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 130,
+  "endLine": 154,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "funcName": "bpf_sockmap",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_ops *skops"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int bpf_sockmap(struct bpf_sock_ops *skops)

@@ -39,19 +39,41 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h,
- Startline: 40,
- Endline: 47,
- Funcname: *get_ct_map6,
- Input: (const struct ipv6_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 40,
+  "endLine": 47,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h",
+  "funcName": "*get_ct_map6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv6_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void *
@@ -89,19 +111,41 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h,
- Startline: 73,
- Endline: 80,
- Funcname: *get_ct_map4,
- Input: (const struct ipv4_ct_tuple *tuple),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 73,
+  "endLine": 80,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h",
+  "funcName": "*get_ct_map4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void *

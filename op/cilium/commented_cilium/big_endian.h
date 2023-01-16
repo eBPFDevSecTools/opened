@@ -44,19 +44,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 45,
- Endline: 48,
- Funcname: __cpu_to_le64p,
- Input: (const __u64 *p),
- Output: static__inline____le64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 45,
+  "endLine": 48,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__cpu_to_le64p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u64 *p"
+  ],
+  "output": "static__inline____le64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __le64 __cpu_to_le64p(const __u64 *p)
@@ -65,19 +87,41 @@ static __inline__ __le64 __cpu_to_le64p(const __u64 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 49,
- Endline: 52,
- Funcname: __le64_to_cpup,
- Input: (const __le64 *p),
- Output: static__inline____u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 49,
+  "endLine": 52,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__le64_to_cpup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __le64 *p"
+  ],
+  "output": "static__inline____u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u64 __le64_to_cpup(const __le64 *p)
@@ -86,19 +130,41 @@ static __inline__ __u64 __le64_to_cpup(const __le64 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 53,
- Endline: 56,
- Funcname: __cpu_to_le32p,
- Input: (const __u32 *p),
- Output: static__inline____le32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 53,
+  "endLine": 56,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__cpu_to_le32p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u32 *p"
+  ],
+  "output": "static__inline____le32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __le32 __cpu_to_le32p(const __u32 *p)
@@ -107,19 +173,41 @@ static __inline__ __le32 __cpu_to_le32p(const __u32 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 57,
- Endline: 60,
- Funcname: __le32_to_cpup,
- Input: (const __le32 *p),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 57,
+  "endLine": 60,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__le32_to_cpup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __le32 *p"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u32 __le32_to_cpup(const __le32 *p)
@@ -128,19 +216,41 @@ static __inline__ __u32 __le32_to_cpup(const __le32 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 61,
- Endline: 64,
- Funcname: __cpu_to_le16p,
- Input: (const __u16 *p),
- Output: static__inline____le16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 61,
+  "endLine": 64,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__cpu_to_le16p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u16 *p"
+  ],
+  "output": "static__inline____le16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __le16 __cpu_to_le16p(const __u16 *p)
@@ -149,19 +259,41 @@ static __inline__ __le16 __cpu_to_le16p(const __u16 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 65,
- Endline: 68,
- Funcname: __le16_to_cpup,
- Input: (const __le16 *p),
- Output: static__inline____u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 65,
+  "endLine": 68,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__le16_to_cpup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __le16 *p"
+  ],
+  "output": "static__inline____u16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u16 __le16_to_cpup(const __le16 *p)
@@ -170,19 +302,41 @@ static __inline__ __u16 __le16_to_cpup(const __le16 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 69,
- Endline: 72,
- Funcname: __cpu_to_be64p,
- Input: (const __u64 *p),
- Output: static__inline____be64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 69,
+  "endLine": 72,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__cpu_to_be64p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u64 *p"
+  ],
+  "output": "static__inline____be64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __be64 __cpu_to_be64p(const __u64 *p)
@@ -191,19 +345,41 @@ static __inline__ __be64 __cpu_to_be64p(const __u64 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 73,
- Endline: 76,
- Funcname: __be64_to_cpup,
- Input: (const __be64 *p),
- Output: static__inline____u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 73,
+  "endLine": 76,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__be64_to_cpup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __be64 *p"
+  ],
+  "output": "static__inline____u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u64 __be64_to_cpup(const __be64 *p)
@@ -212,19 +388,41 @@ static __inline__ __u64 __be64_to_cpup(const __be64 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 77,
- Endline: 80,
- Funcname: __cpu_to_be32p,
- Input: (const __u32 *p),
- Output: static__inline____be32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 77,
+  "endLine": 80,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__cpu_to_be32p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u32 *p"
+  ],
+  "output": "static__inline____be32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __be32 __cpu_to_be32p(const __u32 *p)
@@ -233,19 +431,41 @@ static __inline__ __be32 __cpu_to_be32p(const __u32 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 81,
- Endline: 84,
- Funcname: __be32_to_cpup,
- Input: (const __be32 *p),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 81,
+  "endLine": 84,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__be32_to_cpup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __be32 *p"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u32 __be32_to_cpup(const __be32 *p)
@@ -254,19 +474,41 @@ static __inline__ __u32 __be32_to_cpup(const __be32 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 85,
- Endline: 88,
- Funcname: __cpu_to_be16p,
- Input: (const __u16 *p),
- Output: static__inline____be16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 85,
+  "endLine": 88,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__cpu_to_be16p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u16 *p"
+  ],
+  "output": "static__inline____be16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __be16 __cpu_to_be16p(const __u16 *p)
@@ -275,19 +517,41 @@ static __inline__ __be16 __cpu_to_be16p(const __u16 *p)
 }
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h,
- Startline: 89,
- Endline: 92,
- Funcname: __be16_to_cpup,
- Input: (const __be16 *p),
- Output: static__inline____u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 89,
+  "endLine": 92,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/big_endian.h",
+  "funcName": "__be16_to_cpup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __be16 *p"
+  ],
+  "output": "static__inline____u16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u16 __be16_to_cpup(const __be16 *p)

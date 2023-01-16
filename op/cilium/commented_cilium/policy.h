@@ -14,19 +14,100 @@
 #ifdef SOCKMAP
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 15,
- Endline: 79,
- Funcname: policy_sk_egress,
- Input: (__u32 identity, __u32 ip, __u16 dport),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 15,
+  "endLine": 79,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_sk_egress",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "__u32 identity",
+    " __u32 ip",
+    " __u16 dport"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -97,19 +178,42 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 81,
- Endline: 87,
- Funcname: account,
- Input: (struct  __ctx_buff *ctx, struct policy_entry *policy),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 81,
+  "endLine": 87,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "account",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct policy_entry *policy"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -122,19 +226,106 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 89,
- Endline: 222,
- Funcname: __policy_can_access,
- Input: (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\t\t\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\t\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 89,
+  "endLine": 222,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "__policy_can_access",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " struct  __ctx_buff *ctx",
+    " __u32 local_id",
+    " __u32 remote_id",
+    " __u16 dport",
+    " __u8 proto",
+    " int dir",
+    " bool is_untracked_fragment",
+    " __u8 *match_type"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -290,19 +481,48 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 240,
- Endline: 264,
- Funcname: policy_can_access_ingress,
- Input: (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, bool is_untracked_fragment, __u8 *match_type, __u8 *audited),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 240,
+  "endLine": 264,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_can_access_ingress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 src_id",
+    " __u32 dst_id",
+    " __u16 dport",
+    " __u8 proto",
+    " bool is_untracked_fragment",
+    " __u8 *match_type",
+    " __u8 *audited"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -334,19 +554,42 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 #ifdef ENCAP_IFINDEX
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 267,
- Endline: 270,
- Funcname: is_encap,
- Input: (__u16 dport, __u8 proto),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 267,
+  "endLine": 270,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "is_encap",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u16 dport",
+    " __u8 proto"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool is_encap(__u16 dport, __u8 proto)
@@ -357,19 +600,47 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 273,
- Endline: 296,
- Funcname: policy_can_egress,
- Input: (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, __u8 *match_type, __u8 *audited),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 273,
+  "endLine": 296,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_can_egress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 src_id",
+    " __u32 dst_id",
+    " __u16 dport",
+    " __u8 proto",
+    " __u8 *match_type",
+    " __u8 *audited"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -399,19 +670,46 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 298,
- Endline: 305,
- Funcname: policy_can_egress6,
- Input: (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 298,
+  "endLine": 305,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_can_egress6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ipv6_ct_tuple *tuple",
+    " __u32 src_id",
+    " __u32 dst_id",
+    " __u8 *match_type",
+    " __u8 *audited"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
@@ -425,19 +723,46 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 307,
- Endline: 314,
- Funcname: policy_can_egress4,
- Input: (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 307,
+  "endLine": 314,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_can_egress4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ipv4_ct_tuple *tuple",
+    " __u32 src_id",
+    " __u32 dst_id",
+    " __u8 *match_type",
+    " __u8 *audited"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
@@ -458,19 +783,41 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 323,
- Endline: 326,
- Funcname: policy_mark_skip,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 323,
+  "endLine": 326,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_mark_skip",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
@@ -480,19 +827,41 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/policy.h,
- Startline: 328,
- Endline: 331,
- Funcname: policy_clear_mark,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 328,
+  "endLine": 331,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "funcName": "policy_clear_mark",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void policy_clear_mark(struct __ctx_buff *ctx)

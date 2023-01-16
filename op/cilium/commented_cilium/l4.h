@@ -35,19 +35,46 @@
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l4.h,
- Startline: 36,
- Endline: 47,
- Funcname: l4_modify_port,
- Input: (struct  __ctx_buff *ctx, int l4_off, int off, struct csum_offset *csum_off, __be16 port, __be16 old_port),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 36,
+  "endLine": 47,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l4.h",
+  "funcName": "l4_modify_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l4_off",
+    " int off",
+    " struct csum_offset *csum_off",
+    " __be16 port",
+    " __be16 old_port"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int l4_modify_port(struct __ctx_buff *ctx, int l4_off,
@@ -65,19 +92,43 @@ static __always_inline int l4_modify_port(struct __ctx_buff *ctx, int l4_off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l4.h,
- Startline: 49,
- Endline: 53,
- Funcname: l4_load_port,
- Input: (struct  __ctx_buff *ctx, int off, __be16 *port),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 49,
+  "endLine": 53,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l4.h",
+  "funcName": "l4_load_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int off",
+    " __be16 *port"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int l4_load_port(struct __ctx_buff *ctx, int off,

@@ -31,19 +31,41 @@
 __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c,
- Startline: 32,
- Endline: 45,
- Funcname: custom_hook,
- Input: (const struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 32,
+  "endLine": 45,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c",
+  "funcName": "custom_hook",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int custom_hook(const struct __ctx_buff *ctx)

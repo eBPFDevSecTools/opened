@@ -28,8 +28,7 @@ def dump_comment(fname,startLineDict, ofname):
 
 
 def generate_comment(capability_dict):
-    comment="/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
-    return comment
+    return "/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
 
 
 # parses output from c-extract-function.txl
@@ -48,22 +47,18 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcSeen = False;
             #dump to file
             #print(lines)
-            encoding = smt.get_helper_list(lines,helperdict)
-            hookpoints = smt.get_compatible_hookpoints(encoding, helperdict)
-            read_maps= smt.get_read_maps(lines, map_read_fn)
-            update_maps= smt.get_update_maps(lines, map_update_fn)
             #print("funcName: ",funcName," srcFile: ",srcFile)
             capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
             capability_dict['funcName'] = funcName
-            capability_dict['updateMaps'] = update_maps
-            capability_dict['readMaps'] = read_maps
+            capability_dict['updateMaps'] = smt.get_update_maps(lines, map_update_fn)
+            capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)
             capability_dict['input'] = funcArgs.split(',')
             capability_dict['output'] = output
-            capability_dict['helper'] = encoding
-            capability_dict['compatibleHookpoints'] = hookpoints
+            capability_dict['helper'] = smt.get_helper_list(lines,helperdict)
+            capability_dict['compatibleHookpoints'] = smt.get_compatible_hookpoints(capability_dict['helper'] , helperdict)
             func_desc_list = []
             empty_desc = {}
             empty_desc['description'] = ""

@@ -12,19 +12,41 @@
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/hash.h,
- Startline: 13,
- Endline: 18,
- Funcname: hash_from_tuple_v4,
- Input: (const struct ipv4_ct_tuple *tuple),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 13,
+  "endLine": 18,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/hash.h",
+  "funcName": "hash_from_tuple_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 hash_from_tuple_v4(const struct ipv4_ct_tuple *tuple)
@@ -36,19 +58,41 @@ static __always_inline __u32 hash_from_tuple_v4(const struct ipv4_ct_tuple *tupl
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/hash.h,
- Startline: 20,
- Endline: 35,
- Funcname: hash_from_tuple_v6,
- Input: (const struct ipv6_ct_tuple *tuple),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 20,
+  "endLine": 35,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/hash.h",
+  "funcName": "hash_from_tuple_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv6_ct_tuple *tuple"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 hash_from_tuple_v6(const struct ipv6_ct_tuple *tuple)

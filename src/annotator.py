@@ -115,7 +115,7 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium):
             fn_def['startLine'] = str(startLine)
             fn_def['endLine'] = str(endLine)
             fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
-            print(fn_def)
+            #print(fn_def)
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
@@ -140,7 +140,7 @@ def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_di
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
         op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
         func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict, isCilium)
-        print(func_file_def_dict)
+        #print(func_file_def_dict)
         map_file_def_dict = parseTXLStructOutputFile(opfile_struct_annotate, map_file_def_dict)
         txl_dict_func_file[full_line] = opfile_function_annotate
     return func_file_def_dict, txl_dict_func_file, map_file_def_dict
@@ -289,7 +289,7 @@ if __name__ == "__main__":
             bpf_helper_file = args.bpfHelperFile
         else:
             if(isCilium == True):
-                print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
+                print("Warning: bpf_helper_file not specified using default asset/cilium.helper_hookpoint_map.json\n")
                 bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
         create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium)
     else:

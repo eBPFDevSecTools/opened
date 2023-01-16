@@ -191,19 +191,41 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 192,
- Endline: 196,
- Funcname: lb4_svc_is_loadbalancer,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 192,
+  "endLine": 196,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_loadbalancer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -214,19 +236,41 @@ bool lb4_svc_is_loadbalancer(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 198,
- Endline: 202,
- Funcname: lb6_svc_is_loadbalancer,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 198,
+  "endLine": 202,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_loadbalancer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -237,19 +281,41 @@ bool lb6_svc_is_loadbalancer(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 204,
- Endline: 212,
- Funcname: lb4_svc_is_nodeport,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 204,
+  "endLine": 212,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_nodeport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -264,19 +330,41 @@ bool lb4_svc_is_nodeport(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 214,
- Endline: 222,
- Funcname: lb6_svc_is_nodeport,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 214,
+  "endLine": 222,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_nodeport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -291,19 +379,41 @@ bool lb6_svc_is_nodeport(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 224,
- Endline: 228,
- Funcname: lb4_svc_is_external_ip,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 224,
+  "endLine": 228,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_external_ip",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -314,19 +424,41 @@ bool lb4_svc_is_external_ip(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 230,
- Endline: 234,
- Funcname: lb6_svc_is_external_ip,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 230,
+  "endLine": 234,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_external_ip",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -337,19 +469,41 @@ bool lb6_svc_is_external_ip(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 236,
- Endline: 240,
- Funcname: lb4_svc_is_hostport,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 236,
+  "endLine": 240,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_hostport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -360,19 +514,41 @@ bool lb4_svc_is_hostport(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 242,
- Endline: 246,
- Funcname: lb6_svc_is_hostport,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 242,
+  "endLine": 246,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_hostport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -383,19 +559,41 @@ bool lb6_svc_is_hostport(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 248,
- Endline: 256,
- Funcname: lb4_svc_has_src_range_check,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 248,
+  "endLine": 256,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_has_src_range_check",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -410,19 +608,41 @@ bool lb4_svc_has_src_range_check(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 258,
- Endline: 266,
- Funcname: lb6_svc_has_src_range_check,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 258,
+  "endLine": 266,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_has_src_range_check",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -437,19 +657,41 @@ bool lb6_svc_has_src_range_check(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 268,
- Endline: 271,
- Funcname: lb_skip_l4_dnat,
- Input: (void),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 268,
+  "endLine": 271,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb_skip_l4_dnat",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool lb_skip_l4_dnat(void)
@@ -459,19 +701,41 @@ static __always_inline bool lb_skip_l4_dnat(void)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 273,
- Endline: 277,
- Funcname: lb4_svc_is_local_scope,
- Input: (const struct lb4_service *svc),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 273,
+  "endLine": 277,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_local_scope",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -482,19 +746,41 @@ bool lb4_svc_is_local_scope(const struct lb4_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 279,
- Endline: 283,
- Funcname: lb6_svc_is_local_scope,
- Input: (const struct lb6_service *svc),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 279,
+  "endLine": 283,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_local_scope",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -505,19 +791,41 @@ bool lb6_svc_is_local_scope(const struct lb6_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 285,
- Endline: 289,
- Funcname: lb4_svc_is_affinity,
- Input: (const struct lb4_service *svc),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 285,
+  "endLine": 289,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_affinity",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -528,19 +836,41 @@ bool lb4_svc_is_affinity(const struct lb4_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 291,
- Endline: 295,
- Funcname: lb6_svc_is_affinity,
- Input: (const struct lb6_service *svc),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 291,
+  "endLine": 295,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_affinity",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -551,19 +881,41 @@ bool lb6_svc_is_affinity(const struct lb6_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 297,
- Endline: 300,
- Funcname: __lb_svc_is_routable,
- Input: (__u8 flags),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 297,
+  "endLine": 300,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb_svc_is_routable",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u8 flags"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool __lb_svc_is_routable(__u8 flags)
@@ -573,19 +925,41 @@ static __always_inline bool __lb_svc_is_routable(__u8 flags)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 302,
- Endline: 306,
- Funcname: lb4_svc_is_routable,
- Input: (const struct lb4_service *svc),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 302,
+  "endLine": 306,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_routable",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -596,19 +970,41 @@ bool lb4_svc_is_routable(const struct lb4_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 308,
- Endline: 312,
- Funcname: lb6_svc_is_routable,
- Input: (const struct lb6_service *svc),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 308,
+  "endLine": 312,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_routable",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -619,19 +1015,55 @@ bool lb6_svc_is_routable(const struct lb6_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 314,
- Endline: 318,
- Funcname: lb4_svc_is_localredirect,
- Input: (const struct lb4_service *svc),
- Output: static__always_inlinebool,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "bool lb4_svc_is_localconst struct lb4_service *svc"
+        ]
+      }
+    ]
+  },
+  "startLine": 314,
+  "endLine": 318,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_localredirect",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -642,19 +1074,41 @@ bool lb4_svc_is_localredirect(const struct lb4_service *svc)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 320,
- Endline: 328,
- Funcname: lb4_svc_is_l7loadbalancer,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 320,
+  "endLine": 328,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_svc_is_l7loadbalancer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -669,19 +1123,41 @@ bool lb4_svc_is_l7loadbalancer(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 330,
- Endline: 338,
- Funcname: lb6_svc_is_l7loadbalancer,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 330,
+  "endLine": 338,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_svc_is_l7loadbalancer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -696,19 +1172,46 @@ bool lb6_svc_is_l7loadbalancer(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 340,
- Endline: 380,
- Funcname: extract_l4_port,
- Input: (struct  __ctx_buff *ctx, __u8 nexthdr, int l4_off, enum ct_dir dir __maybe_unused, __be16 *port, __maybe_unused struct iphdr *ip4),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 340,
+  "endLine": 380,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "extract_l4_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 nexthdr",
+    " int l4_off",
+    " enum ct_dir dir __maybe_unused",
+    " __be16 *port",
+    " __maybe_unused struct iphdr *ip4"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int extract_l4_port(struct __ctx_buff *ctx, __u8 nexthdr,
@@ -755,19 +1258,45 @@ static __always_inline int extract_l4_port(struct __ctx_buff *ctx, __u8 nexthdr,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 382,
- Endline: 416,
- Funcname: reverse_map_l4_port,
- Input: (struct  __ctx_buff *ctx, __u8 nexthdr, __be16 port, int l4_off, struct csum_offset *csum_off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 382,
+  "endLine": 416,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "reverse_map_l4_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 nexthdr",
+    " __be16 port",
+    " int l4_off",
+    " struct csum_offset *csum_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int reverse_map_l4_port(struct __ctx_buff *ctx, __u8 nexthdr,
@@ -809,19 +1338,67 @@ static __always_inline int reverse_map_l4_port(struct __ctx_buff *ctx, __u8 next
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 419,
- Endline: 459,
- Funcname: __lb6_rev_nat,
- Input: (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, struct ipv6_ct_tuple *tuple, int flags, struct lb6_reverse_nat *nat),
- Output: static__always_inlineint,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " old_saddr.addr",
+          " 16",
+          " new_saddr",
+          " 16",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 419,
+  "endLine": 459,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb6_rev_nat",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " struct ipv6_ct_tuple *tuple",
+    " int flags",
+    " struct lb6_reverse_nat *nat"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __lb6_rev_nat(struct __ctx_buff *ctx, int l4_off,
@@ -877,19 +1454,82 @@ static __always_inline int __lb6_rev_nat(struct __ctx_buff *ctx, int l4_off,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 470,
- Endline: 482,
- Funcname: lb6_rev_nat,
- Input: (struct  __ctx_buff *ctx, int l4_off, struct csum_offset *csum_off, __u16 index, struct ipv6_ct_tuple *tuple, int flags),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [  LB6_REVERSE_NAT_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tnat ",
+        "inpVar": [
+          " &LB6_REVERSE_NAT_MAP",
+          " &index"
+        ]
+      }
+    ]
+  },
+  "startLine": 470,
+  "endLine": 482,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_rev_nat",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB6_REVERSE_NAT_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " __u16 index",
+    " struct ipv6_ct_tuple *tuple",
+    " int flags"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb6_rev_nat(struct __ctx_buff *ctx, int l4_off,
@@ -924,19 +1564,46 @@ static __always_inline int lb6_rev_nat(struct __ctx_buff *ctx, int l4_off,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 500,
- Endline: 516,
- Funcname: lb6_extract_key,
- Input: (struct  __ctx_buff * ctx __maybe_unused, struct ipv6_ct_tuple *tuple, int l4_off __maybe_unused, struct lb6_key *key, struct csum_offset *csum_off, enum ct_dir dir),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 500,
+  "endLine": 516,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_extract_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " struct ipv6_ct_tuple *tuple",
+    " int l4_off __maybe_unused",
+    " struct lb6_key *key",
+    " struct csum_offset *csum_off",
+    " enum ct_dir dir"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb6_extract_key(struct __ctx_buff *ctx __maybe_unused,
@@ -959,19 +1626,78 @@ static __always_inline int lb6_extract_key(struct __ctx_buff *ctx __maybe_unused
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 518,
- Endline: 541,
- Funcname: lb6_src_range_ok,
- Input: (const struct lb6_service * svc __maybe_unused, const union v6addr * saddr __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [ LB6_SRC_RANGE_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif &LB6_SRC_RANGE_MAP",
+          " &key\t\treturn true"
+        ]
+      }
+    ]
+  },
+  "startLine": 518,
+  "endLine": 541,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_src_range_ok",
+  "updateMaps": [],
+  "readMaps": [
+    " LB6_SRC_RANGE_MAP"
+  ],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused",
+    " const union v6addr * saddr __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1001,19 +1727,41 @@ bool lb6_src_range_ok(const struct lb6_service *svc __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 543,
- Endline: 551,
- Funcname: lb6_to_lb4_service,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 543,
+  "endLine": 551,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_to_lb4_service",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -1028,19 +1776,85 @@ lb6_to_lb4_service(const struct lb6_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 553,
- Endline: 573,
- Funcname: *lb6_lookup_service,
- Input: (struct lb6_key *key, const bool scope_switch),
- Output: static__always_inlinestructlb6_service,
- Helpers: [map_lookup_elem,],
- Read_maps: [  LB6_SERVICES_MAP_V2,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tsvc ",
+        "inpVar": [
+          " &LB6_SERVICES_MAP_V2",
+          " key"
+        ]
+      },
+      {
+        "opVar": "\t\tsvc ",
+        "inpVar": [
+          " &LB6_SERVICES_MAP_V2",
+          " key"
+        ]
+      }
+    ]
+  },
+  "startLine": 553,
+  "endLine": 573,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb6_lookup_service",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB6_SERVICES_MAP_V2"
+  ],
+  "input": [
+    "struct lb6_key *key",
+    " const bool scope_switch"
+  ],
+  "output": "static__always_inlinestructlb6_service",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1067,19 +1881,77 @@ struct lb6_service *lb6_lookup_service(struct lb6_key *key,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 575,
- Endline: 578,
- Funcname: *__lb6_lookup_backend,
- Input: (__u32 backend_id),
- Output: static__always_inlinestructlb6_backend,
- Helpers: [map_lookup_elem,],
- Read_maps: [ LB6_BACKEND_MAP_V2,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &LB6_BACKEND_MAP_V2",
+          " &backend_id"
+        ]
+      }
+    ]
+  },
+  "startLine": 575,
+  "endLine": 578,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*__lb6_lookup_backend",
+  "updateMaps": [],
+  "readMaps": [
+    " LB6_BACKEND_MAP_V2"
+  ],
+  "input": [
+    "__u32 backend_id"
+  ],
+  "output": "static__always_inlinestructlb6_backend",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb6_backend *__lb6_lookup_backend(__u32 backend_id)
@@ -1089,19 +1961,42 @@ static __always_inline struct lb6_backend *__lb6_lookup_backend(__u32 backend_id
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 580,
- Endline: 590,
- Funcname: *lb6_lookup_backend,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id),
- Output: static__always_inlinestructlb6_backend,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 580,
+  "endLine": 590,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb6_lookup_backend",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u32 backend_id"
+  ],
+  "output": "static__always_inlinestructlb6_backend",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb6_backend *
@@ -1118,19 +2013,77 @@ lb6_lookup_backend(struct __ctx_buff *ctx __maybe_unused, __u32 backend_id)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 592,
- Endline: 596,
- Funcname: *__lb6_lookup_backend_slot,
- Input: (struct lb6_key *key),
- Output: static__always_inlinestructlb6_service,
- Helpers: [map_lookup_elem,],
- Read_maps: [ LB6_SERVICES_MAP_V2,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &LB6_SERVICES_MAP_V2",
+          " key"
+        ]
+      }
+    ]
+  },
+  "startLine": 592,
+  "endLine": 596,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*__lb6_lookup_backend_slot",
+  "updateMaps": [],
+  "readMaps": [
+    " LB6_SERVICES_MAP_V2"
+  ],
+  "input": [
+    "struct lb6_key *key"
+  ],
+  "output": "static__always_inlinestructlb6_service",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1141,19 +2094,43 @@ struct lb6_service *__lb6_lookup_backend_slot(struct lb6_key *key)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 598,
- Endline: 613,
- Funcname: *lb6_lookup_backend_slot,
- Input: (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key *key, __u16 slot),
- Output: static__always_inlinestructlb6_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 598,
+  "endLine": 613,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb6_lookup_backend_slot",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " struct lb6_key *key",
+    " __u16 slot"
+  ],
+  "output": "static__always_inlinestructlb6_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1177,19 +2154,75 @@ struct lb6_service *lb6_lookup_backend_slot(struct __ctx_buff *ctx __maybe_unuse
 #if LB_SELECTION == LB_SELECTION_RANDOM
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 617,
- Endline: 627,
- Funcname: lb6_select_backend_id,
- Input: (struct  __ctx_buff *ctx, struct lb6_key *key, const struct ipv6_ct_tuple * tuple __maybe_unused, const struct lb6_service *svc),
- Output: static__always_inline__u32,
- Helpers: [get_prandom_u32,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_prandom_u32": [
+      {
+        "opVar": "\t__u16 slot ",
+        "inpVar": [
+          "  % svc->count + 1"
+        ]
+      }
+    ]
+  },
+  "startLine": 617,
+  "endLine": 627,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_select_backend_id",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct lb6_key *key",
+    " const struct ipv6_ct_tuple * tuple __maybe_unused",
+    " const struct lb6_service *svc"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "get_prandom_u32"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -1206,19 +2239,88 @@ lb6_select_backend_id(struct __ctx_buff *ctx,
 #elif LB_SELECTION == LB_SELECTION_MAGLEV
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 629,
- Endline: 649,
- Funcname: lb6_select_backend_id,
- Input: (struct  __ctx_buff * ctx __maybe_unused, struct lb6_key * key __maybe_unused, const struct ipv6_ct_tuple *tuple, const struct lb6_service *svc),
- Output: static__always_inline__u32,
- Helpers: [map_lookup_elem,],
- Read_maps: [ maglev_lut,  LB6_MAGLEV_MAP_OUTER,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tmaglev_lut ",
+        "inpVar": [
+          " &LB6_MAGLEV_MAP_OUTER",
+          " &index"
+        ]
+      },
+      {
+        "opVar": "\tbackend_ids ",
+        "inpVar": [
+          " maglev_lut",
+          " &zero"
+        ]
+      }
+    ]
+  },
+  "startLine": 629,
+  "endLine": 649,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_select_backend_id",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB6_MAGLEV_MAP_OUTER",
+    " maglev_lut"
+  ],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " struct lb6_key * key __maybe_unused",
+    " const struct ipv6_ct_tuple *tuple",
+    " const struct lb6_service *svc"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -1248,19 +2350,70 @@ lb6_select_backend_id(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 654,
- Endline: 689,
- Funcname: lb6_xlate,
- Input: (struct  __ctx_buff *ctx, const union v6addr *new_dst, __u8 nexthdr, int l3_off, int l4_off, struct csum_offset *csum_off, const struct lb6_key *key, const struct lb6_backend *backend, const bool skip_l3_xlate),
- Output: static__always_inlineint,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\t__be32 sum ",
+        "inpVar": [
+          " key->address.addr",
+          " 16",
+          " new_dst->addr",
+          "\t\t\t\t       16",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 654,
+  "endLine": 689,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_xlate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const union v6addr *new_dst",
+    " __u8 nexthdr",
+    " int l3_off",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " const struct lb6_key *key",
+    " const struct lb6_backend *backend",
+    " const bool skip_l3_xlate"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb6_xlate(struct __ctx_buff *ctx,
@@ -1303,19 +2456,106 @@ l4_xlate:
 #ifdef ENABLE_SESSION_AFFINITY
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 692,
- Endline: 728,
- Funcname: __lb6_affinity_backend_id,
- Input: (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id),
- Output: static__always_inline__u32,
- Helpers: [map_delete_elem,map_lookup_elem,],
- Read_maps: [ LB_AFFINITY_MATCH_MAP,  LB6_AFFINITY_MAP,],
- Update_maps: [ LB6_AFFINITY_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tval ",
+        "inpVar": [
+          " &LB6_AFFINITY_MAP",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tif !&LB_AFFINITY_MATCH_MAP",
+          " &match "
+        ]
+      }
+    ],
+    "map_delete_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t&LB6_AFFINITY_MAP",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t&LB6_AFFINITY_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 692,
+  "endLine": 728,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb6_affinity_backend_id",
+  "updateMaps": [
+    " LB6_AFFINITY_MAP"
+  ],
+  "readMaps": [
+    " LB_AFFINITY_MATCH_MAP",
+    "  LB6_AFFINITY_MAP"
+  ],
+  "input": [
+    "const struct lb6_service *svc",
+    " bool netns_cookie",
+    " union lb6_affinity_client_id *id"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_delete_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -1358,19 +2598,42 @@ __lb6_affinity_backend_id(const struct lb6_service *svc, bool netns_cookie,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 730,
- Endline: 735,
- Funcname: lb6_affinity_backend_id_by_addr,
- Input: (const struct lb6_service *svc, union lb6_affinity_client_id *id),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 730,
+  "endLine": 735,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_affinity_backend_id_by_addr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service *svc",
+    " union lb6_affinity_client_id *id"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -1382,19 +2645,82 @@ lb6_affinity_backend_id_by_addr(const struct lb6_service *svc,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 737,
- Endline: 754,
- Funcname: __lb6_update_affinity,
- Input: (const struct lb6_service *svc, bool netns_cookie, union lb6_affinity_client_id *id, __u32 backend_id),
- Output: static__always_inlinevoid,
- Helpers: [map_update_elem,],
- Read_maps: [],
- Update_maps: [ LB6_AFFINITY_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t&LB6_AFFINITY_MAP",
+          " &key",
+          " &val",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 737,
+  "endLine": 754,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb6_update_affinity",
+  "updateMaps": [
+    " LB6_AFFINITY_MAP"
+  ],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service *svc",
+    " bool netns_cookie",
+    " union lb6_affinity_client_id *id",
+    " __u32 backend_id"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1418,19 +2744,43 @@ __lb6_update_affinity(const struct lb6_service *svc, bool netns_cookie,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 756,
- Endline: 761,
- Funcname: lb6_update_affinity_by_addr,
- Input: (const struct lb6_service *svc, union lb6_affinity_client_id *id, __u32 backend_id),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 756,
+  "endLine": 761,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_update_affinity_by_addr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service *svc",
+    " union lb6_affinity_client_id *id",
+    " __u32 backend_id"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1443,19 +2793,42 @@ lb6_update_affinity_by_addr(const struct lb6_service *svc,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 764,
- Endline: 773,
- Funcname: lb6_affinity_backend_id_by_netns,
- Input: (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 764,
+  "endLine": 773,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_affinity_backend_id_by_netns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused",
+    " union lb6_affinity_client_id * id __maybe_unused"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -1471,19 +2844,43 @@ lb6_affinity_backend_id_by_netns(const struct lb6_service *svc __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 775,
- Endline: 783,
- Funcname: lb6_update_affinity_by_netns,
- Input: (const struct lb6_service * svc __maybe_unused, union lb6_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 775,
+  "endLine": 783,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_update_affinity_by_netns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused",
+    " union lb6_affinity_client_id * id __maybe_unused",
+    " __u32 backend_id __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -1498,19 +2895,42 @@ lb6_update_affinity_by_netns(const struct lb6_service *svc __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 785,
- Endline: 799,
- Funcname: lb6_to_lb4,
- Input: (struct  __ctx_buff * ctx __maybe_unused, const struct ipv6hdr * ip6 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 785,
+  "endLine": 799,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_to_lb4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " const struct ipv6hdr * ip6 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -1531,19 +2951,50 @@ lb6_to_lb4(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 801,
- Endline: 926,
- Funcname: lb6_local,
- Input: (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb6_key *key, struct ipv6_ct_tuple *tuple, const struct lb6_service *svc, struct ct_state *state, const bool skip_l3_xlate),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 801,
+  "endLine": 926,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_local",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *map",
+    " struct  __ctx_buff *ctx",
+    " int l3_off",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " struct lb6_key *key",
+    " struct ipv6_ct_tuple *tuple",
+    " const struct lb6_service *svc",
+    " struct ct_state *state",
+    " const bool skip_l3_xlate"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb6_local(const void *map, struct __ctx_buff *ctx,
@@ -1682,19 +3133,43 @@ drop_no_service:
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 935,
- Endline: 942,
- Funcname: lb6_ctx_store_state,
- Input: (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 935,
+  "endLine": 942,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_ctx_store_state",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ct_state *state",
+    " __u16 proxy_port"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void lb6_ctx_store_state(struct __ctx_buff *ctx,
@@ -1713,19 +3188,43 @@ static __always_inline void lb6_ctx_store_state(struct __ctx_buff *ctx,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 949,
- Endline: 965,
- Funcname: lb6_ctx_restore_state,
- Input: (struct  __ctx_buff *ctx, struct ct_state *state, __u16 *proxy_port),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 949,
+  "endLine": 965,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_ctx_restore_state",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct ct_state *state",
+    " __u16 *proxy_port"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void lb6_ctx_restore_state(struct __ctx_buff *ctx,
@@ -1753,19 +3252,42 @@ static __always_inline void lb6_ctx_restore_state(struct __ctx_buff *ctx,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 972,
- Endline: 977,
- Funcname: *lb6_lookup_service,
- Input: (struct lb6_key * key __maybe_unused, const bool scope_switch __maybe_unused),
- Output: static__always_inlinestructlb6_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 972,
+  "endLine": 977,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb6_lookup_service",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb6_key * key __maybe_unused",
+    " const bool scope_switch __maybe_unused"
+  ],
+  "output": "static__always_inlinestructlb6_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1777,19 +3299,41 @@ struct lb6_service *lb6_lookup_service(struct lb6_key *key __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 979,
- Endline: 983,
- Funcname: *__lb6_lookup_backend_slot,
- Input: (struct lb6_key * key __maybe_unused),
- Output: static__always_inlinestructlb6_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 979,
+  "endLine": 983,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*__lb6_lookup_backend_slot",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb6_key * key __maybe_unused"
+  ],
+  "output": "static__always_inlinestructlb6_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1800,19 +3344,41 @@ struct lb6_service *__lb6_lookup_backend_slot(struct lb6_key *key __maybe_unused
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 985,
- Endline: 989,
- Funcname: *__lb6_lookup_backend,
- Input: (__u16 backend_id __maybe_unused),
- Output: static__always_inlinestructlb6_backend,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 985,
+  "endLine": 989,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*__lb6_lookup_backend",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u16 backend_id __maybe_unused"
+  ],
+  "output": "static__always_inlinestructlb6_backend",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb6_backend *
@@ -1823,19 +3389,41 @@ __lb6_lookup_backend(__u16 backend_id __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 991,
- Endline: 995,
- Funcname: lb6_to_lb4_service,
- Input: (const struct lb6_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 991,
+  "endLine": 995,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb6_to_lb4_service",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb6_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -1848,19 +3436,90 @@ lb6_to_lb4_service(const struct lb6_service *svc __maybe_unused)
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 999,
- Endline: 1066,
- Funcname: __lb4_rev_nat,
- Input: (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ipv4_ct_tuple *tuple, int flags, const struct lb4_reverse_nat *nat, const struct ct_state *ct_state, bool has_l4_header),
- Output: static__always_inlineint,
- Helpers: [l3_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " &old_dip",
+          " 4",
+          " &old_sip",
+          " 4",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " &old_sip",
+          " 4",
+          " &new_sip",
+          " 4",
+          " sum"
+        ]
+      }
+    ],
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " l3_off + offsetofstruct iphdr",
+          " check",
+          " 0",
+          " sum",
+          " 0 < 0\t\treturn DROP_CSUM_L3"
+        ]
+      }
+    ]
+  },
+  "startLine": 999,
+  "endLine": 1066,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb4_rev_nat",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l3_off",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " struct ipv4_ct_tuple *tuple",
+    " int flags",
+    " const struct lb4_reverse_nat *nat",
+    " const struct ct_state *ct_state",
+    " bool has_l4_header"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff",
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __lb4_rev_nat(struct __ctx_buff *ctx, int l3_off, int l4_off,
@@ -1944,19 +3603,84 @@ static __always_inline int __lb4_rev_nat(struct __ctx_buff *ctx, int l3_off, int
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1078,
- Endline: 1092,
- Funcname: lb4_rev_nat,
- Input: (struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct ct_state *ct_state, struct ipv4_ct_tuple *tuple, int flags, bool has_l4_header),
- Output: static__always_inlineint,
- Helpers: [map_lookup_elem,],
- Read_maps: [  LB4_REVERSE_NAT_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tnat ",
+        "inpVar": [
+          " &LB4_REVERSE_NAT_MAP",
+          " &ct_state->rev_nat_index"
+        ]
+      }
+    ]
+  },
+  "startLine": 1078,
+  "endLine": 1092,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_rev_nat",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB4_REVERSE_NAT_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l3_off",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " struct ct_state *ct_state",
+    " struct ipv4_ct_tuple *tuple",
+    " int flags",
+    " bool has_l4_header"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb4_rev_nat(struct __ctx_buff *ctx, int l3_off, int l4_off,
@@ -1990,19 +3714,46 @@ static __always_inline int lb4_rev_nat(struct __ctx_buff *ctx, int l3_off, int l
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1107,
- Endline: 1121,
- Funcname: lb4_extract_key,
- Input: (struct  __ctx_buff * ctx __maybe_unused, struct iphdr *ip4, int l4_off __maybe_unused, struct lb4_key *key, struct csum_offset *csum_off, enum ct_dir dir),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1107,
+  "endLine": 1121,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_extract_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " struct iphdr *ip4",
+    " int l4_off __maybe_unused",
+    " struct lb4_key *key",
+    " struct csum_offset *csum_off",
+    " enum ct_dir dir"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb4_extract_key(struct __ctx_buff *ctx __maybe_unused,
@@ -2023,19 +3774,78 @@ static __always_inline int lb4_extract_key(struct __ctx_buff *ctx __maybe_unused
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1123,
- Endline: 1146,
- Funcname: lb4_src_range_ok,
- Input: (const struct lb4_service * svc __maybe_unused, __u32 saddr __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [ LB4_SRC_RANGE_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif &LB4_SRC_RANGE_MAP",
+          " &key\t\treturn true"
+        ]
+      }
+    ]
+  },
+  "startLine": 1123,
+  "endLine": 1146,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_src_range_ok",
+  "updateMaps": [],
+  "readMaps": [
+    " LB4_SRC_RANGE_MAP"
+  ],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused",
+    " __u32 saddr __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -2065,19 +3875,43 @@ bool lb4_src_range_ok(const struct lb4_service *svc __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1148,
- Endline: 1164,
- Funcname: lb4_populate_ports,
- Input: (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1148,
+  "endLine": 1164,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_populate_ports",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct ipv4_ct_tuple *tuple",
+    " int off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -2100,19 +3934,41 @@ lb4_populate_ports(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1166,
- Endline: 1174,
- Funcname: lb4_to_lb6_service,
- Input: (const struct lb4_service * svc __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1166,
+  "endLine": 1174,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_to_lb6_service",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -2127,19 +3983,85 @@ lb4_to_lb6_service(const struct lb4_service *svc __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1176,
- Endline: 1197,
- Funcname: *lb4_lookup_service,
- Input: (struct lb4_key *key, const bool scope_switch),
- Output: static__always_inlinestructlb4_service,
- Helpers: [map_lookup_elem,],
- Read_maps: [  LB4_SERVICES_MAP_V2,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tsvc ",
+        "inpVar": [
+          " &LB4_SERVICES_MAP_V2",
+          " key"
+        ]
+      },
+      {
+        "opVar": "\t\tsvc ",
+        "inpVar": [
+          " &LB4_SERVICES_MAP_V2",
+          " key"
+        ]
+      }
+    ]
+  },
+  "startLine": 1176,
+  "endLine": 1197,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb4_lookup_service",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB4_SERVICES_MAP_V2"
+  ],
+  "input": [
+    "struct lb4_key *key",
+    " const bool scope_switch"
+  ],
+  "output": "static__always_inlinestructlb4_service",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -2167,19 +4089,77 @@ struct lb4_service *lb4_lookup_service(struct lb4_key *key,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1199,
- Endline: 1202,
- Funcname: *__lb4_lookup_backend,
- Input: (__u32 backend_id),
- Output: static__always_inlinestructlb4_backend,
- Helpers: [map_lookup_elem,],
- Read_maps: [ LB4_BACKEND_MAP_V2,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &LB4_BACKEND_MAP_V2",
+          " &backend_id"
+        ]
+      }
+    ]
+  },
+  "startLine": 1199,
+  "endLine": 1202,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*__lb4_lookup_backend",
+  "updateMaps": [],
+  "readMaps": [
+    " LB4_BACKEND_MAP_V2"
+  ],
+  "input": [
+    "__u32 backend_id"
+  ],
+  "output": "static__always_inlinestructlb4_backend",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb4_backend *__lb4_lookup_backend(__u32 backend_id)
@@ -2189,19 +4169,42 @@ static __always_inline struct lb4_backend *__lb4_lookup_backend(__u32 backend_id
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1204,
- Endline: 1214,
- Funcname: *lb4_lookup_backend,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u32 backend_id),
- Output: static__always_inlinestructlb4_backend,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1204,
+  "endLine": 1214,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb4_lookup_backend",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u32 backend_id"
+  ],
+  "output": "static__always_inlinestructlb4_backend",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb4_backend *
@@ -2218,19 +4221,77 @@ lb4_lookup_backend(struct __ctx_buff *ctx __maybe_unused, __u32 backend_id)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1216,
- Endline: 1220,
- Funcname: *__lb4_lookup_backend_slot,
- Input: (struct lb4_key *key),
- Output: static__always_inlinestructlb4_service,
- Helpers: [map_lookup_elem,],
- Read_maps: [ LB4_SERVICES_MAP_V2,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &LB4_SERVICES_MAP_V2",
+          " key"
+        ]
+      }
+    ]
+  },
+  "startLine": 1216,
+  "endLine": 1220,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*__lb4_lookup_backend_slot",
+  "updateMaps": [],
+  "readMaps": [
+    " LB4_SERVICES_MAP_V2"
+  ],
+  "input": [
+    "struct lb4_key *key"
+  ],
+  "output": "static__always_inlinestructlb4_service",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -2241,19 +4302,43 @@ struct lb4_service *__lb4_lookup_backend_slot(struct lb4_key *key)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1222,
- Endline: 1237,
- Funcname: *lb4_lookup_backend_slot,
- Input: (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key *key, __u16 slot),
- Output: static__always_inlinestructlb4_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1222,
+  "endLine": 1237,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "*lb4_lookup_backend_slot",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " struct lb4_key *key",
+    " __u16 slot"
+  ],
+  "output": "static__always_inlinestructlb4_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -2277,19 +4362,75 @@ struct lb4_service *lb4_lookup_backend_slot(struct __ctx_buff *ctx __maybe_unuse
 #if LB_SELECTION == LB_SELECTION_RANDOM
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1241,
- Endline: 1251,
- Funcname: lb4_select_backend_id,
- Input: (struct  __ctx_buff *ctx, struct lb4_key *key, const struct ipv4_ct_tuple * tuple __maybe_unused, const struct lb4_service *svc),
- Output: static__always_inline__u32,
- Helpers: [get_prandom_u32,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_prandom_u32": [
+      {
+        "opVar": "\t__u16 slot ",
+        "inpVar": [
+          "  % svc->count + 1"
+        ]
+      }
+    ]
+  },
+  "startLine": 1241,
+  "endLine": 1251,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_select_backend_id",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct lb4_key *key",
+    " const struct ipv4_ct_tuple * tuple __maybe_unused",
+    " const struct lb4_service *svc"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "get_prandom_u32"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -2306,19 +4447,88 @@ lb4_select_backend_id(struct __ctx_buff *ctx,
 #elif LB_SELECTION == LB_SELECTION_MAGLEV
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1253,
- Endline: 1273,
- Funcname: lb4_select_backend_id,
- Input: (struct  __ctx_buff * ctx __maybe_unused, struct lb4_key * key __maybe_unused, const struct ipv4_ct_tuple *tuple, const struct lb4_service *svc),
- Output: static__always_inline__u32,
- Helpers: [map_lookup_elem,],
- Read_maps: [ maglev_lut,  LB4_MAGLEV_MAP_OUTER,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tmaglev_lut ",
+        "inpVar": [
+          " &LB4_MAGLEV_MAP_OUTER",
+          " &index"
+        ]
+      },
+      {
+        "opVar": "\tbackend_ids ",
+        "inpVar": [
+          " maglev_lut",
+          " &zero"
+        ]
+      }
+    ]
+  },
+  "startLine": 1253,
+  "endLine": 1273,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_select_backend_id",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB4_MAGLEV_MAP_OUTER",
+    " maglev_lut"
+  ],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " struct lb4_key * key __maybe_unused",
+    " const struct ipv4_ct_tuple *tuple",
+    " const struct lb4_service *svc"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -2348,19 +4558,93 @@ lb4_select_backend_id(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1278,
- Endline: 1332,
- Funcname: lb4_xlate,
- Input: (struct  __ctx_buff *ctx, __be32 *new_daddr, __be32 * new_saddr __maybe_unused, __be32 * old_saddr __maybe_unused, __u8 nexthdr __maybe_unused, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, const struct lb4_backend * backend __maybe_unused, bool has_l4_header, const bool skip_l3_xlate),
- Output: static__always_inlineint,
- Helpers: [l3_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " &key->address",
+          " 4",
+          " new_daddr",
+          " 4",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " old_saddr",
+          " 4",
+          " new_saddr",
+          " 4",
+          " sum"
+        ]
+      }
+    ],
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif \tif ctx",
+          " l3_off + offsetofstruct iphdr",
+          " check",
+          "\t\t\t    0",
+          " sum",
+          " 0 < 0\t\treturn DROP_CSUM_L3"
+        ]
+      }
+    ]
+  },
+  "startLine": 1278,
+  "endLine": 1332,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_xlate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be32 *new_daddr",
+    " __be32 * new_saddr __maybe_unused",
+    " __be32 * old_saddr __maybe_unused",
+    " __u8 nexthdr __maybe_unused",
+    " int l3_off",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " struct lb4_key *key",
+    " const struct lb4_backend * backend __maybe_unused",
+    " bool has_l4_header",
+    " const bool skip_l3_xlate"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff",
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -2422,19 +4706,106 @@ l4_xlate:
 #ifdef ENABLE_SESSION_AFFINITY
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1335,
- Endline: 1375,
- Funcname: __lb4_affinity_backend_id,
- Input: (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id),
- Output: static__always_inline__u32,
- Helpers: [map_delete_elem,map_lookup_elem,],
- Read_maps: [ LB_AFFINITY_MATCH_MAP,  LB4_AFFINITY_MAP,],
- Update_maps: [ LB4_AFFINITY_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tval ",
+        "inpVar": [
+          " &LB4_AFFINITY_MAP",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tif !&LB_AFFINITY_MATCH_MAP",
+          " &match "
+        ]
+      }
+    ],
+    "map_delete_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t&LB4_AFFINITY_MAP",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t&LB4_AFFINITY_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 1335,
+  "endLine": 1375,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb4_affinity_backend_id",
+  "updateMaps": [
+    " LB4_AFFINITY_MAP"
+  ],
+  "readMaps": [
+    "  LB4_AFFINITY_MAP",
+    " LB_AFFINITY_MATCH_MAP"
+  ],
+  "input": [
+    "const struct lb4_service *svc",
+    " bool netns_cookie",
+    " const union lb4_affinity_client_id *id"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_delete_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -2481,19 +4852,42 @@ __lb4_affinity_backend_id(const struct lb4_service *svc, bool netns_cookie,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1377,
- Endline: 1382,
- Funcname: lb4_affinity_backend_id_by_addr,
- Input: (const struct lb4_service *svc, union lb4_affinity_client_id *id),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1377,
+  "endLine": 1382,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_affinity_backend_id_by_addr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc",
+    " union lb4_affinity_client_id *id"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -2505,19 +4899,82 @@ lb4_affinity_backend_id_by_addr(const struct lb4_service *svc,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1384,
- Endline: 1401,
- Funcname: __lb4_update_affinity,
- Input: (const struct lb4_service *svc, bool netns_cookie, const union lb4_affinity_client_id *id, __u32 backend_id),
- Output: static__always_inlinevoid,
- Helpers: [map_update_elem,],
- Read_maps: [],
- Update_maps: [ LB4_AFFINITY_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t&LB4_AFFINITY_MAP",
+          " &key",
+          " &val",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 1384,
+  "endLine": 1401,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "__lb4_update_affinity",
+  "updateMaps": [
+    " LB4_AFFINITY_MAP"
+  ],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc",
+    " bool netns_cookie",
+    " const union lb4_affinity_client_id *id",
+    " __u32 backend_id"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -2541,19 +4998,43 @@ __lb4_update_affinity(const struct lb4_service *svc, bool netns_cookie,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1403,
- Endline: 1408,
- Funcname: lb4_update_affinity_by_addr,
- Input: (const struct lb4_service *svc, union lb4_affinity_client_id *id, __u32 backend_id),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1403,
+  "endLine": 1408,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_update_affinity_by_addr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service *svc",
+    " union lb4_affinity_client_id *id",
+    " __u32 backend_id"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -2566,19 +5047,42 @@ lb4_update_affinity_by_addr(const struct lb4_service *svc,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1411,
- Endline: 1420,
- Funcname: lb4_affinity_backend_id_by_netns,
- Input: (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1411,
+  "endLine": 1420,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_affinity_backend_id_by_netns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused",
+    " union lb4_affinity_client_id * id __maybe_unused"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -2594,19 +5098,43 @@ lb4_affinity_backend_id_by_netns(const struct lb4_service *svc __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1422,
- Endline: 1430,
- Funcname: lb4_update_affinity_by_netns,
- Input: (const struct lb4_service * svc __maybe_unused, union lb4_affinity_client_id * id __maybe_unused, __u32 backend_id __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1422,
+  "endLine": 1430,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_update_affinity_by_netns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct lb4_service * svc __maybe_unused",
+    " union lb4_affinity_client_id * id __maybe_unused",
+    " __u32 backend_id __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -2621,19 +5149,43 @@ lb4_update_affinity_by_netns(const struct lb4_service *svc __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1432,
- Endline: 1447,
- Funcname: lb4_to_lb6,
- Input: (struct  __ctx_buff * ctx __maybe_unused, const struct iphdr * ip4 __maybe_unused, int l3_off __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1432,
+  "endLine": 1447,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_to_lb6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " const struct iphdr * ip4 __maybe_unused",
+    " int l3_off __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -2655,19 +5207,52 @@ lb4_to_lb6(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1449,
- Endline: 1604,
- Funcname: lb4_local,
- Input: (const void *map, struct  __ctx_buff *ctx, int l3_off, int l4_off, struct csum_offset *csum_off, struct lb4_key *key, struct ipv4_ct_tuple *tuple, const struct lb4_service *svc, struct ct_state *state, __be32 saddr, bool has_l4_header, const bool skip_l3_xlate),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1449,
+  "endLine": 1604,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_local",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *map",
+    " struct  __ctx_buff *ctx",
+    " int l3_off",
+    " int l4_off",
+    " struct csum_offset *csum_off",
+    " struct lb4_key *key",
+    " struct ipv4_ct_tuple *tuple",
+    " const struct lb4_service *svc",
+    " struct ct_state *state",
+    " __be32 saddr",
+    " bool has_l4_header",
+    " const bool skip_l3_xlate"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int lb4_local(const void *map, struct __ctx_buff *ctx,
@@ -2836,19 +5421,43 @@ drop_no_service:
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1613,
- Endline: 1621,
- Funcname: lb4_ctx_store_state,
- Input: (struct  __ctx_buff *ctx, const struct ct_state *state, __u16 proxy_port),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1613,
+  "endLine": 1621,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_ctx_store_state",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ct_state *state",
+    " __u16 proxy_port"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void lb4_ctx_store_state(struct __ctx_buff *ctx,
@@ -2868,19 +5477,44 @@ static __always_inline void lb4_ctx_store_state(struct __ctx_buff *ctx,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lb.h,
- Startline: 1628,
- Endline: 1651,
- Funcname: lb4_ctx_restore_state,
- Input: (struct  __ctx_buff *ctx, struct ct_state *state, __u32 daddr __maybe_unused, __u16 *proxy_port),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1628,
+  "endLine": 1651,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lb.h",
+  "funcName": "lb4_ctx_restore_state",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct ct_state *state",
+    " __u32 daddr __maybe_unused",
+    " __u16 *proxy_port"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
