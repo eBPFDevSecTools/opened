@@ -10,11 +10,10 @@ import argparse
 from collections import defaultdict
 from tinydb import TinyDB
 
-def insert_to_db(db,startLineDict):
-    for comment_dict in startLineDict.values():
-        comment_json = json.dumps(comment_dict)
-        print("Adding comments: "+ comment_json +" to DB ")
-        db.insert(comment_json)
+def insert_to_db(db,comment_dict):
+    comment_json = json.dumps(comment_dict)
+    print("Inserting comments to DB: "+ comment_json )
+    db.insert(comment_dict)
 
 
 def dump_comment(fname,startLineDict, ofname):
@@ -87,6 +86,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['AI_func_description'] = ai_func_desc_list
             #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
             comment = generate_comment(capability_dict)
+            insert_to_db(comments_db,capability_dict)
             #dump_comment(srcFile,startLine,comment)
             
             startLineDict[startLine] = comment
@@ -138,7 +138,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
         #print("Going to call dump_comment for: "+srcFile)
         #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
-        insert_to_db(comments_db,startLineDict)
+
 
         
         #print("XML: ",inputFile," StartLineDict: ",startLineDict)

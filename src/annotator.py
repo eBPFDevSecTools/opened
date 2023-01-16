@@ -12,7 +12,7 @@ import summarizer as sm
 import argparse
 import json
 from collections import defaultdict
-
+from tinydb import TinyDB
 
 def check_if_cmd_available():
     commands = ['txl', 'cscope', 'ctags', 'cqmakedb']
@@ -258,7 +258,7 @@ if __name__ == "__main__":
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"
-    comments_db_file = repo_name+"_comments.db"
+
     
     txl_func_list = repo_name+".function_file_list.json"
     if(args.txl_function_list is not None):
@@ -287,6 +287,7 @@ if __name__ == "__main__":
     txl_dict_func = defaultdict(list)
     txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct, isCilium)
     if (cmt_op_dir is not None):
+        comments_db_file = cmt_op_dir+"/"+ repo_name+"_comments.db"
         comments_db = TinyDB(comments_db_file)
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
