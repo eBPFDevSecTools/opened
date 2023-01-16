@@ -30,19 +30,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 31,
- Endline: 35,
- Funcname: bpf_skip_nodeport_clear,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 31,
+  "endLine": 35,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "bpf_skip_nodeport_clear",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -53,19 +75,41 @@ bpf_skip_nodeport_clear(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 37,
- Endline: 41,
- Funcname: bpf_skip_nodeport_set,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 37,
+  "endLine": 41,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "bpf_skip_nodeport_set",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -76,19 +120,41 @@ bpf_skip_nodeport_set(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 43,
- Endline: 47,
- Funcname: bpf_skip_nodeport,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 43,
+  "endLine": 47,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "bpf_skip_nodeport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool
@@ -131,19 +197,41 @@ struct dsr_opt_v6 {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 81,
- Endline: 92,
- Funcname: nodeport_uses_dsr,
- Input: (__u8 nexthdr __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 81,
+  "endLine": 92,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_uses_dsr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u8 nexthdr __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool nodeport_uses_dsr(__u8 nexthdr __maybe_unused)
@@ -161,19 +249,41 @@ static __always_inline bool nodeport_uses_dsr(__u8 nexthdr __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 94,
- Endline: 103,
- Funcname: bpf_mark_snat_done,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 94,
+  "endLine": 103,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "bpf_mark_snat_done",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -189,19 +299,41 @@ bpf_mark_snat_done(struct __ctx_buff *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 105,
- Endline: 116,
- Funcname: bpf_skip_recirculation,
- Input: (const struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 105,
+  "endLine": 116,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "bpf_skip_recirculation",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -219,19 +351,41 @@ bpf_skip_recirculation(const struct __ctx_buff *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 118,
- Endline: 125,
- Funcname: ctx_adjust_hroom_dsr_flags,
- Input: (void),
- Output: static__always_inline__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 118,
+  "endLine": 125,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "ctx_adjust_hroom_dsr_flags",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "static__always_inline__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u64 ctx_adjust_hroom_dsr_flags(void)
@@ -245,19 +399,41 @@ static __always_inline __u64 ctx_adjust_hroom_dsr_flags(void)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 127,
- Endline: 134,
- Funcname: dsr_fail_needs_reply,
- Input: (int code __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 127,
+  "endLine": 134,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_fail_needs_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "int code __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool dsr_fail_needs_reply(int code __maybe_unused)
@@ -271,19 +447,42 @@ static __always_inline bool dsr_fail_needs_reply(int code __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 136,
- Endline: 144,
- Funcname: dsr_is_too_big,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u16 expanded_len __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 136,
+  "endLine": 144,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_is_too_big",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u16 expanded_len __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused,
@@ -298,19 +497,43 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 146,
- Endline: 170,
- Funcname: maybe_add_l2_hdr,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u32 ifindex __maybe_unused, bool * l2_hdr_required __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 146,
+  "endLine": 170,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "maybe_add_l2_hdr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u32 ifindex __maybe_unused",
+    " bool * l2_hdr_required __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -342,19 +565,41 @@ maybe_add_l2_hdr(struct __ctx_buff *ctx __maybe_unused,
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 173,
- Endline: 176,
- Funcname: nodeport_uses_dsr6,
- Input: (const struct ipv6_ct_tuple *tuple),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 173,
+  "endLine": 176,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_uses_dsr6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv6_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple)
@@ -367,19 +612,42 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 181,
- Endline: 203,
- Funcname: snat_v6_needed,
- Input: (struct  __ctx_buff *ctx, const union v6addr *addr),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 181,
+  "endLine": 203,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "snat_v6_needed",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const union v6addr *addr"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
@@ -408,19 +676,42 @@ static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 205,
- Endline: 221,
- Funcname: nodeport_nat_ipv6_fwd,
- Input: (struct  __ctx_buff *ctx, const union v6addr *addr),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 205,
+  "endLine": 221,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_nat_ipv6_fwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const union v6addr *addr"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int nodeport_nat_ipv6_fwd(struct __ctx_buff *ctx,
@@ -445,19 +736,43 @@ static __always_inline int nodeport_nat_ipv6_fwd(struct __ctx_buff *ctx,
 #if DSR_ENCAP_MODE == DSR_ENCAP_IPIP
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 225,
- Endline: 252,
- Funcname: rss_gen_src6,
- Input: (union v6addr *src, const union v6addr *client, __be32 l4_hint),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 225,
+  "endLine": 252,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "rss_gen_src6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "union v6addr *src",
+    " const union v6addr *client",
+    " __be32 l4_hint"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void rss_gen_src6(union v6addr *src,
@@ -491,19 +806,45 @@ static __always_inline void rss_gen_src6(union v6addr *src,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 254,
- Endline: 292,
- Funcname: dsr_set_ipip6,
- Input: (struct  __ctx_buff *ctx, const struct ipv6hdr *ip6, const union v6addr *backend_addr, __be32 l4_hint, int *ohead),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 254,
+  "endLine": 292,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_set_ipip6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ipv6hdr *ip6",
+    " const union v6addr *backend_addr",
+    " __be32 l4_hint",
+    " int *ohead"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
@@ -548,19 +889,45 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
 #elif DSR_ENCAP_MODE == DSR_ENCAP_NONE
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 294,
- Endline: 327,
- Funcname: dsr_set_ext6,
- Input: (struct  __ctx_buff *ctx, struct ipv6hdr *ip6, const union v6addr *svc_addr, __be16 svc_port, int *ohead),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 294,
+  "endLine": 327,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_set_ext6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct ipv6hdr *ip6",
+    " const union v6addr *svc_addr",
+    " __be16 svc_port",
+    " int *ohead"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
@@ -601,19 +968,44 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 330,
- Endline: 378,
- Funcname: find_dsr_v6,
- Input: (struct  __ctx_buff *ctx, __u8 nexthdr, struct dsr_opt_v6 *dsr_opt, bool *found),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 330,
+  "endLine": 378,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "find_dsr_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u8 nexthdr",
+    " struct dsr_opt_v6 *dsr_opt",
+    " bool *found"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
@@ -668,19 +1060,42 @@ static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 380,
- Endline: 400,
- Funcname: handle_dsr_v6,
- Input: (struct  __ctx_buff *ctx, bool *dsr),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 380,
+  "endLine": 400,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "handle_dsr_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " bool *dsr"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_dsr_v6(struct __ctx_buff *ctx, bool *dsr)
@@ -707,19 +1122,43 @@ static __always_inline int handle_dsr_v6(struct __ctx_buff *ctx, bool *dsr)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 402,
- Endline: 418,
- Funcname: xlate_dsr_v6,
- Input: (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, int l4_off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 402,
+  "endLine": 418,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "xlate_dsr_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ipv6_ct_tuple *tuple",
+    " int l4_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
@@ -742,19 +1181,77 @@ static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 420,
- Endline: 492,
- Funcname: dsr_reply_icmp6,
- Input: (struct  __ctx_buff *ctx, const struct ipv6hdr * ip6 __maybe_unused, int code, int ohead __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\ticmp.icmp6_cksum ",
+        "inpVar": [
+          " csum_foldNULL",
+          " 0",
+          " data + off",
+          " l3_max",
+          "\t\t\t\t\t       NULL",
+          " 0",
+          " &icmp",
+          "\t\t\t\t\t\t\t sizeoficmp",
+          " wsum"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ctx_get_ifindexctx",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 420,
+  "endLine": 492,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_reply_icmp6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ipv6hdr * ip6 __maybe_unused",
+    " int code",
+    " int ohead __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff",
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int dsr_reply_icmp6(struct __ctx_buff *ctx,
@@ -834,19 +1331,74 @@ drop_err:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 495,
- Endline: 571,
- Funcname: tail_nodeport_ipv6_dsr,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [redirect,fib_lookup,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup_padded fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params.l",
+          " sizeoffib_params",
+          " 0"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " fib_params.l.ifindex",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 495,
+  "endLine": 571,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_nodeport_ipv6_dsr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "fib_lookup",
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_nodeport_ipv6_dsr(struct __ctx_buff *ctx)
@@ -931,19 +1483,91 @@ drop_err:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 575,
- Endline: 715,
- Funcname: tail_nodeport_nat_ipv6,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,redirect,fib_lookup,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup_padded fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params.l",
+          " sizeoffib_params",
+          " 0"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_NETDEV"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tep_ctx",
+          " CILIUM_CALL_IPV6_NODEPORT_REVNAT"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " fib_params.l.ifindex",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 575,
+  "endLine": 715,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_nodeport_nat_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "fib_lookup",
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_nodeport_nat_ipv6(struct __ctx_buff *ctx)
@@ -1091,19 +1715,107 @@ drop_err:
 /* See nodeport_lb4(). */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 718,
- Endline: 881,
- Funcname: nodeport_lb6,
- Input: (struct  __ctx_buff *ctx, __u32 src_identity),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,map_lookup_elem,map_update_elem,],
- Read_maps: [  NODEPORT_NEIGH6,],
- Update_maps: [  NODEPORT_NEIGH6,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\treturn ctx__to_proxy_hairpin_ipv6ctx",
+          "\t\t\t\t\t\t\t\t  __be16svc->l7_lb_proxy_port"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tep_ctx",
+          " CILIUM_CALL_IPV6_NODEPORT_NAT"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif \t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_NODEPORT_DSR"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_NODEPORT_NAT"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tmac ",
+        "inpVar": [
+          " &NODEPORT_NEIGH6",
+          " &ip6->saddr"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "\t\t\tret ",
+        "inpVar": [
+          " &NODEPORT_NEIGH6",
+          " &ip6->saddr",
+          "\t\t\t\t\t      &smac",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 718,
+  "endLine": 881,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_lb6",
+  "updateMaps": [
+    "  NODEPORT_NEIGH6"
+  ],
+  "readMaps": [
+    "  NODEPORT_NEIGH6"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 src_identity"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_update_elem",
+    "redirect",
+    "map_lookup_elem",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int nodeport_lb6(struct __ctx_buff *ctx,
@@ -1274,19 +1986,87 @@ redo:
 /* See comment in tail_rev_nodeport_lb4(). */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 884,
- Endline: 1006,
- Funcname: rev_nodeport_lb6,
- Input: (struct  __ctx_buff *ctx, int *ifindex, int *ext_err),
- Output: static__always_inlineint,
- Helpers: [tail_call,map_lookup_elem,fib_lookup,],
- Read_maps: [  NODEPORT_NEIGH6,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\t\tfib_ret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params",
+          " sizeoffib_params",
+          " 0"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\t\t\t\t\t\t\t\tdmac ",
+        "inpVar": [
+          " &NODEPORT_NEIGH6",
+          " &tuple.daddr"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_NETDEV"
+        ]
+      }
+    ]
+  },
+  "startLine": 884,
+  "endLine": 1006,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "rev_nodeport_lb6",
+  "updateMaps": [],
+  "readMaps": [
+    "  NODEPORT_NEIGH6"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int *ifindex",
+    " int *ext_err"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "fib_lookup",
+    "map_lookup_elem",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int rev_nodeport_lb6(struct __ctx_buff *ctx, int *ifindex,
@@ -1416,19 +2196,57 @@ static __always_inline int rev_nodeport_lb6(struct __ctx_buff *ctx, int *ifindex
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1009,
- Endline: 1052,
- Funcname: tail_rev_nodeport_lb6,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ifindex",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 1009,
+  "endLine": 1052,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_rev_nodeport_lb6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_rev_nodeport_lb6(struct __ctx_buff *ctx)
@@ -1483,19 +2301,41 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4),
 		    CILIUM_CALL_IPV6_ENCAP_NODEPORT_NAT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1059,
- Endline: 1078,
- Funcname: tail_handle_nat_fwd_ipv6,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1059,
+  "endLine": 1078,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_handle_nat_fwd_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_nat_fwd_ipv6(struct __ctx_buff *ctx)
@@ -1523,19 +2363,41 @@ int tail_handle_nat_fwd_ipv6(struct __ctx_buff *ctx)
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1082,
- Endline: 1085,
- Funcname: nodeport_uses_dsr4,
- Input: (const struct ipv4_ct_tuple *tuple),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1082,
+  "endLine": 1085,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_uses_dsr4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv4_ct_tuple *tuple"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple)
@@ -1559,19 +2421,79 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1101,
- Endline: 1259,
- Funcname: snat_v4_needed,
- Input: (struct  __ctx_buff *ctx, __be32 *addr, bool * from_endpoint __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [map_lookup_elem,],
- Read_maps: [ IP_MASQ_AGENT_IPV4,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif &IP_MASQ_AGENT_IPV4",
+          " &pfx\t\t\treturn false"
+        ]
+      }
+    ]
+  },
+  "startLine": 1101,
+  "endLine": 1259,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "snat_v4_needed",
+  "updateMaps": [],
+  "readMaps": [
+    " IP_MASQ_AGENT_IPV4"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be32 *addr",
+    " bool * from_endpoint __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool snat_v4_needed(struct __ctx_buff *ctx, __be32 *addr,
@@ -1736,19 +2658,41 @@ skip_egress_gateway:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1261,
- Endline: 1278,
- Funcname: nodeport_nat_ipv4_fwd,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1261,
+  "endLine": 1278,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_nat_ipv4_fwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int nodeport_nat_ipv4_fwd(struct __ctx_buff *ctx)
@@ -1774,19 +2718,42 @@ static __always_inline int nodeport_nat_ipv4_fwd(struct __ctx_buff *ctx)
 #if DSR_ENCAP_MODE == DSR_ENCAP_IPIP
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1282,
- Endline: 1290,
- Funcname: rss_gen_src4,
- Input: (__be32 client, __be32 l4_hint),
- Output: static__always_inline__be32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1282,
+  "endLine": 1290,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "rss_gen_src4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__be32 client",
+    " __be32 l4_hint"
+  ],
+  "output": "static__always_inline__be32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
@@ -1807,19 +2774,76 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1298,
- Endline: 1350,
- Funcname: dsr_set_ipip4,
- Input: (struct  __ctx_buff *ctx, const struct iphdr *ip4, __be32 backend_addr, __be32 l4_hint, __be16 *ohead),
- Output: static__always_inlineint,
- Helpers: [l3_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " &tp_old",
+          " 16",
+          " &tp_new",
+          " 16",
+          " 0"
+        ]
+      }
+    ],
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " l3_off + offsetofstruct iphdr",
+          " check",
+          "\t\t\t    0",
+          " sum",
+          " 0 < 0\t\treturn DROP_CSUM_L3"
+        ]
+      }
+    ]
+  },
+  "startLine": 1298,
+  "endLine": 1350,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_set_ipip4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct iphdr *ip4",
+    " __be32 backend_addr",
+    " __be32 l4_hint",
+    " __be16 *ohead"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff",
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
@@ -1878,19 +2902,86 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
 #elif DSR_ENCAP_MODE == DSR_ENCAP_NONE
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1352,
- Endline: 1404,
- Funcname: dsr_set_opt4,
- Input: (struct  __ctx_buff *ctx, struct iphdr *ip4, __be32 svc_addr, __be32 svc_port, __be16 *ohead),
- Output: static__always_inlineint,
- Helpers: [l3_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " &iph_old",
+          " 4",
+          " &iph_new",
+          " 4",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " NULL",
+          " 0",
+          " &opt",
+          " sizeofopt",
+          " sum"
+        ]
+      }
+    ],
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " ETH_HLEN + offsetofstruct iphdr",
+          " check",
+          "\t\t\t    0",
+          " sum",
+          " 0 < 0\t\treturn DROP_CSUM_L3"
+        ]
+      }
+    ]
+  },
+  "startLine": 1352,
+  "endLine": 1404,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_set_opt4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct iphdr *ip4",
+    " __be32 svc_addr",
+    " __be32 svc_port",
+    " __be16 *ohead"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff",
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
@@ -1950,19 +3041,42 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1407,
- Endline: 1446,
- Funcname: handle_dsr_v4,
- Input: (struct  __ctx_buff *ctx, bool *dsr),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1407,
+  "endLine": 1446,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "handle_dsr_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " bool *dsr"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_dsr_v4(struct __ctx_buff *ctx, bool *dsr)
@@ -2008,19 +3122,44 @@ static __always_inline int handle_dsr_v4(struct __ctx_buff *ctx, bool *dsr)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1448,
- Endline: 1464,
- Funcname: xlate_dsr_v4,
- Input: (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, int l4_off, bool has_l4_header),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1448,
+  "endLine": 1464,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "xlate_dsr_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const struct ipv4_ct_tuple *tuple",
+    " int l4_off",
+    " bool has_l4_header"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
@@ -2043,19 +3182,87 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1466,
- Endline: 1549,
- Funcname: dsr_reply_icmp4,
- Input: (struct  __ctx_buff *ctx, struct iphdr * ip4 __maybe_unused, int code, __be16 ohead __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tip.check ",
+        "inpVar": [
+          " csum_foldNULL",
+          " 0",
+          " &ip",
+          " sizeofip",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "\ticmp.checksum ",
+        "inpVar": [
+          " csum_foldNULL",
+          " 0",
+          " tmp",
+          " sizeoftmp",
+          "\t\t\t\t\t    NULL",
+          " 0",
+          " &icmp",
+          "\t\t\t\t\t\t      sizeoficmp",
+          " 0"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ctx_get_ifindexctx",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 1466,
+  "endLine": 1549,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "dsr_reply_icmp4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct iphdr * ip4 __maybe_unused",
+    " int code",
+    " __be16 ohead __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff",
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int dsr_reply_icmp4(struct __ctx_buff *ctx,
@@ -2146,19 +3353,74 @@ drop_err:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1552,
- Endline: 1621,
- Funcname: tail_nodeport_ipv4_dsr,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [redirect,fib_lookup,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup_padded fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params.l",
+          " sizeoffib_params",
+          " 0"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " fib_params.l.ifindex",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 1552,
+  "endLine": 1621,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_nodeport_ipv4_dsr",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "fib_lookup",
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_nodeport_ipv4_dsr(struct __ctx_buff *ctx)
@@ -2236,19 +3498,91 @@ drop_err:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1625,
- Endline: 1767,
- Funcname: tail_nodeport_nat_ipv4,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,redirect,fib_lookup,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup_padded fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params.l",
+          " sizeoffib_params",
+          " 0"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_FROM_NETDEV"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_NODEPORT_REVNAT"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " fib_params.l.ifindex",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 1625,
+  "endLine": 1767,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_nodeport_nat_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "fib_lookup",
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_nodeport_nat_ipv4(struct __ctx_buff *ctx)
@@ -2401,19 +3735,114 @@ drop_err:
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1773,
- Endline: 1943,
- Funcname: nodeport_lb4,
- Input: (struct  __ctx_buff *ctx, __u32 src_identity),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,map_lookup_elem,map_update_elem,],
- Read_maps: [  NODEPORT_NEIGH4,],
- Update_maps: [  NODEPORT_NEIGH4,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\treturn ctx__to_proxy_hairpin_ipv4ctx",
+          "\t\t\t\t\t\t\t\t  __be16svc->l7_lb_proxy_port"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_NODEPORT_NAT"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_NODEPORT_NAT"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif \t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_NODEPORT_DSR"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_NODEPORT_NAT"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tmac ",
+        "inpVar": [
+          " &NODEPORT_NEIGH4",
+          " &ip4->saddr"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "\t\t\tret ",
+        "inpVar": [
+          " &NODEPORT_NEIGH4",
+          " &ip4->saddr",
+          "\t\t\t\t\t      &smac",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 1773,
+  "endLine": 1943,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "nodeport_lb4",
+  "updateMaps": [
+    "  NODEPORT_NEIGH4"
+  ],
+  "readMaps": [
+    "  NODEPORT_NEIGH4"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 src_identity"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_update_elem",
+    "redirect",
+    "map_lookup_elem",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int nodeport_lb4(struct __ctx_buff *ctx,
@@ -2600,19 +4029,108 @@ redo:
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 1955,
- Endline: 2126,
- Funcname: rev_nodeport_lb4,
- Input: (struct  __ctx_buff *ctx, int *ifindex, int *ext_err),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,map_lookup_elem,fib_lookup,],
- Read_maps: [  NODEPORT_NEIGH4,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\t\tfib_ret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params",
+          " sizeoffib_params",
+          " 0"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tgoto encap_"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\tgoto encap_"
+        ]
+      },
+      {
+        "opVar": "#if (defined(ENABLE_EGRESS_GATEWAY) || defined(TUNNEL_MODE)) && \\\t__ctx_is !",
+        "inpVar": [
+          " __ctx_xdpencap_:\tret "
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\t\t\t\t\t\t\t\tdmac ",
+        "inpVar": [
+          " &NODEPORT_NEIGH4",
+          " &tuple.daddr"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_FROM_NETDEV"
+        ]
+      }
+    ]
+  },
+  "startLine": 1955,
+  "endLine": 2126,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "rev_nodeport_lb4",
+  "updateMaps": [],
+  "readMaps": [
+    "  NODEPORT_NEIGH4"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int *ifindex",
+    " int *ext_err"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "fib_lookup",
+    "redirect",
+    "map_lookup_elem",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int rev_nodeport_lb4(struct __ctx_buff *ctx, int *ifindex,
@@ -2791,19 +4309,57 @@ encap_redirect:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 2129,
- Endline: 2162,
- Funcname: tail_rev_nodeport_lb4,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ifindex",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 2129,
+  "endLine": 2162,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_rev_nodeport_lb4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_rev_nodeport_lb4(struct __ctx_buff *ctx)
@@ -2849,19 +4405,41 @@ declare_tailcall_if(__or3(__and(is_defined(ENABLE_IPV4),
 		    CILIUM_CALL_IPV4_ENCAP_NODEPORT_NAT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 2170,
- Endline: 2188,
- Funcname: tail_handle_nat_fwd_ipv4,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 2170,
+  "endLine": 2188,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "tail_handle_nat_fwd_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
@@ -2888,19 +4466,43 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
 #ifdef ENABLE_HEALTH_CHECK
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 2192,
- Endline: 2211,
- Funcname: health_encap_v4,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_ep, __u32 seclabel),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 2192,
+  "endLine": 2211,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "health_encap_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_ep",
+    " __u32 seclabel"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -2926,19 +4528,43 @@ health_encap_v4(struct __ctx_buff *ctx, __u32 tunnel_ep,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 2213,
- Endline: 2232,
- Funcname: health_encap_v6,
- Input: (struct  __ctx_buff *ctx, const union v6addr *tunnel_ep, __u32 seclabel),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 2213,
+  "endLine": 2232,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "health_encap_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const union v6addr *tunnel_ep",
+    " __u32 seclabel"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -2964,19 +4590,98 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 2234,
- Endline: 2280,
- Funcname: lb_handle_health,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [get_socket_cookie,redirect,map_lookup_elem,],
- Read_maps: [  LB4_HEALTH_MAP,  LB6_HEALTH_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_socket_cookie": [
+      {
+        "opVar": "\t\tkey ",
+        "inpVar": [
+          " ctx"
+        ]
+      },
+      {
+        "opVar": "\t\tkey ",
+        "inpVar": [
+          " ctx"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tval ",
+        "inpVar": [
+          " &LB4_HEALTH_MAP",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\t\tval ",
+        "inpVar": [
+          " &LB6_HEALTH_MAP",
+          " &key"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " ENCAP4_IFINDEX",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " ENCAP6_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 2234,
+  "endLine": 2280,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "lb_handle_health",
+  "updateMaps": [],
+  "readMaps": [
+    "  LB4_HEALTH_MAP",
+    "  LB6_HEALTH_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "get_socket_cookie",
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -3030,19 +4735,41 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h,
- Startline: 2283,
- Endline: 2319,
- Funcname: handle_nat_fwd,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 2283,
+  "endLine": 2319,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nodeport.h",
+  "funcName": "handle_nat_fwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_nat_fwd(struct __ctx_buff *ctx)

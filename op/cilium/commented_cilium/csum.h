@@ -9,19 +9,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
- Startline: 10,
- Endline: 15,
- Funcname: csum_fold,
- Input: (__wsum csum),
- Output: static__always_inline__sum16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 10,
+  "endLine": 15,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "funcName": "csum_fold",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__wsum csum"
+  ],
+  "output": "static__always_inline__sum16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __sum16 csum_fold(__wsum csum)
@@ -33,19 +55,41 @@ static __always_inline __sum16 csum_fold(__wsum csum)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
- Startline: 17,
- Endline: 20,
- Funcname: csum_unfold,
- Input: (__sum16 csum),
- Output: static__always_inline__wsum,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 17,
+  "endLine": 20,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "funcName": "csum_unfold",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__sum16 csum"
+  ],
+  "output": "static__always_inline__wsum",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __wsum csum_unfold(__sum16 csum)
@@ -55,19 +99,42 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
- Startline: 22,
- Endline: 26,
- Funcname: csum_add,
- Input: (__wsum csum, __wsum addend),
- Output: static__always_inline__wsum,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 22,
+  "endLine": 26,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "funcName": "csum_add",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__wsum csum",
+    " __wsum addend"
+  ],
+  "output": "static__always_inline__wsum",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
@@ -78,19 +145,42 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
- Startline: 28,
- Endline: 31,
- Funcname: csum_sub,
- Input: (__wsum csum, __wsum addend),
- Output: static__always_inline__wsum,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 28,
+  "endLine": 31,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "funcName": "csum_sub",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__wsum csum",
+    " __wsum addend"
+  ],
+  "output": "static__always_inline__wsum",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
@@ -100,19 +190,66 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h,
- Startline: 33,
- Endline: 52,
- Funcname: csum_diff,
- Input: (const void *from, __u32 size_from, const void *to, __u32 size_to, __u32 seed),
- Output: static__always_inline__wsum,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn _externalfrom",
+          " size_from",
+          " to",
+          " size_to",
+          " seed"
+        ]
+      }
+    ]
+  },
+  "startLine": 33,
+  "endLine": 52,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "funcName": "csum_diff",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *from",
+    " __u32 size_from",
+    " const void *to",
+    " __u32 size_to",
+    " __u32 seed"
+  ],
+  "output": "static__always_inline__wsum",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __wsum csum_diff(const void *from, __u32 size_from,

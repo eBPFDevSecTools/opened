@@ -19,19 +19,78 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 20,
- Endline: 29,
- Funcname: *lookup_ip4_egress_gw_policy,
- Input: (__be32 saddr, __be32 daddr),
- Output: static__always_inlinestructegress_gw_policy_entry,
- Helpers: [map_lookup_elem,],
- Read_maps: [ EGRESS_POLICY_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &EGRESS_POLICY_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 20,
+  "endLine": 29,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*lookup_ip4_egress_gw_policy",
+  "updateMaps": [],
+  "readMaps": [
+    " EGRESS_POLICY_MAP"
+  ],
+  "input": [
+    "__be32 saddr",
+    " __be32 daddr"
+  ],
+  "output": "static__always_inlinestructegress_gw_policy_entry",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -60,19 +119,78 @@ struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy(__be32 saddr, __be32 
 #  define SRV6_VRF_IPV4_PREFIX SRV6_VRF_PREFIX4_LEN(32)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 44,
- Endline: 53,
- Funcname: *srv6_lookup_vrf4,
- Input: (__be32 sip, __be32 dip),
- Output: static__always_inline__u32,
- Helpers: [map_lookup_elem,],
- Read_maps: [ SRV6_VRF_MAP4,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &SRV6_VRF_MAP4",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 44,
+  "endLine": 53,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*srv6_lookup_vrf4",
+  "updateMaps": [],
+  "readMaps": [
+    " SRV6_VRF_MAP4"
+  ],
+  "input": [
+    "__be32 sip",
+    " __be32 dip"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32*
@@ -96,19 +214,78 @@ srv6_lookup_vrf4(__be32 sip, __be32 dip)
 #  define SRV6_POLICY_IPV4_PREFIX SRV6_POLICY_PREFIX4_LEN(32)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 63,
- Endline: 72,
- Funcname: *srv6_lookup_policy4,
- Input: (__u32 vrf_id, __be32 dip),
- Output: static__always_inlineunionv6addr,
- Helpers: [map_lookup_elem,],
- Read_maps: [ SRV6_POLICY_MAP4,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &SRV6_POLICY_MAP4",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 63,
+  "endLine": 72,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*srv6_lookup_policy4",
+  "updateMaps": [],
+  "readMaps": [
+    " SRV6_POLICY_MAP4"
+  ],
+  "input": [
+    "__u32 vrf_id",
+    " __be32 dip"
+  ],
+  "output": "static__always_inlineunionv6addr",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline union v6addr *
@@ -133,19 +310,78 @@ srv6_lookup_policy4(__u32 vrf_id, __be32 dip)
 #  define SRV6_VRF_IPV6_PREFIX SRV6_VRF_PREFIX6_LEN(32)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 83,
- Endline: 92,
- Funcname: *srv6_lookup_vrf6,
- Input: (const struct in6_addr *sip, const struct in6_addr *dip),
- Output: static__always_inline__u32,
- Helpers: [map_lookup_elem,],
- Read_maps: [ SRV6_VRF_MAP6,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &SRV6_VRF_MAP6",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 83,
+  "endLine": 92,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*srv6_lookup_vrf6",
+  "updateMaps": [],
+  "readMaps": [
+    " SRV6_VRF_MAP6"
+  ],
+  "input": [
+    "const struct in6_addr *sip",
+    " const struct in6_addr *dip"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32*
@@ -170,19 +406,78 @@ srv6_lookup_vrf6(const struct in6_addr *sip, const struct in6_addr *dip)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 103,
- Endline: 112,
- Funcname: *srv6_lookup_policy6,
- Input: (__u32 vrf_id, const struct in6_addr *dip),
- Output: static__always_inlineunionv6addr,
- Helpers: [map_lookup_elem,],
- Read_maps: [ SRV6_POLICY_MAP6,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &SRV6_POLICY_MAP6",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 103,
+  "endLine": 112,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*srv6_lookup_policy6",
+  "updateMaps": [],
+  "readMaps": [
+    " SRV6_POLICY_MAP6"
+  ],
+  "input": [
+    "__u32 vrf_id",
+    " const struct in6_addr *dip"
+  ],
+  "output": "static__always_inlineunionv6addr",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline union v6addr *
@@ -198,19 +493,77 @@ srv6_lookup_policy6(__u32 vrf_id, const struct in6_addr *dip)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 114,
- Endline: 123,
- Funcname: srv6_lookup_sid,
- Input: (const struct in6_addr *sid),
- Output: static__always_inline__u32,
- Helpers: [map_lookup_elem,],
- Read_maps: [  SRV6_SID_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tvrf_id ",
+        "inpVar": [
+          " &SRV6_SID_MAP",
+          " sid"
+        ]
+      }
+    ]
+  },
+  "startLine": 114,
+  "endLine": 123,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_lookup_sid",
+  "updateMaps": [],
+  "readMaps": [
+    "  SRV6_SID_MAP"
+  ],
+  "input": [
+    "const struct in6_addr *sid"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -226,19 +579,41 @@ srv6_lookup_sid(const struct in6_addr *sid)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 125,
- Endline: 134,
- Funcname: is_srv6_packet,
- Input: (const struct ipv6hdr *ip6),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 125,
+  "endLine": 134,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "is_srv6_packet",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv6hdr *ip6"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -255,19 +630,41 @@ is_srv6_packet(const struct ipv6hdr *ip6)
 # ifndef SKIP_SRV6_HANDLING
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 137,
- Endline: 144,
- Funcname: ctx_adjust_hroom_flags,
- Input: (void),
- Output: static__always_inline__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 137,
+  "endLine": 144,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "ctx_adjust_hroom_flags",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "static__always_inline__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u64 ctx_adjust_hroom_flags(void)
@@ -281,19 +678,46 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 146,
- Endline: 171,
- Funcname: srv6_encapsulation,
- Input: (struct  __ctx_buff *ctx, int growth, __u16 new_payload_len, __u8 nexthdr, union v6addr *saddr, struct in6_addr *sid),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 146,
+  "endLine": 171,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_encapsulation",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int growth",
+    " __u16 new_payload_len",
+    " __u8 nexthdr",
+    " union v6addr *saddr",
+    " struct in6_addr *sid"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -325,19 +749,41 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 173,
- Endline: 210,
- Funcname: srv6_decapsulation,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 173,
+  "endLine": 210,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_decapsulation",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -381,19 +827,89 @@ srv6_decapsulation(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 212,
- Endline: 252,
- Funcname: srv6_create_state_entry,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [map_update_elem,],
- Read_maps: [],
- Update_maps: [ SRV6_STATE_MAP6, SRV6_STATE_MAP4,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif &SRV6_STATE_MAP6",
+          " inner_ips",
+          " outer_ips",
+          " 0 < 0\t\t\treturn DROP_INVALID"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif &SRV6_STATE_MAP4",
+          " inner_ips",
+          " outer_ips",
+          " 0 < 0\t\t\treturn DROP_INVALID"
+        ]
+      }
+    ]
+  },
+  "startLine": 212,
+  "endLine": 252,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_create_state_entry",
+  "updateMaps": [
+    " SRV6_STATE_MAP4",
+    " SRV6_STATE_MAP6"
+  ],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -441,19 +957,77 @@ srv6_create_state_entry(struct __ctx_buff *ctx)
 #  ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 255,
- Endline: 260,
- Funcname: *srv6_lookup_state_entry4,
- Input: (struct iphdr *ip4),
- Output: static__always_inlinestructsrv6_ipv6_2tuple,
- Helpers: [map_lookup_elem,],
- Read_maps: [ SRV6_STATE_MAP4,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &SRV6_STATE_MAP4",
+          "\t\t\t       struct srv6_ipv4_2tuple *&ip4->saddr"
+        ]
+      }
+    ]
+  },
+  "startLine": 255,
+  "endLine": 260,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*srv6_lookup_state_entry4",
+  "updateMaps": [],
+  "readMaps": [
+    " SRV6_STATE_MAP4"
+  ],
+  "input": [
+    "struct iphdr *ip4"
+  ],
+  "output": "static__always_inlinestructsrv6_ipv6_2tuple",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct srv6_ipv6_2tuple *
@@ -466,19 +1040,77 @@ srv6_lookup_state_entry4(struct iphdr *ip4)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 263,
- Endline: 268,
- Funcname: *srv6_lookup_state_entry6,
- Input: (struct ipv6hdr *ip6),
- Output: static__always_inlinestructsrv6_ipv6_2tuple,
- Helpers: [map_lookup_elem,],
- Read_maps: [ SRV6_STATE_MAP6,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &SRV6_STATE_MAP6",
+          "\t\t\t       struct srv6_ipv6_2tuple *&ip6->saddr"
+        ]
+      }
+    ]
+  },
+  "startLine": 263,
+  "endLine": 268,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "*srv6_lookup_state_entry6",
+  "updateMaps": [],
+  "readMaps": [
+    " SRV6_STATE_MAP6"
+  ],
+  "input": [
+    "struct ipv6hdr *ip6"
+  ],
+  "output": "static__always_inlinestructsrv6_ipv6_2tuple",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct srv6_ipv6_2tuple *
@@ -490,19 +1122,43 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 270,
- Endline: 310,
- Funcname: srv6_handling4,
- Input: (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 270,
+  "endLine": 310,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_handling4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " union v6addr *src_sid",
+    " struct in6_addr *dst_sid"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -549,19 +1205,43 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 312,
- Endline: 331,
- Funcname: srv6_handling6,
- Input: (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 312,
+  "endLine": 331,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_handling6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " union v6addr *src_sid",
+    " struct in6_addr *dst_sid"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -587,19 +1267,43 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 333,
- Endline: 373,
- Funcname: srv6_handling,
- Input: (struct  __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 333,
+  "endLine": 373,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_handling",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 vrf_id",
+    " struct in6_addr *dst_sid"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -646,19 +1350,41 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 375,
- Endline: 413,
- Funcname: srv6_reply,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 375,
+  "endLine": 413,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -703,19 +1429,42 @@ srv6_reply(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 415,
- Endline: 422,
- Funcname: srv6_load_meta_sid,
- Input: (struct  __ctx_buff *ctx, struct in6_addr *sid),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 415,
+  "endLine": 422,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_load_meta_sid",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct in6_addr *sid"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -729,19 +1478,42 @@ srv6_load_meta_sid(struct __ctx_buff *ctx, struct in6_addr *sid)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 424,
- Endline: 431,
- Funcname: srv6_store_meta_sid,
- Input: (struct  __ctx_buff *ctx, const union v6addr *sid),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 424,
+  "endLine": 431,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "srv6_store_meta_sid",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const union v6addr *sid"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void
@@ -756,19 +1528,41 @@ srv6_store_meta_sid(struct __ctx_buff *ctx, const union v6addr *sid)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 434,
- Endline: 452,
- Funcname: tail_srv6_encap,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 434,
+  "endLine": 452,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "tail_srv6_encap",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_srv6_encap(struct __ctx_buff *ctx)
@@ -794,19 +1588,41 @@ int tail_srv6_encap(struct __ctx_buff *ctx)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 455,
- Endline: 473,
- Funcname: tail_srv6_decap,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 455,
+  "endLine": 473,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "tail_srv6_decap",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_srv6_decap(struct __ctx_buff *ctx)
@@ -832,19 +1648,41 @@ error_drop:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_REPLY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h,
- Startline: 476,
- Endline: 485,
- Funcname: tail_srv6_reply,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 476,
+  "endLine": 485,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
+  "funcName": "tail_srv6_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_srv6_reply(struct __ctx_buff *ctx)

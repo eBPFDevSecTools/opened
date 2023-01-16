@@ -26,19 +26,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 27,
- Endline: 31,
- Funcname: is_v4_loopback,
- Input: (__be32 daddr),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 27,
+  "endLine": 31,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "is_v4_loopback",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__be32 daddr"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool is_v4_loopback(__be32 daddr)
@@ -49,19 +71,41 @@ static __always_inline __maybe_unused bool is_v4_loopback(__be32 daddr)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 33,
- Endline: 39,
- Funcname: is_v6_loopback,
- Input: (const union v6addr *daddr),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 33,
+  "endLine": 39,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "is_v6_loopback",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const union v6addr *daddr"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool is_v6_loopback(const union v6addr *daddr)
@@ -75,19 +119,41 @@ static __always_inline __maybe_unused bool is_v6_loopback(const union v6addr *da
 /* Hack due to missing narrow ctx access. */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 42,
- Endline: 48,
- Funcname: ctx_dst_port,
- Input: (const struct bpf_sock_addr *ctx),
- Output: static__always_inline__maybe_unused__be16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 42,
+  "endLine": 48,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_dst_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__be16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __be16
@@ -100,19 +166,41 @@ ctx_dst_port(const struct bpf_sock_addr *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 50,
- Endline: 56,
- Funcname: ctx_src_port,
- Input: (const struct bpf_sock *ctx),
- Output: static__always_inline__maybe_unused__be16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 50,
+  "endLine": 56,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_src_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct bpf_sock *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__be16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __be16
@@ -125,19 +213,42 @@ ctx_src_port(const struct bpf_sock *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 58,
- Endline: 62,
- Funcname: ctx_set_port,
- Input: (struct bpf_sock_addr *ctx, __be16 dport),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 58,
+  "endLine": 62,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_set_port",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " __be16 dport"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -148,19 +259,57 @@ void ctx_set_port(struct bpf_sock_addr *ctx, __be16 dport)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 64,
- Endline: 72,
- Funcname: task_in_extended_hostns,
- Input: (void),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [get_cgroup_classid,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_cgroup_classid": [
+      {
+        "opVar": "#ifdef ENABLE_MKE\t\treturn get_cgroup_classid() ",
+        "inpVar": [
+          ""
+        ]
+      }
+    ]
+  },
+  "startLine": 64,
+  "endLine": 72,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "task_in_extended_hostns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [
+    "get_cgroup_classid"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool task_in_extended_hostns(void)
@@ -175,19 +324,42 @@ static __always_inline __maybe_unused bool task_in_extended_hostns(void)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 74,
- Endline: 89,
- Funcname: ctx_in_hostns,
- Input: (void * ctx __maybe_unused, __net_cookie *cookie),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 74,
+  "endLine": 89,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_in_hostns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void * ctx __maybe_unused",
+    " __net_cookie *cookie"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool
@@ -209,19 +381,67 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 91,
- Endline: 119,
- Funcname: sock_local_cookie,
- Input: (struct bpf_sock_addr *ctx),
- Output: static__always_inline__maybe_unused__sock_cookie,
- Helpers: [get_prandom_u32,get_socket_cookie,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_socket_cookie": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef BPF_HAVE_SOCKET_COOKIE\t\treturn ctx"
+        ]
+      }
+    ],
+    "get_prandom_u32": [
+      {
+        "opVar": "#else\treturn ctx->protocol ",
+        "inpVar": [
+          ""
+        ]
+      }
+    ]
+  },
+  "startLine": 91,
+  "endLine": 119,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock_local_cookie",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__sock_cookie",
+  "helper": [
+    "get_prandom_u32",
+    "get_socket_cookie"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "sched_act",
+    "sched_cls",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -256,19 +476,41 @@ __sock_cookie sock_local_cookie(struct bpf_sock_addr *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 121,
- Endline: 131,
- Funcname: sock_is_health_check,
- Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 121,
+  "endLine": 131,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock_is_health_check",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -285,19 +527,72 @@ bool sock_is_health_check(struct bpf_sock_addr *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 133,
- Endline: 138,
- Funcname: sock_select_slot,
- Input: (struct bpf_sock_addr *ctx),
- Output: static__always_inline__maybe_unused__u64,
- Helpers: [get_prandom_u32,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_prandom_u32": [
+      {
+        "opVar": "\treturn ctx->protocol ",
+        "inpVar": [
+          ""
+        ]
+      }
+    ]
+  },
+  "startLine": 133,
+  "endLine": 138,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock_select_slot",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u64",
+  "helper": [
+    "get_prandom_u32"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -309,19 +604,41 @@ __u64 sock_select_slot(struct bpf_sock_addr *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 140,
- Endline: 156,
- Funcname: sock_proto_enabled,
- Input: (__u32 proto),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 140,
+  "endLine": 156,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock_proto_enabled",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 proto"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused
@@ -354,19 +671,94 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 168,
- Endline: 190,
- Funcname: sock4_update_revnat,
- Input: (struct bpf_sock_addr *ctx, const struct lb4_backend *backend, const struct lb4_key *orig_key, __u16 rev_nat_id),
- Output: static__always_inlineint,
- Helpers: [map_update_elem,map_lookup_elem,],
- Read_maps: [  LB4_REVERSE_NAT_SK_MAP,],
- Update_maps: [ LB4_REVERSE_NAT_SK_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\ttmp ",
+        "inpVar": [
+          " &LB4_REVERSE_NAT_SK_MAP",
+          " &key"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "\tif (!tmp || memcmp(tmp, &val, sizeof(val)))\t\tret ",
+        "inpVar": [
+          " &LB4_REVERSE_NAT_SK_MAP",
+          " &key",
+          "\t\t\t\t      &val",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 168,
+  "endLine": 190,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_update_revnat",
+  "updateMaps": [
+    " LB4_REVERSE_NAT_SK_MAP"
+  ],
+  "readMaps": [
+    "  LB4_REVERSE_NAT_SK_MAP"
+  ],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " const struct lb4_backend *backend",
+    " const struct lb4_key *orig_key",
+    " __u16 rev_nat_id"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_update_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int sock4_update_revnat(struct bpf_sock_addr *ctx,
@@ -395,19 +787,44 @@ static __always_inline int sock4_update_revnat(struct bpf_sock_addr *ctx,
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 192,
- Endline: 199,
- Funcname: sock4_update_revnat,
- Input: (struct bpf_sock_addr * ctx __maybe_unused, struct lb4_backend * backend __maybe_unused, struct lb4_key * orig_key __maybe_unused, __u16 rev_nat_id __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 192,
+  "endLine": 199,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_update_revnat",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused",
+    " struct lb4_backend * backend __maybe_unused",
+    " struct lb4_key * orig_key __maybe_unused",
+    " __u16 rev_nat_id __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -422,19 +839,42 @@ int sock4_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 202,
- Endline: 218,
- Funcname: sock4_skip_xlate,
- Input: (struct lb4_service *svc, __be32 address),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 202,
+  "endLine": 218,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_skip_xlate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb4_service *svc",
+    " __be32 address"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -458,19 +898,44 @@ sock4_skip_xlate(struct lb4_service *svc, __be32 address)
 #ifdef ENABLE_NODEPORT
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 221,
- Endline: 251,
- Funcname: *sock4_wildcard_lookup,
- Input: (struct lb4_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused),
- Output: static__always_inlinestructlb4_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 221,
+  "endLine": 251,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "*sock4_wildcard_lookup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb4_key * key __maybe_unused",
+    " const bool include_remote_hosts __maybe_unused",
+    " const bool inv_match __maybe_unused",
+    " const bool in_hostns __maybe_unused"
+  ],
+  "output": "static__always_inlinestructlb4_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb4_service *
@@ -508,19 +973,42 @@ wildcard_lookup:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 254,
- Endline: 272,
- Funcname: *sock4_wildcard_lookup_full,
- Input: (struct lb4_key * key __maybe_unused, const bool in_hostns __maybe_unused),
- Output: static__always_inlinestructlb4_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 254,
+  "endLine": 272,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "*sock4_wildcard_lookup_full",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb4_key * key __maybe_unused",
+    " const bool in_hostns __maybe_unused"
+  ],
+  "output": "static__always_inlinestructlb4_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline struct lb4_service *
@@ -564,19 +1052,83 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 293,
- Endline: 321,
- Funcname: sock4_skip_xlate_if_same_netns,
- Input: (struct bpf_sock_addr * ctx __maybe_unused, const struct lb4_backend * backend __maybe_unused),
- Output: static__always_inlinebool,
- Helpers: [sk_release,sk_lookup_tcp,sk_lookup_udp,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "sk_lookup_tcp": [
+      {
+        "opVar": "\tcase IPPROTO_TCP:\t\tsk ",
+        "inpVar": [
+          " ctx",
+          " &tuple",
+          " sizeoftuple.ipv4",
+          "\t\t\t\t   BPF_F_CURRENT_NETNS",
+          " 0"
+        ]
+      }
+    ],
+    "sk_lookup_udp": [
+      {
+        "opVar": "\tcase IPPROTO_UDP:\t\tsk ",
+        "inpVar": [
+          " ctx",
+          " &tuple",
+          " sizeoftuple.ipv4",
+          "\t\t\t\t   BPF_F_CURRENT_NETNS",
+          " 0"
+        ]
+      }
+    ],
+    "sk_release": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tsk"
+        ]
+      }
+    ]
+  },
+  "startLine": 293,
+  "endLine": 321,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_skip_xlate_if_same_netns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused",
+    " const struct lb4_backend * backend __maybe_unused"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "sk_lookup_tcp",
+    "sk_lookup_udp",
+    "sk_release"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -611,19 +1163,58 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 323,
- Endline: 458,
- Funcname: __sock4_xlate_fwd,
- Input: (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full, const bool udp_only),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif lb4_svc_is_localsvc &&\t    sock4_skip_xlate_if_same_netnsctx_full",
+          " backend\t\treturn -ENXIO"
+        ]
+      }
+    ]
+  },
+  "startLine": 323,
+  "endLine": 458,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock4_xlate_fwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " struct bpf_sock_addr *ctx_full",
+    " const bool udp_only"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock4_xlate_fwd(struct bpf_sock_addr *ctx,
@@ -765,19 +1356,70 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 460,
- Endline: 476,
- Funcname: __sock4_health_fwd,
- Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [get_socket_cookie,map_lookup_elem,],
- Read_maps: [ LB4_HEALTH_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_socket_cookie": [
+      {
+        "opVar": "#ifdef ENABLE_HEALTH_CHECK\t__sock_cookie key ",
+        "inpVar": [
+          " ctx"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\tif (!lb_skip_l4_dnat())\t\tval ",
+        "inpVar": [
+          " &LB4_HEALTH_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 460,
+  "endLine": 476,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock4_health_fwd",
+  "updateMaps": [],
+  "readMaps": [
+    " LB4_HEALTH_MAP"
+  ],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "get_socket_cookie",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "sched_act",
+    "sched_cls",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -801,19 +1443,41 @@ __sock4_health_fwd(struct bpf_sock_addr *ctx __maybe_unused)
 __section("cgroup/connect4")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 479,
- Endline: 486,
- Funcname: sock4_connect,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 479,
+  "endLine": 486,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_connect",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock4_connect(struct bpf_sock_addr *ctx)
@@ -828,19 +1492,44 @@ int sock4_connect(struct bpf_sock_addr *ctx)
 #ifdef ENABLE_NODEPORT
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 489,
- Endline: 520,
- Funcname: __sock4_post_bind,
- Input: (struct bpf_sock *ctx, struct bpf_sock *ctx_full),
- Output: static__always_inlineint,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 489,
+  "endLine": 520,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock4_post_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock *ctx",
+    " struct bpf_sock *ctx_full"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock4_post_bind(struct bpf_sock *ctx,
@@ -879,19 +1568,53 @@ static __always_inline int __sock4_post_bind(struct bpf_sock *ctx,
 __section("cgroup/post_bind4")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 523,
- Endline: 529,
- Funcname: sock4_post_bind,
- Input: (struct bpf_sock *ctx),
- Output: int,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif __sock4_post_ctx",
+          " ctx < 0\t\treturn SYS_REJECT"
+        ]
+      }
+    ]
+  },
+  "startLine": 523,
+  "endLine": 529,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_post_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock4_post_bind(struct bpf_sock *ctx)
@@ -906,19 +1629,43 @@ int sock4_post_bind(struct bpf_sock *ctx)
 #ifdef ENABLE_HEALTH_CHECK
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 533,
- Endline: 537,
- Funcname: sock4_auto_bind,
- Input: (struct bpf_sock_addr *ctx),
- Output: static__always_inlinevoid,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 533,
+  "endLine": 537,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_auto_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
@@ -929,19 +1676,76 @@ static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 539,
- Endline: 559,
- Funcname: __sock4_pre_bind,
- Input: (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full),
- Output: static__always_inlineint,
- Helpers: [get_socket_cookie,bind,map_update_elem,],
- Read_maps: [],
- Update_maps: [  LB4_HEALTH_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_socket_cookie": [
+      {
+        "opVar": "\t\t__sock_cookie key ",
+        "inpVar": [
+          " ctx_full"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " &LB4_HEALTH_MAP",
+          " &key",
+          " &val",
+          " 0"
+        ]
+      }
+    ],
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif !ret\t\tsock4_auto_ctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 539,
+  "endLine": 559,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock4_pre_bind",
+  "updateMaps": [
+    "  LB4_HEALTH_MAP"
+  ],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " struct bpf_sock_addr *ctx_full"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "bind",
+    "map_update_elem",
+    "get_socket_cookie"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock4_pre_bind(struct bpf_sock_addr *ctx,
@@ -969,19 +1773,52 @@ static __always_inline int __sock4_pre_bind(struct bpf_sock_addr *ctx,
 __section("cgroup/bind4")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 562,
- Endline: 573,
- Funcname: sock4_pre_bind,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "\tif (sock_is_health_check(ctx) &&\t    __sock4_pre_bind(ctx, ctx))\t\tret ",
+        "inpVar": [
+          " SYS_REJECT"
+        ]
+      }
+    ]
+  },
+  "startLine": 562,
+  "endLine": 573,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_pre_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock4_pre_bind(struct bpf_sock_addr *ctx)
@@ -1001,19 +1838,90 @@ int sock4_pre_bind(struct bpf_sock_addr *ctx)
 #if defined(ENABLE_SOCKET_LB_UDP) || defined(ENABLE_SOCKET_LB_PEER)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 577,
- Endline: 611,
- Funcname: __sock4_xlate_rev,
- Input: (struct bpf_sock_addr *ctx, struct bpf_sock_addr *ctx_full),
- Output: static__always_inlineint,
- Helpers: [map_delete_elem,map_lookup_elem,],
- Read_maps: [  LB4_REVERSE_NAT_SK_MAP,],
- Update_maps: [ LB4_REVERSE_NAT_SK_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tval ",
+        "inpVar": [
+          " &LB4_REVERSE_NAT_SK_MAP",
+          " &key"
+        ]
+      }
+    ],
+    "map_delete_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t&LB4_REVERSE_NAT_SK_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 577,
+  "endLine": 611,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock4_xlate_rev",
+  "updateMaps": [
+    " LB4_REVERSE_NAT_SK_MAP"
+  ],
+  "readMaps": [
+    "  LB4_REVERSE_NAT_SK_MAP"
+  ],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " struct bpf_sock_addr *ctx_full"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_delete_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock4_xlate_rev(struct bpf_sock_addr *ctx,
@@ -1055,19 +1963,41 @@ static __always_inline int __sock4_xlate_rev(struct bpf_sock_addr *ctx,
 __section("cgroup/sendmsg4")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 614,
- Endline: 618,
- Funcname: sock4_sendmsg,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 614,
+  "endLine": 618,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_sendmsg",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock4_sendmsg(struct bpf_sock_addr *ctx)
@@ -1079,19 +2009,41 @@ int sock4_sendmsg(struct bpf_sock_addr *ctx)
 __section("cgroup/recvmsg4")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 621,
- Endline: 625,
- Funcname: sock4_recvmsg,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 621,
+  "endLine": 625,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_recvmsg",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock4_recvmsg(struct bpf_sock_addr *ctx)
@@ -1103,19 +2055,41 @@ int sock4_recvmsg(struct bpf_sock_addr *ctx)
 __section("cgroup/getpeername4")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 628,
- Endline: 632,
- Funcname: sock4_getpeername,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 628,
+  "endLine": 632,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock4_getpeername",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock4_getpeername(struct bpf_sock_addr *ctx)
@@ -1139,19 +2113,94 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 647,
- Endline: 669,
- Funcname: sock6_update_revnat,
- Input: (struct bpf_sock_addr *ctx, const struct lb6_backend *backend, const struct lb6_key *orig_key, __u16 rev_nat_index),
- Output: static__always_inlineint,
- Helpers: [map_update_elem,map_lookup_elem,],
- Read_maps: [  LB6_REVERSE_NAT_SK_MAP,],
- Update_maps: [ LB6_REVERSE_NAT_SK_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\ttmp ",
+        "inpVar": [
+          " &LB6_REVERSE_NAT_SK_MAP",
+          " &key"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "\tif (!tmp || memcmp(tmp, &val, sizeof(val)))\t\tret ",
+        "inpVar": [
+          " &LB6_REVERSE_NAT_SK_MAP",
+          " &key",
+          "\t\t\t\t      &val",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 647,
+  "endLine": 669,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_update_revnat",
+  "updateMaps": [
+    " LB6_REVERSE_NAT_SK_MAP"
+  ],
+  "readMaps": [
+    "  LB6_REVERSE_NAT_SK_MAP"
+  ],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " const struct lb6_backend *backend",
+    " const struct lb6_key *orig_key",
+    " __u16 rev_nat_index"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_update_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int sock6_update_revnat(struct bpf_sock_addr *ctx,
@@ -1180,19 +2229,44 @@ static __always_inline int sock6_update_revnat(struct bpf_sock_addr *ctx,
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 671,
- Endline: 678,
- Funcname: sock6_update_revnat,
- Input: (struct bpf_sock_addr * ctx __maybe_unused, struct lb6_backend * backend __maybe_unused, struct lb6_key * orig_key __maybe_unused, __u16 rev_nat_index __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 671,
+  "endLine": 678,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_update_revnat",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused",
+    " struct lb6_backend * backend __maybe_unused",
+    " struct lb6_key * orig_key __maybe_unused",
+    " __u16 rev_nat_index __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1208,19 +2282,42 @@ int sock6_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 682,
- Endline: 693,
- Funcname: ctx_get_v6_address,
- Input: (const struct bpf_sock_addr *ctx, union v6addr *addr),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 682,
+  "endLine": 693,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_get_v6_address",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct bpf_sock_addr *ctx",
+    " union v6addr *addr"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ctx_get_v6_address(const struct bpf_sock_addr *ctx,
@@ -1239,19 +2336,42 @@ static __always_inline void ctx_get_v6_address(const struct bpf_sock_addr *ctx,
 #ifdef ENABLE_NODEPORT
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 696,
- Endline: 707,
- Funcname: ctx_get_v6_src_address,
- Input: (const struct bpf_sock *ctx, union v6addr *addr),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 696,
+  "endLine": 707,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_get_v6_src_address",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct bpf_sock *ctx",
+    " union v6addr *addr"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ctx_get_v6_src_address(const struct bpf_sock *ctx,
@@ -1270,19 +2390,42 @@ static __always_inline void ctx_get_v6_src_address(const struct bpf_sock *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 710,
- Endline: 721,
- Funcname: ctx_set_v6_address,
- Input: (struct bpf_sock_addr *ctx, const union v6addr *addr),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 710,
+  "endLine": 721,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "ctx_set_v6_address",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " const union v6addr *addr"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void ctx_set_v6_address(struct bpf_sock_addr *ctx,
@@ -1300,19 +2443,42 @@ static __always_inline void ctx_set_v6_address(struct bpf_sock_addr *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 723,
- Endline: 739,
- Funcname: sock6_skip_xlate,
- Input: (struct lb6_service *svc, const union v6addr *address),
- Output: static__always_inline__maybe_unusedbool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 723,
+  "endLine": 739,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_skip_xlate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb6_service *svc",
+    " const union v6addr *address"
+  ],
+  "output": "static__always_inline__maybe_unusedbool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused bool
@@ -1336,19 +2502,44 @@ sock6_skip_xlate(struct lb6_service *svc, const union v6addr *address)
 #ifdef ENABLE_NODEPORT
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 742,
- Endline: 772,
- Funcname: *sock6_wildcard_lookup,
- Input: (struct lb6_key * key __maybe_unused, const bool include_remote_hosts __maybe_unused, const bool inv_match __maybe_unused, const bool in_hostns __maybe_unused),
- Output: static__always_inline__maybe_unusedstructlb6_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 742,
+  "endLine": 772,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "*sock6_wildcard_lookup",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb6_key * key __maybe_unused",
+    " const bool include_remote_hosts __maybe_unused",
+    " const bool inv_match __maybe_unused",
+    " const bool in_hostns __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedstructlb6_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct lb6_service *
@@ -1386,19 +2577,42 @@ wildcard_lookup:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 775,
- Endline: 793,
- Funcname: *sock6_wildcard_lookup_full,
- Input: (struct lb6_key * key __maybe_unused, const bool in_hostns __maybe_unused),
- Output: static__always_inline__maybe_unusedstructlb6_service,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 775,
+  "endLine": 793,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "*sock6_wildcard_lookup_full",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct lb6_key * key __maybe_unused",
+    " const bool in_hostns __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedstructlb6_service",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct lb6_service *
@@ -1423,19 +2637,42 @@ sock6_wildcard_lookup_full(struct lb6_key *key __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 795,
- Endline: 824,
- Funcname: sock6_xlate_v4_in_v6,
- Input: (struct bpf_sock_addr * ctx __maybe_unused, const bool udp_only __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 795,
+  "endLine": 824,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_xlate_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused",
+    " const bool udp_only __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -1472,19 +2709,59 @@ int sock6_xlate_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused,
 #ifdef ENABLE_NODEPORT
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 827,
- Endline: 846,
- Funcname: sock6_post_bind_v4_in_v6,
- Input: (struct bpf_sock * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "sock6_post__v4_in_v6struct bpf_sock *ctx __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn __sock4_post_&fake_ctx",
+          " ctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 827,
+  "endLine": 846,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_post_bind_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -1510,19 +2787,52 @@ sock6_post_bind_v4_in_v6(struct bpf_sock *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 848,
- Endline: 874,
- Funcname: __sock6_post_bind,
- Input: (struct bpf_sock *ctx),
- Output: static__always_inlineint,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif !svc\t\t\treturn sock6_post__v4_in_v6ctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 848,
+  "endLine": 874,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock6_post_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock6_post_bind(struct bpf_sock *ctx)
@@ -1556,19 +2866,52 @@ static __always_inline int __sock6_post_bind(struct bpf_sock *ctx)
 __section("cgroup/post_bind6")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 877,
- Endline: 883,
- Funcname: sock6_post_bind,
- Input: (struct bpf_sock *ctx),
- Output: int,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif __sock6_post_ctx < 0\t\treturn SYS_REJECT"
+        ]
+      }
+    ]
+  },
+  "startLine": 877,
+  "endLine": 883,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_post_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock6_post_bind(struct bpf_sock *ctx)
@@ -1583,19 +2926,59 @@ int sock6_post_bind(struct bpf_sock *ctx)
 #ifdef ENABLE_HEALTH_CHECK
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 887,
- Endline: 911,
- Funcname: sock6_pre_bind_v4_in_v6,
- Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "sock6_pre__v4_in_v6struct bpf_sock_addr *ctx __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " __sock4_pre_&fake_ctx",
+          " ctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 887,
+  "endLine": 911,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_pre_bind_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -1627,19 +3010,43 @@ sock6_pre_bind_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 914,
- Endline: 920,
- Funcname: sock6_auto_bind,
- Input: (struct bpf_sock_addr *ctx),
- Output: static__always_inlinevoid,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 914,
+  "endLine": 920,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_auto_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
@@ -1653,19 +3060,81 @@ static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 923,
- Endline: 944,
- Funcname: __sock6_pre_bind,
- Input: (struct bpf_sock_addr *ctx),
- Output: static__always_inlineint,
- Helpers: [get_socket_cookie,bind,map_update_elem,],
- Read_maps: [],
- Update_maps: [  LB6_HEALTH_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif is_v4_in_v6&val.peer.address\t\treturn sock6_pre__v4_in_v6ctx"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif !ret\t\tsock6_auto_ctx"
+        ]
+      }
+    ],
+    "get_socket_cookie": [
+      {
+        "opVar": "#ifdef ENABLE_IPV6\tkey ",
+        "inpVar": [
+          " ctx"
+        ]
+      }
+    ],
+    "map_update_elem": [
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " &LB6_HEALTH_MAP",
+          " &key",
+          " &val",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 923,
+  "endLine": 944,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock6_pre_bind",
+  "updateMaps": [
+    "  LB6_HEALTH_MAP"
+  ],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "bind",
+    "map_update_elem",
+    "get_socket_cookie"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock6_pre_bind(struct bpf_sock_addr *ctx)
@@ -1694,19 +3163,52 @@ static __always_inline int __sock6_pre_bind(struct bpf_sock_addr *ctx)
 __section("cgroup/bind6")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 947,
- Endline: 958,
- Funcname: sock6_pre_bind,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [bind,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "bind": [
+      {
+        "opVar": "\tif (sock_is_health_check(ctx) &&\t    __sock6_pre_bind(ctx))\t\tret ",
+        "inpVar": [
+          " SYS_REJECT"
+        ]
+      }
+    ]
+  },
+  "startLine": 947,
+  "endLine": 958,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_pre_bind",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "bind"
+  ],
+  "compatibleHookpoints": [
+    "cgroup_sock_addr"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock6_pre_bind(struct bpf_sock_addr *ctx)
@@ -1725,19 +3227,42 @@ int sock6_pre_bind(struct bpf_sock_addr *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 961,
- Endline: 1062,
- Funcname: __sock6_xlate_fwd,
- Input: (struct bpf_sock_addr *ctx, const bool udp_only),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 961,
+  "endLine": 1062,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock6_xlate_fwd",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx",
+    " const bool udp_only"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock6_xlate_fwd(struct bpf_sock_addr *ctx,
@@ -1845,19 +3370,70 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1064,
- Endline: 1089,
- Funcname: __sock6_health_fwd,
- Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [get_socket_cookie,map_lookup_elem,],
- Read_maps: [ LB6_HEALTH_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "get_socket_cookie": [
+      {
+        "opVar": "#ifdef ENABLE_IPV6\t\t__sock_cookie key ",
+        "inpVar": [
+          " ctx"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tif (!lb_skip_l4_dnat())\t\t\tval ",
+        "inpVar": [
+          " &LB6_HEALTH_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 1064,
+  "endLine": 1089,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock6_health_fwd",
+  "updateMaps": [],
+  "readMaps": [
+    " LB6_HEALTH_MAP"
+  ],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "get_socket_cookie",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "sched_act",
+    "sched_cls",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -1890,19 +3466,41 @@ __sock6_health_fwd(struct bpf_sock_addr *ctx __maybe_unused)
 __section("cgroup/connect6")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1092,
- Endline: 1099,
- Funcname: sock6_connect,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1092,
+  "endLine": 1099,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_connect",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock6_connect(struct bpf_sock_addr *ctx)
@@ -1917,19 +3515,41 @@ int sock6_connect(struct bpf_sock_addr *ctx)
 #if defined(ENABLE_SOCKET_LB_UDP) || defined(ENABLE_SOCKET_LB_PEER)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1102,
- Endline: 1130,
- Funcname: sock6_xlate_rev_v4_in_v6,
- Input: (struct bpf_sock_addr * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1102,
+  "endLine": 1130,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_xlate_rev_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -1964,19 +3584,89 @@ sock6_xlate_rev_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1132,
- Endline: 1167,
- Funcname: __sock6_xlate_rev,
- Input: (struct bpf_sock_addr *ctx),
- Output: static__always_inlineint,
- Helpers: [map_delete_elem,map_lookup_elem,],
- Read_maps: [  LB6_REVERSE_NAT_SK_MAP,],
- Update_maps: [ LB6_REVERSE_NAT_SK_MAP,],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tval ",
+        "inpVar": [
+          " &LB6_REVERSE_NAT_SK_MAP",
+          " &key"
+        ]
+      }
+    ],
+    "map_delete_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t&LB6_REVERSE_NAT_SK_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 1132,
+  "endLine": 1167,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "__sock6_xlate_rev",
+  "updateMaps": [
+    " LB6_REVERSE_NAT_SK_MAP"
+  ],
+  "readMaps": [
+    "  LB6_REVERSE_NAT_SK_MAP"
+  ],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "map_delete_elem",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __sock6_xlate_rev(struct bpf_sock_addr *ctx)
@@ -2019,19 +3709,41 @@ static __always_inline int __sock6_xlate_rev(struct bpf_sock_addr *ctx)
 __section("cgroup/sendmsg6")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1170,
- Endline: 1174,
- Funcname: sock6_sendmsg,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1170,
+  "endLine": 1174,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_sendmsg",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock6_sendmsg(struct bpf_sock_addr *ctx)
@@ -2043,19 +3755,41 @@ int sock6_sendmsg(struct bpf_sock_addr *ctx)
 __section("cgroup/recvmsg6")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1177,
- Endline: 1181,
- Funcname: sock6_recvmsg,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1177,
+  "endLine": 1181,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_recvmsg",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock6_recvmsg(struct bpf_sock_addr *ctx)
@@ -2067,19 +3801,41 @@ int sock6_recvmsg(struct bpf_sock_addr *ctx)
 __section("cgroup/getpeername6")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_sock.c,
- Startline: 1184,
- Endline: 1188,
- Funcname: sock6_getpeername,
- Input: (struct bpf_sock_addr *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1184,
+  "endLine": 1188,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "funcName": "sock6_getpeername",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct bpf_sock_addr *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int sock6_getpeername(struct bpf_sock_addr *ctx)

@@ -62,25 +62,22 @@ struct quic_short_header {
   "helperCallParams": {},
   "startLine": 58,
   "endLine": 74,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
-  "Funcname": "calc_offset",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_parsing.h",
+  "funcName": "calc_offset",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "bool is_ipv6",
     " bool is_icmp"
   ],
-  "Output": "staticinline__u64",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinline__u64",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -88,16 +85,12 @@ struct quic_short_header {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __u64 calc_offset(
@@ -125,27 +118,24 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
   "helperCallParams": {},
   "startLine": 76,
   "endLine": 100,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
-  "Funcname": "parse_udp",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_parsing.h",
+  "funcName": "parse_udp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " bool is_ipv6",
     " struct packet_description *pckt"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -153,16 +143,12 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool parse_udp(
@@ -198,27 +184,24 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
   "helperCallParams": {},
   "startLine": 102,
   "endLine": 130,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
-  "Funcname": "parse_tcp",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_parsing.h",
+  "funcName": "parse_tcp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " bool is_ipv6",
     " struct packet_description *pckt"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -226,16 +209,12 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool parse_tcp(
@@ -287,25 +266,22 @@ __attribute__ ((__always_inline__))
   "helperCallParams": {},
   "startLine": 144,
   "endLine": 197,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
-  "Funcname": "parse_hdr_opt",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_parsing.h",
+  "funcName": "parse_hdr_opt",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "const struct xdp_md *xdp",
     " struct hdr_opt_state *state"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -313,16 +289,12 @@ __attribute__ ((__always_inline__))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
@@ -417,29 +389,53 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  __u32* real_pos \",\n \"inpVar\": [\n  \" &server_id_map\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"  *real \",\n \"inpVar\": [\n  \" &reals\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"    struct real_pos_lru* dst_lru \",\n \"inpVar\": [\n  \" lru_map\",\n  \" &pckt->flow\"\n ]\n}"
+      {
+        "opVar": "  __u32* real_pos ",
+        "inpVar": [
+          " &server_id_map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "  *real ",
+        "inpVar": [
+          " &reals",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "    struct real_pos_lru* dst_lru ",
+        "inpVar": [
+          " lru_map",
+          " &pckt->flow"
+        ]
+      }
     ],
     "bpf_map_update_elem": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    lru_map\",\n  \" &pckt->flow\",\n  \" &new_dst_lru\",\n  \" BPF_ANY\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    lru_map",
+          " &pckt->flow",
+          " &new_dst_lru",
+          " BPF_ANY"
+        ]
+      }
     ]
   },
   "startLine": 199,
   "endLine": 273,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
-  "Funcname": "tcp_hdr_opt_lookup",
-  "Update_maps": [
-    " lru_map",
-    ""
+  "File": "/root/examples/katran/pckt_parsing.h",
+  "funcName": "tcp_hdr_opt_lookup",
+  "updateMaps": [
+    " lru_map"
   ],
-  "Read_maps": [
+  "readMaps": [
+    " lru_map",
     " server_id_map",
-    " reals",
-    " lru_map",
-    ""
+    " reals"
   ],
-  "Input": [
+  "input": [
     "const struct xdp_md *xdp",
     " bool is_ipv6",
     " struct real_definition **real",
@@ -447,13 +443,41 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
     " bool bypass_lru",
     " void *lru_map"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_map_update_elem,bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -461,16 +485,12 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
@@ -557,27 +577,24 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
   "helperCallParams": {},
   "startLine": 276,
   "endLine": 335,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
-  "Funcname": "parse_quic",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/pckt_parsing.h",
+  "funcName": "parse_quic",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " bool is_ipv6",
     " struct packet_description *pckt"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -585,16 +602,12 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int parse_quic(

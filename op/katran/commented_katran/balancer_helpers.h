@@ -64,24 +64,36 @@
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"  gk \",\n \"inpVar\": [\n  \" &ctl_array\",\n  \" &introspection_gk_pos\"\n ]\n}"
+      {
+        "opVar": "  gk ",
+        "inpVar": [
+          " &ctl_array",
+          " &introspection_gk_pos"
+        ]
+      }
     ],
     "bpf_perf_event_output": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"    ctx\",\n  \" map\",\n  \" flags\",\n  \" &md\",\n  \" sizeofstruct event_metadata\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    ctx",
+          " map",
+          " flags",
+          " &md",
+          " sizeofstruct event_metadata"
+        ]
+      }
     ]
   },
   "startLine": 46,
   "endLine": 70,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
-  "Funcname": "submit_event",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/balancer_helpers.h",
+  "funcName": "submit_event",
+  "updateMaps": [],
+  "readMaps": [
+    "  ctl_array"
   ],
-  "Read_maps": [
-    "  ctl_array",
-    ""
-  ],
-  "Input": [
+  "input": [
     "struct xdp_md *ctx",
     " void *map",
     " __u32 event_id",
@@ -89,13 +101,34 @@
     " __u32 size",
     " bool metadata_only"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_map_lookup_elem,bpf_perf_event_output,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_perf_event_output"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "perf_event",
+    "lwt_out",
+    "kprobe",
+    "sk_skb",
+    "raw_tracepoint",
+    "lwt_in",
+    "xdp",
+    "cgroup_skb",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -103,16 +136,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void submit_event(
@@ -146,44 +175,60 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_go_to_next_module": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {
     "bpf_tail_call": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"  ctx\",\n  \" &subprograms\",\n  \" i\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "  ctx",
+          " &subprograms",
+          " i"
+        ]
+      }
     ]
   },
   "startLine": 74,
   "endLine": 80,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
-  "Funcname": "recirculate",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_helpers.h",
+  "funcName": "recirculate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "staticinlineint",
-  "Helper": "bpf_tail_call,",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [
+    "bpf_tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sk_reuseport",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "xdp",
+    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "perf_event",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "kprobe",
+    "socket_filter"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -191,16 +236,12 @@ __attribute__((__always_inline__)) static inline void submit_event(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int recirculate(
@@ -215,43 +256,28 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
-    {
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general."
-        }
-      ]
-    }
-  ],
+  "capability": [],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
-  "Funcname": "decrement_ttl",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/balancer_helpers.h",
+  "funcName": "decrement_ttl",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data",
     " void *data_end",
     " int offset",
     " bool is_ipv6"
   ],
-  "Output": "staticinlineint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlineint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -259,16 +285,12 @@ __attribute__((__always_inline__)) static inline int recirculate(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline int

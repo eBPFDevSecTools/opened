@@ -13,7 +13,7 @@ def load_bpf_helper_map(fname):
 def check_and_return_helper_ip(line):
     line = line.replace(")","")
     args = line.split("(")[-1]
-    print("TOK: ",args)
+    #print("TOK: ",args)
     ip_tokens= args.split(",")
     ret = []
     for val in ip_tokens:
@@ -24,14 +24,14 @@ def check_and_return_helper_ip(line):
     return ret
 
 def enrich_desc_with_input_marking(text,ip_list,helper):
-    print("--->> "+helper)
+    #print("--->> "+helper)
     for idx,entries in enumerate(ip_list):
         var_name = entries.split(':')[-1].strip()
         var_name = var_name.replace('*','')
         var_name = var_name.replace('}','')
         var_name = ' '+var_name+' '
         replace = " <["+var_name+"]>(IP: "+str(idx)+") "
-        print("var_name:"+var_name+" rep: "+replace)
+        #print("var_name:"+var_name+" rep: "+replace)
 
         # To match ariable names
         text = text.replace(".", ". ")
@@ -64,7 +64,7 @@ def build_helper_desc_dict(fname,out,my_dict):
                     lines.append(line)
             elif  "              Return" in line: #14 spaces before Return
                 ret_line = line.replace("              Return","")
-                print("LINES: ",lines)
+                #print("LINES: ",lines)
                 size = len(lines)
                 pos = 0
                 prev_ret = ""
@@ -89,7 +89,7 @@ def build_helper_desc_dict(fname,out,my_dict):
                 helper_func = helper_func.replace("*","")
                 #dict[helper_func] = text
                 text = enrich_desc_with_input_marking(text,ip_info,helper_func)
-                print("XXX Helper: ",helper_func," Text: ",text, " Return: ",ret_line)
+                #print("XXX Helper: ",helper_func," Text: ",text, " Return: ",ret_line)
                 ofile.write(prev_ret)
                 ofile.write("\n \n \n")
                 ofile.write(helper_func+DELIM+ip_info_str+DELIM+text+DELIM+ret_line)

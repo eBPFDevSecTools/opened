@@ -41,26 +41,23 @@
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
-  "Funcname": "set_hc_key",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "funcName": "set_hc_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "const struct  __sk_buff *skb",
     " struct hc_key *hckey",
     " bool is_ipv6"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -68,16 +65,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool
@@ -159,38 +152,70 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "    src ",
+        "inpVar": [
+          " &hc_pckt_srcs_map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "    src ",
+        "inpVar": [
+          " &hc_pckt_srcs_map",
+          " &key"
+        ]
+      }
     ],
     "bpf_skb_adjust_room": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}",
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "        if skb",
+          " adjust_len",
+          " BPF_ADJ_ROOM_MAC",
+          " flags "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "        if skb",
+          " adjust_len",
+          " BPF_ADJ_ROOM_MAC",
+          " flags "
+        ]
+      }
     ]
   },
   "startLine": 79,
   "endLine": 139,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
-  "Funcname": "hc_encap_ipip",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "funcName": "hc_encap_ipip",
+  "updateMaps": [],
+  "readMaps": [
+    "  hc_pckt_srcs_map"
   ],
-  "Read_maps": [
-    "  hc_pckt_srcs_map",
-    ""
-  ],
-  "Input": [
+  "input": [
     "struct  __sk_buff *skb",
     " struct hc_real_definition *real",
     " struct ethhdr *ethh",
     " bool is_ipv6"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_map_lookup_elem,bpf_skb_adjust_room,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_skb_adjust_room"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -198,16 +223,12 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
@@ -279,24 +300,21 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "helperCallParams": {},
   "startLine": 141,
   "endLine": 143,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
-  "Funcname": "gue_sport",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "funcName": "gue_sport",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "__u32 seed"
   ],
-  "Output": "staticinline__u16",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinline__u16",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -304,16 +322,12 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
@@ -357,38 +371,70 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}",
-      "{\n \"opVar\": \"    src \",\n \"inpVar\": [\n  \" &hc_pckt_srcs_map\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "    src ",
+        "inpVar": [
+          " &hc_pckt_srcs_map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "    src ",
+        "inpVar": [
+          " &hc_pckt_srcs_map",
+          " &key"
+        ]
+      }
     ],
     "bpf_skb_adjust_room": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}",
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"        if skb\",\n  \" adjust_len\",\n  \" BPF_ADJ_ROOM_MAC\",\n  \" flags \"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "        if skb",
+          " adjust_len",
+          " BPF_ADJ_ROOM_MAC",
+          " flags "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "        if skb",
+          " adjust_len",
+          " BPF_ADJ_ROOM_MAC",
+          " flags "
+        ]
+      }
     ]
   },
   "startLine": 145,
   "endLine": 213,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
-  "Funcname": "hc_encap_gue",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "funcName": "hc_encap_gue",
+  "updateMaps": [],
+  "readMaps": [
+    "  hc_pckt_srcs_map"
   ],
-  "Read_maps": [
-    "  hc_pckt_srcs_map",
-    ""
-  ],
-  "Input": [
+  "input": [
     "struct  __sk_buff *skb",
     " struct hc_real_definition *real",
     " struct ethhdr *ethh",
     " bool is_ipv6"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_map_lookup_elem,bpf_skb_adjust_room,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_map_lookup_elem",
+    "bpf_skb_adjust_room"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -396,16 +442,12 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool hc_encap_gue(

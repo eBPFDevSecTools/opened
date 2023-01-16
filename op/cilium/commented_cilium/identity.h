@@ -8,19 +8,43 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
- Startline: 9,
- Endline: 12,
- Funcname: identity_in_range,
- Input: (__u32 identity, __u32 range_start, __u32 range_end),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 9,
+  "endLine": 12,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "funcName": "identity_in_range",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 identity",
+    " __u32 range_start",
+    " __u32 range_end"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool identity_in_range(__u32 identity, __u32 range_start, __u32 range_end)
@@ -30,19 +54,41 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
- Startline: 14,
- Endline: 32,
- Funcname: identity_is_remote_node,
- Input: (__u32 identity),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 14,
+  "endLine": 32,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "funcName": "identity_is_remote_node",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 identity"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool identity_is_remote_node(__u32 identity)
@@ -67,19 +113,41 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
- Startline: 34,
- Endline: 37,
- Funcname: identity_is_node,
- Input: (__u32 identity),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 34,
+  "endLine": 37,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "funcName": "identity_is_node",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 identity"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool identity_is_node(__u32 identity)
@@ -107,19 +175,41 @@ static __always_inline bool identity_is_node(__u32 identity)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
- Startline: 57,
- Endline: 60,
- Funcname: identity_is_reserved,
- Input: (__u32 identity),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 57,
+  "endLine": 60,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "funcName": "identity_is_reserved",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 identity"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool identity_is_reserved(__u32 identity)
@@ -147,19 +237,41 @@ static __always_inline bool identity_is_reserved(__u32 identity)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
- Startline: 80,
- Endline: 90,
- Funcname: identity_is_cluster,
- Input: (__u32 identity),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 80,
+  "endLine": 90,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "funcName": "identity_is_cluster",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 identity"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool identity_is_cluster(__u32 identity)
@@ -177,19 +289,42 @@ static __always_inline bool identity_is_cluster(__u32 identity)
 #if __ctx_is == __ctx_skb
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/identity.h,
- Startline: 93,
- Endline: 137,
- Funcname: inherit_identity_from_host,
- Input: (struct  __ctx_buff *ctx, __u32 *identity),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 93,
+  "endLine": 137,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "funcName": "inherit_identity_from_host",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *identity"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 inherit_identity_from_host(struct __ctx_buff *ctx, __u32 *identity)

@@ -38,6 +38,7 @@ Code extraction consists of two phases 1) Generating annotated function call gra
  1. Run the docker. ``docker run -it --privileged --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
 
 2. Run annotator phase1, 
+TODO: Expand README to include additional capabilities moved into annotator
 ```
 python3 src/annotator.py
 usage: annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE]
@@ -61,6 +62,7 @@ optional arguments:
   --isCilium            whether repository is cilium
 
 ```
+
 NOTE: **example is given in run1.sh**
  
 3. Run annotated function call graph extraction phase, 

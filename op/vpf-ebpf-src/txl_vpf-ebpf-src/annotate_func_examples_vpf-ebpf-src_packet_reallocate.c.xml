@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c" funcheader="int reallocate_invalidates (struct sk_buff *ctx)" startline="17" endline="34">
+<source file="/root/examples/vpf-ebpf-src/packet_reallocate.c" funcheader="int reallocate_invalidates (struct sk_buff *ctx)" startline="17" endline="34">
 int reallocate_invalidates (struct sk_buff *ctx)
 {
     void *data_end = (void *) (long) ctx->data_end;

@@ -34,24 +34,21 @@
   "helperCallParams": {},
   "startLine": 30,
   "endLine": 39,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "csum_fold_helper",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "csum_fold_helper",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "__u64 csum"
   ],
-  "Output": "staticinline__u16",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinline__u16",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -59,16 +56,12 @@
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
@@ -89,25 +82,22 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "helperCallParams": {},
   "startLine": 41,
   "endLine": 43,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "min_helper",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "min_helper",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "int a",
     " int b"
   ],
-  "Output": "staticint",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticint",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -115,16 +105,12 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static int min_helper(int a, int b) {
@@ -155,31 +141,47 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" data_start\",\n  \" data_size\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " data_start",
+          " data_size",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 45,
   "endLine": 49,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "ipv4_csum",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "ipv4_csum",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data_start",
     " int data_size",
     " __u64 *csum"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -187,16 +189,12 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -212,25 +210,22 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "helperCallParams": {},
   "startLine": 51,
   "endLine": 60,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "ipv4_csum_inline",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "ipv4_csum_inline",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *iph",
     " __u64 *csum"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -238,16 +233,12 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
@@ -285,36 +276,88 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->saddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->daddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" data_start\",\n  \" data_size\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &iph->saddr",
+          " sizeof__be32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &iph->daddr",
+          " sizeof__be32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " data_start",
+          " data_size",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 62,
   "endLine": 73,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "ipv4_l4_csum",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "ipv4_l4_csum",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data_start",
     " int data_size",
     " __u64 *csum",
     " struct iphdr *iph"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -322,16 +365,12 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -371,36 +410,88 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->saddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->daddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"    *csum \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" data_start\",\n  \" data_size\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &ip6h->saddr",
+          " sizeofstruct in6_addr",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &ip6h->daddr",
+          " sizeofstruct in6_addr",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "    *csum ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " data_start",
+          " data_size",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 75,
   "endLine": 88,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "ipv6_csum",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "ipv6_csum",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "void *data_start",
     " int data_size",
     " __u64 *csum",
     " struct ipv6hdr *ip6h"
   ],
-  "Output": "staticinlinevoid",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinlinevoid",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -408,16 +499,12 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline void
@@ -464,33 +551,76 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->saddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &ip6h->daddr\",\n  \" sizeofstruct in6_addr\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &ip6h->saddr",
+          " sizeofstruct in6_addr",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &ip6h->daddr",
+          " sizeofstruct in6_addr",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 95,
   "endLine": 127,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "add_pseudo_ipv6_header",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "add_pseudo_ipv6_header",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ipv6hdr *ip6h",
     " __u64 *csum"
   ],
-  "Output": "staticinline__s64",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinline__s64",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -498,16 +628,12 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
@@ -568,33 +694,76 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &ip6h->saddr\",\n  \" sizeofstruct in6_addr\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &ip6h->daddr\",\n  \" sizeofstruct in6_addr\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &ip6h->saddr",
+          " sizeofstruct in6_addr",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &ip6h->daddr",
+          " sizeofstruct in6_addr",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &tmp",
+          " sizeof__u32",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &tmp",
+          " sizeof__u32",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 129,
   "endLine": 158,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "rem_pseudo_ipv6_header",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "rem_pseudo_ipv6_header",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ipv6hdr *ip6h",
     " __u64 *csum"
   ],
-  "Output": "staticinline__s64",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinline__s64",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -602,16 +771,12 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
@@ -669,33 +834,76 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->saddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &iph->daddr\",\n  \" sizeof__be32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &iph->saddr",
+          " sizeof__be32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &iph->daddr",
+          " sizeof__be32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &tmp",
+          " sizeof__u32",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 160,
   "endLine": 189,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "add_pseudo_ipv4_header",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "add_pseudo_ipv4_header",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct iphdr *iph",
     " __u64 *csum"
   ],
-  "Output": "staticinline__s64",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinline__s64",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -703,16 +911,12 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
@@ -770,33 +974,76 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &iph->saddr\",\n  \" sizeof__be32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &iph->daddr\",\n  \" sizeof__be32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" &tmp\",\n  \" sizeof__u32\",\n  \" 0\",\n  \" 0\",\n  \" *csum\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &iph->saddr",
+          " sizeof__be32",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &iph->daddr",
+          " sizeof__be32",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &tmp",
+          " sizeof__u32",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " &tmp",
+          " sizeof__u32",
+          " 0",
+          " 0",
+          " *csum"
+        ]
+      }
     ]
   },
   "startLine": 191,
   "endLine": 220,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "rem_pseudo_ipv4_header",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "rem_pseudo_ipv4_header",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct iphdr *iph",
     " __u64 *csum"
   ],
-  "Output": "staticinline__s64",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinline__s64",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -804,16 +1051,12 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
@@ -883,34 +1126,68 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &orig_csum\",\n  \" sizeof__u32\",\n  \" seed\"\n ]\n}",
-      "{\n \"opVar\": \"    ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" inner_ip6h\",\n  \" sizeofstruct ipv6hdr\",\n  \" *csum_in_hdr\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" udph\",\n  \" sizeofstruct udphdr\",\n  \" *csum_in_hdr\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &orig_csum",
+          " sizeof__u32",
+          " seed"
+        ]
+      },
+      {
+        "opVar": "    ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " inner_ip6h",
+          " sizeofstruct ipv6hdr",
+          " *csum_in_hdr"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " udph",
+          " sizeofstruct udphdr",
+          " *csum_in_hdr"
+        ]
+      }
     ]
   },
   "startLine": 234,
   "endLine": 268,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "gue_csum_v6",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "gue_csum_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ipv6hdr *outer_ip6h",
     " struct udphdr *udph",
     " struct ipv6hdr *inner_ip6h",
     " __u64 *csum_in_hdr"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -918,16 +1195,12 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool gue_csum_v6(
@@ -990,34 +1263,68 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &orig_csum\",\n  \" sizeof__u32\",\n  \" seed\"\n ]\n}",
-      "{\n \"opVar\": \"    ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" inner_iph\",\n  \" sizeofstruct iphdr\",\n  \" *csum_in_hdr\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" udph\",\n  \" sizeofstruct udphdr\",\n  \" *csum_in_hdr\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &orig_csum",
+          " sizeof__u32",
+          " seed"
+        ]
+      },
+      {
+        "opVar": "    ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " inner_iph",
+          " sizeofstruct iphdr",
+          " *csum_in_hdr"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " udph",
+          " sizeofstruct udphdr",
+          " *csum_in_hdr"
+        ]
+      }
     ]
   },
   "startLine": 270,
   "endLine": 302,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "gue_csum_v4",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "gue_csum_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct iphdr *outer_iph",
     " struct udphdr *udph",
     " struct iphdr *inner_iph",
     " __u64 *csum_in_hdr"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1025,16 +1332,12 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool gue_csum_v4(
@@ -1095,34 +1398,68 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
   ],
   "helperCallParams": {
     "bpf_csum_diff": [
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" &orig_csum\",\n  \" sizeof__u32\",\n  \" seed\"\n ]\n}",
-      "{\n \"opVar\": \"    ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" inner_iph\",\n  \" sizeofstruct iphdr\",\n  \" *csum_in_hdr\"\n ]\n}",
-      "{\n \"opVar\": \"  ret \",\n \"inpVar\": [\n  \" 0\",\n  \" 0\",\n  \" udph\",\n  \" sizeofstruct udphdr\",\n  \" *csum_in_hdr\"\n ]\n}"
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " &orig_csum",
+          " sizeof__u32",
+          " seed"
+        ]
+      },
+      {
+        "opVar": "    ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " inner_iph",
+          " sizeofstruct iphdr",
+          " *csum_in_hdr"
+        ]
+      },
+      {
+        "opVar": "  ret ",
+        "inpVar": [
+          " 0",
+          " 0",
+          " udph",
+          " sizeofstruct udphdr",
+          " *csum_in_hdr"
+        ]
+      }
     ]
   },
   "startLine": 304,
   "endLine": 336,
-  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
-  "Funcname": "gue_csum_v4_in_v6",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/csum_helpers.h",
+  "funcName": "gue_csum_v4_in_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ipv6hdr *outer_ip6h",
     " struct udphdr *udph",
     " struct iphdr *inner_iph",
     " __u64 *csum_in_hdr"
   ],
-  "Output": "staticinlinebool",
-  "Helper": "bpf_csum_diff,",
-  "human_func_description": [
+  "output": "staticinlinebool",
+  "helper": [
+    "bpf_csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "sched_act",
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_in",
+    "xdp",
+    "lwt_seg6local"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -1130,16 +1467,12 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 __attribute__((__always_inline__)) static inline bool gue_csum_v4_in_v6(

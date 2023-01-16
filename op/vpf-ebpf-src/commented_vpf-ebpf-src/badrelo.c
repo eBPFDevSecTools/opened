@@ -51,30 +51,62 @@ struct ctx;
   ],
   "helperCallParams": {
     "bpf_map_update_elem": [
-      "{\n \"opVar\": \"NA\",\n \"inpVar\": [\n  \"            return &map2\",\n  \" const void*0\",\n  \" const void*0\",\n  \" 0\"\n ]\n}"
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "            return &map2",
+          " const void*0",
+          " const void*0",
+          " 0"
+        ]
+      }
     ]
   },
   "startLine": 31,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badrelo.c",
-  "Funcname": "func",
-  "Update_maps": [
-    " map2",
-    ""
+  "File": "/root/examples/vpf-ebpf-src/badrelo.c",
+  "funcName": "func",
+  "updateMaps": [
+    " map2"
   ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "readMaps": [],
+  "input": [
     "struct ctx *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_map_update_elem,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_map_update_elem"
+  ],
+  "compatibleHookpoints": [
+    "perf_event",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_sock",
+    "flow_dissector",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_cls",
+    "lwt_seg6local",
+    "lwt_in",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "cgroup_device",
+    "kprobe",
+    "sched_act",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -82,16 +114,12 @@ struct ctx;
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(struct ctx* ctx)

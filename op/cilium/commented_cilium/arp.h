@@ -20,19 +20,43 @@ struct arp_eth {
 /* Check if packet is ARP request for IP */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
- Startline: 21,
- Endline: 30,
- Funcname: arp_check,
- Input: (struct ethhdr *eth, const struct arphdr *arp, union macaddr *mac),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 21,
+  "endLine": 30,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "funcName": "arp_check",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ethhdr *eth",
+    " const struct arphdr *arp",
+    " union macaddr *mac"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int arp_check(struct ethhdr *eth,
@@ -48,19 +72,45 @@ static __always_inline int arp_check(struct ethhdr *eth,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
- Startline: 32,
- Endline: 49,
- Funcname: arp_prepare_response,
- Input: (struct  __ctx_buff *ctx, union macaddr *smac, __be32 sip, union macaddr *dmac, __be32 tip),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 32,
+  "endLine": 49,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "funcName": "arp_prepare_response",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " union macaddr *smac",
+    " __be32 sip",
+    " union macaddr *dmac",
+    " __be32 tip"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -84,19 +134,45 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
- Startline: 51,
- Endline: 73,
- Funcname: arp_validate,
- Input: (const struct  __ctx_buff *ctx, union macaddr *mac, union macaddr *smac, __be32 *sip, __be32 *tip),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 51,
+  "endLine": 73,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "funcName": "arp_validate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff *ctx",
+    " union macaddr *mac",
+    " union macaddr *smac",
+    " __be32 *sip",
+    " __be32 *tip"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -125,19 +201,62 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/arp.h,
- Startline: 75,
- Endline: 90,
- Funcname: arp_respond,
- Input: (struct  __ctx_buff *ctx, union macaddr *smac, __be32 sip, union macaddr *dmac, __be32 tip, int direction),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ctx_get_ifindexctx",
+          " direction"
+        ]
+      }
+    ]
+  },
+  "startLine": 75,
+  "endLine": 90,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "funcName": "arp_respond",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " union macaddr *smac",
+    " __be32 sip",
+    " union macaddr *dmac",
+    " __be32 tip",
+    " int direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

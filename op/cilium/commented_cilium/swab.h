@@ -45,19 +45,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 46,
- Endline: 55,
- Funcname: __fswab16,
- Input: (__u16 val),
- Output: static__inline____u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 46,
+  "endLine": 55,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__fswab16",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u16 val"
+  ],
+  "output": "static__inline____u16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__  __u16 __fswab16(__u16 val)
@@ -73,19 +95,41 @@ static __inline__  __u16 __fswab16(__u16 val)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 57,
- Endline: 66,
- Funcname: __fswab32,
- Input: (__u32 val),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 57,
+  "endLine": 66,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__fswab32",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 val"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__  __u32 __fswab32(__u32 val)
@@ -101,19 +145,41 @@ static __inline__  __u32 __fswab32(__u32 val)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 68,
- Endline: 81,
- Funcname: __fswab64,
- Input: (__u64 val),
- Output: static__inline____u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 68,
+  "endLine": 81,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__fswab64",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u64 val"
+  ],
+  "output": "static__inline____u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__  __u64 __fswab64(__u64 val)
@@ -133,19 +199,41 @@ static __inline__  __u64 __fswab64(__u64 val)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 83,
- Endline: 90,
- Funcname: __fswahw32,
- Input: (__u32 val),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 83,
+  "endLine": 90,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__fswahw32",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 val"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__  __u32 __fswahw32(__u32 val)
@@ -159,19 +247,41 @@ static __inline__  __u32 __fswahw32(__u32 val)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 92,
- Endline: 99,
- Funcname: __fswahb32,
- Input: (__u32 val),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 92,
+  "endLine": 99,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__fswahb32",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 val"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__  __u32 __fswahb32(__u32 val)
@@ -238,19 +348,41 @@ static __inline__  __u32 __fswahb32(__u32 val)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 154,
- Endline: 161,
- Funcname: __swab16p,
- Input: (const __u16 *p),
- Output: static__inline____u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 154,
+  "endLine": 161,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swab16p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u16 *p"
+  ],
+  "output": "static__inline____u16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u16 __swab16p(const __u16 *p)
@@ -268,19 +400,41 @@ static __inline__ __u16 __swab16p(const __u16 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 167,
- Endline: 174,
- Funcname: __swab32p,
- Input: (const __u32 *p),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 167,
+  "endLine": 174,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swab32p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u32 *p"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u32 __swab32p(const __u32 *p)
@@ -298,19 +452,41 @@ static __inline__ __u32 __swab32p(const __u32 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 180,
- Endline: 187,
- Funcname: __swab64p,
- Input: (const __u64 *p),
- Output: static__inline____u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 180,
+  "endLine": 187,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swab64p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u64 *p"
+  ],
+  "output": "static__inline____u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u64 __swab64p(const __u64 *p)
@@ -330,19 +506,41 @@ static __inline__ __u64 __swab64p(const __u64 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 195,
- Endline: 202,
- Funcname: __swahw32p,
- Input: (const __u32 *p),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 195,
+  "endLine": 202,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swahw32p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u32 *p"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u32 __swahw32p(const __u32 *p)
@@ -362,19 +560,41 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 210,
- Endline: 217,
- Funcname: __swahb32p,
- Input: (const __u32 *p),
- Output: static__inline____u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 210,
+  "endLine": 217,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swahb32p",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const __u32 *p"
+  ],
+  "output": "static__inline____u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ __u32 __swahb32p(const __u32 *p)
@@ -392,19 +612,41 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 223,
- Endline: 230,
- Funcname: __swab16s,
- Input: (__u16 *p),
- Output: static__inline__void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 223,
+  "endLine": 230,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swab16s",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u16 *p"
+  ],
+  "output": "static__inline__void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ void __swab16s(__u16 *p)
@@ -421,19 +663,41 @@ static __inline__ void __swab16s(__u16 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 235,
- Endline: 242,
- Funcname: __swab32s,
- Input: (__u32 *p),
- Output: static__inline__void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 235,
+  "endLine": 242,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swab32s",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 *p"
+  ],
+  "output": "static__inline__void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ void __swab32s(__u32 *p)
@@ -451,19 +715,41 @@ static __inline__ void __swab32s(__u32 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 248,
- Endline: 255,
- Funcname: __swab64s,
- Input: (__u64 *p),
- Output: static__inline__void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 248,
+  "endLine": 255,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swab64s",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u64 *p"
+  ],
+  "output": "static__inline__void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ void __swab64s(__u64 *p)
@@ -483,19 +769,41 @@ static __inline__ void __swab64s(__u64 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 263,
- Endline: 270,
- Funcname: __swahw32s,
- Input: (__u32 *p),
- Output: static__inline__void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 263,
+  "endLine": 270,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swahw32s",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 *p"
+  ],
+  "output": "static__inline__void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ void __swahw32s(__u32 *p)
@@ -515,19 +823,41 @@ static __inline__ void __swahw32s(__u32 *p)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h,
- Startline: 278,
- Endline: 285,
- Funcname: __swahb32s,
- Input: (__u32 *p),
- Output: static__inline__void,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 278,
+  "endLine": 285,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "funcName": "__swahb32s",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u32 *p"
+  ],
+  "output": "static__inline__void",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __inline__ void __swahb32s(__u32 *p)

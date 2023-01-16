@@ -13,19 +13,72 @@
 #ifdef ENABLE_TPROXY
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 14,
- Endline: 42,
- Funcname: assign_socket_tcp,
- Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established),
- Output: static__always_inlineint,
- Helpers: [sk_release,skc_lookup_tcp,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "skc_lookup_tcp": [
+      {
+        "opVar": "\tsk ",
+        "inpVar": [
+          " ctx",
+          " tuple",
+          " len",
+          " BPF_F_CURRENT_NETNS",
+          " 0"
+        ]
+      }
+    ],
+    "sk_release": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "release:\tsk"
+        ]
+      }
+    ]
+  },
+  "startLine": 14,
+  "endLine": 42,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "assign_socket_tcp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct bpf_sock_tuple *tuple",
+    " __u32 len",
+    " bool established"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "skc_lookup_tcp",
+    "sk_release"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -60,19 +113,72 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 44,
- Endline: 67,
- Funcname: assign_socket_udp,
- Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [sk_release,sk_lookup_udp,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "sk_lookup_udp": [
+      {
+        "opVar": "\tsk ",
+        "inpVar": [
+          " ctx",
+          " tuple",
+          " len",
+          " BPF_F_CURRENT_NETNS",
+          " 0"
+        ]
+      }
+    ],
+    "sk_release": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tsk"
+        ]
+      }
+    ]
+  },
+  "startLine": 44,
+  "endLine": 67,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "assign_socket_udp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct bpf_sock_tuple *tuple",
+    " __u32 len",
+    " bool established __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "sk_lookup_udp",
+    "sk_release"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -102,19 +208,45 @@ out:
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 69,
- Endline: 86,
- Funcname: assign_socket,
- Input: (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 69,
+  "endLine": 86,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "assign_socket",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct bpf_sock_tuple *tuple",
+    " __u32 len",
+    " __u8 nexthdr",
+    " bool established"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -142,19 +274,42 @@ assign_socket(struct __ctx_buff *ctx,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 92,
- Endline: 96,
- Funcname: combine_ports,
- Input: (__u16 dport, __u16 sport),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 92,
+  "endLine": 96,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "combine_ports",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__u16 dport",
+    " __u16 sport"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32
@@ -257,19 +412,79 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 190,
- Endline: 220,
- Funcname: __ctx_redirect_to_proxy,
- Input: (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused, bool ipv4 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "__ctx__to_proxystruct __ctx_buff *ctx",
+          " void *tuple __maybe_unused",
+          "\t\t\t__be16 proxy_port",
+          " bool from_host __maybe_unused",
+          "\t\t\tbool ipv4 __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "#ifdef ENABLE_IPV4\t\tif (ipv4)\t\t\tresult ",
+        "inpVar": [
+          " ctx__to_proxy_ingress4ctx",
+          " tuple",
+          " proxy_port"
+        ]
+      },
+      {
+        "opVar": "#endif #ifdef ENABLE_IPV6\t\tif (!ipv4)\t\t\tresult ",
+        "inpVar": [
+          " ctx__to_proxy_ingress6ctx",
+          " tuple",
+          " proxy_port"
+        ]
+      }
+    ]
+  },
+  "startLine": 190,
+  "endLine": 220,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "__ctx_redirect_to_proxy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " void * tuple __maybe_unused",
+    " __be16 proxy_port",
+    " bool from_host __maybe_unused",
+    " bool ipv4 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -307,19 +522,71 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 223,
- Endline: 228,
- Funcname: ctx_redirect_to_proxy4,
- Input: (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__to_proxy4struct __ctx_buff *ctx",
+          " void *tuple __maybe_unused",
+          "\t\t       __be16 proxy_port",
+          " bool from_host __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn __ctx__to_proxyctx",
+          " tuple",
+          " proxy_port",
+          " from_host",
+          " true"
+        ]
+      }
+    ]
+  },
+  "startLine": 223,
+  "endLine": 228,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "ctx_redirect_to_proxy4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " void * tuple __maybe_unused",
+    " __be16 proxy_port",
+    " bool from_host __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -333,19 +600,71 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 232,
- Endline: 237,
- Funcname: ctx_redirect_to_proxy6,
- Input: (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__to_proxy6struct __ctx_buff *ctx",
+          " void *tuple __maybe_unused",
+          "\t\t       __be16 proxy_port",
+          " bool from_host __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn __ctx__to_proxyctx",
+          " tuple",
+          " proxy_port",
+          " from_host",
+          " false"
+        ]
+      }
+    ]
+  },
+  "startLine": 232,
+  "endLine": 237,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "ctx_redirect_to_proxy6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " void * tuple __maybe_unused",
+    " __be16 proxy_port",
+    " bool from_host __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -398,19 +717,73 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 280,
- Endline: 337,
- Funcname: ctx_redirect_to_proxy_first,
- Input: (struct  __ctx_buff *ctx, __be16 proxy_port),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__to_proxy_firststruct __ctx_buff *ctx",
+          " __be16 proxy_port"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx__to_proxy_ingress6ctx",
+          " &tuple",
+          " proxy_port"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx__to_proxy_ingress4ctx",
+          " &tuple",
+          " proxy_port"
+        ]
+      }
+    ]
+  },
+  "startLine": 280,
+  "endLine": 337,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "ctx_redirect_to_proxy_first",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be16 proxy_port"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -477,19 +850,41 @@ out: __maybe_unused
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 342,
- Endline: 351,
- Funcname: tc_index_skip_ingress_proxy,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 342,
+  "endLine": 351,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "tc_index_skip_ingress_proxy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
@@ -508,19 +903,41 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy.h,
- Startline: 356,
- Endline: 365,
- Funcname: tc_index_skip_egress_proxy,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 356,
+  "endLine": 365,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "funcName": "tc_index_skip_egress_proxy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool tc_index_skip_egress_proxy(struct __ctx_buff *ctx)

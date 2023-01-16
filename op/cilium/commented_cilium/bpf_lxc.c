@@ -156,19 +156,57 @@ int NAME(struct __ctx_buff *ctx)						\
 #if defined(ENABLE_IPV4) || defined(ENABLE_IPV6)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 157,
- Endline: 162,
- Funcname: redirect_to_proxy,
- Input: (int verdict, enum ct_status status),
- Output: static__always_inlinebool,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_to_proxyint verdict",
+          " enum ct_status status"
+        ]
+      }
+    ]
+  },
+  "startLine": 157,
+  "endLine": 162,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "redirect_to_proxy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "int verdict",
+    " enum ct_status status"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool
@@ -190,19 +228,43 @@ redirect_to_proxy(int verdict, enum ct_status status)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 174,
- Endline: 189,
- Funcname: encode_custom_prog_meta,
- Input: (struct  __ctx_buff *ctx, int ret, __u32 identity),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 174,
+  "endLine": 189,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "encode_custom_prog_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int ret",
+    " __u32 identity"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -247,19 +309,138 @@ struct {
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 214,
- Endline: 581,
- Funcname: handle_ipv6_from_lxc,
- Input: (struct  __ctx_buff *ctx, __u32 *dst_id),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,map_lookup_elem,],
- Read_maps: [  CT_TAIL_CALL_BUFFER6,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t#endif \tct_buffer ",
+        "inpVar": [
+          " &CT_TAIL_CALL_BUFFER6",
+          " &zero"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "\t#endif \t\tif ((ct_status ",
+        "inpVar": [
+          ""
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\treturn ctx__to_proxy6ctx",
+          " tuple",
+          " 0",
+          " false"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif !from_l7lb && _to_proxyverdict",
+          " ct_status "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx__to_proxy6ctx",
+          " tuple",
+          " proxy_port",
+          " false"
+        ]
+      },
+      {
+        "opVar": "\t\t\t\tret ",
+        "inpVar": [
+          " encap_and__lxcctx",
+          " tunnel_endpoint",
+          " encrypt_key",
+          "\t\t\t\t\t     &key",
+          " SECLABEL",
+          " &trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif\tif is_definedENABLE_HOST_ROUTING\t\treturn _direct_v6ctx",
+          " ETH_HLEN",
+          " ip6"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " HOST_IFINDEX",
+          " BPF_F_INGRESS"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV6_NODEPORT_REVNAT"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &POLICY_CALL_MAP",
+          " HOST_EP_ID"
+        ]
+      }
+    ]
+  },
+  "startLine": 214,
+  "endLine": 581,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "handle_ipv6_from_lxc",
+  "updateMaps": [],
+  "readMaps": [
+    "  CT_TAIL_CALL_BUFFER6"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *dst_id"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_ipv6_from_lxc(struct __ctx_buff *ctx, __u32 *dst_id)
@@ -634,19 +815,74 @@ encrypt_to_stack:
 declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_CONT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 584,
- Endline: 603,
- Funcname: tail_handle_ipv6_cont,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &CUSTOM_CALLS_MAP",
+          "\t\t\t\t CUSTOM_CALLS_IDX_IPV6_EGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 584,
+  "endLine": 603,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_handle_ipv6_cont",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_ipv6_cont(struct __ctx_buff *ctx)
@@ -676,19 +912,41 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 609,
- Endline: 694,
- Funcname: __tail_handle_ipv6,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 609,
+  "endLine": 694,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "__tail_handle_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __tail_handle_ipv6(struct __ctx_buff *ctx)
@@ -781,19 +1039,41 @@ skip_service_lookup:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_LXC)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 697,
- Endline: 705,
- Funcname: tail_handle_ipv6,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 697,
+  "endLine": 705,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_handle_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_ipv6(struct __ctx_buff *ctx)
@@ -829,19 +1109,167 @@ struct {
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 728,
- Endline: 1157,
- Funcname: handle_ipv4_from_lxc,
- Input: (struct  __ctx_buff *ctx, __u32 *dst_id),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,map_lookup_elem,],
- Read_maps: [  CT_TAIL_CALL_BUFFER4,  VTEP_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tct_buffer ",
+        "inpVar": [
+          " &CT_TAIL_CALL_BUFFER4",
+          " &zero"
+        ]
+      },
+      {
+        "opVar": "\t\tvtep ",
+        "inpVar": [
+          " &VTEP_MAP",
+          " &vkey"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "\t#endif \t\tif ((ct_status ",
+        "inpVar": [
+          ""
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\t\treturn ctx__to_proxy4ctx",
+          " tuple",
+          " 0",
+          " false"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif !from_l7lb && _to_proxyverdict",
+          " ct_status "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx__to_proxy4ctx",
+          " tuple",
+          " proxy_port",
+          " false"
+        ]
+      },
+      {
+        "opVar": "\t\t\t\tret ",
+        "inpVar": [
+          " encap_and__lxcctx",
+          " egress_gw_policy->gateway_ip",
+          " encrypt_key",
+          "\t\t\t\t\t     &key",
+          " SECLABEL",
+          " &trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\treturn __encap_and__with_nodeidctx",
+          " vtep->tunnel_endpoint",
+          "\t\t\t\t\t\t\t\tSECLABEL",
+          " WORLD_ID",
+          " &trace"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " encap_and__lxcctx",
+          " tunnel_endpoint",
+          " encrypt_key",
+          "\t\t\t\t\t     &key",
+          " SECLABEL",
+          " &trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif \tif is_definedENABLE_HOST_ROUTING\t\treturn _direct_v4ctx",
+          " ETH_HLEN",
+          " ip4"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " HOST_IFINDEX",
+          " BPF_F_INGRESS"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t\tep_ctx",
+          " CILIUM_CALL_IPV4_NODEPORT_REVNAT"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &POLICY_CALL_MAP",
+          " HOST_EP_ID"
+        ]
+      }
+    ]
+  },
+  "startLine": 728,
+  "endLine": 1157,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "handle_ipv4_from_lxc",
+  "updateMaps": [],
+  "readMaps": [
+    "  VTEP_MAP",
+    "  CT_TAIL_CALL_BUFFER4"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 *dst_id"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int handle_ipv4_from_lxc(struct __ctx_buff *ctx, __u32 *dst_id)
@@ -1278,19 +1706,74 @@ encrypt_to_stack:
 declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_CONT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1160,
- Endline: 1179,
- Funcname: tail_handle_ipv4_cont,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &CUSTOM_CALLS_MAP",
+          "\t\t\t\t CUSTOM_CALLS_IDX_IPV4_EGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 1160,
+  "endLine": 1179,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_handle_ipv4_cont",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_ipv4_cont(struct __ctx_buff *ctx)
@@ -1320,19 +1803,41 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1185,
- Endline: 1256,
- Funcname: __tail_handle_ipv4,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1185,
+  "endLine": 1256,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "__tail_handle_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __tail_handle_ipv4(struct __ctx_buff *ctx)
@@ -1411,19 +1916,41 @@ skip_service_lookup:
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_LXC)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1259,
- Endline: 1267,
- Funcname: tail_handle_ipv4,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1259,
+  "endLine": 1267,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_handle_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_ipv4(struct __ctx_buff *ctx)
@@ -1444,19 +1971,41 @@ int tail_handle_ipv4(struct __ctx_buff *ctx)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1275,
- Endline: 1300,
- Funcname: tail_handle_arp,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 1275,
+  "endLine": 1300,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_handle_arp",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_handle_arp(struct __ctx_buff *ctx)
@@ -1494,19 +2043,87 @@ int tail_handle_arp(struct __ctx_buff *ctx)
 __section("from-container")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1308,
- Endline: 1358,
- Funcname: handle_xgress,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_LXC"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tep_ctx",
+          " CILIUM_CALL_IPV4_FROM_LXC"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#elif definedENABLE_ARP_RESPONDER\tcase bpf_htonsETH_P_ARP:\t\tep_ctx",
+          " CILIUM_CALL_ARP"
+        ]
+      }
+    ]
+  },
+  "startLine": 1308,
+  "endLine": 1358,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "handle_xgress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int handle_xgress(struct __ctx_buff *ctx)
@@ -1564,19 +2181,88 @@ out:
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1361,
- Endline: 1536,
- Funcname: ipv6_policy,
- Input: (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv6_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [  CT_TAIL_CALL_BUFFER6,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tct_buffer ",
+        "inpVar": [
+          " &CT_TAIL_CALL_BUFFER6",
+          " &zero"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "\t\tif ((ret ",
+        "inpVar": [
+          ""
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif _to_proxyverdict",
+          " *ct_status "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ifindex\t\treturn _epctx",
+          " ifindex",
+          " from_host"
+        ]
+      }
+    ]
+  },
+  "startLine": 1361,
+  "endLine": 1536,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "ipv6_policy",
+  "updateMaps": [],
+  "readMaps": [
+    "  CT_TAIL_CALL_BUFFER6"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int ifindex",
+    " __u32 src_label",
+    " enum ct_status *ct_status",
+    " struct ipv6_ct_tuple *tuple_out",
+    " __u16 *proxy_port",
+    " bool from_host __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -1760,19 +2446,89 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
 		    CILIUM_CALL_IPV6_TO_LXC_POLICY_ONLY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1540,
- Endline: 1581,
- Funcname: tail_ipv6_policy,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "\tbool proxy_redirect __maybe_unused ",
+        "inpVar": [
+          " false"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx__to_proxy6ctx",
+          " &tuple",
+          " proxy_port",
+          " from_host"
+        ]
+      },
+      {
+        "opVar": "\t\tproxy_redirect ",
+        "inpVar": [
+          " true"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ && !encode_custom_prog_metactx",
+          " ret",
+          " src_label "
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &CUSTOM_CALLS_MAP",
+          "\t\t\t\t CUSTOM_CALLS_IDX_IPV6_INGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 1540,
+  "endLine": 1581,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_ipv6_policy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_ipv6_policy(struct __ctx_buff *ctx)
@@ -1821,19 +2577,87 @@ int tail_ipv6_policy(struct __ctx_buff *ctx)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1584,
- Endline: 1659,
- Funcname: tail_ipv6_to_endpoint,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "\tbool proxy_redirect __maybe_unused ",
+        "inpVar": [
+          " false"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx__to_proxy_hairpin_ipv6ctx",
+          " proxy_port"
+        ]
+      },
+      {
+        "opVar": "\t\tproxy_redirect ",
+        "inpVar": [
+          " true"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ &&\t    !encode_custom_prog_metactx",
+          " ret",
+          " src_identity "
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &CUSTOM_CALLS_MAP",
+          "\t\t\t\t CUSTOM_CALLS_IDX_IPV6_INGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 1584,
+  "endLine": 1659,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_ipv6_to_endpoint",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_ipv6_to_endpoint(struct __ctx_buff *ctx)
@@ -1925,19 +2749,88 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1671,
- Endline: 1879,
- Funcname: ipv4_policy,
- Input: (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv4_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [  CT_TAIL_CALL_BUFFER4,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "#endif\tct_buffer ",
+        "inpVar": [
+          " &CT_TAIL_CALL_BUFFER4",
+          " &zero"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "\tif ((ret ",
+        "inpVar": [
+          ""
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif _to_proxyverdict",
+          " *ct_status "
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ifindex\t\treturn _epctx",
+          " ifindex",
+          " from_host"
+        ]
+      }
+    ]
+  },
+  "startLine": 1671,
+  "endLine": 1879,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "ipv4_policy",
+  "updateMaps": [],
+  "readMaps": [
+    "  CT_TAIL_CALL_BUFFER4"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int ifindex",
+    " __u32 src_label",
+    " enum ct_status *ct_status",
+    " struct ipv4_ct_tuple *tuple_out",
+    " __u16 *proxy_port",
+    " bool from_host __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -2154,19 +3047,89 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
 		    CILIUM_CALL_IPV4_TO_LXC_POLICY_ONLY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1883,
- Endline: 1924,
- Funcname: tail_ipv4_policy,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "\tbool proxy_redirect __maybe_unused ",
+        "inpVar": [
+          " false"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx__to_proxy4ctx",
+          " &tuple",
+          " proxy_port",
+          " from_host"
+        ]
+      },
+      {
+        "opVar": "\t\tproxy_redirect ",
+        "inpVar": [
+          " true"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ && !encode_custom_prog_metactx",
+          " ret",
+          " src_label "
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &CUSTOM_CALLS_MAP",
+          "\t\t\t\t CUSTOM_CALLS_IDX_IPV4_INGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 1883,
+  "endLine": 1924,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_ipv4_policy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_ipv4_policy(struct __ctx_buff *ctx)
@@ -2215,19 +3178,87 @@ int tail_ipv4_policy(struct __ctx_buff *ctx)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 1927,
- Endline: 2001,
- Funcname: tail_ipv4_to_endpoint,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "\tbool proxy_redirect __maybe_unused ",
+        "inpVar": [
+          " false"
+        ]
+      },
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx__to_proxy_hairpin_ipv4ctx",
+          " proxy_port"
+        ]
+      },
+      {
+        "opVar": "\t\tproxy_redirect ",
+        "inpVar": [
+          " true"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ &&\t    !encode_custom_prog_metactx",
+          " ret",
+          " src_identity "
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &CUSTOM_CALLS_MAP",
+          "\t\t\t\t CUSTOM_CALLS_IDX_IPV4_INGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 1927,
+  "endLine": 2001,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "tail_ipv4_to_endpoint",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_ipv4_to_endpoint(struct __ctx_buff *ctx)
@@ -2329,19 +3360,41 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_INGRESS, tail_ipv4_ct_ingress, CT_INGRESS,
 __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 2024,
- Endline: 2061,
- Funcname: handle_policy,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 2024,
+  "endLine": 2061,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "handle_policy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int handle_policy(struct __ctx_buff *ctx)
@@ -2394,19 +3447,80 @@ out:
 __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 2072,
- Endline: 2113,
- Funcname: handle_policy_egress,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_IPV6\tcase bpf_htonsETH_P_IPV6:\t\tep_ctx",
+          " CILIUM_CALL_IPV6_FROM_LXC"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif #ifdef ENABLE_IPV4\tcase bpf_htonsETH_P_IP:\t\tep_ctx",
+          " CILIUM_CALL_IPV4_FROM_LXC"
+        ]
+      }
+    ]
+  },
+  "startLine": 2072,
+  "endLine": 2113,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "handle_policy_egress",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int handle_policy_egress(struct __ctx_buff *ctx)
@@ -2459,19 +3573,96 @@ out:
 __section("to-container")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c,
- Startline: 2120,
- Endline: 2195,
- Funcname: handle_to_container,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_dynamicctx",
+          " &POLICY_EGRESSCALL_MAP",
+          " identity"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\t_staticctx",
+          " &POLICY_CALL_MAP",
+          " HOST_EP_ID"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif#ifdef ENABLE_IPV6\tcase bpf_htonsETH_P_IPV6:\t\tep_ctx",
+          " CILIUM_CALL_IPV6_CT_INGRESS"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif #ifdef ENABLE_IPV4\tcase bpf_htonsETH_P_IP:\t\tep_ctx",
+          " CILIUM_CALL_IPV4_CT_INGRESS"
+        ]
+      }
+    ]
+  },
+  "startLine": 2120,
+  "endLine": 2195,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
+  "funcName": "handle_to_container",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int handle_to_container(struct __ctx_buff *ctx)

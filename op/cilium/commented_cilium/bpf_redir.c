@@ -24,19 +24,42 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c,
- Startline: 25,
- Endline: 39,
- Funcname: sk_msg_extract4_key,
- Input: (const struct sk_msg_md *msg, struct sock_key *key),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 25,
+  "endLine": 39,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
+  "funcName": "sk_msg_extract4_key",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct sk_msg_md *msg",
+    " struct sock_key *key"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void sk_msg_extract4_key(const struct sk_msg_md *msg,
@@ -58,19 +81,55 @@ static __always_inline void sk_msg_extract4_key(const struct sk_msg_md *msg,
 __section("sk_msg")
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c,
- Startline: 42,
- Endline: 67,
- Funcname: bpf_redir_proxy,
- Input: (struct sk_msg_md *msg),
- Output: int,
- Helpers: [msg_redirect_hash,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "msg_redirect_hash": [
+      {
+        "opVar": "\tif (verdict >",
+        "inpVar": [
+          " 0\t\tmsg",
+          " &SOCK_OPS_MAP",
+          " &key",
+          " flags"
+        ]
+      }
+    ]
+  },
+  "startLine": 42,
+  "endLine": 67,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
+  "funcName": "bpf_redir_proxy",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct sk_msg_md *msg"
+  ],
+  "output": "int",
+  "helper": [
+    "msg_redirect_hash"
+  ],
+  "compatibleHookpoints": [
+    "sk_msg"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int bpf_redir_proxy(struct sk_msg_md *msg)

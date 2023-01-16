@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/encap_helpers.h" funcheader="static inline void create_v4_hdr (struct iphdr *iph, __u8 tos, __u32 saddr, __u32 daddr, __u16 pkt_bytes, __u8 proto)" startline="31" endline="55">
+<source file="/root/examples/katran/encap_helpers.h" funcheader="static inline void create_v4_hdr (struct iphdr *iph, __u8 tos, __u32 saddr, __u32 daddr, __u16 pkt_bytes, __u8 proto)" startline="31" endline="55">
 static inline void create_v4_hdr (struct iphdr *iph, __u8 tos, __u32 saddr, __u32 daddr, __u16 pkt_bytes, __u8 proto)
 {
     __u64 csum = 0;
@@ -25,7 +25,7 @@ static inline void create_v4_hdr (struct iphdr *iph, __u8 tos, __u32 saddr, __u3
     iph->check = csum;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/encap_helpers.h" funcheader="static inline void create_v6_hdr (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, __u32 *daddr, __u16 payload_len, __u8 proto)" startline="57" endline="77">
+<source file="/root/examples/katran/encap_helpers.h" funcheader="static inline void create_v6_hdr (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, __u32 *daddr, __u16 payload_len, __u8 proto)" startline="57" endline="77">
 static inline void create_v6_hdr (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, __u32 *daddr, __u16 payload_len, __u8 proto)
 {
     ip6h->version = 6;
@@ -46,7 +46,7 @@ static inline void create_v6_hdr (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, _
     memcpy (ip6h->daddr.s6_addr32, daddr, 16);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/encap_helpers.h" funcheader="static inline void create_udp_hdr (struct udphdr *udph, __u16 sport, __u16 dport, __u16 len, __u16 csum)" startline="79" endline="89">
+<source file="/root/examples/katran/encap_helpers.h" funcheader="static inline void create_udp_hdr (struct udphdr *udph, __u16 sport, __u16 dport, __u16 len, __u16 csum)" startline="79" endline="89">
 static inline void create_udp_hdr (struct udphdr *udph, __u16 sport, __u16 dport, __u16 len, __u16 csum)
 {
     udph->source = sport;

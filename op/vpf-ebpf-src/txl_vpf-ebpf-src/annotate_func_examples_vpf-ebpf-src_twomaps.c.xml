@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twomaps.c" funcheader="int func (struct ctx *ctx)" startline="36" endline="48">
+<source file="/root/examples/vpf-ebpf-src/twomaps.c" funcheader="int func (struct ctx *ctx)" startline="36" endline="48">
 int func (struct ctx *ctx)
 {
     uint32_t rand32 = get_prandom_u32 ();

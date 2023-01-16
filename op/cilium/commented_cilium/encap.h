@@ -17,19 +17,61 @@
 #ifdef ENABLE_IPSEC
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 18,
- Endline: 40,
- Funcname: encap_and_redirect_nomark_ipsec,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__nomark_ipsecstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t\t__u8 key",
+          " __u32 seclabel"
+        ]
+      }
+    ]
+  },
+  "startLine": 18,
+  "endLine": 40,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "encap_and_redirect_nomark_ipsec",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_endpoint",
+    " __u8 key",
+    " __u32 seclabel"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -58,19 +100,61 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 42,
- Endline: 57,
- Funcname: encap_and_redirect_ipsec,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__ipsecstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t __u8 key",
+          " __u32 seclabel"
+        ]
+      }
+    ]
+  },
+  "startLine": 42,
+  "endLine": 57,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "encap_and_redirect_ipsec",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_endpoint",
+    " __u8 key",
+    " __u32 seclabel"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -93,19 +177,63 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 60,
- Endline: 117,
- Funcname: encap_remap_v6_host_address,
- Input: (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " which",
+          " 16",
+          " &host_ip",
+          " 16",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 60,
+  "endLine": 117,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "encap_remap_v6_host_address",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " const bool egress __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -169,19 +297,46 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 119,
- Endline: 154,
- Funcname: __encap_with_nodeid,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 119,
+  "endLine": 154,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "__encap_with_nodeid",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_endpoint",
+    " __u32 seclabel",
+    " __u32 vni __maybe_unused",
+    " enum trace_reason ct_reason",
+    " __u32 monitor"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -223,19 +378,71 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 156,
- Endline: 167,
- Funcname: __encap_and_redirect_with_nodeid,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "__encap_and__with_nodeidstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t\t __u32 seclabel",
+          " __u32 vni",
+          "\t\t\t\t const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ENCAP_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 156,
+  "endLine": 167,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "__encap_and_redirect_with_nodeid",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_endpoint",
+    " __u32 seclabel",
+    " __u32 vni",
+    " const struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -258,19 +465,82 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 174,
- Endline: 185,
- Funcname: encap_and_redirect_with_nodeid,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__with_nodeidstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t       __u8 key __maybe_unused",
+          " __u32 seclabel",
+          "\t\t\t       const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_IPSEC\tif key\t\treturn encap_and__nomark_ipsecctx",
+          " tunnel_endpoint",
+          " key",
+          " seclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif\treturn __encap_and__with_nodeidctx",
+          " tunnel_endpoint",
+          " seclabel",
+          " NOT_VTEP_DST",
+          "\t\t\t\t\t\ttrace"
+        ]
+      }
+    ]
+  },
+  "startLine": 174,
+  "endLine": 185,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "encap_and_redirect_with_nodeid",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_endpoint",
+    " __u8 key __maybe_unused",
+    " __u32 seclabel",
+    " const struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -298,19 +568,115 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 197,
- Endline: 242,
- Funcname: encap_and_redirect_lxc,
- Input: (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [  TUNNEL_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__lxcstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t       __u8 encrypt_key __maybe_unused",
+          "\t\t       struct endpoint_key *key",
+          " __u32 seclabel",
+          "\t\t       const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_IPSEC\t\tif encrypt_key\t\t\treturn encap_and__ipsecctx",
+          " tunnel_endpoint",
+          "\t\t\t\t\t\t\tencrypt_key",
+          " seclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#else\t\treturn __encap_and__with_nodeidctx",
+          " tunnel_endpoint",
+          "\t\t\t\t\t\t\tseclabel",
+          " NOT_VTEP_DST",
+          " trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn encap_and__ipsecctx",
+          " tunnel->ip4",
+          "\t\t\t\t\t\tmin_encrypt_key",
+          "\t\t\t\t\t\tseclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif\treturn __encap_and__with_nodeidctx",
+          " tunnel->ip4",
+          " seclabel",
+          "\t\t\t\t\t\tNOT_VTEP_DST",
+          " trace"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "#endif \t\ttunnel ",
+        "inpVar": [
+          " &TUNNEL_MAP",
+          " key"
+        ]
+      }
+    ]
+  },
+  "startLine": 197,
+  "endLine": 242,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "encap_and_redirect_lxc",
+  "updateMaps": [],
+  "readMaps": [
+    "  TUNNEL_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 tunnel_endpoint",
+    " __u8 encrypt_key __maybe_unused",
+    " struct endpoint_key *key",
+    " __u32 seclabel",
+    " const struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -362,19 +728,92 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/encap.h,
- Startline: 244,
- Endline: 264,
- Funcname: encap_and_redirect_netdev,
- Input: (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace),
- Output: static__always_inlineint,
- Helpers: [redirect,map_lookup_elem,],
- Read_maps: [  TUNNEL_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__netdevstruct __ctx_buff *ctx",
+          " struct endpoint_key *k",
+          "\t\t\t  __u32 seclabel",
+          " const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn encap_and__nomark_ipsecctx",
+          " tunnel->ip4",
+          "\t\t\t\t\t\t       key",
+          " seclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif\treturn __encap_and__with_nodeidctx",
+          " tunnel->ip4",
+          " seclabel",
+          "\t\t\t\t\t\tNOT_VTEP_DST",
+          " trace"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\ttunnel ",
+        "inpVar": [
+          " &TUNNEL_MAP",
+          " k"
+        ]
+      }
+    ]
+  },
+  "startLine": 244,
+  "endLine": 264,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
+  "funcName": "encap_and_redirect_netdev",
+  "updateMaps": [],
+  "readMaps": [
+    "  TUNNEL_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " struct endpoint_key *k",
+    " __u32 seclabel",
+    " const struct trace_ctx *trace"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

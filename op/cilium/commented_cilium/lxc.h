@@ -21,19 +21,41 @@
 #ifndef DISABLE_SIP_VERIFICATION
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
- Startline: 22,
- Endline: 34,
- Funcname: is_valid_lxc_src_ip,
- Input: (struct ipv6hdr * ip6 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 22,
+  "endLine": 34,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "funcName": "is_valid_lxc_src_ip",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv6hdr * ip6 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -52,19 +74,41 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
- Startline: 36,
- Endline: 45,
- Funcname: is_valid_lxc_src_ipv4,
- Input: (const struct iphdr * ip4 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 36,
+  "endLine": 45,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "funcName": "is_valid_lxc_src_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct iphdr * ip4 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -80,19 +124,41 @@ int is_valid_lxc_src_ipv4(const struct iphdr *ip4 __maybe_unused)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
- Startline: 47,
- Endline: 51,
- Funcname: is_valid_lxc_src_ip,
- Input: (struct ipv6hdr * ip6 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 47,
+  "endLine": 51,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "funcName": "is_valid_lxc_src_ip",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct ipv6hdr * ip6 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline
@@ -103,19 +169,41 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/lxc.h,
- Startline: 53,
- Endline: 57,
- Funcname: is_valid_lxc_src_ipv4,
- Input: (struct iphdr * ip4 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 53,
+  "endLine": 57,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "funcName": "is_valid_lxc_src_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct iphdr * ip4 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline

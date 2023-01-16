@@ -12,6 +12,7 @@ import summarizer as sm
 import argparse
 import json
 from collections import defaultdict
+from tinydb import TinyDB
 
 def check_if_cmd_available():
     commands = ['txl', 'cscope', 'ctags', 'cqmakedb']
@@ -115,7 +116,7 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium):
             fn_def['startLine'] = str(startLine)
             fn_def['endLine'] = str(endLine)
             fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
-            print(fn_def)
+            #print(fn_def)
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
@@ -140,7 +141,7 @@ def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_di
         op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/c-extract-functions.txl")
         op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/c-extract-struct.txl")
         func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict, isCilium)
-        print(func_file_def_dict)
+        #print(func_file_def_dict)
         map_file_def_dict = parseTXLStructOutputFile(opfile_struct_annotate, map_file_def_dict)
         txl_dict_func_file[full_line] = opfile_function_annotate
     return func_file_def_dict, txl_dict_func_file, map_file_def_dict
@@ -149,7 +150,7 @@ def create_cqmakedb(db_file, cscope_file, tags_folder):
     run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
     return
    
-def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
+def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium,comments_db):
     if(isCilium == False):
         map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
         map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
@@ -157,11 +158,11 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium):
         map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
         map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
-    helperdict = cmt.load_bpf_helper_map(bpf_helper_file)  
+    helperdict = sm.load_bpf_helper_map(bpf_helper_file)  
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')
-        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium)
+        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db)
         xmlFile.close()
     return
 
@@ -257,6 +258,7 @@ if __name__ == "__main__":
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
     db_file = repo_name +".db"
+
     
     txl_func_list = repo_name+".function_file_list.json"
     if(args.txl_function_list is not None):
@@ -285,13 +287,15 @@ if __name__ == "__main__":
     txl_dict_func = defaultdict(list)
     txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct, isCilium)
     if (cmt_op_dir is not None):
+        comments_db_file = cmt_op_dir+"/"+ repo_name+"_comments.db"
+        comments_db = TinyDB(comments_db_file)
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
         else:
             if(isCilium == True):
-                print("Warning: bpf_helper_file not specified using default asset/helper_hookpoint_map.json\n")
+                print("Warning: bpf_helper_file not specified using default asset/cilium.helper_hookpoint_map.json\n")
                 bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
-        create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium)
+        create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium,comments_db)
     else:
         print("no comment file found!")
     # run code query to generate annotated function call graph

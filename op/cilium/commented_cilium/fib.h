@@ -13,19 +13,93 @@
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/fib.h,
- Startline: 14,
- Endline: 66,
- Funcname: redirect_direct_v6,
- Input: (struct  __ctx_buff * ctx __maybe_unused, int l3_off __maybe_unused, struct ipv6hdr * ip6 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,fib_lookup,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_direct_v6struct __ctx_buff *ctx __maybe_unused",
+          "\t\t   int l3_off __maybe_unused",
+          "\t\t   struct ipv6hdr *ip6 __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif no_neigh\t\treturn _neighoif",
+          " nh",
+          " nh ? sizeof*nh : 0",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " oif",
+          " 0"
+        ]
+      }
+    ],
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params",
+          " sizeoffib_params",
+          "\t\t\t BPF_FIB_LOOKUP_DIRECT"
+        ]
+      }
+    ]
+  },
+  "startLine": 14,
+  "endLine": 66,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
+  "funcName": "redirect_direct_v6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " int l3_off __maybe_unused",
+    " struct ipv6hdr * ip6 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "fib_lookup"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -86,19 +160,93 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/fib.h,
- Startline: 70,
- Endline: 126,
- Funcname: redirect_direct_v4,
- Input: (struct  __ctx_buff * ctx __maybe_unused, int l3_off __maybe_unused, struct iphdr * ip4 __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [redirect,fib_lookup,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_direct_v4struct __ctx_buff *ctx __maybe_unused",
+          "\t\t   int l3_off __maybe_unused",
+          "\t\t   struct iphdr *ip4 __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif no_neigh\t\treturn _neighoif",
+          " nh",
+          " nh ? sizeof*nh : 0",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " oif",
+          " 0"
+        ]
+      }
+    ],
+    "fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup fib_params ",
+        "inpVar": [
+          " "
+        ]
+      },
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params",
+          " sizeoffib_params",
+          "\t\t\t BPF_FIB_LOOKUP_DIRECT"
+        ]
+      }
+    ]
+  },
+  "startLine": 70,
+  "endLine": 126,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
+  "funcName": "redirect_direct_v4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " int l3_off __maybe_unused",
+    " struct iphdr * ip4 __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "fib_lookup"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

@@ -11,19 +11,77 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 12,
- Endline: 21,
- Funcname: *__lookup_ip6_endpoint,
- Input: (const union v6addr *ip6),
- Output: static__always_inline__maybe_unusedstructendpoint_info,
- Helpers: [map_lookup_elem,],
- Read_maps: [ ENDPOINTS_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &ENDPOINTS_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 12,
+  "endLine": 21,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*__lookup_ip6_endpoint",
+  "updateMaps": [],
+  "readMaps": [
+    " ENDPOINTS_MAP"
+  ],
+  "input": [
+    "const union v6addr *ip6"
+  ],
+  "output": "static__always_inline__maybe_unusedstructendpoint_info",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct endpoint_info *
@@ -39,19 +97,41 @@ __lookup_ip6_endpoint(const union v6addr *ip6)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 23,
- Endline: 27,
- Funcname: *lookup_ip6_endpoint,
- Input: (const struct ipv6hdr *ip6),
- Output: static__always_inline__maybe_unusedstructendpoint_info,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 23,
+  "endLine": 27,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*lookup_ip6_endpoint",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct ipv6hdr *ip6"
+  ],
+  "output": "static__always_inline__maybe_unusedstructendpoint_info",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct endpoint_info *
@@ -62,19 +142,77 @@ lookup_ip6_endpoint(const struct ipv6hdr *ip6)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 29,
- Endline: 38,
- Funcname: *__lookup_ip4_endpoint,
- Input: (__u32 ip),
- Output: static__always_inline__maybe_unusedstructendpoint_info,
- Helpers: [map_lookup_elem,],
- Read_maps: [ ENDPOINTS_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &ENDPOINTS_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 29,
+  "endLine": 38,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*__lookup_ip4_endpoint",
+  "updateMaps": [],
+  "readMaps": [
+    " ENDPOINTS_MAP"
+  ],
+  "input": [
+    "__u32 ip"
+  ],
+  "output": "static__always_inline__maybe_unusedstructendpoint_info",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct endpoint_info *
@@ -90,19 +228,41 @@ __lookup_ip4_endpoint(__u32 ip)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 40,
- Endline: 44,
- Funcname: *lookup_ip4_endpoint,
- Input: (const struct iphdr *ip4),
- Output: static__always_inline__maybe_unusedstructendpoint_info,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 40,
+  "endLine": 44,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*lookup_ip4_endpoint",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct iphdr *ip4"
+  ],
+  "output": "static__always_inline__maybe_unusedstructendpoint_info",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct endpoint_info *
@@ -114,19 +274,77 @@ lookup_ip4_endpoint(const struct iphdr *ip4)
 #ifdef SOCKMAP
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 47,
- Endline: 56,
- Funcname: *lookup_ip4_endpoint_policy_map,
- Input: (__u32 ip),
- Output: static__always_inlinevoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ EP_POLICY_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &EP_POLICY_MAP",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 47,
+  "endLine": 56,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*lookup_ip4_endpoint_policy_map",
+  "updateMaps": [],
+  "readMaps": [
+    " EP_POLICY_MAP"
+  ],
+  "input": [
+    "__u32 ip"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void *
@@ -151,19 +369,79 @@ lookup_ip4_endpoint_policy_map(__u32 ip)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 67,
- Endline: 78,
- Funcname: *ipcache_lookup6,
- Input: (const void *map, const union v6addr *addr, __u32 prefix),
- Output: static__always_inline__maybe_unusedstructremote_endpoint_info,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn map",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 67,
+  "endLine": 78,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*ipcache_lookup6",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " const union v6addr *addr",
+    " __u32 prefix"
+  ],
+  "output": "static__always_inline__maybe_unusedstructremote_endpoint_info",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct remote_endpoint_info *
@@ -183,19 +461,79 @@ ipcache_lookup6(const void *map, const union v6addr *addr,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/eps.h,
- Startline: 82,
- Endline: 92,
- Funcname: *ipcache_lookup4,
- Input: (const void *map, __be32 addr, __u32 prefix),
- Output: static__always_inline__maybe_unusedstructremote_endpoint_info,
- Helpers: [map_lookup_elem,],
- Read_maps: [ map,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn map",
+          " &key"
+        ]
+      }
+    ]
+  },
+  "startLine": 82,
+  "endLine": 92,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "funcName": "*ipcache_lookup4",
+  "updateMaps": [],
+  "readMaps": [
+    " map"
+  ],
+  "input": [
+    "const void *map",
+    " __be32 addr",
+    " __u32 prefix"
+  ],
+  "output": "static__always_inline__maybe_unusedstructremote_endpoint_info",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused struct remote_endpoint_info *

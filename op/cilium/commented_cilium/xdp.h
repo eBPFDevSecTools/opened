@@ -33,19 +33,44 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 34,
- Endline: 60,
- Funcname: xdp_load_bytes,
- Input: (const struct xdp_md *ctx, __u64 off, void *to, const __u64 len),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 34,
+  "endLine": 60,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "xdp_load_bytes",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx",
+    " __u64 off",
+    " void *to",
+    " const __u64 len"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -78,19 +103,45 @@ xdp_load_bytes(const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 62,
- Endline: 86,
- Funcname: xdp_store_bytes,
- Input: (const struct xdp_md *ctx, __u64 off, const void *from, const __u64 len, __u64 flags __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 62,
+  "endLine": 86,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "xdp_store_bytes",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx",
+    " __u64 off",
+    " const void *from",
+    " const __u64 len",
+    " __u64 flags __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -143,19 +194,42 @@ xdp_store_bytes(const struct xdp_md *ctx, __u64 off, const void *from,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 110,
- Endline: 114,
- Funcname: __csum_replace_by_diff,
- Input: (__sum16 *sum, __wsum diff),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 110,
+  "endLine": 114,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "__csum_replace_by_diff",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__sum16 *sum",
+    " __wsum diff"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -166,19 +240,43 @@ __csum_replace_by_diff(__sum16 *sum, __wsum diff)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 116,
- Endline: 120,
- Funcname: __csum_replace_by_4,
- Input: (__sum16 *sum, __wsum from, __wsum to),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 116,
+  "endLine": 120,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "__csum_replace_by_4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "__sum16 *sum",
+    " __wsum from",
+    " __wsum to"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -189,19 +287,62 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 122,
- Endline: 154,
- Funcname: l3_csum_replace,
- Input: (const struct xdp_md *ctx, __u64 off, const __u32 from, __u32 to, __u32 flags),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [l3_csum_replace,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "const struct xdp_md *ctx",
+          " __u64 off",
+          " const __u32 from",
+          "\t\t__u32 to",
+          "\t\t__u32 flags"
+        ]
+      }
+    ]
+  },
+  "startLine": 122,
+  "endLine": 154,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "l3_csum_replace",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx",
+    " __u64 off",
+    " const __u32 from",
+    " __u32 to",
+    " __u32 flags"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "l3_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -242,19 +383,62 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 158,
- Endline: 196,
- Funcname: l4_csum_replace,
- Input: (const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to, __u32 flags),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [l4_csum_replace,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "const struct xdp_md *ctx",
+          " __u64 off",
+          " __u32 from",
+          " __u32 to",
+          "\t\t__u32 flags"
+        ]
+      }
+    ]
+  },
+  "startLine": 158,
+  "endLine": 196,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "l4_csum_replace",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx",
+    " __u64 off",
+    " __u32 from",
+    " __u32 to",
+    " __u32 flags"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "l4_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -299,19 +483,55 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 198,
- Endline: 234,
- Funcname: ctx_change_proto,
- Input: (struct xdp_md * ctx __maybe_unused, const __be16 proto __maybe_unused, const __u64 flags __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "xdp_adjust_head": [
+      {
+        "opVar": "\t\tret ",
+        "inpVar": [
+          " ctx",
+          " -len_diff"
+        ]
+      }
+    ]
+  },
+  "startLine": 198,
+  "endLine": 234,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_change_proto",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " const __be16 proto __maybe_unused",
+    " const __u64 flags __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -354,19 +574,54 @@ ctx_change_proto(struct xdp_md *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 236,
- Endline: 240,
- Funcname: ctx_adjust_troom,
- Input: (struct xdp_md *ctx, const __s32 len_diff),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [xdp_adjust_tail,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "xdp_adjust_tail": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx",
+          " len_diff"
+        ]
+      }
+    ]
+  },
+  "startLine": 236,
+  "endLine": 240,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_adjust_troom",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md *ctx",
+    " const __s32 len_diff"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "xdp_adjust_tail"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -377,19 +632,56 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 242,
- Endline: 289,
- Funcname: ctx_adjust_hroom,
- Input: (struct xdp_md *ctx, const __s32 len_diff, const __u32 mode, const __u64 flags __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [xdp_adjust_head,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "xdp_adjust_head": [
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " -len_diff"
+        ]
+      }
+    ]
+  },
+  "startLine": 242,
+  "endLine": 289,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_adjust_hroom",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct xdp_md *ctx",
+    " const __s32 len_diff",
+    " const __u32 mode",
+    " const __u64 flags __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "xdp_adjust_head"
+  ],
+  "compatibleHookpoints": [
+    "xdp"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -443,19 +735,66 @@ ctx_adjust_hroom(struct xdp_md *ctx, const __s32 len_diff, const __u32 mode,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 291,
- Endline: 298,
- Funcname: ctx_redirect,
- Input: (const struct xdp_md *ctx, int ifindex, const __u32 flags),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx_const struct xdp_md *ctx",
+          " int ifindex",
+          " const __u32 flags"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ifindex",
+          " flags"
+        ]
+      }
+    ]
+  },
+  "startLine": 291,
+  "endLine": 298,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_redirect",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx",
+    " int ifindex",
+    " const __u32 flags"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -469,19 +808,59 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 300,
- Endline: 307,
- Funcname: ctx_redirect_peer,
- Input: (const struct xdp_md * ctx __maybe_unused, int ifindex __maybe_unused, const __u32 flags __maybe_unused),
- Output: static__always_inline__maybe_unusedint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__peerconst struct xdp_md *ctx __maybe_unused",
+          "\t\t  int ifindex __maybe_unused",
+          "\t\t  const __u32 flags __maybe_unused"
+        ]
+      }
+    ]
+  },
+  "startLine": 300,
+  "endLine": 307,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_redirect_peer",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md * ctx __maybe_unused",
+    " int ifindex __maybe_unused",
+    " const __u32 flags __maybe_unused"
+  ],
+  "output": "static__always_inline__maybe_unusedint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused int
@@ -495,19 +874,41 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 309,
- Endline: 314,
- Funcname: ctx_full_len,
- Input: (const struct xdp_md *ctx),
- Output: static__always_inline__maybe_unused__u64,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 309,
+  "endLine": 314,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_full_len",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u64",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u64
@@ -519,19 +920,41 @@ ctx_full_len(const struct xdp_md *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 316,
- Endline: 320,
- Funcname: ctx_wire_len,
- Input: (const struct xdp_md *ctx),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 316,
+  "endLine": 320,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_wire_len",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32
@@ -550,19 +973,79 @@ struct {
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 330,
- Endline: 338,
- Funcname: ctx_store_meta,
- Input: (struct xdp_md * ctx __maybe_unused, const __u64 off, __u32 datum),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [map_lookup_elem,],
- Read_maps: [ cilium_xdp_scratch,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t__u32 zero ",
+        "inpVar": [
+          " 0",
+          " *data_meta "
+        ]
+      }
+    ]
+  },
+  "startLine": 330,
+  "endLine": 338,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_store_meta",
+  "updateMaps": [],
+  "readMaps": [
+    " cilium_xdp_scratch"
+  ],
+  "input": [
+    "struct xdp_md * ctx __maybe_unused",
+    " const __u64 off",
+    " __u32 datum"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -577,19 +1060,78 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 340,
- Endline: 349,
- Funcname: ctx_load_meta,
- Input: (const struct xdp_md * ctx __maybe_unused, const __u64 off),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [map_lookup_elem,],
- Read_maps: [ cilium_xdp_scratch,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t__u32 zero ",
+        "inpVar": [
+          " 0",
+          " *data_meta "
+        ]
+      }
+    ]
+  },
+  "startLine": 340,
+  "endLine": 349,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_load_meta",
+  "updateMaps": [],
+  "readMaps": [
+    " cilium_xdp_scratch"
+  ],
+  "input": [
+    "const struct xdp_md * ctx __maybe_unused",
+    " const __u64 off"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32
@@ -605,19 +1147,41 @@ ctx_load_meta(const struct xdp_md *ctx __maybe_unused, const __u64 off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 351,
- Endline: 361,
- Funcname: ctx_get_protocol,
- Input: (const struct xdp_md *ctx),
- Output: static__always_inline__maybe_unused__u16,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 351,
+  "endLine": 361,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_get_protocol",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u16",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u16
@@ -634,19 +1198,41 @@ ctx_get_protocol(const struct xdp_md *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h,
- Startline: 363,
- Endline: 367,
- Funcname: ctx_get_ifindex,
- Input: (const struct xdp_md *ctx),
- Output: static__always_inline__maybe_unused__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 363,
+  "endLine": 367,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "funcName": "ctx_get_ifindex",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct xdp_md *ctx"
+  ],
+  "output": "static__always_inline__maybe_unused__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused __u32

@@ -8,6 +8,13 @@ import json
 import summarizer as smt
 import argparse
 from collections import defaultdict
+from tinydb import TinyDB
+
+def insert_to_db(db,comment_dict):
+    comment_json = json.dumps(comment_dict)
+    print("Inserting comments to DB: "+ comment_json )
+    db.insert(comment_dict)
+
 
 def dump_comment(fname,startLineDict, ofname):
     if fname  == "":
@@ -20,7 +27,7 @@ def dump_comment(fname,startLineDict, ofname):
     for line in ifile.readlines():
         ct=ct + 1
         if ct in startLineDict:
-            ofile.write(startLineDict.get(ct))
+            ofile.write(startLineDict.get(ct))    
         ofile.write(line)
     ofile.flush()
     ofile.close()
@@ -28,12 +35,11 @@ def dump_comment(fname,startLineDict, ofname):
 
 
 def generate_comment(capability_dict):
-    comment="/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
-    return comment
+    return "/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -48,22 +54,18 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcSeen = False;
             #dump to file
             #print(lines)
-            encoding = smt.get_helper_list(lines,helperdict)
-            hookpoints = smt.get_compatible_hookpoints(encoding, helperdict)
-            read_maps= smt.get_read_maps(lines, map_read_fn)
-            update_maps= smt.get_update_maps(lines, map_update_fn)
             #print("funcName: ",funcName," srcFile: ",srcFile)
             capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
             capability_dict['funcName'] = funcName
-            capability_dict['updateMaps'] = update_maps
-            capability_dict['readMaps'] = read_maps
+            capability_dict['updateMaps'] = smt.get_update_maps(lines, map_update_fn)
+            capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)
             capability_dict['input'] = funcArgs.split(',')
             capability_dict['output'] = output
-            capability_dict['helper'] = encoding
-            capability_dict['compatibleHookpoints']
+            capability_dict['helper'] = smt.get_helper_list(lines,helperdict)
+            capability_dict['compatibleHookpoints'] = smt.get_compatible_hookpoints(capability_dict['helper'] , helperdict)
             func_desc_list = []
             empty_desc = {}
             empty_desc['description'] = ""
@@ -84,6 +86,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['AI_func_description'] = ai_func_desc_list
             #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
             comment = generate_comment(capability_dict)
+            insert_to_db(comments_db,capability_dict)
             #dump_comment(srcFile,startLine,comment)
             
             startLineDict[startLine] = comment
@@ -135,6 +138,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
         #print("Going to call dump_comment for: "+srcFile)
         #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
+
 
         
         #print("XML: ",inputFile," StartLineDict: ",startLineDict)

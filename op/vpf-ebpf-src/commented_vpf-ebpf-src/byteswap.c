@@ -12,24 +12,21 @@ struct ctx;
   "helperCallParams": {},
   "startLine": 8,
   "endLine": 26,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c",
-  "Funcname": "func",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/byteswap.c",
+  "funcName": "func",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct ctx *ctx"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -37,16 +34,12 @@ struct ctx;
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(struct ctx* ctx)

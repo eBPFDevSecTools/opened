@@ -42,19 +42,42 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 43,
- Endline: 49,
- Funcname: icmp6_load_type,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inline__u8,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 43,
+  "endLine": 49,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_load_type",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inline__u8",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
@@ -67,19 +90,101 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 51,
- Endline: 90,
- Funcname: icmp6_send_reply,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inlineint,
- Helpers: [l4_csum_replace,redirect,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " sip.addr",
+          " 16",
+          " router_ip.addr",
+          " 16",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "\tsum ",
+        "inpVar": [
+          " dip.addr",
+          " 16",
+          " sip.addr",
+          " 16",
+          " 0"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " csum_off",
+          " 0",
+          " sum",
+          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " csum_off",
+          " 0",
+          " sum",
+          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ],
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn _selfctx"
+        ]
+      }
+    ]
+  },
+  "startLine": 51,
+  "endLine": 90,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_send_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l4_csum_replace",
+    "csum_diff",
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
@@ -125,19 +230,72 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 92,
- Endline: 125,
- Funcname: __icmp6_send_echo_reply,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inlineint,
- Helpers: [l4_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " &icmp6hdr_old",
+          " sizeoficmp6hdr_old",
+          "\t\t\t&icmp6hdr",
+          " sizeoficmp6hdr",
+          " 0"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " csum_off",
+          " 0",
+          " sum",
+          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
+  "startLine": 92,
+  "endLine": 125,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "__icmp6_send_echo_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l4_csum_replace",
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __icmp6_send_echo_reply(struct __ctx_buff *ctx,
@@ -179,19 +337,41 @@ static __always_inline int __icmp6_send_echo_reply(struct __ctx_buff *ctx,
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 129,
- Endline: 139,
- Funcname: tail_icmp6_send_echo_reply,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 129,
+  "endLine": 139,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "tail_icmp6_send_echo_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
@@ -218,19 +398,75 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 151,
- Endline: 160,
- Funcname: icmp6_send_echo_reply,
- Input: (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction),
- Output: static__always_inlineint,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tep_ctx",
+          " CILIUM_CALL_SEND_ICMP6_ECHO_REPLY"
+        ]
+      }
+    ]
+  },
+  "startLine": 151,
+  "endLine": 160,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_send_echo_reply",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off",
+    " enum metric_dir direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
@@ -255,19 +491,94 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 171,
- Endline: 232,
- Funcname: send_icmp6_ndisc_adv,
- Input: (struct  __ctx_buff *ctx, int nh_off, union macaddr *mac, bool to_router),
- Output: static__always_inlineint,
- Helpers: [l4_csum_replace,csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " &icmp6hdr_old",
+          " sizeoficmp6hdr_old",
+          "\t\t\t&icmp6hdr",
+          " sizeoficmp6hdr",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " opts_old",
+          " sizeofopts_old",
+          " opts",
+          " sizeofopts",
+          " 0"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " csum_off",
+          " 0",
+          " sum",
+          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " csum_off",
+          " 0",
+          " sum",
+          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
+  "startLine": 171,
+  "endLine": 232,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "send_icmp6_ndisc_adv",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off",
+    " union macaddr *mac",
+    " bool to_router"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l4_csum_replace",
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
@@ -335,19 +646,64 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 234,
- Endline: 244,
- Funcname: compute_icmp6_csum,
- Input: (char data [80], __u16 payload_len, struct ipv6hdr *ipv6hdr),
- Output: static__always_inline__be32,
- Helpers: [csum_diff,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " NULL",
+          " 0",
+          " data",
+          " payload_len",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 234,
+  "endLine": 244,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "compute_icmp6_csum",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "char data [80]",
+    " __u16 payload_len",
+    " struct ipv6hdr *ipv6hdr"
+  ],
+  "output": "static__always_inline__be32",
+  "helper": [
+    "csum_diff"
+  ],
+  "compatibleHookpoints": [
+    "lwt_xmit",
+    "xdp",
+    "sched_cls",
+    "lwt_in",
+    "lwt_seg6local",
+    "lwt_out",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_len,
@@ -365,19 +721,59 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
 #ifdef BPF_HAVE_CHANGE_TAIL
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 247,
- Endline: 327,
- Funcname: __icmp6_send_time_exceeded,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inlineint,
- Helpers: [l4_csum_replace,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tif ctx",
+          " csum_off",
+          " 0",
+          " sum",
+          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
+  "startLine": 247,
+  "endLine": 327,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "__icmp6_send_time_exceeded",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "l4_csum_replace"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __icmp6_send_time_exceeded(struct __ctx_buff *ctx,
@@ -467,19 +863,41 @@ static __always_inline int __icmp6_send_time_exceeded(struct __ctx_buff *ctx,
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 332,
- Endline: 347,
- Funcname: tail_icmp6_send_time_exceeded,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 332,
+  "endLine": 347,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "tail_icmp6_send_time_exceeded",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
@@ -511,19 +929,75 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 359,
- Endline: 368,
- Funcname: icmp6_send_time_exceeded,
- Input: (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction),
- Output: static__always_inlineint,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tep_ctx",
+          " CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED"
+        ]
+      }
+    ]
+  },
+  "startLine": 359,
+  "endLine": 368,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_send_time_exceeded",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off",
+    " enum metric_dir direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
@@ -539,19 +1013,42 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 370,
- Endline: 398,
- Funcname: __icmp6_handle_ns,
- Input: (struct  __ctx_buff *ctx, int nh_off),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 370,
+  "endLine": 398,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "__icmp6_handle_ns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int __icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off)
@@ -588,19 +1085,41 @@ static __always_inline int __icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off)
 __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 402,
- Endline: 412,
- Funcname: tail_icmp6_handle_ns,
- Input: (struct  __ctx_buff *ctx),
- Output: int,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 402,
+  "endLine": 412,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "tail_icmp6_handle_ns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
@@ -628,19 +1147,75 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 425,
- Endline: 434,
- Funcname: icmp6_handle_ns,
- Input: (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction),
- Output: static__always_inlineint,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tep_ctx",
+          " CILIUM_CALL_HANDLE_ICMP6_NS"
+        ]
+      }
+    ]
+  },
+  "startLine": 425,
+  "endLine": 434,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_handle_ns",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off",
+    " enum metric_dir direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
@@ -656,19 +1231,44 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 436,
- Endline: 458,
- Funcname: icmp6_handle,
- Input: (struct  __ctx_buff *ctx, int nh_off, struct ipv6hdr *ip6, enum metric_dir direction),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 436,
+  "endLine": 458,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_handle",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int nh_off",
+    " struct ipv6hdr *ip6",
+    " enum metric_dir direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
@@ -697,19 +1297,41 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h,
- Startline: 460,
- Endline: 531,
- Funcname: icmp6_host_handle,
- Input: (struct  __ctx_buff * ctx __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 460,
+  "endLine": 531,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "funcName": "icmp6_host_handle",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

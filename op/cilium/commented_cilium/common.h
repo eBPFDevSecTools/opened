@@ -15,19 +15,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
- Startline: 16,
- Endline: 19,
- Funcname: *ctx_data,
- Input: (const struct  __ctx_buff *ctx),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 16,
+  "endLine": 19,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "funcName": "*ctx_data",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
@@ -37,19 +59,41 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
- Startline: 21,
- Endline: 24,
- Funcname: *ctx_data_meta,
- Input: (const struct  __ctx_buff *ctx),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 21,
+  "endLine": 24,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "funcName": "*ctx_data_meta",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
@@ -59,19 +103,41 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
- Startline: 26,
- Endline: 29,
- Funcname: *ctx_data_end,
- Input: (const struct  __ctx_buff *ctx),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 26,
+  "endLine": 29,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "funcName": "*ctx_data_end",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
@@ -81,19 +147,42 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h,
- Startline: 31,
- Endline: 34,
- Funcname: ctx_no_room,
- Input: (const void *needed, const void *limit),
- Output: static__always_inlinebool,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 31,
+  "endLine": 34,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "funcName": "ctx_no_room",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const void *needed",
+    " const void *limit"
+  ],
+  "output": "static__always_inlinebool",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline bool ctx_no_room(const void *needed, const void *limit)

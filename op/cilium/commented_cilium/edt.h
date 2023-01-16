@@ -16,19 +16,42 @@
 #if defined(ENABLE_BANDWIDTH_MANAGER) && __ctx_is == __ctx_skb
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/edt.h,
- Startline: 17,
- Endline: 22,
- Funcname: edt_set_aggregate,
- Input: (struct  __ctx_buff *ctx, __u32 aggregate),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 17,
+  "endLine": 22,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "funcName": "edt_set_aggregate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __u32 aggregate"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
@@ -40,19 +63,41 @@ static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/edt.h,
- Startline: 24,
- Endline: 34,
- Funcname: edt_get_aggregate,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inline__u32,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 24,
+  "endLine": 34,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "funcName": "edt_get_aggregate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inline__u32",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
@@ -69,19 +114,84 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/edt.h,
- Startline: 36,
- Endline: 77,
- Funcname: edt_sched_departure,
- Input: (struct  __ctx_buff *ctx),
- Output: static__always_inlineint,
- Helpers: [ktime_get_ns,map_lookup_elem,],
- Read_maps: [  THROTTLE_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tinfo ",
+        "inpVar": [
+          " &THROTTLE_MAP",
+          " &aggregate"
+        ]
+      }
+    ],
+    "ktime_get_ns": [
+      {
+        "opVar": "\tnow ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ]
+  },
+  "startLine": 36,
+  "endLine": 77,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "funcName": "edt_sched_departure",
+  "updateMaps": [],
+  "readMaps": [
+    "  THROTTLE_MAP"
+  ],
+  "input": [
+    "struct  __ctx_buff *ctx"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "ktime_get_ns",
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int edt_sched_departure(struct __ctx_buff *ctx)
@@ -129,19 +239,42 @@ static __always_inline int edt_sched_departure(struct __ctx_buff *ctx)
 #else
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/edt.h,
- Startline: 79,
- Endline: 83,
- Funcname: edt_set_aggregate,
- Input: (struct  __ctx_buff * ctx __maybe_unused, __u32 aggregate __maybe_unused),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 79,
+  "endLine": 83,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "funcName": "edt_set_aggregate",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff * ctx __maybe_unused",
+    " __u32 aggregate __maybe_unused"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void

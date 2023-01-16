@@ -85,19 +85,41 @@
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/compiler.h,
- Startline: 86,
- Endline: 93,
- Funcname: bpf_barrier,
- Input: (void),
- Output: static__always_inlinevoid,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 86,
+  "endLine": 93,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/compiler.h",
+  "funcName": "bpf_barrier",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "void"
+  ],
+  "output": "static__always_inlinevoid",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline void bpf_barrier(void)

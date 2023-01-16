@@ -22,24 +22,21 @@ __attribute__((section("xdp"), used))
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 27,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_start_ok.c",
-  "Funcname": "read_write_packet_start",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/vpf-ebpf-src/packet_start_ok.c",
+  "funcName": "read_write_packet_start",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -47,16 +44,12 @@ __attribute__((section("xdp"), used))
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int read_write_packet_start(struct xdp_md* ctx)

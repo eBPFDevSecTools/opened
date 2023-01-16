@@ -39,6 +39,7 @@ RUN python3 -m pip install command
 RUN python3 -m pip install pytest-shutil
 RUN python3 -m pip install argparse
 RUN python3 -m pip install lxml
+RUN python3 -m pip install tinydb
 
 #install txl
 WORKDIR /root

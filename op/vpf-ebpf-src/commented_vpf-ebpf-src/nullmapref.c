@@ -46,30 +46,60 @@ bpf_map_def_t test_map = {
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    uint32_t* value \",\n \"inpVar\": [\n  \" e&test_map\",\n  \" &key\"\n ]\n}"
+      {
+        "opVar": "    uint32_t* value ",
+        "inpVar": [
+          " e&test_map",
+          " &key"
+        ]
+      }
     ]
   },
   "startLine": 28,
   "endLine": 40,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
-  "Funcname": "test_repro",
-  "Update_maps": [
-    ""
+  "File": "/root/examples/vpf-ebpf-src/nullmapref.c",
+  "funcName": "test_repro",
+  "updateMaps": [],
+  "readMaps": [
+    " test_map"
   ],
-  "Read_maps": [
-    " test_map",
-    ""
-  ],
-  "Input": [
+  "input": [
     "void *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "perf_event",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_sock",
+    "flow_dissector",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_cls",
+    "lwt_seg6local",
+    "lwt_in",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "cgroup_device",
+    "kprobe",
+    "sched_act",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -77,16 +107,12 @@ bpf_map_def_t test_map = {
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int

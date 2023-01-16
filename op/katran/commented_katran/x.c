@@ -13,24 +13,21 @@ SEC("xdp")
   "helperCallParams": {},
   "startLine": 9,
   "endLine": 13,
-  "File": "/home/sayandes/opened_extraction/examples/katran/x.c",
-  "Funcname": "xdp_prog_simple",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    ""
-  ],
-  "Input": [
+  "File": "/root/examples/katran/x.c",
+  "funcName": "xdp_prog_simple",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
     "struct xdp_md *ctx"
   ],
-  "Output": "int",
-  "Helper": "",
-  "human_func_description": [
+  "output": "int",
+  "helper": [],
+  "compatibleHookpoints": null,
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -38,16 +35,12 @@ SEC("xdp")
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int  xdp_prog_simple(struct xdp_md *ctx)

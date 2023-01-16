@@ -53,34 +53,76 @@ struct ebpf_map inner_map =
   ],
   "helperCallParams": {
     "bpf_map_lookup_elem": [
-      "{\n \"opVar\": \"    void* nolocal_lru_map \",\n \"inpVar\": [\n  \" &array_of_maps\",\n  \" &outer_key\"\n ]\n}",
-      "{\n \"opVar\": \"        void* ret \",\n \"inpVar\": [\n  \" nolocal_lru_map\",\n  \" &inner_key\"\n ]\n}",
-      "{\n \"opVar\": \"            ret \",\n \"inpVar\": [\n  \" &inner_map\",\n  \" &inner_key\"\n ]\n}"
+      {
+        "opVar": "    void* nolocal_lru_map ",
+        "inpVar": [
+          " &array_of_maps",
+          " &outer_key"
+        ]
+      },
+      {
+        "opVar": "        void* ret ",
+        "inpVar": [
+          " nolocal_lru_map",
+          " &inner_key"
+        ]
+      },
+      {
+        "opVar": "            ret ",
+        "inpVar": [
+          " &inner_map",
+          " &inner_key"
+        ]
+      }
     ]
   },
   "startLine": 35,
   "endLine": 49,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c",
-  "Funcname": "func",
-  "Update_maps": [
-    ""
-  ],
-  "Read_maps": [
-    " nolocal_lru_map",
-    "  inner_map",
+  "File": "/root/examples/vpf-ebpf-src/map_in_map.c",
+  "funcName": "func",
+  "updateMaps": [],
+  "readMaps": [
     " array_of_maps",
-    ""
+    "  inner_map",
+    " nolocal_lru_map"
   ],
-  "Input": [
+  "input": [
     "void *ctx"
   ],
-  "Output": "int",
-  "Helper": "bpf_map_lookup_elem,",
-  "human_func_description": [
+  "output": "int",
+  "helper": [
+    "bpf_map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "perf_event",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_sock",
+    "flow_dissector",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_cls",
+    "lwt_seg6local",
+    "lwt_in",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "cgroup_device",
+    "kprobe",
+    "sched_act",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "xdp"
+  ],
+  "humanFuncDescription": [
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": ""
     }
   ],
@@ -88,16 +130,12 @@ struct ebpf_map inner_map =
     {
       "description": "",
       "author": "",
-      "author_email": "",
+      "authorEmail": "",
       "date": "",
-      "params": ""
+      "invocationParameters": ""
     }
   ]
-}
-,
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+} 
  OPENED COMMENT END 
  */ 
 int func(void* ctx) {

@@ -21,19 +21,67 @@
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
- Startline: 22,
- Endline: 63,
- Funcname: ctx_redirect_to_proxy_hairpin,
- Input: (struct  __ctx_buff *ctx, __be16 proxy_port, const bool is_ipv6),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__to_proxy_hairpinstruct __ctx_buff *ctx",
+          " __be16 proxy_port",
+          " const bool is_ipv6"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn ctx_ctx",
+          " HOST_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
+  "startLine": 22,
+  "endLine": 63,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
+  "funcName": "ctx_redirect_to_proxy_hairpin",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be16 proxy_port",
+    " const bool is_ipv6"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -82,19 +130,65 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
 #ifdef ENABLE_IPV4
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
- Startline: 66,
- Endline: 70,
- Funcname: ctx_redirect_to_proxy_hairpin_ipv4,
- Input: (struct  __ctx_buff *ctx, __be16 proxy_port),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__to_proxy_hairpin_ipv4struct __ctx_buff *ctx",
+          " __be16 proxy_port"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx__to_proxy_hairpinctx",
+          " proxy_port",
+          " false"
+        ]
+      }
+    ]
+  },
+  "startLine": 66,
+  "endLine": 70,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
+  "funcName": "ctx_redirect_to_proxy_hairpin_ipv4",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be16 proxy_port"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int
@@ -107,19 +201,65 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h,
- Startline: 74,
- Endline: 78,
- Funcname: ctx_redirect_to_proxy_hairpin_ipv6,
- Input: (struct  __ctx_buff *ctx, __be16 proxy_port),
- Output: static__always_inlineint,
- Helpers: [redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "ctx__to_proxy_hairpin_ipv6struct __ctx_buff *ctx",
+          " __be16 proxy_port"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx__to_proxy_hairpinctx",
+          " proxy_port",
+          " true"
+        ]
+      }
+    ]
+  },
+  "startLine": 74,
+  "endLine": 78,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
+  "funcName": "ctx_redirect_to_proxy_hairpin_ipv6",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " __be16 proxy_port"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect"
+  ],
+  "compatibleHookpoints": [
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int

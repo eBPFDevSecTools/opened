@@ -17,19 +17,45 @@
 #ifdef ENABLE_IPV6
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
- Startline: 18,
- Endline: 38,
- Funcname: ipv6_l3,
- Input: (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, __u8 direction),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 18,
+  "endLine": 38,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "funcName": "ipv6_l3",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l3_off",
+    " const __u8 *smac",
+    " const __u8 *dmac",
+    " __u8 direction"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
@@ -57,19 +83,45 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
- Startline: 41,
- Endline: 56,
- Funcname: ipv4_l3,
- Input: (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, struct iphdr *ip4),
- Output: static__always_inlineint,
- Helpers: [],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {},
+  "startLine": 41,
+  "endLine": 56,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "funcName": "ipv4_l3",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l3_off",
+    " const __u8 *smac",
+    " const __u8 *dmac",
+    " struct iphdr *ip4"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [],
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
@@ -98,19 +150,73 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
- Startline: 65,
- Endline: 106,
- Funcname: ipv6_local_delivery,
- Input: (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, const struct endpoint_info *ep, __u8 direction, bool from_host __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn _epctx",
+          " ep->ifindex",
+          " from_host"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t_dynamicctx",
+          " &POLICY_CALL_MAP",
+          " ep->lxc_id"
+        ]
+      }
+    ]
+  },
+  "startLine": 65,
+  "endLine": 106,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "funcName": "ipv6_local_delivery",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l3_off",
+    " __u32 seclabel",
+    " const struct endpoint_info *ep",
+    " __u8 direction",
+    " bool from_host __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_off,
@@ -164,19 +270,74 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
  */
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
- Startline: 114,
- Endline: 154,
- Funcname: ipv4_local_delivery,
- Input: (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, struct iphdr *ip4, const struct endpoint_info *ep, __u8 direction __maybe_unused, bool from_host __maybe_unused),
- Output: static__always_inlineint,
- Helpers: [tail_call,redirect,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn _epctx",
+          " ep->ifindex",
+          " from_host"
+        ]
+      }
+    ],
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t_dynamicctx",
+          " &POLICY_CALL_MAP",
+          " ep->lxc_id"
+        ]
+      }
+    ]
+  },
+  "startLine": 114,
+  "endLine": 154,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "funcName": "ipv4_local_delivery",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " int l3_off",
+    " __u32 seclabel",
+    " struct iphdr *ip4",
+    " const struct endpoint_info *ep",
+    " __u8 direction __maybe_unused",
+    " bool from_host __maybe_unused"
+  ],
+  "output": "static__always_inlineint",
+  "helper": [
+    "redirect",
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sched_cls",
+    "lwt_xmit",
+    "xdp",
+    "sched_act"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_off,
@@ -224,19 +385,77 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/lib/l3.h,
- Startline: 157,
- Endline: 185,
- Funcname: get_min_encrypt_key,
- Input: (__u8 peer_key __maybe_unused),
- Output: static__always_inline__u8,
- Helpers: [map_lookup_elem,],
- Read_maps: [  ENCRYPT_MAP,],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\tcfg ",
+        "inpVar": [
+          " &ENCRYPT_MAP",
+          " &encrypt_key"
+        ]
+      }
+    ]
+  },
+  "startLine": 157,
+  "endLine": 185,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "funcName": "get_min_encrypt_key",
+  "updateMaps": [],
+  "readMaps": [
+    "  ENCRYPT_MAP"
+  ],
+  "input": [
+    "__u8 peer_key __maybe_unused"
+  ],
+  "output": "static__always_inline__u8",
+  "helper": [
+    "map_lookup_elem"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __u8 get_min_encrypt_key(__u8 peer_key __maybe_unused)

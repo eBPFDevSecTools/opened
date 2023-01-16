@@ -9,19 +9,76 @@
 #if !defined(__non_bpf_context) && defined(__bpf__)
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h,
- Startline: 10,
- Endline: 33,
- Funcname: tail_call_static,
- Input: (const struct  __ctx_buff *ctx, const void *map, const __u32 slot),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_staticconst struct __ctx_buff *ctx",
+          " const void *map",
+          "\t\t const __u32 slot"
+        ]
+      }
+    ]
+  },
+  "startLine": 10,
+  "endLine": 33,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
+  "funcName": "tail_call_static",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "const struct  __ctx_buff *ctx",
+    " const void *map",
+    " const __u32 slot"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
@@ -51,19 +108,84 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
 
 /* 
  OPENED COMMENT BEGIN 
- { 
- File: /home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h,
- Startline: 35,
- Endline: 46,
- Funcname: tail_call_dynamic,
- Input: (struct  __ctx_buff *ctx, const void *map, __u32 slot),
- Output: static__always_inline__maybe_unusedvoid,
- Helpers: [tail_call,],
- Read_maps: [],
- Update_maps: [],
- Func Description: TO BE ADDED, 
- Commentor: TO BE ADDED (<name>,<email>) 
- } 
+{
+  "capability": [],
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_dynamicstruct __ctx_buff *ctx",
+          " const void *map",
+          " __u32 slot"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tctx",
+          " map",
+          " slot"
+        ]
+      }
+    ]
+  },
+  "startLine": 35,
+  "endLine": 46,
+  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
+  "funcName": "tail_call_dynamic",
+  "updateMaps": [],
+  "readMaps": [],
+  "input": [
+    "struct  __ctx_buff *ctx",
+    " const void *map",
+    " __u32 slot"
+  ],
+  "output": "static__always_inline__maybe_unusedvoid",
+  "helper": [
+    "tail_call"
+  ],
+  "compatibleHookpoints": [
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "sched_act",
+    "sk_reuseport",
+    "xdp",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_skb",
+    "cgroup_sock",
+    "lwt_xmit",
+    "kprobe",
+    "perf_event",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "raw_tracepoint",
+    "sched_cls",
+    "lwt_out"
+  ],
+  "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    }
+  ],
+  "AI_func_description": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": "",
+      "invocationParameters": ""
+    }
+  ]
+} 
  OPENED COMMENT END 
  */ 
 static __always_inline __maybe_unused void
