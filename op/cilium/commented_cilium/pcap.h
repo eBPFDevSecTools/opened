@@ -383,7 +383,23 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -411,29 +427,29 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -621,7 +637,23 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -649,29 +681,29 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -806,7 +838,23 @@ cilium_capture_classify_wcard(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -836,29 +884,29 @@ cilium_capture_classify_wcard(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -907,7 +955,23 @@ cilium_capture_candidate(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -937,29 +1001,29 @@ cilium_capture_candidate(struct __ctx_buff *ctx __maybe_unused,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {

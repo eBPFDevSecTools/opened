@@ -14,7 +14,24 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "int",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "redirect": [
       {
@@ -74,13 +91,13 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
-    "fib_lookup"
+    "fib_lookup",
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -161,7 +178,24 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "int",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "redirect": [
       {
@@ -221,13 +255,13 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
-    "fib_lookup"
+    "fib_lookup",
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

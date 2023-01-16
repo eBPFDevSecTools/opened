@@ -98,7 +98,22 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_prandom_u32": [
       {
@@ -125,27 +140,27 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -177,7 +192,23 @@ __snat_try_keep_port(__u16 start, __u16 end, __u16 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -206,29 +237,29 @@ __snat_try_keep_port(__u16 start, __u16 end, __u16 val)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -259,7 +290,35 @@ __snat_lookup(const void *map, const void *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        },
+        {
+          "Return Type": "int",
+          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_delete_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_update_elem": [
       {
@@ -312,29 +371,29 @@ __snat_lookup(const void *map, const void *tuple)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -374,7 +433,23 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_delete_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_delete_elem": [
       {
@@ -411,29 +486,29 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -858,7 +933,22 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_prandom_u32": [
       {
@@ -899,10 +989,10 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
   ],
   "compatibleHookpoints": [
     "raw_tracepoint",
-    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable",
-    "tracepoint"
+    "kprobe",
+    "tracepoint",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {
@@ -1134,7 +1224,44 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l3_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: size}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -1187,13 +1314,13 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l3_csum_replace"
+    "l3_csum_replace",
+    "csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1276,7 +1403,44 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l3_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: size}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -1328,13 +1492,13 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l3_csum_replace"
+    "l3_csum_replace",
+    "csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1474,7 +1638,25 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_update_elem": [
       {
@@ -1506,29 +1688,29 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -2194,7 +2376,22 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_prandom_u32": [
       {
@@ -2235,10 +2432,10 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
   ],
   "compatibleHookpoints": [
     "raw_tracepoint",
-    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable",
-    "tracepoint"
+    "kprobe",
+    "tracepoint",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {
@@ -2469,7 +2666,26 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -2511,13 +2727,13 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
     "lwt_xmit",
     "xdp",
-    "sched_cls",
-    "lwt_in",
-    "lwt_seg6local",
+    "sched_act",
     "lwt_out",
-    "sched_act"
+    "lwt_seg6local",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2589,7 +2805,26 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -2631,13 +2866,13 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
     "lwt_xmit",
     "xdp",
-    "sched_cls",
-    "lwt_in",
-    "lwt_seg6local",
+    "sched_act",
     "lwt_out",
-    "sched_act"
+    "lwt_seg6local",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2769,7 +3004,25 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_update_elem": [
       {
@@ -2801,29 +3054,29 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -3176,7 +3429,23 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_delete_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_delete_elem": [
       {
@@ -3216,29 +3485,29 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -3275,7 +3544,23 @@ ct_delete4(const void *map, struct ipv4_ct_tuple *tuple, struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_delete_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_delete_elem": [
       {
@@ -3315,29 +3600,29 @@ ct_delete4(const void *map, struct ipv4_ct_tuple *tuple, struct __ctx_buff *ctx)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {

@@ -31,12 +31,13 @@ struct ctx;
 {
   "capability": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -58,7 +59,7 @@ struct ctx;
   },
   "startLine": 29,
   "endLine": 48,
-  "File": "/root/examples/vpf-ebpf-src/twotypes.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [
@@ -72,29 +73,29 @@ struct ctx;
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_sock",
-    "flow_dissector",
-    "lwt_xmit",
-    "lwt_out",
-    "sched_cls",
-    "lwt_seg6local",
-    "lwt_in",
-    "sock_ops",
-    "tracepoint",
     "raw_tracepoint",
-    "sk_skb",
+    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_msg",
     "raw_tracepoint_writable",
-    "cgroup_skb",
-    "cgroup_device",
+    "sched_cls",
     "kprobe",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sched_act",
     "cgroup_sysctl",
-    "sk_reuseport",
-    "xdp"
+    "xdp",
+    "sk_skb",
+    "perf_event",
+    "flow_dissector",
+    "sock_ops",
+    "cgroup_sock",
+    "lwt_out",
+    "socket_filter",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_device"
   ],
   "humanFuncDescription": [
     {

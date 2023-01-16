@@ -260,7 +260,22 @@ void ctx_set_port(struct bpf_sock_addr *ctx, __be16 dport)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u32",
+          "Description": "Retrieve the classid for the current task , i. e. for the net_cls cgroup to which <[ skb ]>(IP: 0) belongs. This helper can be used on TC egress path , but not on ingress. The net_cls cgroup provides an interface to tag network packets based on a user-provided identifier for all traffic coming from the tasks belonging to the related cgroup. See also the related kernel documentation , available from the Linux sources in file Documentation/admin-guide/cgroup-v1/net_cls. rst. The Linux kernel has two versions for cgroups: there are cgroups v1 and cgroups v2. Both are available to users , who can use a mixture of them , but note that the net_cls cgroup is for cgroup v1 only. This makes it incompatible with BPF programs run on cgroups , which is a cgroup-v2-only feature (a socket can only hold data for one version of cgroups at a time). This helper is only available is the kernel was compiled with the CONFIG_CGROUP_NET_CLASSID configuration option set to \"y\" or to \"m\" ",
+          "Return": " The classid, or 0 for the default unconfigured classid.",
+          "Function Name": "get_cgroup_classid",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_cgroup_classid": [
       {
@@ -285,12 +300,12 @@ void ctx_set_port(struct bpf_sock_addr *ctx, __be16 dport)
     "get_cgroup_classid"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_cls",
     "lwt_in",
-    "lwt_seg6local",
+    "lwt_xmit",
+    "sched_act",
     "lwt_out",
-    "sched_act"
+    "lwt_seg6local",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -382,7 +397,31 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        },
+        {
+          "Return Type": "u64",
+          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
+          "Return": " A 8-byte long non-decreasing number.",
+          "Function Name": "get_socket_cookie",
+          "Input Params": [
+            "{Type: struct sock_ops ,Var: *ctx}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_socket_cookie": [
       {
@@ -416,13 +455,13 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
     "get_socket_cookie"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
     "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "cgroup_sock_addr",
     "socket_filter",
-    "cgroup_skb"
+    "cgroup_skb",
+    "sched_cls",
+    "sock_ops",
+    "sk_skb",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -528,7 +567,22 @@ bool sock_is_health_check(struct bpf_sock_addr *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_prandom_u32": [
       {
@@ -553,27 +607,27 @@ bool sock_is_health_check(struct bpf_sock_addr *ctx __maybe_unused)
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -672,7 +726,40 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -717,29 +804,29 @@ struct {
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -1053,7 +1140,39 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "struct sock*",
+          "Description": "Look for UDP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_udp",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct sock_tuple ,Var: *tuple}",
+            "{Type:  u32 ,Var: tuple_size}",
+            "{Type:  u64 ,Var: netns}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        },
+        {
+          "Return Type": "struct sock*",
+          "Description": "Look for TCP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer to struct  sock, or NULL in case of failure.   For  sockets  with                     reuseport  option,  the  struct  sock result is from reuse->socks[] using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_tcp",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct sock_tuple ,Var: *tuple}",
+            "{Type:  u32 ,Var: tuple_size}",
+            "{Type:  u64 ,Var: netns}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "sk_lookup_tcp": [
       {
@@ -1100,16 +1219,16 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
   ],
   "output": "static__always_inlinebool",
   "helper": [
-    "sk_lookup_tcp",
     "sk_lookup_udp",
+    "sk_lookup_tcp",
     "sk_release"
   ],
   "compatibleHookpoints": [
     "xdp",
+    "sched_act",
     "sched_cls",
     "sk_skb",
-    "cgroup_sock_addr",
-    "sched_act"
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -1193,9 +1312,9 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1357,7 +1476,37 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u64",
+          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
+          "Return": " A 8-byte long non-decreasing number.",
+          "Function Name": "get_socket_cookie",
+          "Input Params": [
+            "{Type: struct sock_ops ,Var: *ctx}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_socket_cookie": [
       {
@@ -1394,13 +1543,13 @@ out:
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
     "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "cgroup_sock_addr",
     "socket_filter",
-    "cgroup_skb"
+    "cgroup_skb",
+    "sched_cls",
+    "sock_ops",
+    "sk_skb",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -1677,7 +1826,39 @@ static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u64",
+          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
+          "Return": " A 8-byte long non-decreasing number.",
+          "Function Name": "get_socket_cookie",
+          "Input Params": [
+            "{Type: struct sock_ops ,Var: *ctx}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_socket_cookie": [
       {
@@ -1721,9 +1902,9 @@ static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "bind",
     "map_update_elem",
-    "get_socket_cookie"
+    "get_socket_cookie",
+    "bind"
   ],
   "compatibleHookpoints": [
     "cgroup_sock_addr"
@@ -1839,7 +2020,38 @@ int sock4_pre_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_delete_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -1876,33 +2088,33 @@ int sock4_pre_bind(struct bpf_sock_addr *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_delete_elem",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -2114,7 +2326,40 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -2159,29 +2404,29 @@ struct {
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -3061,7 +3306,39 @@ static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u64",
+          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
+          "Return": " A 8-byte long non-decreasing number.",
+          "Function Name": "get_socket_cookie",
+          "Input Params": [
+            "{Type: struct sock_ops ,Var: *ctx}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "bind": [
       {
@@ -3110,9 +3387,9 @@ static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "bind",
     "map_update_elem",
-    "get_socket_cookie"
+    "get_socket_cookie",
+    "bind"
   ],
   "compatibleHookpoints": [
     "cgroup_sock_addr"
@@ -3371,7 +3648,37 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "u64",
+          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
+          "Return": " A 8-byte long non-decreasing number.",
+          "Function Name": "get_socket_cookie",
+          "Input Params": [
+            "{Type: struct sock_ops ,Var: *ctx}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_socket_cookie": [
       {
@@ -3408,13 +3715,13 @@ out:
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
     "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "cgroup_sock_addr",
     "socket_filter",
-    "cgroup_skb"
+    "cgroup_skb",
+    "sched_cls",
+    "sock_ops",
+    "sk_skb",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -3585,7 +3892,38 @@ sock6_xlate_rev_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Return Type": "int",
+          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_delete_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -3621,33 +3959,33 @@ sock6_xlate_rev_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_delete_elem",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {

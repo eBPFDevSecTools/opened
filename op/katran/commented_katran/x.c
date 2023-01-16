@@ -13,7 +13,7 @@ SEC("xdp")
   "helperCallParams": {},
   "startLine": 9,
   "endLine": 13,
-  "File": "/root/examples/katran/x.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/x.c",
   "funcName": "xdp_prog_simple",
   "updateMaps": [],
   "readMaps": [],
@@ -22,7 +22,9 @@ SEC("xdp")
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

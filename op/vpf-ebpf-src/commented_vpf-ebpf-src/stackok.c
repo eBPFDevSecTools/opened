@@ -12,7 +12,7 @@ static int (*get_prandom_u32)() = (void*)7;
   "helperCallParams": {},
   "startLine": 8,
   "endLine": 19,
-  "File": "/root/examples/vpf-ebpf-src/stackok.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [],
@@ -21,7 +21,9 @@ static int (*get_prandom_u32)() = (void*)7;
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

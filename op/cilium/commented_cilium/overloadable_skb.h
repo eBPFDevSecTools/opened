@@ -483,9 +483,9 @@ set_encrypt_mark(struct __sk_buff *ctx)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -859,7 +859,24 @@ ctx_set_xfer(struct __sk_buff *ctx __maybe_unused, __u32 meta __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Grows headroom of packet associated to <[ skb ]>(IP: 0) and adjusts the offset of the MAC header accordingly , adding <[ len ]>(IP: 1) bytes of space. It automatically extends and reallocates memory as required. This helper can be used on a layer 3 <[ skb ]>(IP: 0) to push a MAC header for redirection into a layer 2 device. All values for <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "skb_change_head",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: len}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "skb_change_head": [
       {
@@ -888,10 +905,10 @@ ctx_set_xfer(struct __sk_buff *ctx __maybe_unused, __u32 meta __maybe_unused)
     "skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sk_skb",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sk_skb",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

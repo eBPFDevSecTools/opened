@@ -349,9 +349,9 @@ set_encrypt_key_meta(struct xdp_md *ctx __maybe_unused, __u8 key __maybe_unused)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

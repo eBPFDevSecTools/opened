@@ -44,9 +44,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

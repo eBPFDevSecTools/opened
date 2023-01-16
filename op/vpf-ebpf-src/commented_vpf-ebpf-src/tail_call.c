@@ -39,7 +39,7 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
   },
   "startLine": 24,
   "endLine": 31,
-  "File": "/root/examples/vpf-ebpf-src/tail_call.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
   "funcName": "caller",
   "updateMaps": [],
   "readMaps": [],
@@ -51,27 +51,27 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_sock",
-    "flow_dissector",
-    "lwt_xmit",
-    "lwt_out",
-    "sched_cls",
-    "lwt_seg6local",
-    "lwt_in",
-    "sock_ops",
-    "tracepoint",
     "raw_tracepoint",
-    "sk_skb",
+    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_msg",
     "raw_tracepoint_writable",
-    "cgroup_skb",
+    "sched_cls",
     "kprobe",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
-    "xdp"
+    "xdp",
+    "sk_skb",
+    "perf_event",
+    "flow_dissector",
+    "sock_ops",
+    "cgroup_sock",
+    "lwt_out",
+    "socket_filter",
+    "lwt_in",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -109,7 +109,7 @@ caller(struct xdp_md* ctx)
   "helperCallParams": {},
   "startLine": 33,
   "endLine": 37,
-  "File": "/root/examples/vpf-ebpf-src/tail_call.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
   "funcName": "callee",
   "updateMaps": [],
   "readMaps": [],
@@ -118,7 +118,9 @@ caller(struct xdp_md* ctx)
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

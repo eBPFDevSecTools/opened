@@ -17,7 +17,7 @@ struct test_md
   "helperCallParams": {},
   "startLine": 13,
   "endLine": 31,
-  "File": "/root/examples/vpf-ebpf-src/loop.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/loop.c",
   "funcName": "foo",
   "updateMaps": [],
   "readMaps": [],
@@ -26,7 +26,9 @@ struct test_md
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

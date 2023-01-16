@@ -60,9 +60,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -167,9 +167,9 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -238,9 +238,9 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

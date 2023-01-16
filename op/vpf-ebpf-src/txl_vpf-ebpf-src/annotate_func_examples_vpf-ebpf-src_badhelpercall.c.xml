@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/vpf-ebpf-src/badhelpercall.c" funcheader="int func ()" startline="8" endline="15">
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c" funcheader="int func ()" startline="8" endline="15">
 int func ()
 {
     char buffer [1];

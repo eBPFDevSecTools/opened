@@ -22,7 +22,7 @@ __attribute__((section("xdp"), used))
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 27,
-  "File": "/root/examples/vpf-ebpf-src/packet_start_ok.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_start_ok.c",
   "funcName": "read_write_packet_start",
   "updateMaps": [],
   "readMaps": [],
@@ -31,7 +31,9 @@ __attribute__((section("xdp"), used))
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

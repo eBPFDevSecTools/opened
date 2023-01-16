@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/vpf-ebpf-src/exposeptr.c" funcheader="int func (struct ctx *ctx)" startline="29" endline="36">
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr.c" funcheader="int func (struct ctx *ctx)" startline="29" endline="36">
 int func (struct ctx *ctx)
 {
     uint32_t key = 0;

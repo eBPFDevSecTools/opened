@@ -54,10 +54,10 @@ struct signal_msg {
   ],
   "compatibleHookpoints": [
     "raw_tracepoint",
-    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable",
-    "tracepoint"
+    "kprobe",
+    "tracepoint",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {
@@ -117,10 +117,10 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "raw_tracepoint",
-    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable",
-    "tracepoint"
+    "kprobe",
+    "tracepoint",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {
@@ -184,10 +184,10 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "raw_tracepoint",
-    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable",
-    "tracepoint"
+    "kprobe",
+    "tracepoint",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {

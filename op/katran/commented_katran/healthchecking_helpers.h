@@ -41,7 +41,7 @@
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 77,
-  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "set_hc_key",
   "updateMaps": [],
   "readMaps": [],
@@ -52,7 +52,9 @@
   ],
   "output": "staticinlinebool",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -120,15 +122,16 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
 {
   "capability": [
     {
+      "capability": "update_pkt",
       "update_pkt": [
         {
-          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There is a single supported <[ mode ]>(IP: 2) at this time:BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). All values for <[ flags ]>(IP: 3) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": "0 on success, or a negative error in case of failure.",
           "Return Type": "int",
+          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There are two supported modes at this time: \u00b7 BPF_ADJ_ROOM_MAC: Adjust room at the mac layer (room space is added or removed below the layer 2 header). \u00b7 BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). The following <[ flags ]>(IP: 3) are supported at this time: \u00b7 BPF_F_ADJ_ROOM_FIXED_GSO: Do not adjust gso_size. Adjusting mss in this way is not allowed for datagrams. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L3_IPV4 , BPF_F_ADJ_ROOM_ENCAP_L3_IPV6: Any new space is reserved to hold a tunnel header. Configure <[ skb ]>(IP: 0) offsets and other fields accordingly. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L4_GRE , BPF_F_ADJ_ROOM_ENCAP_L4_UDP: Use with ENCAP_L3 <[ flags ]>(IP: 3) to further specify the tunnel type. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L2(len): Use with ENCAP_L3/L4 <[ flags ]>(IP: 3) to further specify the tunnel type; len is the length of the inner MAC header. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_skb_adjust_room",
           "Input Params": [
             "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: len_diff}",
+            "{Type:  s32 ,Var: len_diff}",
             "{Type:  u32 ,Var: mode}",
             "{Type:  u64 ,Var: flags}"
           ]
@@ -136,12 +139,13 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
       ]
     },
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -190,7 +194,7 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
   },
   "startLine": 79,
   "endLine": 139,
-  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_ipip",
   "updateMaps": [],
   "readMaps": [
@@ -300,7 +304,7 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "helperCallParams": {},
   "startLine": 141,
   "endLine": 143,
-  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "gue_sport",
   "updateMaps": [],
   "readMaps": [],
@@ -309,7 +313,9 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   ],
   "output": "staticinline__u16",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -339,15 +345,16 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
 {
   "capability": [
     {
+      "capability": "update_pkt",
       "update_pkt": [
         {
-          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There is a single supported <[ mode ]>(IP: 2) at this time:BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). All values for <[ flags ]>(IP: 3) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": "0 on success, or a negative error in case of failure.",
           "Return Type": "int",
+          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There are two supported modes at this time: \u00b7 BPF_ADJ_ROOM_MAC: Adjust room at the mac layer (room space is added or removed below the layer 2 header). \u00b7 BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). The following <[ flags ]>(IP: 3) are supported at this time: \u00b7 BPF_F_ADJ_ROOM_FIXED_GSO: Do not adjust gso_size. Adjusting mss in this way is not allowed for datagrams. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L3_IPV4 , BPF_F_ADJ_ROOM_ENCAP_L3_IPV6: Any new space is reserved to hold a tunnel header. Configure <[ skb ]>(IP: 0) offsets and other fields accordingly. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L4_GRE , BPF_F_ADJ_ROOM_ENCAP_L4_UDP: Use with ENCAP_L3 <[ flags ]>(IP: 3) to further specify the tunnel type. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L2(len): Use with ENCAP_L3/L4 <[ flags ]>(IP: 3) to further specify the tunnel type; len is the length of the inner MAC header. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_skb_adjust_room",
           "Input Params": [
             "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: len_diff}",
+            "{Type:  s32 ,Var: len_diff}",
             "{Type:  u32 ,Var: mode}",
             "{Type:  u64 ,Var: flags}"
           ]
@@ -355,12 +362,13 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
       ]
     },
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -409,7 +417,7 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
   },
   "startLine": 145,
   "endLine": 213,
-  "File": "/root/examples/katran/healthchecking_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_gue",
   "updateMaps": [],
   "readMaps": [

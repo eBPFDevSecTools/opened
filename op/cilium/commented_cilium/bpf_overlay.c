@@ -75,9 +75,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -291,7 +291,23 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -327,14 +343,14 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -555,7 +571,23 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -592,14 +624,14 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   ],
   "output": "int",
   "helper": [
-    "redirect",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -786,27 +818,27 @@ __section("from-overlay")
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {

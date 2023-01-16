@@ -48,12 +48,13 @@
 {
   "capability": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -87,7 +88,7 @@
   },
   "startLine": 46,
   "endLine": 70,
-  "File": "/root/examples/katran/balancer_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
   "updateMaps": [],
   "readMaps": [
@@ -103,26 +104,26 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_perf_event_output"
+    "bpf_perf_event_output",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "perf_event",
     "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "perf_event",
     "lwt_out",
     "kprobe",
-    "sk_skb",
-    "raw_tracepoint",
-    "lwt_in",
-    "xdp",
     "cgroup_skb",
     "sock_ops",
-    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "xdp",
     "tracepoint",
-    "lwt_seg6local",
-    "socket_filter"
+    "sk_skb",
+    "socket_filter",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -190,7 +191,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
   },
   "startLine": 74,
   "endLine": 80,
-  "File": "/root/examples/katran/balancer_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
   "updateMaps": [],
   "readMaps": [],
@@ -202,27 +203,27 @@ __attribute__((__always_inline__)) static inline void submit_event(
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "tracepoint",
     "sk_reuseport",
-    "sched_cls",
-    "cgroup_sock",
     "lwt_xmit",
-    "lwt_out",
+    "kprobe",
+    "cgroup_skb",
     "sock_ops",
-    "raw_tracepoint_writable",
     "cgroup_sock_addr",
     "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
     "sk_msg",
-    "tracepoint",
+    "flow_dissector",
+    "lwt_out",
     "lwt_seg6local",
+    "cgroup_sock",
     "perf_event",
+    "sched_act",
+    "sched_cls",
     "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "xdp",
+    "socket_filter",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {
@@ -260,7 +261,7 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
-  "File": "/root/examples/katran/balancer_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
   "updateMaps": [],
   "readMaps": [],
@@ -272,7 +273,9 @@ __attribute__((__always_inline__)) static inline int recirculate(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

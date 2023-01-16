@@ -147,9 +147,9 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -221,8 +221,8 @@ static __always_inline bool redirect_to_proxy(int verdict)
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "redirect",
-    "sock_hash_update"
+    "sock_hash_update",
+    "redirect"
   ],
   "compatibleHookpoints": [],
   "humanFuncDescription": [

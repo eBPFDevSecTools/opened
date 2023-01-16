@@ -33,7 +33,7 @@
   "helperCallParams": {},
   "startLine": 29,
   "endLine": 53,
-  "File": "/root/examples/katran/flow_debug_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "get_next_ports",
   "updateMaps": [],
   "readMaps": [],
@@ -44,7 +44,9 @@
   ],
   "output": "staticinline__u32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -96,11 +98,12 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
 {
   "capability": [
     {
+      "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
-          "Return": "The SMP id of the processor running the program.",
           "Return Type": "u32",
+          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
+          "Return": " The SMP id of the processor running the program.",
           "Function Name": "bpf_get_smp_processor_id",
           "Input Params": [
             "{Type: voi ,Var: void}"
@@ -121,7 +124,7 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
   },
   "startLine": 55,
   "endLine": 128,
-  "File": "/root/examples/katran/flow_debug_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "gue_record_route",
   "updateMaps": [],
   "readMaps": [],
@@ -137,27 +140,27 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
     "bpf_get_smp_processor_id"
   ],
   "compatibleHookpoints": [
+    "tracepoint",
     "sk_reuseport",
-    "sched_cls",
-    "cgroup_sock",
     "lwt_xmit",
-    "lwt_out",
+    "kprobe",
+    "cgroup_skb",
     "sock_ops",
-    "raw_tracepoint_writable",
     "cgroup_sock_addr",
     "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
     "sk_msg",
-    "tracepoint",
+    "flow_dissector",
+    "lwt_out",
     "lwt_seg6local",
+    "cgroup_sock",
     "perf_event",
+    "sched_act",
+    "sched_cls",
     "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "xdp",
+    "socket_filter",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {

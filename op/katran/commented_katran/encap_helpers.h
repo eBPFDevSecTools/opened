@@ -35,7 +35,7 @@
   "helperCallParams": {},
   "startLine": 31,
   "endLine": 55,
-  "File": "/root/examples/katran/encap_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
   "funcName": "create_v4_hdr",
   "updateMaps": [],
   "readMaps": [],
@@ -49,7 +49,9 @@
   ],
   "output": "staticinlinevoid",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -103,7 +105,7 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 77,
-  "File": "/root/examples/katran/encap_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
   "funcName": "create_v6_hdr",
   "updateMaps": [],
   "readMaps": [],
@@ -117,7 +119,9 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
   ],
   "output": "staticinlinevoid",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -167,7 +171,7 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
   "helperCallParams": {},
   "startLine": 79,
   "endLine": 89,
-  "File": "/root/examples/katran/encap_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
   "funcName": "create_udp_hdr",
   "updateMaps": [],
   "readMaps": [],
@@ -180,7 +184,9 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
   ],
   "output": "staticinlinevoid",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

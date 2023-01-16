@@ -22,7 +22,7 @@ __attribute__((section("xdp"), used))
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 58,
-  "File": "/root/examples/vpf-ebpf-src/packet_access.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
   "funcName": "test_packet_access",
   "updateMaps": [],
   "readMaps": [],
@@ -31,7 +31,9 @@ __attribute__((section("xdp"), used))
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

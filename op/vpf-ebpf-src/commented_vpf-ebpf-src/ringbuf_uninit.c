@@ -28,7 +28,7 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
   "helperCallParams": {},
   "startLine": 24,
   "endLine": 32,
-  "File": "/root/examples/vpf-ebpf-src/ringbuf_uninit.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c",
   "funcName": "test",
   "updateMaps": [],
   "readMaps": [],
@@ -37,7 +37,9 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

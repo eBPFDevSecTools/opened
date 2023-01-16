@@ -13,17 +13,17 @@ from collections import defaultdict
 CAP="capability"
 
 def create_capability_json(cap_dict, manpage_info_dict):
-    json_data_list = []
+    data_list = []
     for cap_name in cap_dict.keys():
         data = {}
-        #data["capability"] = cap_name
+        data["capability"] = cap_name
         lst = []
         for helper in list(cap_dict[cap_name]):
-            #print("got "+helper+"->"+str(manpage_info_dict[helper]["Function Name"]))
+            #print("got "+helper+"->")#+str(manpage_info_dict[helper]["Function Name"]))
             lst.append(manpage_info_dict[helper])
         data[cap_name]=lst
-        json_data_list.append(data)
-    return json_data_list
+        data_list.append(data)
+    return data_list
 
 
 def add_dict_to_cap_dict(cap_dict,cap_name):
@@ -268,6 +268,7 @@ def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
         map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
         map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
         manpage_info_file = "./asset/cilium.bpf_helpers_desc_mod.json"
+        capability_files = ["asset/bpf_helper_info/cilium.bpf_helpers_read_skb.txt", "asset/bpf_helper_info/cilium.bpf_helpers_mangle_skb.txt","asset/bpf_helper_info/cilium.bpf_helpers_map_read.txt","asset/bpf_helper_info/cilium.bpf_helpers_map_update.txt","asset/bpf_helper_info/cilium.bpf_helpers_read_sys_info.txt","asset/bpf_return_type_info/cilium.return_type_drop_pkt.txt","asset/bpf_return_type_info/cilium.return_type_pass_pkt.txt", "asset/bpf_return_type_info/cilium.return_type_redirect_pkt.txt"]
     
     cap_dict = {}
     for file_name in capability_files:
@@ -282,7 +283,8 @@ def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
     helperCallParams = defaultdict(list)
     helpers_list = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict)
     caps = generate_capabilities(helpers_list, cap_dict)
-
+    #print(helpers_list)
+    #print(cap_dict)
     #print(caps)
     manpage_info_dict = load_manpage_helper_map(manpage_info_file)
     op_dict = {}

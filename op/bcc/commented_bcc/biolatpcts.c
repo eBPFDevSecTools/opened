@@ -10,11 +10,12 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
 {
   "capability": [
     {
+      "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": "Current ktime.",
           "Return Type": "u64",
+          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
+          "Return": " Current ktime.",
           "Function Name": "bpf_ktime_get_ns",
           "Input Params": [
             "{Type: voi ,Var: void}"
@@ -35,7 +36,7 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   },
   "startLine": 8,
   "endLine": 29,
-  "File": "/root/examples/bcc/biolatpcts.c",
+  "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
   "funcName": "RAW_TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -47,27 +48,27 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "sk_skb",
-    "xdp",
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_skb",
-    "sched_cls",
-    "lwt_in",
-    "sk_msg",
-    "sched_act",
-    "lwt_xmit",
     "flow_dissector",
-    "kprobe",
+    "sk_msg",
     "raw_tracepoint",
+    "lwt_in",
     "cgroup_sock_addr",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "xdp",
+    "sched_cls",
+    "lwt_xmit",
+    "socket_filter",
     "sk_reuseport",
-    "perf_event"
+    "lwt_out",
+    "kprobe",
+    "cgroup_skb",
+    "perf_event",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

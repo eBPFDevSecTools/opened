@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/vpf-ebpf-src/map_in_map.c" funcheader="int func (void *ctx)" startline="35" endline="49">
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c" funcheader="int func (void *ctx)" startline="35" endline="49">
 int func (void *ctx)
 {
     uint32_t outer_key = 0;

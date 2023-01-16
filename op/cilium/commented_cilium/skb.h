@@ -97,9 +97,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -167,9 +167,9 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -200,7 +200,24 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Resize (trim or grow) the packet associated to <[ skb ]>(IP: 0) to the new len. The <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. The basic idea is that the helper performs the needed work to change the size of the packet , then the eBPF program rewrites the rest via helpers like skb_store_bytes() , l3_csum_replace() , l3_csum_replace() and others. This helper is a slow path utility intended for replies with control messages. And because it is targeted for slow path , the helper itself can afford to be slow: it implicitly linearizes , unclones and drops offloads from the skb. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "skb_change_tail",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: len}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "skb_change_tail": [
       {
@@ -228,10 +245,10 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
     "skb_change_tail"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sk_skb",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sk_skb",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

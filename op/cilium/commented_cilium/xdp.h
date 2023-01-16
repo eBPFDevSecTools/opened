@@ -288,7 +288,26 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l3_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: size}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "l3_csum_replace": [
       {
@@ -321,9 +340,9 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
     "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -384,7 +403,26 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l4_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "l4_csum_replace": [
       {
@@ -417,9 +455,9 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
     "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -484,7 +522,23 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "xdp_adjust_head": [
       {
@@ -575,7 +629,23 @@ ctx_change_proto(struct xdp_md *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data_end by <[ delta ]>(IP: 1) bytes. It is only possible to shrink the packet as of this writing , therefore <[ delta ]>(IP: 1) must be a negative integer. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "xdp_adjust_tail",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "xdp_adjust_tail": [
       {
@@ -633,7 +703,23 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "xdp_adjust_head": [
       {
@@ -773,9 +859,9 @@ ctx_adjust_hroom(struct xdp_md *ctx, const __s32 len_diff, const __u32 mode,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -839,9 +925,9 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -974,7 +1060,23 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -1004,29 +1106,29 @@ struct {
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -1061,7 +1163,23 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -1090,29 +1208,29 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
+    "raw_tracepoint",
     "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "sched_act",
-    "sk_reuseport",
-    "xdp",
-    "sk_msg",
-    "lwt_in",
     "cgroup_skb",
     "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
     "lwt_seg6local",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "raw_tracepoint",
     "sched_cls",
-    "lwt_out"
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "cgroup_device",
+    "kprobe",
+    "sock_ops",
+    "sk_skb",
+    "lwt_in",
+    "xdp",
+    "sched_act",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "lwt_xmit",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {

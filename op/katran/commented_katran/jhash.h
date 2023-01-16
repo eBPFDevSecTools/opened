@@ -11,7 +11,7 @@
   "helperCallParams": {},
   "startLine": 7,
   "endLine": 9,
-  "File": "/root/examples/katran/jhash.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
   "funcName": "rol32",
   "updateMaps": [],
   "readMaps": [],
@@ -21,7 +21,9 @@
   ],
   "output": "staticinline__u32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -97,7 +99,7 @@ typedef unsigned int u32;
   "helperCallParams": {},
   "startLine": 55,
   "endLine": 100,
-  "File": "/root/examples/katran/jhash.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
   "funcName": "jhash",
   "updateMaps": [],
   "readMaps": [],
@@ -108,7 +110,9 @@ typedef unsigned int u32;
   ],
   "output": "staticinlineu32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -183,7 +187,7 @@ static inline u32 jhash(const void* key, u32 length, u32 initval) {
   "helperCallParams": {},
   "startLine": 102,
   "endLine": 108,
-  "File": "/root/examples/katran/jhash.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
   "funcName": "__jhash_nwords",
   "updateMaps": [],
   "readMaps": [],
@@ -195,7 +199,9 @@ static inline u32 jhash(const void* key, u32 length, u32 initval) {
   ],
   "output": "staticinlineu32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -231,7 +237,7 @@ static inline u32 __jhash_nwords(u32 a, u32 b, u32 c, u32 initval) {
   "helperCallParams": {},
   "startLine": 110,
   "endLine": 112,
-  "File": "/root/examples/katran/jhash.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
   "funcName": "jhash_2words",
   "updateMaps": [],
   "readMaps": [],
@@ -242,7 +248,9 @@ static inline u32 __jhash_nwords(u32 a, u32 b, u32 c, u32 initval) {
   ],
   "output": "staticinlineu32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -274,7 +282,7 @@ static inline u32 jhash_2words(u32 a, u32 b, u32 initval) {
   "helperCallParams": {},
   "startLine": 114,
   "endLine": 116,
-  "File": "/root/examples/katran/jhash.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/jhash.h",
   "funcName": "jhash_1word",
   "updateMaps": [],
   "readMaps": [],
@@ -284,7 +292,9 @@ static inline u32 jhash_2words(u32 a, u32 b, u32 initval) {
   ],
   "output": "staticinlineu32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

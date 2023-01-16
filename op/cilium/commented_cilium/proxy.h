@@ -14,7 +14,26 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "struct sock*",
+          "Description": "Look for TCP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). This function is identical to sk_lookup_tcp() , except that it also returns timewait or request sockets. Use sk_fullsock() or tcp_sock() to access the full structure. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
+          "Function Name": "skc_lookup_tcp",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct sock_tuple ,Var: *tuple}",
+            "{Type:  u32 ,Var: tuple_size}",
+            "{Type:  u64 ,Var: netns}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "skc_lookup_tcp": [
       {
@@ -56,10 +75,10 @@
   ],
   "compatibleHookpoints": [
     "xdp",
+    "sched_act",
     "sched_cls",
     "sk_skb",
-    "cgroup_sock_addr",
-    "sched_act"
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -114,7 +133,26 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capability": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Return Type": "struct sock*",
+          "Description": "Look for UDP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_udp",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct sock_tuple ,Var: *tuple}",
+            "{Type:  u32 ,Var: tuple_size}",
+            "{Type:  u64 ,Var: netns}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "sk_lookup_udp": [
       {
@@ -156,10 +194,10 @@ out:
   ],
   "compatibleHookpoints": [
     "xdp",
+    "sched_act",
     "sched_cls",
     "sk_skb",
-    "cgroup_sock_addr",
-    "sched_act"
+    "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
     {
@@ -463,9 +501,9 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -565,9 +603,9 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -643,9 +681,9 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -762,9 +800,9 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

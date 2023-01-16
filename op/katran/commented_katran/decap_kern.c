@@ -38,7 +38,7 @@
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 83,
-  "File": "/root/examples/katran/decap_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_l3_headers",
   "updateMaps": [],
   "readMaps": [],
@@ -53,7 +53,9 @@
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -132,7 +134,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "helperCallParams": {},
   "startLine": 85,
   "endLine": 120,
-  "File": "/root/examples/katran/decap_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_ipip_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -148,7 +150,9 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -214,7 +218,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "helperCallParams": {},
   "startLine": 123,
   "endLine": 161,
-  "File": "/root/examples/katran/decap_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_gue_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -226,7 +230,9 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -293,12 +299,13 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 {
   "capability": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -320,7 +327,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   },
   "startLine": 164,
   "endLine": 221,
-  "File": "/root/examples/katran/decap_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
@@ -338,29 +345,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "tracepoint",
     "sk_reuseport",
-    "sched_cls",
-    "cgroup_sock",
     "lwt_xmit",
-    "lwt_out",
+    "kprobe",
+    "cgroup_skb",
     "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
     "cgroup_sock_addr",
     "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
     "sk_msg",
-    "tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
     "lwt_seg6local",
+    "cgroup_sock",
     "perf_event",
+    "sched_act",
+    "sched_cls",
+    "cgroup_sysctl",
     "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "xdp",
+    "socket_filter",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "humanFuncDescription": [
     {
@@ -449,7 +456,7 @@ SEC("decap")
   "helperCallParams": {},
   "startLine": 224,
   "endLine": 247,
-  "File": "/root/examples/katran/decap_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "xdpdecap",
   "updateMaps": [],
   "readMaps": [],
@@ -458,7 +465,9 @@ SEC("decap")
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

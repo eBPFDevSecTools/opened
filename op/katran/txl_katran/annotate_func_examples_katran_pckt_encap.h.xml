@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="41" endline="91">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="41" endline="91">
 static inline bool encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)
 {
     void *data;
@@ -44,7 +44,7 @@ static inline bool encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="93" endline="133">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="93" endline="133">
 static inline bool encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)
 {
     void *data;
@@ -73,7 +73,7 @@ static inline bool encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct 
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)" startline="137" endline="156">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)" startline="137" endline="156">
 static inline bool decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)
 {
     struct ethhdr *new_eth;
@@ -96,7 +96,7 @@ static inline bool decap_v6 (struct xdp_md *xdp, void **data, void **data_end, b
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool decap_v4 (struct xdp_md *xdp, void **data, void **data_end)" startline="158" endline="173">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool decap_v4 (struct xdp_md *xdp, void **data, void **data_end)" startline="158" endline="173">
 static inline bool decap_v4 (struct xdp_md *xdp, void **data, void **data_end)
 {
     struct ethhdr *new_eth;
@@ -114,7 +114,7 @@ static inline bool decap_v4 (struct xdp_md *xdp, void **data, void **data_end)
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum)" startline="177" endline="249">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum)" startline="177" endline="249">
 static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum)
 {
     __u16 outer_ip_off;
@@ -178,7 +178,7 @@ static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inn
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool gue_encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="251" endline="307">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool gue_encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="251" endline="307">
 static inline bool gue_encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)
 {
     void *data;
@@ -220,7 +220,7 @@ static inline bool gue_encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, str
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool gue_encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="309" endline="367">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool gue_encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)" startline="309" endline="367">
 static inline bool gue_encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)
 {
     void *data;
@@ -269,7 +269,7 @@ static inline bool gue_encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, boo
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool gue_decap_v4 (struct xdp_md *xdp, void **data, void **data_end)" startline="372" endline="389">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool gue_decap_v4 (struct xdp_md *xdp, void **data, void **data_end)" startline="372" endline="389">
 static inline bool gue_decap_v4 (struct xdp_md *xdp, void **data, void **data_end)
 {
     struct ethhdr *new_eth;
@@ -288,7 +288,7 @@ static inline bool gue_decap_v4 (struct xdp_md *xdp, void **data, void **data_en
     return true;
 }
 </source>
-<source file="/root/examples/katran/pckt_encap.h" funcheader="static inline bool gue_decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)" startline="391" endline="412">
+<source file="/home/sayandes/opened_extraction/examples/katran/pckt_encap.h" funcheader="static inline bool gue_decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)" startline="391" endline="412">
 static inline bool gue_decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)
 {
     struct ethhdr *new_eth;

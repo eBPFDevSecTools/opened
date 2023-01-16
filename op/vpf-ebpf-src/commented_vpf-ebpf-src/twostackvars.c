@@ -14,7 +14,7 @@ static int (*get_prandom_u32)() = (void*)7;
   "helperCallParams": {},
   "startLine": 10,
   "endLine": 46,
-  "File": "/root/examples/vpf-ebpf-src/twostackvars.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [],
@@ -23,7 +23,9 @@ static int (*get_prandom_u32)() = (void*)7;
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

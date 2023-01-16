@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/vpf-ebpf-src/wronghelper.c" funcheader="int func (void *ctx)" startline="29" endline="37">
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c" funcheader="int func (void *ctx)" startline="29" endline="37">
 int func (void *ctx)
 {
     uint32_t key = 1;

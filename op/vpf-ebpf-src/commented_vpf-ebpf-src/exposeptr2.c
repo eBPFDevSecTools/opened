@@ -31,11 +31,12 @@ struct ctx;
 {
   "capability": [
     {
+      "capability": "map_update",
       "map_update": [
         {
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of:BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": "0 on success, or a negative error in case of failure.",
           "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_map_update_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
@@ -62,7 +63,7 @@ struct ctx;
   },
   "startLine": 29,
   "endLine": 36,
-  "File": "/root/examples/vpf-ebpf-src/exposeptr2.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr2.c",
   "funcName": "func",
   "updateMaps": [
     " map"
@@ -76,29 +77,29 @@ struct ctx;
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_sock",
-    "flow_dissector",
-    "lwt_xmit",
-    "lwt_out",
-    "sched_cls",
-    "lwt_seg6local",
-    "lwt_in",
-    "sock_ops",
-    "tracepoint",
     "raw_tracepoint",
-    "sk_skb",
+    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_msg",
     "raw_tracepoint_writable",
-    "cgroup_skb",
-    "cgroup_device",
+    "sched_cls",
     "kprobe",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sched_act",
     "cgroup_sysctl",
-    "sk_reuseport",
-    "xdp"
+    "xdp",
+    "sk_skb",
+    "perf_event",
+    "flow_dissector",
+    "sock_ops",
+    "cgroup_sock",
+    "lwt_out",
+    "socket_filter",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_device"
   ],
   "humanFuncDescription": [
     {

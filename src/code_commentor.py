@@ -12,7 +12,7 @@ from tinydb import TinyDB
 
 def insert_to_db(db,comment_dict):
     comment_json = json.dumps(comment_dict)
-    print("Inserting comments to DB: "+ comment_json )
+    #print("Inserting comments to DB: "+ comment_json )
     db.insert(comment_dict)
 
 

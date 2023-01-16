@@ -12,7 +12,7 @@ struct ctx;
   "helperCallParams": {},
   "startLine": 8,
   "endLine": 26,
-  "File": "/root/examples/vpf-ebpf-src/byteswap.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [],
@@ -21,7 +21,9 @@ struct ctx;
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "All_hookpoints"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

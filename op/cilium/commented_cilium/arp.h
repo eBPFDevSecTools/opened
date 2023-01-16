@@ -235,9 +235,9 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
