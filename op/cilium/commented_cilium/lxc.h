@@ -22,11 +22,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 22,
   "endLine": 34,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/lxc.h",
   "funcName": "is_valid_lxc_src_ip",
   "updateMaps": [],
   "readMaps": [],
@@ -36,7 +36,29 @@
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -75,11 +97,11 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 36,
   "endLine": 45,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/lxc.h",
   "funcName": "is_valid_lxc_src_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -89,7 +111,29 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -125,11 +169,11 @@ int is_valid_lxc_src_ipv4(const struct iphdr *ip4 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 47,
   "endLine": 51,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/lxc.h",
   "funcName": "is_valid_lxc_src_ip",
   "updateMaps": [],
   "readMaps": [],
@@ -139,7 +183,29 @@ int is_valid_lxc_src_ipv4(const struct iphdr *ip4 __maybe_unused)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -170,11 +236,11 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 53,
   "endLine": 57,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/lxc.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/lxc.h",
   "funcName": "is_valid_lxc_src_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -184,7 +250,29 @@ int is_valid_lxc_src_ip(struct ipv6hdr *ip6 __maybe_unused)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

@@ -183,11 +183,11 @@ struct debug_msg {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 183,
   "endLine": 194,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg",
   "updateMaps": [],
   "readMaps": [],
@@ -200,7 +200,29 @@ struct debug_msg {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -238,11 +260,11 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 196,
   "endLine": 208,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg3",
   "updateMaps": [],
   "readMaps": [],
@@ -256,7 +278,29 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -301,11 +345,11 @@ struct debug_capture_msg {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 216,
   "endLine": 231,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg_capture2",
   "updateMaps": [],
   "readMaps": [],
@@ -318,7 +362,29 @@ struct debug_capture_msg {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -360,11 +426,11 @@ static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 typ
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 233,
   "endLine": 237,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg_capture",
   "updateMaps": [],
   "readMaps": [],
@@ -376,7 +442,29 @@ static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 typ
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -410,11 +498,11 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 242,
   "endLine": 246,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg",
   "updateMaps": [],
   "readMaps": [],
@@ -427,7 +515,29 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -458,11 +568,11 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 248,
   "endLine": 253,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg3",
   "updateMaps": [],
   "readMaps": [],
@@ -476,7 +586,29 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -508,11 +640,11 @@ void cilium_dbg3(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 255,
   "endLine": 259,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg_capture",
   "updateMaps": [],
   "readMaps": [],
@@ -524,7 +656,29 @@ void cilium_dbg3(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -555,11 +709,11 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 261,
   "endLine": 266,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg_capture2",
   "updateMaps": [],
   "readMaps": [],
@@ -572,7 +726,29 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

@@ -35,11 +35,11 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 35,
   "endLine": 39,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_load_daddr",
   "updateMaps": [],
   "readMaps": [],
@@ -51,7 +51,29 @@ struct {
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -82,7 +104,7 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -119,7 +141,7 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
   },
   "startLine": 41,
   "endLine": 55,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_dec_ttl",
   "updateMaps": [],
   "readMaps": [],
@@ -133,9 +155,9 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
     "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -176,11 +198,11 @@ static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 60,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_hdrlen",
   "updateMaps": [],
   "readMaps": [],
@@ -190,7 +212,29 @@ static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -220,11 +264,11 @@ static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 62,
   "endLine": 74,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_is_fragment",
   "updateMaps": [],
   "readMaps": [],
@@ -234,7 +278,29 @@ static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -273,11 +339,11 @@ static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 76,
   "endLine": 80,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_is_not_first_fragment",
   "updateMaps": [],
   "readMaps": [],
@@ -287,7 +353,29 @@ static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -319,11 +407,11 @@ static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 86,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_has_l4_header",
   "updateMaps": [],
   "readMaps": [],
@@ -333,7 +421,29 @@ static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -363,11 +473,11 @@ static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 88,
   "endLine": 92,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_is_in_subnet",
   "updateMaps": [],
   "readMaps": [],
@@ -379,7 +489,29 @@ static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -411,7 +543,7 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -441,7 +573,7 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
   },
   "startLine": 95,
   "endLine": 108,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_frag_get_l4ports",
   "updateMaps": [],
   "readMaps": [
@@ -456,29 +588,29 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -518,7 +650,7 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -554,7 +686,7 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
   },
   "startLine": 110,
   "endLine": 161,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/ipv4.h",
   "funcName": "ipv4_handle_fragmentation",
   "updateMaps": [
     " IPV4_FRAG_DATAGRAMS_MAP"
@@ -573,29 +705,29 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

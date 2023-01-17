@@ -11,7 +11,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -69,7 +69,7 @@ struct {
   },
   "startLine": 11,
   "endLine": 24,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bytecount.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/custom/bytecount.h",
   "funcName": "custom_prog",
   "updateMaps": [
     " bytecount_map"
@@ -87,29 +87,29 @@ struct {
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

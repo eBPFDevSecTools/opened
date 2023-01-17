@@ -58,11 +58,11 @@ struct quic_short_header {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 58,
   "endLine": 74,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h",
   "funcName": "calc_offset",
   "updateMaps": [],
   "readMaps": [],
@@ -73,7 +73,29 @@ struct quic_short_header {
   "output": "staticinline__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -116,11 +138,11 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 76,
   "endLine": 100,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h",
   "funcName": "parse_udp",
   "updateMaps": [],
   "readMaps": [],
@@ -133,7 +155,29 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -184,11 +228,11 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 102,
   "endLine": 130,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h",
   "funcName": "parse_tcp",
   "updateMaps": [],
   "readMaps": [],
@@ -201,7 +245,29 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -268,11 +334,11 @@ __attribute__ ((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 144,
   "endLine": 197,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h",
   "funcName": "parse_hdr_opt",
   "updateMaps": [],
   "readMaps": [],
@@ -283,7 +349,29 @@ __attribute__ ((__always_inline__))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -363,7 +451,7 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -435,15 +523,15 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
   },
   "startLine": 199,
   "endLine": 273,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h",
   "funcName": "tcp_hdr_opt_lookup",
   "updateMaps": [
     " lru_map"
   ],
   "readMaps": [
-    " server_id_map",
     " lru_map",
-    " reals"
+    " reals",
+    " server_id_map"
   ],
   "input": [
     "const struct xdp_md *xdp",
@@ -459,29 +547,29 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "tracepoint",
-    "lwt_xmit",
-    "kprobe",
-    "cgroup_skb",
     "sock_ops",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "lwt_seg6local",
-    "cgroup_sock",
-    "perf_event",
-    "sched_act",
+    "kprobe",
     "sched_cls",
-    "cgroup_sysctl",
-    "raw_tracepoint",
-    "xdp",
-    "socket_filter",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -583,11 +671,11 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 276,
   "endLine": 335,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h",
   "funcName": "parse_quic",
   "updateMaps": [],
   "readMaps": [],
@@ -600,7 +688,29 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {

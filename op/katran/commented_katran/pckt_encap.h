@@ -41,7 +41,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -71,7 +71,7 @@
   },
   "startLine": 41,
   "endLine": 91,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "encap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -165,7 +165,7 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -195,7 +195,7 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
   },
   "startLine": 93,
   "endLine": 133,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "encap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -280,7 +280,7 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -310,7 +310,7 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
   },
   "startLine": 137,
   "endLine": 156,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "decap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -371,7 +371,7 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -401,7 +401,7 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
   },
   "startLine": 158,
   "endLine": 173,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "decap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -459,11 +459,11 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 177,
   "endLine": 249,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -478,7 +478,29 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -577,7 +599,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -631,7 +653,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   },
   "startLine": 251,
   "endLine": 307,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_encap_v4",
   "updateMaps": [],
   "readMaps": [
@@ -646,8 +668,8 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -733,7 +755,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -787,7 +809,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   },
   "startLine": 309,
   "endLine": 367,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_encap_v6",
   "updateMaps": [],
   "readMaps": [
@@ -803,8 +825,8 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -895,7 +917,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -925,7 +947,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
   },
   "startLine": 372,
   "endLine": 389,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_decap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -983,7 +1005,7 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -1013,7 +1035,7 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   },
   "startLine": 391,
   "endLine": 412,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_decap_v6",
   "updateMaps": [],
   "readMaps": [],

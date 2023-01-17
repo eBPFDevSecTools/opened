@@ -8,7 +8,7 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -36,7 +36,7 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   },
   "startLine": 8,
   "endLine": 29,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
+  "File": "/home/palani/github/opened_extraction/examples/bcc/biolatpcts.c",
   "funcName": "RAW_TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -49,26 +49,26 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   ],
   "compatibleHookpoints": [
     "flow_dissector",
-    "sk_msg",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
-    "sock_ops",
-    "xdp",
-    "sched_cls",
-    "lwt_xmit",
-    "socket_filter",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
-    "cgroup_skb",
     "perf_event",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
+    "raw_tracepoint_writable",
     "lwt_seg6local",
-    "sched_act"
+    "lwt_in",
+    "tracepoint",
+    "sk_reuseport",
+    "xdp",
+    "sock_ops",
+    "cgroup_sock",
+    "socket_filter",
+    "sched_act",
+    "sched_cls",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "kprobe",
+    "lwt_out",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
     {

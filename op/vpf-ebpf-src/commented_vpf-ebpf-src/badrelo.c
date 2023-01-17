@@ -31,7 +31,7 @@ struct ctx;
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -65,7 +65,7 @@ struct ctx;
   },
   "startLine": 31,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badrelo.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/badrelo.c",
   "funcName": "func",
   "updateMaps": [
     " map2"
@@ -79,29 +79,29 @@ struct ctx;
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "sched_cls",
-    "kprobe",
-    "cgroup_skb",
-    "tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sysctl",
-    "xdp",
+    "cgroup_skb",
     "sk_skb",
-    "perf_event",
-    "flow_dissector",
+    "xdp",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "kprobe",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "sk_reuseport",
     "sock_ops",
     "cgroup_sock",
-    "lwt_out",
-    "socket_filter",
-    "lwt_in",
-    "lwt_seg6local",
-    "cgroup_device"
+    "perf_event",
+    "sched_cls",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "sched_act",
+    "lwt_out"
   ],
   "humanFuncDescription": [
     {

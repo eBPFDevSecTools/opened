@@ -34,11 +34,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 83,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_l3_headers",
   "updateMaps": [],
   "readMaps": [],
@@ -54,7 +54,29 @@
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -130,11 +152,11 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 85,
   "endLine": 120,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_ipip_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -151,7 +173,29 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -214,11 +258,11 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 123,
   "endLine": 161,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_gue_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -231,7 +275,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -297,7 +363,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -327,7 +393,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   },
   "startLine": 164,
   "endLine": 221,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
@@ -345,29 +411,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_reuseport",
-    "lwt_xmit",
-    "kprobe",
-    "cgroup_skb",
     "sock_ops",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "lwt_seg6local",
-    "cgroup_sock",
-    "perf_event",
-    "sched_act",
+    "kprobe",
     "sched_cls",
-    "cgroup_sysctl",
-    "raw_tracepoint",
-    "xdp",
-    "socket_filter",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -452,11 +518,11 @@ SEC("decap")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 224,
   "endLine": 247,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "xdpdecap",
   "updateMaps": [],
   "readMaps": [],
@@ -466,7 +532,29 @@ SEC("decap")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {

@@ -14,11 +14,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 14,
   "endLine": 17,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/jhash.h",
   "funcName": "rol32",
   "updateMaps": [],
   "readMaps": [],
@@ -29,7 +29,29 @@
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -80,11 +102,11 @@ static __always_inline __u32 rol32(__u32 word, __u32 shift)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 40,
   "endLine": 81,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/jhash.h",
   "funcName": "jhash",
   "updateMaps": [],
   "readMaps": [],
@@ -96,7 +118,29 @@ static __always_inline __u32 rol32(__u32 word, __u32 shift)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -164,11 +208,11 @@ static __always_inline __u32 jhash(const void *key, __u32 length,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 91,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/jhash.h",
   "funcName": "__jhash_nwords",
   "updateMaps": [],
   "readMaps": [],
@@ -181,7 +225,29 @@ static __always_inline __u32 jhash(const void *key, __u32 length,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -216,11 +282,11 @@ static __always_inline __u32 __jhash_nwords(__u32 a, __u32 b, __u32 c,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 93,
   "endLine": 97,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/jhash.h",
   "funcName": "jhash_3words",
   "updateMaps": [],
   "readMaps": [],
@@ -233,7 +299,29 @@ static __always_inline __u32 __jhash_nwords(__u32 a, __u32 b, __u32 c,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -264,11 +352,11 @@ static __always_inline __u32 jhash_3words(__u32 a, __u32 b, __u32 c,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 99,
   "endLine": 102,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/jhash.h",
   "funcName": "jhash_2words",
   "updateMaps": [],
   "readMaps": [],
@@ -280,7 +368,29 @@ static __always_inline __u32 jhash_3words(__u32 a, __u32 b, __u32 c,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -310,11 +420,11 @@ static __always_inline __u32 jhash_2words(__u32 a, __u32 b, __u32 initval)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 104,
   "endLine": 107,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/jhash.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/jhash.h",
   "funcName": "jhash_1word",
   "updateMaps": [],
   "readMaps": [],
@@ -325,7 +435,29 @@ static __always_inline __u32 jhash_2words(__u32 a, __u32 b, __u32 initval)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

@@ -22,11 +22,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 22,
   "endLine": 35,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "is_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -36,7 +36,29 @@
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -76,11 +98,11 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 44,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "build_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -91,7 +113,29 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -125,11 +169,11 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 46,
   "endLine": 50,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "build_v4_from_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -140,7 +184,29 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -171,11 +237,11 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 52,
   "endLine": 74,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "get_csum_offset",
   "updateMaps": [],
   "readMaps": [],
@@ -185,7 +251,29 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -234,7 +322,7 @@ static __always_inline int get_csum_offset(__u8 protocol)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -270,7 +358,7 @@ static __always_inline int get_csum_offset(__u8 protocol)
   },
   "startLine": 76,
   "endLine": 154,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "icmp4_to_icmp6",
   "updateMaps": [],
   "readMaps": [],
@@ -283,12 +371,12 @@ static __always_inline int get_csum_offset(__u8 protocol)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "lwt_xmit",
-    "xdp",
-    "sched_act",
     "lwt_out",
     "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "lwt_xmit",
+    "sched_act",
     "sched_cls"
   ],
   "humanFuncDescription": [
@@ -394,7 +482,7 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -430,7 +518,7 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
   },
   "startLine": 156,
   "endLine": 231,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "icmp6_to_icmp4",
   "updateMaps": [],
   "readMaps": [],
@@ -443,12 +531,12 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "lwt_xmit",
-    "xdp",
-    "sched_act",
     "lwt_out",
     "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "lwt_xmit",
+    "sched_act",
     "sched_cls"
   ],
   "humanFuncDescription": [
@@ -551,7 +639,7 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -627,7 +715,7 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
   },
   "startLine": 233,
   "endLine": 288,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "ipv4_to_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -639,13 +727,13 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -727,7 +815,7 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -751,19 +839,6 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
       "update_pkt": [
         {
           "Return Type": "int",
-          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l3_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: size}"
-          ]
-        },
-        {
-          "Return Type": "int",
           "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "l4_csum_replace",
@@ -773,6 +848,19 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
+          ]
+        },
+        {
+          "Return Type": "int",
+          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l3_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: size}"
           ]
         }
       ]
@@ -838,7 +926,7 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
   },
   "startLine": 290,
   "endLine": 345,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat_46x64.h",
   "funcName": "ipv6_to_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -849,14 +937,14 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "csum_diff",
     "l4_csum_replace",
-    "l3_csum_replace",
-    "csum_diff"
+    "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

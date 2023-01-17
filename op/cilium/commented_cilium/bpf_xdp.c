@@ -96,11 +96,11 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 96,
   "endLine": 117,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "bpf_xdp_exit",
   "updateMaps": [],
   "readMaps": [],
@@ -111,7 +111,29 @@ struct {
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -162,7 +184,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -176,7 +198,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
   },
   "startLine": 122,
   "endLine": 140,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "tail_lb_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -188,27 +210,27 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -253,7 +275,7 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -267,7 +289,7 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
   },
   "startLine": 142,
   "endLine": 147,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v4_lb",
   "updateMaps": [],
   "readMaps": [],
@@ -279,27 +301,27 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -331,11 +353,11 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 149,
   "endLine": 152,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v4_lb",
   "updateMaps": [],
   "readMaps": [],
@@ -345,7 +367,29 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -377,7 +421,7 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -414,12 +458,12 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
   },
   "startLine": 156,
   "endLine": 179,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v4",
   "updateMaps": [],
   "readMaps": [
-    " CIDR4_HMAP_NAME",
-    " CIDR4_LMAP_NAME"
+    " CIDR4_LMAP_NAME",
+    " CIDR4_HMAP_NAME"
   ],
   "input": [
     "struct  __ctx_buff *ctx"
@@ -429,29 +473,29 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -501,11 +545,11 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 181,
   "endLine": 184,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -515,7 +559,29 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -550,11 +616,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 191,
   "endLine": 203,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "tail_lb_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -564,7 +630,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -603,7 +691,7 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -617,7 +705,7 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
   },
   "startLine": 205,
   "endLine": 210,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v6_lb",
   "updateMaps": [],
   "readMaps": [],
@@ -629,27 +717,27 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -681,11 +769,11 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 212,
   "endLine": 215,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v6_lb",
   "updateMaps": [],
   "readMaps": [],
@@ -695,7 +783,29 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -727,7 +837,7 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -764,7 +874,7 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
   },
   "startLine": 219,
   "endLine": 242,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v6",
   "updateMaps": [],
   "readMaps": [
@@ -779,29 +889,29 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -851,11 +961,11 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 244,
   "endLine": 247,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -865,7 +975,29 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -897,11 +1029,11 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 251,
   "endLine": 278,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "check_filters",
   "updateMaps": [],
   "readMaps": [],
@@ -911,7 +1043,29 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -966,11 +1120,11 @@ __section("from-netdev")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 281,
   "endLine": 284,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_xdp.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_xdp.c",
   "funcName": "bpf_xdp_entry",
   "updateMaps": [],
   "readMaps": [],
@@ -980,7 +1134,29 @@ __section("from-netdev")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

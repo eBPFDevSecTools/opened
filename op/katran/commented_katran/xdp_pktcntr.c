@@ -46,7 +46,7 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -83,7 +83,7 @@ SEC("xdp")
   },
   "startLine": 46,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c",
   "funcName": "pktcntr",
   "updateMaps": [],
   "readMaps": [
@@ -98,29 +98,29 @@ SEC("xdp")
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_reuseport",
-    "lwt_xmit",
-    "kprobe",
-    "cgroup_skb",
     "sock_ops",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "lwt_seg6local",
-    "cgroup_sock",
-    "perf_event",
-    "sched_act",
+    "kprobe",
     "sched_cls",
-    "cgroup_sysctl",
-    "raw_tracepoint",
-    "xdp",
-    "socket_filter",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {

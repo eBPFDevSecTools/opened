@@ -9,11 +9,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 9,
   "endLine": 12,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/identity.h",
   "funcName": "identity_in_range",
   "updateMaps": [],
   "readMaps": [],
@@ -25,7 +25,29 @@
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -55,11 +77,11 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 14,
   "endLine": 32,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/identity.h",
   "funcName": "identity_is_remote_node",
   "updateMaps": [],
   "readMaps": [],
@@ -69,7 +91,29 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -114,11 +158,11 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 37,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/identity.h",
   "funcName": "identity_is_node",
   "updateMaps": [],
   "readMaps": [],
@@ -128,7 +172,29 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -176,11 +242,11 @@ static __always_inline bool identity_is_node(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 60,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/identity.h",
   "funcName": "identity_is_reserved",
   "updateMaps": [],
   "readMaps": [],
@@ -190,7 +256,29 @@ static __always_inline bool identity_is_node(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -238,11 +326,11 @@ static __always_inline bool identity_is_reserved(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 80,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/identity.h",
   "funcName": "identity_is_cluster",
   "updateMaps": [],
   "readMaps": [],
@@ -252,7 +340,29 @@ static __always_inline bool identity_is_reserved(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -290,11 +400,11 @@ static __always_inline bool identity_is_cluster(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 93,
   "endLine": 137,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/identity.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/identity.h",
   "funcName": "inherit_identity_from_host",
   "updateMaps": [],
   "readMaps": [],
@@ -305,7 +415,29 @@ static __always_inline bool identity_is_cluster(__u32 identity)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

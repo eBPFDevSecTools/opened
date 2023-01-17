@@ -36,11 +36,11 @@ struct signal_msg {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 36,
   "endLine": 41,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal",
   "updateMaps": [],
   "readMaps": [],
@@ -53,9 +53,9 @@ struct signal_msg {
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
     "kprobe",
+    "perf_event",
+    "raw_tracepoint",
     "tracepoint",
     "raw_tracepoint_writable"
   ],
@@ -89,7 +89,7 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "send_signal": [
       {
@@ -103,7 +103,7 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
   },
   "startLine": 43,
   "endLine": 52,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal_nat_fill_up",
   "updateMaps": [],
   "readMaps": [],
@@ -116,9 +116,9 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
     "kprobe",
+    "perf_event",
+    "raw_tracepoint",
     "tracepoint",
     "raw_tracepoint_writable"
   ],
@@ -156,7 +156,7 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "send_signal": [
       {
@@ -170,7 +170,7 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
   },
   "startLine": 54,
   "endLine": 63,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal_ct_fill_up",
   "updateMaps": [],
   "readMaps": [],
@@ -183,9 +183,9 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
     "kprobe",
+    "perf_event",
+    "raw_tracepoint",
     "tracepoint",
     "raw_tracepoint_writable"
   ],

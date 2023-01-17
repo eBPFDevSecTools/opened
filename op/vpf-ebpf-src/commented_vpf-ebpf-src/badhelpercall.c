@@ -8,7 +8,7 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -38,7 +38,7 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
   },
   "startLine": 8,
   "endLine": 15,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [],
@@ -51,10 +51,10 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
   ],
   "compatibleHookpoints": [
     "perf_event",
-    "raw_tracepoint",
-    "kprobe",
     "tracepoint",
-    "raw_tracepoint_writable"
+    "raw_tracepoint_writable",
+    "kprobe",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

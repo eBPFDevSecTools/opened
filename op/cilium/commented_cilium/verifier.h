@@ -13,7 +13,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -41,7 +41,7 @@
   },
   "startLine": 13,
   "endLine": 18,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/verifier.h",
   "funcName": "relax_verifier",
   "updateMaps": [],
   "readMaps": [],
@@ -53,27 +53,27 @@
     "get_smp_processor_id"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

@@ -18,11 +18,11 @@ __attribute__((section("xdp"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 58,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
   "funcName": "test_packet_access",
   "updateMaps": [],
   "readMaps": [],
@@ -32,7 +32,29 @@ __attribute__((section("xdp"), used))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "sk_skb",
+    "xdp",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "kprobe",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_sock",
+    "perf_event",
+    "sched_cls",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "sched_act",
+    "lwt_out"
   ],
   "humanFuncDescription": [
     {

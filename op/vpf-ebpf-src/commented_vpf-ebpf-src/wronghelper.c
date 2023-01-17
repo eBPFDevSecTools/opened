@@ -29,7 +29,7 @@ __attribute__((section("xdp"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -63,7 +63,7 @@ __attribute__((section("xdp"), used))
   },
   "startLine": 29,
   "endLine": 37,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/wronghelper.c",
   "funcName": "func",
   "updateMaps": [
     " ctx"

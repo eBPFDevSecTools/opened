@@ -28,7 +28,7 @@ bpf_map_def_t test_map = {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -58,7 +58,7 @@ bpf_map_def_t test_map = {
   },
   "startLine": 28,
   "endLine": 40,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
   "funcName": "test_repro",
   "updateMaps": [],
   "readMaps": [
@@ -72,29 +72,29 @@ bpf_map_def_t test_map = {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "sched_cls",
-    "kprobe",
-    "cgroup_skb",
-    "tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sysctl",
-    "xdp",
+    "cgroup_skb",
     "sk_skb",
-    "perf_event",
-    "flow_dissector",
+    "xdp",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "kprobe",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "sk_reuseport",
     "sock_ops",
     "cgroup_sock",
-    "lwt_out",
-    "socket_filter",
-    "lwt_in",
-    "lwt_seg6local",
-    "cgroup_device"
+    "perf_event",
+    "sched_cls",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "sched_act",
+    "lwt_out"
   ],
   "humanFuncDescription": [
     {

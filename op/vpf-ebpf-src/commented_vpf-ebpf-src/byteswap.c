@@ -8,11 +8,11 @@ struct ctx;
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 8,
   "endLine": 26,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/byteswap.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [],
@@ -22,7 +22,29 @@ struct ctx;
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "sk_skb",
+    "xdp",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "kprobe",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_sock",
+    "perf_event",
+    "sched_cls",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "sched_act",
+    "lwt_out"
   ],
   "humanFuncDescription": [
     {

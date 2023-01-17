@@ -17,11 +17,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 17,
   "endLine": 22,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_set_aggregate",
   "updateMaps": [],
   "readMaps": [],
@@ -32,7 +32,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -64,11 +86,11 @@ static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 24,
   "endLine": 34,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_get_aggregate",
   "updateMaps": [],
   "readMaps": [],
@@ -78,7 +100,29 @@ static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -115,7 +159,7 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -167,7 +211,7 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
   },
   "startLine": 36,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_sched_departure",
   "updateMaps": [],
   "readMaps": [
@@ -182,27 +226,27 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -270,11 +314,11 @@ static __always_inline int edt_sched_departure(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 79,
   "endLine": 83,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_set_aggregate",
   "updateMaps": [],
   "readMaps": [],
@@ -285,7 +329,29 @@ static __always_inline int edt_sched_departure(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

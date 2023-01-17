@@ -45,11 +45,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 45,
   "endLine": 48,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__cpu_to_le64p",
   "updateMaps": [],
   "readMaps": [],
@@ -59,7 +59,29 @@
   "output": "static__inline____le64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -88,11 +110,11 @@ static __inline__ __le64 __cpu_to_le64p(const __u64 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 49,
   "endLine": 52,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__le64_to_cpup",
   "updateMaps": [],
   "readMaps": [],
@@ -102,7 +124,29 @@ static __inline__ __le64 __cpu_to_le64p(const __u64 *p)
   "output": "static__inline____u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -131,11 +175,11 @@ static __inline__ __u64 __le64_to_cpup(const __le64 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 53,
   "endLine": 56,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__cpu_to_le32p",
   "updateMaps": [],
   "readMaps": [],
@@ -145,7 +189,29 @@ static __inline__ __u64 __le64_to_cpup(const __le64 *p)
   "output": "static__inline____le32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -174,11 +240,11 @@ static __inline__ __le32 __cpu_to_le32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 60,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__le32_to_cpup",
   "updateMaps": [],
   "readMaps": [],
@@ -188,7 +254,29 @@ static __inline__ __le32 __cpu_to_le32p(const __u32 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -217,11 +305,11 @@ static __inline__ __u32 __le32_to_cpup(const __le32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 61,
   "endLine": 64,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__cpu_to_le16p",
   "updateMaps": [],
   "readMaps": [],
@@ -231,7 +319,29 @@ static __inline__ __u32 __le32_to_cpup(const __le32 *p)
   "output": "static__inline____le16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -260,11 +370,11 @@ static __inline__ __le16 __cpu_to_le16p(const __u16 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 65,
   "endLine": 68,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__le16_to_cpup",
   "updateMaps": [],
   "readMaps": [],
@@ -274,7 +384,29 @@ static __inline__ __le16 __cpu_to_le16p(const __u16 *p)
   "output": "static__inline____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -303,11 +435,11 @@ static __inline__ __u16 __le16_to_cpup(const __le16 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 69,
   "endLine": 72,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__cpu_to_be64p",
   "updateMaps": [],
   "readMaps": [],
@@ -317,7 +449,29 @@ static __inline__ __u16 __le16_to_cpup(const __le16 *p)
   "output": "static__inline____be64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -346,11 +500,11 @@ static __inline__ __be64 __cpu_to_be64p(const __u64 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 73,
   "endLine": 76,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__be64_to_cpup",
   "updateMaps": [],
   "readMaps": [],
@@ -360,7 +514,29 @@ static __inline__ __be64 __cpu_to_be64p(const __u64 *p)
   "output": "static__inline____u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -389,11 +565,11 @@ static __inline__ __u64 __be64_to_cpup(const __be64 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 77,
   "endLine": 80,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__cpu_to_be32p",
   "updateMaps": [],
   "readMaps": [],
@@ -403,7 +579,29 @@ static __inline__ __u64 __be64_to_cpup(const __be64 *p)
   "output": "static__inline____be32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -432,11 +630,11 @@ static __inline__ __be32 __cpu_to_be32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 81,
   "endLine": 84,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__be32_to_cpup",
   "updateMaps": [],
   "readMaps": [],
@@ -446,7 +644,29 @@ static __inline__ __be32 __cpu_to_be32p(const __u32 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -475,11 +695,11 @@ static __inline__ __u32 __be32_to_cpup(const __be32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 85,
   "endLine": 88,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__cpu_to_be16p",
   "updateMaps": [],
   "readMaps": [],
@@ -489,7 +709,29 @@ static __inline__ __u32 __be32_to_cpup(const __be32 *p)
   "output": "static__inline____be16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -518,11 +760,11 @@ static __inline__ __be16 __cpu_to_be16p(const __u16 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 89,
   "endLine": 92,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/byteorder/little_endian.h",
   "funcName": "__be16_to_cpup",
   "updateMaps": [],
   "readMaps": [],
@@ -532,7 +774,29 @@ static __inline__ __be16 __cpu_to_be16p(const __u16 *p)
   "output": "static__inline____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

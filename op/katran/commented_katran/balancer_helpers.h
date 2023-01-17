@@ -46,7 +46,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -88,7 +88,7 @@
   },
   "startLine": 46,
   "endLine": 70,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
   "updateMaps": [],
   "readMaps": [
@@ -104,26 +104,26 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_perf_event_output",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_perf_event_output"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "sched_cls",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "kprobe",
-    "cgroup_skb",
-    "sock_ops",
-    "raw_tracepoint",
-    "xdp",
     "tracepoint",
-    "sk_skb",
-    "socket_filter",
+    "sched_act",
+    "sock_ops",
+    "cgroup_skb",
     "lwt_in",
+    "lwt_out",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint_writable",
-    "lwt_seg6local"
+    "raw_tracepoint",
+    "socket_filter",
+    "kprobe",
+    "xdp",
+    "sched_cls",
+    "perf_event",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
     {
@@ -176,7 +176,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_tail_call": [
       {
@@ -191,7 +191,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
   },
   "startLine": 74,
   "endLine": 80,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
   "updateMaps": [],
   "readMaps": [],
@@ -203,27 +203,27 @@ __attribute__((__always_inline__)) static inline void submit_event(
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_reuseport",
-    "lwt_xmit",
-    "kprobe",
-    "cgroup_skb",
     "sock_ops",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
-    "flow_dissector",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
     "lwt_out",
-    "lwt_seg6local",
-    "cgroup_sock",
+    "raw_tracepoint",
+    "socket_filter",
     "perf_event",
     "sched_act",
-    "sched_cls",
-    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
     "xdp",
-    "socket_filter",
-    "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -257,11 +257,11 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
   "updateMaps": [],
   "readMaps": [],
@@ -274,7 +274,29 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {

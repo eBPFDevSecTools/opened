@@ -12,7 +12,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -42,7 +42,7 @@
   },
   "startLine": 12,
   "endLine": 21,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*__lookup_ip6_endpoint",
   "updateMaps": [],
   "readMaps": [
@@ -56,29 +56,29 @@
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -114,11 +114,11 @@ __lookup_ip6_endpoint(const union v6addr *ip6)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 23,
   "endLine": 27,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*lookup_ip6_endpoint",
   "updateMaps": [],
   "readMaps": [],
@@ -128,7 +128,29 @@ __lookup_ip6_endpoint(const union v6addr *ip6)
   "output": "static__always_inline__maybe_unusedstructendpoint_info",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -159,7 +181,7 @@ lookup_ip6_endpoint(const struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -189,7 +211,7 @@ lookup_ip6_endpoint(const struct ipv6hdr *ip6)
   },
   "startLine": 29,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*__lookup_ip4_endpoint",
   "updateMaps": [],
   "readMaps": [
@@ -203,29 +225,29 @@ lookup_ip6_endpoint(const struct ipv6hdr *ip6)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -261,11 +283,11 @@ __lookup_ip4_endpoint(__u32 ip)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 40,
   "endLine": 44,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*lookup_ip4_endpoint",
   "updateMaps": [],
   "readMaps": [],
@@ -275,7 +297,29 @@ __lookup_ip4_endpoint(__u32 ip)
   "output": "static__always_inline__maybe_unusedstructendpoint_info",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -307,7 +351,7 @@ lookup_ip4_endpoint(const struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -337,7 +381,7 @@ lookup_ip4_endpoint(const struct iphdr *ip4)
   },
   "startLine": 47,
   "endLine": 56,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*lookup_ip4_endpoint_policy_map",
   "updateMaps": [],
   "readMaps": [
@@ -351,29 +395,29 @@ lookup_ip4_endpoint(const struct iphdr *ip4)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -418,7 +462,7 @@ lookup_ip4_endpoint_policy_map(__u32 ip)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -448,7 +492,7 @@ lookup_ip4_endpoint_policy_map(__u32 ip)
   },
   "startLine": 67,
   "endLine": 78,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*ipcache_lookup6",
   "updateMaps": [],
   "readMaps": [
@@ -464,29 +508,29 @@ lookup_ip4_endpoint_policy_map(__u32 ip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -526,7 +570,7 @@ ipcache_lookup6(const void *map, const union v6addr *addr,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -556,7 +600,7 @@ ipcache_lookup6(const void *map, const union v6addr *addr,
   },
   "startLine": 82,
   "endLine": 92,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/eps.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/eps.h",
   "funcName": "*ipcache_lookup4",
   "updateMaps": [],
   "readMaps": [
@@ -572,29 +616,29 @@ ipcache_lookup6(const void *map, const union v6addr *addr,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

@@ -26,11 +26,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 26,
   "endLine": 40,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "sk_extract4_key",
   "updateMaps": [],
   "readMaps": [],
@@ -41,7 +41,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -82,11 +104,11 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 42,
   "endLine": 48,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "sk_lb4_key",
   "updateMaps": [],
   "readMaps": [],
@@ -97,7 +119,29 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -130,11 +174,11 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 53,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "redirect_to_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -147,9 +191,9 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -179,7 +223,7 @@ static __always_inline bool redirect_to_proxy(int verdict)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -212,7 +256,7 @@ static __always_inline bool redirect_to_proxy(int verdict)
   },
   "startLine": 55,
   "endLine": 118,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "bpf_sock_ops_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -315,11 +359,11 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 122,
   "endLine": 126,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "bpf_sock_ops_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -329,7 +373,29 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -362,11 +428,11 @@ __section("sockops")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 130,
   "endLine": 154,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "bpf_sockmap",
   "updateMaps": [],
   "readMaps": [],
@@ -376,7 +442,29 @@ __section("sockops")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

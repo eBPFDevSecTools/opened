@@ -34,7 +34,7 @@ SEC("tc")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -115,16 +115,16 @@ SEC("tc")
   },
   "startLine": 34,
   "endLine": 139,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_kern.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    " hc_reals_map",
-    " hc_ctrl_map",
+    "  hc_pckt_macs",
     " hc_key_map",
-    "  hc_stats_map",
     " per_hckey_stats",
-    "  hc_pckt_macs"
+    "  hc_stats_map",
+    " hc_reals_map",
+    " hc_ctrl_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
@@ -135,8 +135,8 @@ SEC("tc")
     "bpf_redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act",
     "lwt_xmit"
   ],

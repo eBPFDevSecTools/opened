@@ -16,11 +16,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 16,
   "endLine": 19,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
   "funcName": "*ctx_data",
   "updateMaps": [],
   "readMaps": [],
@@ -30,7 +30,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -60,11 +82,11 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 21,
   "endLine": 24,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
   "funcName": "*ctx_data_meta",
   "updateMaps": [],
   "readMaps": [],
@@ -74,7 +96,29 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -104,11 +148,11 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 26,
   "endLine": 29,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
   "funcName": "*ctx_data_end",
   "updateMaps": [],
   "readMaps": [],
@@ -118,7 +162,29 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -148,11 +214,11 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 31,
   "endLine": 34,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/common.h",
   "funcName": "ctx_no_room",
   "updateMaps": [],
   "readMaps": [],
@@ -163,7 +229,29 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

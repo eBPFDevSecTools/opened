@@ -32,11 +32,11 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 32,
   "endLine": 45,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/custom/bpf_custom.c",
   "funcName": "custom_hook",
   "updateMaps": [],
   "readMaps": [],
@@ -46,7 +46,29 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

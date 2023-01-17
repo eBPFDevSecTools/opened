@@ -24,7 +24,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -82,7 +82,7 @@
   },
   "startLine": 24,
   "endLine": 43,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/metrics.h",
   "funcName": "update_metrics",
   "updateMaps": [
     " METRICS_MAP"
@@ -101,29 +101,29 @@
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -174,11 +174,11 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/metrics.h",
   "funcName": "ct_to_metrics_dir",
   "updateMaps": [],
   "readMaps": [],
@@ -188,7 +188,29 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
   "output": "static__always_inlineenummetric_dir",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

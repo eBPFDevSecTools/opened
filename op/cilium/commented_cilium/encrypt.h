@@ -15,7 +15,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -30,7 +30,7 @@
   },
   "startLine": 15,
   "endLine": 75,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -44,9 +44,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -133,11 +133,11 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 77,
   "endLine": 81,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -148,7 +148,29 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

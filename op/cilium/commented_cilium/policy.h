@@ -15,7 +15,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -66,7 +66,7 @@
   },
   "startLine": 15,
   "endLine": 79,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_sk_egress",
   "updateMaps": [],
   "readMaps": [
@@ -82,29 +82,29 @@
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -195,11 +195,11 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 81,
   "endLine": 87,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "account",
   "updateMaps": [],
   "readMaps": [],
@@ -210,7 +210,29 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -243,7 +265,7 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -294,7 +316,7 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
   },
   "startLine": 89,
   "endLine": 222,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "__policy_can_access",
   "updateMaps": [],
   "readMaps": [
@@ -316,29 +338,29 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -514,11 +536,11 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 240,
   "endLine": 264,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_can_access_ingress",
   "updateMaps": [],
   "readMaps": [],
@@ -535,7 +557,29 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -587,11 +631,11 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 267,
   "endLine": 270,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "is_encap",
   "updateMaps": [],
   "readMaps": [],
@@ -602,7 +646,29 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -633,11 +699,11 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 273,
   "endLine": 296,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_can_egress",
   "updateMaps": [],
   "readMaps": [],
@@ -653,7 +719,29 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -703,11 +791,11 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 298,
   "endLine": 305,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_can_egress6",
   "updateMaps": [],
   "readMaps": [],
@@ -722,7 +810,29 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -756,11 +866,11 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 307,
   "endLine": 314,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_can_egress4",
   "updateMaps": [],
   "readMaps": [],
@@ -775,7 +885,29 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -816,11 +948,11 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 323,
   "endLine": 326,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_mark_skip",
   "updateMaps": [],
   "readMaps": [],
@@ -830,7 +962,29 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -860,11 +1014,11 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 328,
   "endLine": 331,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_clear_mark",
   "updateMaps": [],
   "readMaps": [],
@@ -874,7 +1028,29 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

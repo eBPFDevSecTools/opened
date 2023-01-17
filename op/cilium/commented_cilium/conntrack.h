@@ -26,11 +26,11 @@ enum {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 26,
   "endLine": 32,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_entry_seen_both_syns",
   "updateMaps": [],
   "readMaps": [],
@@ -40,7 +40,29 @@ enum {
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -101,11 +123,11 @@ union tcp_flags {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 62,
   "endLine": 126,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "__ct_update_timeout",
   "updateMaps": [],
   "readMaps": [],
@@ -119,7 +141,29 @@ union tcp_flags {
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -216,11 +260,11 @@ static __always_inline __u32 __ct_update_timeout(struct ct_entry *entry,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 134,
   "endLine": 156,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update_timeout",
   "updateMaps": [],
   "readMaps": [],
@@ -233,7 +277,29 @@ static __always_inline __u32 __ct_update_timeout(struct ct_entry *entry,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -282,11 +348,11 @@ static __always_inline __u32 ct_update_timeout(struct ct_entry *entry,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 158,
   "endLine": 162,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_reset_closing",
   "updateMaps": [],
   "readMaps": [],
@@ -296,7 +362,29 @@ static __always_inline __u32 ct_update_timeout(struct ct_entry *entry,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -327,11 +415,11 @@ static __always_inline void ct_reset_closing(struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 164,
   "endLine": 167,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_entry_alive",
   "updateMaps": [],
   "readMaps": [],
@@ -341,7 +429,29 @@ static __always_inline void ct_reset_closing(struct ct_entry *entry)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -371,11 +481,11 @@ static __always_inline bool ct_entry_alive(const struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 169,
   "endLine": 172,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_entry_closing",
   "updateMaps": [],
   "readMaps": [],
@@ -385,7 +495,29 @@ static __always_inline bool ct_entry_alive(const struct ct_entry *entry)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -415,11 +547,11 @@ static __always_inline bool ct_entry_closing(const struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 174,
   "endLine": 183,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_entry_expired_rebalance",
   "updateMaps": [],
   "readMaps": [],
@@ -429,7 +561,29 @@ static __always_inline bool ct_entry_closing(const struct ct_entry *entry)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -465,7 +619,7 @@ ct_entry_expired_rebalance(const struct ct_entry *entry)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -503,7 +657,7 @@ ct_entry_expired_rebalance(const struct ct_entry *entry)
   },
   "startLine": 185,
   "endLine": 273,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "__ct_lookup",
   "updateMaps": [],
   "readMaps": [
@@ -527,9 +681,9 @@ ct_entry_expired_rebalance(const struct ct_entry *entry)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -644,11 +798,11 @@ ct_new: __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 275,
   "endLine": 303,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ipv6_extract_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -660,7 +814,29 @@ ct_new: __maybe_unused
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -715,11 +891,11 @@ ipv6_extract_tuple(struct __ctx_buff *ctx, struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 305,
   "endLine": 311,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_flip_tuple_dir6",
   "updateMaps": [],
   "readMaps": [],
@@ -729,7 +905,29 @@ ipv6_extract_tuple(struct __ctx_buff *ctx, struct ipv6_ct_tuple *tuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -762,11 +960,11 @@ static __always_inline void ct_flip_tuple_dir6(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 313,
   "endLine": 326,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "__ipv6_ct_tuple_reverse",
   "updateMaps": [],
   "readMaps": [],
@@ -776,7 +974,29 @@ static __always_inline void ct_flip_tuple_dir6(struct ipv6_ct_tuple *tuple)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -816,11 +1036,11 @@ __ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 328,
   "endLine": 333,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ipv6_ct_tuple_reverse",
   "updateMaps": [],
   "readMaps": [],
@@ -830,7 +1050,29 @@ __ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -863,11 +1105,11 @@ ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 336,
   "endLine": 459,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_lookup6",
   "updateMaps": [],
   "readMaps": [],
@@ -883,7 +1125,29 @@ ipv6_ct_tuple_reverse(struct ipv6_ct_tuple *tuple)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1033,11 +1297,11 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 461,
   "endLine": 483,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ipv4_extract_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -1049,7 +1313,29 @@ out:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1098,11 +1384,11 @@ ipv4_extract_tuple(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 485,
   "endLine": 491,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_flip_tuple_dir4",
   "updateMaps": [],
   "readMaps": [],
@@ -1112,7 +1398,29 @@ ipv4_extract_tuple(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1145,11 +1453,11 @@ static __always_inline void ct_flip_tuple_dir4(struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 493,
   "endLine": 505,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "__ipv4_ct_tuple_reverse",
   "updateMaps": [],
   "readMaps": [],
@@ -1159,7 +1467,29 @@ static __always_inline void ct_flip_tuple_dir4(struct ipv4_ct_tuple *tuple)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1198,11 +1528,11 @@ __ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 507,
   "endLine": 512,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ipv4_ct_tuple_reverse",
   "updateMaps": [],
   "readMaps": [],
@@ -1212,7 +1542,29 @@ __ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1244,11 +1596,11 @@ ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 514,
   "endLine": 540,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ipv4_ct_extract_l4_ports",
   "updateMaps": [],
   "readMaps": [],
@@ -1262,7 +1614,29 @@ ipv4_ct_tuple_reverse(struct ipv4_ct_tuple *tuple)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1315,11 +1689,11 @@ static __always_inline int ipv4_ct_extract_l4_ports(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 542,
   "endLine": 549,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct4_cilium_dbg_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -1333,7 +1707,29 @@ static __always_inline int ipv4_ct_extract_l4_ports(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1367,11 +1763,11 @@ static __always_inline void ct4_cilium_dbg_tuple(struct __ctx_buff *ctx, __u8 ty
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 551,
   "endLine": 606,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_extract_ports4",
   "updateMaps": [],
   "readMaps": [],
@@ -1384,7 +1780,29 @@ static __always_inline void ct4_cilium_dbg_tuple(struct __ctx_buff *ctx, __u8 ty
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1474,7 +1892,7 @@ ct_extract_ports4(struct __ctx_buff *ctx, int off, enum ct_dir dir,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -1504,7 +1922,7 @@ ct_extract_ports4(struct __ctx_buff *ctx, int off, enum ct_dir dir,
   },
   "startLine": 616,
   "endLine": 631,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_is_reply4",
   "updateMaps": [],
   "readMaps": [
@@ -1522,29 +1940,29 @@ ct_extract_ports4(struct __ctx_buff *ctx, int off, enum ct_dir dir,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1587,11 +2005,11 @@ ct_is_reply4(const void *map, struct __ctx_buff *ctx, int off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 634,
   "endLine": 757,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_lookup4",
   "updateMaps": [],
   "readMaps": [],
@@ -1607,7 +2025,29 @@ ct_is_reply4(const void *map, struct __ctx_buff *ctx, int off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1757,7 +2197,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -1787,7 +2227,7 @@ out:
   },
   "startLine": 759,
   "endLine": 770,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update6_backend_id",
   "updateMaps": [],
   "readMaps": [
@@ -1803,29 +2243,29 @@ out:
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1863,7 +2303,7 @@ ct_update6_backend_id(const void *map, const struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -1893,7 +2333,7 @@ ct_update6_backend_id(const void *map, const struct ipv6_ct_tuple *tuple,
   },
   "startLine": 772,
   "endLine": 783,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update6_rev_nat_index",
   "updateMaps": [],
   "readMaps": [
@@ -1909,29 +2349,29 @@ ct_update6_backend_id(const void *map, const struct ipv6_ct_tuple *tuple,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1969,7 +2409,7 @@ ct_update6_rev_nat_index(const void *map, const struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -1999,7 +2439,7 @@ ct_update6_rev_nat_index(const void *map, const struct ipv6_ct_tuple *tuple,
   },
   "startLine": 785,
   "endLine": 796,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update6_dsr",
   "updateMaps": [],
   "readMaps": [
@@ -2015,29 +2455,29 @@ ct_update6_rev_nat_index(const void *map, const struct ipv6_ct_tuple *tuple,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2076,7 +2516,7 @@ ct_update6_dsr(const void *map, const struct ipv6_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -2154,7 +2594,7 @@ ct_update6_dsr(const void *map, const struct ipv6_ct_tuple *tuple,
   },
   "startLine": 799,
   "endLine": 865,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_create6",
   "updateMaps": [
     " map_main",
@@ -2269,7 +2709,7 @@ static __always_inline int ct_create6(const void *map_main, const void *map_rela
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -2299,7 +2739,7 @@ static __always_inline int ct_create6(const void *map_main, const void *map_rela
   },
   "startLine": 867,
   "endLine": 878,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update4_backend_id",
   "updateMaps": [],
   "readMaps": [
@@ -2315,29 +2755,29 @@ static __always_inline int ct_create6(const void *map_main, const void *map_rela
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2375,7 +2815,7 @@ static __always_inline void ct_update4_backend_id(const void *map,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -2405,7 +2845,7 @@ static __always_inline void ct_update4_backend_id(const void *map,
   },
   "startLine": 880,
   "endLine": 891,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update4_rev_nat_index",
   "updateMaps": [],
   "readMaps": [
@@ -2421,29 +2861,29 @@ static __always_inline void ct_update4_backend_id(const void *map,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2481,7 +2921,7 @@ ct_update4_rev_nat_index(const void *map, const struct ipv4_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -2511,7 +2951,7 @@ ct_update4_rev_nat_index(const void *map, const struct ipv4_ct_tuple *tuple,
   },
   "startLine": 893,
   "endLine": 904,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update4_dsr",
   "updateMaps": [],
   "readMaps": [
@@ -2527,29 +2967,29 @@ ct_update4_rev_nat_index(const void *map, const struct ipv4_ct_tuple *tuple,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2587,7 +3027,7 @@ ct_update4_dsr(const void *map, const struct ipv4_ct_tuple *tuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -2682,7 +3122,7 @@ ct_update4_dsr(const void *map, const struct ipv4_ct_tuple *tuple,
   },
   "startLine": 906,
   "endLine": 1006,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_create4",
   "updateMaps": [
     " map_main",
@@ -2840,7 +3280,7 @@ static __always_inline int ct_create4(const void *map_main,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -2870,7 +3310,7 @@ static __always_inline int ct_create4(const void *map_main,
   },
   "startLine": 1017,
   "endLine": 1032,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_has_nodeport_egress_entry4",
   "updateMaps": [],
   "readMaps": [
@@ -2885,29 +3325,29 @@ static __always_inline int ct_create4(const void *map_main,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2949,7 +3389,7 @@ ct_has_nodeport_egress_entry4(const void *map,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -2979,7 +3419,7 @@ ct_has_nodeport_egress_entry4(const void *map,
   },
   "startLine": 1034,
   "endLine": 1049,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_has_nodeport_egress_entry6",
   "updateMaps": [],
   "readMaps": [
@@ -2994,29 +3434,29 @@ ct_has_nodeport_egress_entry4(const void *map,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3058,7 +3498,7 @@ ct_has_nodeport_egress_entry6(const void *map,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -3088,7 +3528,7 @@ ct_has_nodeport_egress_entry6(const void *map,
   },
   "startLine": 1051,
   "endLine": 1061,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/conntrack.h",
   "funcName": "ct_update_nodeport",
   "updateMaps": [],
   "readMaps": [
@@ -3104,29 +3544,29 @@ ct_has_nodeport_egress_entry6(const void *map,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

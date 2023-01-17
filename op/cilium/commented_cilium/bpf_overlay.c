@@ -46,7 +46,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -61,7 +61,7 @@
   },
   "startLine": 46,
   "endLine": 180,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -75,9 +75,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -239,11 +239,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 183,
   "endLine": 192,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -253,7 +253,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -291,7 +313,7 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -331,7 +353,7 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   },
   "startLine": 196,
   "endLine": 333,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv4",
   "updateMaps": [],
   "readMaps": [
@@ -348,9 +370,9 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -515,11 +537,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 336,
   "endLine": 345,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -529,7 +551,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -571,7 +615,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -613,7 +657,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   },
   "startLine": 353,
   "endLine": 395,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_arp",
   "updateMaps": [],
   "readMaps": [
@@ -629,9 +673,9 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -704,11 +748,11 @@ pass_to_stack:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 401,
   "endLine": 428,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "is_esp",
   "updateMaps": [],
   "readMaps": [],
@@ -719,7 +763,29 @@ pass_to_stack:
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -778,7 +844,7 @@ __section("from-overlay")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -806,7 +872,7 @@ __section("from-overlay")
   },
   "startLine": 435,
   "endLine": 527,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "from_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -818,27 +884,27 @@ __section("from-overlay")
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -961,11 +1027,11 @@ __section("to-overlay")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 533,
   "endLine": 568,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "to_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -975,7 +1041,29 @@ __section("to-overlay")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

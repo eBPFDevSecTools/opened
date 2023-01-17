@@ -38,11 +38,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 38,
   "endLine": 48,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac_and_send",
   "updateMaps": [],
   "readMaps": [],
@@ -53,7 +53,29 @@
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -90,11 +112,11 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 58,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac",
   "updateMaps": [],
   "readMaps": [],
@@ -105,7 +127,29 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -140,11 +184,11 @@ __attribute__((__always_inline__)) static inline void swap_mac(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 60,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -155,7 +199,29 @@ __attribute__((__always_inline__)) static inline void swap_mac(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -212,11 +278,11 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 117,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -227,7 +293,29 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -279,7 +367,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -309,7 +397,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   },
   "startLine": 119,
   "endLine": 162,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp4_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -391,7 +479,7 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -421,7 +509,7 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
   },
   "startLine": 164,
   "endLine": 203,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -499,7 +587,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -529,7 +617,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
   },
   "startLine": 205,
   "endLine": 221,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -586,11 +674,11 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 223,
   "endLine": 253,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmpv6",
   "updateMaps": [],
   "readMaps": [],
@@ -603,7 +691,29 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -660,11 +770,11 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 255,
   "endLine": 285,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmp",
   "updateMaps": [],
   "readMaps": [],
@@ -677,7 +787,29 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {

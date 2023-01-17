@@ -37,11 +37,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "set_hc_key",
   "updateMaps": [],
   "readMaps": [],
@@ -53,7 +53,29 @@
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -120,7 +142,7 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -194,7 +216,7 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
   },
   "startLine": 79,
   "endLine": 139,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_ipip",
   "updateMaps": [],
   "readMaps": [
@@ -300,11 +322,11 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 141,
   "endLine": 143,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "gue_sport",
   "updateMaps": [],
   "readMaps": [],
@@ -314,7 +336,29 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -343,7 +387,7 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -417,7 +461,7 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
   },
   "startLine": 145,
   "endLine": 213,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_gue",
   "updateMaps": [],
   "readMaps": [

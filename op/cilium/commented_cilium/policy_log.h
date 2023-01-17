@@ -39,11 +39,11 @@ struct policy_verdict_notify {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 39,
   "endLine": 47,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h",
   "funcName": "policy_verdict_filter_allow",
   "updateMaps": [],
   "readMaps": [],
@@ -54,7 +54,29 @@ struct policy_verdict_notify {
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -89,11 +111,11 @@ static __always_inline bool policy_verdict_filter_allow(__u32 filter, __u8 dir)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 49,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h",
   "funcName": "send_policy_verdict_notify",
   "updateMaps": [],
   "readMaps": [],
@@ -111,7 +133,29 @@ static __always_inline bool policy_verdict_filter_allow(__u32 filter, __u8 dir)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -166,11 +210,11 @@ send_policy_verdict_notify(struct __ctx_buff *ctx, __u32 remote_label, __u16 dst
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 79,
   "endLine": 86,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy_log.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/policy_log.h",
   "funcName": "send_policy_verdict_notify",
   "updateMaps": [],
   "readMaps": [],
@@ -188,7 +232,29 @@ send_policy_verdict_notify(struct __ctx_buff *ctx, __u32 remote_label, __u16 dst
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

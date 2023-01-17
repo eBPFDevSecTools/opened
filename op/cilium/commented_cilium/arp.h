@@ -21,11 +21,11 @@ struct arp_eth {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 21,
   "endLine": 30,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/arp.h",
   "funcName": "arp_check",
   "updateMaps": [],
   "readMaps": [],
@@ -37,7 +37,29 @@ struct arp_eth {
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -73,11 +95,11 @@ static __always_inline int arp_check(struct ethhdr *eth,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 32,
   "endLine": 49,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/arp.h",
   "funcName": "arp_prepare_response",
   "updateMaps": [],
   "readMaps": [],
@@ -91,7 +113,29 @@ static __always_inline int arp_check(struct ethhdr *eth,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -135,11 +179,11 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 51,
   "endLine": 73,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/arp.h",
   "funcName": "arp_validate",
   "updateMaps": [],
   "readMaps": [],
@@ -153,7 +197,29 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -202,7 +268,7 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -217,7 +283,7 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
   },
   "startLine": 75,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/arp.h",
   "funcName": "arp_respond",
   "updateMaps": [],
   "readMaps": [],
@@ -235,9 +301,9 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

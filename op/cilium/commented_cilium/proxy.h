@@ -14,7 +14,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -58,7 +58,7 @@
   },
   "startLine": 14,
   "endLine": 42,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket_tcp",
   "updateMaps": [],
   "readMaps": [],
@@ -74,10 +74,10 @@
     "sk_release"
   ],
   "compatibleHookpoints": [
+    "sk_skb",
+    "sched_cls",
     "xdp",
     "sched_act",
-    "sched_cls",
-    "sk_skb",
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
@@ -133,7 +133,7 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -177,7 +177,7 @@ out:
   },
   "startLine": 44,
   "endLine": 67,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket_udp",
   "updateMaps": [],
   "readMaps": [],
@@ -193,10 +193,10 @@ out:
     "sk_release"
   ],
   "compatibleHookpoints": [
+    "sk_skb",
+    "sched_cls",
     "xdp",
     "sched_act",
-    "sched_cls",
-    "sk_skb",
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
@@ -247,11 +247,11 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 69,
   "endLine": 86,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket",
   "updateMaps": [],
   "readMaps": [],
@@ -265,7 +265,29 @@ out:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -313,11 +335,11 @@ assign_socket(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 96,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "combine_ports",
   "updateMaps": [],
   "readMaps": [],
@@ -328,7 +350,29 @@ assign_socket(struct __ctx_buff *ctx,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -451,7 +495,7 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -484,7 +528,7 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   },
   "startLine": 190,
   "endLine": 220,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "__ctx_redirect_to_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -501,9 +545,9 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -561,7 +605,7 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -587,7 +631,7 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   },
   "startLine": 223,
   "endLine": 228,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy4",
   "updateMaps": [],
   "readMaps": [],
@@ -603,9 +647,9 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -639,7 +683,7 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -665,7 +709,7 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   },
   "startLine": 232,
   "endLine": 237,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy6",
   "updateMaps": [],
   "readMaps": [],
@@ -681,9 +725,9 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -756,7 +800,7 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -786,7 +830,7 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   },
   "startLine": 280,
   "endLine": 337,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy_first",
   "updateMaps": [],
   "readMaps": [],
@@ -800,9 +844,9 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -889,11 +933,11 @@ out: __maybe_unused
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 342,
   "endLine": 351,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "tc_index_skip_ingress_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -903,7 +947,29 @@ out: __maybe_unused
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -942,11 +1008,11 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 356,
   "endLine": 365,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "tc_index_skip_egress_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -956,7 +1022,29 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

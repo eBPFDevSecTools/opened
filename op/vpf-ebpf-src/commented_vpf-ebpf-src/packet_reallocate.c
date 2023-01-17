@@ -17,7 +17,7 @@ __attribute__((section("socket_filter"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -49,7 +49,7 @@ __attribute__((section("socket_filter"), used))
   },
   "startLine": 17,
   "endLine": 34,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
   "funcName": "reallocate_invalidates",
   "updateMaps": [],
   "readMaps": [],
@@ -61,9 +61,9 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
     "sk_skb",
+    "sched_act",
+    "lwt_xmit",
     "sched_cls"
   ],
   "humanFuncDescription": [

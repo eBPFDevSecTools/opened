@@ -51,11 +51,11 @@ struct nat_entry {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 51,
   "endLine": 55,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "__snat_clamp_port_range",
   "updateMaps": [],
   "readMaps": [],
@@ -67,7 +67,29 @@ struct nat_entry {
   "output": "static__always_inline__be16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -98,7 +120,7 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -126,7 +148,7 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
   },
   "startLine": 57,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "__snat_try_keep_port",
   "updateMaps": [],
   "readMaps": [],
@@ -140,27 +162,27 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -192,7 +214,7 @@ __snat_try_keep_port(__u16 start, __u16 end, __u16 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -222,7 +244,7 @@ __snat_try_keep_port(__u16 start, __u16 end, __u16 val)
   },
   "startLine": 64,
   "endLine": 68,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "*__snat_lookup",
   "updateMaps": [],
   "readMaps": [
@@ -237,29 +259,29 @@ __snat_try_keep_port(__u16 start, __u16 end, __u16 val)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -290,7 +312,7 @@ __snat_lookup(const void *map, const void *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -352,7 +374,7 @@ __snat_lookup(const void *map, const void *tuple)
   },
   "startLine": 70,
   "endLine": 83,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "__snat_update",
   "updateMaps": [
     " map"
@@ -371,29 +393,29 @@ __snat_lookup(const void *map, const void *tuple)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -433,7 +455,7 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -470,7 +492,7 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
   },
   "startLine": 85,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "__snat_delete",
   "updateMaps": [
     " map"
@@ -486,29 +508,29 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -584,11 +606,11 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 136,
   "endLine": 140,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "*snat_v4_lookup",
   "updateMaps": [],
   "readMaps": [],
@@ -598,7 +620,29 @@ struct {
   "output": "static__always_inlinestructipv4_nat_entry",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -629,11 +673,11 @@ struct ipv4_nat_entry *snat_v4_lookup(const struct ipv4_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 142,
   "endLine": 149,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_update",
   "updateMaps": [],
   "readMaps": [],
@@ -646,7 +690,29 @@ struct ipv4_nat_entry *snat_v4_lookup(const struct ipv4_ct_tuple *tuple)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -680,11 +746,11 @@ static __always_inline int snat_v4_update(const struct ipv4_ct_tuple *otuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 151,
   "endLine": 155,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_delete",
   "updateMaps": [],
   "readMaps": [],
@@ -695,7 +761,29 @@ static __always_inline int snat_v4_update(const struct ipv4_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -726,11 +814,11 @@ static __always_inline void snat_v4_delete(const struct ipv4_ct_tuple *otuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 157,
   "endLine": 168,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_swap_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -741,7 +829,29 @@ static __always_inline void snat_v4_delete(const struct ipv4_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -779,11 +889,11 @@ static __always_inline void snat_v4_swap_tuple(const struct ipv4_ct_tuple *otupl
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 170,
   "endLine": 183,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_reverse_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -794,7 +904,29 @@ static __always_inline void snat_v4_swap_tuple(const struct ipv4_ct_tuple *otupl
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -834,11 +966,11 @@ static __always_inline int snat_v4_reverse_tuple(const struct ipv4_ct_tuple *otu
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 185,
   "endLine": 193,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_ct_canonicalize",
   "updateMaps": [],
   "readMaps": [],
@@ -848,7 +980,29 @@ static __always_inline int snat_v4_reverse_tuple(const struct ipv4_ct_tuple *otu
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -883,11 +1037,11 @@ static __always_inline void snat_v4_ct_canonicalize(struct ipv4_ct_tuple *otuple
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 195,
   "endLine": 204,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_delete_tuples",
   "updateMaps": [],
   "readMaps": [],
@@ -897,7 +1051,29 @@ static __always_inline void snat_v4_ct_canonicalize(struct ipv4_ct_tuple *otuple
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -933,7 +1109,7 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -972,7 +1148,7 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
   },
   "startLine": 206,
   "endLine": 258,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_new_mapping",
   "updateMaps": [],
   "readMaps": [],
@@ -988,9 +1164,9 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
     "kprobe",
+    "perf_event",
+    "raw_tracepoint",
     "tracepoint",
     "raw_tracepoint_writable"
   ],
@@ -1071,11 +1247,11 @@ static __always_inline int snat_v4_new_mapping(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 260,
   "endLine": 299,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_track_local",
   "updateMaps": [],
   "readMaps": [],
@@ -1090,7 +1266,29 @@ static __always_inline int snat_v4_new_mapping(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1156,11 +1354,11 @@ static __always_inline int snat_v4_track_local(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 301,
   "endLine": 322,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_handle_mapping",
   "updateMaps": [],
   "readMaps": [],
@@ -1176,7 +1374,29 @@ static __always_inline int snat_v4_track_local(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1224,7 +1444,7 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -1301,7 +1521,7 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
   },
   "startLine": 324,
   "endLine": 380,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_rewrite_egress",
   "updateMaps": [],
   "readMaps": [],
@@ -1314,13 +1534,13 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l3_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -1403,7 +1623,7 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -1480,7 +1700,7 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
   },
   "startLine": 382,
   "endLine": 435,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_rewrite_ingress",
   "updateMaps": [],
   "readMaps": [],
@@ -1492,13 +1712,13 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l3_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -1578,11 +1798,11 @@ static __always_inline int snat_v4_rewrite_ingress(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 437,
   "endLine": 452,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_can_skip",
   "updateMaps": [],
   "readMaps": [],
@@ -1596,7 +1816,29 @@ static __always_inline int snat_v4_rewrite_ingress(struct __ctx_buff *ctx,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1638,7 +1880,7 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -1672,7 +1914,7 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
   },
   "startLine": 454,
   "endLine": 505,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_create_dsr",
   "updateMaps": [
     "  SNAT_MAPPING_IPV4"
@@ -1688,29 +1930,29 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1788,11 +2030,11 @@ static __always_inline __maybe_unused int snat_v4_create_dsr(struct __ctx_buff *
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 507,
   "endLine": 572,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_process",
   "updateMaps": [],
   "readMaps": [],
@@ -1805,7 +2047,29 @@ static __always_inline __maybe_unused int snat_v4_create_dsr(struct __ctx_buff *
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1897,11 +2161,11 @@ snat_v4_process(struct __ctx_buff *ctx, enum nat_dir dir,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 574,
   "endLine": 581,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_process",
   "updateMaps": [],
   "readMaps": [],
@@ -1914,7 +2178,29 @@ snat_v4_process(struct __ctx_buff *ctx, enum nat_dir dir,
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1948,11 +2234,11 @@ int snat_v4_process(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 583,
   "endLine": 586,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v4_delete_tuples",
   "updateMaps": [],
   "readMaps": [],
@@ -1962,7 +2248,29 @@ int snat_v4_process(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2026,11 +2334,11 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 622,
   "endLine": 626,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "*snat_v6_lookup",
   "updateMaps": [],
   "readMaps": [],
@@ -2040,7 +2348,29 @@ struct {
   "output": "static__always_inlinestructipv6_nat_entry",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2071,11 +2401,11 @@ struct ipv6_nat_entry *snat_v6_lookup(struct ipv6_ct_tuple *tuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 628,
   "endLine": 635,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_update",
   "updateMaps": [],
   "readMaps": [],
@@ -2088,7 +2418,29 @@ struct ipv6_nat_entry *snat_v6_lookup(struct ipv6_ct_tuple *tuple)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2122,11 +2474,11 @@ static __always_inline int snat_v6_update(struct ipv6_ct_tuple *otuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 637,
   "endLine": 641,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_delete",
   "updateMaps": [],
   "readMaps": [],
@@ -2137,7 +2489,29 @@ static __always_inline int snat_v6_update(struct ipv6_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2168,11 +2542,11 @@ static __always_inline void snat_v6_delete(const struct ipv6_ct_tuple *otuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 643,
   "endLine": 654,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_swap_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -2183,7 +2557,29 @@ static __always_inline void snat_v6_delete(const struct ipv6_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2221,11 +2617,11 @@ static __always_inline void snat_v6_swap_tuple(const struct ipv6_ct_tuple *otupl
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 656,
   "endLine": 669,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_reverse_tuple",
   "updateMaps": [],
   "readMaps": [],
@@ -2236,7 +2632,29 @@ static __always_inline void snat_v6_swap_tuple(const struct ipv6_ct_tuple *otupl
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2276,11 +2694,11 @@ static __always_inline int snat_v6_reverse_tuple(struct ipv6_ct_tuple *otuple,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 671,
   "endLine": 680,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_ct_canonicalize",
   "updateMaps": [],
   "readMaps": [],
@@ -2290,7 +2708,29 @@ static __always_inline int snat_v6_reverse_tuple(struct ipv6_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2326,11 +2766,11 @@ static __always_inline void snat_v6_ct_canonicalize(struct ipv6_ct_tuple *otuple
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 682,
   "endLine": 691,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_delete_tuples",
   "updateMaps": [],
   "readMaps": [],
@@ -2340,7 +2780,29 @@ static __always_inline void snat_v6_ct_canonicalize(struct ipv6_ct_tuple *otuple
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2376,7 +2838,7 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -2415,7 +2877,7 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
   },
   "startLine": 693,
   "endLine": 745,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_new_mapping",
   "updateMaps": [],
   "readMaps": [],
@@ -2431,9 +2893,9 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
     "kprobe",
+    "perf_event",
+    "raw_tracepoint",
     "tracepoint",
     "raw_tracepoint_writable"
   ],
@@ -2514,11 +2976,11 @@ static __always_inline int snat_v6_new_mapping(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 747,
   "endLine": 785,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_track_local",
   "updateMaps": [],
   "readMaps": [],
@@ -2533,7 +2995,29 @@ static __always_inline int snat_v6_new_mapping(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2598,11 +3082,11 @@ static __always_inline int snat_v6_track_local(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 787,
   "endLine": 808,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_handle_mapping",
   "updateMaps": [],
   "readMaps": [],
@@ -2618,7 +3102,29 @@ static __always_inline int snat_v6_track_local(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2666,7 +3172,7 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -2712,7 +3218,7 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
   },
   "startLine": 810,
   "endLine": 855,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_rewrite_egress",
   "updateMaps": [],
   "readMaps": [],
@@ -2727,12 +3233,12 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "lwt_xmit",
-    "xdp",
-    "sched_act",
     "lwt_out",
     "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "lwt_xmit",
+    "sched_act",
     "sched_cls"
   ],
   "humanFuncDescription": [
@@ -2805,7 +3311,7 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -2851,7 +3357,7 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
   },
   "startLine": 857,
   "endLine": 904,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_rewrite_ingress",
   "updateMaps": [],
   "readMaps": [],
@@ -2866,12 +3372,12 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "lwt_xmit",
-    "xdp",
-    "sched_act",
     "lwt_out",
     "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "lwt_xmit",
+    "sched_act",
     "sched_cls"
   ],
   "humanFuncDescription": [
@@ -2946,11 +3452,11 @@ static __always_inline int snat_v6_rewrite_ingress(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 906,
   "endLine": 920,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_can_skip",
   "updateMaps": [],
   "readMaps": [],
@@ -2963,7 +3469,29 @@ static __always_inline int snat_v6_rewrite_ingress(struct __ctx_buff *ctx,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3004,7 +3532,7 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -3038,7 +3566,7 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
   },
   "startLine": 922,
   "endLine": 977,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_create_dsr",
   "updateMaps": [
     "  SNAT_MAPPING_IPV6"
@@ -3054,29 +3582,29 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3158,11 +3686,11 @@ static __always_inline __maybe_unused int snat_v6_create_dsr(struct __ctx_buff *
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 979,
   "endLine": 1054,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_process",
   "updateMaps": [],
   "readMaps": [],
@@ -3174,7 +3702,29 @@ static __always_inline __maybe_unused int snat_v6_create_dsr(struct __ctx_buff *
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3276,11 +3826,11 @@ snat_v6_process(struct __ctx_buff *ctx, enum nat_dir dir,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1056,
   "endLine": 1062,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_process",
   "updateMaps": [],
   "readMaps": [],
@@ -3292,7 +3842,29 @@ snat_v6_process(struct __ctx_buff *ctx, enum nat_dir dir,
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3325,11 +3897,11 @@ int snat_v6_process(struct __ctx_buff *ctx __maybe_unused,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1064,
   "endLine": 1067,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_delete_tuples",
   "updateMaps": [],
   "readMaps": [],
@@ -3339,7 +3911,29 @@ int snat_v6_process(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3370,11 +3964,11 @@ void snat_v6_delete_tuples(struct ipv6_ct_tuple *tuple __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1070,
   "endLine": 1088,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "snat_v6_has_v4_match",
   "updateMaps": [],
   "readMaps": [],
@@ -3384,7 +3978,29 @@ void snat_v6_delete_tuples(struct ipv6_ct_tuple *tuple __maybe_unused)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3429,7 +4045,7 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -3468,7 +4084,7 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
   },
   "startLine": 1090,
   "endLine": 1100,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "ct_delete4",
   "updateMaps": [
     "",
@@ -3485,29 +4101,29 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3544,7 +4160,7 @@ ct_delete4(const void *map, struct ipv4_ct_tuple *tuple, struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -3583,7 +4199,7 @@ ct_delete4(const void *map, struct ipv4_ct_tuple *tuple, struct __ctx_buff *ctx)
   },
   "startLine": 1102,
   "endLine": 1112,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/nat.h",
   "funcName": "ct_delete6",
   "updateMaps": [
     "",
@@ -3600,29 +4216,29 @@ ct_delete4(const void *map, struct ipv4_ct_tuple *tuple, struct __ctx_buff *ctx)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

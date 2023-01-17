@@ -10,7 +10,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -25,7 +25,7 @@
   },
   "startLine": 10,
   "endLine": 33,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/tailcall.h",
   "funcName": "tail_call_static",
   "updateMaps": [],
   "readMaps": [],
@@ -39,27 +39,27 @@
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -109,7 +109,7 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -132,7 +132,7 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
   },
   "startLine": 35,
   "endLine": 46,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/tailcall.h",
   "funcName": "tail_call_dynamic",
   "updateMaps": [],
   "readMaps": [],
@@ -146,27 +146,27 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

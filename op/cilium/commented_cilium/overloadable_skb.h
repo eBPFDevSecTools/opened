@@ -7,11 +7,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 7,
   "endLine": 17,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "bpf_clear_meta",
   "updateMaps": [],
   "readMaps": [],
@@ -21,7 +21,29 @@
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -61,11 +83,11 @@ bpf_clear_meta(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 22,
   "endLine": 26,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "get_identity",
   "updateMaps": [],
   "readMaps": [],
@@ -75,7 +97,29 @@ bpf_clear_meta(struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -109,11 +153,11 @@ get_identity(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 31,
   "endLine": 35,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "get_epid",
   "updateMaps": [],
   "readMaps": [],
@@ -123,7 +167,29 @@ get_identity(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -154,11 +220,11 @@ get_epid(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 41,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "set_encrypt_dip",
   "updateMaps": [],
   "readMaps": [],
@@ -169,7 +235,29 @@ get_epid(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -203,11 +291,11 @@ set_encrypt_dip(struct __sk_buff *ctx, __u32 ip_endpoint)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 46,
   "endLine": 51,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "set_identity_mark",
   "updateMaps": [],
   "readMaps": [],
@@ -218,7 +306,29 @@ set_encrypt_dip(struct __sk_buff *ctx, __u32 ip_endpoint)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -250,11 +360,11 @@ set_identity_mark(struct __sk_buff *ctx, __u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 53,
   "endLine": 57,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "set_identity_meta",
   "updateMaps": [],
   "readMaps": [],
@@ -265,7 +375,29 @@ set_identity_mark(struct __sk_buff *ctx, __u32 identity)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -299,11 +431,11 @@ set_identity_meta(struct __sk_buff *ctx, __u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 62,
   "endLine": 66,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "set_encrypt_key_mark",
   "updateMaps": [],
   "readMaps": [],
@@ -314,7 +446,29 @@ set_identity_meta(struct __sk_buff *ctx, __u32 identity)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -345,11 +499,11 @@ set_encrypt_key_mark(struct __sk_buff *ctx, __u8 key)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 68,
   "endLine": 72,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "set_encrypt_key_meta",
   "updateMaps": [],
   "readMaps": [],
@@ -360,7 +514,29 @@ set_encrypt_key_mark(struct __sk_buff *ctx, __u8 key)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -396,11 +572,11 @@ set_encrypt_key_meta(struct __sk_buff *ctx, __u8 key)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 79,
   "endLine": 83,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "set_encrypt_mark",
   "updateMaps": [],
   "readMaps": [],
@@ -410,7 +586,29 @@ set_encrypt_key_meta(struct __sk_buff *ctx, __u8 key)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -441,7 +639,7 @@ set_encrypt_mark(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -470,7 +668,7 @@ set_encrypt_mark(struct __sk_buff *ctx)
   },
   "startLine": 85,
   "endLine": 99,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "redirect_self",
   "updateMaps": [],
   "readMaps": [],
@@ -483,9 +681,9 @@ set_encrypt_mark(struct __sk_buff *ctx)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -526,11 +724,11 @@ redirect_self(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 101,
   "endLine": 107,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_skip_nodeport_clear",
   "updateMaps": [],
   "readMaps": [],
@@ -540,7 +738,29 @@ redirect_self(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -573,11 +793,11 @@ ctx_skip_nodeport_clear(struct __sk_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 109,
   "endLine": 115,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_skip_nodeport_set",
   "updateMaps": [],
   "readMaps": [],
@@ -587,7 +807,29 @@ ctx_skip_nodeport_clear(struct __sk_buff *ctx __maybe_unused)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -620,11 +862,11 @@ ctx_skip_nodeport_set(struct __sk_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 117,
   "endLine": 127,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_skip_nodeport",
   "updateMaps": [],
   "readMaps": [],
@@ -634,7 +876,29 @@ ctx_skip_nodeport_set(struct __sk_buff *ctx __maybe_unused)
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -672,11 +936,11 @@ ctx_skip_nodeport(struct __sk_buff *ctx __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 130,
   "endLine": 134,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_skip_host_fw_set",
   "updateMaps": [],
   "readMaps": [],
@@ -686,7 +950,29 @@ ctx_skip_nodeport(struct __sk_buff *ctx __maybe_unused)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -717,11 +1003,11 @@ ctx_skip_host_fw_set(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 136,
   "endLine": 143,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_skip_host_fw",
   "updateMaps": [],
   "readMaps": [],
@@ -731,7 +1017,29 @@ ctx_skip_host_fw_set(struct __sk_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -766,11 +1074,11 @@ ctx_skip_host_fw(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 146,
   "endLine": 152,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_get_xfer",
   "updateMaps": [],
   "readMaps": [],
@@ -780,7 +1088,29 @@ ctx_skip_host_fw(struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -813,11 +1143,11 @@ static __always_inline __maybe_unused __u32 ctx_get_xfer(struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 154,
   "endLine": 158,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_set_xfer",
   "updateMaps": [],
   "readMaps": [],
@@ -828,7 +1158,29 @@ static __always_inline __maybe_unused __u32 ctx_get_xfer(struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -859,7 +1211,7 @@ ctx_set_xfer(struct __sk_buff *ctx __maybe_unused, __u32 meta __maybe_unused)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -891,7 +1243,7 @@ ctx_set_xfer(struct __sk_buff *ctx __maybe_unused, __u32 meta __maybe_unused)
   },
   "startLine": 160,
   "endLine": 164,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/overloadable_skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/overloadable_skb.h",
   "funcName": "ctx_change_head",
   "updateMaps": [],
   "readMaps": [],
@@ -905,10 +1257,10 @@ ctx_set_xfer(struct __sk_buff *ctx __maybe_unused, __u32 meta __maybe_unused)
     "skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_xmit",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

@@ -30,11 +30,11 @@ static const uint64_t kernel_hz[] = { 100, 250, 300, 1000 };
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 30,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "pin_to_cpu",
   "updateMaps": [],
   "readMaps": [],
@@ -44,7 +44,29 @@ static const uint64_t kernel_hz[] = { 100, 250, 300, 1000 };
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -79,11 +101,11 @@ static int pin_to_cpu(int cpu)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 40,
   "endLine": 47,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "fix_priority",
   "updateMaps": [],
   "readMaps": [],
@@ -93,7 +115,29 @@ static int pin_to_cpu(int cpu)
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -127,11 +171,11 @@ static int fix_priority(void)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 49,
   "endLine": 52,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "*timer_list_open",
   "updateMaps": [],
   "readMaps": [],
@@ -141,7 +185,29 @@ static int fix_priority(void)
   "output": "staticFILE",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -171,11 +237,11 @@ static FILE *timer_list_open(void)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 54,
   "endLine": 57,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "timer_list_close",
   "updateMaps": [],
   "readMaps": [],
@@ -185,7 +251,29 @@ static FILE *timer_list_open(void)
   "output": "staticvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -215,11 +303,11 @@ static void timer_list_close(FILE *fp)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 59,
   "endLine": 92,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "prep_kern_jiffies",
   "updateMaps": [],
   "readMaps": [],
@@ -230,7 +318,29 @@ static void timer_list_close(FILE *fp)
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -290,11 +400,11 @@ static int prep_kern_jiffies(struct cpu_jiffies *before,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 94,
   "endLine": 113,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "fetch_kern_jiffies",
   "updateMaps": [],
   "readMaps": [],
@@ -304,7 +414,29 @@ static int prep_kern_jiffies(struct cpu_jiffies *before,
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -350,11 +482,11 @@ static int fetch_kern_jiffies(const struct cpu_jiffies *curr)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 115,
   "endLine": 150,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "dump_kern_jiffies",
   "updateMaps": [],
   "readMaps": [],
@@ -366,7 +498,29 @@ static int fetch_kern_jiffies(const struct cpu_jiffies *curr)
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -428,11 +582,11 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 152,
   "endLine": 194,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/cilium-probe-kernel-hz.c",
   "funcName": "main",
   "updateMaps": [],
   "readMaps": [],
@@ -443,7 +597,29 @@ out:
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

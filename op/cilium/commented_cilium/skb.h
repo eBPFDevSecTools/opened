@@ -60,7 +60,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -82,7 +82,7 @@
   },
   "startLine": 60,
   "endLine": 64,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_redirect",
   "updateMaps": [],
   "readMaps": [],
@@ -97,9 +97,9 @@
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -130,7 +130,7 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -152,7 +152,7 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
   },
   "startLine": 66,
   "endLine": 70,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_redirect_peer",
   "updateMaps": [],
   "readMaps": [],
@@ -167,9 +167,9 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -200,7 +200,7 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -232,7 +232,7 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
   },
   "startLine": 72,
   "endLine": 76,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_adjust_troom",
   "updateMaps": [],
   "readMaps": [],
@@ -245,10 +245,10 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
     "skb_change_tail"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_xmit",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "lwt_xmit",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -279,11 +279,11 @@ ctx_adjust_troom(struct __sk_buff *ctx, const __s32 len_diff)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 78,
   "endLine": 82,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_full_len",
   "updateMaps": [],
   "readMaps": [],
@@ -293,7 +293,29 @@ ctx_adjust_troom(struct __sk_buff *ctx, const __s32 len_diff)
   "output": "static__always_inline__maybe_unused__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -324,11 +346,11 @@ ctx_full_len(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 84,
   "endLine": 88,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_wire_len",
   "updateMaps": [],
   "readMaps": [],
@@ -338,7 +360,29 @@ ctx_full_len(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -369,11 +413,11 @@ ctx_wire_len(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 90,
   "endLine": 94,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_store_meta",
   "updateMaps": [],
   "readMaps": [],
@@ -385,7 +429,29 @@ ctx_wire_len(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -416,11 +482,11 @@ ctx_store_meta(struct __sk_buff *ctx, const __u32 off, __u32 data)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 96,
   "endLine": 100,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_load_meta",
   "updateMaps": [],
   "readMaps": [],
@@ -431,7 +497,29 @@ ctx_store_meta(struct __sk_buff *ctx, const __u32 off, __u32 data)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -462,11 +550,11 @@ ctx_load_meta(const struct __sk_buff *ctx, const __u32 off)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 102,
   "endLine": 106,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_get_protocol",
   "updateMaps": [],
   "readMaps": [],
@@ -476,7 +564,29 @@ ctx_load_meta(const struct __sk_buff *ctx, const __u32 off)
   "output": "static__always_inline__maybe_unused__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -507,11 +617,11 @@ ctx_get_protocol(const struct __sk_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 108,
   "endLine": 112,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_get_ifindex",
   "updateMaps": [],
   "readMaps": [],
@@ -521,7 +631,29 @@ ctx_get_protocol(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

@@ -36,11 +36,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 36,
   "endLine": 47,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l4.h",
   "funcName": "l4_modify_port",
   "updateMaps": [],
   "readMaps": [],
@@ -55,7 +55,29 @@
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -93,11 +115,11 @@ static __always_inline int l4_modify_port(struct __ctx_buff *ctx, int l4_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 49,
   "endLine": 53,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l4.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l4.h",
   "funcName": "l4_load_port",
   "updateMaps": [],
   "readMaps": [],
@@ -109,7 +131,29 @@ static __always_inline int l4_modify_port(struct __ctx_buff *ctx, int l4_off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

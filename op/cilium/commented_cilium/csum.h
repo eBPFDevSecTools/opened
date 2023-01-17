@@ -10,11 +10,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 10,
   "endLine": 15,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h",
   "funcName": "csum_fold",
   "updateMaps": [],
   "readMaps": [],
@@ -24,7 +24,29 @@
   "output": "static__always_inline__sum16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -56,11 +78,11 @@ static __always_inline __sum16 csum_fold(__wsum csum)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 17,
   "endLine": 20,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h",
   "funcName": "csum_unfold",
   "updateMaps": [],
   "readMaps": [],
@@ -70,7 +92,29 @@ static __always_inline __sum16 csum_fold(__wsum csum)
   "output": "static__always_inline__wsum",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -100,11 +144,11 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 22,
   "endLine": 26,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h",
   "funcName": "csum_add",
   "updateMaps": [],
   "readMaps": [],
@@ -115,7 +159,29 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
   "output": "static__always_inline__wsum",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -146,11 +212,11 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 28,
   "endLine": 31,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h",
   "funcName": "csum_sub",
   "updateMaps": [],
   "readMaps": [],
@@ -161,7 +227,29 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
   "output": "static__always_inline__wsum",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -191,7 +279,7 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -227,7 +315,7 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
   },
   "startLine": 33,
   "endLine": 52,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/csum.h",
   "funcName": "csum_diff",
   "updateMaps": [],
   "readMaps": [],
@@ -243,12 +331,12 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "lwt_xmit",
-    "xdp",
-    "sched_act",
     "lwt_out",
     "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "lwt_xmit",
+    "sched_act",
     "sched_cls"
   ],
   "humanFuncDescription": [

@@ -29,7 +29,7 @@ __attribute__((section("sockops"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_update",
       "map_update": [
@@ -63,7 +63,7 @@ __attribute__((section("sockops"), used))
   },
   "startLine": 29,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
   "funcName": "func",
   "updateMaps": [
     " ctx"

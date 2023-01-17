@@ -31,11 +31,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 31,
   "endLine": 55,
-  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/encap_helpers.h",
   "funcName": "create_v4_hdr",
   "updateMaps": [],
   "readMaps": [],
@@ -50,7 +50,29 @@
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -101,11 +123,11 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/encap_helpers.h",
   "funcName": "create_v6_hdr",
   "updateMaps": [],
   "readMaps": [],
@@ -120,7 +142,29 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {
@@ -167,11 +211,11 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 79,
   "endLine": 89,
-  "File": "/home/sayandes/opened_extraction/examples/katran/encap_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/encap_helpers.h",
   "funcName": "create_udp_hdr",
   "updateMaps": [],
   "readMaps": [],
@@ -185,7 +229,29 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sock_ops",
+    "kprobe",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "raw_tracepoint",
+    "socket_filter",
+    "perf_event",
+    "cgroup_sysctl",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "sk_reuseport",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "flow_dissector",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "sk_skb",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "humanFuncDescription": [
     {

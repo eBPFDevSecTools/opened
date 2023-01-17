@@ -62,11 +62,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 62,
   "endLine": 64,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "allow_vlan",
   "updateMaps": [],
   "readMaps": [],
@@ -77,7 +77,29 @@
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -107,11 +129,11 @@ static __always_inline bool allow_vlan(__u32 __maybe_unused ifindex, __u32 __may
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 67,
   "endLine": 82,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "rewrite_dmac_to_host",
   "updateMaps": [],
   "readMaps": [],
@@ -122,7 +144,29 @@ static __always_inline bool allow_vlan(__u32 __maybe_unused ifindex, __u32 __may
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -169,11 +213,11 @@ static __always_inline int rewrite_dmac_to_host(struct __ctx_buff *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 89,
   "endLine": 92,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "identity_from_ipcache_ok",
   "updateMaps": [],
   "readMaps": [],
@@ -183,7 +227,29 @@ static __always_inline int rewrite_dmac_to_host(struct __ctx_buff *ctx,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -215,11 +281,11 @@ static __always_inline bool identity_from_ipcache_ok(void)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 96,
   "endLine": 112,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "derive_src_id",
   "updateMaps": [],
   "readMaps": [],
@@ -231,7 +297,29 @@ static __always_inline bool identity_from_ipcache_ok(void)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -275,11 +363,11 @@ derive_src_id(const union v6addr *node_ip, struct ipv6hdr *ip6, __u32 *identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 115,
   "endLine": 133,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "ipcache_lookup_srcid6",
   "updateMaps": [],
   "readMaps": [],
@@ -289,7 +377,29 @@ derive_src_id(const union v6addr *node_ip, struct ipv6hdr *ip6, __u32 *identity)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -335,11 +445,11 @@ ipcache_lookup_srcid6(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 136,
   "endLine": 176,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "resolve_srcid_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -351,7 +461,29 @@ ipcache_lookup_srcid6(struct __ctx_buff *ctx)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -418,7 +550,7 @@ resolve_srcid_ipv6(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -471,7 +603,7 @@ resolve_srcid_ipv6(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
   },
   "startLine": 178,
   "endLine": 351,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -487,9 +619,9 @@ resolve_srcid_ipv6(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -689,11 +821,11 @@ skip_host_firewall:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 353,
   "endLine": 366,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -704,7 +836,29 @@ skip_host_firewall:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -745,11 +899,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_HOST)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 369,
   "endLine": 372,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_handle_ipv6_from_host",
   "updateMaps": [],
   "readMaps": [],
@@ -759,7 +913,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_HOST)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -790,11 +966,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 375,
   "endLine": 378,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_handle_ipv6_from_netdev",
   "updateMaps": [],
   "readMaps": [],
@@ -804,7 +980,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -835,11 +1033,11 @@ int tail_handle_ipv6_from_netdev(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 381,
   "endLine": 409,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_to_netdev_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -850,7 +1048,29 @@ int tail_handle_ipv6_from_netdev(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -908,11 +1128,11 @@ handle_to_netdev_ipv6(struct __ctx_buff *ctx, struct trace_ctx *trace)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 414,
   "endLine": 469,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "resolve_srcid_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -925,7 +1145,29 @@ handle_to_netdev_ipv6(struct __ctx_buff *ctx, struct trace_ctx *trace)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1007,7 +1249,7 @@ resolve_srcid_ipv4(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -1095,7 +1337,7 @@ resolve_srcid_ipv4(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
   },
   "startLine": 471,
   "endLine": 671,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_ipv4",
   "updateMaps": [],
   "readMaps": [
@@ -1109,15 +1351,15 @@ resolve_srcid_ipv4(struct __ctx_buff *ctx, __u32 srcid_from_proxy,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "tail_call",
     "map_lookup_elem",
+    "tail_call",
     "redirect"
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -1344,11 +1586,11 @@ skip_vtep:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 673,
   "endLine": 686,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_handle_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -1360,7 +1602,29 @@ skip_vtep:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1401,11 +1665,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_HOST)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 689,
   "endLine": 699,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_handle_ipv4_from_host",
   "updateMaps": [],
   "readMaps": [],
@@ -1415,7 +1679,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_HOST)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1453,11 +1739,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 702,
   "endLine": 705,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_handle_ipv4_from_netdev",
   "updateMaps": [],
   "readMaps": [],
@@ -1467,7 +1753,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1498,11 +1806,11 @@ int tail_handle_ipv4_from_netdev(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 708,
   "endLine": 727,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_to_netdev_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -1513,7 +1821,29 @@ int tail_handle_ipv4_from_netdev(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -1563,7 +1893,7 @@ handle_to_netdev_ipv4(struct __ctx_buff *ctx, struct trace_ctx *trace)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_skb",
       "read_skb": [
@@ -1651,7 +1981,7 @@ handle_to_netdev_ipv4(struct __ctx_buff *ctx, struct trace_ctx *trace)
   },
   "startLine": 733,
   "endLine": 788,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "do_netdev_encrypt_pools",
   "updateMaps": [],
   "readMaps": [],
@@ -1660,13 +1990,13 @@ handle_to_netdev_ipv4(struct __ctx_buff *ctx, struct trace_ctx *trace)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l3_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -1748,7 +2078,7 @@ drop_err:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -1787,7 +2117,7 @@ drop_err:
   },
   "startLine": 790,
   "endLine": 853,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "do_netdev_encrypt_fib",
   "updateMaps": [],
   "readMaps": [],
@@ -1803,8 +2133,8 @@ drop_err:
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -1894,7 +2224,7 @@ drop_err_fib:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -1909,7 +2239,7 @@ drop_err_fib:
   },
   "startLine": 855,
   "endLine": 885,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "do_netdev_encrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -1924,9 +2254,9 @@ drop_err_fib:
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -1984,7 +2314,7 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -2001,7 +2331,7 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
   },
   "startLine": 888,
   "endLine": 902,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "do_netdev_encrypt_encap",
   "updateMaps": [],
   "readMaps": [],
@@ -2015,9 +2345,9 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -2058,11 +2388,11 @@ static __always_inline int do_netdev_encrypt_encap(struct __ctx_buff *ctx, __u32
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 904,
   "endLine": 908,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "do_netdev_encrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -2074,7 +2404,29 @@ static __always_inline int do_netdev_encrypt_encap(struct __ctx_buff *ctx, __u32
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2107,7 +2459,7 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -2150,7 +2502,7 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
   },
   "startLine": 912,
   "endLine": 1022,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "do_netdev",
   "updateMaps": [],
   "readMaps": [],
@@ -2164,27 +2516,27 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2328,11 +2680,11 @@ do_netdev(struct __ctx_buff *ctx, __u16 proto, const bool from_host)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1031,
   "endLine": 1051,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_netdev",
   "updateMaps": [],
   "readMaps": [],
@@ -2343,7 +2695,29 @@ do_netdev(struct __ctx_buff *ctx, __u16 proto, const bool from_host)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2391,7 +2765,7 @@ handle_netdev(struct __ctx_buff *ctx, const bool from_host)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -2426,7 +2800,7 @@ handle_netdev(struct __ctx_buff *ctx, const bool from_host)
   },
   "startLine": 1054,
   "endLine": 1142,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_srv6",
   "updateMaps": [],
   "readMaps": [],
@@ -2438,27 +2812,27 @@ handle_netdev(struct __ctx_buff *ctx, const bool from_host)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2581,11 +2955,11 @@ __section("from-netdev")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1152,
   "endLine": 1170,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "from_netdev",
   "updateMaps": [],
   "readMaps": [],
@@ -2595,7 +2969,29 @@ __section("from-netdev")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2645,11 +3041,11 @@ __section("from-host")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1177,
   "endLine": 1184,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "from_host",
   "updateMaps": [],
   "readMaps": [],
@@ -2659,7 +3055,29 @@ __section("from-host")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2700,7 +3118,7 @@ __section("to-netdev")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -2715,7 +3133,7 @@ __section("to-netdev")
   },
   "startLine": 1193,
   "endLine": 1319,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "to_netdev",
   "updateMaps": [],
   "readMaps": [],
@@ -2727,27 +3145,27 @@ __section("to-netdev")
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -2905,7 +3323,7 @@ __section("to-host")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -2919,7 +3337,7 @@ __section("to-host")
   },
   "startLine": 1326,
   "endLine": 1406,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "to_host",
   "updateMaps": [],
   "readMaps": [],
@@ -2932,9 +3350,9 @@ __section("to-host")
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -3045,11 +3463,11 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1412,
   "endLine": 1426,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_ipv6_host_policy_ingress",
   "updateMaps": [],
   "readMaps": [],
@@ -3059,7 +3477,29 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3104,11 +3544,11 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1432,
   "endLine": 1446,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "tail_ipv4_host_policy_ingress",
   "updateMaps": [],
   "readMaps": [],
@@ -3118,7 +3558,29 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3160,11 +3622,11 @@ int tail_ipv4_host_policy_ingress(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1449,
   "endLine": 1497,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "to_host_from_lxc",
   "updateMaps": [],
   "readMaps": [],
@@ -3174,7 +3636,29 @@ int tail_ipv4_host_policy_ingress(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3253,11 +3737,11 @@ out:
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 1503,
   "endLine": 1545,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "from_host_to_lxc",
   "updateMaps": [],
   "readMaps": [],
@@ -3267,7 +3751,29 @@ out:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -3342,7 +3848,7 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_HOST_EP_ID)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "tail_call": [
       {
@@ -3357,7 +3863,7 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_HOST_EP_ID)
   },
   "startLine": 1553,
   "endLine": 1572,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_host.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_host.c",
   "funcName": "handle_lxc_traffic",
   "updateMaps": [],
   "readMaps": [],
@@ -3369,27 +3875,27 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_HOST_EP_ID)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
+    "kprobe",
+    "perf_event",
     "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_xmit",
+    "tracepoint",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

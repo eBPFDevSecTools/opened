@@ -18,11 +18,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 38,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_l3",
   "updateMaps": [],
   "readMaps": [],
@@ -36,7 +36,29 @@
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -84,11 +106,11 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 41,
   "endLine": 56,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_l3",
   "updateMaps": [],
   "readMaps": [],
@@ -102,7 +124,29 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -151,7 +195,7 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -176,7 +220,7 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   },
   "startLine": 65,
   "endLine": 106,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_local_delivery",
   "updateMaps": [],
   "readMaps": [],
@@ -195,9 +239,9 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -271,7 +315,7 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -296,7 +340,7 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   },
   "startLine": 114,
   "endLine": 154,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_local_delivery",
   "updateMaps": [],
   "readMaps": [],
@@ -316,9 +360,9 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
+    "sched_cls",
     "lwt_xmit",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -386,7 +430,7 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "map_read",
       "map_read": [
@@ -416,7 +460,7 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   },
   "startLine": 157,
   "endLine": 185,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "get_min_encrypt_key",
   "updateMaps": [],
   "readMaps": [
@@ -430,29 +474,29 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sched_cls",
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "cgroup_device",
-    "kprobe",
-    "sock_ops",
     "sk_skb",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "socket_filter",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "socket_filter",
+    "raw_tracepoint",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
     "lwt_out",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {

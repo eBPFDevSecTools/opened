@@ -1,7 +1,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_trace_printk": [
       {
@@ -15,7 +15,7 @@
   },
   "startLine": 1,
   "endLine": 5,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/urandomread.c",
+  "File": "/home/palani/github/opened_extraction/examples/bcc/urandomread.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -29,28 +29,28 @@
   ],
   "compatibleHookpoints": [
     "flow_dissector",
-    "sk_msg",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
-    "sock_ops",
-    "xdp",
-    "sched_cls",
-    "lwt_xmit",
-    "socket_filter",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
-    "cgroup_device",
-    "cgroup_skb",
     "perf_event",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
+    "raw_tracepoint_writable",
     "lwt_seg6local",
+    "lwt_in",
+    "tracepoint",
+    "sk_reuseport",
+    "xdp",
+    "sock_ops",
+    "cgroup_sock",
+    "cgroup_device",
     "cgroup_sysctl",
-    "sched_act"
+    "socket_filter",
+    "sched_act",
+    "sched_cls",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "kprobe",
+    "lwt_out",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
     {

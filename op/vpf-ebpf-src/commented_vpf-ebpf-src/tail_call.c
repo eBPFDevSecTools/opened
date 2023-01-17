@@ -24,7 +24,7 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_tail_call": [
       {
@@ -39,7 +39,7 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
   },
   "startLine": 24,
   "endLine": 31,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
   "funcName": "caller",
   "updateMaps": [],
   "readMaps": [],
@@ -51,27 +51,27 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "sched_cls",
-    "kprobe",
     "cgroup_skb",
-    "tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "xdp",
     "sk_skb",
-    "perf_event",
-    "flow_dissector",
+    "xdp",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "kprobe",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "sk_reuseport",
     "sock_ops",
     "cgroup_sock",
-    "lwt_out",
-    "socket_filter",
-    "lwt_in",
-    "lwt_seg6local"
+    "perf_event",
+    "sched_cls",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "sched_act",
+    "lwt_out"
   ],
   "humanFuncDescription": [
     {
@@ -105,11 +105,11 @@ caller(struct xdp_md* ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 33,
   "endLine": 37,
-  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
+  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
   "funcName": "callee",
   "updateMaps": [],
   "readMaps": [],
@@ -119,7 +119,29 @@ caller(struct xdp_md* ctx)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "sk_skb",
+    "xdp",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "kprobe",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_sock",
+    "perf_event",
+    "sched_cls",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "sched_act",
+    "lwt_out"
   ],
   "humanFuncDescription": [
     {

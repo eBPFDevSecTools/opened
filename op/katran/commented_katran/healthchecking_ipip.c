@@ -89,7 +89,7 @@ SEC("tc")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
       "capability": "update_pkt",
       "update_pkt": [
@@ -177,21 +177,21 @@ SEC("tc")
   },
   "startLine": 89,
   "endLine": 157,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
     " hc_reals_map",
-    "  hc_stats_map",
-    " hc_ctrl_map"
+    " hc_ctrl_map",
+    "  hc_stats_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
     "bpf_map_lookup_elem",
+    "bpf_redirect",
     "bpf_skb_set_tunnel_key"
   ],
   "compatibleHookpoints": [

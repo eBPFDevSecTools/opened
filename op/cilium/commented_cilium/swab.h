@@ -46,11 +46,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 46,
   "endLine": 55,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswab16",
   "updateMaps": [],
   "readMaps": [],
@@ -60,7 +60,29 @@
   "output": "static__inline____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -96,11 +118,11 @@ static __inline__  __u16 __fswab16(__u16 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 66,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswab32",
   "updateMaps": [],
   "readMaps": [],
@@ -110,7 +132,29 @@ static __inline__  __u16 __fswab16(__u16 val)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -146,11 +190,11 @@ static __inline__  __u32 __fswab32(__u32 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 68,
   "endLine": 81,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswab64",
   "updateMaps": [],
   "readMaps": [],
@@ -160,7 +204,29 @@ static __inline__  __u32 __fswab32(__u32 val)
   "output": "static__inline____u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -200,11 +266,11 @@ static __inline__  __u64 __fswab64(__u64 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswahw32",
   "updateMaps": [],
   "readMaps": [],
@@ -214,7 +280,29 @@ static __inline__  __u64 __fswab64(__u64 val)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -248,11 +336,11 @@ static __inline__  __u32 __fswahw32(__u32 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 99,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswahb32",
   "updateMaps": [],
   "readMaps": [],
@@ -262,7 +350,29 @@ static __inline__  __u32 __fswahw32(__u32 val)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -349,11 +459,11 @@ static __inline__  __u32 __fswahb32(__u32 val)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 154,
   "endLine": 161,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab16p",
   "updateMaps": [],
   "readMaps": [],
@@ -363,7 +473,29 @@ static __inline__  __u32 __fswahb32(__u32 val)
   "output": "static__inline____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -401,11 +533,11 @@ static __inline__ __u16 __swab16p(const __u16 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 167,
   "endLine": 174,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab32p",
   "updateMaps": [],
   "readMaps": [],
@@ -415,7 +547,29 @@ static __inline__ __u16 __swab16p(const __u16 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -453,11 +607,11 @@ static __inline__ __u32 __swab32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 180,
   "endLine": 187,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab64p",
   "updateMaps": [],
   "readMaps": [],
@@ -467,7 +621,29 @@ static __inline__ __u32 __swab32p(const __u32 *p)
   "output": "static__inline____u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -507,11 +683,11 @@ static __inline__ __u64 __swab64p(const __u64 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 195,
   "endLine": 202,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahw32p",
   "updateMaps": [],
   "readMaps": [],
@@ -521,7 +697,29 @@ static __inline__ __u64 __swab64p(const __u64 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -561,11 +759,11 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 210,
   "endLine": 217,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahb32p",
   "updateMaps": [],
   "readMaps": [],
@@ -575,7 +773,29 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -613,11 +833,11 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 223,
   "endLine": 230,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab16s",
   "updateMaps": [],
   "readMaps": [],
@@ -627,7 +847,29 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -664,11 +906,11 @@ static __inline__ void __swab16s(__u16 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 235,
   "endLine": 242,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab32s",
   "updateMaps": [],
   "readMaps": [],
@@ -678,7 +920,29 @@ static __inline__ void __swab16s(__u16 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -716,11 +980,11 @@ static __inline__ void __swab32s(__u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 248,
   "endLine": 255,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab64s",
   "updateMaps": [],
   "readMaps": [],
@@ -730,7 +994,29 @@ static __inline__ void __swab32s(__u32 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -770,11 +1056,11 @@ static __inline__ void __swab64s(__u64 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 263,
   "endLine": 270,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahw32s",
   "updateMaps": [],
   "readMaps": [],
@@ -784,7 +1070,29 @@ static __inline__ void __swab64s(__u64 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -824,11 +1132,11 @@ static __inline__ void __swahw32s(__u32 *p)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 278,
   "endLine": 285,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahb32s",
   "updateMaps": [],
   "readMaps": [],
@@ -838,7 +1146,29 @@ static __inline__ void __swahw32s(__u32 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "sk_skb",
+    "cgroup_sysctl",
+    "kprobe",
+    "perf_event",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "cgroup_device",
+    "lwt_seg6local",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sched_act",
+    "flow_dissector",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_sock",
+    "sk_reuseport",
+    "lwt_in",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
