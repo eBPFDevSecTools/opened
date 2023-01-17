@@ -59,7 +59,12 @@ def generate_capabilities(helper_list,cap_dict):
 def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
     if helpers is None or len(helpers) == 0:
-        return ["All_hookpoints"]
+        hook_set = get_all_available_hookpoints(helper_hookpoint_dict)
+        print("Helpers None: ")
+        print(hook_set)
+        return get_all_available_hookpoints(helper_hookpoint_dict)
+        #return ["All_hookpoints"]
+    
     for helper in helpers:
         hookpoint_list = helper_hookpoint_dict[helper]
         #print(hookpoint_list)
@@ -288,10 +293,22 @@ def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
     #print(caps)
     manpage_info_dict = load_manpage_helper_map(manpage_info_file)
     op_dict = {}
-    op_dict["capability"] = create_capability_json(caps, manpage_info_dict)
+    op_dict["capabilities"] = create_capability_json(caps, manpage_info_dict)
     op_dict["helperCallParams"] = helperCallParams
     return op_dict
 
+
+def get_all_available_hookpoints(helper_hookpoint_dict):
+    hookpoint_set = set()
+    for hookpoint_str in helper_hookpoint_dict.values():
+        if hookpoint_str is None:
+            continue
+        hookpts = hookpoint_str.split(",")
+        print("hookpts: ")
+        print(hookpts)
+        for hookpt in hookpts:
+            hookpoint_set.add(hookpt)
+    return list(hookpoint_set)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='eBPF Code Summarizer')
