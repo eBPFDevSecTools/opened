@@ -63,7 +63,7 @@ prompts = list(map(lambda s: s + prompt, functions))
 count = 1
 output = open(join(src_dir, "functions-with-docs.txt"), "w")
 for p in prompts:
-    response = completion_with_backoff(model="code-davinci-002", prompt=p, temperature=0, max_tokens=128, top_p=1, frequency_penalty=1, presence_penalty=0, stop=[stop])
+    response = completion_with_backoff(model="code-davinci-002", prompt=p, temperature=0, max_tokens=1000, top_p=1, frequency_penalty=1, presence_penalty=0, stop=[stop])
 
     print("Generated doc for function " + str(count))
     count += 1

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/bcc/urandomread.c" funcheader="TRACEPOINT_PROBE (random, urandom_read)" startline="1" endline="5">
+<source file="/root/examples/bcc/urandomread.c" funcheader="TRACEPOINT_PROBE (random, urandom_read)" startline="1" endline="5">
 TRACEPOINT_PROBE (random, urandom_read)
 {
     bpf_trace_printk ("%d\\n", args->got_bits);

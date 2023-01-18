@@ -1,4 +1,3 @@
-//int hello (void *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
@@ -8,49 +7,49 @@
       {
         "opVar": "NA",
         "inpVar": [
-          "\t     \"Hello",
+          "  \"Hello",
           " World!\\\\n\""
         ]
       }
     ]
   },
-  "startLine": 2,
-  "endLine": 6,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/trace_fields.c",
+  "startLine": 1,
+  "endLine": 4,
+  "File": "/root/examples/bcc/trace_fields.c",
   "funcName": "hello",
   "updateMaps": [],
   "readMaps": [],
   "input": [
-    "NA"
+    "void *ctx"
   ],
   "output": "int",
   "helper": [
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "flow_dissector",
-    "sk_msg",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
     "sock_ops",
-    "xdp",
     "sched_cls",
-    "lwt_xmit",
-    "socket_filter",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "cgroup_device",
-    "cgroup_skb",
-    "perf_event",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
-    "sched_act"
+    "cgroup_sock",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
+    "sk_msg",
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -72,8 +71,7 @@
 } 
  OPENED COMMENT END 
  */ 
-int hello ()
-{
-	    bpf_trace_printk ("Hello, World!\\n");
-	        return 0;
+int hello(void *ctx) {
+  bpf_trace_printk("Hello, World!\\n");
+  return 0;
 }

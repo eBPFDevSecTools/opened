@@ -1,5 +1,6 @@
 #define EXIT_REASON 18
 BPF_HASH(start, u8, u8);
+
 /* 
  OPENED COMMENT BEGIN 
 {
@@ -9,15 +10,15 @@ BPF_HASH(start, u8, u8);
       {
         "opVar": "NA",
         "inpVar": [
-          "\t\t\"KVM_EXIT exit_reason : %d\\\\n\"",
+          "        \"KVM_EXIT exit_reason : %d\\\\n\"",
           " args->exit_reason"
         ]
       }
     ]
   },
-  "startLine": 3,
-  "endLine": 11,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
+  "startLine": 4,
+  "endLine": 12,
+  "File": "/root/examples/bcc/kvm_hypercall.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -30,29 +31,29 @@ BPF_HASH(start, u8, u8);
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "flow_dissector",
-    "sk_msg",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
     "sock_ops",
-    "xdp",
     "sched_cls",
-    "lwt_xmit",
-    "socket_filter",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "cgroup_device",
-    "cgroup_skb",
-    "perf_event",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
-    "sched_act"
+    "cgroup_sock",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
+    "sk_msg",
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -75,14 +76,15 @@ BPF_HASH(start, u8, u8);
  OPENED COMMENT END 
  */ 
 TRACEPOINT_PROBE(kvm, kvm_exit) {
-	u8 e = EXIT_REASON;
-	u8 one = 1;
-	if (args->exit_reason == EXIT_REASON) {
-		bpf_trace_printk("KVM_EXIT exit_reason : %d\\n", args->exit_reason);
-		start.update(&e, &one);
-	}
-	return 0;
+    u8 e = EXIT_REASON;
+    u8 one = 1;
+    if (args->exit_reason == EXIT_REASON) {
+        bpf_trace_printk("KVM_EXIT exit_reason : %d\\n", args->exit_reason);
+        start.update(&e, &one);
+    }
+    return 0;
 }
+
 /* 
  OPENED COMMENT BEGIN 
 {
@@ -92,15 +94,15 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
       {
         "opVar": "NA",
         "inpVar": [
-          "\t\t\"KVM_ENTRY vcpu_id : %u\\\\n\"",
+          "        \"KVM_ENTRY vcpu_id : %u\\\\n\"",
           " args->vcpu_id"
         ]
       }
     ]
   },
-  "startLine": 12,
-  "endLine": 21,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
+  "startLine": 14,
+  "endLine": 23,
+  "File": "/root/examples/bcc/kvm_hypercall.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -113,29 +115,29 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "flow_dissector",
-    "sk_msg",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
     "sock_ops",
-    "xdp",
     "sched_cls",
-    "lwt_xmit",
-    "socket_filter",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "cgroup_device",
-    "cgroup_skb",
-    "perf_event",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
-    "sched_act"
+    "cgroup_sock",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
+    "sk_msg",
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -158,15 +160,16 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
  OPENED COMMENT END 
  */ 
 TRACEPOINT_PROBE(kvm, kvm_entry) {
-	u8 e = EXIT_REASON;
-	u8 zero = 0;
-	u8 *s = start.lookup(&e);
-	if (s != NULL && *s == 1) {
-		bpf_trace_printk("KVM_ENTRY vcpu_id : %u\\n", args->vcpu_id);
-		start.update(&e, &zero);
-	}
-	return 0;
+    u8 e = EXIT_REASON;
+    u8 zero = 0;
+    u8 *s = start.lookup(&e);
+    if (s != NULL && *s == 1) {
+        bpf_trace_printk("KVM_ENTRY vcpu_id : %u\\n", args->vcpu_id);
+        start.update(&e, &zero);
+    }
+    return 0;
 }
+
 /* 
  OPENED COMMENT BEGIN 
 {
@@ -176,15 +179,15 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
       {
         "opVar": "NA",
         "inpVar": [
-          "\t\t\"HYPERCALL nr : %d\\\\n\"",
+          "        \"HYPERCALL nr : %d\\\\n\"",
           " args->nr"
         ]
       }
     ]
   },
-  "startLine": 22,
-  "endLine": 30,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
+  "startLine": 25,
+  "endLine": 33,
+  "File": "/root/examples/bcc/kvm_hypercall.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -197,29 +200,29 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "flow_dissector",
-    "sk_msg",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
     "sock_ops",
-    "xdp",
     "sched_cls",
-    "lwt_xmit",
-    "socket_filter",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "cgroup_device",
-    "cgroup_skb",
-    "perf_event",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
-    "sched_act"
+    "cgroup_sock",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
+    "sk_msg",
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -242,11 +245,11 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
  OPENED COMMENT END 
  */ 
 TRACEPOINT_PROBE(kvm, kvm_hypercall) {
-	u8 e = EXIT_REASON;
-	u8 zero = 0;
-	u8 *s = start.lookup(&e);
-	if (s != NULL && *s == 1) {
-		bpf_trace_printk("HYPERCALL nr : %d\\n", args->nr);
-	}
-	return 0;
+    u8 e = EXIT_REASON;
+    u8 zero = 0;
+    u8 *s = start.lookup(&e);
+    if (s != NULL && *s == 1) {
+        bpf_trace_printk("HYPERCALL nr : %d\\n", args->nr);
+    }
+    return 0;
 };
