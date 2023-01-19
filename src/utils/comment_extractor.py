@@ -1,6 +1,9 @@
 import re
 import json
 from tinydb import TinyDB
+from datetime import date
+import argparse
+import glob
 
 def insert_to_db(db,comment_dict):
     comment_json = json.dumps(comment_dict)
@@ -18,7 +21,8 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
         #print(comment)
         op_dict = {}
         op_dict['author']="BU Course Project"
-        op_dict['email']="course@bu.edu"
+        op_dict['authorEmail']="course@bu.edu"
+        op_dict['date']= str(date.today())
         lines = comment.split('\n')
         #print(lines)
         for line in lines[1:]:
@@ -38,6 +42,17 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
     
 
 if __name__ == "__main__":
-    comments_db_file="boston_comments.json"
+    my_parser = argparse.ArgumentParser()
+    my_parser.add_argument('-s','--src_dir',action='store',required=True,
+            help='directory with source code')
+    my_parser.add_argument('-d','--comments_dbfile',action='store',required=True,
+            help='comments db file')
+    args = my_parser.parse_args()
+    src_dir = args.src_dir
+    comments_db_file=args.comments_dbfile
+    #comments_db_file="boston_comments.json"
     comments_db = TinyDB(comments_db_file)
-    extract_comments("bpf_lxc.c","OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+    for filepath in glob.iglob(src_dir+"/*" , recursive=True):
+        print(filepath) 
+        if filepath.endswith(".c") or filepath.endswith(".h"):
+            extract_comments(filepath,"OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
