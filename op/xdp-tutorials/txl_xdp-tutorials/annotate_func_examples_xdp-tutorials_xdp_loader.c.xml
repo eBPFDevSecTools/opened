@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_loader.c" funcheader="int pin_maps_in_bpf_object (struct bpf_object *bpf_obj, struct config *cfg)" startline="73" endline="107">
+int pin_maps_in_bpf_object (struct bpf_object *bpf_obj, struct config *cfg)
+{
+    char map_filename [PATH_MAX];
+    int err, len;
+    len = snprintf (map_filename, PATH_MAX, "%s/%s/%s", pin_basedir, cfg -> ifname, map_name);
+    if (len < 0) {
+        fprintf (stderr, "ERR: creating map_name\n");
+        return EXIT_FAIL_OPTION;
+    }
+    if (access (map_filename, F_OK) != -1) {
+        if (verbose)
+            printf (" - Unpinning (remove) prev maps in %s/\n", cfg->pin_dir);
+        err = bpf_object__unpin_maps (bpf_obj, cfg -> pin_dir);
+        if (err) {
+            fprintf (stderr, "ERR: UNpinning maps in %s\n", cfg->pin_dir);
+            return EXIT_FAIL_BPF;
+        }
+    }
+    if (verbose)
+        printf (" - Pinning maps in %s/\n", cfg->pin_dir);
+    err = bpf_object__pin_maps (bpf_obj, cfg -> pin_dir);
+    if (err)
+        return EXIT_FAIL_BPF;
+    return 0;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/xdp_loader.c" funcheader="int main (int argc, char **argv)" startline="109" endline="165">
+int main (int argc, char **argv)
+{
+    struct bpf_object *bpf_obj;
+    int err, len;
+    struct config cfg = {
+        .xdp_flags = XDP_FLAGS_UPDATE_IF_NOEXIST | XDP_FLAGS_DRV_MODE,
+        .ifindex = -1,
+        .do_unload = false,}
+    ;
+    strncpy (cfg.filename, default_filename, sizeof (cfg.filename));
+    parse_cmdline_args (argc, argv, long_options, &cfg, __doc__);
+    if (cfg.ifindex == -1) {
+        fprintf (stderr, "ERR: required option --dev missing\n\n");
+        usage (argv[0], __doc__, long_options, (argc == 1));
+        return EXIT_FAIL_OPTION;
+    }
+    if (cfg.do_unload) {
+        if (!cfg.reuse_maps) {
+        }
+        return xdp_link_detach (cfg.ifindex, cfg.xdp_flags, 0);
+    }
+    len = snprintf (cfg.pin_dir, PATH_MAX, "%s/%s", pin_basedir, cfg.ifname);
+    if (len < 0) {
+        fprintf (stderr, "ERR: creating pin dirname\n");
+        return EXIT_FAIL_OPTION;
+    }
+    bpf_obj = load_bpf_and_xdp_attach (& cfg);
+    if (!bpf_obj)
+        return EXIT_FAIL_BPF;
+    if (verbose) {
+        printf ("Success: Loaded BPF-object(%s) and used section(%s)\n", cfg.filename, cfg.progsec);
+        printf (" - XDP prog attached on device:%s(ifindex:%d)\n", cfg.ifname, cfg.ifindex);
+    }
+    if (!cfg.reuse_maps) {
+        err = pin_maps_in_bpf_object (bpf_obj, & cfg);
+        if (err) {
+            fprintf (stderr, "ERR: pinning maps\n");
+            return err;
+        }
+    }
+    return EXIT_OK;
+}
+</source>
+</doc>

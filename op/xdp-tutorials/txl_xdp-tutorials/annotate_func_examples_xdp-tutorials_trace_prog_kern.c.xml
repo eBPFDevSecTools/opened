@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="static __always_inline int xdp_redirect_collect_stat (struct xdp_redirect_ctx *ctx)" startline="44" endline="66">
+static __always_inline int xdp_redirect_collect_stat (struct xdp_redirect_ctx *ctx)
+{
+    __u32 key = XDP_REDIRECT_ERROR;
+    int err = ctx->err;
+    __u64 *cnt;
+    if (!err)
+        key = XDP_REDIRECT_SUCCESS;
+    cnt = bpf_map_lookup_elem (& redirect_err_cnt, & key);
+    if (!cnt)
+        return 1;
+    *cnt += 1;
+    return 0;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_redirect_err (struct xdp_redirect_ctx *ctx)" startline="69" endline="72">
+int trace_xdp_redirect_err (struct xdp_redirect_ctx *ctx)
+{
+    return xdp_redirect_collect_stat (ctx);
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_redirect_map_err (struct xdp_redirect_ctx *ctx)" startline="75" endline="78">
+int trace_xdp_redirect_map_err (struct xdp_redirect_ctx *ctx)
+{
+    return xdp_redirect_collect_stat (ctx);
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_redirect (struct xdp_redirect_ctx *ctx)" startline="82" endline="85">
+int trace_xdp_redirect (struct xdp_redirect_ctx *ctx)
+{
+    return xdp_redirect_collect_stat (ctx);
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_redirect_map (struct xdp_redirect_ctx *ctx)" startline="89" endline="92">
+int trace_xdp_redirect_map (struct xdp_redirect_ctx *ctx)
+{
+    return xdp_redirect_collect_stat (ctx);
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_exception (struct xdp_exception_ctx *ctx)" startline="105" endline="120">
+int trace_xdp_exception (struct xdp_exception_ctx *ctx)
+{
+    __u64 *cnt;
+    __u32 key;
+    key = ctx->act;
+    if (key > XDP_REDIRECT)
+        key = XDP_UNKNOWN;
+    cnt = bpf_map_lookup_elem (& exception_cnt, & key);
+    if (!cnt)
+        return 1;
+    *cnt += 1;
+    return 0;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_cpumap_enqueue (struct cpumap_enqueue_ctx *ctx)" startline="159" endline="178">
+int trace_xdp_cpumap_enqueue (struct cpumap_enqueue_ctx *ctx)
+{
+    __u32 to_cpu = ctx->to_cpu;
+    struct datarec *rec;
+    if (to_cpu >= MAX_CPUS)
+        return 1;
+    rec = bpf_map_lookup_elem (& cpumap_enqueue_cnt, & to_cpu);
+    if (!rec)
+        return 0;
+    rec->processed += ctx->processed;
+    rec->dropped += ctx->drops;
+    if (ctx->processed > 0)
+        rec->info += 1;
+    return 0;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_cpumap_kthread (struct cpumap_kthread_ctx *ctx)" startline="194" endline="210">
+int trace_xdp_cpumap_kthread (struct cpumap_kthread_ctx *ctx)
+{
+    struct datarec *rec;
+    __u32 key = 0;
+    rec = bpf_map_lookup_elem (& cpumap_kthread_cnt, & key);
+    if (!rec)
+        return 0;
+    rec->processed += ctx->processed;
+    rec->dropped += ctx->drops;
+    if (ctx->sched)
+        rec->info++;
+    return 0;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/trace_prog_kern.c" funcheader="int trace_xdp_devmap_xmit (struct devmap_xmit_ctx *ctx)" startline="234" endline="257">
+int trace_xdp_devmap_xmit (struct devmap_xmit_ctx *ctx)
+{
+    struct datarec *rec;
+    __u32 key = 0;
+    rec = bpf_map_lookup_elem (& devmap_xmit_cnt, & key);
+    if (!rec)
+        return 0;
+    rec->processed += ctx->sent;
+    rec->dropped += ctx->drops;
+    rec->info += 1;
+    if (ctx->err)
+        rec->err++;
+    if (ctx->drops < 0)
+        rec->err++;
+    return 1;
+}
+</source>
+</doc>

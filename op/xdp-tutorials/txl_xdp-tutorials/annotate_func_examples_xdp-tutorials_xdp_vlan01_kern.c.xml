@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_vlan01_kern.c" funcheader="static __always_inline int proto_is_vlan (__u16 h_proto)" startline="21" endline="25">
+static __always_inline int proto_is_vlan (__u16 h_proto)
+{
+    return !!(h_proto == bpf_htons (ETH_P_8021Q) || h_proto == bpf_htons (ETH_P_8021AD));
+}
+</source>
+<source file="/root/examples/xdp-tutorials/xdp_vlan01_kern.c" funcheader="static __always_inline int parse_ethhdr (struct hdr_cursor *nh, void *data_end, struct ethhdr **ethhdr)" startline="42" endline="79">
+static __always_inline int parse_ethhdr (struct hdr_cursor *nh, void *data_end, struct ethhdr **ethhdr)
+{
+    struct ethhdr *eth = nh->pos;
+    int hdrsize = sizeof (*eth);
+    struct vlan_hdr *vlh;
+    __u16 h_proto;
+    int i;
+    if (nh->pos + hdrsize > data_end)
+        return -1;
+    nh->pos += hdrsize;
+    *ethhdr = eth;
+    vlh = nh->pos;
+    h_proto = eth->h_proto;
+
+#pragma unroll
+    for (i = 0; i < VLAN_MAX_DEPTH; i++) {
+        if (!proto_is_vlan (h_proto))
+            break;
+        if (vlh + 1 > data_end)
+            break;
+        h_proto = vlh->h_vlan_encapsulated_proto;
+        vlh++;
+    }
+    nh->pos = vlh;
+    return h_proto;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/xdp_vlan01_kern.c" funcheader="int xdp_vlan_01 (struct xdp_md *ctx)" startline="82" endline="115">
+int xdp_vlan_01 (struct xdp_md *ctx)
+{
+    void *data_end = (void *) (long) ctx->data_end;
+    void *data = (void *) (long) ctx->data;
+    struct hdr_cursor nh;
+    int nh_type;
+    nh.pos = data;
+    struct ethhdr *eth;
+    nh_type = parse_ethhdr (& nh, data_end, & eth);
+    if (nh_type < 0)
+        return XDP_ABORTED;
+    if (proto_is_vlan (eth->h_proto))
+        return XDP_DROP;
+    return XDP_PASS;
+}
+</source>
+</doc>

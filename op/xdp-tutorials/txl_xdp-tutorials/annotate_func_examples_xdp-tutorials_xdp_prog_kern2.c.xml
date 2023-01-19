@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_prog_kern2.c" funcheader="int _xdp_end_loop (struct xdp_md *ctx)" startline="19" endline="63">
+int _xdp_end_loop (struct xdp_md *ctx)
+{
+    void *data_end = (void *) (long) ctx->data_end;
+    void *data = (void *) (long) ctx->data;
+    unsigned char *ptr;
+    unsigned int i;
+    void *pos;
+    unsigned int offset = MIN_LEN;
+    pos = data;
+    for (i = 0; i < (MTU - MIN_LEN); i++) {
+        if (pos + offset > data_end) {
+            goto out;
+        }
+        if (pos + offset == data_end) {
+            goto read;
+        }
+        offset++;
+    }
+    goto out;
+read :
+    ptr = pos + (offset - sizeof (*ptr));
+    if (*ptr == 0xFF)
+        return XDP_ABORTED;
+out :
+    return XDP_PASS;
+}
+</source>
+</doc>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_prog_fail2.c" funcheader="int _xdp_fail2 (struct xdp_md *ctx)" startline="14" endline="34">
+int _xdp_fail2 (struct xdp_md *ctx)
+{
+    void *data_end = (void *) (long) ctx->data_end;
+    volatile unsigned char *ptr;
+    volatile void *pos;
+    pos = data_end;
+
+#pragma clang optimize off
+    if (pos - 1 > data_end)
+        goto out;
+
+#pragma clang optimize on
+    ptr = pos - 2;
+    if (*ptr == 0xFF)
+        return XDP_ABORTED;
+out :
+    return XDP_PASS;
+}
+</source>
+</doc>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/ebpf-samples/mapunderflow.c" funcheader="int func (struct ctx *ctx)" startline="29" endline="38">
+int func (struct ctx *ctx)
+{
+    int key = -1;
+    uint64_t value = 0;
+    return ebpf_map_update_elem (&map, &key, &value, 0);
+}
+</source>
+</doc>

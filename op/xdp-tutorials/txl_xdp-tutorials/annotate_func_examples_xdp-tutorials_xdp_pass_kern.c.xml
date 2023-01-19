@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_pass_kern.c" funcheader="int xdp_prog_simple (struct xdp_md *ctx)" startline="6" endline="9">
+int xdp_prog_simple (struct xdp_md *ctx)
+{
+    return XDP_PASS;
+}
+</source>
+</doc>

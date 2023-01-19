@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_vlan02_kern.c" funcheader="static __always_inline int __parse_ethhdr_vlan (struct hdr_cursor *nh, void *data_end, struct ethhdr **ethhdr, struct collect_vlans *vlans)" startline="22" endline="65">
+static __always_inline int __parse_ethhdr_vlan (struct hdr_cursor *nh, void *data_end, struct ethhdr **ethhdr, struct collect_vlans *vlans)
+{
+    struct ethhdr *eth = nh->pos;
+    int hdrsize = sizeof (*eth);
+    struct vlan_hdr *vlh;
+    __u16 h_proto;
+    int i;
+    if (nh->pos + hdrsize > data_end)
+        return -1;
+    nh->pos += hdrsize;
+    *ethhdr = eth;
+    vlh = nh->pos;
+    h_proto = eth->h_proto;
+
+#pragma unroll
+    for (i = 0; i < VLAN_MAX_DEPTH; i++) {
+        if (!proto_is_vlan (h_proto))
+            break;
+        if (vlh + 1 > data_end)
+            break;
+        h_proto = vlh->h_vlan_encapsulated_proto;
+        if (vlans) {
+            vlans->id[i] = bpf_ntohs (vlh->h_vlan_TCI) & VLAN_VID_MASK;
+        }
+        vlh++;
+    }
+    nh->pos = vlh;
+    return h_proto;
+}
+</source>
+<source file="/root/examples/xdp-tutorials/xdp_vlan02_kern.c" funcheader="int xdp_vlan_02 (struct xdp_md *ctx)" startline="69" endline="127">
+int xdp_vlan_02 (struct xdp_md *ctx)
+{
+    void *data_end = (void *) (long) ctx->data_end;
+    void *data = (void *) (long) ctx->data;
+    struct hdr_cursor nh;
+    int eth_type;
+    nh.pos = data;
+    struct collect_vlans vlans;
+    struct ethhdr *eth;
+    eth_type = parse_ethhdr_vlan (& nh, data_end, & eth, & vlans);
+    if (eth_type < 0)
+        return XDP_ABORTED;
+    if (vlans.id[1] == 42)
+        return XDP_ABORTED;
+
+#if 0
+    if (eth_type == 0)
+        return XDP_PASS;
+
+#endif
+
+#if 0
+    int ip_type;
+    struct iphdr *iphdr;
+    if (eth_type == bpf_htons (ETH_P_IP)) {
+        ip_type = parse_iphdr (& nh, data_end, & iphdr);
+        if (eth_type < 0)
+            return XDP_ABORTED;
+        if (ip_type == IPPROTO_UDP)
+            return XDP_DROP;
+    }
+
+#endif
+    return XDP_PASS;
+}
+</source>
+</doc>

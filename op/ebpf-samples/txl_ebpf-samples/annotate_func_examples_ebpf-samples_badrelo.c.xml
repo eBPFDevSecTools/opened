@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/ebpf-samples/badrelo.c" funcheader="int func (struct ctx *ctx)" startline="31" endline="38">
+int func (struct ctx *ctx)
+{
+    struct bpf_map map2;
+    return bpf_map_update_elem (&map2, (const void *) 0, (const void *) 0, 0);
+}
+</source>
+</doc>

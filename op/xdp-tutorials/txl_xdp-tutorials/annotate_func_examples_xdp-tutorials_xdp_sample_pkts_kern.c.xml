@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/xdp-tutorials/xdp_sample_pkts_kern.c" funcheader="int xdp_sample_prog (struct xdp_md *ctx)" startline="35" endline="69">
+int xdp_sample_prog (struct xdp_md *ctx)
+{
+    void *data_end = (void *) (long) ctx->data_end;
+    void *data = (void *) (long) ctx->data;
+    if (data < data_end) {
+        __u64 flags = BPF_F_CURRENT_CPU;
+        __u16 sample_size;
+        int ret;
+        struct S metadata;
+        metadata.cookie = 0xdead;
+        metadata.pkt_len = (__u16) (data_end - data);
+        sample_size = min (metadata.pkt_len, SAMPLE_SIZE);
+        flags |= (__u64) sample_size << 32;
+        ret = bpf_perf_event_output (ctx, & my_map, flags, & metadata, sizeof (metadata));
+        if (ret)
+            bpf_printk ("perf_event_output failed: %d\n", ret);
+    }
+    return XDP_PASS;
+}
+</source>
+</doc>
