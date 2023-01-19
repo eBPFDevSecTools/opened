@@ -13,6 +13,7 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
       "capability": "read_sys_info",
       "read_sys_info": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Copy the comm attribute of the current task into <[ buf ]>(IP: 0) of size_of_buf. The comm attribute contains the name of the executable (excluding the path) for the current task. The <[ size_of_buf ]>(IP: 1) must be strictly positive. On success , the helper makes sure that the <[ buf ]>(IP: 0) is NUL-terminated. On failure , it is filled with zeroes. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -38,7 +39,7 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
   },
   "startLine": 8,
   "endLine": 15,
-  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [],
@@ -52,8 +53,8 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
   "compatibleHookpoints": [
     "perf_event",
     "tracepoint",
-    "raw_tracepoint_writable",
     "kprobe",
+    "raw_tracepoint_writable",
     "raw_tracepoint"
   ],
   "humanFuncDescription": [

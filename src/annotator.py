@@ -291,10 +291,6 @@ if __name__ == "__main__":
         comments_db = TinyDB(comments_db_file)
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
-        else:
-            if(isCilium == True):
-                print("Warning: bpf_helper_file not specified using default asset/cilium.helper_hookpoint_map.json\n")
-                bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
         create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium,comments_db)
     else:
         print("no comment file found!")

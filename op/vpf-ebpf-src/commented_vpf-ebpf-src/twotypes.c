@@ -34,6 +34,7 @@ struct ctx;
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -44,9 +45,32 @@ struct ctx;
           ]
         }
       ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {
+    "get_prandom_u32": [
+      {
+        "opVar": "    uint32_t rand32 ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ],
     "bpf_map_lookup_elem": [
       {
         "opVar": "    uint8_t* map_value ",
@@ -59,7 +83,7 @@ struct ctx;
   },
   "startLine": 29,
   "endLine": 48,
-  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [
@@ -70,32 +94,31 @@ struct ctx;
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "sk_skb",
-    "xdp",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "kprobe",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_in",
-    "sk_reuseport",
-    "sock_ops",
-    "cgroup_sock",
     "perf_event",
     "sched_cls",
-    "flow_dissector",
-    "cgroup_sock_addr",
     "sched_act",
-    "lwt_out"
+    "socket_filter",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

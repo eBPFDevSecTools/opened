@@ -22,6 +22,7 @@ __attribute__((section("socket_filter"), used))
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Grows headroom of packet associated to <[ skb ]>(IP: 0) and adjusts the offset of the MAC header accordingly , adding <[ len ]>(IP: 1) bytes of space. It automatically extends and reallocates memory as required. This helper can be used on a layer 3 <[ skb ]>(IP: 0) to push a MAC header for redirection into a layer 2 device. All values for <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -49,7 +50,7 @@ __attribute__((section("socket_filter"), used))
   },
   "startLine": 17,
   "endLine": 34,
-  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
   "funcName": "reallocate_invalidates",
   "updateMaps": [],
   "readMaps": [],
@@ -61,10 +62,10 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sk_skb",
-    "sched_act",
     "lwt_xmit",
-    "sched_cls"
+    "sk_skb",
+    "sched_cls",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

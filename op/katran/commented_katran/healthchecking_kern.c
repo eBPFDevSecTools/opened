@@ -39,6 +39,7 @@ SEC("tc")
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -115,30 +116,30 @@ SEC("tc")
   },
   "startLine": 34,
   "endLine": 139,
-  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_kern.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    "  hc_pckt_macs",
     " hc_key_map",
     " per_hckey_stats",
     "  hc_stats_map",
+    " hc_ctrl_map",
     " hc_reals_map",
-    " hc_ctrl_map"
+    "  hc_pckt_macs"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_redirect"
+    "bpf_redirect",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act",
-    "lwt_xmit"
+    "xdp",
+    "lwt_xmit",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

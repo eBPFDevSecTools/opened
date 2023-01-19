@@ -18,11 +18,36 @@ __attribute__((section("xdp"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {},
+  "capabilities": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {
+    "get_prandom_u32": [
+      {
+        "opVar": "    uint32_t rand32 ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ]
+  },
   "startLine": 18,
   "endLine": 58,
-  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
   "funcName": "test_packet_access",
   "updateMaps": [],
   "readMaps": [],
@@ -30,31 +55,31 @@ __attribute__((section("xdp"), used))
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "get_prandom_u32"
+  ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "sk_skb",
-    "xdp",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "kprobe",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_in",
-    "sk_reuseport",
-    "sock_ops",
-    "cgroup_sock",
     "perf_event",
     "sched_cls",
-    "flow_dissector",
-    "cgroup_sock_addr",
     "sched_act",
-    "lwt_out"
+    "socket_filter",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

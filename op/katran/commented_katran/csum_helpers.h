@@ -34,7 +34,7 @@
   "helperCallParams": {},
   "startLine": 30,
   "endLine": 39,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "csum_fold_helper",
   "updateMaps": [],
   "readMaps": [],
@@ -44,29 +44,29 @@
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "sock_ops",
-    "kprobe",
-    "sched_cls",
     "lwt_in",
-    "lwt_out",
-    "raw_tracepoint",
-    "socket_filter",
-    "perf_event",
-    "cgroup_sysctl",
-    "sched_act",
     "cgroup_sock_addr",
-    "sk_msg",
-    "sk_reuseport",
-    "xdp",
+    "sched_act",
+    "perf_event",
     "lwt_xmit",
-    "tracepoint",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "flow_dissector",
     "cgroup_skb",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
     "cgroup_device",
-    "cgroup_sock"
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -106,7 +106,7 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "helperCallParams": {},
   "startLine": 41,
   "endLine": 43,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "min_helper",
   "updateMaps": [],
   "readMaps": [],
@@ -117,29 +117,29 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "sock_ops",
-    "kprobe",
-    "sched_cls",
     "lwt_in",
-    "lwt_out",
-    "raw_tracepoint",
-    "socket_filter",
-    "perf_event",
-    "cgroup_sysctl",
-    "sched_act",
     "cgroup_sock_addr",
-    "sk_msg",
-    "sk_reuseport",
-    "xdp",
+    "sched_act",
+    "perf_event",
     "lwt_xmit",
-    "tracepoint",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "flow_dissector",
     "cgroup_skb",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
     "cgroup_device",
-    "cgroup_sock"
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -173,6 +173,7 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -204,7 +205,7 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
   },
   "startLine": 45,
   "endLine": 49,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv4_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -218,13 +219,13 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -259,7 +260,7 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "helperCallParams": {},
   "startLine": 51,
   "endLine": 60,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv4_csum_inline",
   "updateMaps": [],
   "readMaps": [],
@@ -270,29 +271,29 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sock_ops",
-    "kprobe",
-    "sched_cls",
     "lwt_in",
-    "lwt_out",
-    "raw_tracepoint",
-    "socket_filter",
-    "perf_event",
-    "cgroup_sysctl",
-    "sched_act",
     "cgroup_sock_addr",
-    "sk_msg",
-    "sk_reuseport",
-    "xdp",
+    "sched_act",
+    "perf_event",
     "lwt_xmit",
-    "tracepoint",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "flow_dissector",
     "cgroup_skb",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
     "cgroup_device",
-    "cgroup_sock"
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -333,6 +334,7 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -404,7 +406,7 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
   },
   "startLine": 62,
   "endLine": 73,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv4_l4_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -419,13 +421,13 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -468,6 +470,7 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -539,7 +542,7 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
   },
   "startLine": 75,
   "endLine": 88,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv6_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -554,13 +557,13 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -610,6 +613,7 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -671,7 +675,7 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
   },
   "startLine": 95,
   "endLine": 127,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "add_pseudo_ipv6_header",
   "updateMaps": [],
   "readMaps": [],
@@ -684,13 +688,13 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -754,6 +758,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -815,7 +820,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
   },
   "startLine": 129,
   "endLine": 158,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "rem_pseudo_ipv6_header",
   "updateMaps": [],
   "readMaps": [],
@@ -828,13 +833,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -895,6 +900,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -956,7 +962,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
   },
   "startLine": 160,
   "endLine": 189,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "add_pseudo_ipv4_header",
   "updateMaps": [],
   "readMaps": [],
@@ -969,13 +975,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -1036,6 +1042,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -1097,7 +1104,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
   },
   "startLine": 191,
   "endLine": 220,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "rem_pseudo_ipv4_header",
   "updateMaps": [],
   "readMaps": [],
@@ -1110,13 +1117,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -1189,6 +1196,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -1240,7 +1248,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
   },
   "startLine": 234,
   "endLine": 268,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "gue_csum_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -1255,13 +1263,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -1327,6 +1335,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -1378,7 +1387,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
   },
   "startLine": 270,
   "endLine": 302,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "gue_csum_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -1393,13 +1402,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -1463,6 +1472,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "libbpf",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with bpf_l3_csum_replace() and bpf_l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with bpf_csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -1514,7 +1524,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
   },
   "startLine": 304,
   "endLine": 336,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "gue_csum_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -1529,13 +1539,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "lwt_out",
     "lwt_in",
-    "lwt_seg6local",
-    "xdp",
+    "sched_act",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "lwt_out",
+    "lwt_seg6local",
+    "xdp"
   ],
   "humanFuncDescription": [
     {

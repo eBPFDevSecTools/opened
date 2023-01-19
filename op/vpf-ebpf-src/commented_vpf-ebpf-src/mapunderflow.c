@@ -34,6 +34,7 @@ struct ctx;
       "capability": "map_update",
       "map_update": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -63,7 +64,7 @@ struct ctx;
   },
   "startLine": 29,
   "endLine": 38,
-  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/mapunderflow.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapunderflow.c",
   "funcName": "func",
   "updateMaps": [
     " map"
@@ -77,29 +78,29 @@ struct ctx;
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "sk_skb",
-    "xdp",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "kprobe",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_in",
-    "sk_reuseport",
-    "sock_ops",
-    "cgroup_sock",
     "perf_event",
     "sched_cls",
-    "flow_dissector",
-    "cgroup_sock_addr",
     "sched_act",
-    "lwt_out"
+    "socket_filter",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "cgroup_device",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_sysctl",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

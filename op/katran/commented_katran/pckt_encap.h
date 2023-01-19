@@ -46,6 +46,7 @@
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -71,7 +72,7 @@
   },
   "startLine": 41,
   "endLine": 91,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "encap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -170,6 +171,7 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -195,7 +197,7 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
   },
   "startLine": 93,
   "endLine": 133,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "encap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -285,6 +287,7 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -310,7 +313,7 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
   },
   "startLine": 137,
   "endLine": 156,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "decap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -376,6 +379,7 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -401,7 +405,7 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
   },
   "startLine": 158,
   "endLine": 173,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "decap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -463,7 +467,7 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "helperCallParams": {},
   "startLine": 177,
   "endLine": 249,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -478,29 +482,29 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sock_ops",
-    "kprobe",
-    "sched_cls",
     "lwt_in",
-    "lwt_out",
-    "raw_tracepoint",
-    "socket_filter",
-    "perf_event",
-    "cgroup_sysctl",
-    "sched_act",
     "cgroup_sock_addr",
-    "sk_msg",
-    "sk_reuseport",
-    "xdp",
+    "sched_act",
+    "perf_event",
     "lwt_xmit",
-    "tracepoint",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "flow_dissector",
     "cgroup_skb",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
     "cgroup_device",
-    "cgroup_sock"
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -604,6 +608,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -619,6 +624,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -653,7 +659,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   },
   "startLine": 251,
   "endLine": 307,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_encap_v4",
   "updateMaps": [],
   "readMaps": [
@@ -760,6 +766,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -775,6 +782,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -809,7 +817,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   },
   "startLine": 309,
   "endLine": 367,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_encap_v6",
   "updateMaps": [],
   "readMaps": [
@@ -922,6 +930,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -947,7 +956,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
   },
   "startLine": 372,
   "endLine": 389,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_decap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -1010,6 +1019,7 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -1035,7 +1045,7 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   },
   "startLine": 391,
   "endLine": 412,
-  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_decap_v6",
   "updateMaps": [],
   "readMaps": [],

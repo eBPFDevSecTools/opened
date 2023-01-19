@@ -40,6 +40,7 @@ struct ebpf_map inner_map =
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -79,13 +80,13 @@ struct ebpf_map inner_map =
   },
   "startLine": 35,
   "endLine": 49,
-  "File": "/home/palani/github/opened_extraction/examples/vpf-ebpf-src/map_in_map.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [
+    " nolocal_lru_map",
     " array_of_maps",
-    "  inner_map",
-    " nolocal_lru_map"
+    "  inner_map"
   ],
   "input": [
     "void *ctx"
@@ -95,29 +96,29 @@ struct ebpf_map inner_map =
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "sk_skb",
-    "xdp",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "kprobe",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_in",
-    "sk_reuseport",
-    "sock_ops",
-    "cgroup_sock",
     "perf_event",
     "sched_cls",
-    "flow_dissector",
-    "cgroup_sock_addr",
     "sched_act",
-    "lwt_out"
+    "socket_filter",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "cgroup_device",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_sysctl",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

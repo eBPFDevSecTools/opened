@@ -51,6 +51,7 @@ SEC("xdp")
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -83,12 +84,12 @@ SEC("xdp")
   },
   "startLine": 46,
   "endLine": 62,
-  "File": "/home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
   "funcName": "pktcntr",
   "updateMaps": [],
   "readMaps": [
-    " ctl_array",
-    " cntrs_array"
+    " cntrs_array",
+    " ctl_array"
   ],
   "input": [
     "struct xdp_md *ctx"
@@ -98,29 +99,29 @@ SEC("xdp")
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "kprobe",
-    "sched_cls",
     "lwt_in",
-    "lwt_out",
-    "raw_tracepoint",
-    "socket_filter",
-    "perf_event",
-    "cgroup_sysctl",
-    "sched_act",
     "cgroup_sock_addr",
-    "sk_msg",
-    "sk_reuseport",
-    "xdp",
+    "sched_act",
+    "perf_event",
     "lwt_xmit",
-    "tracepoint",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "flow_dissector",
     "cgroup_skb",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
     "cgroup_device",
-    "cgroup_sock"
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {

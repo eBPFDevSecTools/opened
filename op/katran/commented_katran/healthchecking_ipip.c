@@ -94,6 +94,7 @@ SEC("tc")
       "capability": "update_pkt",
       "update_pkt": [
         {
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Populate tunnel metadata for packet associated to skb. The tunnel metadata is set to the contents of <[ key ]>(IP: 1) , of size. The <[ flags ]>(IP: 3) can be set to a combination of the following values: BPF_F_TUNINFO_IPV6 Indicate that the tunnel is based on IPv6 protocol instead of IPv4. BPF_F_ZERO_CSUM_TX For IPv4 packets , add a flag to tunnel metadata indicating that checksum computation should be skipped and checksum set to zeroes. BPF_F_DONT_FRAGMENT Add a flag to tunnel metadata indicating that the packet should not be fragmented. BPF_F_SEQ_NUMBER Add a flag to tunnel metadata indicating that a sequence number should be added to tunnel header before sending the packet. This flag was added for GRE encapsulation , but might be used with other protocols as well in the future. Here is a typical usage on the transmit path: struct bpf_tunnel_key key; populate <[ key ]>(IP: 1) . . . bpf_skb_set_tunnel_key(skb , &key , sizeof(key) , 0); bpf_clone_redirect(skb , vxlan_dev_ifindex , 0); See also the description of the bpf_skb_get_tunnel_key() helper for additional information. ",
           "Return": " 0 on success, or a negative error in case of failure.",
@@ -111,6 +112,7 @@ SEC("tc")
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -177,27 +179,27 @@ SEC("tc")
   },
   "startLine": 89,
   "endLine": 157,
-  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
+    "  hc_stats_map",
     " hc_reals_map",
-    " hc_ctrl_map",
-    "  hc_stats_map"
+    " hc_ctrl_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
     "bpf_redirect",
-    "bpf_skb_set_tunnel_key"
+    "bpf_skb_set_tunnel_key",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "sched_act",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {

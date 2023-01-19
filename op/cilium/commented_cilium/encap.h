@@ -34,7 +34,7 @@
   },
   "startLine": 18,
   "endLine": 40,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_nomark_ipsec",
   "updateMaps": [],
   "readMaps": [],
@@ -49,9 +49,9 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [
@@ -117,7 +117,7 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 42,
   "endLine": 57,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_ipsec",
   "updateMaps": [],
   "readMaps": [],
@@ -132,9 +132,9 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [
@@ -183,6 +183,7 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
       "capability": "read_skb",
       "read_skb": [
         {
+          "Project": "cilium",
           "Return Type": "s64",
           "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
           "Return": " The checksum result, or a negative error code in case of failure.",
@@ -214,7 +215,7 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 60,
   "endLine": 117,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_remap_v6_host_address",
   "updateMaps": [],
   "readMaps": [],
@@ -227,13 +228,13 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "lwt_xmit",
     "sched_act",
-    "sched_cls"
+    "lwt_out",
+    "xdp",
+    "lwt_in",
+    "sched_cls",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -321,7 +322,7 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "helperCallParams": {},
   "startLine": 119,
   "endLine": 154,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "__encap_with_nodeid",
   "updateMaps": [],
   "readMaps": [],
@@ -336,29 +337,29 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "xdp",
-    "lwt_xmit",
-    "tracepoint",
-    "cgroup_device",
-    "lwt_seg6local",
-    "sock_ops",
-    "raw_tracepoint",
-    "socket_filter",
-    "sched_act",
-    "flow_dissector",
-    "sk_msg",
-    "cgroup_sock_addr",
-    "lwt_out",
-    "cgroup_sock",
-    "sk_reuseport",
-    "lwt_in",
     "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
     "raw_tracepoint_writable",
-    "sched_cls"
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -445,7 +446,7 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 156,
   "endLine": 167,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "__encap_and_redirect_with_nodeid",
   "updateMaps": [],
   "readMaps": [],
@@ -461,9 +462,9 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [
@@ -543,7 +544,7 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 174,
   "endLine": 185,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_with_nodeid",
   "updateMaps": [],
   "readMaps": [],
@@ -559,9 +560,9 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [
@@ -615,6 +616,7 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "cilium",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -691,7 +693,7 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 197,
   "endLine": 242,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_lxc",
   "updateMaps": [],
   "readMaps": [
@@ -711,10 +713,10 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
@@ -791,6 +793,7 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
       "capability": "map_read",
       "map_read": [
         {
+          "Project": "cilium",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
           "Return": " Map value associated to key, or NULL if no entry was found.",
@@ -846,7 +849,7 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 244,
   "endLine": 264,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_netdev",
   "updateMaps": [],
   "readMaps": [
@@ -864,10 +867,10 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
