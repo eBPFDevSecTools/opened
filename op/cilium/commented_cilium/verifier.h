@@ -13,7 +13,23 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "u32",
+          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
+          "Return": " The SMP id of the processor running the program.",
+          "Function Name": "get_smp_processor_id",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "get_smp_processor_id": [
       {
@@ -38,27 +54,27 @@
     "get_smp_processor_id"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {

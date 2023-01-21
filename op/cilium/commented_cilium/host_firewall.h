@@ -17,7 +17,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 17,
   "endLine": 100,
@@ -33,7 +33,29 @@
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -143,7 +165,7 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 102,
   "endLine": 199,
@@ -159,7 +181,29 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -286,7 +330,7 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 204,
   "endLine": 249,
@@ -302,7 +346,29 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -375,7 +441,7 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 252,
   "endLine": 337,
@@ -392,7 +458,29 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -504,7 +592,7 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 339,
   "endLine": 439,
@@ -520,7 +608,29 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {

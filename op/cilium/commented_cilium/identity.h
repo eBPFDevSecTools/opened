@@ -9,7 +9,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 9,
   "endLine": 12,
@@ -25,7 +25,29 @@
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -55,7 +77,7 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 14,
   "endLine": 32,
@@ -69,7 +91,29 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -114,7 +158,7 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 37,
@@ -128,7 +172,29 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -176,7 +242,7 @@ static __always_inline bool identity_is_node(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 60,
@@ -190,7 +256,29 @@ static __always_inline bool identity_is_node(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -238,7 +326,7 @@ static __always_inline bool identity_is_reserved(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 80,
   "endLine": 90,
@@ -252,7 +340,29 @@ static __always_inline bool identity_is_reserved(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -290,7 +400,7 @@ static __always_inline bool identity_is_cluster(__u32 identity)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 93,
   "endLine": 137,
@@ -305,7 +415,29 @@ static __always_inline bool identity_is_cluster(__u32 identity)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {

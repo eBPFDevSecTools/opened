@@ -22,7 +22,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 22,
   "endLine": 35,
@@ -36,7 +36,29 @@
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -76,7 +98,7 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 44,
@@ -91,7 +113,29 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -125,7 +169,7 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 46,
   "endLine": 50,
@@ -140,7 +184,29 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -171,7 +237,7 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 52,
   "endLine": 74,
@@ -185,7 +251,29 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -234,7 +322,27 @@ static __always_inline int get_csum_offset(__u8 protocol)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Project": "cilium",
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -265,12 +373,12 @@ static __always_inline int get_csum_offset(__u8 protocol)
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
-    "xdp",
-    "sched_cls",
-    "lwt_in",
-    "lwt_seg6local",
+    "sched_act",
     "lwt_out",
-    "sched_act"
+    "xdp",
+    "lwt_in",
+    "sched_cls",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -375,7 +483,27 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Project": "cilium",
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -406,12 +534,12 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
-    "xdp",
-    "sched_cls",
-    "lwt_in",
-    "lwt_seg6local",
+    "sched_act",
     "lwt_out",
-    "sched_act"
+    "xdp",
+    "lwt_in",
+    "sched_cls",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -513,7 +641,46 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Project": "cilium",
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l4_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -652,7 +819,60 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "read_skb",
+      "read_skb": [
+        {
+          "Project": "cilium",
+          "Return Type": "s64",
+          "Description": "Compute a checksum difference , <[ from ]>(IP: 0) the raw buffer pointed by <[ from ]>(IP: 0) , of length <[ from_size ]>(IP: 1) (that must be a multiple of 4) , towards the raw buffer pointed by <[ to ]>(IP: 2) , of size <[ to_size ]>(IP: 3) (same remark). An optional <[ seed ]>(IP: 4) can be added <[ to ]>(IP: 2) the value (this can be cascaded , the <[ seed ]>(IP: 4) may come <[ from ]>(IP: 0) a previous call <[ to ]>(IP: 2) the helper). This is flexible enough <[ to ]>(IP: 2) be used in several ways: \u00b7 With <[ from_size ]>(IP: 1) == 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when pushing new data. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) == 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) checksum , it can be used when removing data <[ from ]>(IP: 0) a packet. \u00b7 With <[ from_size ]>(IP: 1) > 0 , <[ to_size ]>(IP: 3) > 0 and <[ seed ]>(IP: 4) set <[ to ]>(IP: 2) 0 , it can be used <[ to ]>(IP: 2) compute a diff. Note that <[ from_size ]>(IP: 1) and <[ to_size ]>(IP: 3) do not need <[ to ]>(IP: 2) be equal. This helper can be used in combination with l3_csum_replace() and l4_csum_replace() , <[ to ]>(IP: 2) which one can feed in the difference computed with csum_diff(). ",
+          "Return": " The checksum result, or a negative error code in case of failure.",
+          "Function Name": "csum_diff",
+          "Input Params": [
+            "{Type: __be32 ,Var: *from}",
+            "{Type:  u32 ,Var: from_size}",
+            "{Type:  __be32 ,Var: *to}",
+            "{Type:  u32 ,Var: to_size}",
+            "{Type:  __wsum ,Var: seed}"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l4_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        },
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "l3_csum_replace",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  u32 ,Var: offset}",
+            "{Type:  u64 ,Var: from}",
+            "{Type:  u64 ,Var: to}",
+            "{Type:  u64 ,Var: size}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "csum_diff": [
       {
@@ -725,8 +945,8 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
   "output": "static__always_inlineint",
   "helper": [
     "l4_csum_replace",
-    "csum_diff",
-    "l3_csum_replace"
+    "l3_csum_replace",
+    "csum_diff"
   ],
   "compatibleHookpoints": [
     "sched_cls",

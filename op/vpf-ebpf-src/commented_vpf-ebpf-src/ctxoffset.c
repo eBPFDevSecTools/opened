@@ -29,13 +29,15 @@ __attribute__((section("sockops"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_update",
       "map_update": [
         {
-          "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of:BPF_NOEXISTThe entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXISTThe entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANYNo condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
-          "Return": "0 on success, or a negative error in case of failure.",
+          "Project": "libbpf",
           "Return Type": "int",
+          "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_sock_map_update",
           "Input Params": [
             "{Type: struct bpf_sock_ops ,Var: *skops}",
@@ -62,7 +64,7 @@ __attribute__((section("sockops"), used))
   },
   "startLine": 29,
   "endLine": 38,
-  "File": "/root/examples/vpf-ebpf-src/ctxoffset.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
   "funcName": "func",
   "updateMaps": [
     " ctx"

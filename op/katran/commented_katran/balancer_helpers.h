@@ -46,14 +46,16 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -87,7 +89,7 @@
   },
   "startLine": 46,
   "endLine": 70,
-  "File": "/root/examples/katran/balancer_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
   "updateMaps": [],
   "readMaps": [
@@ -107,22 +109,22 @@
     "bpf_perf_event_output"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sched_act",
-    "lwt_xmit",
-    "perf_event",
-    "lwt_out",
-    "kprobe",
-    "sk_skb",
-    "raw_tracepoint",
-    "lwt_in",
-    "xdp",
     "cgroup_skb",
-    "sock_ops",
-    "raw_tracepoint_writable",
+    "lwt_in",
+    "sched_act",
+    "socket_filter",
+    "sched_cls",
+    "perf_event",
+    "lwt_xmit",
     "tracepoint",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_out",
+    "sk_skb",
+    "sock_ops",
     "lwt_seg6local",
-    "socket_filter"
+    "xdp",
+    "kprobe"
   ],
   "humanFuncDescription": [
     {
@@ -175,7 +177,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_tail_call": [
       {
@@ -190,7 +192,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
   },
   "startLine": 74,
   "endLine": 80,
-  "File": "/root/examples/katran/balancer_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
   "updateMaps": [],
   "readMaps": [],
@@ -202,27 +204,27 @@ __attribute__((__always_inline__)) static inline void submit_event(
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -256,11 +258,11 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
-  "File": "/root/examples/katran/balancer_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
   "updateMaps": [],
   "readMaps": [],
@@ -272,7 +274,31 @@ __attribute__((__always_inline__)) static inline int recirculate(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

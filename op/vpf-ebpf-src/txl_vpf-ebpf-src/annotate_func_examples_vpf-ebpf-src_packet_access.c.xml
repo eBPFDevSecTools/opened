@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/vpf-ebpf-src/packet_access.c" funcheader="int test_packet_access (struct xdp_md *ctx)" startline="18" endline="58">
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c" funcheader="int test_packet_access (struct xdp_md *ctx)" startline="18" endline="58">
 int test_packet_access (struct xdp_md *ctx)
 {
     uint32_t rand32 = get_prandom_u32 ();

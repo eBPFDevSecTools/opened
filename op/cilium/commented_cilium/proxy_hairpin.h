@@ -22,7 +22,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -59,9 +59,9 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [
@@ -131,7 +131,7 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -166,9 +166,9 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [
@@ -202,7 +202,7 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "redirect": [
       {
@@ -237,9 +237,9 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "lwt_xmit",
+    "xdp",
     "sched_act"
   ],
   "humanFuncDescription": [

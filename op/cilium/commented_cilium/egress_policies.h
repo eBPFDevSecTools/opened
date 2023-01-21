@@ -20,7 +20,24 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -49,29 +66,29 @@
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -120,7 +137,24 @@ struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy(__be32 saddr, __be32 
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -149,29 +183,29 @@ struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy(__be32 saddr, __be32 
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -215,7 +249,24 @@ srv6_lookup_vrf4(__be32 sip, __be32 dip)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -244,29 +295,29 @@ srv6_lookup_vrf4(__be32 sip, __be32 dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -311,7 +362,24 @@ srv6_lookup_policy4(__u32 vrf_id, __be32 dip)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -340,29 +408,29 @@ srv6_lookup_policy4(__u32 vrf_id, __be32 dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -407,7 +475,24 @@ srv6_lookup_vrf6(const struct in6_addr *sip, const struct in6_addr *dip)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -436,29 +521,29 @@ srv6_lookup_vrf6(const struct in6_addr *sip, const struct in6_addr *dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -494,7 +579,24 @@ srv6_lookup_policy6(__u32 vrf_id, const struct in6_addr *dip)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -522,29 +624,29 @@ srv6_lookup_policy6(__u32 vrf_id, const struct in6_addr *dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -580,7 +682,7 @@ srv6_lookup_sid(const struct in6_addr *sid)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 125,
   "endLine": 134,
@@ -594,7 +696,29 @@ srv6_lookup_sid(const struct in6_addr *sid)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -631,7 +755,7 @@ is_srv6_packet(const struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 137,
   "endLine": 144,
@@ -645,7 +769,29 @@ is_srv6_packet(const struct ipv6hdr *ip6)
   "output": "static__always_inline__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -679,7 +825,7 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 146,
   "endLine": 171,
@@ -698,7 +844,29 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -750,7 +918,7 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 173,
   "endLine": 210,
@@ -764,7 +932,29 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -828,7 +1018,26 @@ srv6_decapsulation(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_update_elem": [
       {
@@ -868,29 +1077,29 @@ srv6_decapsulation(struct __ctx_buff *ctx)
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -958,7 +1167,24 @@ srv6_create_state_entry(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -986,29 +1212,29 @@ srv6_create_state_entry(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -1041,7 +1267,24 @@ srv6_lookup_state_entry4(struct iphdr *ip4)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {
     "map_lookup_elem": [
       {
@@ -1069,29 +1312,29 @@ srv6_lookup_state_entry4(struct iphdr *ip4)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "flow_dissector",
-    "sk_skb",
-    "raw_tracepoint_writable",
-    "socket_filter",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
     "sched_act",
-    "sk_reuseport",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
     "xdp",
     "sk_msg",
-    "lwt_in",
-    "cgroup_skb",
-    "cgroup_sock",
-    "lwt_xmit",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "kprobe",
-    "perf_event",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
+    "sock_ops",
     "tracepoint",
-    "raw_tracepoint",
+    "kprobe",
+    "lwt_in",
     "sched_cls",
-    "lwt_out"
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
     {
@@ -1123,7 +1366,7 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 270,
   "endLine": 310,
@@ -1139,7 +1382,29 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1206,7 +1471,7 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 312,
   "endLine": 331,
@@ -1222,7 +1487,29 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1268,7 +1555,7 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 333,
   "endLine": 373,
@@ -1284,7 +1571,29 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1351,7 +1660,7 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 375,
   "endLine": 413,
@@ -1365,7 +1674,29 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1430,7 +1761,7 @@ srv6_reply(struct __ctx_buff *ctx)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 415,
   "endLine": 422,
@@ -1445,7 +1776,29 @@ srv6_reply(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1479,7 +1832,7 @@ srv6_load_meta_sid(struct __ctx_buff *ctx, struct in6_addr *sid)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 424,
   "endLine": 431,
@@ -1494,7 +1847,29 @@ srv6_load_meta_sid(struct __ctx_buff *ctx, struct in6_addr *sid)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1529,7 +1904,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 434,
   "endLine": 452,
@@ -1543,7 +1918,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1589,7 +1986,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 455,
   "endLine": 473,
@@ -1603,7 +2000,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
@@ -1649,7 +2068,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_REPLY)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 476,
   "endLine": 485,
@@ -1663,7 +2082,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_REPLY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "All_hookpoints"
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "sched_act",
+    "cgroup_sock",
+    "flow_dissector",
+    "cgroup_device",
+    "xdp",
+    "sk_msg",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "lwt_in",
+    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {

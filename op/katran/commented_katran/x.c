@@ -9,11 +9,11 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 9,
   "endLine": 13,
-  "File": "/root/examples/katran/x.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/x.c",
   "funcName": "xdp_prog_simple",
   "updateMaps": [],
   "readMaps": [],
@@ -22,7 +22,31 @@ SEC("xdp")
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

@@ -25,14 +25,16 @@ __attribute__((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -41,11 +43,13 @@ __attribute__((__always_inline__))
       ]
     },
     {
+      "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": "Current ktime.",
+          "Project": "libbpf",
           "Return Type": "u64",
+          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
+          "Return": " Current ktime.",
           "Function Name": "bpf_ktime_get_ns",
           "Input Params": [
             "{Type: voi ,Var: void}"
@@ -75,7 +79,7 @@ __attribute__((__always_inline__))
   },
   "startLine": 25,
   "endLine": 50,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "is_under_flood",
   "updateMaps": [],
   "readMaps": [
@@ -90,27 +94,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -163,14 +167,16 @@ __attribute__((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -179,11 +185,13 @@ __attribute__((__always_inline__))
       ]
     },
     {
+      "capability": "map_update",
       "map_update": [
         {
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of:BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": "0 on success, or a negative error in case of failure.",
+          "Project": "libbpf",
           "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_map_update_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
@@ -247,7 +255,7 @@ __attribute__((__always_inline__))
   },
   "startLine": 53,
   "endLine": 131,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "get_packet_dst",
   "updateMaps": [
     " lru_map"
@@ -255,8 +263,8 @@ __attribute__((__always_inline__))
   "readMaps": [
     " reals",
     "  lpm_src_v4",
-    "  lpm_src_v6",
     "  ch_rings",
+    "  lpm_src_v6",
     " stats"
   ],
   "input": [
@@ -268,33 +276,33 @@ __attribute__((__always_inline__))
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_map_update_elem"
+    "bpf_map_update_elem",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -399,14 +407,16 @@ __attribute__((__always_inline__))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -415,11 +425,13 @@ __attribute__((__always_inline__))
       ]
     },
     {
+      "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": "Current ktime.",
+          "Project": "libbpf",
           "Return Type": "u64",
+          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
+          "Return": " Current ktime.",
           "Function Name": "bpf_ktime_get_ns",
           "Input Params": [
             "{Type: voi ,Var: void}"
@@ -456,12 +468,12 @@ __attribute__((__always_inline__))
   },
   "startLine": 133,
   "endLine": 156,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "connection_table_lookup",
   "updateMaps": [],
   "readMaps": [
-    " lru_map",
-    " reals"
+    " reals",
+    " lru_map"
   ],
   "input": [
     "struct real_definition **real",
@@ -475,27 +487,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -545,11 +557,11 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 158,
   "endLine": 230,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_l3_headers",
   "updateMaps": [],
   "readMaps": [],
@@ -564,7 +576,31 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -663,14 +699,16 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -699,7 +737,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   },
   "startLine": 233,
   "endLine": 255,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "check_decap_dst",
   "updateMaps": [],
   "readMaps": [
@@ -716,29 +754,29 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -791,11 +829,11 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 261,
   "endLine": 277,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "reals_have_same_addr",
   "updateMaps": [],
   "readMaps": [],
@@ -805,7 +843,31 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   ],
   "output": "staticinlinebool",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -847,14 +909,16 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -890,7 +954,7 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
   },
   "startLine": 279,
   "endLine": 335,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "perform_global_lru_lookup",
   "updateMaps": [],
   "readMaps": [
@@ -909,29 +973,29 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -1017,11 +1081,11 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 340,
   "endLine": 387,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_encaped_ipip_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -1035,7 +1099,31 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -1110,11 +1198,11 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 391,
   "endLine": 441,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_encaped_gue_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -1127,7 +1215,31 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -1204,14 +1316,16 @@ process_encaped_gue_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -1233,7 +1347,7 @@ process_encaped_gue_pckt(
   },
   "startLine": 444,
   "endLine": 457,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "increment_quic_cid_version_stats",
   "updateMaps": [],
   "readMaps": [
@@ -1247,29 +1361,29 @@ process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -1309,14 +1423,16 @@ increment_quic_cid_version_stats(int host_id) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -1338,7 +1454,7 @@ increment_quic_cid_version_stats(int host_id) {
   },
   "startLine": 459,
   "endLine": 468,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "increment_quic_cid_drop_no_real",
   "updateMaps": [],
   "readMaps": [
@@ -1352,29 +1468,29 @@ increment_quic_cid_version_stats(int host_id) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -1410,14 +1526,16 @@ increment_quic_cid_drop_no_real() {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -1439,7 +1557,7 @@ increment_quic_cid_drop_no_real() {
   },
   "startLine": 470,
   "endLine": 478,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "increment_quic_cid_drop_real_0",
   "updateMaps": [],
   "readMaps": [
@@ -1453,29 +1571,29 @@ increment_quic_cid_drop_no_real() {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
@@ -1510,14 +1628,16 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -1526,11 +1646,13 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
       ]
     },
     {
+      "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
-          "Return": "The SMP id of the processor running the program.",
+          "Project": "libbpf",
           "Return Type": "u32",
+          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
+          "Return": " The SMP id of the processor running the program.",
           "Function Name": "bpf_get_smp_processor_id",
           "Input Params": [
             "{Type: voi ,Var: void}"
@@ -1651,18 +1773,18 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   },
   "startLine": 480,
   "endLine": 791,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
-    "  stats",
-    " lru_mapping",
+    "  ctl_array",
+    "  vip_map",
+    " server_id_map",
     "  reals",
     "  reals_stats",
-    "  ctl_array",
-    " server_id_map",
+    " lru_mapping",
     " stats",
-    "  vip_map"
+    "  stats"
   ],
   "input": [
     "struct xdp_md *xdp",
@@ -1675,27 +1797,27 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -2034,11 +2156,11 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 794,
   "endLine": 817,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "balancer_ingress",
   "updateMaps": [],
   "readMaps": [],
@@ -2047,7 +2169,31 @@ SEC("xdp")
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -2095,11 +2241,11 @@ int balancer_ingress(struct xdp_md* ctx) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 818,
   "endLine": 827,
-  "File": "/root/examples/katran/balancer_kern.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "get_packet_hash",
   "updateMaps": [],
   "readMaps": [],
@@ -2109,7 +2255,31 @@ int balancer_ingress(struct xdp_md* ctx) {
   ],
   "output": "staticinline__u32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

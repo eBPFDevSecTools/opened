@@ -46,14 +46,16 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -82,12 +84,12 @@ SEC("xdp")
   },
   "startLine": 46,
   "endLine": 62,
-  "File": "/root/examples/katran/xdp_pktcntr.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
   "funcName": "pktcntr",
   "updateMaps": [],
   "readMaps": [
-    " ctl_array",
-    " cntrs_array"
+    " cntrs_array",
+    " ctl_array"
   ],
   "input": [
     "struct xdp_md *ctx"
@@ -97,29 +99,29 @@ SEC("xdp")
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_device",
-    "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {

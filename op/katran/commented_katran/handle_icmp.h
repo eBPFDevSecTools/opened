@@ -38,11 +38,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 38,
   "endLine": 48,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac_and_send",
   "updateMaps": [],
   "readMaps": [],
@@ -52,7 +52,31 @@
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -88,11 +112,11 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 58,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac",
   "updateMaps": [],
   "readMaps": [],
@@ -102,7 +126,31 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   ],
   "output": "staticinlinevoid",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -136,11 +184,11 @@ __attribute__((__always_inline__)) static inline void swap_mac(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 60,
   "endLine": 90,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -150,7 +198,31 @@ __attribute__((__always_inline__)) static inline void swap_mac(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -206,11 +278,11 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 117,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -220,7 +292,31 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -271,13 +367,15 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "update_pkt",
       "update_pkt": [
         {
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": "0 on success, or a negative error in case of failure.",
+          "Project": "libbpf",
           "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_xdp_adjust_head",
           "Input Params": [
             "{Type: struct xdp_buff ,Var: *xdp_md}",
@@ -300,7 +398,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   },
   "startLine": 119,
   "endLine": 162,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp4_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -382,13 +480,15 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "update_pkt",
       "update_pkt": [
         {
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": "0 on success, or a negative error in case of failure.",
+          "Project": "libbpf",
           "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_xdp_adjust_head",
           "Input Params": [
             "{Type: struct xdp_buff ,Var: *xdp_md}",
@@ -411,7 +511,7 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
   },
   "startLine": 164,
   "endLine": 203,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -489,13 +589,15 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "update_pkt",
       "update_pkt": [
         {
-          "Description": "Adjust (move) xdp_md->data_end by <[ delta ]>(IP: 1) bytes. It is only possible to shrink the packet as of this writing , therefore <[ delta ]>(IP: 1) must be a negative integer. A call to this helper is susceptible to change the underlaying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": "0 on success, or a negative error in case of failure.",
+          "Project": "libbpf",
           "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data_end by <[ delta ]>(IP: 1) bytes. It is only possible to shrink the packet as of this writing , therefore <[ delta ]>(IP: 1) must be a negative integer. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
           "Function Name": "bpf_xdp_adjust_tail",
           "Input Params": [
             "{Type: struct xdp_buff ,Var: *xdp_md}",
@@ -518,7 +620,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
   },
   "startLine": 205,
   "endLine": 221,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -575,11 +677,11 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 223,
   "endLine": 253,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmpv6",
   "updateMaps": [],
   "readMaps": [],
@@ -591,7 +693,31 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -647,11 +773,11 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 255,
   "endLine": 285,
-  "File": "/root/examples/katran/handle_icmp.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmp",
   "updateMaps": [],
   "readMaps": [],
@@ -663,7 +789,31 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   ],
   "output": "staticinlineint",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

@@ -18,11 +18,11 @@ __attribute__((section("xdp"), used))
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 27,
-  "File": "/root/examples/vpf-ebpf-src/packet_overflow.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_overflow.c",
   "funcName": "read_write_packet_start",
   "updateMaps": [],
   "readMaps": [],
@@ -31,7 +31,31 @@ __attribute__((section("xdp"), used))
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "perf_event",
+    "sched_cls",
+    "sched_act",
+    "socket_filter",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "cgroup_device",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_sysctl",
+    "raw_tracepoint"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

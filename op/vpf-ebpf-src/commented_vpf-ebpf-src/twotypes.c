@@ -29,23 +29,48 @@ struct ctx;
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
           ]
         }
       ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {
+    "get_prandom_u32": [
+      {
+        "opVar": "    uint32_t rand32 ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ],
     "bpf_map_lookup_elem": [
       {
         "opVar": "    uint8_t* map_value ",
@@ -58,7 +83,7 @@ struct ctx;
   },
   "startLine": 29,
   "endLine": 48,
-  "File": "/root/examples/vpf-ebpf-src/twotypes.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [
@@ -69,32 +94,31 @@ struct ctx;
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "get_prandom_u32"
   ],
   "compatibleHookpoints": [
     "perf_event",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_sock",
-    "flow_dissector",
-    "lwt_xmit",
-    "lwt_out",
     "sched_cls",
-    "lwt_seg6local",
-    "lwt_in",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint",
-    "sk_skb",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
-    "cgroup_device",
-    "kprobe",
     "sched_act",
-    "cgroup_sysctl",
+    "socket_filter",
+    "lwt_seg6local",
     "sk_reuseport",
-    "xdp"
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "lwt_out",
+    "sock_ops",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

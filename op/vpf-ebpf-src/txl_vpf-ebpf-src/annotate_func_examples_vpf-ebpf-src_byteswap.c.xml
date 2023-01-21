@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/root/examples/vpf-ebpf-src/byteswap.c" funcheader="int func (struct ctx *ctx)" startline="8" endline="26">
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c" funcheader="int func (struct ctx *ctx)" startline="8" endline="26">
 int func (struct ctx *ctx)
 {
     int rand32 = get_prandom_u32 ();

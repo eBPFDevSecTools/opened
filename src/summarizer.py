@@ -13,17 +13,17 @@ from collections import defaultdict
 CAP="capability"
 
 def create_capability_json(cap_dict, manpage_info_dict):
-    json_data_list = []
+    data_list = []
     for cap_name in cap_dict.keys():
         data = {}
-        #data["capability"] = cap_name
+        data["capability"] = cap_name
         lst = []
         for helper in list(cap_dict[cap_name]):
-            #print("got "+helper+"->"+str(manpage_info_dict[helper]["Function Name"]))
+            #print("got "+helper+"->")#+str(manpage_info_dict[helper]["Function Name"]))
             lst.append(manpage_info_dict[helper])
         data[cap_name]=lst
-        json_data_list.append(data)
-    return json_data_list
+        data_list.append(data)
+    return data_list
 
 
 def add_dict_to_cap_dict(cap_dict,cap_name):
@@ -59,7 +59,12 @@ def generate_capabilities(helper_list,cap_dict):
 def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
     if helpers is None or len(helpers) == 0:
-        return ["All_hookpoints"]
+        hook_set = get_all_available_hookpoints(helper_hookpoint_dict)
+        print("Helpers None: ")
+        print(hook_set)
+        return get_all_available_hookpoints(helper_hookpoint_dict)
+        #return ["All_hookpoints"]
+    
     for helper in helpers:
         hookpoint_list = helper_hookpoint_dict[helper]
         #print(hookpoint_list)
@@ -97,7 +102,6 @@ def load_capability_file(file_name, cap_dict):
                 value = tokens[1]
 
                 if int(value) == 1:
-                    #print(helper_name)
                     add_helper_to_dict(cap_dict,cap_name,helper_name)
     except Exception as e:
         print(e)
@@ -173,7 +177,7 @@ def append_return_details(ret_type, rettypedict, ret_set):
 
 def check_and_return_helper_present(my_dict,line):
     for key in my_dict.keys():
-        if line.find(key)>=0:
+        if line.find(key)>= 0:
             return key
     return None
 
@@ -251,11 +255,6 @@ def read_src_file(fname,beg,end):
     
 def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
     #Default init values
-    read_pkt_file= "asset/bpf_helper_info/bpf_helpers_read_skb.txt"
-    update_pkt_file= "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt"
-    read_map_file= "asset/bpf_helper_info/bpf_helpers_map_read.txt"
-    update_map_file= "asset/bpf_helper_info/bpf_helpers_map_update.txt"
-    read_sys_info_file= "asset/bpf_helper_info/bpf_helpers_read_sys_info.txt"
     capability_files = ["asset/bpf_helper_info/bpf_helpers_read_skb.txt", "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt","asset/bpf_helper_info/bpf_helpers_map_read.txt","asset/bpf_helper_info/bpf_helpers_map_update.txt","asset/bpf_helper_info/bpf_helpers_read_sys_info.txt","asset/bpf_return_type_info/return_type_drop_pkt.txt","asset/bpf_return_type_info/return_type_pass_pkt.txt", "asset/bpf_return_type_info/return_type_redirect_pkt.txt"]
     bpf_helper_file= './asset/helper_hookpoint_map.json'
     map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
@@ -263,11 +262,8 @@ def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
     manpage_info_file = "./asset/bpf_helpers_desc_mod.json"
     
     if(isCilium is True):
-        print("Warning: bpf_helper_file not specified using default asset/cilium.helper_hookpoint_map.json\n")
-        bpf_helper_file = "./asset/cilium.helper_hookpoint_map.json"
         map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
         map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
-        manpage_info_file = "./asset/cilium.bpf_helpers_desc_mod.json"
     
     cap_dict = {}
     for file_name in capability_files:
@@ -282,14 +278,24 @@ def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
     helperCallParams = defaultdict(list)
     helpers_list = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict)
     caps = generate_capabilities(helpers_list, cap_dict)
-
-    #print(caps)
     manpage_info_dict = load_manpage_helper_map(manpage_info_file)
     op_dict = {}
-    op_dict["capability"] = create_capability_json(caps, manpage_info_dict)
+    op_dict["capabilities"] = create_capability_json(caps, manpage_info_dict)
     op_dict["helperCallParams"] = helperCallParams
     return op_dict
 
+
+def get_all_available_hookpoints(helper_hookpoint_dict):
+    hookpoint_set = set()
+    for hookpoint_str in helper_hookpoint_dict.values():
+        if hookpoint_str is None:
+            continue
+        hookpts = hookpoint_str.split(",")
+        print("hookpts: ")
+        print(hookpts)
+        for hookpt in hookpts:
+            hookpoint_set.add(hookpt)
+    return list(hookpoint_set)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='eBPF Code Summarizer')

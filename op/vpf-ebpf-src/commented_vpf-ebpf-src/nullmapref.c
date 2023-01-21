@@ -28,14 +28,16 @@ bpf_map_def_t test_map = {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "map_read",
       "map_read": [
         {
+          "Project": "libbpf",
+          "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": "Map value associated to key, or NULL if no entry was found.",
-          "Return Type": "void",
-          "Function Name": "*bpf_map_lookup_elem",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
@@ -57,7 +59,7 @@ bpf_map_def_t test_map = {
   },
   "startLine": 28,
   "endLine": 40,
-  "File": "/root/examples/vpf-ebpf-src/nullmapref.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
   "funcName": "test_repro",
   "updateMaps": [],
   "readMaps": [
@@ -72,28 +74,28 @@ bpf_map_def_t test_map = {
   ],
   "compatibleHookpoints": [
     "perf_event",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_sock",
-    "flow_dissector",
-    "lwt_xmit",
-    "lwt_out",
     "sched_cls",
-    "lwt_seg6local",
-    "lwt_in",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint",
-    "sk_skb",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
-    "cgroup_device",
-    "kprobe",
     "sched_act",
-    "cgroup_sysctl",
+    "socket_filter",
+    "lwt_seg6local",
     "sk_reuseport",
-    "xdp"
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "cgroup_device",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_sysctl",
+    "raw_tracepoint"
   ],
   "humanFuncDescription": [
     {

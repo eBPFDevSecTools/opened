@@ -29,11 +29,11 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 29,
   "endLine": 53,
-  "File": "/root/examples/katran/flow_debug_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "get_next_ports",
   "updateMaps": [],
   "readMaps": [],
@@ -44,7 +44,31 @@
   ],
   "output": "staticinline__u32",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "cgroup_device",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sysctl"
+  ],
   "humanFuncDescription": [
     {
       "description": "",
@@ -94,13 +118,15 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [
+  "capabilities": [
     {
+      "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
-          "Return": "The SMP id of the processor running the program.",
+          "Project": "libbpf",
           "Return Type": "u32",
+          "Description": "Get the SMP (symmetric multiprocessing) processor id. Note that all programs run with preemption disabled , which means that the SMP processor id is stable during all the execution of the program. ",
+          "Return": " The SMP id of the processor running the program.",
           "Function Name": "bpf_get_smp_processor_id",
           "Input Params": [
             "{Type: voi ,Var: void}"
@@ -121,7 +147,7 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
   },
   "startLine": 55,
   "endLine": 128,
-  "File": "/root/examples/katran/flow_debug_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "gue_record_route",
   "updateMaps": [],
   "readMaps": [],
@@ -137,27 +163,27 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
     "bpf_get_smp_processor_id"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {

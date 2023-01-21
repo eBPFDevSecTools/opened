@@ -30,7 +30,7 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_tail_call": [
       {
@@ -45,7 +45,7 @@ struct {
   },
   "startLine": 30,
   "endLine": 37,
-  "File": "/root/examples/katran/xdp_root.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_root",
   "updateMaps": [],
   "readMaps": [],
@@ -57,27 +57,27 @@ struct {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -112,7 +112,7 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_tail_call": [
       {
@@ -127,7 +127,7 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   },
   "startLine": 40,
   "endLine": 47,
-  "File": "/root/examples/katran/xdp_root.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_val",
   "updateMaps": [],
   "readMaps": [],
@@ -139,27 +139,27 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_act",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "flow_dissector",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sock_ops",
+    "kprobe",
+    "socket_filter",
+    "lwt_out",
+    "sk_msg",
+    "xdp",
     "sk_reuseport",
     "sched_cls",
-    "cgroup_sock",
-    "lwt_xmit",
-    "lwt_out",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "sched_act",
-    "lwt_in",
-    "xdp",
-    "sk_msg",
     "tracepoint",
-    "lwt_seg6local",
-    "perf_event",
-    "raw_tracepoint",
-    "cgroup_skb",
-    "kprobe",
-    "socket_filter"
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {

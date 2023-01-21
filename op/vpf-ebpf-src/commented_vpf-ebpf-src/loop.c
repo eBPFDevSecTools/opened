@@ -13,11 +13,11 @@ struct test_md
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 13,
   "endLine": 31,
-  "File": "/root/examples/vpf-ebpf-src/loop.c",
+  "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/loop.c",
   "funcName": "foo",
   "updateMaps": [],
   "readMaps": [],
@@ -26,7 +26,31 @@ struct test_md
   ],
   "output": "int",
   "helper": [],
-  "compatibleHookpoints": null,
+  "compatibleHookpoints": [
+    "perf_event",
+    "sched_cls",
+    "sched_act",
+    "socket_filter",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "lwt_xmit",
+    "kprobe",
+    "lwt_in",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "raw_tracepoint_writable",
+    "flow_dissector",
+    "cgroup_device",
+    "lwt_out",
+    "sock_ops",
+    "cgroup_sysctl",
+    "raw_tracepoint"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

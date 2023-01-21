@@ -3,7 +3,7 @@ BPF_HASH(start, u8, u8);
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_trace_printk": [
       {
@@ -17,7 +17,7 @@ BPF_HASH(start, u8, u8);
   },
   "startLine": 3,
   "endLine": 11,
-  "File": "/root/examples/bcc/kvm_hypercall.c",
+  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -30,29 +30,29 @@ BPF_HASH(start, u8, u8);
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "sk_skb",
-    "xdp",
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "cgroup_sock",
     "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_skb",
     "sched_cls",
-    "lwt_in",
     "sk_msg",
-    "sched_act",
-    "lwt_xmit",
-    "flow_dissector",
-    "kprobe",
-    "raw_tracepoint",
     "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "perf_event",
+    "lwt_in",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_out",
     "sk_reuseport",
-    "perf_event"
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "sched_act",
+    "cgroup_device"
   ],
   "humanFuncDescription": [
     {
@@ -86,7 +86,7 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_trace_printk": [
       {
@@ -100,7 +100,7 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
   },
   "startLine": 12,
   "endLine": 21,
-  "File": "/root/examples/bcc/kvm_hypercall.c",
+  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -113,29 +113,29 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "sk_skb",
-    "xdp",
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "cgroup_sock",
     "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_skb",
     "sched_cls",
-    "lwt_in",
     "sk_msg",
-    "sched_act",
-    "lwt_xmit",
-    "flow_dissector",
-    "kprobe",
-    "raw_tracepoint",
     "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "perf_event",
+    "lwt_in",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_out",
     "sk_reuseport",
-    "perf_event"
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "sched_act",
+    "cgroup_device"
   ],
   "humanFuncDescription": [
     {
@@ -170,7 +170,7 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capability": [],
+  "capabilities": [],
   "helperCallParams": {
     "bpf_trace_printk": [
       {
@@ -184,7 +184,7 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
   },
   "startLine": 22,
   "endLine": 30,
-  "File": "/root/examples/bcc/kvm_hypercall.c",
+  "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -197,29 +197,29 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "sk_skb",
-    "xdp",
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "cgroup_sock",
     "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_skb",
     "sched_cls",
-    "lwt_in",
     "sk_msg",
-    "sched_act",
-    "lwt_xmit",
-    "flow_dissector",
-    "kprobe",
-    "raw_tracepoint",
     "cgroup_sock_addr",
+    "socket_filter",
+    "sk_skb",
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "kprobe",
+    "perf_event",
+    "lwt_in",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_out",
     "sk_reuseport",
-    "perf_event"
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "sched_act",
+    "cgroup_device"
   ],
   "humanFuncDescription": [
     {
