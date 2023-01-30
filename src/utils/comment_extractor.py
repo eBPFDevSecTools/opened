@@ -4,11 +4,39 @@ from tinydb import TinyDB
 from datetime import date
 import argparse
 import glob
+import os
+
+def check_if_file_already_exists(files):
+    for fl in files:
+        print("Checking: ",fl)
+        if os.path.exists(fl) is True :
+            print("File: ",fl," already exists.. ", "Exiting")
+            return True
+    return False
+
+def check_if_file_does_not_exist(files):
+    for fl in files:
+        print("Checking: ",fl)
+        if os.path.exists(fl) is False:
+            print("File: ",fl," does not exist.. ", "Exiting")
+            return True
+    return False
 
 def insert_to_db(db,comment_dict):
     comment_json = json.dumps(comment_dict)
     #print("Inserting comments to DB: "+ comment_json )
     db.insert(comment_dict)
+
+def get_author(author_dict, file_name, op_dict):
+    for element in author_dict:
+        author_file_path = element['file']
+        author_file_name = author_file_path.split('/')[-1]
+        print(author_file_name)
+        if file_name in author_file_name:
+            op_dict[AUTHOR] = element[AUTHOR_NAME]
+            op_dict[EMAIL] = element[AUTHOR_EMAIL]
+            return op_dict
+    return op_dict
 
 def extract_comments(file_name,start_pattern,end_pattern,db):
     src_file = open(file_name,'r')
@@ -20,8 +48,6 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
         comment = token.split(end_pattern)[0]
         #print(comment)
         op_dict = {}
-        op_dict['author']="BU Course Project"
-        op_dict['authorEmail']="course@bu.edu"
         op_dict['date']= str(date.today())
         lines = comment.split('\n')
         #print(lines)
@@ -37,22 +63,60 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
         #print("dict")
         #print(op_dict)
         print(json.dumps(op_dict))
-        insert_to_db(db,op_dict)
+        return op_dict
+        
         
     
 
 if __name__ == "__main__":
+    
+    AUTHOR = 'author'
+    AUTHOR_NAME = 'authorName'
+    AUTHOR_EMAIL = 'authorEmail'
+    FILE = 'file'
+    EMAIL = 'email'
+
     my_parser = argparse.ArgumentParser()
     my_parser.add_argument('-s','--src_dir',action='store',required=True,
             help='directory with source code')
     my_parser.add_argument('-d','--comments_dbfile',action='store',required=True,
             help='comments db file')
+    my_parser.add_argument('-a','--authors_file',action='store',required=True,
+            help='file to authors mapping json file')
     args = my_parser.parse_args()
+
+    #authors_file = "./op/code_annotation_bu/boston_files_to_authors.json"
+    
     src_dir = args.src_dir
     comments_db_file=args.comments_dbfile
+    authors_file = args.authors_file
+
+    files = []
+    files.append(src_dir)
+    files.append(authors_file)
+
+    if check_if_file_does_not_exist(files)  == True:
+        print("Input file does not Exist..Quitting")
+        exit(0)
+
+    files.clear()
+    files.append(comments_db_file)
+    if check_if_file_already_exists(files)  == True:
+        print("Comments db file already exists..Quitting")
+        exit(0)
+
+
+    with open (authors_file) as json_str:
+        author_dict = json.load(json_str)
+
     #comments_db_file="boston_comments.json"
     comments_db = TinyDB(comments_db_file)
     for filepath in glob.iglob(src_dir+"/*" , recursive=True):
-        print(filepath) 
+        fname = filepath.split('/')[-1]
+        print("path: "+filepath+" name: "+fname) 
+        
         if filepath.endswith(".c") or filepath.endswith(".h"):
-            extract_comments(filepath,"OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+            op_dict = extract_comments(filepath,"OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+            op_dict = get_author(author_dict, fname, op_dict)
+            print(op_dict)
+            insert_to_db(comments_db,op_dict)
