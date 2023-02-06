@@ -1,0 +1,17 @@
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+spec:
+  tags:
+  - name: ingress-node-firewall
+    from:
+      kind: DockerImage
+      name: quay.io/openshift/origin-ingress-node-firewall:latest
+  - name: ingress-node-firewall-daemon
+    from:
+      kind: DockerImage
+      name: quay.io/openshift/origin-ingress-node-firewall-daemon:latest
+  - name: kube-rbac-proxy
+    from:
+      kind: DockerImage
+      name: quay.io/openshift/origin-kube-rbac-proxy:latest

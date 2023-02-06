@@ -1,0 +1,20 @@
+# permissions for end users to view ingressnodefirewalls.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ingressnodefirewall-viewer-role
+rules:
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewalls
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewalls/status
+  verbs:
+  - get

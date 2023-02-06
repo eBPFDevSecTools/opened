@@ -1,0 +1,1 @@
+[Moved](doc/proposal.md)

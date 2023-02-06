@@ -1,0 +1,137 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - daemonsets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallconfigs/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallconfigs/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallnodestates
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewalls
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewalls/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewalls/status
+  verbs:
+  - get
+  - patch
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  name: manager-role
+  namespace: ingress-node-firewall-system
+rules:
+- apiGroups:
+  - apps
+  resources:
+  - daemonsets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallnodestates
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallnodestates/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallnodestates/status
+  verbs:
+  - get
+  - patch
+  - update

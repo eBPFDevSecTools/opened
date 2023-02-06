@@ -1,0 +1,24 @@
+# permissions for end users to edit ingressnodefirewallconfigs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ingressnodefirewallconfig-editor-role
+rules:
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingressnodefirewall.openshift.io
+  resources:
+  - ingressnodefirewallconfigs/status
+  verbs:
+  - get

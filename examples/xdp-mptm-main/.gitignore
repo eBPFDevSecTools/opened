@@ -1,0 +1,10 @@
+.DS_Store
+build/
+*.pcap
+tags
+TAGS
+deps/libbpf/src/build/
+deps/common/*.o
+.vscode/
+*/__pycache__/*
+bench/

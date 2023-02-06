@@ -1,0 +1,18 @@
+
+modd.conf {}
+
+api/**/*.proto {
+    prep: protoc -I ./ --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. $(find -name '*.proto')
+}
+
+**/*.go */go.mod */go.sum {
+  prep: sh -c "hack/go-test-local-mods"
+  prep: mkdir -p dist
+  prep: cd cmd && go build -trimpath -o ../dist/ ./...
+}
+
+#dist/kpng {
+#    daemon: dist/kpng kube                                  to-api --listen tcp://[::1]:12090
+#    daemon: dist/kpng kube --service-proxy-name=other-proxy to-api --listen tcp://[::1]:12091
+#}
+

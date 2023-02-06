@@ -1,0 +1,156 @@
+// Copyright 2021 The Kubernetes Authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package localv1;
+
+option go_package = "sigs.k8s.io/kpng/api/localv1";
+
+// Sets can be any of the "Set" types defined in the enumeration below.  When a
+// client requests a watch, it defines the "Set" of things it wants to watch...
+service Sets {
+    // Returns all the endpoints for this node.
+    rpc Watch (stream WatchReq) returns (stream OpItem);
+}
+
+// To request ENLS(Expected Node Local State) a client must specify the desired NodeName
+// "location" from where we are watching.
+message WatchReq {
+    // NodeName of the requester
+    string NodeName = 1;
+}
+enum Set {
+    UnknownSet = 0;
+
+
+    ServicesSet = 1;
+    EndpointsSet = 2;
+
+    // FIXME move to a 3rd generic proto ???
+    GlobalServiceInfos = 10;
+    GlobalEndpointInfos = 11;
+    GlobalNodeInfos = 12;
+}
+message OpItem {
+    oneof Op {
+        // Sync signals that the change set is complete (especially useful to know when the initial state is complete)
+        EmptyOp Sync = 1;
+        // Reset signals that the whole data set will be sent next
+        EmptyOp Reset = 4;
+
+        // Add/update a value in a set
+        Value Set = 2;
+        // Delete a value in a set
+        Ref   Delete = 3;
+    }
+}
+
+message EmptyOp {
+}
+
+message Ref {
+    Set    Set = 1;
+    string Path = 2;
+}
+
+message Value {
+    Ref   Ref = 1;
+    bytes Bytes = 2;
+}
+
+message Service {
+    string Namespace = 1;
+    string Name = 2;
+    string Type = 3;
+
+    map<string, string> Labels = 8;
+    map<string, string> Annotations = 9;
+
+    ServiceIPs IPs = 4;
+
+    repeated IPFilter IPFilters = 10;
+
+    // true if the service maps the whole IP, not just individual ports.
+    bool MapIP = 5;
+
+    // Individual ports mapped for the this service
+    repeated PortMapping Ports = 6;
+
+    bool ExternalTrafficToLocal = 7;
+
+    oneof SessionAffinity {
+        ClientIPAffinity ClientIP = 11;
+    };
+
+    bool InternalTrafficToLocal = 12;
+}
+
+message IPFilter {
+    // TargetIPs are the destination IPs to match (before DNAT)
+    IPSet TargetIPs = 1;
+
+    // SourceRanges are the CIDRs of IPs that are allowed by this filter rule
+    repeated string SourceRanges = 2;
+}
+
+message ServiceIPs {
+    IPSet ClusterIPs = 1;
+    IPSet ExternalIPs = 2;
+    IPSet LoadBalancerIPs = 4;
+    bool  Headless = 3;
+}
+
+message Endpoint {
+    string Hostname = 1;
+    IPSet  IPs = 2;
+    bool   Local = 3;
+    repeated PortName PortOverrides = 4;
+    EndpointScopes Scopes = 5;
+}
+
+message EndpointScopes {
+    bool Internal = 1;
+    bool External = 2;
+}
+
+message IPSet {
+    repeated string V4 = 1;
+    repeated string V6 = 2;
+}
+
+message PortName {
+    string Name = 1;
+    int32  Port = 2;
+}
+
+enum Protocol {
+    UnknownProtocol = 0;
+    TCP = 1;
+    UDP = 2;
+    SCTP = 3;
+}
+
+message PortMapping {
+    string   Name       = 1;
+    Protocol Protocol   = 2;
+    int32    Port       = 3;
+    int32    NodePort   = 4;
+    int32    TargetPort = 5;
+    string   TargetPortName = 6;
+}
+
+message ClientIPAffinity {
+    int32 TimeoutSeconds = 1;
+}

@@ -1,0 +1,164 @@
+/*
+Copyright 2021 The Kubernetes Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+package file2store
+
+import (
+	"context"
+	"io/ioutil"
+	"os"
+	"path"
+	"time"
+
+	"github.com/cespare/xxhash"
+	"gopkg.in/yaml.v2"
+	"k8s.io/klog/v2"
+
+	"sigs.k8s.io/kpng/api/globalv1"
+	"sigs.k8s.io/kpng/client/lightdiffstore"
+	"sigs.k8s.io/kpng/server/jobs/store2file"
+	"sigs.k8s.io/kpng/server/pkg/server/watchstate"
+	"sigs.k8s.io/kpng/server/proxystore"
+	"sigs.k8s.io/kpng/server/serde"
+)
+
+type Job struct {
+	FilePath string
+	Store    *proxystore.Store
+}
+
+func (j *Job) Run(ctx context.Context) {
+	configPath := j.FilePath
+	store := j.Store
+
+	w := watchstate.New(nil, proxystore.AllSets)
+
+	mtime := time.Time{}
+
+	for range time.Tick(time.Second) {
+		if ctx.Err() != nil {
+			return
+		}
+
+		stat, err := os.Stat(configPath)
+		if err != nil {
+			klog.Info("failed to stat config: ", err)
+			continue
+		}
+
+		if !stat.ModTime().After(mtime) {
+			continue
+		}
+
+		mtime = stat.ModTime()
+
+		configBytes, err := ioutil.ReadFile(configPath)
+		if err != nil {
+			klog.Info("failed to read config: ", err)
+			continue
+		}
+
+		state := &store2file.GlobalState{}
+		err = yaml.UnmarshalStrict(configBytes, state)
+		if err != nil {
+			klog.Info("failed to parse config: ", err)
+			continue
+		}
+
+		diffNodes := w.StoreFor(proxystore.Nodes)
+		diffSvcs := w.StoreFor(proxystore.Services)
+		diffEPs := w.StoreFor(proxystore.Endpoints)
+
+		for _, node := range state.Nodes {
+			diffNodes.Set([]byte(node.Name), serde.Hash(node), node)
+		}
+
+		for _, se := range state.Services {
+			svc := se.Service
+
+			if svc.Namespace == "" {
+				svc.Namespace = "default"
+			}
+
+			si := &globalv1.ServiceInfo{
+				Service: se.Service,
+			}
+
+			fullName := []byte(svc.Namespace + "/" + svc.Name)
+
+			diffSvcs.Set(fullName, serde.Hash(si), si)
+
+			if len(se.Endpoints) != 0 {
+				h := xxhash.New()
+				for _, ep := range se.Endpoints {
+					ep.Namespace = svc.Namespace
+					ep.SourceName = svc.Name
+					ep.ServiceName = svc.Name
+
+					if ep.Conditions == nil {
+						ep.Conditions = &globalv1.EndpointConditions{Ready: true}
+					}
+
+					h.Write(serde.Marshal(ep))
+				}
+
+				diffEPs.Set(fullName, h.Sum64(), se.Endpoints)
+			}
+		}
+
+		store.Update(func(tx *proxystore.Tx) {
+			for _, u := range diffNodes.Updated() {
+				klog.Info("U node ", string(u.Key))
+				tx.SetNode(u.Value.(*globalv1.Node))
+			}
+			for _, u := range diffSvcs.Updated() {
+				klog.Info("U service ", string(u.Key))
+				si := u.Value.(*globalv1.ServiceInfo)
+				tx.SetService(si.Service)
+			}
+			for _, u := range diffEPs.Updated() {
+				klog.Info("U endpoints ", string(u.Key))
+				key := string(u.Key)
+				eis := u.Value.([]*globalv1.EndpointInfo)
+
+				tx.SetEndpointsOfSource(path.Dir(key), path.Base(key), eis)
+			}
+
+			for _, d := range diffEPs.Deleted() {
+				klog.Info("D endpoints ", string(d.Key))
+				key := string(d.Key)
+				tx.DelEndpointsOfSource(path.Dir(key), path.Base(key))
+			}
+			for _, d := range diffSvcs.Deleted() {
+				klog.Info("D service ", string(d.Key))
+				key := string(d.Key)
+				tx.DelService(path.Dir(key), path.Base(key))
+			}
+			for _, d := range diffNodes.Deleted() {
+				klog.Info("D node ", string(d.Key))
+				tx.DelNode(string(d.Key))
+			}
+
+			for _, set := range proxystore.AllSets {
+				tx.SetSync(set)
+			}
+		})
+
+		for _, set := range proxystore.AllSets {
+			w.StoreFor(set).Reset(lightdiffstore.ItemDeleted)
+		}
+	}
+}

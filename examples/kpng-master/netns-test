@@ -1,0 +1,9 @@
+#! /bin/sh
+
+set -x
+
+backend=$1
+shift
+
+ip netns add kpng-$backend
+exec ip netns exec kpng-$backend dist/kpng local --api unix:///tmp/kpng.sock to-$backend "$@"

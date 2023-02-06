@@ -1,0 +1,35 @@
+apiVersion: ingressnodefirewall.openshift.io/v1alpha1
+kind: IngressNodeFirewall
+metadata:
+  name: ingressnodefirewall-demo2
+spec:
+  interfaces:
+  - eth0
+  nodeSelector:
+    matchLabels:
+      do-node-ingress-firewall: 'true'
+  ingress:
+  - sourceCIDRs:
+       - 172.16.0.0/12
+    rules:
+    - order: 10
+      protocolConfig:
+        protocol: ICMP
+        icmp:
+          icmpType: 8 #ICMP Echo request
+      action: Deny
+    - order: 20
+      protocolConfig:
+        protocol: TCP
+        tcp:
+          ports: "8000-9000"
+      action: Deny
+  - sourceCIDRs:
+       - fc00:f853:ccd:e793::0/64
+    rules:
+    - order: 10
+      protocolConfig:
+        protocol: ICMPv6
+        icmpv6:
+          icmpType: 128 #ICMPV6 Echo request
+      action: Deny

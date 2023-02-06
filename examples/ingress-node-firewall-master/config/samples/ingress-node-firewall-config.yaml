@@ -1,0 +1,8 @@
+apiVersion: ingressnodefirewall.openshift.io/v1alpha1
+kind: IngressNodeFirewallConfig
+metadata:
+  name: ingressnodefirewallconfig
+  namespace: ingress-node-firewall-system
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""

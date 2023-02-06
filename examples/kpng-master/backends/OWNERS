@@ -1,0 +1,18 @@
+# See the OWNERS docs at https://go.k8s.io/owners
+
+approvers:
+  - mcluseau
+  - jayunit100
+  - hanamantagoudvk
+  - VivekThrivikraman-est
+  - astoycos
+  - rajaskakodkar
+reviewers:
+  - mcluseau
+  - jayunit100
+  - hanamantagoudvk
+  - VivekThrivikraman-est
+  - astoycos
+  - aryan9600
+  - rajaskakodkar
+
