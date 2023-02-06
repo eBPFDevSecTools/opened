@@ -1,2 +1,0 @@
-set -x
-CGO_ENABLED=1 go test $(hack/go-list-local-mods)
