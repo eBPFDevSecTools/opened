@@ -9,6 +9,7 @@ import summarizer as smt
 import argparse
 from collections import defaultdict
 from tinydb import TinyDB
+from document_generation import doc_generator
 
 def insert_to_db(db,comment_dict):
     comment_json = json.dumps(comment_dict)
@@ -83,7 +84,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             empty_desc_auto['invocationParameters'] = ""
             ai_func_desc_list = []
             ai_func_desc_list.append(empty_desc_auto)
-            capability_dict['AI_func_description'] = ai_func_desc_list
+            capability_dict['AI_func_description'] = doc_generator.main(src_dir='/home/vm2/Work/ibm-iitkgp/opened_extraction/op/bcc/txl_bcc/')
             #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
             comment = generate_comment(capability_dict)
             insert_to_db(comments_db,capability_dict)
