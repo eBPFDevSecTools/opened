@@ -95,7 +95,7 @@
   },
   "startLine": 14,
   "endLine": 66,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/fib.h",
   "funcName": "redirect_direct_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -116,12 +116,7 @@
     "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -275,7 +270,7 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   },
   "startLine": 70,
   "endLine": 126,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/fib.h",
   "funcName": "redirect_direct_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -296,12 +291,7 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
     "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

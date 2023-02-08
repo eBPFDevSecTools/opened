@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int assign_socket_tcp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established)" startline="14" endline="42">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int assign_socket_tcp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established)" startline="14" endline="42">
 static __always_inline int assign_socket_tcp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established)
 {
     int result = DROP_PROXY_LOOKUP_FAILED;
@@ -26,7 +26,7 @@ out :
     return result;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int assign_socket_udp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused)" startline="44" endline="67">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int assign_socket_udp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused)" startline="44" endline="67">
 static __always_inline int assign_socket_udp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused)
 {
     int result = DROP_PROXY_LOOKUP_FAILED;
@@ -47,7 +47,7 @@ out :
     return result;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int assign_socket (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established)" startline="69" endline="86">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int assign_socket (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established)" startline="69" endline="86">
 static __always_inline int assign_socket (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established)
 {
     switch (nexthdr) {
@@ -59,13 +59,13 @@ static __always_inline int assign_socket (struct  __ctx_buff *ctx, struct bpf_so
     return DROP_PROXY_UNKNOWN_PROTO;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline __u32 combine_ports (__u16 dport, __u16 sport)" startline="92" endline="96">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline __u32 combine_ports (__u16 dport, __u16 sport)" startline="92" endline="96">
 static __always_inline __u32 combine_ports (__u16 dport, __u16 sport)
 {
     return (bpf_ntohs (dport) << 16) | bpf_ntohs (sport);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int __ctx_redirect_to_proxy (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused, bool ipv4 __maybe_unused)" startline="190" endline="220">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int __ctx_redirect_to_proxy (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused, bool ipv4 __maybe_unused)" startline="190" endline="220">
 static __always_inline int __ctx_redirect_to_proxy (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused, bool ipv4 __maybe_unused)
 {
     int result __maybe_unused = CTX_ACT_OK;
@@ -100,19 +100,19 @@ static __always_inline int __ctx_redirect_to_proxy (struct  __ctx_buff *ctx, voi
     return result;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int ctx_redirect_to_proxy4 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)" startline="223" endline="228">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int ctx_redirect_to_proxy4 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)" startline="223" endline="228">
 static __always_inline int ctx_redirect_to_proxy4 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)
 {
     return __ctx_redirect_to_proxy (ctx, tuple, proxy_port, from_host, true);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int ctx_redirect_to_proxy6 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)" startline="232" endline="237">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int ctx_redirect_to_proxy6 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)" startline="232" endline="237">
 static __always_inline int ctx_redirect_to_proxy6 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)
 {
     return __ctx_redirect_to_proxy (ctx, tuple, proxy_port, from_host, false);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int ctx_redirect_to_proxy_first (struct  __ctx_buff *ctx, __be16 proxy_port)" startline="280" endline="337">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline int ctx_redirect_to_proxy_first (struct  __ctx_buff *ctx, __be16 proxy_port)" startline="280" endline="337">
 static __always_inline int ctx_redirect_to_proxy_first (struct  __ctx_buff *ctx, __be16 proxy_port)
 {
     int ret = CTX_ACT_OK;
@@ -165,7 +165,7 @@ out :
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline bool tc_index_skip_ingress_proxy (struct  __ctx_buff *ctx)" startline="342" endline="351">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline bool tc_index_skip_ingress_proxy (struct  __ctx_buff *ctx)" startline="342" endline="351">
 static __always_inline bool tc_index_skip_ingress_proxy (struct  __ctx_buff *ctx)
 {
     volatile __u32 tc_index = ctx->tc_index;
@@ -178,7 +178,7 @@ static __always_inline bool tc_index_skip_ingress_proxy (struct  __ctx_buff *ctx
     return tc_index & TC_INDEX_F_SKIP_INGRESS_PROXY;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline bool tc_index_skip_egress_proxy (struct  __ctx_buff *ctx)" startline="356" endline="365">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h" funcheader="static __always_inline bool tc_index_skip_egress_proxy (struct  __ctx_buff *ctx)" startline="356" endline="365">
 static __always_inline bool tc_index_skip_egress_proxy (struct  __ctx_buff *ctx)
 {
     volatile __u32 tc_index = ctx->tc_index;

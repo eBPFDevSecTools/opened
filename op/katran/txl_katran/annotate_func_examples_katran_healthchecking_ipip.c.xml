@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c" funcheader="int healthcheck_encap (struct  __sk_buff *skb)" startline="89" endline="157">
+<source file="/home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c" funcheader="int healthcheck_encap (struct  __sk_buff *skb)" startline="89" endline="157">
 int healthcheck_encap (struct  __sk_buff *skb)
 {
     int ret = 0;

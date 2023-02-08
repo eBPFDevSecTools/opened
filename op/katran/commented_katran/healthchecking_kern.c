@@ -116,37 +116,37 @@ SEC("tc")
   },
   "startLine": 34,
   "endLine": 139,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_kern.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    " hc_key_map",
-    " per_hckey_stats",
     "  hc_stats_map",
-    " hc_ctrl_map",
     " hc_reals_map",
-    "  hc_pckt_macs"
+    " per_hckey_stats",
+    "  hc_pckt_macs",
+    " hc_key_map",
+    " hc_ctrl_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_act",
     "lwt_xmit",
-    "sched_act"
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " Input is user accessible mirror of in-kernel sk_buff",
+      "author": "Qintian Huang",
+      "authorEmail": "qthuang@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [

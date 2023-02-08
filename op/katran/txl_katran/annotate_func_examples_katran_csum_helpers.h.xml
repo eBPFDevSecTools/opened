@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __u16 csum_fold_helper (__u64 csum)" startline="30" endline="39">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __u16 csum_fold_helper (__u64 csum)" startline="30" endline="39">
 static inline __u16 csum_fold_helper (__u64 csum)
 {
     int i;
@@ -13,20 +13,20 @@ static inline __u16 csum_fold_helper (__u64 csum)
     return ~csum;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static int min_helper (int a, int b)" startline="41" endline="43">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static int min_helper (int a, int b)" startline="41" endline="43">
 static int min_helper (int a, int b)
 {
     return a < b ? a : b;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv4_csum (void *data_start, int data_size, __u64 *csum)" startline="45" endline="49">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv4_csum (void *data_start, int data_size, __u64 *csum)" startline="45" endline="49">
 static inline void ipv4_csum (void *data_start, int data_size, __u64 *csum)
 {
     *csum = bpf_csum_diff (0, 0, data_start, data_size, *csum);
     *csum = csum_fold_helper (*csum);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv4_csum_inline (void *iph, __u64 *csum)" startline="51" endline="60">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv4_csum_inline (void *iph, __u64 *csum)" startline="51" endline="60">
 static inline void ipv4_csum_inline (void *iph, __u64 *csum)
 {
     __u16 *next_iph_u16 = (__u16 *) iph;
@@ -38,7 +38,7 @@ static inline void ipv4_csum_inline (void *iph, __u64 *csum)
     *csum = csum_fold_helper (*csum);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv4_l4_csum (void *data_start, int data_size, __u64 *csum, struct iphdr *iph)" startline="62" endline="73">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv4_l4_csum (void *data_start, int data_size, __u64 *csum, struct iphdr *iph)" startline="62" endline="73">
 static inline void ipv4_l4_csum (void *data_start, int data_size, __u64 *csum, struct iphdr *iph)
 {
     __u32 tmp = 0;
@@ -52,7 +52,7 @@ static inline void ipv4_l4_csum (void *data_start, int data_size, __u64 *csum, s
     *csum = csum_fold_helper (*csum);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv6_csum (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h)" startline="75" endline="88">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline void ipv6_csum (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h)" startline="75" endline="88">
 static inline void ipv6_csum (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h)
 {
     __u32 tmp = 0;
@@ -66,7 +66,7 @@ static inline void ipv6_csum (void *data_start, int data_size, __u64 *csum, stru
     *csum = csum_fold_helper (*csum);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 add_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)" startline="95" endline="127">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 add_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)" startline="95" endline="127">
 static inline __s64 add_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)
 {
     __s64 ret;
@@ -97,7 +97,7 @@ static inline __s64 add_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 rem_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)" startline="129" endline="158">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 rem_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)" startline="129" endline="158">
 static inline __s64 rem_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)
 {
     __s64 ret;
@@ -128,7 +128,7 @@ static inline __s64 rem_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 add_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)" startline="160" endline="189">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 add_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)" startline="160" endline="189">
 static inline __s64 add_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)
 {
     __s64 ret;
@@ -159,7 +159,7 @@ static inline __s64 add_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 rem_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)" startline="191" endline="220">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline __s64 rem_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)" startline="191" endline="220">
 static inline __s64 rem_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)
 {
     __s64 ret;
@@ -190,7 +190,7 @@ static inline __s64 rem_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline bool gue_csum_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr)" startline="234" endline="268">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline bool gue_csum_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr)" startline="234" endline="268">
 static inline bool gue_csum_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr)
 {
     __s64 ret;
@@ -222,7 +222,7 @@ static inline bool gue_csum_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph,
     return true;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline bool gue_csum_v4 (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)" startline="270" endline="302">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline bool gue_csum_v4 (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)" startline="270" endline="302">
 static inline bool gue_csum_v4 (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)
 {
     __s64 ret;
@@ -254,7 +254,7 @@ static inline bool gue_csum_v4 (struct iphdr *outer_iph, struct udphdr *udph, st
     return true;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline bool gue_csum_v4_in_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)" startline="304" endline="336">
+<source file="/home/palani/github/opened_extraction/examples/katran/csum_helpers.h" funcheader="static inline bool gue_csum_v4_in_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)" startline="304" endline="336">
 static inline bool gue_csum_v4_in_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)
 {
     __s64 ret;

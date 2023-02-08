@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline __u64 calc_offset (bool is_ipv6, bool is_icmp)" startline="58" endline="74">
+<source file="/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline __u64 calc_offset (bool is_ipv6, bool is_icmp)" startline="58" endline="74">
 static inline __u64 calc_offset (bool is_ipv6, bool is_icmp)
 {
     __u64 off = sizeof (struct ethhdr);
@@ -19,7 +19,7 @@ static inline __u64 calc_offset (bool is_ipv6, bool is_icmp)
     return off;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline bool parse_udp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)" startline="76" endline="100">
+<source file="/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline bool parse_udp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)" startline="76" endline="100">
 static inline bool parse_udp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)
 {
     bool is_icmp = !((pckt->flags & F_ICMP) == 0);
@@ -40,7 +40,7 @@ static inline bool parse_udp (void *data, void *data_end, bool is_ipv6, struct p
     return true;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline bool parse_tcp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)" startline="102" endline="130">
+<source file="/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline bool parse_tcp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)" startline="102" endline="130">
 static inline bool parse_tcp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)
 {
     bool is_icmp = !((pckt->flags & F_ICMP) == 0);
@@ -64,7 +64,7 @@ static inline bool parse_tcp (void *data, void *data_end, bool is_ipv6, struct p
     return true;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h" funcheader="int parse_hdr_opt (const struct xdp_md *xdp, struct hdr_opt_state *state)" startline="144" endline="197">
+<source file="/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h" funcheader="int parse_hdr_opt (const struct xdp_md *xdp, struct hdr_opt_state *state)" startline="144" endline="197">
 int parse_hdr_opt (const struct xdp_md *xdp, struct hdr_opt_state *state)
 {
     const void *data = (void *) (long) xdp->data;
@@ -108,7 +108,7 @@ int parse_hdr_opt (const struct xdp_md *xdp, struct hdr_opt_state *state)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline int tcp_hdr_opt_lookup (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map)" startline="199" endline="273">
+<source file="/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline int tcp_hdr_opt_lookup (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map)" startline="199" endline="273">
 static inline int tcp_hdr_opt_lookup (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map)
 {
     const void *data = (void *) (long) xdp->data;
@@ -175,7 +175,7 @@ static inline int tcp_hdr_opt_lookup (const struct xdp_md *xdp, bool is_ipv6, st
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline int parse_quic (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)" startline="276" endline="335">
+<source file="/home/palani/github/opened_extraction/examples/katran/pckt_parsing.h" funcheader="static inline int parse_quic (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)" startline="276" endline="335">
 static inline int parse_quic (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)
 {
     bool is_icmp = (pckt->flags & F_ICMP);

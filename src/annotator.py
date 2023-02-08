@@ -150,7 +150,7 @@ def create_cqmakedb(db_file, cscope_file, tags_folder):
     run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
     return
    
-def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium,comments_db):
+def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium,comments_db,human_comments_file):
     if(isCilium == False):
         map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
         map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
@@ -162,7 +162,7 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium,comments_db)
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')
-        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db)
+        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db,human_comments_file)
         xmlFile.close()
     return
 
@@ -221,6 +221,8 @@ if __name__ == "__main__":
             help='JSON with information regarding structures present. output of foundation_maker.py')
     my_parser.add_argument('--isCilium', action='store_true',required=False,
             help='whether repository is cilium')
+    my_parser.add_argument('-d','--human_comments_file', action='store',required=False,
+            help='JSON with information containing human comments ')
 
 
     args = my_parser.parse_args()
@@ -246,6 +248,10 @@ if __name__ == "__main__":
         cmt_op_dir = args.opened_comment_stub_folder
         dir_list.append(cmt_op_dir)
 
+    human_comments_file = None
+    if (args.human_comments_file is not None):
+        human_comments_file = args.human_comments_file
+        
     create_directories(dir_list)
    
     if (os.access(txl_op_dir, os.W_OK) is not True):
@@ -291,7 +297,7 @@ if __name__ == "__main__":
         comments_db = TinyDB(comments_db_file)
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
-        create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium,comments_db)
+        create_code_comments(txl_func_file, bpf_helper_file, cmt_op_dir, isCilium,comments_db,human_comments_file)
     else:
         print("no comment file found!")
     # run code query to generate annotated function call graph

@@ -89,7 +89,7 @@
   },
   "startLine": 46,
   "endLine": 70,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
   "updateMaps": [],
   "readMaps": [
@@ -105,34 +105,29 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_perf_event_output"
+    "bpf_perf_event_output",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "lwt_in",
+    "raw_tracepoint_writable",
     "sched_act",
-    "socket_filter",
-    "sched_cls",
+    "kprobe",
     "perf_event",
+    "sched_cls",
+    "lwt_out",
     "lwt_xmit",
     "tracepoint",
-    "raw_tracepoint_writable",
     "raw_tracepoint",
-    "lwt_out",
-    "sk_skb",
-    "sock_ops",
-    "lwt_seg6local",
     "xdp",
-    "kprobe"
+    "sk_skb",
+    "lwt_in",
+    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
+    "sock_ops"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -192,7 +187,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
   },
   "startLine": 74,
   "endLine": 80,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
   "updateMaps": [],
   "readMaps": [],
@@ -204,35 +199,30 @@ __attribute__((__always_inline__)) static inline void submit_event(
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "kprobe",
+    "lwt_out",
+    "tracepoint",
+    "sk_skb",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "sched_cls",
     "lwt_in",
-    "cgroup_sock_addr",
+    "cgroup_sock",
+    "cgroup_skb",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sk_reuseport",
     "sched_act",
     "perf_event",
+    "cgroup_sock_addr",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sock_ops",
-    "kprobe",
-    "socket_filter",
-    "lwt_out",
-    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sched_cls",
-    "tracepoint",
-    "sk_skb"
+    "flow_dissector",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -262,7 +252,7 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
   "updateMaps": [],
   "readMaps": [],
@@ -275,37 +265,32 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "cgroup_sock_addr",
-    "sched_act",
-    "perf_event",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sock_ops",
     "kprobe",
-    "cgroup_device",
-    "socket_filter",
     "lwt_out",
-    "sk_msg",
-    "xdp",
-    "sk_reuseport",
-    "sched_cls",
     "tracepoint",
     "sk_skb",
-    "cgroup_sysctl"
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "sched_cls",
+    "lwt_in",
+    "cgroup_sock",
+    "cgroup_skb",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sk_reuseport",
+    "sched_act",
+    "perf_event",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_xmit",
+    "xdp",
+    "flow_dissector",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

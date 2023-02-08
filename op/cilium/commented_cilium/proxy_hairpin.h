@@ -45,7 +45,7 @@
   },
   "startLine": 22,
   "endLine": 63,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
   "funcName": "ctx_redirect_to_proxy_hairpin",
   "updateMaps": [],
   "readMaps": [],
@@ -59,18 +59,13 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -153,7 +148,7 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
   },
   "startLine": 66,
   "endLine": 70,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
   "funcName": "ctx_redirect_to_proxy_hairpin_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -166,18 +161,13 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -224,7 +214,7 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
   },
   "startLine": 74,
   "endLine": 78,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
   "funcName": "ctx_redirect_to_proxy_hairpin_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -237,18 +227,13 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

@@ -38,7 +38,7 @@
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 60,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "xdp_load_bytes",
   "updateMaps": [],
   "readMaps": [],
@@ -51,37 +51,32 @@
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -130,7 +125,7 @@ xdp_load_bytes(const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
   "helperCallParams": {},
   "startLine": 62,
   "endLine": 86,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "xdp_store_bytes",
   "updateMaps": [],
   "readMaps": [],
@@ -144,37 +139,32 @@ xdp_load_bytes(const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -243,7 +233,7 @@ xdp_store_bytes(const struct xdp_md *ctx, __u64 off, const void *from,
   "helperCallParams": {},
   "startLine": 110,
   "endLine": 114,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "__csum_replace_by_diff",
   "updateMaps": [],
   "readMaps": [],
@@ -254,37 +244,32 @@ xdp_store_bytes(const struct xdp_md *ctx, __u64 off, const void *from,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -311,7 +296,7 @@ __csum_replace_by_diff(__sum16 *sum, __wsum diff)
   "helperCallParams": {},
   "startLine": 116,
   "endLine": 120,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "__csum_replace_by_4",
   "updateMaps": [],
   "readMaps": [],
@@ -323,37 +308,32 @@ __csum_replace_by_diff(__sum16 *sum, __wsum diff)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -413,7 +393,7 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
   },
   "startLine": 122,
   "endLine": 154,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "l3_csum_replace",
   "updateMaps": [],
   "readMaps": [],
@@ -429,17 +409,12 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
     "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
+    "sched_cls",
     "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -529,7 +504,7 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
   },
   "startLine": 158,
   "endLine": 196,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "l4_csum_replace",
   "updateMaps": [],
   "readMaps": [],
@@ -545,17 +520,12 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
     "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
+    "sched_cls",
     "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -643,7 +613,7 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
   },
   "startLine": 198,
   "endLine": 234,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_change_proto",
   "updateMaps": [],
   "readMaps": [],
@@ -660,12 +630,7 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
     "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -751,7 +716,7 @@ ctx_change_proto(struct xdp_md *ctx __maybe_unused,
   },
   "startLine": 236,
   "endLine": 240,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_adjust_troom",
   "updateMaps": [],
   "readMaps": [],
@@ -767,12 +732,7 @@ ctx_change_proto(struct xdp_md *ctx __maybe_unused,
     "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -826,7 +786,7 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
   },
   "startLine": 242,
   "endLine": 289,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_adjust_hroom",
   "updateMaps": [],
   "readMaps": [],
@@ -844,12 +804,7 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
     "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -937,7 +892,7 @@ ctx_adjust_hroom(struct xdp_md *ctx, const __s32 len_diff, const __u32 mode,
   },
   "startLine": 291,
   "endLine": 298,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_redirect",
   "updateMaps": [],
   "readMaps": [],
@@ -951,18 +906,13 @@ ctx_adjust_hroom(struct xdp_md *ctx, const __s32 len_diff, const __u32 mode,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1003,7 +953,7 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
   },
   "startLine": 300,
   "endLine": 307,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_redirect_peer",
   "updateMaps": [],
   "readMaps": [],
@@ -1017,18 +967,13 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1058,7 +1003,7 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
   "helperCallParams": {},
   "startLine": 309,
   "endLine": 314,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_full_len",
   "updateMaps": [],
   "readMaps": [],
@@ -1068,37 +1013,32 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
   "output": "static__always_inline__maybe_unused__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1126,7 +1066,7 @@ ctx_full_len(const struct xdp_md *ctx)
   "helperCallParams": {},
   "startLine": 316,
   "endLine": 320,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_wire_len",
   "updateMaps": [],
   "readMaps": [],
@@ -1136,37 +1076,32 @@ ctx_full_len(const struct xdp_md *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1228,7 +1163,7 @@ struct {
   },
   "startLine": 330,
   "endLine": 338,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_store_meta",
   "updateMaps": [],
   "readMaps": [
@@ -1244,37 +1179,32 @@ struct {
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "cgroup_device",
-    "flow_dissector",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
     "socket_filter",
-    "sk_skb",
-    "lwt_seg6local"
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1332,7 +1262,7 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
   },
   "startLine": 340,
   "endLine": 349,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_load_meta",
   "updateMaps": [],
   "readMaps": [
@@ -1347,37 +1277,32 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "cgroup_device",
-    "flow_dissector",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
     "socket_filter",
-    "sk_skb",
-    "lwt_seg6local"
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1409,7 +1334,7 @@ ctx_load_meta(const struct xdp_md *ctx __maybe_unused, const __u64 off)
   "helperCallParams": {},
   "startLine": 351,
   "endLine": 361,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_get_protocol",
   "updateMaps": [],
   "readMaps": [],
@@ -1419,37 +1344,32 @@ ctx_load_meta(const struct xdp_md *ctx __maybe_unused, const __u64 off)
   "output": "static__always_inline__maybe_unused__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1482,7 +1402,7 @@ ctx_get_protocol(const struct xdp_md *ctx)
   "helperCallParams": {},
   "startLine": 363,
   "endLine": 367,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_get_ifindex",
   "updateMaps": [],
   "readMaps": [],
@@ -1492,37 +1412,32 @@ ctx_get_protocol(const struct xdp_md *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

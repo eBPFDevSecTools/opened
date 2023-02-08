@@ -31,7 +31,7 @@
   "helperCallParams": {},
   "startLine": 27,
   "endLine": 31,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "is_v4_loopback",
   "updateMaps": [],
   "readMaps": [],
@@ -41,37 +41,32 @@
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -98,7 +93,7 @@ static __always_inline __maybe_unused bool is_v4_loopback(__be32 daddr)
   "helperCallParams": {},
   "startLine": 33,
   "endLine": 39,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "is_v6_loopback",
   "updateMaps": [],
   "readMaps": [],
@@ -108,37 +103,32 @@ static __always_inline __maybe_unused bool is_v4_loopback(__be32 daddr)
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -168,7 +158,7 @@ static __always_inline __maybe_unused bool is_v6_loopback(const union v6addr *da
   "helperCallParams": {},
   "startLine": 42,
   "endLine": 48,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_dst_port",
   "updateMaps": [],
   "readMaps": [],
@@ -178,37 +168,32 @@ static __always_inline __maybe_unused bool is_v6_loopback(const union v6addr *da
   "output": "static__always_inline__maybe_unused__be16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -237,7 +222,7 @@ ctx_dst_port(const struct bpf_sock_addr *ctx)
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 56,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_src_port",
   "updateMaps": [],
   "readMaps": [],
@@ -247,37 +232,32 @@ ctx_dst_port(const struct bpf_sock_addr *ctx)
   "output": "static__always_inline__maybe_unused__be16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -306,7 +286,7 @@ ctx_src_port(const struct bpf_sock *ctx)
   "helperCallParams": {},
   "startLine": 58,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_set_port",
   "updateMaps": [],
   "readMaps": [],
@@ -317,37 +297,32 @@ ctx_src_port(const struct bpf_sock *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -399,7 +374,7 @@ void ctx_set_port(struct bpf_sock_addr *ctx, __be16 dport)
   },
   "startLine": 64,
   "endLine": 72,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "task_in_extended_hostns",
   "updateMaps": [],
   "readMaps": [],
@@ -412,19 +387,14 @@ void ctx_set_port(struct bpf_sock_addr *ctx, __be16 dport)
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
+    "lwt_seg6local",
+    "sched_cls",
     "sched_act",
     "lwt_out",
-    "lwt_in",
-    "sched_cls",
-    "lwt_seg6local"
+    "lwt_in"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -455,7 +425,7 @@ static __always_inline __maybe_unused bool task_in_extended_hostns(void)
   "helperCallParams": {},
   "startLine": 74,
   "endLine": 89,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_in_hostns",
   "updateMaps": [],
   "readMaps": [],
@@ -466,37 +436,32 @@ static __always_inline __maybe_unused bool task_in_extended_hostns(void)
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -536,22 +501,22 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
       "read_sys_info": [
         {
           "Project": "cilium",
-          "Return Type": "u32",
-          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
-          "Return": " A random 32-bit unsigned value.",
-          "Function Name": "get_prandom_u32",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
-          ]
-        },
-        {
-          "Project": "cilium",
           "Return Type": "u64",
           "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
           "Return": " A 8-byte long non-decreasing number.",
           "Function Name": "get_socket_cookie",
           "Input Params": [
             "{Type: struct sock_ops ,Var: *ctx}"
+          ]
+        },
+        {
+          "Project": "cilium",
+          "Return Type": "u32",
+          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+          "Return": " A random 32-bit unsigned value.",
+          "Function Name": "get_prandom_u32",
+          "Input Params": [
+            "{Type: voi ,Var: void}"
           ]
         }
       ]
@@ -577,7 +542,7 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
   },
   "startLine": 91,
   "endLine": 119,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock_local_cookie",
   "updateMaps": [],
   "readMaps": [],
@@ -586,25 +551,20 @@ ctx_in_hostns(void *ctx __maybe_unused, __net_cookie *cookie)
   ],
   "output": "static__always_inline__maybe_unused__sock_cookie",
   "helper": [
-    "get_prandom_u32",
-    "get_socket_cookie"
+    "get_socket_cookie",
+    "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "sched_act",
-    "cgroup_sock_addr",
     "socket_filter",
+    "cgroup_sock_addr",
+    "sock_ops",
     "cgroup_skb",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -655,7 +615,7 @@ __sock_cookie sock_local_cookie(struct bpf_sock_addr *ctx)
   "helperCallParams": {},
   "startLine": 121,
   "endLine": 131,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock_is_health_check",
   "updateMaps": [],
   "readMaps": [],
@@ -665,37 +625,32 @@ __sock_cookie sock_local_cookie(struct bpf_sock_addr *ctx)
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -753,7 +708,7 @@ bool sock_is_health_check(struct bpf_sock_addr *ctx __maybe_unused)
   },
   "startLine": 133,
   "endLine": 138,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock_select_slot",
   "updateMaps": [],
   "readMaps": [],
@@ -765,35 +720,30 @@ bool sock_is_health_check(struct bpf_sock_addr *ctx __maybe_unused)
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "perf_event",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "cgroup_sock",
-    "flow_dissector",
-    "xdp",
     "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
+    "lwt_xmit",
     "cgroup_sock_addr",
-    "socket_filter",
+    "sock_ops",
     "sk_skb",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "perf_event",
+    "cgroup_sock",
+    "xdp",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -821,7 +771,7 @@ __u64 sock_select_slot(struct bpf_sock_addr *ctx)
   "helperCallParams": {},
   "startLine": 140,
   "endLine": 156,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock_proto_enabled",
   "updateMaps": [],
   "readMaps": [],
@@ -831,37 +781,32 @@ __u64 sock_select_slot(struct bpf_sock_addr *ctx)
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -966,7 +911,7 @@ struct {
   },
   "startLine": 168,
   "endLine": 190,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_update_revnat",
   "updateMaps": [
     " LB4_REVERSE_NAT_SK_MAP"
@@ -986,37 +931,32 @@ struct {
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "cgroup_device",
-    "flow_dissector",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
     "socket_filter",
-    "sk_skb",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1061,7 +1001,7 @@ static __always_inline int sock4_update_revnat(struct bpf_sock_addr *ctx,
   "helperCallParams": {},
   "startLine": 192,
   "endLine": 199,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_update_revnat",
   "updateMaps": [],
   "readMaps": [],
@@ -1074,37 +1014,32 @@ static __always_inline int sock4_update_revnat(struct bpf_sock_addr *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1135,7 +1070,7 @@ int sock4_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
   "helperCallParams": {},
   "startLine": 202,
   "endLine": 218,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_skip_xlate",
   "updateMaps": [],
   "readMaps": [],
@@ -1146,37 +1081,32 @@ int sock4_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1216,7 +1146,7 @@ sock4_skip_xlate(struct lb4_service *svc, __be32 address)
   "helperCallParams": {},
   "startLine": 221,
   "endLine": 251,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "*sock4_wildcard_lookup",
   "updateMaps": [],
   "readMaps": [],
@@ -1229,37 +1159,32 @@ sock4_skip_xlate(struct lb4_service *svc, __be32 address)
   "output": "static__always_inlinestructlb4_service",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1313,7 +1238,7 @@ wildcard_lookup:
   "helperCallParams": {},
   "startLine": 254,
   "endLine": 272,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "*sock4_wildcard_lookup_full",
   "updateMaps": [],
   "readMaps": [],
@@ -1324,37 +1249,32 @@ wildcard_lookup:
   "output": "static__always_inlinestructlb4_service",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1417,9 +1337,9 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
         {
           "Project": "cilium",
           "Return Type": "struct sock*",
-          "Description": "Look for TCP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
-          "Return": " Pointer to struct  sock, or NULL in case of failure.   For  sockets  with                     reuseport  option,  the  struct  sock result is from reuse->socks[] using                     the hash of the tuple.",
-          "Function Name": "sk_lookup_tcp",
+          "Description": "Look for UDP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_udp",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
             "{Type:  struct sock_tuple ,Var: *tuple}",
@@ -1431,9 +1351,9 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
         {
           "Project": "cilium",
           "Return Type": "struct sock*",
-          "Description": "Look for UDP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
-          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
-          "Function Name": "sk_lookup_udp",
+          "Description": "Look for TCP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer to struct  sock, or NULL in case of failure.   For  sockets  with                     reuseport  option,  the  struct  sock result is from reuse->socks[] using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_tcp",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
             "{Type:  struct sock_tuple ,Var: *tuple}",
@@ -1481,7 +1401,7 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
   },
   "startLine": 293,
   "endLine": 321,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_skip_xlate_if_same_netns",
   "updateMaps": [],
   "readMaps": [],
@@ -1491,24 +1411,19 @@ sock4_wildcard_lookup_full(struct lb4_key *key __maybe_unused,
   ],
   "output": "static__always_inlinebool",
   "helper": [
-    "sk_lookup_tcp",
     "sk_release",
-    "sk_lookup_udp"
+    "sk_lookup_udp",
+    "sk_lookup_tcp"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "cgroup_sock_addr",
-    "xdp",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1569,7 +1484,7 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
   },
   "startLine": 323,
   "endLine": 458,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock4_xlate_fwd",
   "updateMaps": [],
   "readMaps": [],
@@ -1583,18 +1498,13 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1802,7 +1712,7 @@ out:
   },
   "startLine": 460,
   "endLine": 476,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock4_health_fwd",
   "updateMaps": [],
   "readMaps": [
@@ -1817,21 +1727,16 @@ out:
     "get_socket_cookie"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "sched_act",
-    "cgroup_sock_addr",
     "socket_filter",
+    "cgroup_sock_addr",
+    "sock_ops",
     "cgroup_skb",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1871,7 +1776,7 @@ __section("cgroup/connect4")
   "helperCallParams": {},
   "startLine": 479,
   "endLine": 486,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_connect",
   "updateMaps": [],
   "readMaps": [],
@@ -1881,37 +1786,32 @@ __section("cgroup/connect4")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1942,7 +1842,7 @@ int sock4_connect(struct bpf_sock_addr *ctx)
   "helperCallParams": {},
   "startLine": 489,
   "endLine": 520,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock4_post_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -1958,12 +1858,7 @@ int sock4_connect(struct bpf_sock_addr *ctx)
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2028,7 +1923,7 @@ __section("cgroup/post_bind4")
   },
   "startLine": 523,
   "endLine": 529,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_post_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -2043,12 +1938,7 @@ __section("cgroup/post_bind4")
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2079,7 +1969,7 @@ int sock4_post_bind(struct bpf_sock *ctx)
   "helperCallParams": {},
   "startLine": 533,
   "endLine": 537,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_auto_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -2094,12 +1984,7 @@ int sock4_post_bind(struct bpf_sock *ctx)
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2188,7 +2073,7 @@ static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
   },
   "startLine": 539,
   "endLine": 559,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock4_pre_bind",
   "updateMaps": [
     "  LB4_HEALTH_MAP"
@@ -2200,20 +2085,15 @@ static __always_inline void sock4_auto_bind(struct bpf_sock_addr *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "get_socket_cookie",
     "bind",
+    "get_socket_cookie",
     "map_update_elem"
   ],
   "compatibleHookpoints": [
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2266,7 +2146,7 @@ __section("cgroup/bind4")
   },
   "startLine": 562,
   "endLine": 573,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_pre_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -2281,12 +2161,7 @@ __section("cgroup/bind4")
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2374,7 +2249,7 @@ int sock4_pre_bind(struct bpf_sock_addr *ctx)
   },
   "startLine": 577,
   "endLine": 611,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock4_xlate_rev",
   "updateMaps": [
     " LB4_REVERSE_NAT_SK_MAP"
@@ -2392,37 +2267,32 @@ int sock4_pre_bind(struct bpf_sock_addr *ctx)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "cgroup_device",
-    "flow_dissector",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
     "socket_filter",
-    "sk_skb",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2480,7 +2350,7 @@ __section("cgroup/sendmsg4")
   "helperCallParams": {},
   "startLine": 614,
   "endLine": 618,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_sendmsg",
   "updateMaps": [],
   "readMaps": [],
@@ -2490,37 +2360,32 @@ __section("cgroup/sendmsg4")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2548,7 +2413,7 @@ __section("cgroup/recvmsg4")
   "helperCallParams": {},
   "startLine": 621,
   "endLine": 625,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_recvmsg",
   "updateMaps": [],
   "readMaps": [],
@@ -2558,37 +2423,32 @@ __section("cgroup/recvmsg4")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2616,7 +2476,7 @@ __section("cgroup/getpeername4")
   "helperCallParams": {},
   "startLine": 628,
   "endLine": 632,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock4_getpeername",
   "updateMaps": [],
   "readMaps": [],
@@ -2626,37 +2486,32 @@ __section("cgroup/getpeername4")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2752,7 +2607,7 @@ struct {
   },
   "startLine": 647,
   "endLine": 669,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_update_revnat",
   "updateMaps": [
     " LB6_REVERSE_NAT_SK_MAP"
@@ -2772,37 +2627,32 @@ struct {
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "cgroup_device",
-    "flow_dissector",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
     "socket_filter",
-    "sk_skb",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2847,7 +2697,7 @@ static __always_inline int sock6_update_revnat(struct bpf_sock_addr *ctx,
   "helperCallParams": {},
   "startLine": 671,
   "endLine": 678,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_update_revnat",
   "updateMaps": [],
   "readMaps": [],
@@ -2860,37 +2710,32 @@ static __always_inline int sock6_update_revnat(struct bpf_sock_addr *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2922,7 +2767,7 @@ int sock6_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
   "helperCallParams": {},
   "startLine": 682,
   "endLine": 693,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_get_v6_address",
   "updateMaps": [],
   "readMaps": [],
@@ -2933,37 +2778,32 @@ int sock6_update_revnat(struct bpf_sock_addr *ctx __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -2998,7 +2838,7 @@ static __always_inline void ctx_get_v6_address(const struct bpf_sock_addr *ctx,
   "helperCallParams": {},
   "startLine": 696,
   "endLine": 707,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_get_v6_src_address",
   "updateMaps": [],
   "readMaps": [],
@@ -3009,37 +2849,32 @@ static __always_inline void ctx_get_v6_address(const struct bpf_sock_addr *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3074,7 +2909,7 @@ static __always_inline void ctx_get_v6_src_address(const struct bpf_sock *ctx,
   "helperCallParams": {},
   "startLine": 710,
   "endLine": 721,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "ctx_set_v6_address",
   "updateMaps": [],
   "readMaps": [],
@@ -3085,37 +2920,32 @@ static __always_inline void ctx_get_v6_src_address(const struct bpf_sock *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3149,7 +2979,7 @@ static __always_inline void ctx_set_v6_address(struct bpf_sock_addr *ctx,
   "helperCallParams": {},
   "startLine": 723,
   "endLine": 739,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_skip_xlate",
   "updateMaps": [],
   "readMaps": [],
@@ -3160,37 +2990,32 @@ static __always_inline void ctx_set_v6_address(struct bpf_sock_addr *ctx,
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3230,7 +3055,7 @@ sock6_skip_xlate(struct lb6_service *svc, const union v6addr *address)
   "helperCallParams": {},
   "startLine": 742,
   "endLine": 772,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "*sock6_wildcard_lookup",
   "updateMaps": [],
   "readMaps": [],
@@ -3243,37 +3068,32 @@ sock6_skip_xlate(struct lb6_service *svc, const union v6addr *address)
   "output": "static__always_inline__maybe_unusedstructlb6_service",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3327,7 +3147,7 @@ wildcard_lookup:
   "helperCallParams": {},
   "startLine": 775,
   "endLine": 793,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "*sock6_wildcard_lookup_full",
   "updateMaps": [],
   "readMaps": [],
@@ -3338,37 +3158,32 @@ wildcard_lookup:
   "output": "static__always_inline__maybe_unusedstructlb6_service",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3409,7 +3224,7 @@ sock6_wildcard_lookup_full(struct lb6_key *key __maybe_unused,
   "helperCallParams": {},
   "startLine": 795,
   "endLine": 824,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_xlate_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -3420,37 +3235,32 @@ sock6_wildcard_lookup_full(struct lb6_key *key __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3519,7 +3329,7 @@ int sock6_xlate_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused,
   },
   "startLine": 827,
   "endLine": 846,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_post_bind_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -3534,12 +3344,7 @@ int sock6_xlate_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused,
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3590,7 +3395,7 @@ sock6_post_bind_v4_in_v6(struct bpf_sock *ctx __maybe_unused)
   },
   "startLine": 848,
   "endLine": 874,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock6_post_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -3605,12 +3410,7 @@ sock6_post_bind_v4_in_v6(struct bpf_sock *ctx __maybe_unused)
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3669,7 +3469,7 @@ __section("cgroup/post_bind6")
   },
   "startLine": 877,
   "endLine": 883,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_post_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -3684,12 +3484,7 @@ __section("cgroup/post_bind6")
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3736,7 +3531,7 @@ int sock6_post_bind(struct bpf_sock *ctx)
   },
   "startLine": 887,
   "endLine": 911,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_pre_bind_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -3751,12 +3546,7 @@ int sock6_post_bind(struct bpf_sock *ctx)
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3804,7 +3594,7 @@ sock6_pre_bind_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
   "helperCallParams": {},
   "startLine": 914,
   "endLine": 920,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_auto_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -3819,12 +3609,7 @@ sock6_pre_bind_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -3922,7 +3707,7 @@ static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
   },
   "startLine": 923,
   "endLine": 944,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock6_pre_bind",
   "updateMaps": [
     "  LB6_HEALTH_MAP"
@@ -3933,20 +3718,15 @@ static __always_inline void sock6_auto_bind(struct bpf_sock_addr *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "get_socket_cookie",
     "bind",
+    "get_socket_cookie",
     "map_update_elem"
   ],
   "compatibleHookpoints": [
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4000,7 +3780,7 @@ __section("cgroup/bind6")
   },
   "startLine": 947,
   "endLine": 958,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_pre_bind",
   "updateMaps": [],
   "readMaps": [],
@@ -4015,12 +3795,7 @@ __section("cgroup/bind6")
     "cgroup_sock_addr"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4055,7 +3830,7 @@ int sock6_pre_bind(struct bpf_sock_addr *ctx)
   "helperCallParams": {},
   "startLine": 961,
   "endLine": 1062,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock6_xlate_fwd",
   "updateMaps": [],
   "readMaps": [],
@@ -4066,37 +3841,32 @@ int sock6_pre_bind(struct bpf_sock_addr *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4270,7 +4040,7 @@ out:
   },
   "startLine": 1064,
   "endLine": 1089,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock6_health_fwd",
   "updateMaps": [],
   "readMaps": [
@@ -4285,21 +4055,16 @@ out:
     "get_socket_cookie"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "sched_act",
-    "cgroup_sock_addr",
     "socket_filter",
+    "cgroup_sock_addr",
+    "sock_ops",
     "cgroup_skb",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4348,7 +4113,7 @@ __section("cgroup/connect6")
   "helperCallParams": {},
   "startLine": 1092,
   "endLine": 1099,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_connect",
   "updateMaps": [],
   "readMaps": [],
@@ -4358,37 +4123,32 @@ __section("cgroup/connect6")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4419,7 +4179,7 @@ int sock6_connect(struct bpf_sock_addr *ctx)
   "helperCallParams": {},
   "startLine": 1102,
   "endLine": 1130,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_xlate_rev_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -4429,37 +4189,32 @@ int sock6_connect(struct bpf_sock_addr *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4562,7 +4317,7 @@ sock6_xlate_rev_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
   },
   "startLine": 1132,
   "endLine": 1167,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "__sock6_xlate_rev",
   "updateMaps": [
     " LB6_REVERSE_NAT_SK_MAP"
@@ -4579,37 +4334,32 @@ sock6_xlate_rev_v4_in_v6(struct bpf_sock_addr *ctx __maybe_unused)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "cgroup_device",
-    "flow_dissector",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
     "socket_filter",
-    "sk_skb",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4668,7 +4418,7 @@ __section("cgroup/sendmsg6")
   "helperCallParams": {},
   "startLine": 1170,
   "endLine": 1174,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_sendmsg",
   "updateMaps": [],
   "readMaps": [],
@@ -4678,37 +4428,32 @@ __section("cgroup/sendmsg6")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4736,7 +4481,7 @@ __section("cgroup/recvmsg6")
   "helperCallParams": {},
   "startLine": 1177,
   "endLine": 1181,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_recvmsg",
   "updateMaps": [],
   "readMaps": [],
@@ -4746,37 +4491,32 @@ __section("cgroup/recvmsg6")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -4804,7 +4544,7 @@ __section("cgroup/getpeername6")
   "helperCallParams": {},
   "startLine": 1184,
   "endLine": 1188,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_sock.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_sock.c",
   "funcName": "sock6_getpeername",
   "updateMaps": [],
   "readMaps": [],
@@ -4814,37 +4554,32 @@ __section("cgroup/getpeername6")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

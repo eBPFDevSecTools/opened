@@ -40,7 +40,7 @@ struct signal_msg {
   "helperCallParams": {},
   "startLine": 36,
   "endLine": 41,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal",
   "updateMaps": [],
   "readMaps": [],
@@ -54,18 +54,13 @@ struct signal_msg {
   ],
   "compatibleHookpoints": [
     "kprobe",
-    "perf_event",
     "raw_tracepoint_writable",
-    "tracepoint",
-    "raw_tracepoint"
+    "perf_event",
+    "raw_tracepoint",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -103,7 +98,7 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
   },
   "startLine": 43,
   "endLine": 52,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal_nat_fill_up",
   "updateMaps": [],
   "readMaps": [],
@@ -117,18 +112,13 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "kprobe",
-    "perf_event",
     "raw_tracepoint_writable",
-    "tracepoint",
-    "raw_tracepoint"
+    "perf_event",
+    "raw_tracepoint",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -170,7 +160,7 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
   },
   "startLine": 54,
   "endLine": 63,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal_ct_fill_up",
   "updateMaps": [],
   "readMaps": [],
@@ -184,18 +174,13 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "kprobe",
-    "perf_event",
     "raw_tracepoint_writable",
-    "tracepoint",
-    "raw_tracepoint"
+    "perf_event",
+    "raw_tracepoint",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
