@@ -6,6 +6,19 @@ import argparse
 import glob
 import os
 
+def get_func_description(db, path, op_dict):
+    fname = path.split('/')[-1]
+    q = Query()
+    res = comments_db.search(q.File.search(fname))
+    print("Result")
+    print(res)
+    cdict = {}
+    for e in res:
+        print(e['email'])
+        print(e['File'])
+        print(e['Helpers'])
+        print(e['Func_Description'])
+
 def check_if_file_already_exists(files):
     for fl in files:
         print("Checking: ",fl)
@@ -58,6 +71,8 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
             #print("line_tokens")
             #print(line_tokens)
             key = line_tokens[0]
+            key = key.strip()
+            key = re.sub(r'\s+', '_', key) 
             value = line_tokens[1]
             op_dict[key] = value
         #print("dict")
