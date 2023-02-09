@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/katran/healthchecking_kern.c" funcheader="int healthcheck_encap (struct  __sk_buff *skb)" startline="34" endline="139">
+<source file="/home/palani/github/opened_extraction/examples/katran/healthchecking_kern.c" funcheader="int healthcheck_encap (struct  __sk_buff *skb)" startline="34" endline="139">
 int healthcheck_encap (struct  __sk_buff *skb)
 {
     __u32 stats_key = GENERIC_STATS_INDEX;

@@ -29,7 +29,7 @@
   "helperCallParams": {},
   "startLine": 25,
   "endLine": 39,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c",
   "funcName": "sk_msg_extract4_key",
   "updateMaps": [],
   "readMaps": [],
@@ -40,36 +40,36 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "author": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -120,7 +120,7 @@ __section("sk_msg")
   },
   "startLine": 42,
   "endLine": 67,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/sockops/bpf_redir.c",
   "funcName": "bpf_redir_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -136,10 +136,10 @@ __section("sk_msg")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "author": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [

@@ -5,6 +5,28 @@ from datetime import date
 import argparse
 import glob
 import os
+from tinydb import Query
+
+
+def get_human_func_description(human_comments_file, path):
+    cdict = {}
+    if human_comments_file == None:
+        return cdict
+    db = TinyDB(human_comments_file)
+    fname = path.split('/')[-1]
+    q = Query()
+    res = db.search(q.File.search(fname))
+    print("Result")
+    print(res)
+    if len(res) > 1:
+        print("WARNING: MULTIPLE FILES MATCHING FNAME")
+    
+    for e in res:
+        cdict['description'] = e['Func_Description']
+        cdict['author'] = e['author']
+        cdict['authorEmail'] = e['email']
+        cdict['date'] = e['date']
+        return cdict
 
 def get_func_description(db, path, op_dict):
     fname = path.split('/')[-1]

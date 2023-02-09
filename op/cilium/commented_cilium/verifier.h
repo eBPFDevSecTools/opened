@@ -42,7 +42,7 @@
   },
   "startLine": 13,
   "endLine": 18,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/include/bpf/verifier.h",
   "funcName": "relax_verifier",
   "updateMaps": [],
   "readMaps": [],
@@ -54,35 +54,30 @@
     "get_smp_processor_id"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "perf_event",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "cgroup_sock",
-    "flow_dissector",
-    "xdp",
     "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
+    "lwt_xmit",
     "cgroup_sock_addr",
-    "socket_filter",
+    "sock_ops",
     "sk_skb",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "perf_event",
+    "cgroup_sock",
+    "xdp",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

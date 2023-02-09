@@ -9,6 +9,7 @@ import summarizer as smt
 import argparse
 from collections import defaultdict
 from tinydb import TinyDB
+import utils.comment_extractor as extractor
 
 def insert_to_db(db,comment_dict):
     comment_json = json.dumps(comment_dict)
@@ -39,7 +40,7 @@ def generate_comment(capability_dict):
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db,human_comments_file):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -67,13 +68,15 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['helper'] = smt.get_helper_list(lines,helperdict)
             capability_dict['compatibleHookpoints'] = smt.get_compatible_hookpoints(capability_dict['helper'] , helperdict)
             func_desc_list = []
+            human_description = extractor.get_human_func_description(human_comments_file,srcFile)
             empty_desc = {}
             empty_desc['description'] = ""
             empty_desc['author'] = ""
             empty_desc['authorEmail'] = ""
             empty_desc['date'] = ""
 
-            func_desc_list.append(empty_desc)
+            #func_desc_list.append(empty_desc)
+            func_desc_list.append(human_description)
             capability_dict['humanFuncDescription'] = func_desc_list
             empty_desc_auto = {}
             empty_desc_auto['description'] = ""

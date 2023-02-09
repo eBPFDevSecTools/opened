@@ -30,7 +30,7 @@
   },
   "startLine": 15,
   "endLine": 75,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -43,18 +43,13 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -137,7 +132,7 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   "helperCallParams": {},
   "startLine": 77,
   "endLine": 81,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -148,37 +143,32 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

@@ -59,7 +59,7 @@
   },
   "startLine": 14,
   "endLine": 42,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket_tcp",
   "updateMaps": [],
   "readMaps": [],
@@ -75,19 +75,14 @@
     "skc_lookup_tcp"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "cgroup_sock_addr",
-    "xdp",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -179,7 +174,7 @@ out:
   },
   "startLine": 44,
   "endLine": 67,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket_udp",
   "updateMaps": [],
   "readMaps": [],
@@ -195,19 +190,14 @@ out:
     "sk_lookup_udp"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "cgroup_sock_addr",
-    "xdp",
     "sk_skb",
-    "sched_cls"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -253,7 +243,7 @@ out:
   "helperCallParams": {},
   "startLine": 69,
   "endLine": 86,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket",
   "updateMaps": [],
   "readMaps": [],
@@ -267,37 +257,32 @@ out:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -341,7 +326,7 @@ assign_socket(struct __ctx_buff *ctx,
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 96,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "combine_ports",
   "updateMaps": [],
   "readMaps": [],
@@ -352,37 +337,32 @@ assign_socket(struct __ctx_buff *ctx,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -530,7 +510,7 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   },
   "startLine": 190,
   "endLine": 220,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "__ctx_redirect_to_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -546,18 +526,13 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -633,7 +608,7 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   },
   "startLine": 223,
   "endLine": 228,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy4",
   "updateMaps": [],
   "readMaps": [],
@@ -648,18 +623,13 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -711,7 +681,7 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   },
   "startLine": 232,
   "endLine": 237,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy6",
   "updateMaps": [],
   "readMaps": [],
@@ -726,18 +696,13 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -832,7 +797,7 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   },
   "startLine": 280,
   "endLine": 337,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy_first",
   "updateMaps": [],
   "readMaps": [],
@@ -845,18 +810,13 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -939,7 +899,7 @@ out: __maybe_unused
   "helperCallParams": {},
   "startLine": 342,
   "endLine": 351,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "tc_index_skip_ingress_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -949,37 +909,32 @@ out: __maybe_unused
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1014,7 +969,7 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "helperCallParams": {},
   "startLine": 356,
   "endLine": 365,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "tc_index_skip_egress_proxy",
   "updateMaps": [],
   "readMaps": [],
@@ -1024,37 +979,32 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

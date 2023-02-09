@@ -84,12 +84,12 @@ SEC("xdp")
   },
   "startLine": 46,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c",
   "funcName": "pktcntr",
   "updateMaps": [],
   "readMaps": [
-    " cntrs_array",
-    " ctl_array"
+    " ctl_array",
+    " cntrs_array"
   ],
   "input": [
     "struct xdp_md *ctx"
@@ -99,37 +99,32 @@ SEC("xdp")
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "cgroup_sock_addr",
-    "sched_act",
-    "perf_event",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "flow_dissector",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sock_ops",
     "kprobe",
-    "cgroup_device",
-    "socket_filter",
     "lwt_out",
-    "sk_msg",
-    "xdp",
-    "sk_reuseport",
-    "sched_cls",
     "tracepoint",
     "sk_skb",
-    "cgroup_sysctl"
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "cgroup_device",
+    "sched_cls",
+    "lwt_in",
+    "cgroup_sock",
+    "cgroup_skb",
+    "sock_ops",
+    "raw_tracepoint",
+    "socket_filter",
+    "sk_reuseport",
+    "sched_act",
+    "perf_event",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_xmit",
+    "xdp",
+    "flow_dissector",
+    "lwt_seg6local"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

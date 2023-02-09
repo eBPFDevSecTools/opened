@@ -47,7 +47,7 @@
   "helperCallParams": {},
   "startLine": 43,
   "endLine": 49,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_load_type",
   "updateMaps": [],
   "readMaps": [],
@@ -58,37 +58,32 @@
   "output": "static__always_inline__u8",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -209,7 +204,7 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
   },
   "startLine": 51,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_send_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -219,9 +214,9 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
+    "csum_diff",
     "redirect",
-    "csum_diff"
+    "l4_csum_replace"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -229,12 +224,7 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
     "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -360,7 +350,7 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
   },
   "startLine": 92,
   "endLine": 125,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "__icmp6_send_echo_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -370,8 +360,8 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l4_csum_replace"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -379,12 +369,7 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
     "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -442,7 +427,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
   "helperCallParams": {},
   "startLine": 129,
   "endLine": 139,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "tail_icmp6_send_echo_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -452,37 +437,32 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -535,7 +515,7 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
   },
   "startLine": 151,
   "endLine": 160,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_send_echo_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -549,35 +529,30 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "perf_event",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "cgroup_sock",
-    "flow_dissector",
-    "xdp",
     "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
+    "lwt_xmit",
     "cgroup_sock_addr",
-    "socket_filter",
+    "sock_ops",
     "sk_skb",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "perf_event",
+    "cgroup_sock",
+    "xdp",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -702,7 +677,7 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
   },
   "startLine": 171,
   "endLine": 232,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "send_icmp6_ndisc_adv",
   "updateMaps": [],
   "readMaps": [],
@@ -714,8 +689,8 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l4_csum_replace"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -723,12 +698,7 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
     "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -845,7 +815,7 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
   },
   "startLine": 234,
   "endLine": 244,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "compute_icmp6_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -860,20 +830,15 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
+    "lwt_seg6local",
+    "sched_cls",
     "sched_act",
     "lwt_out",
-    "xdp",
     "lwt_in",
-    "sched_cls",
-    "lwt_seg6local"
+    "xdp"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -940,7 +905,7 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
   },
   "startLine": 247,
   "endLine": 327,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "__icmp6_send_time_exceeded",
   "updateMaps": [],
   "readMaps": [],
@@ -953,17 +918,12 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
     "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
+    "sched_cls",
     "sched_act"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1069,7 +1029,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
   "helperCallParams": {},
   "startLine": 332,
   "endLine": 347,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "tail_icmp6_send_time_exceeded",
   "updateMaps": [],
   "readMaps": [],
@@ -1079,37 +1039,32 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1167,7 +1122,7 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
   },
   "startLine": 359,
   "endLine": 368,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_send_time_exceeded",
   "updateMaps": [],
   "readMaps": [],
@@ -1181,35 +1136,30 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "perf_event",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "cgroup_sock",
-    "flow_dissector",
-    "xdp",
     "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
+    "lwt_xmit",
     "cgroup_sock_addr",
-    "socket_filter",
+    "sock_ops",
     "sk_skb",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "perf_event",
+    "cgroup_sock",
+    "xdp",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1241,7 +1191,7 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
   "helperCallParams": {},
   "startLine": 370,
   "endLine": 398,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "__icmp6_handle_ns",
   "updateMaps": [],
   "readMaps": [],
@@ -1252,37 +1202,32 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1335,7 +1280,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
   "helperCallParams": {},
   "startLine": 402,
   "endLine": 412,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "tail_icmp6_handle_ns",
   "updateMaps": [],
   "readMaps": [],
@@ -1345,37 +1290,32 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1429,7 +1369,7 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
   },
   "startLine": 425,
   "endLine": 434,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_handle_ns",
   "updateMaps": [],
   "readMaps": [],
@@ -1443,35 +1383,30 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "perf_event",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "cgroup_sock",
-    "flow_dissector",
-    "xdp",
     "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
+    "lwt_xmit",
     "cgroup_sock_addr",
-    "socket_filter",
+    "sock_ops",
     "sk_skb",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "perf_event",
+    "cgroup_sock",
+    "xdp",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1503,7 +1438,7 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
   "helperCallParams": {},
   "startLine": 436,
   "endLine": 458,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_handle",
   "updateMaps": [],
   "readMaps": [],
@@ -1516,37 +1451,32 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {
@@ -1591,7 +1521,7 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
   "helperCallParams": {},
   "startLine": 460,
   "endLine": 531,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/icmp6.h",
   "funcName": "icmp6_host_handle",
   "updateMaps": [],
   "readMaps": [],
@@ -1601,37 +1531,32 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    }
+    null
   ],
   "AI_func_description": [
     {

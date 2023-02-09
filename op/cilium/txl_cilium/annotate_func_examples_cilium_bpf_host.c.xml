@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline bool allow_vlan (__u32 __maybe_unused ifindex, __u32 __maybe_unused vlan_id)" startline="62" endline="64">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline bool allow_vlan (__u32 __maybe_unused ifindex, __u32 __maybe_unused vlan_id)" startline="62" endline="64">
 static __always_inline bool allow_vlan (__u32 __maybe_unused ifindex, __u32 __maybe_unused vlan_id)
 {
     VLAN_FILTER (ifindex, vlan_id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int rewrite_dmac_to_host (struct  __ctx_buff *ctx, __u32 src_identity)" startline="67" endline="82">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int rewrite_dmac_to_host (struct  __ctx_buff *ctx, __u32 src_identity)" startline="67" endline="82">
 static __always_inline int rewrite_dmac_to_host (struct  __ctx_buff *ctx, __u32 src_identity)
 {
     union macaddr cilium_net_mac = CILIUM_NET_MAC;
@@ -15,13 +15,13 @@ static __always_inline int rewrite_dmac_to_host (struct  __ctx_buff *ctx, __u32 
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline bool identity_from_ipcache_ok (void)" startline="89" endline="92">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline bool identity_from_ipcache_ok (void)" startline="89" endline="92">
 static __always_inline bool identity_from_ipcache_ok (void)
 {
     return SECCTX_FROM_IPCACHE == SECCTX_FROM_IPCACHE_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 derive_src_id (const union v6addr *node_ip, struct ipv6hdr *ip6, __u32 *identity)" startline="96" endline="112">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 derive_src_id (const union v6addr *node_ip, struct ipv6hdr *ip6, __u32 *identity)" startline="96" endline="112">
 static __always_inline __u32 derive_src_id (const union v6addr *node_ip, struct ipv6hdr *ip6, __u32 *identity)
 {
     if (ipv6_match_prefix_64 ((union v6addr *) &ip6->saddr, node_ip)) {
@@ -33,7 +33,7 @@ static __always_inline __u32 derive_src_id (const union v6addr *node_ip, struct 
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 ipcache_lookup_srcid6 (struct  __ctx_buff *ctx)" startline="115" endline="133">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 ipcache_lookup_srcid6 (struct  __ctx_buff *ctx)" startline="115" endline="133">
 static __always_inline __u32 ipcache_lookup_srcid6 (struct  __ctx_buff *ctx)
 {
     struct remote_endpoint_info *info = NULL;
@@ -49,7 +49,7 @@ static __always_inline __u32 ipcache_lookup_srcid6 (struct  __ctx_buff *ctx)
     return srcid;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 resolve_srcid_ipv6 (struct  __ctx_buff *ctx, __u32 srcid_from_proxy, const bool from_host)" startline="136" endline="176">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 resolve_srcid_ipv6 (struct  __ctx_buff *ctx, __u32 srcid_from_proxy, const bool from_host)" startline="136" endline="176">
 static __always_inline __u32 resolve_srcid_ipv6 (struct  __ctx_buff *ctx, __u32 srcid_from_proxy, const bool from_host)
 {
     __u32 src_id = WORLD_ID, srcid_from_ipcache = srcid_from_proxy;
@@ -82,7 +82,7 @@ static __always_inline __u32 resolve_srcid_ipv6 (struct  __ctx_buff *ctx, __u32 
     return src_id;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_ipv6 (struct  __ctx_buff *ctx, __u32 secctx, const bool from_host)" startline="178" endline="351">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_ipv6 (struct  __ctx_buff *ctx, __u32 secctx, const bool from_host)" startline="178" endline="351">
 static __always_inline int handle_ipv6 (struct  __ctx_buff *ctx, __u32 secctx, const bool from_host)
 {
     struct trace_ctx __maybe_unused trace = {
@@ -224,7 +224,7 @@ skip_host_firewall :
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int tail_handle_ipv6 (struct  __ctx_buff *ctx, const bool from_host)" startline="353" endline="366">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int tail_handle_ipv6 (struct  __ctx_buff *ctx, const bool from_host)" startline="353" endline="366">
 static __always_inline int tail_handle_ipv6 (struct  __ctx_buff *ctx, const bool from_host)
 {
     __u32 proxy_identity = ctx_load_meta (ctx, CB_SRC_IDENTITY);
@@ -236,19 +236,19 @@ static __always_inline int tail_handle_ipv6 (struct  __ctx_buff *ctx, const bool
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv6_from_host (struct  __ctx_buff * ctx __maybe_unused)" startline="369" endline="372">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv6_from_host (struct  __ctx_buff * ctx __maybe_unused)" startline="369" endline="372">
 int tail_handle_ipv6_from_host (struct  __ctx_buff * ctx __maybe_unused)
 {
     return tail_handle_ipv6 (ctx, true);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv6_from_netdev (struct  __ctx_buff *ctx)" startline="375" endline="378">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv6_from_netdev (struct  __ctx_buff *ctx)" startline="375" endline="378">
 int tail_handle_ipv6_from_netdev (struct  __ctx_buff *ctx)
 {
     return tail_handle_ipv6 (ctx, false);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_to_netdev_ipv6 (struct  __ctx_buff *ctx, struct trace_ctx *trace)" startline="381" endline="409">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_to_netdev_ipv6 (struct  __ctx_buff *ctx, struct trace_ctx *trace)" startline="381" endline="409">
 static __always_inline int handle_to_netdev_ipv6 (struct  __ctx_buff *ctx, struct trace_ctx *trace)
 {
     void *data, *data_end;
@@ -273,7 +273,7 @@ static __always_inline int handle_to_netdev_ipv6 (struct  __ctx_buff *ctx, struc
     return ipv6_host_policy_egress (ctx, src_id, trace);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 resolve_srcid_ipv4 (struct  __ctx_buff *ctx, __u32 srcid_from_proxy, __u32 *sec_label, const bool from_host)" startline="414" endline="469">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline __u32 resolve_srcid_ipv4 (struct  __ctx_buff *ctx, __u32 srcid_from_proxy, __u32 *sec_label, const bool from_host)" startline="414" endline="469">
 static __always_inline __u32 resolve_srcid_ipv4 (struct  __ctx_buff *ctx, __u32 srcid_from_proxy, __u32 *sec_label, const bool from_host)
 {
     __u32 src_id = WORLD_ID, srcid_from_ipcache = srcid_from_proxy;
@@ -308,7 +308,7 @@ static __always_inline __u32 resolve_srcid_ipv4 (struct  __ctx_buff *ctx, __u32 
     return src_id;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_ipv4 (struct  __ctx_buff *ctx, __u32 secctx, __u32 ipcache_srcid __maybe_unused, const bool from_host)" startline="471" endline="671">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_ipv4 (struct  __ctx_buff *ctx, __u32 secctx, __u32 ipcache_srcid __maybe_unused, const bool from_host)" startline="471" endline="671">
 static __always_inline int handle_ipv4 (struct  __ctx_buff *ctx, __u32 secctx, __u32 ipcache_srcid __maybe_unused, const bool from_host)
 {
     struct trace_ctx __maybe_unused trace = {
@@ -454,7 +454,7 @@ skip_vtep :
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int tail_handle_ipv4 (struct  __ctx_buff *ctx, __u32 ipcache_srcid, const bool from_host)" startline="673" endline="686">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int tail_handle_ipv4 (struct  __ctx_buff *ctx, __u32 ipcache_srcid, const bool from_host)" startline="673" endline="686">
 static __always_inline int tail_handle_ipv4 (struct  __ctx_buff *ctx, __u32 ipcache_srcid, const bool from_host)
 {
     __u32 proxy_identity = ctx_load_meta (ctx, CB_SRC_IDENTITY);
@@ -466,7 +466,7 @@ static __always_inline int tail_handle_ipv4 (struct  __ctx_buff *ctx, __u32 ipca
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv4_from_host (struct  __ctx_buff *ctx)" startline="689" endline="699">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv4_from_host (struct  __ctx_buff *ctx)" startline="689" endline="699">
 int tail_handle_ipv4_from_host (struct  __ctx_buff *ctx)
 {
     __u32 ipcache_srcid = 0;
@@ -479,13 +479,13 @@ int tail_handle_ipv4_from_host (struct  __ctx_buff *ctx)
     return tail_handle_ipv4 (ctx, ipcache_srcid, true);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv4_from_netdev (struct  __ctx_buff *ctx)" startline="702" endline="705">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_handle_ipv4_from_netdev (struct  __ctx_buff *ctx)" startline="702" endline="705">
 int tail_handle_ipv4_from_netdev (struct  __ctx_buff *ctx)
 {
     return tail_handle_ipv4 (ctx, 0, false);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_to_netdev_ipv4 (struct  __ctx_buff *ctx, struct trace_ctx *trace)" startline="708" endline="727">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_to_netdev_ipv4 (struct  __ctx_buff *ctx, struct trace_ctx *trace)" startline="708" endline="727">
 static __always_inline int handle_to_netdev_ipv4 (struct  __ctx_buff *ctx, struct trace_ctx *trace)
 {
     void *data, *data_end;
@@ -499,7 +499,7 @@ static __always_inline int handle_to_netdev_ipv4 (struct  __ctx_buff *ctx, struc
     return ipv4_host_policy_egress (ctx, src_id, ipcache_srcid, trace);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt_pools (struct  __ctx_buff * ctx __maybe_unused)" startline="733" endline="788">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt_pools (struct  __ctx_buff * ctx __maybe_unused)" startline="733" endline="788">
 static __always_inline int do_netdev_encrypt_pools (struct  __ctx_buff * ctx __maybe_unused)
 {
     int ret = 0;
@@ -544,7 +544,7 @@ drop_err :
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt_fib (struct  __ctx_buff * ctx __maybe_unused, __u16 proto __maybe_unused, int * encrypt_iface __maybe_unused, int * ext_err __maybe_unused)" startline="790" endline="853">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt_fib (struct  __ctx_buff * ctx __maybe_unused, __u16 proto __maybe_unused, int * encrypt_iface __maybe_unused, int * ext_err __maybe_unused)" startline="790" endline="853">
 static __always_inline int do_netdev_encrypt_fib (struct  __ctx_buff * ctx __maybe_unused, __u16 proto __maybe_unused, int * encrypt_iface __maybe_unused, int * ext_err __maybe_unused)
 {
     int ret = 0;
@@ -596,7 +596,7 @@ drop_err_fib :
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 proto, __u32 src_id)" startline="855" endline="885">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 proto, __u32 src_id)" startline="855" endline="885">
 static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 proto, __u32 src_id)
 {
     int encrypt_iface = 0;
@@ -623,7 +623,7 @@ static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 pro
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt_encap (struct  __ctx_buff *ctx, __u32 src_id)" startline="888" endline="902">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt_encap (struct  __ctx_buff *ctx, __u32 src_id)" startline="888" endline="902">
 static __always_inline int do_netdev_encrypt_encap (struct  __ctx_buff *ctx, __u32 src_id)
 {
     struct trace_ctx trace = {
@@ -637,13 +637,13 @@ static __always_inline int do_netdev_encrypt_encap (struct  __ctx_buff *ctx, __u
     return __encap_and_redirect_with_nodeid (ctx, tunnel_endpoint, src_id, NOT_VTEP_DST, &trace);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 proto __maybe_unused, __u32 src_id)" startline="904" endline="908">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 proto __maybe_unused, __u32 src_id)" startline="904" endline="908">
 static __always_inline int do_netdev_encrypt (struct  __ctx_buff *ctx, __u16 proto __maybe_unused, __u32 src_id)
 {
     return do_netdev_encrypt_encap (ctx, src_id);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev (struct  __ctx_buff *ctx, __u16 proto, const bool from_host)" startline="912" endline="1022">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int do_netdev (struct  __ctx_buff *ctx, __u16 proto, const bool from_host)" startline="912" endline="1022">
 static __always_inline int do_netdev (struct  __ctx_buff *ctx, __u16 proto, const bool from_host)
 {
     __u32 __maybe_unused identity = 0;
@@ -741,7 +741,7 @@ static __always_inline int do_netdev (struct  __ctx_buff *ctx, __u16 proto, cons
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_netdev (struct  __ctx_buff *ctx, const bool from_host)" startline="1031" endline="1051">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int handle_netdev (struct  __ctx_buff *ctx, const bool from_host)" startline="1031" endline="1051">
 static __always_inline int handle_netdev (struct  __ctx_buff *ctx, const bool from_host)
 {
     __u16 proto;
@@ -760,7 +760,7 @@ static __always_inline int handle_netdev (struct  __ctx_buff *ctx, const bool fr
     return do_netdev (ctx, proto, from_host);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline handle_srv6 (struct  __ctx_buff *ctx)" startline="1054" endline="1142">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline handle_srv6 (struct  __ctx_buff *ctx)" startline="1054" endline="1142">
 static __always_inline handle_srv6 (struct  __ctx_buff *ctx)
 {
     __u32 *vrf_id, dst_id, tunnel_ep = 0;
@@ -839,7 +839,7 @@ static __always_inline handle_srv6 (struct  __ctx_buff *ctx)
     return CTX_ACT_OK;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int from_netdev (struct  __ctx_buff *ctx)" startline="1152" endline="1170">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int from_netdev (struct  __ctx_buff *ctx)" startline="1152" endline="1170">
 int from_netdev (struct  __ctx_buff *ctx)
 {
     __u32 __maybe_unused vlan_id;
@@ -855,14 +855,14 @@ int from_netdev (struct  __ctx_buff *ctx)
     return handle_netdev (ctx, false);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int from_host (struct  __ctx_buff *ctx)" startline="1177" endline="1184">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int from_host (struct  __ctx_buff *ctx)" startline="1177" endline="1184">
 int from_host (struct  __ctx_buff *ctx)
 {
     edt_set_aggregate (ctx, 0);
     return handle_netdev (ctx, true);
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int to_netdev (struct  __ctx_buff * ctx __maybe_unused)" startline="1193" endline="1319">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int to_netdev (struct  __ctx_buff * ctx __maybe_unused)" startline="1193" endline="1319">
 int to_netdev (struct  __ctx_buff * ctx __maybe_unused)
 {
     struct trace_ctx trace = {
@@ -977,7 +977,7 @@ out :
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int to_host (struct  __ctx_buff *ctx)" startline="1326" endline="1406">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int to_host (struct  __ctx_buff *ctx)" startline="1326" endline="1406">
 int to_host (struct  __ctx_buff *ctx)
 {
     __u32 magic = ctx_load_meta (ctx, ENCRYPT_OR_PROXY_MAGIC);
@@ -1053,7 +1053,7 @@ out :
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_ipv6_host_policy_ingress (struct  __ctx_buff *ctx)" startline="1412" endline="1426">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_ipv6_host_policy_ingress (struct  __ctx_buff *ctx)" startline="1412" endline="1426">
 int tail_ipv6_host_policy_ingress (struct  __ctx_buff *ctx)
 {
     struct trace_ctx __maybe_unused trace = {
@@ -1068,7 +1068,7 @@ int tail_ipv6_host_policy_ingress (struct  __ctx_buff *ctx)
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_ipv4_host_policy_ingress (struct  __ctx_buff *ctx)" startline="1432" endline="1446">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int tail_ipv4_host_policy_ingress (struct  __ctx_buff *ctx)" startline="1432" endline="1446">
 int tail_ipv4_host_policy_ingress (struct  __ctx_buff *ctx)
 {
     struct trace_ctx __maybe_unused trace = {
@@ -1083,7 +1083,7 @@ int tail_ipv4_host_policy_ingress (struct  __ctx_buff *ctx)
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int to_host_from_lxc (struct  __ctx_buff * ctx __maybe_unused)" startline="1449" endline="1497">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int to_host_from_lxc (struct  __ctx_buff * ctx __maybe_unused)" startline="1449" endline="1497">
 static __always_inline int to_host_from_lxc (struct  __ctx_buff * ctx __maybe_unused)
 {
     int ret = CTX_ACT_OK;
@@ -1124,7 +1124,7 @@ out :
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int from_host_to_lxc (struct  __ctx_buff *ctx)" startline="1503" endline="1545">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="static __always_inline int from_host_to_lxc (struct  __ctx_buff *ctx)" startline="1503" endline="1545">
 static __always_inline int from_host_to_lxc (struct  __ctx_buff *ctx)
 {
     struct trace_ctx trace = {
@@ -1164,7 +1164,7 @@ static __always_inline int from_host_to_lxc (struct  __ctx_buff *ctx)
     return ret;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/cilium/bpf_host.c" funcheader="int handle_lxc_traffic (struct  __ctx_buff *ctx)" startline="1553" endline="1572">
+<source file="/home/palani/github/opened_extraction/examples/cilium/bpf_host.c" funcheader="int handle_lxc_traffic (struct  __ctx_buff *ctx)" startline="1553" endline="1572">
 int handle_lxc_traffic (struct  __ctx_buff *ctx)
 {
     bool from_host = ctx_load_meta (ctx, CB_FROM_HOST);

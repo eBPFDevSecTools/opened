@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/cilium/lib/qm.h" funcheader="static inline void reset_queue_mapping (struct  __ctx_buff * ctx __maybe_unused)" startline="9" endline="22">
+<source file="/home/palani/github/opened_extraction/examples/cilium/lib/qm.h" funcheader="static inline void reset_queue_mapping (struct  __ctx_buff * ctx __maybe_unused)" startline="9" endline="22">
 static inline void reset_queue_mapping (struct  __ctx_buff * ctx __maybe_unused)
 {
 

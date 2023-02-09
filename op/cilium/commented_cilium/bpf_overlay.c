@@ -61,7 +61,7 @@
   },
   "startLine": 46,
   "endLine": 180,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -74,17 +74,17 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
-    "xdp",
-    "sched_act"
+    "sched_cls",
+    "sched_act",
+    "xdp"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -243,7 +243,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "helperCallParams": {},
   "startLine": 183,
   "endLine": 192,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -253,36 +253,36 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -354,7 +354,7 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   },
   "startLine": 196,
   "endLine": 333,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv4",
   "updateMaps": [],
   "readMaps": [
@@ -377,10 +377,10 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -542,7 +542,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "helperCallParams": {},
   "startLine": 336,
   "endLine": 345,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -552,36 +552,36 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -659,7 +659,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   },
   "startLine": 353,
   "endLine": 395,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_arp",
   "updateMaps": [],
   "readMaps": [
@@ -681,10 +681,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -754,7 +754,7 @@ pass_to_stack:
   "helperCallParams": {},
   "startLine": 401,
   "endLine": 428,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "is_esp",
   "updateMaps": [],
   "readMaps": [],
@@ -765,36 +765,36 @@ pass_to_stack:
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -874,7 +874,7 @@ __section("from-overlay")
   },
   "startLine": 435,
   "endLine": 527,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "from_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -886,34 +886,34 @@ __section("from-overlay")
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "perf_event",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
-    "cgroup_sock",
-    "flow_dissector",
-    "xdp",
     "sk_msg",
-    "sock_ops",
-    "tracepoint",
-    "kprobe",
-    "lwt_in",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
+    "lwt_xmit",
     "cgroup_sock_addr",
-    "socket_filter",
+    "sock_ops",
     "sk_skb",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "perf_event",
+    "cgroup_sock",
+    "xdp",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "tracepoint"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
@@ -1033,7 +1033,7 @@ __section("to-overlay")
   "helperCallParams": {},
   "startLine": 533,
   "endLine": 568,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "to_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -1043,36 +1043,36 @@ __section("to-overlay")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
+    "sk_msg",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sock_ops",
+    "sk_skb",
+    "lwt_seg6local",
     "perf_event",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "sched_act",
     "cgroup_sock",
-    "flow_dissector",
-    "cgroup_device",
     "xdp",
-    "sk_msg",
-    "sock_ops",
-    "lwt_seg6local",
+    "socket_filter",
+    "cgroup_skb",
     "kprobe",
-    "lwt_in",
-    "sched_cls",
     "raw_tracepoint_writable",
     "sk_reuseport",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
+    "sched_cls",
+    "sched_act",
+    "raw_tracepoint",
+    "flow_dissector",
+    "lwt_out",
+    "lwt_in",
+    "cgroup_device",
     "tracepoint"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "author": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu",
+      "date": "2023-02-08"
     }
   ],
   "AI_func_description": [
