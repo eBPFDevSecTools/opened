@@ -28,6 +28,19 @@ def get_human_func_description(human_comments_file, path):
         cdict['date'] = e['date']
         return cdict
 
+def get_func_description(db, path, op_dict):
+    fname = path.split('/')[-1]
+    q = Query()
+    res = comments_db.search(q.File.search(fname))
+    print("Result")
+    print(res)
+    cdict = {}
+    for e in res:
+        print(e['email'])
+        print(e['File'])
+        print(e['Helpers'])
+        print(e['Func_Description'])
+
 def check_if_file_already_exists(files):
     for fl in files:
         print("Checking: ",fl)
