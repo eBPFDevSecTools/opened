@@ -3,6 +3,7 @@
 
 #python3 src/annotator.py -o op/bcc/txl_bcc -s examples/bcc -c op/bcc/commented_bcc -t op/bcc/bcc.function_file_list.json -u op/bcc/bcc.struct_file_list.json 
 
-python3 src/annotator.py -o op/suricata-master/txl_suricata-master -s examples/suricata-master/ebpf -c op/suricata-master/commented_suricata-master -t op/suricata-master/suricata-master.function_file_list.json -u op/suricata-master/suricata-master.struct_file_list.json
+python3 src/annotator.py -o op/kpng-master/txl_kpng-master -s examples/kpng-master/backends/ebpf/bpf -c op/kpng-master/commented_kpng-master -t op/kpng-master/kpng-master.function_file_list.json -u op/kpng-master/kpng-master.struct_file_list.json
+#python3 src/annotator.py -o op/suricata-master/txl_suricata-master -s examples/ -c op/suricata-master/commented_suricata-master -t op/suricata-master/suricata-master.function_file_list.json -u op/suricata-master/suricata-master.struct_file_list.json
 #python3 src/annotator.py -o op/xdp-mptm-main/txl_xdp-mptm-main -s examples/xdp-mptm-main/src/kernel -c op/xdp-mptm-main/commented_xdp-mptm-main -t op/xdp-mptm-main/xdp-mptm-main.function_file_list.json -u op/xdp-mptm-main/xdp-mptm-main.struct_file_list.json
 #python3 src/annotator.py -o op/vpf-ebpf-src/txl_vpf-ebpf-src -s examples/vpf-ebpf-src -c op/vpf-ebpf-src/commented_vpf-ebpf-src -t op/vpf-ebpf-src/vpf-ebpf-src.function_file_list.json -u op/vpf-ebpf-src/vpf-ebpf-src.struct_file_list.json
