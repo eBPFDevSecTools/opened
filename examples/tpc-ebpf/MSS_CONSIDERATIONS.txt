@@ -1,0 +1,13 @@
+tcp_write_xmit() peut transmettre plusieurs skbs, du coup le hook placé au début de la fonction n'a pas un mapping 1:1 par skb, mais a priori ça ne nous pose pas de souci
+aussi, tcp_send_head() va juste peek dans le sk_write_queue qui est une liste de skb, donc si même si on a fait mss = tcp_current_mss(sk) après le hook BPF, le mss des skbs considered for transmission peuvent être > mss_now (updated)
+mais ça ne devrait pas être un problème non plus, car pour chaque skb, tcp_write_xmit() va appeler tcp_init_tso_segs() (qui devrait plutôt s'appeler tcp_init_gso_segs() mais bon)
+et cette fonction va adapter le nombre de GSO segments en fonction du mss updated, donc ça va être good
+le seul impact c'est une division supplémentaire, mais ça ne devrait pas arriver souvent car ça n'arrivera que quand le SRH est nouvellement ajouté ou augmente de taille
+
+et ça n'affecte que les skbs in-flight dans la sk_write_queue au moment du bpf_setsockopt
+target0 [4:43 PM]
+ un edge case c'est tcp_retransmit_skb() qui est appelé sans passer par tcp_write_xmit(), mais visiblement __tcp_retransmit_skb() va gérer ça tout seul et appelle tcp_fragment() s'il détecte que le skb à retransmettre est > mss_now
+c'est assez nice
+et en last resort il y a ip6_fragment
+et le SRH ne sera jamais out of date car même lors de tcp_retransmit_skb, le IPv6 header est toujours reconstruit
+donc pas de risque d'avoir des retransmissions qui prennent un vieux chemin
