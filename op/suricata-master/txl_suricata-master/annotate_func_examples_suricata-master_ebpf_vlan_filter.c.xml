@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/suricata-master/ebpf/vlan_filter.c" funcheader="int SEC (\"filter\") hashfilter (struct  __sk_buff *skb)" startline="25" endline="36">
+int SEC ("filter") hashfilter (struct  __sk_buff *skb)
+{
+    __u16 vlan_id = skb->vlan_tci & 0x0fff;
+    switch (vlan_id) {
+    case 2 :
+    case 4 :
+        return -1;
+    default :
+        return 0;
+    }
+    return 0;
+}
+</source>
+</doc>
