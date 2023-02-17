@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/oomkill.c" funcheader="static error_t parse_arg (int key, char *arg, struct argp_state *state)" startline="46" endline="59">
+static error_t parse_arg (int key, char *arg, struct argp_state *state)
+{
+    switch (key) {
+    case 'v' :
+        verbose = true;
+        break;
+    case 'h' :
+        argp_state_help (state, stderr, ARGP_HELP_STD_HELP);
+        break;
+    default :
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/oomkill.c" funcheader="static int handle_event (void *ctx, void *data, size_t len)" startline="61" endline="89">
+static int handle_event (void *ctx, void *data, size_t len)
+{
+    FILE *f;
+    char buf [256];
+    int n = 0;
+    struct tm *tm;
+    char ts [32];
+    time_t t;
+    struct data_t *e = data;
+    f = fopen ("/proc/loadavg", "r");
+    if (f) {
+        memset (buf, 0, sizeof (buf));
+        n = fread (buf, 1, sizeof (buf), f);
+        fclose (f);
+    }
+    time (&t);
+    tm = localtime (& t);
+    strftime (ts, sizeof (ts), "%H:%M:%S", tm);
+    if (n)
+        printf ("%s Triggered by PID %d (\"%s\"), OOM kill of PID %d (\"%s\"), %lld pages, loadavg: %s", ts, e->fpid, e->fcomm, e->tpid, e->tcomm, e->pages, buf);
+    else
+        printf ("%s Triggered by PID %d (\"%s\"), OOM kill of PID %d (\"%s\"), %lld pages\n", ts, e->fpid, e->fcomm, e->tpid, e->tcomm, e->pages);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/oomkill.c" funcheader="static void handle_lost_events (void *ctx, int cpu, __u64 lost_cnt)" startline="91" endline="94">
+static void handle_lost_events (void *ctx, int cpu, __u64 lost_cnt)
+{
+    printf ("Lost %llu events on CPU #%d!\n", lost_cnt, cpu);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/oomkill.c" funcheader="static void sig_int (int signo)" startline="96" endline="99">
+static void sig_int (int signo)
+{
+    exiting = 1;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/oomkill.c" funcheader="static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)" startline="101" endline="106">
+static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)
+{
+    if (level == LIBBPF_DEBUG && !verbose)
+        return 0;
+    return vfprintf (stderr, format, args);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/oomkill.c" funcheader="int main (int argc, char **argv)" startline="108" endline="188">
+int main (int argc, char **argv)
+{
+    LIBBPF_OPTS (bpf_object_open_opts, open_opts);
+    static const struct argp argp = {
+        .options = opts,
+        .parser = parse_arg,
+        .doc = argp_program_doc,}
+    ;
+    struct bpf_buffer *buf = NULL;
+    struct oomkill_bpf *obj;
+    int err;
+    err = argp_parse (& argp, argc, argv, 0, NULL, NULL);
+    if (err)
+        return err;
+    libbpf_set_strict_mode (LIBBPF_STRICT_ALL);
+    libbpf_set_print (libbpf_print_fn);
+    err = ensure_core_btf (& open_opts);
+    if (err) {
+        fprintf (stderr, "failed to fetch necessary BTF for CO-RE: %s\n", strerror (-err));
+        return 1;
+    }
+    obj = oomkill_bpf__open_opts (& open_opts);
+    if (!obj) {
+        fprintf (stderr, "failed to load and open BPF object\n");
+        return 1;
+    }
+    buf = bpf_buffer__new (obj -> maps.events, obj -> maps.heap);
+    if (!buf) {
+        err = -errno;
+        fprintf (stderr, "failed to create ring/perf buffer: %d\n", err);
+        goto cleanup;
+    }
+    err = oomkill_bpf__load (obj);
+    if (err) {
+        fprintf (stderr, "failed to load BPF object: %d\n", err);
+        goto cleanup;
+    }
+    err = oomkill_bpf__attach (obj);
+    if (err) {
+        fprintf (stderr, "failed to attach BPF programs\n");
+        goto cleanup;
+    }
+    err = bpf_buffer__open (buf, handle_event, handle_lost_events, NULL);
+    if (err) {
+        fprintf (stderr, "failed to open ring/perf buffer: %d\n", err);
+        goto cleanup;
+    }
+    if (signal (SIGINT, sig_int) == SIG_ERR) {
+        fprintf (stderr, "can't set signal handler: %d\n", err);
+        err = 1;
+        goto cleanup;
+    }
+    printf ("Tracing OOM kills... Ctrl-C to stop.\n");
+    while (!exiting) {
+        err = bpf_buffer__poll (buf, POLL_TIMEOUT_MS);
+        if (err < 0 && err != -EINTR) {
+            fprintf (stderr, "error polling ring/perf buffer: %d\n", err);
+            goto cleanup;
+        }
+        err = 0;
+    }
+cleanup :
+    bpf_buffer__free (buf);
+    oomkill_bpf__destroy (obj);
+    cleanup_core_btf (&open_opts);
+    return err != 0;
+}
+</source>
+</doc>

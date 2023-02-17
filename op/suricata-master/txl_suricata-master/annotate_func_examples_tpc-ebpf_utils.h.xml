@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/tpc-ebpf/utils.h" funcheader="static void get_flow_id_from_sock (struct flow_tuple *flow_id, struct bpf_sock_ops *skops)" startline="132" endline="145">
+static void get_flow_id_from_sock (struct flow_tuple *flow_id, struct bpf_sock_ops *skops)
+{
+    flow_id->family = skops->family;
+    flow_id->local_addr[0] = skops->local_ip6[0];
+    flow_id->local_addr[1] = skops->local_ip6[1];
+    flow_id->local_addr[2] = skops->local_ip6[2];
+    flow_id->local_addr[3] = skops->local_ip6[3];
+    flow_id->remote_addr[0] = skops->remote_ip6[0];
+    flow_id->remote_addr[1] = skops->remote_ip6[1];
+    flow_id->remote_addr[2] = skops->remote_ip6[2];
+    flow_id->remote_addr[3] = skops->remote_ip6[3];
+    flow_id->local_port = skops->local_port;
+    flow_id->remote_port = bpf_ntohl (skops->remote_port);
+}
+</source>
+</doc>

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="static int probe_entry ()" startline="23" endline="36">
+static int probe_entry ()
+{
+    __u64 pid_tgid = bpf_get_current_pid_tgid ();
+    __u32 pid = pid_tgid >> 32;
+    __u32 tid = (__u32) pid_tgid;
+    __u64 ts;
+    if (target_pid && target_pid != pid)
+        return 0;
+    ts = bpf_ktime_get_ns ();
+    bpf_map_update_elem (&starts, &tid, &ts, BPF_ANY);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="static int probe_return (enum fs_file_op op)" startline="38" endline="69">
+static int probe_return (enum fs_file_op op)
+{
+    __u32 tid = (__u32) bpf_get_current_pid_tgid ();
+    __u64 ts = bpf_ktime_get_ns ();
+    __u64 *tsp, slot;
+    __s64 delta;
+    tsp = bpf_map_lookup_elem (& starts, & tid);
+    if (!tsp)
+        return 0;
+    if (op >= F_MAX_OP)
+        goto cleanup;
+    delta = (__s64) (ts - *tsp);
+    if (delta < 0)
+        goto cleanup;
+    if (in_ms)
+        delta /= 1000000;
+    else
+        delta /= 1000;
+    slot = log2l (delta);
+    if (slot >= MAX_SLOTS)
+        slot = MAX_SLOTS - 1;
+    __sync_fetch_and_add (&hists[op].slots[slot], 1);
+cleanup :
+    bpf_map_delete_elem (&starts, &tid);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KPROBE (file_read_entry)" startline="72" endline="75">
+int BPF_KPROBE (file_read_entry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KRETPROBE (file_read_exit)" startline="78" endline="81">
+int BPF_KRETPROBE (file_read_exit)
+{
+    return probe_return (F_READ);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KPROBE (file_write_entry)" startline="84" endline="87">
+int BPF_KPROBE (file_write_entry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KRETPROBE (file_write_exit)" startline="90" endline="93">
+int BPF_KRETPROBE (file_write_exit)
+{
+    return probe_return (F_WRITE);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KPROBE (file_open_entry)" startline="96" endline="99">
+int BPF_KPROBE (file_open_entry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KRETPROBE (file_open_exit)" startline="102" endline="105">
+int BPF_KRETPROBE (file_open_exit)
+{
+    return probe_return (F_OPEN);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KPROBE (file_sync_entry)" startline="108" endline="111">
+int BPF_KPROBE (file_sync_entry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KRETPROBE (file_sync_exit)" startline="114" endline="117">
+int BPF_KRETPROBE (file_sync_exit)
+{
+    return probe_return (F_FSYNC);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KPROBE (getattr_entry)" startline="120" endline="123">
+int BPF_KPROBE (getattr_entry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_KRETPROBE (getattr_exit)" startline="126" endline="129">
+int BPF_KRETPROBE (getattr_exit)
+{
+    return probe_return (F_GETATTR);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_read_fentry)" startline="132" endline="135">
+int BPF_PROG (file_read_fentry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_read_fexit)" startline="138" endline="141">
+int BPF_PROG (file_read_fexit)
+{
+    return probe_return (F_READ);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_write_fentry)" startline="144" endline="147">
+int BPF_PROG (file_write_fentry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_write_fexit)" startline="150" endline="153">
+int BPF_PROG (file_write_fexit)
+{
+    return probe_return (F_WRITE);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_open_fentry)" startline="156" endline="159">
+int BPF_PROG (file_open_fentry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_open_fexit)" startline="162" endline="165">
+int BPF_PROG (file_open_fexit)
+{
+    return probe_return (F_OPEN);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_sync_fentry)" startline="168" endline="171">
+int BPF_PROG (file_sync_fentry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (file_sync_fexit)" startline="174" endline="177">
+int BPF_PROG (file_sync_fexit)
+{
+    return probe_return (F_FSYNC);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (getattr_fentry)" startline="180" endline="183">
+int BPF_PROG (getattr_fentry)
+{
+    return probe_entry ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.bpf.c" funcheader="int BPF_PROG (getattr_fexit)" startline="186" endline="189">
+int BPF_PROG (getattr_fexit)
+{
+    return probe_return (F_GETATTR);
+}
+</source>
+</doc>

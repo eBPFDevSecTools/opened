@@ -112,15 +112,15 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
     "bpf_map_lookup_elem",
+    "bpf_redirect",
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "lwt_xmit",
+    "sched_cls",
     "xdp",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -274,8 +274,8 @@ SEC("mptm_decap_xdp")
   "output": "int",
   "helper": [
     "bpf_map_lookup_elem",
-    "bpf_redirect",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
     "xdp"

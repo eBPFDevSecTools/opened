@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/syscall_helpers.c" funcheader="static const char *parse_syscall (const char *buf, int *number)" startline="15" endline="39">
+static const char *parse_syscall (const char *buf, int *number)
+{
+    char *end;
+    long x;
+    errno = 0;
+    x = strtol (buf, & end, 10);
+    if (errno) {
+        warn ("strtol(%s): %s\n", buf, strerror (errno));
+        return NULL;
+    }
+    else if (end == buf) {
+        warn ("strtol(%s): no digits found\n", buf);
+        return NULL;
+    }
+    else if (x < 0 || x > INT_MAX) {
+        warn ("strtol(%s): bad syscall number: %ld\n", buf, x);
+        return NULL;
+    }
+    if (*end != '\t') {
+        warn ("bad input: %s (expected <num>\t<name>)\n", buf);
+        return NULL;
+    }
+    *number = x;
+    return ++end;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/syscall_helpers.c" funcheader="void init_syscall_names (void)" startline="41" endline="115">
+void init_syscall_names (void)
+{
+    size_t old_size, size = 1024;
+    const char *name;
+    char buf [64];
+    int number;
+    int err;
+    FILE *f;
+    f = popen ("ausyscall --dump 2>/dev/null", "r");
+    if (!f) {
+        warn ("popen: ausyscall --dump: %s\n", strerror (errno));
+        return;
+    }
+    syscall_names = calloc (size, sizeof (char *));
+    if (!syscall_names) {
+        warn ("calloc: %s\n", strerror (errno));
+        goto close;
+    }
+    (void) !!fgets (buf, sizeof (buf), f);
+    while (fgets (buf, sizeof (buf), f)) {
+        if (buf[strlen (buf) - 1] == '\n')
+            buf[strlen (buf) - 1] = '\0';
+        name = parse_syscall (buf, & number);
+        if (!name || !name[0])
+            goto close;
+        if (number >= size) {
+            old_size = size;
+            size = 1024 * (1 + number / 1024);
+            syscall_names = realloc (syscall_names, size * sizeof (char *));
+            if (!syscall_names) {
+                warn ("realloc: %s\n", strerror (errno));
+                goto close;
+            }
+            memset (syscall_names + old_size, 0, (size - old_size) * sizeof (char *));
+        }
+        if (syscall_names[number]) {
+            warn ("duplicate number: %d (stored: %s)", number, syscall_names[number]);
+            goto close;
+        }
+        syscall_names[number] = strdup (name);
+        if (!syscall_names[number]) {
+            warn ("strdup: %s\n", strerror (errno));
+            goto close;
+        }
+        syscall_names_size = MAX (number + 1, syscall_names_size);
+    }
+    if (ferror (f))
+        warn ("fgets: %s\n", strerror (errno));
+close :
+    err = pclose (f);
+    if (err < 0)
+        warn ("pclose: %s\n", strerror (errno));
+
+#ifndef __x86_64__
+    else if (err && WEXITSTATUS (err) == 127) {
+        warn ("ausyscall required for syscalls number/name mapping\n");
+    }
+    else if (err) {
+        warn ("ausyscall exit status (see wait(2)): 0x%x\n", err);
+    }
+
+#endif
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/syscall_helpers.c" funcheader="void free_syscall_names (void)" startline="117" endline="124">
+void free_syscall_names (void)
+{
+    size_t i;
+    for (i = 0; i < syscall_names_size; i++)
+        free ((void *) syscall_names[i]);
+    free (syscall_names);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/syscall_helpers.c" funcheader="void syscall_name (unsigned n, char *buf, size_t size)" startline="492" endline="507">
+void syscall_name (unsigned n, char *buf, size_t size)
+{
+    const char *name = NULL;
+    if (n < syscall_names_size)
+        name = syscall_names[n];
+
+#ifdef __x86_64__
+    else if (n < syscall_names_x86_64_size)
+        name = syscall_names_x86_64[n];
+
+#endif
+    if (name)
+        strncpy (buf, name, size - 1);
+    else
+        snprintf (buf, size, "[unknown: %u]", n);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/syscall_helpers.c" funcheader="int list_syscalls (void)" startline="509" endline="527">
+int list_syscalls (void)
+{
+    const char **list = syscall_names;
+    size_t i, size = syscall_names_size;
+
+#ifdef __x86_64__
+    if (!size) {
+        size = syscall_names_x86_64_size;
+        list = syscall_names_x86_64;
+    }
+
+#endif
+    for (i = 0; i < size; i++) {
+        if (list[i])
+            printf ("%3zd: %s\n", i, list[i]);
+    }
+    return (!list || !size);
+}
+</source>
+</doc>

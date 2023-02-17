@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="static error_t parse_arg (int key, char *arg, struct argp_state *state)" startline="58" endline="103">
+static error_t parse_arg (int key, char *arg, struct argp_state *state)
+{
+    static int pos_args;
+    switch (key) {
+    case 'h' :
+        argp_state_help (state, stderr, ARGP_HELP_STD_HELP);
+        break;
+    case 'v' :
+        env.verbose = true;
+        break;
+    case 'T' :
+        env.timestamp = true;
+        break;
+    case '4' :
+        env.ipv4 = true;
+        break;
+    case '6' :
+        env.ipv6 = true;
+        break;
+    case ARGP_KEY_ARG :
+        errno = 0;
+        if (pos_args == 0) {
+            env.interval = strtol (arg, NULL, 10);
+            if (errno) {
+                fprintf (stderr, "invalid internal\n");
+                argp_usage (state);
+            }
+        }
+        else if (pos_args == 1) {
+            env.times = strtol (arg, NULL, 10);
+            if (errno) {
+                fprintf (stderr, "invalid times\n");
+                argp_usage (state);
+            }
+        }
+        else {
+            fprintf (stderr, "unrecognized positional argument: %s\n", arg);
+            argp_usage (state);
+        }
+        pos_args++;
+        break;
+    default :
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)" startline="105" endline="110">
+static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)
+{
+    if (level == LIBBPF_DEBUG && !env.verbose)
+        return 0;
+    return vfprintf (stderr, format, args);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="static void sig_handler (int sig)" startline="112" endline="115">
+static void sig_handler (int sig)
+{
+    exiting = true;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="static void disable_all_progs (struct tcpsynbl_bpf *obj)" startline="117" endline="123">
+static void disable_all_progs (struct tcpsynbl_bpf *obj)
+{
+    bpf_program__set_autoload (obj->progs.tcp_v4_syn_recv_kprobe, false);
+    bpf_program__set_autoload (obj->progs.tcp_v6_syn_recv_kprobe, false);
+    bpf_program__set_autoload (obj->progs.tcp_v4_syn_recv, false);
+    bpf_program__set_autoload (obj->progs.tcp_v6_syn_recv, false);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="static void set_autoload_prog (struct tcpsynbl_bpf *obj, int version)" startline="125" endline="140">
+static void set_autoload_prog (struct tcpsynbl_bpf *obj, int version)
+{
+    if (version == 4) {
+        if (fentry_can_attach ("tcp_v4_syn_recv_sock", NULL))
+            bpf_program__set_autoload (obj->progs.tcp_v4_syn_recv, true);
+        else
+            bpf_program__set_autoload (obj->progs.tcp_v4_syn_recv_kprobe, true);
+    }
+    if (version == 6) {
+        if (fentry_can_attach ("tcp_v6_syn_recv_sock", NULL))
+            bpf_program__set_autoload (obj->progs.tcp_v6_syn_recv, true);
+        else
+            bpf_program__set_autoload (obj->progs.tcp_v6_syn_recv_kprobe, true);
+    }
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="static int print_log2_hists (int fd)" startline="142" endline="170">
+static int print_log2_hists (int fd)
+{
+    __u64 lookup_key = -1, next_key;
+    struct hist hist;
+    int err;
+    while (!bpf_map_get_next_key (fd, &lookup_key, &next_key)) {
+        err = bpf_map_lookup_elem (fd, & next_key, & hist);
+        if (err < 0) {
+            fprintf (stderr, "failed to lookup hist: %d\n", err);
+            return -1;
+        }
+        printf ("backlog_max = %lld\n", next_key);
+        print_log2_hist (hist.slots, MAX_SLOTS, "backlog");
+        lookup_key = next_key;
+    }
+    lookup_key = -1;
+    while (!bpf_map_get_next_key (fd, &lookup_key, &next_key)) {
+        err = bpf_map_delete_elem (fd, & next_key);
+        if (err < 0) {
+            fprintf (stderr, "failed to cleanup hist : %d\n", err);
+            return -1;
+        }
+        lookup_key = next_key;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcpsynbl.c" funcheader="int main (int argc, char **argv)" startline="172" endline="260">
+int main (int argc, char **argv)
+{
+    LIBBPF_OPTS (bpf_object_open_opts, open_opts);
+    static const struct argp argp = {
+        .options = opts,
+        .parser = parse_arg,
+        .doc = argp_program_doc}
+    ;
+    struct tcpsynbl_bpf *obj;
+    struct tm *tm;
+    char ts [32];
+    time_t t;
+    int err, map_fd;
+    err = argp_parse (& argp, argc, argv, 0, NULL, NULL);
+    if (err)
+        return err;
+    libbpf_set_strict_mode (LIBBPF_STRICT_ALL);
+    libbpf_set_print (libbpf_print_fn);
+    err = ensure_core_btf (& open_opts);
+    if (err) {
+        fprintf (stderr, "failed to fetch necessary BTF for CO-RE: %s\n", strerror (-err));
+        return 1;
+    }
+    obj = tcpsynbl_bpf__open_opts (& open_opts);
+    if (!obj) {
+        fprintf (stderr, "failed to open BPF object\n");
+        return 1;
+    }
+    disable_all_progs (obj);
+    if (env.ipv4) {
+        set_autoload_prog (obj, 4);
+    }
+    else if (env.ipv6) {
+        set_autoload_prog (obj, 6);
+    }
+    else {
+        set_autoload_prog (obj, 4);
+        set_autoload_prog (obj, 6);
+    }
+    err = tcpsynbl_bpf__load (obj);
+    if (err) {
+        fprintf (stderr, "failed to load BPF object: %d\n", err);
+        goto cleanup;
+    }
+    err = tcpsynbl_bpf__attach (obj);
+    if (err) {
+        fprintf (stderr, "failed to attach BPF programs\n");
+        goto cleanup;
+    }
+    map_fd = bpf_map__fd (obj -> maps.hists);
+    signal (SIGINT, sig_handler);
+    printf ("Tracing SYN backlog size. Ctrl-C to end.\n");
+    while (1) {
+        sleep (env.interval);
+        printf ("\n");
+        if (env.timestamp) {
+            time (&t);
+            tm = localtime (& t);
+            strftime (ts, sizeof (ts), "%H:%M:%S", tm);
+            printf ("%-8s\n", ts);
+        }
+        err = print_log2_hists (map_fd);
+        if (err)
+            break;
+        if (exiting || --env.times == 0)
+            break;
+    }
+cleanup :
+    tcpsynbl_bpf__destroy (obj);
+    cleanup_core_btf (&open_opts);
+    return err != 0;
+}
+</source>
+</doc>

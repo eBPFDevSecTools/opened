@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/biotop.bpf.c" funcheader="int BPF_KPROBE (blk_account_io_start, struct request *req)" startline="34" endline="44">
+int BPF_KPROBE (blk_account_io_start, struct request *req)
+{
+    struct who_t who = {}
+    ;
+    bpf_get_current_comm (&who.name, sizeof (who.name));
+    who.pid = bpf_get_current_pid_tgid () >> 32;
+    bpf_map_update_elem (&whobyreq, &req, &who, 0);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/biotop.bpf.c" funcheader="int BPF_KPROBE (blk_mq_start_request, struct request *req)" startline="47" endline="57">
+int BPF_KPROBE (blk_mq_start_request, struct request *req)
+{
+    struct start_req_t start_req;
+    start_req.ts = bpf_ktime_get_ns ();
+    start_req.data_len = BPF_CORE_READ (req, __data_len);
+    bpf_map_update_elem (&start, &req, &start_req, 0);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/biotop.bpf.c" funcheader="int BPF_KPROBE (blk_account_io_done, struct request *req, u64 now)" startline="60" endline="104">
+int BPF_KPROBE (blk_account_io_done, struct request *req, u64 now)
+{
+    struct val_t *valp, zero = {};
+    struct info_t info = {}
+    ;
+    struct start_req_t *startp;
+    unsigned int cmd_flags;
+    struct gendisk *disk;
+    struct who_t *whop;
+    u64 delta_us;
+    startp = bpf_map_lookup_elem (& start, & req);
+    if (!startp)
+        return 0;
+    delta_us = (bpf_ktime_get_ns () - startp->ts) / 1000;
+    cmd_flags = BPF_CORE_READ (req, cmd_flags);
+    disk = get_disk (req);
+    info.major = BPF_CORE_READ (disk, major);
+    info.minor = BPF_CORE_READ (disk, first_minor);
+    info.rwflag = !!((cmd_flags & REQ_OP_MASK) == REQ_OP_WRITE);
+    whop = bpf_map_lookup_elem (& whobyreq, & req);
+    if (whop) {
+        info.pid = whop->pid;
+        __builtin_memcpy (&info.name, whop->name, sizeof (info.name));
+    }
+    valp = bpf_map_lookup_or_try_init (& counts, & info, & zero);
+    if (valp) {
+        valp->us += delta_us;
+        valp->bytes += startp->data_len;
+        valp->io++;
+    }
+    bpf_map_delete_elem (&start, &req);
+    bpf_map_delete_elem (&whobyreq, &req);
+    return 0;
+}
+</source>
+</doc>

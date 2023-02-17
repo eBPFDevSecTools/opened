@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="static __always_inline int inc_stats (int key)" startline="12" endline="16">
+static __always_inline int inc_stats (int key)
+{
+    __atomic_add_fetch (&stats[key], 1, __ATOMIC_RELAXED);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_vfs_read)" startline="19" endline="22">
+int BPF_KPROBE (kprobe_vfs_read)
+{
+    return inc_stats (S_READ);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_vfs_write)" startline="25" endline="28">
+int BPF_KPROBE (kprobe_vfs_write)
+{
+    return inc_stats (S_WRITE);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_vfs_fsync)" startline="31" endline="34">
+int BPF_KPROBE (kprobe_vfs_fsync)
+{
+    return inc_stats (S_FSYNC);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_vfs_open)" startline="37" endline="40">
+int BPF_KPROBE (kprobe_vfs_open)
+{
+    return inc_stats (S_OPEN);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_vfs_create)" startline="43" endline="46">
+int BPF_KPROBE (kprobe_vfs_create)
+{
+    return inc_stats (S_CREATE);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_PROG (fentry_vfs_read)" startline="49" endline="52">
+int BPF_PROG (fentry_vfs_read)
+{
+    return inc_stats (S_READ);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_PROG (fentry_vfs_write)" startline="55" endline="58">
+int BPF_PROG (fentry_vfs_write)
+{
+    return inc_stats (S_WRITE);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_PROG (fentry_vfs_fsync)" startline="61" endline="64">
+int BPF_PROG (fentry_vfs_fsync)
+{
+    return inc_stats (S_FSYNC);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_PROG (fentry_vfs_open)" startline="67" endline="70">
+int BPF_PROG (fentry_vfs_open)
+{
+    return inc_stats (S_OPEN);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/vfsstat.bpf.c" funcheader="int BPF_PROG (fentry_vfs_create)" startline="73" endline="76">
+int BPF_PROG (fentry_vfs_create)
+{
+    return inc_stats (S_CREATE);
+}
+</source>
+</doc>

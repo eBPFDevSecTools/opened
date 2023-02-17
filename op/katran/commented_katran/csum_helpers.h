@@ -34,7 +34,7 @@
   "helperCallParams": {},
   "startLine": 30,
   "endLine": 39,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "csum_fold_helper",
   "updateMaps": [],
   "readMaps": [],
@@ -44,31 +44,37 @@
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "sk_skb",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_cls",
-    "lwt_in",
-    "cgroup_sock",
-    "cgroup_skb",
-    "sock_ops",
     "raw_tracepoint",
-    "socket_filter",
-    "sk_reuseport",
-    "sched_act",
-    "perf_event",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_xmit",
     "xdp",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "lwt_in",
+    "sock_ops",
+    "cgroup_device",
     "flow_dissector",
-    "lwt_seg6local"
+    "sched_cls",
+    "cgroup_sock_addr",
+    "kprobe",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "sched_act",
+    "socket_filter",
+    "perf_event",
+    "sk_msg",
+    "sk_reuseport",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -101,7 +107,7 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "helperCallParams": {},
   "startLine": 41,
   "endLine": 43,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "min_helper",
   "updateMaps": [],
   "readMaps": [],
@@ -112,31 +118,37 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "sk_skb",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_cls",
-    "lwt_in",
-    "cgroup_sock",
-    "cgroup_skb",
-    "sock_ops",
     "raw_tracepoint",
-    "socket_filter",
-    "sk_reuseport",
-    "sched_act",
-    "perf_event",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_xmit",
     "xdp",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "lwt_in",
+    "sock_ops",
+    "cgroup_device",
     "flow_dissector",
-    "lwt_seg6local"
+    "sched_cls",
+    "cgroup_sock_addr",
+    "kprobe",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "sched_act",
+    "socket_filter",
+    "perf_event",
+    "sk_msg",
+    "sk_reuseport",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -195,7 +207,7 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
   },
   "startLine": 45,
   "endLine": 49,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv4_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -209,15 +221,21 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -245,7 +263,7 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "helperCallParams": {},
   "startLine": 51,
   "endLine": 60,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv4_csum_inline",
   "updateMaps": [],
   "readMaps": [],
@@ -256,31 +274,37 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "sk_skb",
-    "sk_msg",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_cls",
-    "lwt_in",
-    "cgroup_sock",
-    "cgroup_skb",
-    "sock_ops",
     "raw_tracepoint",
-    "socket_filter",
-    "sk_reuseport",
-    "sched_act",
-    "perf_event",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_xmit",
     "xdp",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock",
+    "lwt_in",
+    "sock_ops",
+    "cgroup_device",
     "flow_dissector",
-    "lwt_seg6local"
+    "sched_cls",
+    "cgroup_sock_addr",
+    "kprobe",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "sched_act",
+    "socket_filter",
+    "perf_event",
+    "sk_msg",
+    "sk_reuseport",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -386,7 +410,7 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
   },
   "startLine": 62,
   "endLine": 73,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv4_l4_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -401,15 +425,21 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -517,7 +547,7 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
   },
   "startLine": 75,
   "endLine": 88,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "ipv6_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -532,15 +562,21 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -645,7 +681,7 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
   },
   "startLine": 95,
   "endLine": 127,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "add_pseudo_ipv6_header",
   "updateMaps": [],
   "readMaps": [],
@@ -658,15 +694,21 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -785,7 +827,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
   },
   "startLine": 129,
   "endLine": 158,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "rem_pseudo_ipv6_header",
   "updateMaps": [],
   "readMaps": [],
@@ -798,15 +840,21 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -922,7 +970,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
   },
   "startLine": 160,
   "endLine": 189,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "add_pseudo_ipv4_header",
   "updateMaps": [],
   "readMaps": [],
@@ -935,15 +983,21 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1059,7 +1113,7 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
   },
   "startLine": 191,
   "endLine": 220,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "rem_pseudo_ipv4_header",
   "updateMaps": [],
   "readMaps": [],
@@ -1072,15 +1126,21 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1198,7 +1258,7 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
   },
   "startLine": 234,
   "endLine": 268,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "gue_csum_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -1213,15 +1273,21 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1332,7 +1398,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
   },
   "startLine": 270,
   "endLine": 302,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "gue_csum_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -1347,15 +1413,21 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1464,7 +1536,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
   },
   "startLine": 304,
   "endLine": 336,
-  "File": "/home/palani/github/opened_extraction/examples/katran/csum_helpers.h",
+  "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
   "funcName": "gue_csum_v4_in_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -1479,15 +1551,21 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
+    "sched_cls",
+    "lwt_seg6local",
     "xdp",
+    "lwt_out",
     "lwt_in",
-    "lwt_seg6local"
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

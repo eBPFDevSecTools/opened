@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_PROG (fentry_add_to_page_cache_lru)" startline="12" endline="16">
+int BPF_PROG (fentry_add_to_page_cache_lru)
+{
+    __sync_fetch_and_add (&misses, 1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_PROG (fentry_mark_page_accessed)" startline="19" endline="23">
+int BPF_PROG (fentry_mark_page_accessed)
+{
+    __sync_fetch_and_add (&total, 1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_PROG (fentry_account_page_dirtied)" startline="26" endline="30">
+int BPF_PROG (fentry_account_page_dirtied)
+{
+    __sync_fetch_and_add (&misses, -1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_PROG (fentry_mark_buffer_dirty)" startline="33" endline="38">
+int BPF_PROG (fentry_mark_buffer_dirty)
+{
+    __sync_fetch_and_add (&total, -1);
+    __sync_fetch_and_add (&mbd, 1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_KPROBE (kprobe_add_to_page_cache_lru)" startline="41" endline="45">
+int BPF_KPROBE (kprobe_add_to_page_cache_lru)
+{
+    __sync_fetch_and_add (&misses, 1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mark_page_accessed)" startline="48" endline="52">
+int BPF_KPROBE (kprobe_mark_page_accessed)
+{
+    __sync_fetch_and_add (&total, 1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_KPROBE (kprobe_account_page_dirtied)" startline="55" endline="59">
+int BPF_KPROBE (kprobe_account_page_dirtied)
+{
+    __sync_fetch_and_add (&misses, -1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_KPROBE (kprobe_folio_account_dirtied)" startline="62" endline="66">
+int BPF_KPROBE (kprobe_folio_account_dirtied)
+{
+    __sync_fetch_and_add (&misses, -1);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mark_buffer_dirty)" startline="69" endline="74">
+int BPF_KPROBE (kprobe_mark_buffer_dirty)
+{
+    __sync_fetch_and_add (&total, -1);
+    __sync_fetch_and_add (&mbd, 1);
+    return 0;
+}
+</source>
+</doc>

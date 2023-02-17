@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/tpc-ebpf/ebpf_n_rto_changer.h" funcheader="static void take_snapshot (struct bpf_elf_map *st_map, struct flow_infos *flow_info, struct flow_tuple *flow_id, __u32 op)" startline="47" endline="88">
+static void take_snapshot (struct bpf_elf_map *st_map, struct flow_infos *flow_info, struct flow_tuple *flow_id, __u32 op)
+{
+    struct flow_snapshot *curr_snapshot = NULL;
+    struct snapshot_arg arg = {
+        .new_snapshot = NULL,
+        .oldest_seq = 0,
+        .best_idx = 0,
+        .max_seq = 0}
+    ;
+    curr_snapshot = (void *) bpf_map_lookup_elem (st_map, &arg.best_idx);
+    if (curr_snapshot) {
+        arg.new_snapshot = curr_snapshot;
+        arg.oldest_seq = curr_snapshot->sequence;
+        arg.max_seq = curr_snapshot->sequence;
+    }
+    for (int i = 0; i <= MAX_SNAPSHOTS - 1; i++) {
+        int xxx = i;
+        curr_snapshot = (void *) bpf_map_lookup_elem (st_map, &xxx);
+        if (curr_snapshot) {
+            if (arg.max_seq < curr_snapshot->sequence) {
+                arg.max_seq = curr_snapshot->sequence;
+            }
+            if (arg.oldest_seq > curr_snapshot->sequence) {
+                arg.oldest_seq = curr_snapshot->sequence;
+                arg.new_snapshot = curr_snapshot;
+                arg.best_idx = xxx;
+            }
+        }
+    }
+    if (arg.new_snapshot) {
+        memcpy (&arg.new_snapshot->flow, flow_info, sizeof (struct flow_infos));
+        memcpy (&arg.new_snapshot->flow_id, flow_id, sizeof (struct flow_tuple));
+        arg.new_snapshot->sequence = arg.max_seq + 1;
+        arg.new_snapshot->time = bpf_ktime_get_ns ();
+        arg.new_snapshot->reason = op;
+        bpf_map_update_elem (st_map, &arg.best_idx, arg.new_snapshot, BPF_ANY);
+    }
+}
+</source>
+</doc>

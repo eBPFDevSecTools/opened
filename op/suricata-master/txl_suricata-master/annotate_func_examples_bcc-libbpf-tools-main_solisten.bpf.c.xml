@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/solisten.bpf.c" funcheader="static void fill_event (struct event *event, struct socket *sock)" startline="29" endline="47">
+static void fill_event (struct event *event, struct socket *sock)
+{
+    __u16 family, type;
+    struct sock *sk;
+    struct inet_sock *inet;
+    sk = BPF_CORE_READ (sock, sk);
+    inet = (struct inet_sock *) sk;
+    family = BPF_CORE_READ (sk, __sk_common.skc_family);
+    type = BPF_CORE_READ (sock, type);
+    event->proto = ((__u32) family << 16) | type;
+    event->port = bpf_ntohs (BPF_CORE_READ (inet, inet_sport));
+    if (family == AF_INET)
+        event->addr[0] = BPF_CORE_READ (sk, __sk_common.skc_rcv_saddr);
+    else if (family == AF_INET6)
+        BPF_CORE_READ_INTO (event->addr, sk, __sk_common.skc_v6_rcv_saddr.in6_u.u6_addr32);
+    bpf_get_current_comm (event->task, sizeof (event->task));
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/solisten.bpf.c" funcheader="int BPF_KPROBE (inet_listen_entry, struct socket *sock, int backlog)" startline="50" endline="65">
+int BPF_KPROBE (inet_listen_entry, struct socket *sock, int backlog)
+{
+    __u64 pid_tgid = bpf_get_current_pid_tgid ();
+    __u32 pid = pid_tgid >> 32;
+    __u32 tid = (__u32) pid_tgid;
+    struct event event = {}
+    ;
+    if (target_pid && target_pid != pid)
+        return 0;
+    fill_event (&event, sock);
+    event.pid = pid;
+    event.backlog = backlog;
+    bpf_map_update_elem (&values, &tid, &event, BPF_ANY);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/solisten.bpf.c" funcheader="int BPF_KRETPROBE (inet_listen_exit, int ret)" startline="68" endline="81">
+int BPF_KRETPROBE (inet_listen_exit, int ret)
+{
+    __u32 tid = bpf_get_current_pid_tgid ();
+    struct event *eventp;
+    eventp = bpf_map_lookup_elem (& values, & tid);
+    if (!eventp)
+        return 0;
+    eventp->ret = ret;
+    bpf_perf_event_output (ctx, &events, BPF_F_CURRENT_CPU, eventp, sizeof (*eventp));
+    bpf_map_delete_elem (&values, &tid);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/solisten.bpf.c" funcheader="int BPF_PROG (inet_listen_fexit, struct socket *sock, int backlog, int ret)" startline="84" endline="99">
+int BPF_PROG (inet_listen_fexit, struct socket *sock, int backlog, int ret)
+{
+    __u64 pid_tgid = bpf_get_current_pid_tgid ();
+    __u32 pid = pid_tgid >> 32;
+    struct event event = {}
+    ;
+    if (target_pid && target_pid != pid)
+        return 0;
+    fill_event (&event, sock);
+    event.pid = pid;
+    event.backlog = backlog;
+    event.ret = ret;
+    bpf_perf_event_output (ctx, &events, BPF_F_CURRENT_CPU, &event, sizeof (event));
+    return 0;
+}
+</source>
+</doc>

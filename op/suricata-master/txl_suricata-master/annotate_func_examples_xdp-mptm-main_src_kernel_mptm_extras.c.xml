@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c" funcheader="int mptm_redirect (struct xdp_md *ctx)" startline="24" endline="29">
+int mptm_redirect (struct xdp_md *ctx)
+{
+    __u64 flags = 0;
+    __u32 key = ctx->ingress_ifindex;
+    return bpf_redirect_map (&mptm_extras_redirect_devmap, key, flags);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c" funcheader="int mptm_pass (struct xdp_md *ctx)" startline="32" endline="34">
+int mptm_pass (struct xdp_md *ctx)
+{
+    return XDP_PASS;
+}
+</source>
+</doc>

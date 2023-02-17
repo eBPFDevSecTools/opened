@@ -52,10 +52,10 @@ SEC("mptm_redirect_xdp")
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "lwt_xmit",
+    "sched_cls",
     "xdp",
-    "sched_cls"
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
@@ -103,29 +103,29 @@ SEC("mptm_pass_xdp")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_out",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sk_skb",
-    "flow_dissector",
+    "sk_reuseport",
     "lwt_seg6local",
-    "xdp",
-    "socket_filter",
-    "raw_tracepoint",
-    "sched_act",
-    "lwt_xmit",
-    "sched_cls",
     "cgroup_sysctl",
     "sock_ops",
-    "cgroup_skb",
-    "cgroup_sock",
-    "cgroup_device",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "kprobe",
-    "tracepoint",
+    "cgroup_skb",
+    "sched_cls",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "cgroup_device",
     "perf_event",
     "cgroup_sock_addr",
-    "sk_reuseport",
-    "sk_msg"
+    "sk_skb",
+    "sk_msg",
+    "cgroup_sock",
+    "tracepoint",
+    "lwt_xmit",
+    "socket_filter",
+    "lwt_in",
+    "xdp"
   ],
   "humanFuncDescription": [
     {

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcptop.bpf.c" funcheader="static int probe_ip (bool receiving, struct sock *sk, size_t size)" startline="33" endline="104">
+static int probe_ip (bool receiving, struct sock *sk, size_t size)
+{
+    struct ip_key_t ip_key = {}
+    ;
+    struct traffic_t *trafficp;
+    u16 family;
+    u32 pid;
+    if (filter_cg && !bpf_current_task_under_cgroup (&cgroup_map, 0))
+        return 0;
+    pid = bpf_get_current_pid_tgid () >> 32;
+    if (target_pid != -1 && target_pid != pid)
+        return 0;
+    family = BPF_CORE_READ (sk, __sk_common.skc_family);
+    if (target_family != -1 && target_family != family)
+        return 0;
+    if (family != AF_INET && family != AF_INET6)
+        return 0;
+    ip_key.pid = pid;
+    bpf_get_current_comm (&ip_key.name, sizeof (ip_key.name));
+    ip_key.lport = BPF_CORE_READ (sk, __sk_common.skc_num);
+    ip_key.dport = bpf_ntohs (BPF_CORE_READ (sk, __sk_common.skc_dport));
+    ip_key.family = family;
+    if (family == AF_INET) {
+        bpf_probe_read_kernel (&ip_key.saddr, sizeof (sk->__sk_common.skc_rcv_saddr), &sk->__sk_common.skc_rcv_saddr);
+        bpf_probe_read_kernel (&ip_key.daddr, sizeof (sk->__sk_common.skc_daddr), &sk->__sk_common.skc_daddr);
+    }
+    else {
+        bpf_probe_read_kernel (&ip_key.saddr, sizeof (sk->__sk_common.skc_v6_rcv_saddr.in6_u.u6_addr32), &sk->__sk_common.skc_v6_rcv_saddr.in6_u.u6_addr32);
+        bpf_probe_read_kernel (&ip_key.daddr, sizeof (sk->__sk_common.skc_v6_daddr.in6_u.u6_addr32), &sk->__sk_common.skc_v6_daddr.in6_u.u6_addr32);
+    }
+    trafficp = bpf_map_lookup_elem (& ip_map, & ip_key);
+    if (!trafficp) {
+        struct traffic_t zero;
+        if (receiving) {
+            zero.sent = 0;
+            zero.received = size;
+        }
+        else {
+            zero.sent = size;
+            zero.received = 0;
+        }
+        bpf_map_update_elem (&ip_map, &ip_key, &zero, BPF_NOEXIST);
+    }
+    else {
+        if (receiving)
+            trafficp->received += size;
+        else
+            trafficp->sent += size;
+        bpf_map_update_elem (&ip_map, &ip_key, trafficp, BPF_EXIST);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcptop.bpf.c" funcheader="int BPF_KPROBE (tcp_sendmsg, struct sock *sk, struct msghdr *msg, size_t size)" startline="107" endline="110">
+int BPF_KPROBE (tcp_sendmsg, struct sock *sk, struct msghdr *msg, size_t size)
+{
+    return probe_ip (false, sk, size);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/tcptop.bpf.c" funcheader="int BPF_KPROBE (tcp_cleanup_rbuf, struct sock *sk, int copied)" startline="119" endline="125">
+int BPF_KPROBE (tcp_cleanup_rbuf, struct sock *sk, int copied)
+{
+    if (copied <= 0)
+        return 0;
+    return probe_ip (true, sk, copied);
+}
+</source>
+</doc>

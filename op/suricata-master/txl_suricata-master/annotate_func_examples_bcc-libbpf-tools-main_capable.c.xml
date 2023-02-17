@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="static error_t parse_arg (int key, char *arg, struct argp_state *state)" startline="124" endline="178">
+static error_t parse_arg (int key, char *arg, struct argp_state *state)
+{
+    switch (key) {
+    case 'h' :
+        argp_state_help (state, stderr, ARGP_HELP_STD_HELP);
+        break;
+    case 'v' :
+        env.verbose = true;
+        break;
+    case 'p' :
+        errno = 0;
+        env.pid = strtol (arg, NULL, 10);
+        if (errno || env.pid == 0) {
+            fprintf (stderr, "invalid PID: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case 'c' :
+        env.cgroupspath = arg;
+        env.cg = true;
+        break;
+    case 'U' :
+        env.user_stack = true;
+        break;
+    case 'K' :
+        env.kernel_stack = true;
+        break;
+    case 'x' :
+        env.extra_fields = true;
+        break;
+    case 'u' :
+        env.unique_type = arg;
+        env.unique = true;
+        break;
+    case OPT_PERF_MAX_STACK_DEPTH :
+        errno = 0;
+        env.perf_max_stack_depth = strtol (arg, NULL, 10);
+        if (errno || env.perf_max_stack_depth == 0) {
+            fprintf (stderr, "invalid perf max stack depth: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case OPT_STACK_STORAGE_SIZE :
+        errno = 0;
+        env.stack_storage_size = strtol (arg, NULL, 10);
+        if (errno || env.stack_storage_size == 0) {
+            fprintf (stderr, "invalid stack storage size: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    default :
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)" startline="180" endline="185">
+static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)
+{
+    if (level == LIBBPF_DEBUG && !env.verbose)
+        return 0;
+    return vfprintf (stderr, format, args);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="static void sig_int (int signo)" startline="187" endline="190">
+static void sig_int (int signo)
+{
+    exiting = 1;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="static void print_map (struct ksyms *ksyms, struct syms_cache *syms_cache)" startline="192" endline="254">
+static void print_map (struct ksyms *ksyms, struct syms_cache *syms_cache)
+{
+    struct key_t lookup_key = {}, next_key;
+    const struct ksym *ksym;
+    const struct syms *syms;
+    const struct sym *sym;
+    int err, i;
+    unsigned long *ip;
+    struct cap_event val;
+    ip = calloc (env.perf_max_stack_depth, sizeof (* ip));
+    if (!ip) {
+        fprintf (stderr, "failed to alloc ip\n");
+        return;
+    }
+    while (!bpf_map_get_next_key (ifd, &lookup_key, &next_key)) {
+        err = bpf_map_lookup_elem (ifd, & next_key, & val);
+        if (err < 0) {
+            fprintf (stderr, "failed to lookup info: %d\n", err);
+            goto cleanup;
+        }
+        lookup_key = next_key;
+        if (env.kernel_stack) {
+            if (bpf_map_lookup_elem (sfd, &next_key.kern_stack_id, ip) != 0)
+                fprintf (stderr, "    [Missed Kernel Stack]\n");
+            for (i = 0; i < env.perf_max_stack_depth && ip[i]; i++) {
+                ksym = ksyms__map_addr (ksyms, ip [i]);
+                printf ("    %s\n", ksym ? ksym->name : "Unknown");
+            }
+        }
+        if (env.user_stack) {
+            if (next_key.user_stack_id == -1)
+                goto skip_ustack;
+            if (bpf_map_lookup_elem (sfd, &next_key.user_stack_id, ip) != 0) {
+                fprintf (stderr, "    [Missed User Stack]\n");
+                continue;
+            }
+            syms = syms_cache__get_syms (syms_cache, next_key.tgid);
+            if (!syms) {
+                fprintf (stderr, "failed to get syms\n");
+                goto skip_ustack;
+            }
+            for (i = 0; i < env.perf_max_stack_depth && ip[i]; i++) {
+                sym = syms__map_addr (syms, ip [i]);
+                if (sym)
+                    printf ("    %s\n", sym->name);
+                else
+                    printf ("    [unknown]\n");
+            }
+        }
+    skip_ustack :
+        printf ("    %-16s %s (%d)\n", "-", val.task, next_key.pid);
+    }
+cleanup :
+    free (ip);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="static void handle_event (void *ctx, int cpu, void *data, __u32 data_sz)" startline="256" endline="277">
+static void handle_event (void *ctx, int cpu, void *data, __u32 data_sz)
+{
+    const struct cap_event *e = data;
+    struct tm *tm;
+    char ts [32];
+    time_t t;
+    time (&t);
+    tm = localtime (& t);
+    strftime (ts, sizeof (ts), "%H:%M:%S", tm);
+    char *verdict = "deny";
+    if (!e->ret)
+        verdict = "allow";
+    if (env.extra_fields)
+        printf ("%-8s %-5d %-7d %-7d %-16s %-7d %-20s %-7d %-7s %-7d\n", ts, e->uid, e->pid, e->tgid, e->task, e->cap, cap_name[e->cap], e->audit, verdict, e->insetid);
+    else
+        printf ("%-8s %-5d %-7d %-16s %-7d %-20s %-7d %-7s\n", ts, e->uid, e->pid, e->task, e->cap, cap_name[e->cap], e->audit, verdict);
+    print_map (ksyms, syms_cache);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="static void handle_lost_events (void *ctx, int cpu, __u64 lost_cnt)" startline="279" endline="282">
+static void handle_lost_events (void *ctx, int cpu, __u64 lost_cnt)
+{
+    fprintf (stderr, "lost %llu events on CPU #%d\n", lost_cnt, cpu);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/capable.c" funcheader="int main (int argc, char **argv)" startline="284" endline="415">
+int main (int argc, char **argv)
+{
+    static const struct argp argp = {
+        .options = opts,
+        .parser = parse_arg,
+        .doc = argp_program_doc,}
+    ;
+    struct capable_bpf *obj;
+    struct perf_buffer *pb = NULL;
+    int err;
+    int idx, cg_map_fd;
+    int cgfd = -1;
+    enum uniqueness uniqueness_type = UNQ_OFF;
+    pid_t my_pid = -1;
+    err = argp_parse (& argp, argc, argv, 0, NULL, NULL);
+    if (err)
+        return err;
+    if (env.unique) {
+        if (strcmp (env.unique_type, "pid") == 0) {
+            uniqueness_type = UNQ_PID;
+        }
+        else if (strcmp (env.unique_type, "cgroup") == 0) {
+            uniqueness_type = UNQ_CGROUP;
+        }
+        else {
+            fprintf (stderr, "Unknown unique type %s\n", env.unique_type);
+            return -1;
+        }
+    }
+    libbpf_set_strict_mode (LIBBPF_STRICT_ALL);
+    libbpf_set_print (libbpf_print_fn);
+    obj = capable_bpf__open ();
+    if (!obj) {
+        fprintf (stderr, "failed to open BPF object\n");
+        return 1;
+    }
+    obj->rodata->targ_pid = env.pid;
+    obj->rodata->filter_cg = env.cg;
+    obj->rodata->user_stack = env.user_stack;
+    obj->rodata->kernel_stack = env.kernel_stack;
+    obj->rodata->unique_type = uniqueness_type;
+    my_pid = getpid ();
+    obj->rodata->my_pid = my_pid;
+    bpf_map__set_value_size (obj->maps.stackmap, env.perf_max_stack_depth * sizeof (unsigned long));
+    bpf_map__set_max_entries (obj->maps.stackmap, env.stack_storage_size);
+    err = capable_bpf__load (obj);
+    if (err) {
+        fprintf (stderr, "failed to load BPF object: %d\n", err);
+        goto cleanup;
+    }
+    if (env.cg) {
+        idx = 0;
+        cg_map_fd = bpf_map__fd (obj -> maps.cgroup_map);
+        cgfd = open (env.cgroupspath, O_RDONLY);
+        if (cgfd < 0) {
+            fprintf (stderr, "Failed opening Cgroup path: %s", env.cgroupspath);
+            goto cleanup;
+        }
+        if (bpf_map_update_elem (cg_map_fd, &idx, &cgfd, BPF_ANY)) {
+            fprintf (stderr, "Failed adding target cgroup to map");
+            goto cleanup;
+        }
+    }
+    ksyms = ksyms__load ();
+    if (!ksyms) {
+        fprintf (stderr, "failed to load kallsyms\n");
+        goto cleanup;
+    }
+    syms_cache = syms_cache__new (0);
+    if (!syms_cache) {
+        fprintf (stderr, "failed to create syms_cache\n");
+        goto cleanup;
+    }
+    ifd = bpf_map__fd (obj -> maps.info);
+    sfd = bpf_map__fd (obj -> maps.stackmap);
+    err = capable_bpf__attach (obj);
+    if (err) {
+        fprintf (stderr, "failed to attach BPF programs: %d\n", err);
+        goto cleanup;
+    }
+    pb = perf_buffer__new (bpf_map__fd (obj -> maps.events), PERF_BUFFER_PAGES, handle_event, handle_lost_events, NULL, NULL);
+    if (!pb) {
+        err = -errno;
+        fprintf (stderr, "failed to open perf buffer: %d\n", err);
+        goto cleanup;
+    }
+    if (signal (SIGINT, sig_int) == SIG_ERR) {
+        fprintf (stderr, "can't set signal handler: %s\n", strerror (errno));
+        err = 1;
+        goto cleanup;
+    }
+    if (env.extra_fields)
+        printf ("%-8s %-5s %-7s %-7s %-16s %-7s %-20s %-7s %-7s %-7s\n", "TIME", "UID", "PID", "TID", "COMM", "CAP", "NAME", "AUDIT", "VERDICT", "INSETID");
+    else
+        printf ("%-8s %-5s %-7s %-16s %-7s %-20s %-7s %-7s\n", "TIME", "UID", "PID", "COMM", "CAP", "NAME", "AUDIT", "VERDICT");
+    while (!exiting) {
+        err = perf_buffer__poll (pb, PERF_POLL_TIMEOUT_MS);
+        if (err < 0 && err != -EINTR) {
+            fprintf (stderr, "error polling perf buffer: %s\n", strerror (-err));
+            goto cleanup;
+        }
+        err = 0;
+    }
+cleanup :
+    capable_bpf__destroy (obj);
+    syms_cache__free (syms_cache);
+    ksyms__free (ksyms);
+    if (cgfd > 0)
+        close (cgfd);
+    return err != 0;
+}
+</source>
+</doc>

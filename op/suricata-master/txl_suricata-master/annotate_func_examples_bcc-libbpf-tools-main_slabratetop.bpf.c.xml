@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/slabratetop.bpf.c" funcheader="static int probe_entry (struct kmem_cache *cachep)" startline="22" endline="45">
+static int probe_entry (struct kmem_cache *cachep)
+{
+    __u64 pid_tgid = bpf_get_current_pid_tgid ();
+    __u32 pid = pid_tgid >> 32;
+    struct slabrate_info *valuep;
+    const char *name = BPF_CORE_READ (cachep, name);
+    if (target_pid && target_pid != pid)
+        return 0;
+    valuep = bpf_map_lookup_elem (& slab_entries, & name);
+    if (!valuep) {
+        bpf_map_update_elem (&slab_entries, &name, &slab_zero_value, BPF_ANY);
+        valuep = bpf_map_lookup_elem (& slab_entries, & name);
+        if (!valuep)
+            return 0;
+        bpf_probe_read_kernel (&valuep->name, sizeof (valuep->name), name);
+    }
+    valuep->count++;
+    valuep->size += BPF_CORE_READ (cachep, size);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/slabratetop.bpf.c" funcheader="int BPF_KPROBE (kmem_cache_alloc, struct kmem_cache *cachep)" startline="48" endline="51">
+int BPF_KPROBE (kmem_cache_alloc, struct kmem_cache *cachep)
+{
+    return probe_entry (cachep);
+}
+</source>
+</doc>

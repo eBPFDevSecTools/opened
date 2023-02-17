@@ -1,0 +1,599 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="static bool tracing_task (u64 task_id)" startline="72" endline="82">
+static bool tracing_task (u64 task_id)
+{
+    u32 tgid = task_id >> 32;
+    u32 pid = task_id;
+    if (targ_tgid && targ_tgid != tgid)
+        return false;
+    if (targ_pid && targ_pid != pid)
+        return false;
+    return true;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="static void lock_contended (void *ctx, void *lock)" startline="84" endline="118">
+static void lock_contended (void *ctx, void *lock)
+{
+    u64 task_id;
+    struct lockholder_info li [1] = {0};
+    struct task_lock tl = {}
+    ;
+    if (targ_lock && targ_lock != lock)
+        return;
+    task_id = bpf_get_current_pid_tgid ();
+    if (!tracing_task (task_id))
+        return;
+    li->task_id = task_id;
+    li->lock_ptr = (u64) lock;
+    li->stack_id = bpf_get_stackid (ctx, &stack_map, 4 | BPF_F_FAST_STACK_CMP);
+    if (li->stack_id < 0)
+        return;
+    li->try_at = bpf_ktime_get_ns ();
+    tl.task_id = task_id;
+    tl.lock_ptr = (u64) lock;
+    bpf_map_update_elem (&lockholder_map, &tl, li, BPF_ANY);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="static void lock_aborted (void *lock)" startline="120" endline="133">
+static void lock_aborted (void *lock)
+{
+    u64 task_id;
+    struct task_lock tl = {}
+    ;
+    if (targ_lock && targ_lock != lock)
+        return;
+    task_id = bpf_get_current_pid_tgid ();
+    if (!tracing_task (task_id))
+        return;
+    tl.task_id = task_id;
+    tl.lock_ptr = (u64) lock;
+    bpf_map_delete_elem (&lockholder_map, &tl);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="static void lock_acquired (void *lock)" startline="135" endline="154">
+static void lock_acquired (void *lock)
+{
+    u64 task_id;
+    struct lockholder_info *li;
+    struct task_lock tl = {}
+    ;
+    if (targ_lock && targ_lock != lock)
+        return;
+    task_id = bpf_get_current_pid_tgid ();
+    if (!tracing_task (task_id))
+        return;
+    tl.task_id = task_id;
+    tl.lock_ptr = (u64) lock;
+    li = bpf_map_lookup_elem (& lockholder_map, & tl);
+    if (!li)
+        return;
+    li->acq_at = bpf_ktime_get_ns ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="static void account (struct lockholder_info *li)" startline="156" endline="212">
+static void account (struct lockholder_info *li)
+{
+    struct lock_stat *ls;
+    u64 delta;
+    u32 key = li->stack_id;
+    if (per_thread)
+        key = li->task_id;
+    ls = bpf_map_lookup_elem (& stat_map, & key);
+    if (!ls) {
+        struct lock_stat fresh = {0}
+        ;
+        bpf_map_update_elem (&stat_map, &key, &fresh, BPF_ANY);
+        ls = bpf_map_lookup_elem (& stat_map, & key);
+        if (!ls)
+            return;
+        if (per_thread)
+            bpf_get_current_comm (ls->acq_max_comm, TASK_COMM_LEN);
+    }
+    delta = li->acq_at - li->try_at;
+    __sync_fetch_and_add (&ls->acq_count, 1);
+    __sync_fetch_and_add (&ls->acq_total_time, delta);
+    if (delta > READ_ONCE (ls->acq_max_time)) {
+        WRITE_ONCE (ls->acq_max_time, delta);
+        WRITE_ONCE (ls->acq_max_id, li->task_id);
+        WRITE_ONCE (ls->acq_max_lock_ptr, li->lock_ptr);
+        if (!per_thread)
+            bpf_get_current_comm (ls->acq_max_comm, TASK_COMM_LEN);
+    }
+    delta = li->rel_at - li->acq_at;
+    __sync_fetch_and_add (&ls->hld_count, 1);
+    __sync_fetch_and_add (&ls->hld_total_time, delta);
+    if (delta > READ_ONCE (ls->hld_max_time)) {
+        WRITE_ONCE (ls->hld_max_time, delta);
+        WRITE_ONCE (ls->hld_max_id, li->task_id);
+        WRITE_ONCE (ls->hld_max_lock_ptr, li->lock_ptr);
+        if (!per_thread)
+            bpf_get_current_comm (ls->hld_max_comm, TASK_COMM_LEN);
+    }
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="static void lock_released (void *lock)" startline="214" endline="235">
+static void lock_released (void *lock)
+{
+    u64 task_id;
+    struct lockholder_info *li;
+    struct task_lock tl = {}
+    ;
+    if (targ_lock && targ_lock != lock)
+        return;
+    task_id = bpf_get_current_pid_tgid ();
+    if (!tracing_task (task_id))
+        return;
+    tl.task_id = task_id;
+    tl.lock_ptr = (u64) lock;
+    li = bpf_map_lookup_elem (& lockholder_map, & tl);
+    if (!li)
+        return;
+    li->rel_at = bpf_ktime_get_ns ();
+    account (li);
+    bpf_map_delete_elem (&lockholder_map, &tl);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_lock, struct mutex *lock)" startline="238" endline="242">
+int BPF_PROG (mutex_lock, struct mutex *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_lock_exit, struct mutex *lock, long ret)" startline="245" endline="249">
+int BPF_PROG (mutex_lock_exit, struct mutex *lock, long ret)
+{
+    lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_trylock_exit, struct mutex *lock, long ret)" startline="252" endline="259">
+int BPF_PROG (mutex_trylock_exit, struct mutex *lock, long ret)
+{
+    if (ret) {
+        lock_contended (ctx, lock);
+        lock_acquired (lock);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_lock_interruptible, struct mutex *lock)" startline="262" endline="266">
+int BPF_PROG (mutex_lock_interruptible, struct mutex *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_lock_interruptible_exit, struct mutex *lock, long ret)" startline="269" endline="276">
+int BPF_PROG (mutex_lock_interruptible_exit, struct mutex *lock, long ret)
+{
+    if (ret)
+        lock_aborted (lock);
+    else
+        lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_lock_killable, struct mutex *lock)" startline="279" endline="283">
+int BPF_PROG (mutex_lock_killable, struct mutex *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_lock_killable_exit, struct mutex *lock, long ret)" startline="286" endline="293">
+int BPF_PROG (mutex_lock_killable_exit, struct mutex *lock, long ret)
+{
+    if (ret)
+        lock_aborted (lock);
+    else
+        lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (mutex_unlock, struct mutex *lock)" startline="296" endline="300">
+int BPF_PROG (mutex_unlock, struct mutex *lock)
+{
+    lock_released (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read, struct rw_semaphore *lock)" startline="303" endline="307">
+int BPF_PROG (down_read, struct rw_semaphore *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read_exit, struct rw_semaphore *lock, long ret)" startline="310" endline="314">
+int BPF_PROG (down_read_exit, struct rw_semaphore *lock, long ret)
+{
+    lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read_trylock_exit, struct rw_semaphore *lock, long ret)" startline="317" endline="324">
+int BPF_PROG (down_read_trylock_exit, struct rw_semaphore *lock, long ret)
+{
+    if (ret == 1) {
+        lock_contended (ctx, lock);
+        lock_acquired (lock);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read_interruptible, struct rw_semaphore *lock)" startline="327" endline="331">
+int BPF_PROG (down_read_interruptible, struct rw_semaphore *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read_interruptible_exit, struct rw_semaphore *lock, long ret)" startline="334" endline="341">
+int BPF_PROG (down_read_interruptible_exit, struct rw_semaphore *lock, long ret)
+{
+    if (ret)
+        lock_aborted (lock);
+    else
+        lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read_killable, struct rw_semaphore *lock)" startline="344" endline="348">
+int BPF_PROG (down_read_killable, struct rw_semaphore *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_read_killable_exit, struct rw_semaphore *lock, long ret)" startline="351" endline="358">
+int BPF_PROG (down_read_killable_exit, struct rw_semaphore *lock, long ret)
+{
+    if (ret)
+        lock_aborted (lock);
+    else
+        lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (up_read, struct rw_semaphore *lock)" startline="361" endline="365">
+int BPF_PROG (up_read, struct rw_semaphore *lock)
+{
+    lock_released (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_write, struct rw_semaphore *lock)" startline="368" endline="372">
+int BPF_PROG (down_write, struct rw_semaphore *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_write_exit, struct rw_semaphore *lock, long ret)" startline="375" endline="379">
+int BPF_PROG (down_write_exit, struct rw_semaphore *lock, long ret)
+{
+    lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_write_trylock_exit, struct rw_semaphore *lock, long ret)" startline="382" endline="389">
+int BPF_PROG (down_write_trylock_exit, struct rw_semaphore *lock, long ret)
+{
+    if (ret == 1) {
+        lock_contended (ctx, lock);
+        lock_acquired (lock);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_write_killable, struct rw_semaphore *lock)" startline="392" endline="396">
+int BPF_PROG (down_write_killable, struct rw_semaphore *lock)
+{
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (down_write_killable_exit, struct rw_semaphore *lock, long ret)" startline="399" endline="406">
+int BPF_PROG (down_write_killable_exit, struct rw_semaphore *lock, long ret)
+{
+    if (ret)
+        lock_aborted (lock);
+    else
+        lock_acquired (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_PROG (up_write, struct rw_semaphore *lock)" startline="409" endline="413">
+int BPF_PROG (up_write, struct rw_semaphore *lock)
+{
+    lock_released (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mutex_lock, struct mutex *lock)" startline="416" endline="423">
+int BPF_KPROBE (kprobe_mutex_lock, struct mutex *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_mutex_lock_exit, long ret)" startline="426" endline="438">
+int BPF_KRETPROBE (kprobe_mutex_lock_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mutex_trylock, struct mutex *lock)" startline="441" endline="447">
+int BPF_KPROBE (kprobe_mutex_trylock, struct mutex *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_mutex_trylock_exit, long ret)" startline="450" endline="466">
+int BPF_KRETPROBE (kprobe_mutex_trylock_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret) {
+        lock_contended (ctx, *lock);
+        lock_acquired (*lock);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mutex_lock_interruptible, struct mutex *lock)" startline="469" endline="476">
+int BPF_KPROBE (kprobe_mutex_lock_interruptible, struct mutex *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_mutex_lock_interruptible_exit, long ret)" startline="479" endline="495">
+int BPF_KRETPROBE (kprobe_mutex_lock_interruptible_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret)
+        lock_aborted (*lock);
+    else
+        lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mutex_lock_killable, struct mutex *lock)" startline="498" endline="505">
+int BPF_KPROBE (kprobe_mutex_lock_killable, struct mutex *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_mutex_lock_killable_exit, long ret)" startline="508" endline="524">
+int BPF_KRETPROBE (kprobe_mutex_lock_killable_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret)
+        lock_aborted (*lock);
+    else
+        lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_mutex_unlock, struct mutex *lock)" startline="527" endline="531">
+int BPF_KPROBE (kprobe_mutex_unlock, struct mutex *lock)
+{
+    lock_released (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_read, struct rw_semaphore *lock)" startline="534" endline="541">
+int BPF_KPROBE (kprobe_down_read, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_read_exit, long ret)" startline="544" endline="557">
+int BPF_KRETPROBE (kprobe_down_read_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_read_trylock, struct rw_semaphore *lock)" startline="560" endline="566">
+int BPF_KPROBE (kprobe_down_read_trylock, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_read_trylock_exit, long ret)" startline="569" endline="585">
+int BPF_KRETPROBE (kprobe_down_read_trylock_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret == 1) {
+        lock_contended (ctx, *lock);
+        lock_acquired (*lock);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_read_interruptible, struct rw_semaphore *lock)" startline="588" endline="595">
+int BPF_KPROBE (kprobe_down_read_interruptible, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_read_interruptible_exit, long ret)" startline="598" endline="614">
+int BPF_KRETPROBE (kprobe_down_read_interruptible_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret)
+        lock_aborted (*lock);
+    else
+        lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_read_killable, struct rw_semaphore *lock)" startline="617" endline="624">
+int BPF_KPROBE (kprobe_down_read_killable, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_read_killable_exit, long ret)" startline="627" endline="643">
+int BPF_KRETPROBE (kprobe_down_read_killable_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret)
+        lock_aborted (*lock);
+    else
+        lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_up_read, struct rw_semaphore *lock)" startline="646" endline="650">
+int BPF_KPROBE (kprobe_up_read, struct rw_semaphore *lock)
+{
+    lock_released (lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_write, struct rw_semaphore *lock)" startline="653" endline="660">
+int BPF_KPROBE (kprobe_down_write, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_write_exit, long ret)" startline="663" endline="676">
+int BPF_KRETPROBE (kprobe_down_write_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_write_trylock, struct rw_semaphore *lock)" startline="679" endline="685">
+int BPF_KPROBE (kprobe_down_write_trylock, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_write_trylock_exit, long ret)" startline="688" endline="704">
+int BPF_KRETPROBE (kprobe_down_write_trylock_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret == 1) {
+        lock_contended (ctx, *lock);
+        lock_acquired (*lock);
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_down_write_killable, struct rw_semaphore *lock)" startline="707" endline="714">
+int BPF_KPROBE (kprobe_down_write_killable, struct rw_semaphore *lock)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    bpf_map_update_elem (&locks, &tid, &lock, BPF_ANY);
+    lock_contended (ctx, lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KRETPROBE (kprobe_down_write_killable_exit, long ret)" startline="717" endline="733">
+int BPF_KRETPROBE (kprobe_down_write_killable_exit, long ret)
+{
+    u32 tid = (u32) bpf_get_current_pid_tgid ();
+    void **lock;
+    lock = bpf_map_lookup_elem (& locks, & tid);
+    if (!lock)
+        return 0;
+    bpf_map_delete_elem (&locks, &tid);
+    if (ret)
+        lock_aborted (*lock);
+    else
+        lock_acquired (*lock);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/klockstat.bpf.c" funcheader="int BPF_KPROBE (kprobe_up_write, struct rw_semaphore *lock)" startline="736" endline="740">
+int BPF_KPROBE (kprobe_up_write, struct rw_semaphore *lock)
+{
+    lock_released (lock);
+    return 0;
+}
+</source>
+</doc>

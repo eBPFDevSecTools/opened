@@ -179,7 +179,7 @@ SEC("tc")
   },
   "startLine": 89,
   "endLine": 157,
-  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c",
+  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
@@ -192,16 +192,22 @@ SEC("tc")
   ],
   "output": "int",
   "helper": [
+    "bpf_skb_set_tunnel_key",
     "bpf_map_lookup_elem",
-    "bpf_redirect",
-    "bpf_skb_set_tunnel_key"
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "lwt_xmit",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {
       "description": " Performs healthcheck for ip-in-ip encapsulated packets.",
       "author": "Qintian Huang",

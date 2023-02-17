@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/wakeuptime.c" funcheader="static error_t parse_arg (int key, char *arg, struct argp_state *state)" startline="70" endline="143">
+static error_t parse_arg (int key, char *arg, struct argp_state *state)
+{
+    static int pos_args;
+    int pid;
+    switch (key) {
+    case 'h' :
+        argp_state_help (state, stderr, ARGP_HELP_STD_HELP);
+        break;
+    case 'v' :
+        env.verbose = true;
+        break;
+    case 'u' :
+        env.user_threads_only = true;
+        break;
+    case 'p' :
+        errno = 0;
+        pid = strtol (arg, NULL, 10);
+        if (errno || pid <= 0) {
+            fprintf (stderr, "Invalid PID: %s\n", arg);
+            argp_usage (state);
+        }
+        env.pid = pid;
+        break;
+    case OPT_PERF_MAX_STACK_DEPTH :
+        errno = 0;
+        env.perf_max_stack_depth = strtol (arg, NULL, 10);
+        if (errno) {
+            fprintf (stderr, "invalid perf max stack depth: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case OPT_STACK_STORAGE_SIZE :
+        errno = 0;
+        env.stack_storage_size = strtol (arg, NULL, 10);
+        if (errno) {
+            fprintf (stderr, "invalid stack storage size: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case 'm' :
+        errno = 0;
+        env.min_block_time = strtoll (arg, NULL, 10);
+        if (errno) {
+            fprintf (stderr, "Invalid min block time (in us): %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case 'M' :
+        errno = 0;
+        env.max_block_time = strtoll (arg, NULL, 10);
+        if (errno) {
+            fprintf (stderr, "Invalid min block time (in us): %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case ARGP_KEY_ARG :
+        errno = 0;
+        if (pos_args == 0) {
+            env.duration = strtol (arg, NULL, 10);
+            if (errno || env.duration <= 0) {
+                fprintf (stderr, "invalid duration (in s)\n");
+                argp_usage (state);
+            }
+        }
+        else {
+            fprintf (stderr, "Unrecognized positional argument: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    default :
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/wakeuptime.c" funcheader="static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)" startline="145" endline="150">
+static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)
+{
+    if (level == LIBBPF_DEBUG && !env.verbose)
+        return 0;
+    return vfprintf (stderr, format, args);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/wakeuptime.c" funcheader="static void sig_int (int signo)" startline="152" endline="154">
+static void sig_int (int signo)
+{
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/wakeuptime.c" funcheader="static void print_map (struct ksyms *ksyms, struct wakeuptime_bpf *obj)" startline="156" endline="198">
+static void print_map (struct ksyms *ksyms, struct wakeuptime_bpf *obj)
+{
+    struct key_t lookup_key = {}, next_key;
+    int err, i, counts_fd, stack_traces_fd;
+    unsigned long *ip;
+    const struct ksym *ksym;
+    __u64 val;
+    ip = calloc (env.perf_max_stack_depth, sizeof (* ip));
+    if (!ip) {
+        fprintf (stderr, "failed to alloc ip\n");
+        return;
+    }
+    counts_fd = bpf_map__fd (obj -> maps.counts);
+    stack_traces_fd = bpf_map__fd (obj -> maps.stackmap);
+    while (!bpf_map_get_next_key (counts_fd, &lookup_key, &next_key)) {
+        err = bpf_map_lookup_elem (counts_fd, & next_key, & val);
+        if (err < 0) {
+            fprintf (stderr, "failed to lookup info: %d\n", err);
+            free (ip);
+            return;
+        }
+        printf ("\n	%-16s %s\n", "target:", next_key.target);
+        lookup_key = next_key;
+        err = bpf_map_lookup_elem (stack_traces_fd, & next_key.w_k_stack_id, ip);
+        if (err < 0) {
+            fprintf (stderr, "missed kernel stack: %d\n", err);
+        }
+        for (i = 0; i < env.perf_max_stack_depth && ip[i]; i++) {
+            ksym = ksyms__map_addr (ksyms, ip [i]);
+            printf ("	%-16lx %s\n", ip[i], ksym ? ksym->name : "Unknown");
+        }
+        printf ("	%16s %s\n", "waker:", next_key.waker);
+        val /= 1000;
+        printf ("	%lld\n", val);
+    }
+    free (ip);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/wakeuptime.c" funcheader="int main (int argc, char **argv)" startline="200" endline="274">
+int main (int argc, char **argv)
+{
+    static const struct argp argp = {
+        .options = opts,
+        .parser = parse_arg,
+        .doc = argp_program_doc,}
+    ;
+    struct wakeuptime_bpf *obj;
+    struct ksyms *ksyms = NULL;
+    int err;
+    err = argp_parse (& argp, argc, argv, 0, NULL, NULL);
+    if (err)
+        return err;
+    if (env.min_block_time >= env.max_block_time) {
+        fprintf (stderr, "min_block_time should be smaller than max_block_time\n");
+        return 1;
+    }
+    if (env.user_threads_only && env.pid > 0) {
+        fprintf (stderr, "use either -u or -p");
+    }
+    libbpf_set_strict_mode (LIBBPF_STRICT_ALL);
+    libbpf_set_print (libbpf_print_fn);
+    obj = wakeuptime_bpf__open ();
+    if (!obj) {
+        fprintf (stderr, "failed to open BPF object\n");
+        return 1;
+    }
+    obj->rodata->targ_pid = env.pid;
+    obj->rodata->min_block_ns = env.min_block_time * 1000;
+    obj->rodata->max_block_ns = env.max_block_time * 1000;
+    obj->rodata->user_threads_only = env.user_threads_only;
+    bpf_map__set_value_size (obj->maps.stackmap, env.perf_max_stack_depth * sizeof (unsigned long));
+    bpf_map__set_max_entries (obj->maps.stackmap, env.stack_storage_size);
+    err = wakeuptime_bpf__load (obj);
+    if (err) {
+        fprintf (stderr, "failed to load BPF object: %d\n", err);
+        goto cleanup;
+    }
+    ksyms = ksyms__load ();
+    if (!ksyms) {
+        fprintf (stderr, "failed to load kallsyms\n");
+        goto cleanup;
+    }
+    err = wakeuptime_bpf__attach (obj);
+    if (err) {
+        fprintf (stderr, "failed to attach BPF programs\n");
+        goto cleanup;
+    }
+    if (signal (SIGINT, sig_int) == SIG_ERR) {
+        fprintf (stderr, "can't set signal handler: %s\n", strerror (errno));
+        err = 1;
+        goto cleanup;
+    }
+    printf ("Tracing blocked time (us) by kernel stack\n");
+    sleep (env.duration);
+    print_map (ksyms, obj);
+cleanup :
+    wakeuptime_bpf__destroy (obj);
+    ksyms__free (ksyms);
+    return err != 0;
+}
+</source>
+</doc>

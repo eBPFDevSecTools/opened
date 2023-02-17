@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="static inline void sk_extractv4_key (struct bpf_sock_ops *ops, struct sock_key *key)" startline="10" endline="23">
+static inline void sk_extractv4_key (struct bpf_sock_ops *ops, struct sock_key *key)
+{
+    key->dst.ip4 = ops->remote_ip4;
+    key->src.ip4 = ops->local_ip4;
+    key->family = 2;
+    key->sport = (bpf_htonl (ops->local_port) >> 16);
+    key->dport = READ_ONCE (ops->remote_port) >> 16;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="static inline struct endpoints_to_service_value *is_endpoint (struct sock_key *key)" startline="26" endline="32">
+static inline struct endpoints_to_service_value *is_endpoint (struct sock_key *key)
+{
+    struct endpoints_to_service_key map_key = {}
+    ;
+    map_key.ip = key->src.ip4;
+    map_key.port = key->sport;
+    return bpf_map_lookup_elem (&endpoints_to_service_map, &map_key);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="static inline void bpf_sock_ops_ipv4 (struct bpf_sock_ops *skops)" startline="34" endline="117">
+static inline void bpf_sock_ops_ipv4 (struct bpf_sock_ops *skops)
+{
+    struct sock_key key = {}
+    ;
+    struct endpoints_to_service_value *service;
+    sk_extractv4_key (skops, &key);
+    service = is_endpoint (& key);
+    if (service) {
+        struct sock_key key1 = {}
+        ;
+        struct sock_key value1 = {}
+        ;
+        key1.src.ip4 = key.dst.ip4;
+        key1.sport = key.dport;
+        key1.family = key.family;
+        key1.dst.ip4 = key.src.ip4;
+        key1.dport = key.sport;
+        value1.src.ip4 = key.dst.ip4;
+        value1.sport = key.dport;
+        value1.family = key.family;
+        value1.dst.ip4 = service->ip;
+        value1.dport = service->port;
+        bpf_map_update_elem (&sock_ops_aux_map, &key1, &value1, BPF_ANY);
+        bpf_printk ("1: ipv4 op = %d, src %x:%d =>\n", skops->op, key1.src.ip4, bpf_ntohl (key1.sport << 16));
+        bpf_printk ("dst %x:%d\n", key1.dst.ip4, bpf_ntohl (key1.dport << 16));
+        key1.src.ip4 = service->ip;
+        key1.sport = service->port;
+        key1.family = key.family;
+        key1.dst.ip4 = key.dst.ip4;
+        key1.dport = key.dport;
+        value1.src.ip4 = key.src.ip4;
+        value1.sport = key.sport;
+        value1.family = key.family;
+        value1.dst.ip4 = key.dst.ip4;
+        value1.dport = key.dport;
+        bpf_map_update_elem (&sock_ops_aux_map, &key1, &value1, BPF_ANY);
+        bpf_printk ("2: ipv4 op = %d, src %x:%d =>\n", skops->op, key1.src.ip4, bpf_ntohl (key1.sport << 16));
+        bpf_printk ("dst %x:%d\n", key1.dst.ip4, bpf_ntohl (key1.dport << 16));
+        key1.src.ip4 = key.dst.ip4;
+        key1.sport = key.dport;
+        key1.family = 0;
+        key1.dst.ip4 = 0;
+        key1.dport = 0;
+        value1.src.ip4 = key.src.ip4;
+        value1.sport = key.sport;
+        value1.family = 0;
+        value1.dst.ip4 = 0;
+        value1.dport = 0;
+        bpf_map_update_elem (&sock_ops_aux_map, &key1, &value1, BPF_ANY);
+        bpf_printk ("3: ipv4 op = %d, src %x:%d =>\n", skops->op, key1.src.ip4, bpf_ntohl (key1.sport << 16));
+        bpf_printk ("dst %x:%d\n", key1.dst.ip4, bpf_ntohl (key1.dport << 16));
+    }
+    int ret = bpf_sock_hash_update (skops, & sock_ops_map, & key, BPF_ANY);
+    bpf_printk ("<<< ipv4 op = %d, src %x:%d =>\n", skops->op, skops->local_ip4, skops->local_port);
+    bpf_printk ("dst %x:%d\n", skops->remote_ip4, bpf_ntohl (skops->remote_port));
+    if (ret != 0) {
+        bpf_printk ("FAILED: bpf_sock_hash_update ret: %d\n", ret);
+    }
+    ret = bpf_sock_ops_cb_flags_set (skops, BPF_SOCK_OPS_STATE_CB_FLAG);
+    if (ret != 0) {
+        bpf_printk ("FAILED: bpf_sock_ops_cb_flags_set() returned  %d\n", ret);
+    }
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="static inline void bpf_sock_ops_ipv4_cleanup (struct bpf_sock_ops *skops)" startline="119" endline="197">
+static inline void bpf_sock_ops_ipv4_cleanup (struct bpf_sock_ops *skops)
+{
+    struct sock_key key = {}
+    ;
+    struct sock_key *value;
+    bpf_printk (">>> ipv4 op = %d, src %x:%d =>\n", skops->op, skops->local_ip4, skops->local_port);
+    bpf_printk ("dst %x:%d\n", skops->remote_ip4, bpf_ntohl (skops->remote_port));
+    sk_extractv4_key (skops, &key);
+    value = bpf_map_lookup_elem (& sock_ops_aux_map, & key);
+    if (value == 0) {
+        struct sock_key key1 = {}
+        ;
+        struct sock_key *value1;
+        key1.src.ip4 = key.src.ip4;
+        key1.sport = key.sport;
+        key1.family = 0;
+        key1.dst.ip4 = 0;
+        key1.dport = 0;
+        value1 = bpf_map_lookup_elem (& sock_ops_aux_map, & key1);
+        if (value1) {
+            struct sock_key key2 = {}
+            ;
+            key2.src.ip4 = key.src.ip4;
+            key2.sport = key.sport;
+            key2.family = key.family;
+            key2.dst.ip4 = value1->src.ip4;
+            key2.dport = value1->sport;
+            bpf_map_delete_elem (&sock_ops_aux_map, &key2);
+            struct sock_key key3 = {}
+            ;
+            key3.src.ip4 = key.dst.ip4;
+            key3.sport = key.dport;
+            key3.family = key.family;
+            key3.dst.ip4 = key.src.ip4;
+            key3.dport = key.sport;
+            bpf_map_delete_elem (&sock_ops_aux_map, &key3);
+            bpf_map_delete_elem (&sock_ops_aux_map, &key1);
+        }
+        else {
+        }
+    }
+    else {
+        struct sock_key key1 = {}
+        ;
+        key1.src.ip4 = value->dst.ip4;
+        key1.sport = value->dport;
+        key1.family = value->family;
+        key1.dst.ip4 = value->src.ip4;
+        key1.dport = value->sport;
+        bpf_map_delete_elem (&sock_ops_aux_map, &key);
+        bpf_map_delete_elem (&sock_ops_aux_map, &key1);
+        struct sock_key key2 = {}
+        ;
+        key2.src.ip4 = key.src.ip4;
+        key2.sport = key.sport;
+        key2.family = 0;
+        key2.dst.ip4 = 0;
+        key2.dport = 0;
+        bpf_map_delete_elem (&sock_ops_aux_map, &key2);
+    }
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="static inline void sk_extractv6_key (struct bpf_sock_ops *ops, struct sock_key *key)" startline="199" endline="222">
+static inline void sk_extractv6_key (struct bpf_sock_ops *ops, struct sock_key *key)
+{
+    key->dst.ip6[0] = ops->remote_ip6[0];
+    key->dst.ip6[1] = ops->remote_ip6[1];
+    key->dst.ip6[2] = ops->remote_ip6[2];
+    key->dst.ip6[3] = ops->remote_ip6[3];
+    key->src.ip6[0] = ops->local_ip6[0];
+    key->src.ip6[1] = ops->local_ip6[1];
+    key->src.ip6[2] = ops->local_ip6[2];
+    key->src.ip6[3] = ops->local_ip6[3];
+    key->family = 10;
+    key->sport = (bpf_htonl (ops->local_port) >> 16);
+    key->dport = READ_ONCE (ops->remote_port) >> 16;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)" startline="224" endline="238">
+static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)
+{
+    struct sock_key key = {}
+    ;
+    sk_extractv6_key (skops, &key);
+    int ret = bpf_sock_hash_update (skops, & sock_ops_map, & key, BPF_ANY);
+    if (ret != 0) {
+        bpf_printk ("FAILED: bpf_sock_hash_update ret: %d\n", ret);
+    }
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/sk-accelerate-main/src/sockops.c" funcheader="int bpf_sockops (struct bpf_sock_ops *skops)" startline="241" endline="297">
+int bpf_sockops (struct bpf_sock_ops *skops)
+{
+    __u32 family, op;
+    family = skops->family;
+    op = skops->op;
+    switch (op) {
+    case BPF_SOCK_OPS_PASSIVE_ESTABLISHED_CB :
+    case BPF_SOCK_OPS_ACTIVE_ESTABLISHED_CB :
+        if (family == 2) {
+            bpf_sock_ops_ipv4 (skops);
+        }
+        else if (family == 10) {
+            if (skops->remote_ip4 && skops->remote_ip4 != 0x600007f) {
+                bpf_sock_ops_ipv4 (skops);
+            }
+            else {
+                bpf_sock_ops_ipv6 (skops);
+            }
+        }
+        break;
+    case BPF_SOCK_OPS_STATE_CB :
+        switch (skops->args[1]) {
+        case BPF_TCP_CLOSE :
+        case BPF_TCP_CLOSE_WAIT :
+        case BPF_TCP_LAST_ACK :
+            if (family == 2) {
+                bpf_sock_ops_ipv4_cleanup (skops);
+            }
+            else {
+            }
+            break;
+        default :
+            break;
+        }
+        break;
+    default :
+        break;
+    }
+    return 0;
+}
+</source>
+</doc>

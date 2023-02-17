@@ -86,7 +86,8 @@ __attribute__((section("sockops"), used))
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

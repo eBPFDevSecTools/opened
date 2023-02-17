@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.c" funcheader="static error_t parse_arg (int key, char *arg, struct argp_state *state)" startline="50" endline="89">
+static error_t parse_arg (int key, char *arg, struct argp_state *state)
+{
+    static int pos_args;
+    switch (key) {
+    case 'h' :
+        argp_state_help (state, stderr, ARGP_HELP_STD_HELP);
+        break;
+    case 'v' :
+        env.verbose = true;
+        break;
+    case 'T' :
+        env.timestamp = true;
+        break;
+    case ARGP_KEY_ARG :
+        errno = 0;
+        if (pos_args == 0) {
+            env.interval = strtol (arg, NULL, 10);
+            if (errno) {
+                fprintf (stderr, "invalid internal\n");
+                argp_usage (state);
+            }
+        }
+        else if (pos_args == 1) {
+            env.times = strtol (arg, NULL, 10);
+            if (errno) {
+                fprintf (stderr, "invalid times\n");
+                argp_usage (state);
+            }
+        }
+        else {
+            fprintf (stderr, "unrecognized positional argument: %s\n", arg);
+            argp_usage (state);
+        }
+        pos_args++;
+        break;
+    default :
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.c" funcheader="static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)" startline="91" endline="96">
+static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)
+{
+    if (level == LIBBPF_DEBUG && !env.verbose)
+        return 0;
+    return vfprintf (stderr, format, args);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.c" funcheader="static void sig_handler (int sig)" startline="98" endline="101">
+static void sig_handler (int sig)
+{
+    exiting = true;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.c" funcheader="static int get_meminfo (__u64 *buffers, __u64 *cached)" startline="103" endline="122">
+static int get_meminfo (__u64 *buffers, __u64 *cached)
+{
+    FILE *f;
+    f = fopen ("/proc/meminfo", "r");
+    if (!f)
+        return -1;
+    if (fscanf (f, "MemTotal: %*u kB\n" "MemFree: %*u kB\n" "MemAvailable: %*u kB\n" "Buffers: %llu kB\n" "Cached: %llu kB\n", buffers, cached) != 2) {
+        fclose (f);
+        return -1;
+    }
+    fclose (f);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/cachestat.c" funcheader="int main (int argc, char **argv)" startline="124" endline="269">
+int main (int argc, char **argv)
+{
+    static const struct argp argp = {
+        .options = opts,
+        .parser = parse_arg,
+        .doc = argp_program_doc,}
+    ;
+    __u64 buffers, cached, mbd;
+    struct cachestat_bpf *obj;
+    __s64 total, misses, hits;
+    struct tm *tm;
+    float ratio;
+    char ts [32];
+    time_t t;
+    int err;
+    err = argp_parse (& argp, argc, argv, 0, NULL, NULL);
+    if (err)
+        return err;
+    libbpf_set_strict_mode (LIBBPF_STRICT_ALL);
+    libbpf_set_print (libbpf_print_fn);
+    obj = cachestat_bpf__open ();
+    if (!obj) {
+        fprintf (stderr, "failed to open BPF object\n");
+        return 1;
+    }
+    if (fentry_can_attach ("folio_account_dirtied", NULL)) {
+        err = bpf_program__set_attach_target (obj -> progs.fentry_account_page_dirtied, 0, "folio_account_dirtied");
+        if (err) {
+            fprintf (stderr, "failed to set attach target\n");
+            goto cleanup;
+        }
+    }
+    if (kprobe_exists ("folio_account_dirtied")) {
+        bpf_program__set_autoload (obj->progs.kprobe_account_page_dirtied, false);
+    }
+    else {
+        bpf_program__set_autoload (obj->progs.kprobe_folio_account_dirtied, false);
+    }
+    if (fentry_can_attach ("folio_account_dirtied", NULL) || fentry_can_attach ("account_page_dirtied", NULL)) {
+        bpf_program__set_autoload (obj->progs.kprobe_account_page_dirtied, false);
+    }
+    else {
+        bpf_program__set_autoload (obj->progs.fentry_account_page_dirtied, false);
+    }
+    if (fentry_can_attach ("add_to_page_cache_lru", NULL)) {
+        bpf_program__set_autoload (obj->progs.kprobe_add_to_page_cache_lru, false);
+    }
+    else {
+        bpf_program__set_autoload (obj->progs.fentry_add_to_page_cache_lru, false);
+    }
+    if (fentry_can_attach ("mark_page_accessed", NULL)) {
+        bpf_program__set_autoload (obj->progs.kprobe_mark_page_accessed, false);
+    }
+    else {
+        bpf_program__set_autoload (obj->progs.fentry_mark_page_accessed, false);
+    }
+    if (fentry_can_attach ("mark_buffer_dirty", NULL)) {
+        bpf_program__set_autoload (obj->progs.kprobe_mark_buffer_dirty, false);
+    }
+    else {
+        bpf_program__set_autoload (obj->progs.fentry_mark_buffer_dirty, false);
+    }
+    err = cachestat_bpf__load (obj);
+    if (err) {
+        fprintf (stderr, "failed to load BPF object\n");
+        goto cleanup;
+    }
+    if (!obj->bss) {
+        fprintf (stderr, "Memory-mapping BPF maps is supported starting from Linux 5.7, please upgrade.\n");
+        goto cleanup;
+    }
+    err = cachestat_bpf__attach (obj);
+    if (err) {
+        fprintf (stderr, "failed to attach BPF programs\n");
+        goto cleanup;
+    }
+    signal (SIGINT, sig_handler);
+    if (env.timestamp)
+        printf ("%-8s ", "TIME");
+    printf ("%8s %8s %8s %8s %12s %10s\n", "HITS", "MISSES", "DIRTIES", "HITRATIO", "BUFFERS_MB", "CACHED_MB");
+    while (1) {
+        sleep (env.interval);
+        total = __atomic_exchange_n (& obj -> bss -> total, 0, __ATOMIC_RELAXED);
+        misses = __atomic_exchange_n (& obj -> bss -> misses, 0, __ATOMIC_RELAXED);
+        mbd = __atomic_exchange_n (& obj -> bss -> mbd, 0, __ATOMIC_RELAXED);
+        if (total < 0)
+            total = 0;
+        if (misses < 0)
+            misses = 0;
+        hits = total - misses;
+        if (hits < 0) {
+            misses = total;
+            hits = 0;
+        }
+        ratio = total > 0 ? hits * 1.0 / total : 0.0;
+        err = get_meminfo (& buffers, & cached);
+        if (err) {
+            fprintf (stderr, "failed to get meminfo: %d\n", err);
+            goto cleanup;
+        }
+        if (env.timestamp) {
+            time (&t);
+            tm = localtime (& t);
+            strftime (ts, sizeof (ts), "%H:%M:%S", tm);
+            printf ("%-8s ", ts);
+        }
+        printf ("%8lld %8lld %8llu %7.2f%% %12llu %10llu\n", hits, misses, mbd, 100 * ratio, buffers / 1024, cached / 1024);
+        if (exiting || --env.times == 0)
+            break;
+    }
+cleanup :
+    cachestat_bpf__destroy (obj);
+    return err != 0;
+}
+</source>
+</doc>

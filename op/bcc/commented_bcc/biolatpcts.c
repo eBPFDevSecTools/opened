@@ -49,27 +49,27 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "tracepoint",
-    "sched_cls",
+    "cgroup_sock",
+    "perf_event",
+    "sock_ops",
+    "raw_tracepoint",
+    "xdp",
+    "lwt_xmit",
+    "sk_reuseport",
     "sk_msg",
     "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
-    "flow_dissector",
-    "sock_ops",
     "lwt_seg6local",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "lwt_out",
-    "sk_reuseport",
-    "lwt_xmit",
     "cgroup_skb",
-    "cgroup_sock",
-    "raw_tracepoint_writable",
-    "sched_act"
+    "sk_skb",
+    "socket_filter",
+    "kprobe",
+    "flow_dissector",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -77,7 +77,8 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

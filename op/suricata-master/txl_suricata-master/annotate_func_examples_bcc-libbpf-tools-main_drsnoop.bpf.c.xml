@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/drsnoop.bpf.c" funcheader="static int handle_direct_reclaim_begin ()" startline="30" endline="52">
+static int handle_direct_reclaim_begin ()
+{
+    u64 *vm_zone_stat_kaddrp = (u64 *) vm_zone_stat_kaddr;
+    u64 id = bpf_get_current_pid_tgid ();
+    struct piddata piddata = {}
+    ;
+    u32 tgid = id >> 32;
+    u32 pid = id;
+    if (targ_tgid && targ_tgid != tgid)
+        return 0;
+    if (targ_pid && targ_pid != pid)
+        return 0;
+    piddata.ts = bpf_ktime_get_ns ();
+    if (vm_zone_stat_kaddrp) {
+        bpf_probe_read_kernel (&piddata.nr_free_pages, sizeof (*vm_zone_stat_kaddrp), &vm_zone_stat_kaddrp[NR_FREE_PAGES]);
+    }
+    bpf_map_update_elem (&start, &pid, &piddata, 0);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/drsnoop.bpf.c" funcheader="static int handle_direct_reclaim_end (void *ctx, unsigned long nr_reclaimed)" startline="54" endline="90">
+static int handle_direct_reclaim_end (void *ctx, unsigned long nr_reclaimed)
+{
+    u64 id = bpf_get_current_pid_tgid ();
+    struct piddata *piddatap;
+    struct event event = {}
+    ;
+    u32 tgid = id >> 32;
+    u32 pid = id;
+    s64 delta_ns;
+    if (targ_tgid && targ_tgid != tgid)
+        return 0;
+    if (targ_pid && targ_pid != pid)
+        return 0;
+    piddatap = bpf_map_lookup_elem (& start, & pid);
+    if (!piddatap)
+        return 0;
+    delta_ns = bpf_ktime_get_ns () - piddatap->ts;
+    if (delta_ns < 0)
+        goto cleanup;
+    event.pid = pid;
+    event.nr_reclaimed = nr_reclaimed;
+    event.delta_ns = delta_ns;
+    event.nr_free_pages = piddatap->nr_free_pages;
+    bpf_get_current_comm (&event.task, TASK_COMM_LEN);
+    bpf_perf_event_output (ctx, &events, BPF_F_CURRENT_CPU, &event, sizeof (event));
+cleanup :
+    bpf_map_delete_elem (&start, &pid);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/drsnoop.bpf.c" funcheader="int BPF_PROG (direct_reclaim_begin_btf)" startline="93" endline="96">
+int BPF_PROG (direct_reclaim_begin_btf)
+{
+    return handle_direct_reclaim_begin ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/drsnoop.bpf.c" funcheader="int BPF_PROG (direct_reclaim_end_btf, unsigned long nr_reclaimed)" startline="99" endline="102">
+int BPF_PROG (direct_reclaim_end_btf, unsigned long nr_reclaimed)
+{
+    return handle_direct_reclaim_end (ctx, nr_reclaimed);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/drsnoop.bpf.c" funcheader="int BPF_PROG (direct_reclaim_begin)" startline="105" endline="108">
+int BPF_PROG (direct_reclaim_begin)
+{
+    return handle_direct_reclaim_begin ();
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/drsnoop.bpf.c" funcheader="int BPF_PROG (direct_reclaim_end, unsigned long nr_reclaimed)" startline="111" endline="114">
+int BPF_PROG (direct_reclaim_end, unsigned long nr_reclaimed)
+{
+    return handle_direct_reclaim_end (ctx, nr_reclaimed);
+}
+</source>
+</doc>

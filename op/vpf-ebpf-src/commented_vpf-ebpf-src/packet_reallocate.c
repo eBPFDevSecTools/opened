@@ -62,10 +62,10 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sk_skb",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
     {
@@ -73,7 +73,8 @@ __attribute__((section("socket_filter"), used))
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

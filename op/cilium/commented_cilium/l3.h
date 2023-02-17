@@ -22,7 +22,7 @@
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 38,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_l3",
   "updateMaps": [],
   "readMaps": [],
@@ -37,30 +37,36 @@
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "lwt_xmit",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "sk_skb",
+    "raw_tracepoint",
     "lwt_seg6local",
-    "perf_event",
-    "cgroup_sysctl",
-    "cgroup_sock",
-    "xdp",
-    "socket_filter",
-    "cgroup_skb",
-    "kprobe",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
+    "cgroup_device",
     "sched_cls",
     "sched_act",
-    "raw_tracepoint",
-    "flow_dissector",
-    "lwt_out",
+    "lwt_xmit",
     "lwt_in",
-    "cgroup_device",
-    "tracepoint"
+    "flow_dissector",
+    "sk_reuseport",
+    "lwt_out",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "tracepoint",
+    "cgroup_sysctl",
+    "kprobe",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "socket_filter"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -105,7 +111,7 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "helperCallParams": {},
   "startLine": 41,
   "endLine": 56,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_l3",
   "updateMaps": [],
   "readMaps": [],
@@ -120,30 +126,36 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "lwt_xmit",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "sk_skb",
+    "raw_tracepoint",
     "lwt_seg6local",
-    "perf_event",
-    "cgroup_sysctl",
-    "cgroup_sock",
-    "xdp",
-    "socket_filter",
-    "cgroup_skb",
-    "kprobe",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
+    "cgroup_device",
     "sched_cls",
     "sched_act",
-    "raw_tracepoint",
-    "flow_dissector",
-    "lwt_out",
+    "lwt_xmit",
     "lwt_in",
-    "cgroup_device",
-    "tracepoint"
+    "flow_dissector",
+    "sk_reuseport",
+    "lwt_out",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "tracepoint",
+    "cgroup_sysctl",
+    "kprobe",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "socket_filter"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -210,7 +222,7 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   },
   "startLine": 65,
   "endLine": 106,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_local_delivery",
   "updateMaps": [],
   "readMaps": [],
@@ -224,16 +236,22 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "tail_call",
-    "redirect"
+    "redirect",
+    "tail_call"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
     "sched_act",
-    "xdp"
+    "sched_cls",
+    "xdp",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -325,7 +343,7 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   },
   "startLine": 114,
   "endLine": 154,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_local_delivery",
   "updateMaps": [],
   "readMaps": [],
@@ -340,16 +358,22 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "tail_call",
-    "redirect"
+    "redirect",
+    "tail_call"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
     "sched_act",
-    "xdp"
+    "sched_cls",
+    "xdp",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -441,7 +465,7 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   },
   "startLine": 157,
   "endLine": 185,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/l3.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "get_min_encrypt_key",
   "updateMaps": [],
   "readMaps": [
@@ -456,30 +480,36 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "lwt_xmit",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "sk_skb",
+    "raw_tracepoint",
     "lwt_seg6local",
-    "perf_event",
-    "cgroup_sysctl",
-    "cgroup_sock",
-    "xdp",
-    "socket_filter",
-    "cgroup_skb",
-    "kprobe",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
+    "cgroup_device",
     "sched_cls",
     "sched_act",
-    "raw_tracepoint",
-    "flow_dissector",
-    "lwt_out",
+    "lwt_xmit",
     "lwt_in",
-    "cgroup_device",
-    "tracepoint"
+    "flow_dissector",
+    "sk_reuseport",
+    "lwt_out",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "tracepoint",
+    "cgroup_sysctl",
+    "kprobe",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "socket_filter"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

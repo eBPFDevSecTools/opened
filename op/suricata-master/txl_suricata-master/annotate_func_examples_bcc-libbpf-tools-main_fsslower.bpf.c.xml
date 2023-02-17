@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="static int probe_entry (struct file *fp, loff_t start, loff_t end)" startline="35" endline="54">
+static int probe_entry (struct file *fp, loff_t start, loff_t end)
+{
+    __u64 pid_tgid = bpf_get_current_pid_tgid ();
+    __u32 pid = pid_tgid >> 32;
+    __u32 tid = (__u32) pid_tgid;
+    struct data data;
+    if (!fp)
+        return 0;
+    if (target_pid && target_pid != pid)
+        return 0;
+    data.ts = bpf_ktime_get_ns ();
+    data.start = start;
+    data.end = end;
+    data.fp = fp;
+    bpf_map_update_elem (&starts, &tid, &data, BPF_ANY);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="static int probe_exit (void *ctx, enum fs_file_op op, ssize_t size)" startline="56" endline="98">
+static int probe_exit (void *ctx, enum fs_file_op op, ssize_t size)
+{
+    __u64 pid_tgid = bpf_get_current_pid_tgid ();
+    __u32 pid = pid_tgid >> 32;
+    __u32 tid = (__u32) pid_tgid;
+    __u64 end_ns, delta_ns;
+    const __u8 *file_name;
+    struct data *datap;
+    struct event event = {}
+    ;
+    struct dentry *dentry;
+    struct file *fp;
+    if (target_pid && target_pid != pid)
+        return 0;
+    datap = bpf_map_lookup_elem (& starts, & tid);
+    if (!datap)
+        return 0;
+    bpf_map_delete_elem (&starts, &tid);
+    end_ns = bpf_ktime_get_ns ();
+    delta_ns = end_ns - datap->ts;
+    if (delta_ns <= min_lat_ns)
+        return 0;
+    event.delta_us = delta_ns / 1000;
+    event.end_ns = end_ns;
+    event.offset = datap->start;
+    if (op != F_FSYNC)
+        event.size = size;
+    else
+        event.size = datap->end - datap->start;
+    event.pid = pid;
+    event.op = op;
+    fp = datap->fp;
+    dentry = BPF_CORE_READ (fp, f_path.dentry);
+    file_name = BPF_CORE_READ (dentry, d_name.name);
+    bpf_probe_read_kernel_str (&event.file, sizeof (event.file), file_name);
+    bpf_get_current_comm (&event.task, sizeof (event.task));
+    bpf_perf_event_output (ctx, &events, BPF_F_CURRENT_CPU, &event, sizeof (event));
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KPROBE (file_read_entry, struct kiocb *iocb)" startline="101" endline="107">
+int BPF_KPROBE (file_read_entry, struct kiocb *iocb)
+{
+    struct file *fp = BPF_CORE_READ (iocb, ki_filp);
+    loff_t start = BPF_CORE_READ (iocb, ki_pos);
+    return probe_entry (fp, start, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KRETPROBE (file_read_exit, ssize_t ret)" startline="110" endline="113">
+int BPF_KRETPROBE (file_read_exit, ssize_t ret)
+{
+    return probe_exit (ctx, F_READ, ret);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KPROBE (file_write_entry, struct kiocb *iocb)" startline="116" endline="122">
+int BPF_KPROBE (file_write_entry, struct kiocb *iocb)
+{
+    struct file *fp = BPF_CORE_READ (iocb, ki_filp);
+    loff_t start = BPF_CORE_READ (iocb, ki_pos);
+    return probe_entry (fp, start, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KRETPROBE (file_write_exit, ssize_t ret)" startline="125" endline="128">
+int BPF_KRETPROBE (file_write_exit, ssize_t ret)
+{
+    return probe_exit (ctx, F_WRITE, ret);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KPROBE (file_open_entry, struct inode *inode, struct file *file)" startline="131" endline="134">
+int BPF_KPROBE (file_open_entry, struct inode *inode, struct file *file)
+{
+    return probe_entry (file, 0, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KRETPROBE (file_open_exit)" startline="137" endline="140">
+int BPF_KRETPROBE (file_open_exit)
+{
+    return probe_exit (ctx, F_OPEN, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KPROBE (file_sync_entry, struct file *file, loff_t start, loff_t end)" startline="143" endline="146">
+int BPF_KPROBE (file_sync_entry, struct file *file, loff_t start, loff_t end)
+{
+    return probe_entry (file, start, end);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_KRETPROBE (file_sync_exit)" startline="149" endline="152">
+int BPF_KRETPROBE (file_sync_exit)
+{
+    return probe_exit (ctx, F_FSYNC, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_read_fentry, struct kiocb *iocb)" startline="155" endline="161">
+int BPF_PROG (file_read_fentry, struct kiocb *iocb)
+{
+    struct file *fp = iocb->ki_filp;
+    loff_t start = iocb->ki_pos;
+    return probe_entry (fp, start, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_read_fexit, struct kiocb *iocb, struct iov_iter *to, ssize_t ret)" startline="164" endline="167">
+int BPF_PROG (file_read_fexit, struct kiocb *iocb, struct iov_iter *to, ssize_t ret)
+{
+    return probe_exit (ctx, F_READ, ret);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_write_fentry, struct kiocb *iocb)" startline="170" endline="176">
+int BPF_PROG (file_write_fentry, struct kiocb *iocb)
+{
+    struct file *fp = iocb->ki_filp;
+    loff_t start = iocb->ki_pos;
+    return probe_entry (fp, start, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_write_fexit, struct kiocb *iocb, struct iov_iter *from, ssize_t ret)" startline="179" endline="182">
+int BPF_PROG (file_write_fexit, struct kiocb *iocb, struct iov_iter *from, ssize_t ret)
+{
+    return probe_exit (ctx, F_WRITE, ret);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_open_fentry, struct inode *inode, struct file *file)" startline="185" endline="188">
+int BPF_PROG (file_open_fentry, struct inode *inode, struct file *file)
+{
+    return probe_entry (file, 0, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_open_fexit)" startline="191" endline="194">
+int BPF_PROG (file_open_fexit)
+{
+    return probe_exit (ctx, F_OPEN, 0);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_sync_fentry, struct file *file, loff_t start, loff_t end)" startline="197" endline="200">
+int BPF_PROG (file_sync_fentry, struct file *file, loff_t start, loff_t end)
+{
+    return probe_entry (file, start, end);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsslower.bpf.c" funcheader="int BPF_PROG (file_sync_fexit)" startline="203" endline="206">
+int BPF_PROG (file_sync_fexit)
+{
+    return probe_exit (ctx, F_FSYNC, 0);
+}
+</source>
+</doc>

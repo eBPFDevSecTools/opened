@@ -71,7 +71,7 @@ struct {
   },
   "startLine": 11,
   "endLine": 24,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/custom/bytecount.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bytecount.h",
   "funcName": "custom_prog",
   "updateMaps": [
     " bytecount_map"
@@ -85,35 +85,41 @@ struct {
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "map_lookup_elem",
-    "map_update_elem"
+    "map_update_elem",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "lwt_xmit",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "sk_skb",
+    "raw_tracepoint",
     "lwt_seg6local",
-    "perf_event",
-    "cgroup_sysctl",
-    "cgroup_sock",
-    "xdp",
-    "socket_filter",
-    "cgroup_skb",
-    "kprobe",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
+    "cgroup_device",
     "sched_cls",
     "sched_act",
-    "raw_tracepoint",
-    "flow_dissector",
-    "lwt_out",
+    "lwt_xmit",
     "lwt_in",
-    "cgroup_device",
-    "tracepoint"
+    "flow_dissector",
+    "sk_reuseport",
+    "lwt_out",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "tracepoint",
+    "cgroup_sysctl",
+    "kprobe",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "socket_filter"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

@@ -51,9 +51,9 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
     "bpf_get_current_comm"
   ],
   "compatibleHookpoints": [
-    "perf_event",
     "tracepoint",
     "kprobe",
+    "perf_event",
     "raw_tracepoint_writable",
     "raw_tracepoint"
   ],
@@ -63,7 +63,8 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

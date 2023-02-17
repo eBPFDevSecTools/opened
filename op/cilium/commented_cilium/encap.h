@@ -34,7 +34,7 @@
   },
   "startLine": 18,
   "endLine": 40,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_nomark_ipsec",
   "updateMaps": [],
   "readMaps": [],
@@ -51,10 +51,16 @@
   "compatibleHookpoints": [
     "lwt_xmit",
     "sched_cls",
-    "sched_act",
-    "xdp"
+    "xdp",
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -112,7 +118,7 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 42,
   "endLine": 57,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_ipsec",
   "updateMaps": [],
   "readMaps": [],
@@ -129,10 +135,16 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "compatibleHookpoints": [
     "lwt_xmit",
     "sched_cls",
-    "sched_act",
-    "xdp"
+    "xdp",
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -205,7 +217,7 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 60,
   "endLine": 117,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_remap_v6_host_address",
   "updateMaps": [],
   "readMaps": [],
@@ -218,15 +230,21 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "lwt_seg6local",
     "sched_cls",
     "sched_act",
     "lwt_out",
+    "lwt_xmit",
     "lwt_in",
+    "lwt_seg6local",
     "xdp"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -307,7 +325,7 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "helperCallParams": {},
   "startLine": 119,
   "endLine": 154,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "__encap_with_nodeid",
   "updateMaps": [],
   "readMaps": [],
@@ -323,30 +341,36 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "lwt_xmit",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "sk_skb",
+    "raw_tracepoint",
     "lwt_seg6local",
-    "perf_event",
-    "cgroup_sysctl",
-    "cgroup_sock",
-    "xdp",
-    "socket_filter",
-    "cgroup_skb",
-    "kprobe",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
+    "cgroup_device",
     "sched_cls",
     "sched_act",
-    "raw_tracepoint",
-    "flow_dissector",
-    "lwt_out",
+    "lwt_xmit",
     "lwt_in",
-    "cgroup_device",
-    "tracepoint"
+    "flow_dissector",
+    "sk_reuseport",
+    "lwt_out",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "tracepoint",
+    "cgroup_sysctl",
+    "kprobe",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "socket_filter"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -426,7 +450,7 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 156,
   "endLine": 167,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "__encap_and_redirect_with_nodeid",
   "updateMaps": [],
   "readMaps": [],
@@ -444,10 +468,16 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "compatibleHookpoints": [
     "lwt_xmit",
     "sched_cls",
-    "sched_act",
-    "xdp"
+    "xdp",
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -519,7 +549,7 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 174,
   "endLine": 185,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_with_nodeid",
   "updateMaps": [],
   "readMaps": [],
@@ -537,10 +567,16 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "compatibleHookpoints": [
     "lwt_xmit",
     "sched_cls",
-    "sched_act",
-    "xdp"
+    "xdp",
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -663,7 +699,7 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 197,
   "endLine": 242,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_lxc",
   "updateMaps": [],
   "readMaps": [
@@ -679,16 +715,22 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_lookup_elem",
-    "redirect"
+    "redirect",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
     "sched_act",
-    "xdp"
+    "sched_cls",
+    "xdp",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -814,7 +856,7 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   },
   "startLine": 244,
   "endLine": 264,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encap.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_netdev",
   "updateMaps": [],
   "readMaps": [
@@ -828,16 +870,22 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_lookup_elem",
-    "redirect"
+    "redirect",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
     "sched_act",
-    "xdp"
+    "sched_cls",
+    "xdp",
+    "lwt_xmit"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static error_t parse_arg (int key, char *arg, struct argp_state *state)" startline="118" endline="181">
+static error_t parse_arg (int key, char *arg, struct argp_state *state)
+{
+    static int pos_args;
+    switch (key) {
+    case 'v' :
+        verbose = true;
+        break;
+    case 'T' :
+        emit_timestamp = true;
+        break;
+    case 'm' :
+        timestamp_in_ms = true;
+        break;
+    case 't' :
+        if (!strcmp (arg, "btrfs")) {
+            fs_type = BTRFS;
+        }
+        else if (!strcmp (arg, "ext4")) {
+            fs_type = EXT4;
+        }
+        else if (!strcmp (arg, "nfs")) {
+            fs_type = NFS;
+        }
+        else if (!strcmp (arg, "xfs")) {
+            fs_type = XFS;
+        }
+        else {
+            warn ("invalid filesystem\n");
+            argp_usage (state);
+        }
+        break;
+    case 'p' :
+        errno = 0;
+        target_pid = strtol (arg, NULL, 10);
+        if (errno || target_pid <= 0) {
+            warn ("invalid PID: %s\n", arg);
+            argp_usage (state);
+        }
+        break;
+    case 'h' :
+        argp_state_help (state, stderr, ARGP_HELP_STD_HELP);
+        break;
+    case ARGP_KEY_ARG :
+        errno = 0;
+        if (pos_args == 0) {
+            interval = strtol (arg, NULL, 10);
+            if (errno) {
+                warn ("invalid internal\n");
+                argp_usage (state);
+            }
+        }
+        else if (pos_args == 1) {
+            count = strtol (arg, NULL, 10);
+            if (errno) {
+                warn ("invalid count\n");
+                argp_usage (state);
+            }
+        }
+        else {
+            warn ("unrecognized positional argument: %s\n", arg);
+            argp_usage (state);
+        }
+        pos_args++;
+        break;
+    default :
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static void alias_parse (char *prog)" startline="183" endline="196">
+static void alias_parse (char *prog)
+{
+    char *name = basename (prog);
+    if (!strcmp (name, "btrfsdist")) {
+        fs_type = BTRFS;
+    }
+    else if (!strcmp (name, "ext4dist")) {
+        fs_type = EXT4;
+    }
+    else if (!strcmp (name, "nfsdist")) {
+        fs_type = NFS;
+    }
+    else if (!strcmp (name, "xfsdist")) {
+        fs_type = XFS;
+    }
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)" startline="198" endline="203">
+static int libbpf_print_fn (enum libbpf_print_level level, const char *format, va_list args)
+{
+    if (level == LIBBPF_DEBUG && !verbose)
+        return 0;
+    return vfprintf (stderr, format, args);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static void sig_handler (int sig)" startline="205" endline="208">
+static void sig_handler (int sig)
+{
+    exiting = 1;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static int print_hists (struct fsdist_bpf__bss *bss)" startline="210" endline="226">
+static int print_hists (struct fsdist_bpf__bss *bss)
+{
+    const char *units = timestamp_in_ms ? "msecs" : "usecs";
+    enum fs_file_op op;
+    for (op = F_READ; op < F_MAX_OP; op++) {
+        struct hist hist = bss->hists[op];
+        bss->hists[op] = zero;
+        if (!memcmp (&zero, &hist, sizeof (hist)))
+            continue;
+        printf ("operation = '%s'\n", file_op_names[op]);
+        print_log2_hist (hist.slots, MAX_SLOTS, units);
+        printf ("\n");
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static bool check_fentry ()" startline="228" endline="243">
+static bool check_fentry ()
+{
+    int i;
+    const char *fn_name, *module;
+    bool support_fentry = true;
+    for (i = 0; i < F_MAX_OP; i++) {
+        fn_name = fs_configs[fs_type].op_funcs[i];
+        module = fs_configs[fs_type].fs;
+        if (fn_name && !fentry_can_attach (fn_name, module)) {
+            support_fentry = false;
+            break;
+        }
+    }
+    return support_fentry;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static int fentry_set_attach_target (struct fsdist_bpf *obj)" startline="245" endline="266">
+static int fentry_set_attach_target (struct fsdist_bpf *obj)
+{
+    struct fs_config *cfg = &fs_configs[fs_type];
+    int err = 0;
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_read_fentry, 0, cfg->op_funcs[F_READ]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_read_fexit, 0, cfg->op_funcs[F_READ]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_write_fentry, 0, cfg->op_funcs[F_WRITE]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_write_fexit, 0, cfg->op_funcs[F_WRITE]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_open_fentry, 0, cfg->op_funcs[F_OPEN]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_open_fexit, 0, cfg->op_funcs[F_OPEN]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_sync_fentry, 0, cfg->op_funcs[F_FSYNC]);
+    err = err ? : bpf_program__set_attach_target (obj->progs.file_sync_fexit, 0, cfg->op_funcs[F_FSYNC]);
+    if (cfg->op_funcs[F_GETATTR]) {
+        err = err ? : bpf_program__set_attach_target (obj->progs.getattr_fentry, 0, cfg->op_funcs[F_GETATTR]);
+        err = err ? : bpf_program__set_attach_target (obj->progs.getattr_fexit, 0, cfg->op_funcs[F_GETATTR]);
+    }
+    else {
+        bpf_program__set_autoload (obj->progs.getattr_fentry, false);
+        bpf_program__set_autoload (obj->progs.getattr_fexit, false);
+    }
+    return err;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static void disable_fentry (struct fsdist_bpf *obj)" startline="268" endline="280">
+static void disable_fentry (struct fsdist_bpf *obj)
+{
+    bpf_program__set_autoload (obj->progs.file_read_fentry, false);
+    bpf_program__set_autoload (obj->progs.file_read_fexit, false);
+    bpf_program__set_autoload (obj->progs.file_write_fentry, false);
+    bpf_program__set_autoload (obj->progs.file_write_fexit, false);
+    bpf_program__set_autoload (obj->progs.file_open_fentry, false);
+    bpf_program__set_autoload (obj->progs.file_open_fexit, false);
+    bpf_program__set_autoload (obj->progs.file_sync_fentry, false);
+    bpf_program__set_autoload (obj->progs.file_sync_fexit, false);
+    bpf_program__set_autoload (obj->progs.getattr_fentry, false);
+    bpf_program__set_autoload (obj->progs.getattr_fexit, false);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static void disable_kprobes (struct fsdist_bpf *obj)" startline="282" endline="294">
+static void disable_kprobes (struct fsdist_bpf *obj)
+{
+    bpf_program__set_autoload (obj->progs.file_read_entry, false);
+    bpf_program__set_autoload (obj->progs.file_read_exit, false);
+    bpf_program__set_autoload (obj->progs.file_write_entry, false);
+    bpf_program__set_autoload (obj->progs.file_write_exit, false);
+    bpf_program__set_autoload (obj->progs.file_open_entry, false);
+    bpf_program__set_autoload (obj->progs.file_open_exit, false);
+    bpf_program__set_autoload (obj->progs.file_sync_entry, false);
+    bpf_program__set_autoload (obj->progs.file_sync_exit, false);
+    bpf_program__set_autoload (obj->progs.getattr_entry, false);
+    bpf_program__set_autoload (obj->progs.getattr_exit, false);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="static int attach_kprobes (struct fsdist_bpf *obj)" startline="296" endline="343">
+static int attach_kprobes (struct fsdist_bpf *obj)
+{
+    long err = 0;
+    struct fs_config *cfg = &fs_configs[fs_type];
+    obj->links.file_read_entry = bpf_program__attach_kprobe (obj->progs.file_read_entry, false, cfg->op_funcs[F_READ]);
+    if (!obj->links.file_read_entry)
+        goto errout;
+    obj->links.file_read_exit = bpf_program__attach_kprobe (obj->progs.file_read_exit, true, cfg->op_funcs[F_READ]);
+    if (!obj->links.file_read_exit)
+        goto errout;
+    obj->links.file_write_entry = bpf_program__attach_kprobe (obj->progs.file_write_entry, false, cfg->op_funcs[F_WRITE]);
+    if (!obj->links.file_write_entry)
+        goto errout;
+    obj->links.file_write_exit = bpf_program__attach_kprobe (obj->progs.file_write_exit, true, cfg->op_funcs[F_WRITE]);
+    if (!obj->links.file_write_exit)
+        goto errout;
+    obj->links.file_open_entry = bpf_program__attach_kprobe (obj->progs.file_open_entry, false, cfg->op_funcs[F_OPEN]);
+    if (!obj->links.file_open_entry)
+        goto errout;
+    obj->links.file_open_exit = bpf_program__attach_kprobe (obj->progs.file_open_exit, true, cfg->op_funcs[F_OPEN]);
+    if (!obj->links.file_open_exit)
+        goto errout;
+    obj->links.file_sync_entry = bpf_program__attach_kprobe (obj->progs.file_sync_entry, false, cfg->op_funcs[F_FSYNC]);
+    if (!obj->links.file_sync_entry)
+        goto errout;
+    obj->links.file_sync_exit = bpf_program__attach_kprobe (obj->progs.file_sync_exit, true, cfg->op_funcs[F_FSYNC]);
+    if (!obj->links.file_sync_exit)
+        goto errout;
+    if (!cfg->op_funcs[F_GETATTR])
+        return 0;
+    obj->links.getattr_entry = bpf_program__attach_kprobe (obj->progs.getattr_entry, false, cfg->op_funcs[F_GETATTR]);
+    if (!obj->links.getattr_entry)
+        goto errout;
+    obj->links.getattr_exit = bpf_program__attach_kprobe (obj->progs.getattr_exit, true, cfg->op_funcs[F_GETATTR]);
+    if (!obj->links.getattr_exit)
+        goto errout;
+    return 0;
+errout :
+    err = -errno;
+    warn ("failed to attach kprobe: %ld\n", err);
+    return err;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/fsdist.c" funcheader="int main (int argc, char **argv)" startline="345" endline="450">
+int main (int argc, char **argv)
+{
+    LIBBPF_OPTS (bpf_object_open_opts, open_opts);
+    static const struct argp argp = {
+        .options = opts,
+        .parser = parse_arg,
+        .doc = argp_program_doc,}
+    ;
+    struct fsdist_bpf *skel;
+    struct tm *tm;
+    char ts [32];
+    time_t t;
+    int err;
+    bool support_fentry;
+    alias_parse (argv[0]);
+    err = argp_parse (& argp, argc, argv, 0, NULL, NULL);
+    if (err)
+        return err;
+    if (fs_type == NONE) {
+        warn ("filesystem must be specified using -t option.\n");
+        return 1;
+    }
+    libbpf_set_strict_mode (LIBBPF_STRICT_ALL);
+    libbpf_set_print (libbpf_print_fn);
+    err = ensure_core_btf (& open_opts);
+    if (err) {
+        fprintf (stderr, "failed to fetch necessary BTF for CO-RE: %s\n", strerror (-err));
+        return 1;
+    }
+    skel = fsdist_bpf__open_opts (& open_opts);
+    if (!skel) {
+        warn ("failed to open BPF object\n");
+        return 1;
+    }
+    skel->rodata->target_pid = target_pid;
+    skel->rodata->in_ms = timestamp_in_ms;
+    support_fentry = check_fentry ();
+    if (support_fentry) {
+        err = fentry_set_attach_target (skel);
+        if (err) {
+            warn ("failed to set attach target: %d\n", err);
+            goto cleanup;
+        }
+        disable_kprobes (skel);
+    }
+    else {
+        disable_fentry (skel);
+    }
+    err = fsdist_bpf__load (skel);
+    if (err) {
+        warn ("failed to load BPF object: %d\n", err);
+        goto cleanup;
+    }
+    err = support_fentry ? fsdist_bpf__attach (skel) : attach_kprobes (skel);
+    if (err) {
+        warn ("failed to attach BPF programs: %d\n", err);
+        goto cleanup;
+    }
+    signal (SIGINT, sig_handler);
+    printf ("Tracing %s operation latency... Hit Ctrl-C to end.\n", fs_configs[fs_type].fs);
+    while (1) {
+        sleep (interval);
+        printf ("\n");
+        if (emit_timestamp) {
+            time (&t);
+            tm = localtime (& t);
+            strftime (ts, sizeof (ts), "%H:%M:%S", tm);
+            printf ("%-8s\n", ts);
+        }
+        err = print_hists (skel -> bss);
+        if (err)
+            break;
+        if (exiting || --count == 0)
+            break;
+    }
+cleanup :
+    fsdist_bpf__destroy (skel);
+    cleanup_core_btf (&open_opts);
+    return err != 0;
+}
+</source>
+</doc>

@@ -71,29 +71,29 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "sched_cls",
-    "sched_act",
     "socket_filter",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "lwt_xmit",
-    "kprobe",
-    "lwt_in",
-    "xdp",
-    "cgroup_sock_addr",
-    "sk_msg",
-    "cgroup_skb",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
     "raw_tracepoint_writable",
-    "flow_dissector",
-    "cgroup_device",
-    "lwt_out",
+    "sk_reuseport",
+    "lwt_seg6local",
+    "cgroup_skb",
     "sock_ops",
+    "lwt_out",
+    "sched_act",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "kprobe",
+    "sk_msg",
+    "cgroup_device",
+    "lwt_in",
     "cgroup_sysctl",
-    "raw_tracepoint"
+    "flow_dissector",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -101,7 +101,8 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

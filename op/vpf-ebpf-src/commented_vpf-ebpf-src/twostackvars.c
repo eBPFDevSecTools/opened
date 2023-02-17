@@ -63,27 +63,27 @@ static int (*get_prandom_u32)() = (void*)7;
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "sched_cls",
-    "sched_act",
     "socket_filter",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "lwt_xmit",
-    "kprobe",
-    "lwt_in",
-    "xdp",
-    "cgroup_sock_addr",
-    "sk_msg",
-    "cgroup_skb",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock",
     "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_out",
+    "sk_reuseport",
+    "lwt_seg6local",
+    "cgroup_skb",
     "sock_ops",
-    "raw_tracepoint"
+    "lwt_out",
+    "sched_act",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "kprobe",
+    "sk_msg",
+    "lwt_in",
+    "flow_dissector",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
+    "sk_skb"
   ],
   "humanFuncDescription": [
     {
@@ -91,7 +91,8 @@ static int (*get_prandom_u32)() = (void*)7;
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

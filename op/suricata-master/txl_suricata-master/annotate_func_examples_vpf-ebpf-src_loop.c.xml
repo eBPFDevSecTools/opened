@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/vpf-ebpf-src/loop.c" funcheader="int foo (struct test_md *ctx)" startline="13" endline="31">
+int foo (struct test_md *ctx)
+{
+    int index;
+    int cumul = 0;
+    uint8_t array [ARRAY_LENGTH] = {0};
+    for (index = 0; index < sizeof (array); index++) {
+        if ((ctx->data_start + index) >= ctx->data_end)
+            break;
+        array[index] = 1;
+    }
+    for (index = 0; index < sizeof (array); index++) {
+        cumul += array[index];
+    }
+    return cumul;
+}
+</source>
+</doc>

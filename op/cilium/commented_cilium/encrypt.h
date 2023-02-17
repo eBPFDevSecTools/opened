@@ -30,7 +30,7 @@
   },
   "startLine": 15,
   "endLine": 75,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -45,10 +45,16 @@
   "compatibleHookpoints": [
     "lwt_xmit",
     "sched_cls",
-    "sched_act",
-    "xdp"
+    "xdp",
+    "sched_act"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -132,7 +138,7 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   "helperCallParams": {},
   "startLine": 77,
   "endLine": 81,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/lib/encrypt.h",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
   "updateMaps": [],
   "readMaps": [],
@@ -144,30 +150,36 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "lwt_xmit",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "sk_skb",
+    "raw_tracepoint",
     "lwt_seg6local",
-    "perf_event",
-    "cgroup_sysctl",
-    "cgroup_sock",
-    "xdp",
-    "socket_filter",
-    "cgroup_skb",
-    "kprobe",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
+    "cgroup_device",
     "sched_cls",
     "sched_act",
-    "raw_tracepoint",
-    "flow_dissector",
-    "lwt_out",
+    "lwt_xmit",
     "lwt_in",
-    "cgroup_device",
-    "tracepoint"
+    "flow_dissector",
+    "sk_reuseport",
+    "lwt_out",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "tracepoint",
+    "cgroup_sysctl",
+    "kprobe",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "socket_filter"
   ],
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

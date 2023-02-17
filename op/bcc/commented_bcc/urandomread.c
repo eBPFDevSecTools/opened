@@ -28,29 +28,29 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sched_cls",
-    "sk_msg",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "sk_skb",
-    "flow_dissector",
-    "sock_ops",
-    "lwt_seg6local",
-    "kprobe",
-    "perf_event",
     "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "lwt_out",
-    "sk_reuseport",
-    "lwt_xmit",
-    "cgroup_skb",
-    "cgroup_sock",
-    "cgroup_sysctl",
     "raw_tracepoint_writable",
     "sched_act",
-    "cgroup_device"
+    "tracepoint",
+    "cgroup_sysctl",
+    "cgroup_sock",
+    "perf_event",
+    "sock_ops",
+    "raw_tracepoint",
+    "xdp",
+    "lwt_xmit",
+    "sk_reuseport",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_seg6local",
+    "lwt_out",
+    "cgroup_skb",
+    "sk_skb",
+    "socket_filter",
+    "kprobe",
+    "cgroup_device",
+    "flow_dissector",
+    "sched_cls"
   ],
   "humanFuncDescription": [
     {
@@ -58,7 +58,8 @@
       "author": "",
       "authorEmail": "",
       "date": ""
-    }
+    },
+    {}
   ],
   "AI_func_description": [
     {

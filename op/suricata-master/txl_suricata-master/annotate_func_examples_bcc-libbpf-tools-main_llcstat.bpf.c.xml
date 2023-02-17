@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/llcstat.bpf.c" funcheader="static __always_inline int trace_event (__u64 sample_period, bool miss)" startline="20" endline="44">
+static __always_inline int trace_event (__u64 sample_period, bool miss)
+{
+    struct key_info key = {}
+    ;
+    struct value_info *infop, zero = {};
+    u64 pid_tgid = bpf_get_current_pid_tgid ();
+    key.cpu = bpf_get_smp_processor_id ();
+    key.pid = pid_tgid >> 32;
+    if (targ_per_thread)
+        key.tid = (u32) pid_tgid;
+    else
+        key.tid = key.pid;
+    infop = bpf_map_lookup_or_try_init (& infos, & key, & zero);
+    if (!infop)
+        return 0;
+    if (miss)
+        infop->miss += sample_period;
+    else
+        infop->ref += sample_period;
+    bpf_get_current_comm (infop->comm, sizeof (infop->comm));
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/llcstat.bpf.c" funcheader="int on_cache_miss (struct bpf_perf_event_data *ctx)" startline="47" endline="50">
+int on_cache_miss (struct bpf_perf_event_data *ctx)
+{
+    return trace_event (ctx->sample_period, true);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/llcstat.bpf.c" funcheader="int on_cache_ref (struct bpf_perf_event_data *ctx)" startline="53" endline="56">
+int on_cache_ref (struct bpf_perf_event_data *ctx)
+{
+    return trace_event (ctx->sample_period, false);
+}
+</source>
+</doc>

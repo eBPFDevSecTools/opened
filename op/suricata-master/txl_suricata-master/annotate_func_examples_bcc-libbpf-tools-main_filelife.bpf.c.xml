@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/filelife.bpf.c" funcheader="static __always_inline int probe_create (struct dentry *dentry)" startline="28" endline="41">
+static __always_inline int probe_create (struct dentry *dentry)
+{
+    u64 id = bpf_get_current_pid_tgid ();
+    u32 tgid = id >> 32;
+    u64 ts;
+    if (targ_tgid && targ_tgid != tgid)
+        return 0;
+    ts = bpf_ktime_get_ns ();
+    bpf_map_update_elem (&start, &dentry, &ts, 0);
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/filelife.bpf.c" funcheader="int BPF_KPROBE (vfs_create, void *arg0, void *arg1, void *arg2)" startline="53" endline="59">
+int BPF_KPROBE (vfs_create, void *arg0, void *arg1, void *arg2)
+{
+    if (renamedata_has_old_mnt_userns_field ())
+        return probe_create (arg2);
+    else
+        return probe_create (arg1);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/filelife.bpf.c" funcheader="int BPF_KPROBE (vfs_open, struct path *path, struct file *file)" startline="62" endline="71">
+int BPF_KPROBE (vfs_open, struct path *path, struct file *file)
+{
+    struct dentry *dentry = BPF_CORE_READ (path, dentry);
+    int fmode = BPF_CORE_READ (file, f_mode);
+    if (!(fmode & FMODE_CREATED))
+        return 0;
+    return probe_create (dentry);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/filelife.bpf.c" funcheader="int BPF_KPROBE (security_inode_create, struct inode *dir, struct dentry *dentry)" startline="74" endline="78">
+int BPF_KPROBE (security_inode_create, struct inode *dir, struct dentry *dentry)
+{
+    return probe_create (dentry);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/filelife.bpf.c" funcheader="int BPF_KPROBE (vfs_unlink, void *arg0, void *arg1, void *arg2)" startline="90" endline="125">
+int BPF_KPROBE (vfs_unlink, void *arg0, void *arg1, void *arg2)
+{
+    u64 id = bpf_get_current_pid_tgid ();
+    struct event event = {}
+    ;
+    const u8 *qs_name_ptr;
+    u32 tgid = id >> 32;
+    u64 *tsp, delta_ns;
+    bool has_arg = renamedata_has_old_mnt_userns_field ();
+    tsp = has_arg ? bpf_map_lookup_elem (&start, &arg2) : bpf_map_lookup_elem (&start, &arg1);
+    if (!tsp)
+        return 0;
+    delta_ns = bpf_ktime_get_ns () - *tsp;
+    if (has_arg)
+        bpf_map_delete_elem (&start, &arg2);
+    else
+        bpf_map_delete_elem (&start, &arg1);
+    qs_name_ptr = has_arg ? BPF_CORE_READ ((struct dentry *) arg2, d_name.name) : BPF_CORE_READ ((struct dentry *) arg1, d_name.name);
+    bpf_probe_read_kernel_str (&event.file, sizeof (event.file), qs_name_ptr);
+    bpf_get_current_comm (&event.task, sizeof (event.task));
+    event.delta_ns = delta_ns;
+    event.tgid = tgid;
+    bpf_perf_event_output (ctx, &events, BPF_F_CURRENT_CPU, &event, sizeof (event));
+    return 0;
+}
+</source>
+</doc>
