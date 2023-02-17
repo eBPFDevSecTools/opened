@@ -75,7 +75,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             empty_desc['authorEmail'] = ""
             empty_desc['date'] = ""
 
-            #func_desc_list.append(empty_desc)
+            func_desc_list.append(empty_desc)
             func_desc_list.append(human_description)
             capability_dict['humanFuncDescription'] = func_desc_list
             empty_desc_auto = {}

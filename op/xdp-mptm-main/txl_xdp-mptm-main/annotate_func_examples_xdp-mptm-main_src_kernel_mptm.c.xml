@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c" funcheader="int mptm_encap (struct xdp_md *ctx)" startline="52" endline="99">
+int mptm_encap (struct xdp_md *ctx)
+{
+    int action = XDP_PASS;
+    struct ethhdr *eth;
+    struct iphdr *ip;
+    struct tunnel_info *tn;
+    tunnel_map_key_t key;
+    __u8 tun_type;
+    void *data = (void *) ((long) ctx->data);
+    void *data_end = (void *) ((long) ctx->data_end);
+    if (parse_pkt_headers (data, data_end, &eth, &ip, NULL) != 0) {
+        goto out;
+    }
+    key.s_addr = ip->saddr;
+    key.d_addr = ip->daddr;
+    tn = bpf_map_lookup_elem (& mptm_tnl_info_map, & key);
+    if (tn == NULL) {
+        mptm_print ("[ERR] map entry missing for key-{saddr:%x,daddr:%x}\n", key.s_addr, key.d_addr);
+        goto out;
+    }
+    tun_type = tn->tunnel_type;
+    if (tun_type == VLAN) {
+        action = encap_vlan (ctx, eth, tn);
+    }
+    else if (tun_type == GENEVE) {
+        action = encap_geneve (ctx, eth, tn);
+    }
+    else {
+        bpf_debug ("[ERR] tunnel type is unknown");
+        goto out;
+    }
+    if (likely (tn->redirect)) {
+        __u64 flags = 0;
+        action = bpf_redirect_map (& mptm_tnl_redirect_devmap, tn -> veth_iface, flags);
+    }
+out :
+    return xdp_stats_record_action (ctx, action);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c" funcheader="int mptm_decap (struct xdp_md *ctx)" startline="102" endline="167">
+int mptm_decap (struct xdp_md *ctx)
+{
+    int action = XDP_PASS;
+    struct ethhdr *eth;
+    struct iphdr *ip;
+    struct udphdr *udp;
+    void *data = (void *) ((long) ctx->data);
+    void *data_end = (void *) ((long) ctx->data_end);
+    if (parse_pkt_headers (data, data_end, &eth, &ip, &udp) != 0)
+        goto out;
+    if (udp->dest == BE_GENEVE_DSTPORT) {
+        int outer_hdr_size = sizeof (struct genevehdr) + sizeof (struct udphdr) + sizeof (struct iphdr) + sizeof (struct ethhdr);
+        long ret = bpf_xdp_adjust_head (ctx, outer_hdr_size);
+        if (ret != 0l) {
+            mptm_print ("[Agent:] DROP (BUG): Failure adjusting packet header!\n");
+            return XDP_DROP;
+        }
+        data = (void *) (long) ctx->data;
+        data_end = (void *) (long) ctx->data_end;
+        struct ethhdr *inner_eth;
+        struct iphdr *inner_ip;
+        if (parse_pkt_headers (data, data_end, &inner_eth, &inner_ip, NULL) != 0)
+            goto out;
+        tunnel_map_key_t key;
+        struct tunnel_info *tn;
+        __u8 tun_type;
+        __u64 flags = 0;
+        key.s_addr = inner_ip->daddr;
+        key.d_addr = inner_ip->saddr;
+        tn = bpf_map_lookup_elem (& mptm_tnl_info_map, & key);
+        if (tn == NULL) {
+            mptm_print ("[ERR] map entry missing for key {saddr:%x,daddr:%x}\n", key.s_addr, key.d_addr);
+            goto out;
+        }
+        tun_type = tn->tunnel_type;
+        if (unlikely (tun_type != GENEVE)) {
+            mptm_print ("Packet is changed but did not belong to us!");
+            return XDP_DROP;
+        }
+        action = bpf_redirect_map (& mptm_tnl_redirect_devmap, tn -> eth0_iface, flags);
+    }
+out :
+    return xdp_stats_record_action (ctx, action);
+}
+</source>
+</doc>
