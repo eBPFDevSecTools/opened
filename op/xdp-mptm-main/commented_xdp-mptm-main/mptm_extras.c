@@ -59,10 +59,10 @@ SEC("mptm_redirect_xdp")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in a packet represented by struct xdp_md context and redirects it to another interface via a BPF_REDIRECT_DEVMAP with key which is the packet's ingress interface and flags as zero.",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -129,10 +129,10 @@ SEC("mptm_pass_xdp")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function just returns XDP_PASS for any packet that is passed to it as struct xdp_mp context",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],

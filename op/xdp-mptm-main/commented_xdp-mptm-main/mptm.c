@@ -124,10 +124,10 @@ SEC("mptm_encap_xdp")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function performs the encapsulation of specific tunnel on an outgoing packet. It parse the packet eth and ip header using the parse_pkt_headers helper function. It then performs a map lookup into mptm_tnl_info_map with key which is a struct containing the ip source and dst addr of the packet. The map lookup returns a tunnel_info object *tn, which is used further to encapsulate differnet tunnel based on the rule programmed in the tunnel_info object retrieved from the map. This function will then call appropriate helper function encap_<tunnel> to encapsulate appropriate tunnel on the packet and finally redirects the packet to an outbound interface which is pre programmed in a devmap with the key taken as tn->veth_iface object and flags as none. It will return XDP_REDIRECT on successful encapsulation or XDP_PASS/XDP_ABORTED based on the return value of helper functions used.",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -282,10 +282,10 @@ SEC("mptm_decap_xdp")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function performs the decapsulation of specific tunnel on an incoming packet. It parse the packet eth, ip and udp header using the parse_pkt_headers helper function. If the packet is a UDP packet and if the UDP dest port is 0xc117 the geneve tunnel destination port, then it will remove the geneve header from the packet,by reducing its data size by sizeof(struct genevehdr+ struct udphdr + struct iphdr + struct ethhdr) by calling bpf_xdp_adjust_head. After that it recalculates the packet headers using parse_pkt_headers and does a sanity check on if Geneve tunnel is what was intended for this packet. Finally the packet is redirected to appropriate interface using mptm_tnl_redirect_devmap",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],

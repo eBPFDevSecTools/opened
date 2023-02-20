@@ -79,10 +79,10 @@
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in two arguments 1) void *data 2) unsigned char *dst_mac and will set the mac represented by dst_mac array 0,1,2 to the pointer pointed by data at array offset 0,1,2",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -152,10 +152,10 @@ static __ALWAYS_INLINE__ void set_dst_mac(void *data, unsigned char *dst_mac)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in two arguments 1) void *data 2) unsigned char *src_mac and will set the mac represented by src_mac array 0,1,2 to the pointer pointed by data at array offset [3,4,5]",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -224,10 +224,10 @@ static __ALWAYS_INLINE__ void set_src_mac(void *data, unsigned char *src_mac)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in a __u64 csum helps in recomputing ipv4 checksum, return folded checksum as __u16",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -298,10 +298,10 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in an ip header void *iph and a checksum __u64 *csum, recomputes ipv4 checksum and stores the result back in *csum argument, does not return anything.",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -382,10 +382,10 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in 3 arguments, 1) packet represented by struct xdp_mp *ctx, 2) struct ethhdr *eth, 3) geneve_tunnel_info *tn. It performs a geneve header encapsulation on top of the existing packet the details of geneve header are taken from tn argument. Specifically it expands the packet header by first calling the function bpf_xdp_adjust_head with extra size outer_hdr_size equal to geneve header + udp header + ip header + eth header and then it recalculates the new outer headers of expanded packet and populates the header information by taking relevant information from geneve_tunnel_info *tn object and programs the headers according to geneve protocol. Return XDP_PASS on success or XDP_ABORTED on failure",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -558,10 +558,10 @@ static __ALWAYS_INLINE__ int __encap_geneve(struct xdp_md *ctx,
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in a packet represented by struct xdp_mp *ctx along side its eth header struct ethhdr *eth and mptm_tunnel_info *tn, it computes the geneve tunnel information to be pushed on the packet via mptm_tunnel_info and encapsulates the packet in a geneve tunnel by calling a helper funciton __encap_geneve. Returns XDP_PASS on success or XDP_ABORTED on failure.",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -631,10 +631,10 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in a packet represented by struct xdp_mp *ctx along side its eth header struct ethhdr *eth and mptm_tunnel_info *tn, it computes the vlan tunnel to be pushed on the packet via mptm_tunnel_info and encapsulates the packet in a vlan by pusing a vlan tag on the packet eth hdr by calling a helper funciton vlan_tag_push. Returns XDP_PASS on success or XDP_ABORTED on failure.",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
