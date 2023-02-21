@@ -169,7 +169,6 @@ def create_code_comments(txl_dict, bpf_helper_file, opdir, isCilium,comments_db,
 
 # parses output from c-extract-struct.txl
 def parseTXLStructOutputFile(fileName, map_file_def_dict):
-
     iFile = open(fileName,'r')
     lineCt = 1
     inside = False;
