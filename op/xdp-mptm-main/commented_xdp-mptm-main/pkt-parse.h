@@ -85,10 +85,10 @@ extern struct bpf_map_def mptm_tunnel_iface_map;
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function takes in 5 arguments, 1 and 2 correspond to the start and end pointer of a packet data. The next three arguments are pointer to pointers to return values of eth header, ip header and udp header back to the caller. It calls internal libaray functions parse_ethhdr to parse eth header, parse_iphdr function to parse ip header, parse_udphdr to parse udp header, it ignore TCP packets because TCP packets don't represent any tunnel as all tunnels are implemented via udp stream. It sets the appropriate value of the pointer arguments to eth, ip and udp header to return to the caller. For success the function returns 0 and failure it returns -1",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
