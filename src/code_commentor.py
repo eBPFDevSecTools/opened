@@ -67,6 +67,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['output'] = output
             capability_dict['helper'] = smt.get_helper_list(lines,helperdict)
             capability_dict['compatibleHookpoints'] = smt.get_compatible_hookpoints(capability_dict['helper'] , helperdict)
+            capability_dict['source'] = lines
             func_desc_list = []
             human_description = extractor.get_human_func_description(human_comments_file,srcFile)
             empty_desc = {}
