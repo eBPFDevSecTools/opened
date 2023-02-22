@@ -126,10 +126,10 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function compares mac addresses represented by two unsigned char arrays of length 6 mac1 and mac2 passed as arguments, returns 1 if true else false",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-22"
     },
     {}
   ],
@@ -209,10 +209,10 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function returns if the mac addressed m passed as an unsigned char array of length 6 equals 0xffffffffffff which is the broadcast mac, returns 1 if equal else 0",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -508,10 +508,10 @@ static __inline int is_broadcast_mac(__u8 *m) {
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This function is a filter to be attached on the root interface of a pod's veth pair at TC layer. It takes in a packet in sk_buff form and performs a MAC and IP filter on top. It first checks if the packet is well formed, reads a map called iface_map with the key as ingress interface of the packet, it also queries the iface_ip_map with the same key. First map returns the mac address which is allowed to pass through the interface and second contains the ip address which is allowed. The filter applied is of this form, allow packets coming from the pod only in these cases, 1) if the source or dest mac are broadcast addresses then allow, 2) if the packet source mac address matches that of the pod then allow, 3) if the packet source ip matches that of the pod then allow. It also lets the packet pass if it is going towards the pod. It also prints the matching or unmatching mac or ip addresse. Returns TC_ACT_OK if filter passes else TC_ACT_SHOT. The filter also records the PASS or SHOT statistics in the map iface_stat_map",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
@@ -688,10 +688,10 @@ static __inline int filter(struct __sk_buff *skb)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
+      "description": "This is a wrapper function which calls the base function filter with the same arument passed to it, stub and returns its value",
+      "author": "Dushyant Behl",
+      "authorEmail": "dushyantbehl@in.ibm.com",
+      "date": "2023-02-20"
     },
     {}
   ],
