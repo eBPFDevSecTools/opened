@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/transformed/ratelimiting_kern-TC.c" funcheader="static __always_inline int _xdp_ratelimit (struct  __sk_buff *ctx)" startline="64" endline="128">
+static __always_inline int _xdp_ratelimit (struct  __sk_buff *ctx)
+{
+    void *data_end = (void *) (long) ctx->data_end;
+    void *data = (void *) (long) ctx->data;
+    struct ethhdr *eth = data;
+    if (data + sizeof (*eth) > data_end)
+        return TC_ACT_SHOT;
+    uint16_t eth_type = ctx->protocol;
+    if (ntohs (eth_type) != ETH_P_IP) {
+        return TC_ACT_OK;
+    }
+    struct iphdr *iph = data + sizeof (struct ethhdr);
+    if (iph + 1 > data_end)
+        return TC_ACT_OK;
+    if (iph->protocol != IPPROTO_TCP)
+        return TC_ACT_OK;
+    struct tcphdr *tcph = (struct tcphdr *) (iph + 1);
+    if (tcph + 1 > data_end)
+        return TC_ACT_OK;
+    if (!(tcph->syn & TCP_FLAGS))
+        return TC_ACT_OK;
+    if (tcph->ack & TCP_FLAGS)
+        return TC_ACT_OK;
+    uint16_t dstport = bpf_ntohs (tcph -> dest);
+    if (!bpf_map_lookup_elem (&rl_ports_map, &dstport))
+        return TC_ACT_OK;
+    uint64_t rkey = 0;
+    uint64_t *rate = bpf_map_lookup_elem (&rl_config_map, &rkey);
+    if (!rate)
+        return TC_ACT_OK;
+    uint64_t tnow = bpf_ktime_get_ns ();
+    uint64_t NANO = 1000000000;
+    uint64_t MULTIPLIER = 100;
+    uint64_t cw_key = tnow / NANO * NANO;
+    uint64_t pw_key = cw_key - NANO;
+    uint64_t *pw_count = bpf_map_lookup_elem (&rl_window_map, &pw_key);
+    uint32_t *cw_count = bpf_map_lookup_elem (&rl_window_map, &cw_key);
+    uint64_t *in_count = bpf_map_lookup_elem (&rl_recv_count_map, &rkey);
+    uint64_t *drop_count = bpf_map_lookup_elem (&rl_drop_count_map, &rkey);
+    if (!in_count || !drop_count)
+        return TC_ACT_OK;
+    (*in_count)++;
+    if (!cw_count) {
+        uint64_t init_count = 0;
+        bpf_map_update_elem (&rl_window_map, &cw_key, &init_count, BPF_NOEXIST);
+        cw_count = bpf_map_lookup_elem (& rl_window_map, & cw_key);
+        if (!cw_count)
+            return TC_ACT_OK;
+    }
+    if (!pw_count) {
+        if (*cw_count >= *rate) {
+            (*drop_count)++;
+            return TC_ACT_SHOT;
+        }
+        (*cw_count)++;
+        return TC_ACT_OK;
+    }
+    uint64_t pw_weight = MULTIPLIER - (uint64_t) (((tnow - cw_key) * MULTIPLIER) / NANO);
+    uint64_t total_count = (uint64_t) ((pw_weight *(* pw_count)) +(*cw_count) * MULTIPLIER);
+    if (total_count > ((*rate) * MULTIPLIER)) {
+        (*drop_count)++;
+        return TC_ACT_SHOT;
+    }
+    (*cw_count)++;
+    return TC_ACT_OK;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/transformed/ratelimiting_kern-TC.c" funcheader="int _xdp_ratelimiting (struct  __sk_buff *ctx)" startline="131" endline="138">
+int _xdp_ratelimiting (struct  __sk_buff *ctx)
+{
+    int rc = _xdp_ratelimit (ctx);
+    if (rc == TC_ACT_SHOT) {
+        return TC_ACT_SHOT;
+    }
+    bpf_tail_call (ctx, &xdp_rl_ingress_next_prog, 0);
+    return TC_ACT_OK;
+}
+</source>
+</doc>
