@@ -688,7 +688,7 @@ static __inline int filter(struct __sk_buff *skb)
   ],
   "humanFuncDescription": [
     {
-      "description": "This is a wrapper function which calls the base function filter with the same arument passed to it, stub and returns its value",
+      "description": "This is a wrapper function which calls the base function filter with the same arument passed to it and returns its value",
       "author": "Dushyant Behl",
       "authorEmail": "dushyantbehl@in.ibm.com",
       "date": "2023-02-20"
