@@ -73,6 +73,7 @@ type of ctx to packet_host to pass it up.
 If Esp is not activated, we look up the IPV6 address in list of local endpoints. 
 If the endpoints reach the host, we go to the host  and set the ret, 
 else we find the next headerlength and return that. 
+OPENED COMMENT END
  */ 
 static __always_inline int handle_ipv6(struct __ctx_buff *ctx,
 				       __u32 *identity)
