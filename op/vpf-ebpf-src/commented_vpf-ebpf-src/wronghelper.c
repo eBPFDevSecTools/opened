@@ -80,6 +80,14 @@ __attribute__((section("xdp"), used))
   "compatibleHookpoints": [
     "sock_ops"
   ],
+  "source": [
+    "int func (void *ctx)\n",
+    "{\n",
+    "    uint32_t key = 1;\n",
+    "    int result = bpf_sock_map_update (ctx, & map, & key, 0);\n",
+    "    return result;\n",
+    "}\n"
+  ],
   "humanFuncDescription": [
     {
       "description": "",

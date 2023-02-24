@@ -53,11 +53,17 @@ struct signal_msg {
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "kprobe",
     "raw_tracepoint",
+    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable"
+    "raw_tracepoint_writable",
+    "tracepoint"
+  ],
+  "source": [
+    "static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)\n",
+    "{\n",
+    "    ctx_event_output (ctx, &SIGNAL_MAP, BPF_F_CURRENT_CPU, msg, sizeof (*msg));\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
@@ -117,11 +123,21 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "kprobe",
     "raw_tracepoint",
+    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable"
+    "raw_tracepoint_writable",
+    "tracepoint"
+  ],
+  "source": [
+    "static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
+    "{\n",
+    "    struct signal_msg msg = {\n",
+    "        .signal_nr = SIGNAL_NAT_FILL_UP,\n",
+    "        .proto = proto,}\n",
+    "    ;\n",
+    "    send_signal (ctx, &msg);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
@@ -185,11 +201,21 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "kprobe",
     "raw_tracepoint",
+    "kprobe",
     "perf_event",
-    "raw_tracepoint_writable"
+    "raw_tracepoint_writable",
+    "tracepoint"
+  ],
+  "source": [
+    "static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
+    "{\n",
+    "    struct signal_msg msg = {\n",
+    "        .signal_nr = SIGNAL_CT_FILL_UP,\n",
+    "        .proto = proto,}\n",
+    "    ;\n",
+    "    send_signal (ctx, &msg);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {

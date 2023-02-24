@@ -60,9 +60,46 @@
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
-    "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
+  ],
+  "source": [
+    "static __always_inline int ctx_redirect_to_proxy_hairpin (struct  __ctx_buff *ctx, __be16 proxy_port, const bool is_ipv6)\n",
+    "{\n",
+    "\n",
+    "#if defined(ENABLE_IPV4) || defined(ENABLE_IPV6)\n",
+    "    union macaddr host_mac = HOST_IFINDEX_MAC;\n",
+    "    union macaddr router_mac = NODE_MAC;\n",
+    "\n",
+    "#endif\n",
+    "    void *data_end = (void *) (long) ctx->data_end;\n",
+    "    void *data = (void *) (long) ctx->data;\n",
+    "    struct iphdr *ip4;\n",
+    "    int ret = 0;\n",
+    "    ctx_store_meta (ctx, CB_PROXY_MAGIC, MARK_MAGIC_TO_PROXY | (proxy_port << 16));\n",
+    "    bpf_barrier ();\n",
+    "    if (!revalidate_data (ctx, &data, &data_end, &ip4))\n",
+    "        return DROP_INVALID;\n",
+    "    if (is_ipv6) {\n",
+    "\n",
+    "#ifdef ENABLE_IPV6\n",
+    "        ret = ipv6_l3 (ctx, ETH_HLEN, (__u8 *) & router_mac, (__u8 *) & host_mac, METRIC_EGRESS);\n",
+    "\n",
+    "#endif\n",
+    "    }\n",
+    "    else {\n",
+    "\n",
+    "#ifdef ENABLE_IPV4\n",
+    "        ret = ipv4_l3 (ctx, ETH_HLEN, (__u8 *) & router_mac, (__u8 *) & host_mac, ip4);\n",
+    "\n",
+    "#endif\n",
+    "    }\n",
+    "    if (IS_ERR (ret))\n",
+    "        return ret;\n",
+    "    cilium_dbg (ctx, DBG_CAPTURE_PROXY_PRE, proxy_port, 0);\n",
+    "    return ctx_redirect (ctx, HOST_IFINDEX, 0);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
@@ -168,9 +205,15 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
-    "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
+  ],
+  "source": [
+    "static __always_inline int ctx_redirect_to_proxy_hairpin_ipv4 (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
+    "{\n",
+    "    return ctx_redirect_to_proxy_hairpin (ctx, proxy_port, false);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
@@ -240,9 +283,15 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
   ],
   "compatibleHookpoints": [
     "lwt_xmit",
-    "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
+  ],
+  "source": [
+    "static __always_inline int ctx_redirect_to_proxy_hairpin_ipv6 (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
+    "{\n",
+    "    return ctx_redirect_to_proxy_hairpin (ctx, proxy_port, true);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {

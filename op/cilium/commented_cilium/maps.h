@@ -304,27 +304,33 @@ struct {
     "tail_call"
   ],
   "compatibleHookpoints": [
+    "cgroup_sock_addr",
     "sk_msg",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "sched_cls",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_in",
     "flow_dissector",
+    "cgroup_sock",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
     "sk_reuseport",
     "lwt_out",
-    "perf_event",
-    "xdp",
-    "raw_tracepoint_writable",
-    "sock_ops",
-    "tracepoint",
     "kprobe",
-    "cgroup_sock_addr",
+    "sched_cls",
+    "socket_filter",
+    "sched_act",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "raw_tracepoint",
+    "perf_event",
     "sk_skb",
     "cgroup_skb",
-    "cgroup_sock",
-    "socket_filter"
+    "sock_ops",
+    "tracepoint"
+  ],
+  "source": [
+    "static __always_inline void ep_tail_call (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused)\n",
+    "{\n",
+    "    tail_call_static (ctx, &CALLS_MAP, index);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {

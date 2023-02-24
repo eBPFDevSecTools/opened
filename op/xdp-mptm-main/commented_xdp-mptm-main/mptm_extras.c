@@ -48,21 +48,29 @@ SEC("mptm_redirect_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
-    "redirect"
+    "redirect",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "lwt_xmit",
+    "sched_act",
+    "xdp"
+  ],
+  "source": [
+    "int mptm_redirect (struct xdp_md *ctx)\n",
+    "{\n",
+    "    __u64 flags = 0;\n",
+    "    __u32 key = ctx->ingress_ifindex;\n",
+    "    return bpf_redirect_map (&mptm_extras_redirect_devmap, key, flags);\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
-      "description": "This function takes in a packet represented by struct xdp_md context and redirects it to another interface via a BPF_REDIRECT_DEVMAP with key which is the packet's ingress interface and flags as zero.",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],
@@ -103,36 +111,42 @@ SEC("mptm_pass_xdp")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
-    "cgroup_sysctl",
-    "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
     "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
     "cgroup_sock",
-    "tracepoint",
+    "cgroup_skb",
+    "xdp",
+    "sk_reuseport",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "sk_msg",
+    "raw_tracepoint",
+    "sched_act",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
+    "perf_event",
+    "raw_tracepoint_writable",
     "lwt_xmit",
-    "socket_filter",
     "lwt_in",
-    "xdp"
+    "lwt_out",
+    "sock_ops",
+    "cgroup_sysctl",
+    "tracepoint",
+    "socket_filter"
+  ],
+  "source": [
+    "int mptm_pass (struct xdp_md *ctx)\n",
+    "{\n",
+    "    return XDP_PASS;\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
-      "description": "This function just returns XDP_PASS for any packet that is passed to it as struct xdp_mp context",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],

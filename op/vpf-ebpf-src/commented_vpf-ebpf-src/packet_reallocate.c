@@ -62,10 +62,25 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sk_skb",
-    "sched_cls",
     "sched_act",
-    "lwt_xmit"
+    "sched_cls",
+    "lwt_xmit",
+    "sk_skb"
+  ],
+  "source": [
+    "int reallocate_invalidates (struct sk_buff *ctx)\n",
+    "{\n",
+    "    void *data_end = (void *) (long) ctx->data_end;\n",
+    "    void *data = (void *) (long) ctx->data;\n",
+    "    if (data + sizeof (int) > data_end)\n",
+    "        return 1;\n",
+    "    int value = *(int*) data;\n",
+    "    *(int*) data = value + 1;\n",
+    "    bpf_skb_change_head (ctx, 4, 0);\n",
+    "    value = *(int*) data;\n",
+    "    *(int*) data = value + 1;\n",
+    "    return 0;\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {

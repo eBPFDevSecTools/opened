@@ -85,8 +85,8 @@ struct ebpf_map inner_map =
   "updateMaps": [],
   "readMaps": [
     "  inner_map",
-    " nolocal_lru_map",
-    " array_of_maps"
+    " array_of_maps",
+    " nolocal_lru_map"
   ],
   "input": [
     "void *ctx"
@@ -96,29 +96,48 @@ struct ebpf_map inner_map =
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "raw_tracepoint_writable",
+    "kprobe",
+    "cgroup_sock",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "cgroup_sock_addr",
     "sk_reuseport",
-    "lwt_seg6local",
-    "cgroup_skb",
+    "sched_act",
+    "sched_cls",
+    "sk_skb",
+    "xdp",
     "sock_ops",
     "lwt_out",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "xdp",
-    "kprobe",
-    "sk_msg",
-    "cgroup_device",
-    "lwt_in",
     "cgroup_sysctl",
-    "flow_dissector",
+    "lwt_xmit",
     "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "sched_cls",
-    "perf_event",
-    "sk_skb"
+    "sk_msg",
+    "lwt_seg6local",
+    "cgroup_device",
+    "cgroup_skb",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "socket_filter"
+  ],
+  "source": [
+    "int func (void *ctx)\n",
+    "{\n",
+    "    uint32_t outer_key = 0;\n",
+    "    void *nolocal_lru_map = bpf_map_lookup_elem (&array_of_maps, &outer_key);\n",
+    "    if (nolocal_lru_map) {\n",
+    "        uint32_t inner_key = 0;\n",
+    "        void *ret = bpf_map_lookup_elem (nolocal_lru_map, &inner_key);\n",
+    "        if (ret) {\n",
+    "            return 0;\n",
+    "        }\n",
+    "        else {\n",
+    "            ret = bpf_map_lookup_elem (& inner_map, & inner_key);\n",
+    "            return 0;\n",
+    "        }\n",
+    "    }\n",
+    "    return 0;\n",
+    "}\n"
   ],
   "humanFuncDescription": [
     {
