@@ -84,8 +84,8 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
     #print("TOKENS")
     #print(tokens)
     for token in tokens[1:]:
-        print("TOKEN")
-        print(token)
+        #print("TOKEN")
+        #print(token)
         comment = token.split(end_pattern)[0]
         print("COMMENT")
         print(comment)
@@ -95,7 +95,11 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
         lines = comment.split('\n')
         #print(lines)
         ct = 1
-        for line in lines[1:]:
+        done = False
+        for ct in range(1,len(lines)):
+            if done == True:
+                break;
+            line = lines[ct]
             # ALready processed this line as part of function description
             if ct >= len(lines):
                 break
@@ -108,16 +112,20 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
             key = key.strip()
             key = re.sub(r'\s+', '_', key)
             print("Key: "+key+" ct: "+str(ct))
+            value = ""
+            # text itself may contain ":"
+            for text in line_tokens[1:]:
+                value = value + text
             if key == "Func_Description":
                 print("Func_Desc: "+str(ct))
-                value = line_tokens[1]
-                ct = ct + 2 # why 2? Seems to work
+                #ct = ct + 2 # why 2? Seems to work
+                ct = ct + 1 
                 while ct < len(lines):
                     print("ct: "+str(ct))
                     value = value + lines[ct]
                     ct = ct + 1
-            else:
-                value = line_tokens[1]
+                done = True
+                print("Func_Description_val: "+value)
             op_dict[key] = value
             ct = ct + 1
         print(op_dict)
