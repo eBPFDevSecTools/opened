@@ -1,0 +1,774 @@
+{
+    "_xdp_ratelimit": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_kern.c",
+            "startLine": "100",
+            "endLine": "276",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "u64",
+                                "Description": "Return the time elapsed since system boot , in nanoseconds. ",
+                                "Return": " Current ktime.",
+                                "Function Name": "bpf_ktime_get_ns",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "    uint64_t *rate ",
+                            "inpVar": [
+                                " &rl_config_map",
+                                " &rkey"
+                            ]
+                        },
+                        {
+                            "opVar": "        uint64_t *pw_count ",
+                            "inpVar": [
+                                " &rl_window_map",
+                                " &pw_key"
+                            ]
+                        },
+                        {
+                            "opVar": "        uint32_t *cw_count ",
+                            "inpVar": [
+                                " &rl_window_map",
+                                " &cw_key"
+                            ]
+                        },
+                        {
+                            "opVar": "        uint64_t *in_count ",
+                            "inpVar": [
+                                " &rl_recv_count_map",
+                                " &rkey"
+                            ]
+                        },
+                        {
+                            "opVar": "        uint64_t *drop_count ",
+                            "inpVar": [
+                                " &rl_drop_count_map",
+                                " &rkey"
+                            ]
+                        },
+                        {
+                            "opVar": "        cw_count ",
+                            "inpVar": [
+                                " &rl_window_map",
+                                " &cw_key"
+                            ]
+                        }
+                    ],
+                    "bpf_ktime_get_ns": [
+                        {
+                            "opVar": "        uint64_t tnow ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ],
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "        &rl_window_map",
+                                " &cw_key",
+                                " &init_count",
+                                " BPF_NOEXIST"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ntohs",
+                "bpf_printk",
+                "bpf_ntohs",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "ntohs",
+                "bpf_ntohs"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/transformed/ratelimiting_kern-TC.c",
+            "startLine": "64",
+            "endLine": "128",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "u64",
+                                "Description": "Return the time elapsed since system boot , in nanoseconds. ",
+                                "Return": " Current ktime.",
+                                "Function Name": "bpf_ktime_get_ns",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "    if ! &rl_ports_map",
+                                " &dstport        return TC_ACT_OK"
+                            ]
+                        },
+                        {
+                            "opVar": "    uint64_t *rate ",
+                            "inpVar": [
+                                "  &rl_config_map",
+                                " &rkey"
+                            ]
+                        },
+                        {
+                            "opVar": "    uint64_t *pw_count ",
+                            "inpVar": [
+                                "  &rl_window_map",
+                                " &pw_key"
+                            ]
+                        },
+                        {
+                            "opVar": "    uint32_t *cw_count ",
+                            "inpVar": [
+                                "  &rl_window_map",
+                                " &cw_key"
+                            ]
+                        },
+                        {
+                            "opVar": "    uint64_t *in_count ",
+                            "inpVar": [
+                                "  &rl_recv_count_map",
+                                " &rkey"
+                            ]
+                        },
+                        {
+                            "opVar": "    uint64_t *drop_count ",
+                            "inpVar": [
+                                "  &rl_drop_count_map",
+                                " &rkey"
+                            ]
+                        },
+                        {
+                            "opVar": "        cw_count ",
+                            "inpVar": [
+                                "  &rl_window_map",
+                                " &cw_key"
+                            ]
+                        }
+                    ],
+                    "bpf_ktime_get_ns": [
+                        {
+                            "opVar": "    uint64_t tnow ",
+                            "inpVar": [
+                                "  "
+                            ]
+                        }
+                    ],
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "         & rl_window_map",
+                                " & cw_key",
+                                " & init_count",
+                                " BPF_NOEXIST"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ntohs",
+                "bpf_printk",
+                "bpf_ntohs",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "bpf_printk",
+                "ntohs",
+                "bpf_ntohs"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "_xdp_ratelimiting": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_kern.c",
+            "startLine": "279",
+            "endLine": "289",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "bpf_printk",
+                "_xdp_ratelimit",
+                "_xdp_ratelimit"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/transformed/ratelimiting_kern-TC.c",
+            "startLine": "131",
+            "endLine": "138",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {
+                    "bpf_tail_call": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "         ctx",
+                                " & xdp_rl_ingress_next_prog",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "bpf_printk",
+                "_xdp_ratelimit",
+                "_xdp_ratelimit"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "*strsep": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "38",
+            "endLine": "44",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "strtok_s"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "gettimeofday": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "47",
+            "endLine": "58",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "GetSystemTimeAsFileTime"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "usage": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "85",
+            "endLine": "104",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "printf",
+                "printf",
+                "printf",
+                "printf",
+                "printf",
+                "printf",
+                "printf",
+                "printf",
+                "printf"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "log_timestamp": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "107",
+            "endLine": "118",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "gettimeofday",
+                "localtime",
+                "strftime",
+                "snprintf"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "get_length": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "120",
+            "endLine": "129",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ],
+    "*set_logfile": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "132",
+            "endLine": "145",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "fopen",
+                "fprintf",
+                "fprintf"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "xdp_unlink_bpf_chain": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "148",
+            "endLine": "167",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_delete_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_delete_elem": [
+                        {
+                            "opVar": "       ret ",
+                            "inpVar": [
+                                " map_fd",
+                                " &key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "bpf_obj_get",
+                "log_err",
+                "log_err",
+                "remove",
+                "log_warn"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "signal_handler": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "171",
+            "endLine": "182",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "log_info",
+                "xdp_unlink_bpf_chain",
+                "close",
+                "fclose",
+                "exit"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "time_get_ns": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "185",
+            "endLine": "199",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "clock_gettime",
+                "QueryPerformanceFrequency",
+                "QueryPerformanceCounter"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "delete_stale_entries": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "203",
+            "endLine": "226",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_delete_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_delete_elem": [
+                        {
+                            "opVar": "            if (bpf_map_delete_elem(map_fd[1], &next_key) !",
+                            "inpVar": [
+                                " 0 "
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "log_debug",
+                "log_info",
+                "exit",
+                "time_get_ns",
+                "log_debug",
+                "bpf_map_get_next_key",
+                "log_debug",
+                "log_info"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "*trim_space": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "228",
+            "endLine": "242",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "isspace",
+                "get_length",
+                "isspace"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "strtoi": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "244",
+            "endLine": "255",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {
+                    "strtol": [
+                        {
+                            "opVar": "  long long_var ",
+                            "inpVar": [
+                                " str",
+                                " &endptr",
+                                " 10"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "fprintf"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "update_ports": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "257",
+            "endLine": "270",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "        map_fd[4]",
+                                " &port",
+                                " &pval",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "strdup",
+                "strsep",
+                "trim_space",
+                "strtoi",
+                "free"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "main": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
+            "startLine": "272",
+            "endLine": "423",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "            ifprev_prog_map_fd",
+                                " &pkey",
+                                " &prog_fd[0]",
+                                " 0 "
+                            ]
+                        },
+                        {
+                            "opVar": "        ret ",
+                            "inpVar": [
+                                " map_fd[0]",
+                                " &ckey",
+                                " &rate",
+                                " 0"
+                            ]
+                        },
+                        {
+                            "opVar": "        ret ",
+                            "inpVar": [
+                                " map_fd[2]",
+                                " &rkey",
+                                " &recv_count",
+                                " 0"
+                            ]
+                        },
+                        {
+                            "opVar": "        ret ",
+                            "inpVar": [
+                                " map_fd[3]",
+                                " &dkey",
+                                " &drop_count",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "snprintf",
+                "memset",
+                "getopt_long",
+                "strtoi",
+                "if_nametoindex",
+                "strtoi",
+                "get_length",
+                "strncpy",
+                "get_length",
+                "strncpy",
+                "usage",
+                "setrlimit",
+                "perror",
+                "exit",
+                "set_logfile",
+                "load_bpf_file",
+                "log_err",
+                "log_err",
+                "bpf_obj_get",
+                "log_err",
+                "exit",
+                "log_err",
+                "exit",
+                "close",
+                "bpf_obj_get",
+                "log_info",
+                "bpf_obj_pin",
+                "log_info",
+                "exit",
+                "log_err",
+                "perror",
+                "log_err",
+                "perror",
+                "log_err",
+                "perror",
+                "get_length",
+                "log_info",
+                "update_ports",
+                "signal",
+                "signal",
+                "signal",
+                "sleep",
+                "delete_stale_entries",
+                "fflush"
+            ],
+            "call_depth": -1
+        }
+    ]
+}
