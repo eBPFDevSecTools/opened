@@ -126,7 +126,7 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   ],
   "humanFuncDescription": [
     {
-      "description": "This function compares mac addresses represented by two unsigned char arrays of length 6 mac1 and mac2 passed as arguments, returns 1 if true else false",
+      "description": "This function compares mac addresses represented by two unsigned char arrays of length 6 mac1 and mac2 passed as arguments, returns 1 if true else 0",
       "author": "Dushyant Behl",
       "authorEmail": "dushyantbehl@in.ibm.com",
       "date": "2023-02-22"
@@ -508,12 +508,25 @@ static __inline int is_broadcast_mac(__u8 *m) {
   ],
   "humanFuncDescription": [
     {
-      "description": "This function is a filter to be attached on the root interface of a pod's veth pair at TC layer. It takes in a packet in sk_buff form and performs a MAC and IP filter on top. It first checks if the packet is well formed, reads a map called iface_map with the key as ingress interface of the packet, it also queries the iface_ip_map with the same key. First map returns the mac address which is allowed to pass through the interface and second contains the ip address which is allowed. The filter applied is of this form, allow packets coming from the pod only in these cases, 1) if the source or dest mac are broadcast addresses then allow, 2) if the packet source mac address matches that of the pod then allow, 3) if the packet source ip matches that of the pod then allow. It also lets the packet pass if it is going towards the pod. It also prints the matching or unmatching mac or ip addresse. Returns TC_ACT_OK if filter passes else TC_ACT_SHOT. The filter also records the PASS or SHOT statistics in the map iface_stat_map",
+      "description": "This function performs the action of a filter which allows packets only with certain mac and ip address to pass through. "
+      "The filter described below is to be attached on the root interface of a pod's veth pair at TC layer and filters the outgoing traffic from pod. "
+      "It takes in a packet in sk_buff form as argument. It first checks if the packet is well formed. "
+      "If it is, it will reads a map called iface_stat_map using the packet ingress interface as the key, this map stores the counter of passed or dropped packets"
+      "Then, the filter reads maps called iface_map and iface_ip_map also with ingress interface of the packet as the key."
+      "First map returns the mac address which is allowed to pass through the interface and second contains the ip address which is allowed."
+      "The filter applied is of this form, allow packets coming from the pod only in these cases,"
+      "1) if the source or dest mac are broadcast addresses then allow,"
+      "2) if the packet source mac address matches that of the pod then allow,"
+      "3) if the packet source ip matches that of the pod then allow."
+      "Filter doesn't stop the traffic going towards the pod. "
+      "Note that all the above filters are applied to the packet and traffic is allowed only in the cases mentioned above"
+      "It also prints the matching/unmatching mac or ip addresses."
+      "Returns TC_ACT_OK if filter passes else TC_ACT_SHOT. The filter also records the PASS or SHOT statistics in the map iface_stat_map",
       "author": "Dushyant Behl",
       "authorEmail": "dushyantbehl@in.ibm.com",
       "date": "2023-02-20"
     },
-    {}
+    {
   ],
   "AI_func_description": [
     {
