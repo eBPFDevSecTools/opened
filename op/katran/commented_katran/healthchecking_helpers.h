@@ -41,7 +41,7 @@
   "helperCallParams": {},
   "startLine": 37,
   "endLine": 77,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "set_hc_key",
   "updateMaps": [],
   "readMaps": [],
@@ -53,29 +53,29 @@
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6)\n",
@@ -121,12 +121,6 @@
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -262,7 +256,7 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
   },
   "startLine": 79,
   "endLine": 139,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_ipip",
   "updateMaps": [],
   "readMaps": [
@@ -280,8 +274,8 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)\n",
@@ -336,12 +330,6 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -425,7 +413,7 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "helperCallParams": {},
   "startLine": 141,
   "endLine": 143,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "gue_sport",
   "updateMaps": [],
   "readMaps": [],
@@ -435,29 +423,29 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline __u16 gue_sport (__u32 seed)\n",
@@ -466,12 +454,6 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -569,7 +551,7 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
   },
   "startLine": 145,
   "endLine": 213,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_gue",
   "updateMaps": [],
   "readMaps": [
@@ -587,8 +569,8 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static inline bool hc_encap_gue (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)\n",
@@ -649,12 +631,6 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

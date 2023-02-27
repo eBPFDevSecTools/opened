@@ -38,7 +38,7 @@
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 83,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_l3_headers",
   "updateMaps": [],
   "readMaps": [],
@@ -54,29 +54,29 @@
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)\n",
@@ -119,16 +119,10 @@
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -201,7 +195,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "helperCallParams": {},
   "startLine": 85,
   "endLine": 120,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_ipip_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -218,29 +212,29 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes)\n",
@@ -276,16 +270,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process ip-in-ip encaped packet, drop the packet if 1) bogus packet, len less than minimum ethernet frame size, 2) not decaped successfully.                   Otherwise, perform decapsulation of the outer packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -345,7 +333,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "helperCallParams": {},
   "startLine": 123,
   "endLine": 161,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_gue_pckt",
   "updateMaps": [],
   "readMaps": [],
@@ -358,29 +346,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6)\n",
@@ -419,16 +407,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Decapsulate the outer header of the packet based on whether the inner-outer combo is ipv6 or ipv4.                   Drop the packet if: 1) bogus packet, len less than minimum ethernet frame size, 2) not decaped succesfully.                   When ipv6, check the situation that the inner packet is ipv6 and ipv4                   When ipv4, check the situation that the inner packet is ipv4 ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -518,7 +500,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   },
   "startLine": 164,
   "endLine": 221,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
@@ -536,29 +518,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
     "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int process_packet (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp)\n",
@@ -618,16 +600,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " This is a function which assembles the previous 3 functions process_l3_headers, process_encaped_ipip_pckt                   and process_encaped_gue_pckt. It process the packet regardless the type of the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -709,7 +685,7 @@ SEC("decap")
   "helperCallParams": {},
   "startLine": 224,
   "endLine": 247,
-  "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "xdpdecap",
   "updateMaps": [],
   "readMaps": [],
@@ -719,29 +695,29 @@ SEC("decap")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "int xdpdecap (struct xdp_md *ctx)\n",
@@ -769,16 +745,10 @@ SEC("decap")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " This is wrapper function which decapsulates the packet packet header for all types. After processing the packet, pass it to tcp/ip stack. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

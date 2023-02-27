@@ -45,7 +45,7 @@ struct {
   },
   "startLine": 30,
   "endLine": 37,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_root",
   "updateMaps": [],
   "readMaps": [],
@@ -58,26 +58,26 @@ struct {
   ],
   "compatibleHookpoints": [
     "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
     "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "int SEC (\"xdp\") xdp_root (struct xdp_md *ctx)\n",
@@ -93,16 +93,10 @@ struct {
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook",
+      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook                   The program will jump into another eBPF program.                   For each index in root_array, the program attempts to jump into a program referenced at index i                   and passes ctx, a pointer to the context.                   This programs chains and executes the input program, and finally pass the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -145,7 +139,7 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   },
   "startLine": 40,
   "endLine": 47,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_val",
   "updateMaps": [],
   "readMaps": [],
@@ -158,26 +152,26 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   ],
   "compatibleHookpoints": [
     "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
     "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "int SEC (\"xdp\") xdp_val (struct xdp_md *ctx)\n",
@@ -193,16 +187,10 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook",
+      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook                   The program will jump into another eBPF program.                   For each index in root_array, the program attempts to jump into a program referenced at index i                   and passes ctx, a pointer to the context.                   This programs chains and executes the input program, and finally pass the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

@@ -179,27 +179,27 @@ SEC("tc")
   },
   "startLine": 89,
   "endLine": 157,
-  "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/healthchecking_ipip.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    " hc_reals_map",
+    "  hc_stats_map",
     " hc_ctrl_map",
-    "  hc_stats_map"
+    " hc_reals_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
+    "bpf_redirect",
     "bpf_map_lookup_elem",
-    "bpf_skb_set_tunnel_key",
-    "bpf_redirect"
+    "bpf_skb_set_tunnel_key"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "lwt_xmit",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "int healthcheck_encap (struct  __sk_buff *skb)\n",
@@ -260,16 +260,10 @@ SEC("tc")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Performs healthcheck for ip-in-ip encapsulated packets.",
+      "description": " Performs healthcheck for ip-in-ip encapsulated packets.                   Use default action configured from tc (TC_ACT_UNSPEC), which is skip the packet, if                    1) program stats is NULL/stats_key is not found in hc_stats_map,                    2)mark of the sk_buff is 0,                    3)somark is not found in hc_reals_map                   The program returns error/healthcheck fails (TC_ACT_SHOT) if                    1)packet is bigger than the specified size,                   2)do not have ipip v4 or v6 ifindex for main interface.                   Otherwise, Populate tunnel metadata for packet associated to skb, the tunnel metadata is set to the contents of tkey.                   The packet passes the healthcheck, and will be redirected to another net device of index intf_ifindex. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

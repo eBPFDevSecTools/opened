@@ -8,14 +8,14 @@ import os
 from tinydb import Query
 
 
-def get_human_func_description(human_comments_file, path):
+def get_human_func_description(human_comments_file, path, func_name):
     cdict = {}
     if human_comments_file == None:
         return cdict
     db = TinyDB(human_comments_file)
     fname = path.split('/')[-1]
     q = Query()
-    res = db.search(q.File.search(fname))
+    res = db.search(q.Funcname.search(func_name) & q.File.search(fname))
     print("Result")
     print(res)
     if len(res) > 1:

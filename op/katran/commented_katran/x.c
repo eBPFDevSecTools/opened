@@ -13,7 +13,7 @@ SEC("xdp")
   "helperCallParams": {},
   "startLine": 9,
   "endLine": 13,
-  "File": "/home/sayandes/opened_extraction/examples/katran/x.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/x.c",
   "funcName": "xdp_prog_simple",
   "updateMaps": [],
   "readMaps": [],
@@ -23,29 +23,29 @@ SEC("xdp")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "int xdp_prog_simple (struct xdp_md *ctx)\n",
@@ -55,16 +55,10 @@ SEC("xdp")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Same as decap_kern, it decaps the packet and pass it to the tcp/ip stack.",
+      "description": " Same as decap_kern, it decaps the packet and pass it to the tcp/ip stack. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

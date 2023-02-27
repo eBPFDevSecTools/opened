@@ -84,7 +84,7 @@ SEC("xdp")
   },
   "startLine": 46,
   "endLine": 62,
-  "File": "/home/sayandes/opened_extraction/examples/katran/xdp_pktcntr.c",
+  "File": "/home/palani/github/opened_extraction/examples/katran/xdp_pktcntr.c",
   "funcName": "pktcntr",
   "updateMaps": [],
   "readMaps": [
@@ -99,29 +99,29 @@ SEC("xdp")
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
     "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "int pktcntr (struct xdp_md *ctx)\n",
@@ -142,12 +142,6 @@ SEC("xdp")
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

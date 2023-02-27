@@ -42,7 +42,7 @@
   "helperCallParams": {},
   "startLine": 38,
   "endLine": 48,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac_and_send",
   "updateMaps": [],
   "readMaps": [],
@@ -53,29 +53,29 @@
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int swap_mac_and_send (void *data, void *data_end)\n",
@@ -90,12 +90,6 @@
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -129,7 +123,7 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "helperCallParams": {},
   "startLine": 50,
   "endLine": 58,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac",
   "updateMaps": [],
   "readMaps": [],
@@ -140,29 +134,29 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline void swap_mac (void *data, struct ethhdr *orig_eth)\n",
@@ -175,12 +169,6 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -212,7 +200,7 @@ __attribute__((__always_inline__)) static inline void swap_mac(
   "helperCallParams": {},
   "startLine": 60,
   "endLine": 90,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -223,29 +211,29 @@ __attribute__((__always_inline__)) static inline void swap_mac(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int send_icmp_reply (void *data, void *data_end)\n",
@@ -275,12 +263,6 @@ __attribute__((__always_inline__)) static inline void swap_mac(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -334,7 +316,7 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
   "helperCallParams": {},
   "startLine": 92,
   "endLine": 117,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_reply",
   "updateMaps": [],
   "readMaps": [],
@@ -345,29 +327,29 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int send_icmp6_reply (void *data, void *data_end)\n",
@@ -393,12 +375,6 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -474,7 +450,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   },
   "startLine": 119,
   "endLine": 162,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp4_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -535,12 +511,6 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -634,7 +604,7 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
   },
   "startLine": 164,
   "endLine": 203,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -691,12 +661,6 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -786,7 +750,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
   },
   "startLine": 205,
   "endLine": 221,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_too_big",
   "updateMaps": [],
   "readMaps": [],
@@ -824,12 +788,6 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -869,7 +827,7 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   "helperCallParams": {},
   "startLine": 223,
   "endLine": 253,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmpv6",
   "updateMaps": [],
   "readMaps": [],
@@ -882,29 +840,29 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int parse_icmpv6 (void *data, void *data_end, __u64 off, struct packet_description *pckt)\n",
@@ -934,12 +892,6 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -993,7 +945,7 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   "helperCallParams": {},
   "startLine": 255,
   "endLine": 285,
-  "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmp",
   "updateMaps": [],
   "readMaps": [],
@@ -1006,29 +958,29 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int parse_icmp (void *data, void *data_end, __u64 off, struct packet_description *pckt)\n",
@@ -1061,12 +1013,6 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

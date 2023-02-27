@@ -72,7 +72,7 @@
   },
   "startLine": 41,
   "endLine": 91,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "encap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -136,12 +136,6 @@
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -242,7 +236,7 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
   },
   "startLine": 93,
   "endLine": 133,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "encap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -290,12 +284,6 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -388,7 +376,7 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
   },
   "startLine": 137,
   "endLine": 156,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "decap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -429,12 +417,6 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -504,7 +486,7 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
   },
   "startLine": 158,
   "endLine": 173,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "decap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -539,12 +521,6 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -585,7 +561,7 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "helperCallParams": {},
   "startLine": 177,
   "endLine": 249,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_csum",
   "updateMaps": [],
   "readMaps": [],
@@ -600,29 +576,29 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum)\n",
@@ -689,12 +665,6 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -842,7 +812,7 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   },
   "startLine": 251,
   "endLine": 307,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_encap_v4",
   "updateMaps": [],
   "readMaps": [
@@ -857,8 +827,8 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -906,12 +876,6 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1043,7 +1007,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   },
   "startLine": 309,
   "endLine": 367,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_encap_v6",
   "updateMaps": [],
   "readMaps": [
@@ -1059,8 +1023,8 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1115,12 +1079,6 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1232,7 +1190,7 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
   },
   "startLine": 372,
   "endLine": 389,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_decap_v4",
   "updateMaps": [],
   "readMaps": [],
@@ -1268,12 +1226,6 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1341,7 +1293,7 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   },
   "startLine": 391,
   "endLine": 412,
-  "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/pckt_encap.h",
   "funcName": "gue_decap_v6",
   "updateMaps": [],
   "readMaps": [],
@@ -1383,12 +1335,6 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

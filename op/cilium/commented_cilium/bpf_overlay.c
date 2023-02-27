@@ -61,7 +61,7 @@
   },
   "startLine": 46,
   "endLine": 180,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -74,10 +74,10 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int handle_ipv6 (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -172,16 +172,10 @@
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -340,7 +334,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "helperCallParams": {},
   "startLine": 183,
   "endLine": 192,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -350,29 +344,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
     "lwt_in",
     "xdp",
-    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
     "perf_event",
-    "sk_skb",
+    "sk_reuseport",
+    "flow_dissector",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "lwt_out",
+    "sched_act",
     "cgroup_skb",
+    "cgroup_sysctl",
+    "cgroup_device",
+    "sk_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sock_ops",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock"
   ],
   "source": [
     "int tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -386,16 +380,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " This function is to handle the tail of a protocol and check it it has any error for ipv6 ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -467,7 +455,7 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   },
   "startLine": 196,
   "endLine": 333,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv4",
   "updateMaps": [],
   "readMaps": [
@@ -483,10 +471,10 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
+    "sched_cls",
     "xdp",
-    "sched_cls"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline int handle_ipv4 (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -597,16 +585,10 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " This function is similar to handle_ipv6 to handle ipv4 packet. The main goal of it is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. IPV4 fragmentation check is added. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -768,7 +750,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "helperCallParams": {},
   "startLine": 336,
   "endLine": 345,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -778,29 +760,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
     "lwt_in",
     "xdp",
-    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
     "perf_event",
-    "sk_skb",
+    "sk_reuseport",
+    "flow_dissector",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "lwt_out",
+    "sched_act",
     "cgroup_skb",
+    "cgroup_sysctl",
+    "cgroup_device",
+    "sk_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sock_ops",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock"
   ],
   "source": [
     "int tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -814,16 +796,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " check if there is error about the tail of ipv4 packet. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -901,7 +877,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   },
   "startLine": 353,
   "endLine": 395,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_arp",
   "updateMaps": [],
   "readMaps": [
@@ -916,10 +892,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
+    "sched_cls",
     "xdp",
-    "sched_cls"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "int tail_handle_arp (struct  __ctx_buff *ctx)\n",
@@ -959,16 +935,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " Handle the tail for ARP requests from VTEP. Check different occasions including tunnel_key geting, arp validating, and if endpoint of tunnel is reached. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1038,7 +1008,7 @@ pass_to_stack:
   "helperCallParams": {},
   "startLine": 401,
   "endLine": 428,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "is_esp",
   "updateMaps": [],
   "readMaps": [],
@@ -1049,29 +1019,29 @@ pass_to_stack:
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
     "lwt_in",
     "xdp",
-    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
     "perf_event",
-    "sk_skb",
+    "sk_reuseport",
+    "flow_dissector",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "lwt_out",
+    "sched_act",
     "cgroup_skb",
+    "cgroup_sysctl",
+    "cgroup_device",
+    "sk_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sock_ops",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline bool is_esp (struct  __ctx_buff *ctx, __u16 proto)\n",
@@ -1107,16 +1077,10 @@ pass_to_stack:
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The built in function to check if esp protocol is used and if pulling data have error. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1196,7 +1160,7 @@ __section("from-overlay")
   },
   "startLine": 435,
   "endLine": 527,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "from_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -1208,27 +1172,27 @@ __section("from-overlay")
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
     "lwt_in",
     "xdp",
-    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
     "perf_event",
-    "sk_skb",
+    "sk_reuseport",
+    "flow_dissector",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "lwt_out",
+    "sched_act",
     "cgroup_skb",
+    "sk_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sock_ops",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock"
   ],
   "source": [
     "int from_overlay (struct  __ctx_buff *ctx)\n",
@@ -1299,16 +1263,10 @@ __section("from-overlay")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " handle different possible packets come to the program. First check if it is esp protocol, then check the decrypted or not and get the identity from the metadata.  ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1428,7 +1386,7 @@ __section("to-overlay")
   "helperCallParams": {},
   "startLine": 533,
   "endLine": 568,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "to_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -1438,29 +1396,29 @@ __section("to-overlay")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
     "lwt_in",
     "xdp",
-    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
     "perf_event",
-    "sk_skb",
+    "sk_reuseport",
+    "flow_dissector",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "lwt_out",
+    "sched_act",
     "cgroup_skb",
+    "cgroup_sysctl",
+    "cgroup_device",
+    "sk_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sock_ops",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock"
   ],
   "source": [
     "int to_overlay (struct  __ctx_buff *ctx)\n",
@@ -1495,16 +1453,10 @@ __section("to-overlay")
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " TO BE ADDED  ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

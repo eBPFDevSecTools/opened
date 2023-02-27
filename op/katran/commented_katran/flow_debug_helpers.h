@@ -33,7 +33,7 @@
   "helperCallParams": {},
   "startLine": 29,
   "endLine": 53,
-  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "get_next_ports",
   "updateMaps": [],
   "readMaps": [],
@@ -45,29 +45,29 @@
   "output": "staticinline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline __u32 get_next_ports (void *transport_hdr, __u8 proto, void *data_end)\n",
@@ -95,12 +95,6 @@
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -173,7 +167,7 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
   },
   "startLine": 55,
   "endLine": 128,
-  "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "gue_record_route",
   "updateMaps": [],
   "readMaps": [],
@@ -190,26 +184,26 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
   ],
   "compatibleHookpoints": [
     "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
     "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline void gue_record_route (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4)\n",
@@ -264,12 +258,6 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

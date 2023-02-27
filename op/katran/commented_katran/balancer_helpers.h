@@ -89,7 +89,7 @@
   },
   "startLine": 46,
   "endLine": 70,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
   "updateMaps": [],
   "readMaps": [
@@ -105,26 +105,26 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_perf_event_output"
+    "bpf_perf_event_output",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "raw_tracepoint",
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "sched_act",
-    "lwt_xmit",
-    "kprobe",
-    "sk_skb",
-    "tracepoint",
-    "sock_ops",
-    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "raw_tracepoint_writable",
+    "sched_act",
+    "sched_cls",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "kprobe",
+    "lwt_seg6local",
+    "tracepoint",
+    "lwt_out",
+    "sk_skb",
+    "lwt_in",
+    "cgroup_skb",
+    "sock_ops",
+    "xdp"
   ],
   "source": [
     "static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)\n",
@@ -151,12 +151,6 @@
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -217,7 +211,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
   },
   "startLine": 74,
   "endLine": 80,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
   "updateMaps": [],
   "readMaps": [],
@@ -230,26 +224,26 @@ __attribute__((__always_inline__)) static inline void submit_event(
   ],
   "compatibleHookpoints": [
     "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
     "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int recirculate (struct xdp_md *ctx)\n",
@@ -260,12 +254,6 @@ __attribute__((__always_inline__)) static inline void submit_event(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -296,7 +284,7 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
-  "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
+  "File": "/home/palani/github/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
   "updateMaps": [],
   "readMaps": [],
@@ -309,29 +297,29 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
+    "cgroup_skb",
     "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "sk_reuseport",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sched_cls",
     "perf_event",
     "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_seg6local",
     "sk_skb",
+    "tracepoint",
+    "sock_ops",
+    "xdp",
+    "sched_act",
+    "flow_dissector",
     "kprobe",
-    "cgroup_sock"
+    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_out",
+    "lwt_in"
   ],
   "source": [
     "static inline int decrement_ttl (void *data, void *data_end, int offset, bool is_ipv6)\n",
@@ -363,12 +351,6 @@ __attribute__((__always_inline__)) static inline int recirculate(
     "}\n"
   ],
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

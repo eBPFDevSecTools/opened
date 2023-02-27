@@ -48,7 +48,7 @@
   "helperCallParams": {},
   "startLine": 44,
   "endLine": 99,
-  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_alignchecker.c",
+  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_alignchecker.c",
   "funcName": "main",
   "updateMaps": [],
   "readMaps": [],
@@ -58,29 +58,29 @@
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
     "lwt_in",
     "xdp",
-    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr",
     "perf_event",
-    "sk_skb",
+    "sk_reuseport",
+    "flow_dissector",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "lwt_out",
+    "sched_act",
     "cgroup_skb",
+    "cgroup_sysctl",
+    "cgroup_device",
+    "sk_skb",
+    "tracepoint",
+    "lwt_xmit",
     "sock_ops",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint",
+    "cgroup_sock"
   ],
   "source": [
     "int main (void)\n",
@@ -141,16 +141,10 @@
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Print and debug all the existing variables (especially fast path ",
+      "description": " Print and debug all the existing variables (especially fast path  sections that printk is not appropriate for) ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
