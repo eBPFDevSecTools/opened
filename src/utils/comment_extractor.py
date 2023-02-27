@@ -74,19 +74,35 @@ def get_author(author_dict, file_name, op_dict):
     return op_dict
 
 def extract_comments(file_name,start_pattern,end_pattern,db):
+    comments_list = []
+    print("PROCESSING: "+file_name)
     src_file = open(file_name,'r')
     data = src_file.read()
     #print(data)
     #TODO: Try a regular expression insted of multiple split operations
     tokens = data.split(start_pattern)
+    #print("TOKENS")
+    #print(tokens)
     for token in tokens[1:]:
+        #print("TOKEN")
+        #print(token)
         comment = token.split(end_pattern)[0]
-        #print(comment)
+        print("COMMENT")
+        print(comment)
+
         op_dict = {}
         op_dict['date']= str(date.today())
         lines = comment.split('\n')
         #print(lines)
-        for line in lines[1:]:
+        ct = 1
+        done = False
+        for ct in range(1,len(lines)):
+            if done == True:
+                break;
+            line = lines[ct]
+            # ALready processed this line as part of function description
+            if ct >= len(lines):
+                break
             line_tokens = line.split(':')
             if len(line_tokens) < 2:
                 continue
@@ -94,14 +110,30 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
             #print(line_tokens)
             key = line_tokens[0]
             key = key.strip()
-            key = re.sub(r'\s+', '_', key) 
-            value = line_tokens[1]
+            key = re.sub(r'\s+', '_', key)
+            print("Key: "+key+" ct: "+str(ct))
+            value = ""
+            # text itself may contain ":"
+            for text in line_tokens[1:]:
+                value = value + text
+            if key == "Func_Description":
+                print("Func_Desc: "+str(ct))
+                #ct = ct + 2 # why 2? Seems to work
+                ct = ct + 1 
+                while ct < len(lines):
+                    print("ct: "+str(ct))
+                    value = value + lines[ct]
+                    ct = ct + 1
+                done = True
+                print("Func_Description_val: "+value)
             op_dict[key] = value
-        #print("dict")
-        #print(op_dict)
-        print(json.dumps(op_dict))
-        return op_dict
+            ct = ct + 1
+        print(op_dict)
+        #print(json.dumps(op_dict))
         
+        comments_list.append(op_dict)
+    return comments_list
+
         
     
 
@@ -153,7 +185,8 @@ if __name__ == "__main__":
         print("path: "+filepath+" name: "+fname) 
         
         if filepath.endswith(".c") or filepath.endswith(".h"):
-            op_dict = extract_comments(filepath,"OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
-            op_dict = get_author(author_dict, fname, op_dict)
-            print(op_dict)
-            insert_to_db(comments_db,op_dict)
+            comments_list= extract_comments(filepath," OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+            for op_dict in comments_list:
+                op_dict = get_author(author_dict, fname, op_dict)
+                print(op_dict)
+                insert_to_db(comments_db,op_dict)

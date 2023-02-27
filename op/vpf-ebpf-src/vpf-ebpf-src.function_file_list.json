@@ -1,1 +1,1044 @@
-{"caller": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c", "startLine": "24", "endLine": "32", "capability": {"capabilities": [], "helperCallParams": {"bpf_tail_call": [{"opVar": "        long error ", "inpVar": [" ctx", " &map", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c", "startLine": "24", "endLine": "31", "capability": {"capabilities": [], "helperCallParams": {"bpf_tail_call": [{"opVar": "    long error ", "inpVar": [" ctx", " &map", " 0"]}]}}}], "callee": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c", "startLine": "34", "endLine": "38", "capability": {"capabilities": [], "helperCallParams": {}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c", "startLine": "33", "endLine": "37", "capability": {"capabilities": [], "helperCallParams": {}}}], "func": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr2.c", "startLine": "29", "endLine": "36", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_map_update_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}", "{Type:  const void ,Var: *value}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_map_update_elem": [{"opVar": "NA", "inpVar": ["            return e&map", " &ctx", " &value", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c", "startLine": "35", "endLine": "49", "capability": {"capabilities": [{"capability": "map_read", "map_read": [{"Project": "libbpf", "Return Type": "void*", "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ", "Return": " Map value associated to key, or NULL if no entry was found.", "Function Name": "bpf_map_lookup_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}"]}]}], "helperCallParams": {"bpf_map_lookup_elem": [{"opVar": "    void* nolocal_lru_map ", "inpVar": [" &array_of_maps", " &outer_key"]}, {"opVar": "        void* ret ", "inpVar": [" nolocal_lru_map", " &inner_key"]}, {"opVar": "            ret ", "inpVar": [" &inner_map", " &inner_key"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapunderflow.c", "startLine": "29", "endLine": "38", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_map_update_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}", "{Type:  const void ,Var: *value}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_map_update_elem": [{"opVar": "NA", "inpVar": ["                return e&map", " &key", " &value", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c", "startLine": "29", "endLine": "48", "capability": {"capabilities": [{"capability": "map_read", "map_read": [{"Project": "libbpf", "Return Type": "void*", "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ", "Return": " Map value associated to key, or NULL if no entry was found.", "Function Name": "bpf_map_lookup_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}"]}]}, {"capability": "read_sys_info", "read_sys_info": [{"Project": "cilium", "Return Type": "u32", "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ", "Return": " A random 32-bit unsigned value.", "Function Name": "get_prandom_u32", "Input Params": ["{Type: voi ,Var: void}"]}]}], "helperCallParams": {"get_prandom_u32": [{"opVar": "    uint32_t rand32 ", "inpVar": [" "]}], "bpf_map_lookup_elem": [{"opVar": "    uint8_t* map_value ", "inpVar": [" uint8_t*&map", " &map_key"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c", "startLine": "29", "endLine": "37", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_sock_map_update", "Input Params": ["{Type: struct bpf_sock_ops ,Var: *skops}", "{Type:  struct bpf_map ,Var: *map}", "{Type:  void ,Var: *key}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_sock_map_update": [{"opVar": "            int result ", "inpVar": [" ctx", " &map", " &key", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c", "startLine": "8", "endLine": "19", "capability": {"capabilities": [{"capability": "read_sys_info", "read_sys_info": [{"Project": "cilium", "Return Type": "u32", "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ", "Return": " A random 32-bit unsigned value.", "Function Name": "get_prandom_u32", "Input Params": ["{Type: voi ,Var: void}"]}]}], "helperCallParams": {"get_prandom_u32": [{"opVar": "      uint32_t rand32 ", "inpVar": [" "]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c", "startLine": "8", "endLine": "15", "capability": {"capabilities": [{"capability": "read_sys_info", "read_sys_info": [{"Project": "libbpf", "Return Type": "int", "Description": "Copy the comm attribute of the current task into <[ buf ]>(IP: 0) of size_of_buf. The comm attribute contains the name of the executable (excluding the path) for the current task. The <[ size_of_buf ]>(IP: 1) must be strictly positive. On success , the helper makes sure that the <[ buf ]>(IP: 0) is NUL-terminated. On failure , it is filled with zeroes. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_get_current_comm", "Input Params": ["{Type: char ,Var: *buf}", "{Type:  u32 ,Var: size_of_buf}"]}]}], "helperCallParams": {"bpf_get_current_comm": [{"opVar": "NA", "inpVar": ["            return ebuffer", " 20"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badrelo.c", "startLine": "31", "endLine": "38", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_map_update_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}", "{Type:  const void ,Var: *value}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_map_update_elem": [{"opVar": "NA", "inpVar": ["            return &map2", " const void*0", " const void*0", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr.c", "startLine": "29", "endLine": "36", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_map_update_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}", "{Type:  const void ,Var: *value}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_map_update_elem": [{"opVar": "NA", "inpVar": ["            return e&map", " &key", " &ctx", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapvalue-overrun.c", "startLine": "26", "endLine": "39", "capability": {"capabilities": [{"capability": "map_read", "map_read": [{"Project": "libbpf", "Return Type": "void*", "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ", "Return": " Map value associated to key, or NULL if no entry was found.", "Function Name": "bpf_map_lookup_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}"]}]}], "helperCallParams": {"bpf_map_lookup_elem": [{"opVar": "    uint64_t* ptr ", "inpVar": [" &map", " &key"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twomaps.c", "startLine": "36", "endLine": "48", "capability": {"capabilities": [{"capability": "map_read", "map_read": [{"Project": "libbpf", "Return Type": "void*", "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ", "Return": " Map value associated to key, or NULL if no entry was found.", "Function Name": "bpf_map_lookup_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}"]}]}, {"capability": "read_sys_info", "read_sys_info": [{"Project": "cilium", "Return Type": "u32", "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ", "Return": " A random 32-bit unsigned value.", "Function Name": "get_prandom_u32", "Input Params": ["{Type: voi ,Var: void}"]}]}], "helperCallParams": {"get_prandom_u32": [{"opVar": "    uint32_t rand32 ", "inpVar": [" "]}], "bpf_map_lookup_elem": [{"opVar": "    uint64_t* value ", "inpVar": [" uint64_t*map", " &key"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c", "startLine": "10", "endLine": "46", "capability": {"capabilities": [{"capability": "read_sys_info", "read_sys_info": [{"Project": "cilium", "Return Type": "u32", "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ", "Return": " A random 32-bit unsigned value.", "Function Name": "get_prandom_u32", "Input Params": ["{Type: voi ,Var: void}"]}]}], "helperCallParams": {"get_prandom_u32": [{"opVar": "    uint32_t rand32 ", "inpVar": [" "]}, {"opVar": "            stack_buffer[i] ", "inpVar": [" "]}, {"opVar": "            stack_buffer2[i] ", "inpVar": [" "]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c", "startLine": "8", "endLine": "26", "capability": {"capabilities": [{"capability": "read_sys_info", "read_sys_info": [{"Project": "cilium", "Return Type": "u32", "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ", "Return": " A random 32-bit unsigned value.", "Function Name": "get_prandom_u32", "Input Params": ["{Type: voi ,Var: void}"]}]}], "helperCallParams": {"get_prandom_u32": [{"opVar": "   int rand32 ", "inpVar": [" "]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c", "startLine": "29", "endLine": "38", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_sock_map_update", "Input Params": ["{Type: struct bpf_sock_ops ,Var: *skops}", "{Type:  struct bpf_map ,Var: *map}", "{Type:  void ,Var: *key}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_sock_map_update": [{"opVar": "    int result ", "inpVar": [" ctx", " &map", " &key", " 0"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapoverflow.c", "startLine": "29", "endLine": "37", "capability": {"capabilities": [{"capability": "map_update", "map_update": [{"Project": "libbpf", "Return Type": "int", "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_map_update_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}", "{Type:  const void ,Var: *value}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_map_update_elem": [{"opVar": "NA", "inpVar": ["            return e&map", " &key", " &value", " 0"]}]}}}], "read_write_packet_start": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_overflow.c", "startLine": "18", "endLine": "27", "capability": {"capabilities": [], "helperCallParams": {}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_start_ok.c", "startLine": "18", "endLine": "27", "capability": {"capabilities": [], "helperCallParams": {}}}], "test_repro": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badmapptr.c", "startLine": "28", "endLine": "40", "capability": {"capabilities": [{"capability": "map_read", "map_read": [{"Project": "libbpf", "Return Type": "void*", "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ", "Return": " Map value associated to key, or NULL if no entry was found.", "Function Name": "bpf_map_lookup_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}"]}]}], "helperCallParams": {"bpf_map_lookup_elem": [{"opVar": "            uint32_t* value ", "inpVar": [" emap + 1", " &key"]}]}}}, {"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c", "startLine": "28", "endLine": "40", "capability": {"capabilities": [{"capability": "map_read", "map_read": [{"Project": "libbpf", "Return Type": "void*", "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ", "Return": " Map value associated to key, or NULL if no entry was found.", "Function Name": "bpf_map_lookup_elem", "Input Params": ["{Type: struct bpf_map ,Var: *map}", "{Type:  const void ,Var: *key}"]}]}], "helperCallParams": {"bpf_map_lookup_elem": [{"opVar": "    uint32_t* value ", "inpVar": [" e&test_map", " &key"]}]}}}], "reallocate_invalidates": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c", "startLine": "17", "endLine": "34", "capability": {"capabilities": [{"capability": "update_pkt", "update_pkt": [{"Project": "libbpf", "Return Type": "int", "Description": "Grows headroom of packet associated to <[ skb ]>(IP: 0) and adjusts the offset of the MAC header accordingly , adding <[ len ]>(IP: 1) bytes of space. It automatically extends and reallocates memory as required. This helper can be used on a layer 3 <[ skb ]>(IP: 0) to push a MAC header for redirection into a layer 2 device. All values for <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ", "Return": " 0 on success, or a negative error in case of failure.", "Function Name": "bpf_skb_change_head", "Input Params": ["{Type: struct sk_buff ,Var: *skb}", "{Type:  u32 ,Var: len}", "{Type:  u64 ,Var: flags}"]}]}], "helperCallParams": {"bpf_skb_change_head": [{"opVar": "NA", "inpVar": ["    ctx", " 4", " 0"]}]}}}], "foo": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/loop.c", "startLine": "13", "endLine": "31", "capability": {"capabilities": [], "helperCallParams": {}}}], "test": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c", "startLine": "24", "endLine": "32", "capability": {"capabilities": [], "helperCallParams": {}}}], "test_packet_access": [{"fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c", "startLine": "18", "endLine": "58", "capability": {"capabilities": [{"capability": "read_sys_info", "read_sys_info": [{"Project": "cilium", "Return Type": "u32", "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ", "Return": " A random 32-bit unsigned value.", "Function Name": "get_prandom_u32", "Input Params": ["{Type: voi ,Var: void}"]}]}], "helperCallParams": {"get_prandom_u32": [{"opVar": "    uint32_t rand32 ", "inpVar": [" "]}]}}}]}
+{
+    "caller": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c",
+            "startLine": "24",
+            "endLine": "32",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {
+                    "bpf_tail_call": [
+                        {
+                            "opVar": "        long error ",
+                            "inpVar": [
+                                " ctx",
+                                " &map",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
+            "startLine": "24",
+            "endLine": "31",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {
+                    "bpf_tail_call": [
+                        {
+                            "opVar": "    long error ",
+                            "inpVar": [
+                                " ctx",
+                                " &map",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ],
+    "callee": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c",
+            "startLine": "34",
+            "endLine": "38",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call.c",
+            "startLine": "33",
+            "endLine": "37",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ],
+    "func": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr2.c",
+            "startLine": "29",
+            "endLine": "36",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "            return e&map",
+                                " &ctx",
+                                " &value",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c",
+            "startLine": "35",
+            "endLine": "49",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "    void* nolocal_lru_map ",
+                            "inpVar": [
+                                " &array_of_maps",
+                                " &outer_key"
+                            ]
+                        },
+                        {
+                            "opVar": "        void* ret ",
+                            "inpVar": [
+                                " nolocal_lru_map",
+                                " &inner_key"
+                            ]
+                        },
+                        {
+                            "opVar": "            ret ",
+                            "inpVar": [
+                                " &inner_map",
+                                " &inner_key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapunderflow.c",
+            "startLine": "29",
+            "endLine": "38",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "                return e&map",
+                                " &key",
+                                " &value",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
+            "startLine": "29",
+            "endLine": "48",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "cilium",
+                                "Return Type": "u32",
+                                "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+                                "Return": " A random 32-bit unsigned value.",
+                                "Function Name": "get_prandom_u32",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "get_prandom_u32": [
+                        {
+                            "opVar": "    uint32_t rand32 ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ],
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "    uint8_t* map_value ",
+                            "inpVar": [
+                                " uint8_t*&map",
+                                " &map_key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c",
+            "startLine": "29",
+            "endLine": "37",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_sock_map_update",
+                                "Input Params": [
+                                    "{Type: struct bpf_sock_ops ,Var: *skops}",
+                                    "{Type:  struct bpf_map ,Var: *map}",
+                                    "{Type:  void ,Var: *key}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_sock_map_update": [
+                        {
+                            "opVar": "            int result ",
+                            "inpVar": [
+                                " ctx",
+                                " &map",
+                                " &key",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c",
+            "startLine": "8",
+            "endLine": "19",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "cilium",
+                                "Return Type": "u32",
+                                "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+                                "Return": " A random 32-bit unsigned value.",
+                                "Function Name": "get_prandom_u32",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "get_prandom_u32": [
+                        {
+                            "opVar": "      uint32_t rand32 ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badhelpercall.c",
+            "startLine": "8",
+            "endLine": "15",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Copy the comm attribute of the current task into <[ buf ]>(IP: 0) of size_of_buf. The comm attribute contains the name of the executable (excluding the path) for the current task. The <[ size_of_buf ]>(IP: 1) must be strictly positive. On success , the helper makes sure that the <[ buf ]>(IP: 0) is NUL-terminated. On failure , it is filled with zeroes. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_get_current_comm",
+                                "Input Params": [
+                                    "{Type: char ,Var: *buf}",
+                                    "{Type:  u32 ,Var: size_of_buf}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_get_current_comm": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "            return ebuffer",
+                                " 20"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badrelo.c",
+            "startLine": "31",
+            "endLine": "38",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "            return &map2",
+                                " const void*0",
+                                " const void*0",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/exposeptr.c",
+            "startLine": "29",
+            "endLine": "36",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "            return e&map",
+                                " &key",
+                                " &ctx",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapvalue-overrun.c",
+            "startLine": "26",
+            "endLine": "39",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "    uint64_t* ptr ",
+                            "inpVar": [
+                                " &map",
+                                " &key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twomaps.c",
+            "startLine": "36",
+            "endLine": "48",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "cilium",
+                                "Return Type": "u32",
+                                "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+                                "Return": " A random 32-bit unsigned value.",
+                                "Function Name": "get_prandom_u32",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "get_prandom_u32": [
+                        {
+                            "opVar": "    uint32_t rand32 ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ],
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "    uint64_t* value ",
+                            "inpVar": [
+                                " uint64_t*map",
+                                " &key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c",
+            "startLine": "10",
+            "endLine": "46",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "cilium",
+                                "Return Type": "u32",
+                                "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+                                "Return": " A random 32-bit unsigned value.",
+                                "Function Name": "get_prandom_u32",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "get_prandom_u32": [
+                        {
+                            "opVar": "    uint32_t rand32 ",
+                            "inpVar": [
+                                " "
+                            ]
+                        },
+                        {
+                            "opVar": "            stack_buffer[i] ",
+                            "inpVar": [
+                                " "
+                            ]
+                        },
+                        {
+                            "opVar": "            stack_buffer2[i] ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c",
+            "startLine": "8",
+            "endLine": "26",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "cilium",
+                                "Return Type": "u32",
+                                "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+                                "Return": " A random 32-bit unsigned value.",
+                                "Function Name": "get_prandom_u32",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "get_prandom_u32": [
+                        {
+                            "opVar": "   int rand32 ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
+            "startLine": "29",
+            "endLine": "38",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_sock_map_update",
+                                "Input Params": [
+                                    "{Type: struct bpf_sock_ops ,Var: *skops}",
+                                    "{Type:  struct bpf_map ,Var: *map}",
+                                    "{Type:  void ,Var: *key}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_sock_map_update": [
+                        {
+                            "opVar": "    int result ",
+                            "inpVar": [
+                                " ctx",
+                                " &map",
+                                " &key",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapoverflow.c",
+            "startLine": "29",
+            "endLine": "37",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_update",
+                        "map_update": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_map_update_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}",
+                                    "{Type:  const void ,Var: *value}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_update_elem": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "            return e&map",
+                                " &key",
+                                " &value",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_get_current_comm",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem",
+                "ebpf_map_update_elem"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "read_write_packet_start": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_overflow.c",
+            "startLine": "18",
+            "endLine": "27",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_start_ok.c",
+            "startLine": "18",
+            "endLine": "27",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ],
+    "test_repro": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badmapptr.c",
+            "startLine": "28",
+            "endLine": "40",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "            uint32_t* value ",
+                            "inpVar": [
+                                " emap + 1",
+                                " &key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_map_lookup_elem",
+                "ebpf_map_lookup_elem"
+            ],
+            "call_depth": -1
+        },
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
+            "startLine": "28",
+            "endLine": "40",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "map_read",
+                        "map_read": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "void*",
+                                "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+                                "Return": " Map value associated to key, or NULL if no entry was found.",
+                                "Function Name": "bpf_map_lookup_elem",
+                                "Input Params": [
+                                    "{Type: struct bpf_map ,Var: *map}",
+                                    "{Type:  const void ,Var: *key}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_map_lookup_elem": [
+                        {
+                            "opVar": "    uint32_t* value ",
+                            "inpVar": [
+                                " e&test_map",
+                                " &key"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [
+                "ebpf_map_lookup_elem",
+                "ebpf_map_lookup_elem"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "reallocate_invalidates": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
+            "startLine": "17",
+            "endLine": "34",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "update_pkt",
+                        "update_pkt": [
+                            {
+                                "Project": "libbpf",
+                                "Return Type": "int",
+                                "Description": "Grows headroom of packet associated to <[ skb ]>(IP: 0) and adjusts the offset of the MAC header accordingly , adding <[ len ]>(IP: 1) bytes of space. It automatically extends and reallocates memory as required. This helper can be used on a layer 3 <[ skb ]>(IP: 0) to push a MAC header for redirection into a layer 2 device. All values for <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+                                "Return": " 0 on success, or a negative error in case of failure.",
+                                "Function Name": "bpf_skb_change_head",
+                                "Input Params": [
+                                    "{Type: struct sk_buff ,Var: *skb}",
+                                    "{Type:  u32 ,Var: len}",
+                                    "{Type:  u64 ,Var: flags}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "bpf_skb_change_head": [
+                        {
+                            "opVar": "NA",
+                            "inpVar": [
+                                "    ctx",
+                                " 4",
+                                " 0"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ],
+    "foo": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/loop.c",
+            "startLine": "13",
+            "endLine": "31",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ],
+    "test": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c",
+            "startLine": "24",
+            "endLine": "32",
+            "capability": {
+                "capabilities": [],
+                "helperCallParams": {}
+            },
+            "called_function_list": [
+                "bpf_ringbuf_output"
+            ],
+            "call_depth": -1
+        }
+    ],
+    "test_packet_access": [
+        {
+            "fileName": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
+            "startLine": "18",
+            "endLine": "58",
+            "capability": {
+                "capabilities": [
+                    {
+                        "capability": "read_sys_info",
+                        "read_sys_info": [
+                            {
+                                "Project": "cilium",
+                                "Return Type": "u32",
+                                "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
+                                "Return": " A random 32-bit unsigned value.",
+                                "Function Name": "get_prandom_u32",
+                                "Input Params": [
+                                    "{Type: voi ,Var: void}"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "helperCallParams": {
+                    "get_prandom_u32": [
+                        {
+                            "opVar": "    uint32_t rand32 ",
+                            "inpVar": [
+                                " "
+                            ]
+                        }
+                    ]
+                }
+            },
+            "called_function_list": [],
+            "call_depth": 0
+        }
+    ]
+}
