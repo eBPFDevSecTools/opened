@@ -134,6 +134,27 @@ def extract_comments(file_name,start_pattern,end_pattern,db):
         comments_list.append(op_dict)
     return comments_list
 
+def extract_comments_from_json(file_name,start_pattern,end_pattern,db):
+    comments_list = []
+    print("PROCESSING: "+file_name)
+    src_file = open(file_name,'r')
+    data = src_file.read()
+    #print(data)
+    #TODO: Try a regular expression insted of multiple split operations
+    tokens = data.split(start_pattern)
+    #print("TOKENS")
+    #print(tokens)
+    for token in tokens[1:]:
+        #print("TOKEN")
+        #print(token)
+        comment = token.split(end_pattern)[0]
+        print("COMMENT")
+        print(comment)
+        op_dict = json.loads(comment)
+        print(op_dict)
+        comments_list.append(op_dict)
+    return comments_list
+
         
     
 
@@ -150,7 +171,7 @@ if __name__ == "__main__":
             help='directory with source code')
     my_parser.add_argument('-d','--comments_dbfile',action='store',required=True,
             help='comments db file')
-    my_parser.add_argument('-a','--authors_file',action='store',required=True,
+    my_parser.add_argument('-a','--authors_file',action='store',required=False,
             help='file to authors mapping json file')
     args = my_parser.parse_args()
 
@@ -162,7 +183,8 @@ if __name__ == "__main__":
 
     files = []
     files.append(src_dir)
-    files.append(authors_file)
+    if authors_file != None:
+        files.append(authors_file)
 
     if check_if_file_does_not_exist(files)  == True:
         print("Input file does not Exist..Quitting")
@@ -174,19 +196,22 @@ if __name__ == "__main__":
         print("Comments db file already exists..Quitting")
         exit(0)
 
-
-    with open (authors_file) as json_str:
-        author_dict = json.load(json_str)
-
+    
     #comments_db_file="boston_comments.json"
     comments_db = TinyDB(comments_db_file)
     for filepath in glob.iglob(src_dir+"/*" , recursive=True):
         fname = filepath.split('/')[-1]
         print("path: "+filepath+" name: "+fname) 
-        
         if filepath.endswith(".c") or filepath.endswith(".h"):
-            comments_list= extract_comments(filepath," OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+            if authors_file != None:
+                    comments_list= extract_comments(filepath," OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+            else:
+                    comments_list= extract_comments_from_json(filepath," OPENED COMMENT BEGIN","OPENED COMMENT END",comments_db)
+
             for op_dict in comments_list:
-                op_dict = get_author(author_dict, fname, op_dict)
+                if authors_file != None:
+                    with open (authors_file) as json_str:
+                        author_dict = json.load(json_str)
+                        op_dict = get_author(author_dict, fname, op_dict)
                 print(op_dict)
                 insert_to_db(comments_db,op_dict)
