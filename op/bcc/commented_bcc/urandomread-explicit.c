@@ -1,3 +1,13 @@
+#include <uapi/linux/ptrace.h>
+
+struct urandom_read_args {
+    // from /sys/kernel/debug/tracing/events/random/urandom_read/format
+    u64 __unused__;
+    u32 got_bits;
+    u32 pool_left;
+    u32 input_left;
+};
+
 /* 
  OPENED COMMENT BEGIN 
 {
@@ -7,20 +17,20 @@
       {
         "opVar": "NA",
         "inpVar": [
-          "  \"Hello",
-          " World!\\\\n\""
+          "    \"%d\\\\n\"",
+          " args->got_bits"
         ]
       }
     ]
   },
-  "startLine": 1,
-  "endLine": 4,
-  "File": "/root/examples/bcc/trace_fields.c",
-  "funcName": "hello",
+  "startLine": 11,
+  "endLine": 14,
+  "File": "/root/examples/bcc/urandomread-explicit.c",
+  "funcName": "printarg",
   "updateMaps": [],
   "readMaps": [],
   "input": [
-    "void *ctx"
+    "struct urandom_read_args *args"
   ],
   "output": "int",
   "helper": [
@@ -53,10 +63,9 @@
   ],
   "humanFuncDescription": [
     {
-      "description": "This prints out a trace line every time the clone system call is called.
-                      This will instrument the kernel sys_clone() function, which will then run the BPF defined hello() function each time it is called.",
+      "description": "This is an explicit way to instrument tracepoints. This is an older example of instrumenting a tracepoint, which defines the argument struct and makes an explicit call to attach_tracepoint().",
       "author": "Utkalika Satapathy",
-      "authorEmail": "utkalika.satapathy01@gmail.com,
+      "authorEmail": "utkalika.satapathy01@gmail.com",
       "date": "02.02.2023"
     }
   ],
@@ -72,7 +81,7 @@
 } 
  OPENED COMMENT END 
  */ 
-int hello(void *ctx) {
-  bpf_trace_printk("Hello, World!\\n");
-  return 0;
+int printarg(struct urandom_read_args *args) {
+    bpf_trace_printk("%d\\n", args->got_bits);
+    return 0;
 }

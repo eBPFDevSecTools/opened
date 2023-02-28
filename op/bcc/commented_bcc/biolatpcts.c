@@ -2,18 +2,19 @@
 #include <linux/blk-mq.h>
 #include <linux/blkdev.h>
 #include <linux/time64.h>
+
 BPF_PERCPU_ARRAY(lat_100ms, u64, 100);
 BPF_PERCPU_ARRAY(lat_1ms, u64, 100);
 BPF_PERCPU_ARRAY(lat_10us, u64, 100);
+
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
+  "capability": [
     {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "libbpf",
           "Return Type": "u64",
           "Description": "Return the time elapsed since system boot , in nanoseconds. ",
           "Return": " Current ktime.",
@@ -28,16 +29,16 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   "helperCallParams": {
     "bpf_ktime_get_ns": [
       {
-        "opVar": "\tdur ",
+        "opVar": "        dur ",
         "inpVar": [
           "  - rq->io_start_time_ns"
         ]
       }
     ]
   },
-  "startLine": 8,
-  "endLine": 29,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
+  "startLine": 10,
+  "endLine": 36,
+  "File": "/root/examples/bcc/biolatpcts.c",
   "funcName": "RAW_TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -49,59 +50,41 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
     "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sched_cls",
     "xdp",
     "lwt_seg6local",
-    "socket_filter",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
-    "sk_skb",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
     "sk_msg",
-    "raw_tracepoint"
-  ],
-  "source": [
-    "RAW_TRACEPOINT_PROBE (block_rq_complete)\n",
-    "{\n",
-    "    struct request *rq = (void *) ctx->args[0];\n",
-    "    unsigned int cmd_flags;\n",
-    "    u64 dur;\n",
-    "    size_t base, slot;\n",
-    "    if (!rq->io_start_time_ns)\n",
-    "        return 0;\n",
-    "    dur = bpf_ktime_get_ns () - rq->io_start_time_ns;\n",
-    "    slot = min_t (size_t, div_u64 (dur, 100 * NSEC_PER_MSEC), 99);\n",
-    "    lat_100ms.increment (slot);\n",
-    "    if (slot)\n",
-    "        return 0;\n",
-    "    slot = min_t (size_t, div_u64 (dur, NSEC_PER_MSEC), 99);\n",
-    "    lat_1ms.increment (slot);\n",
-    "    if (slot)\n",
-    "        return 0;\n",
-    "    slot = min_t (size_t, div_u64 (dur, 10 * NSEC_PER_USEC), 99);\n",
-    "    lat_10us.increment (slot);\n",
-    "    return 0;\n",
-    "}\n"
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {}
+      "description": "biolatpcts_RAW_TRACEPOINT_PROBE function takes as input a block_req_complete
+                      and calculates the duration of the i/o time 'dur' by subtracting kernel time 
+                      with start time. It uses helper bpf_ktime_get_ns() to get the kernel time. It 
+                      then divides it into three slots:
+                      dur>100ms, 100ms>dur>1ms and 10microsec<dur<1ms and increments the count of each 
+                      slot if the duration falls in the slot. biolatpcts_RAW_TRACEPOINT_PROBE returns 0
+                      when the slots are valid or the io start time for request is 0.",
+      "author": "Neha Chowdhary",
+      "authorEmail": "nehaniket79@gmail.com",
+      "date": "01.02.2023"
+    }
   ],
   "AI_func_description": [
     {
@@ -117,23 +100,28 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
  */ 
 RAW_TRACEPOINT_PROBE(block_rq_complete)
 {
-	// TP_PROTO(struct request *rq, blk_status_t error, unsigned int nr_bytes)
-	struct request *rq = (void *)ctx->args[0];
-	unsigned int cmd_flags;
-	u64 dur;
-	size_t base, slot;
-	if (!rq->io_start_time_ns)
-		return 0;
-	dur = bpf_ktime_get_ns() - rq->io_start_time_ns;
-	slot = min_t(size_t, div_u64(dur, 100 * NSEC_PER_MSEC), 99);
-	lat_100ms.increment(slot);
-	if (slot)
-		return 0;
-	slot = min_t(size_t, div_u64(dur, NSEC_PER_MSEC), 99);
-	lat_1ms.increment(slot);
-	if (slot)
-		return 0;
-	slot = min_t(size_t, div_u64(dur, 10 * NSEC_PER_USEC), 99);
-	lat_10us.increment(slot);
-	return 0;
+        // TP_PROTO(struct request *rq, blk_status_t error, unsigned int nr_bytes)
+        struct request *rq = (void *)ctx->args[0];
+        unsigned int cmd_flags;
+        u64 dur;
+        size_t base, slot;
+
+        if (!rq->io_start_time_ns)
+                return 0;
+
+        dur = bpf_ktime_get_ns() - rq->io_start_time_ns;
+
+        slot = min_t(size_t, div_u64(dur, 100 * NSEC_PER_MSEC), 99);
+        lat_100ms.increment(slot);
+        if (slot)
+                return 0;
+
+        slot = min_t(size_t, div_u64(dur, NSEC_PER_MSEC), 99);
+        lat_1ms.increment(slot);
+        if (slot)
+                return 0;
+
+        slot = min_t(size_t, div_u64(dur, 10 * NSEC_PER_USEC), 99);
+        lat_10us.increment(slot);
+        return 0;
 }

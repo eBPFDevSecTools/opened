@@ -1,13 +1,13 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capability": [],
   "helperCallParams": {
     "bpf_trace_printk": [
       {
         "opVar": "NA",
         "inpVar": [
-          "\t\"Hello",
+          "    \"Hello",
           " World!\\\\n\""
         ]
       }
@@ -15,7 +15,7 @@
   },
   "startLine": 1,
   "endLine": 4,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/hello_fields.c",
+  "File": "/root/examples/bcc/hello_fields.c",
   "funcName": "hello",
   "updateMaps": [],
   "readMaps": [],
@@ -27,45 +27,40 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
     "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "cgroup_sysctl",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sched_cls",
+    "cgroup_device",
     "xdp",
     "lwt_seg6local",
-    "socket_filter",
-    "cgroup_device",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
-    "sk_skb",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
     "sk_msg",
-    "raw_tracepoint"
-  ],
-  "source": [
-    "int hello (void *ctx)\n",
-    "{\n",
-    "    bpf_trace_printk (\"Hello, World!\\\\n\");\n",
-    "    return 0;\n",
-    "}\n"
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {}
+      "description": "hello() function takes as input a void pointer ctx. It uses 
+                      the bpf_trace_printk helper to print the message which is passed 
+                      as argument. bpf_trace_printk is a printk()-like facility that 
+                      prints message defined in it. Function returns 0 on completion.",
+      "author": "Neha Chowdhary",
+      "authorEmail": "nehaniket79@gmail.com",
+      "date": "01.02.2023"
+    }
   ],
   "AI_func_description": [
     {
@@ -80,6 +75,6 @@
  OPENED COMMENT END 
  */ 
 int hello(void *ctx) {
-	bpf_trace_printk("Hello, World!\\n");
-	return 0;
+    bpf_trace_printk("Hello, World!\\n");
+    return 0;
 }

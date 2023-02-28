@@ -1,13 +1,13 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capability": [],
   "helperCallParams": {
     "bpf_trace_printk": [
       {
         "opVar": "NA",
         "inpVar": [
-          "\t     \"%d\\\\n\"",
+          "        \"%d\\\\n\"",
           " args->got_bits"
         ]
       }
@@ -15,7 +15,7 @@
   },
   "startLine": 1,
   "endLine": 5,
-  "File": "/home/sayandes/opened_extraction/examples/bcc/urandomread.c",
+  "File": "/root/examples/bcc/urandomread.c",
   "funcName": "TRACEPOINT_PROBE",
   "updateMaps": [],
   "readMaps": [],
@@ -28,45 +28,37 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
     "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "cgroup_sysctl",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sched_cls",
+    "cgroup_device",
     "xdp",
     "lwt_seg6local",
-    "socket_filter",
-    "cgroup_device",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
-    "sk_skb",
+    "sk_reuseport",
+    "perf_event",
+    "lwt_xmit",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "socket_filter",
+    "raw_tracepoint",
     "sk_msg",
-    "raw_tracepoint"
-  ],
-  "source": [
-    "TRACEPOINT_PROBE (random, urandom_read)\n",
-    "{\n",
-    "    bpf_trace_printk (\"%d\\\\n\", args->got_bits);\n",
-    "    return 0;\n",
-    "}\n"
+    "kprobe",
+    "flow_dissector",
+    "cgroup_skb",
+    "sk_skb",
+    "lwt_in",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "sched_act",
+    "cgroup_sysctl"
   ],
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {}
+      "description": "TRACEPOINT_PROBE(random, urandom_read) is a macro that instruments the tracepoint defined by random:urandom_read and prints the tracepoint argument got_bits.",
+      "author": "Utkalika Satapathy",
+      "authorEmail": "utkalika.satapathy01@gmail.com",
+      "date": "02.02.2023"
+    }
   ],
   "AI_func_description": [
     {
@@ -80,8 +72,8 @@
 } 
  OPENED COMMENT END 
  */ 
-TRACEPOINT_PROBE (random, urandom_read)
-{
-	    bpf_trace_printk ("%d\\n", args->got_bits);
-	        return 0;
+TRACEPOINT_PROBE(random, urandom_read) {
+    // args is from /sys/kernel/debug/tracing/events/random/urandom_read/format
+    bpf_trace_printk("%d\\n", args->got_bits);
+    return 0;
 }

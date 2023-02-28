@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/bcc/nflatency.c" funcheader="static struct tcphdr *skb_to_tcphdr (const struct sk_buff *skb)" startline="8" endline="12">
+static struct tcphdr *skb_to_tcphdr (const struct sk_buff *skb)
+{
+    return (struct tcphdr *) (skb->head + skb->transport_header);
+}
+</source>
+<source file="/root/examples/bcc/nflatency.c" funcheader="static inline struct iphdr *skb_to_iphdr (const struct sk_buff *skb)" startline="14" endline="18">
+static inline struct iphdr *skb_to_iphdr (const struct sk_buff *skb)
+{
+    return (struct iphdr *) (skb->head + skb->network_header);
+}
+</source>
+<source file="/root/examples/bcc/nflatency.c" funcheader="static inline struct ipv6hdr *skb_to_ip6hdr (const struct sk_buff *skb)" startline="20" endline="24">
+static inline struct ipv6hdr *skb_to_ip6hdr (const struct sk_buff *skb)
+{
+    return (struct ipv6hdr *) (skb->head + skb->network_header);
+}
+</source>
+<source file="/root/examples/bcc/nflatency.c" funcheader="int kprobe__nf_hook_slow (struct pt_regs *ctx, struct sk_buff *skb, struct nf_hook_state *state)" startline="49" endline="88">
+int kprobe__nf_hook_slow (struct pt_regs *ctx, struct sk_buff *skb, struct nf_hook_state *state)
+{
+    struct start_data data = {}
+    ;
+    data.ts = bpf_ktime_get_ns ();
+    data.hook = state->hook;
+    data.pf = state->pf;
+    COND u8 ip_proto;
+    if (skb->protocol == htons (ETH_P_IP)) {
+        struct iphdr *ip = skb_to_iphdr (skb);
+        ip_proto = ip->protocol;
+    }
+    else if (skb->protocol == htons (ETH_P_IPV6)) {
+        struct ipv6hdr *ip = skb_to_ip6hdr (skb);
+        ip_proto = ip->nexthdr;
+    }
+    data.tcp_state = 0;
+    if (ip_proto == 0x06) {
+        struct tcphdr *tcp = skb_to_tcphdr (skb);
+        u8 tcpflags = ((u_int8_t *) tcp)[13];
+        if (((tcpflags & 1) + (tcpflags & 4)) > 0) {
+            data.tcp_state = 3;
+        }
+        else if ((tcpflags & 0x02) > 0) {
+            data.tcp_state = 1;
+            if ((tcpflags & 16) > 0) {
+                data.tcp_state = 2;
+            }
+        }
+    }
+    u32 idx = 0;
+    sts.update (&idx, &data);
+    return 0;
+}
+</source>
+<source file="/root/examples/bcc/nflatency.c" funcheader="int kretprobe__nf_hook_slow (struct pt_regs *ctx)" startline="90" endline="111">
+int kretprobe__nf_hook_slow (struct pt_regs *ctx)
+{
+    u32 idx = 0;
+    struct start_data *s;
+    s = sts.lookup (&idx);
+    if (!s || s->ts == 0) {
+        return 0;
+    }
+    s->ts = bpf_ktime_get_ns () - s->ts;
+    hist_key_t key = {}
+    ;
+    key.key.hook = s->hook;
+    key.key.proto = s->pf;
+    key.key.tcp_state = s->tcp_state;
+    key.slot = bpf_log2l (s->ts / FACTOR);
+    dist.increment (key);
+    s->ts = 0;
+    sts.update (&idx, s);
+    return 0;
+}
+</source>
+</doc>
