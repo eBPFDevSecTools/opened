@@ -72,7 +72,7 @@
                       query is then printed using helper function bpf_trace_printk().
                       It reads the first argument from the query-start probe, which 
                       is the query. The format of this probe is 
-                      "query-start(query, connectionid, database, user, host)". Refer to
+                      \"query-start(query, connectionid, database, user, host)\". Refer to
                       https://dev.mysql.com/doc/refman/5.7/en/dba-dtrace-ref-query.html.
                       Function returns 0 on successful completion.",
       "author": "Neha Chowdhary",

@@ -56,7 +56,7 @@
       "description": "This prints out a trace line every time the clone system call is called.
                       This will instrument the kernel sys_clone() function, which will then run the BPF defined hello() function each time it is called.",
       "author": "Utkalika Satapathy",
-      "authorEmail": "utkalika.satapathy01@gmail.com,
+      "authorEmail": "utkalika.satapathy01@gmail.com",
       "date": "02.02.2023"
     }
   ],

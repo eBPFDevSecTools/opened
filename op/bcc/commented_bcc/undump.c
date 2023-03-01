@@ -94,12 +94,7 @@ BPF_PERF_OUTPUT(unix_recv_events);
   ],
   "humanFuncDescription": [
     {
-      "description": "The structure 'recv_data_t' stores the length of the receive data in a variable named 'recv_len' of type u32 and the array 'pkt' store the received packet data which is of type u8. The array 'pkt' can store maximum 512B of data.
-                      BPF_PERCPU_ARRAY(unix_data, struct recv_data_t, 1) creates creates per_cpu_array map with a single element where key is of type int and value recv_data_t.
-                      BPF_PERF_OUTPUT(unix_recv_events) Creates a BPF table named 'unix_recv_events' for pushing out custom event data to user space via a perf ring buffer",
-                      When there is an incoming UNIX packet received on a socket, this fucntion is invoked to trace the packet data. If a particular process id is given it traces the data received by that process.
-                      When the recieve event occurs, it push the context and data to the perf buffer 'unix_recv_event'.
-                      The function also allows tracing data only for specific pids.",
+      "description": "The structure 'recv_data_t' stores the length of the receive data in a variable named 'recv_len' of type u32 and the array 'pkt' store the received packet data which is of type u8. The array 'pkt' can store maximum 512B of data. BPF_PERCPU_ARRAY(unix_data, struct recv_data_t, 1) creates creates per_cpu_array map with a single element where key is of type int and value recv_data_t.BPF_PERF_OUTPUT(unix_recv_events) Creates a BPF table named 'unix_recv_events' for pushing out custom event data to user space via a perf ring buffer, When there is an incoming UNIX packet received on a socket, this fucntion is invoked to trace the packet data. If a particular process id is given it traces the data received by that process. When the recieve event occurs, it push the context and data to the perf buffer 'unix_recv_event'.The function also allows tracing data only for specific pids.",
       "author": "Utkalika",
       "authorEmail": "utkalika.satapathy01@gmail.com",
       "date": "19.01.2023"

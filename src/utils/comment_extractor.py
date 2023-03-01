@@ -150,7 +150,7 @@ def extract_comments_from_json(file_name,start_pattern,end_pattern,db):
         comment = token.split(end_pattern)[0]
         print("COMMENT")
         print(comment)
-        op_dict = json.loads(comment)
+        op_dict = json.loads(comment,strict=False)
         print(op_dict)
         comments_list.append(op_dict)
     return comments_list

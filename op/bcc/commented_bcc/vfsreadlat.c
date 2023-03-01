@@ -185,7 +185,7 @@ int do_entry(struct pt_regs *ctx)
   ],
   "humanFuncDescription": [
     {
-      "description": do_return function is attached at the exit point of vfs_read event.
+      "description": "do_return function is attached at the exit point of vfs_read event.
                      This function calculate the toltal amount of time taken to execute the process
                      Using the bpf helper function, it first get the current pid and search the same pid in the 'start' bpf map to find it's start time and store it in 'tsp'
                     'delta' stores the time taken to execute the function by substrating the start time of of the function from current system time

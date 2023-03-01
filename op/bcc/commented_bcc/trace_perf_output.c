@@ -82,11 +82,11 @@ BPF_ARRAY(counters, u64, 10);
     {
      "description": " BPF_ARRAY(counters, u64, 10) creates a array named 'counter' with 10 buckets and u64 values.
                       BPF_PERF_OUTPUT(events) creates a BPF table named 'events' for pushing out custom event data to user space via a perf ring buffer.
-                      This function in attahced with system call 'clone.
+                      This function in attahced with system call 'clone'.
                       Whenever the event occurs, the event data gets submitted to user space via a perf ring buffer.
                       The event data is a structure consist of system current time and the magic number i.e. 0x12345678
                       Once the event data is submmited to the perf buffer successfully, it increaments the counter value which indicates the number of times the event has been occured",
-      "author": "Utkalika" Satapathy,
+      "author": "Utkalika Satapathy",
       "authorEmail": "utkalika.satapathy01@gmail.com",
       "date": "19.01.2023 "
     }
