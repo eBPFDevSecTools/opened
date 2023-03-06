@@ -1,0 +1,873 @@
+[
+    {
+      "kprobe__": {
+        "Project": "bcc",
+        "FunctionName": "kprobe__",
+        "Return Type": "int",
+        "Description": "kprobe__kernel_function_name kprobe__ is a special prefix that creates a kprobe (dynamic tracing of a kernel function call) for the kernel function name provided as the remainder. You can also use kprobes by declaring a normal C function, then using the Python BPF.attach_kprobe (covered later) to associate it with a kernel function. Arguments are specified on the function declaration: kprobe__kernel_function_name(struct pt_regs ctx [, argument1* ...]) For example: Cint kprobe__tcp_v4_connect(struct pt_regs *ctx, struct sock *sk) {    [...]} This instruments the tcp_v4_connect kernel function using a kprobe, with the following arguments: struct pt_regs *ctx: Registers and BPF context.  struct sock *sk: First argument to tcp_v4_connect.  ",
+        "Return": "Integer",
+        "Input Prameters": [
+        ]
+      }
+    },
+    {
+      "kretprobe__": {
+        "Project": "bcc",
+        "FunctionName": "kretprobe__",
+        "Return Type": "int",
+        "Description": "kretprobe__kernel_function_name kretprobe__ is a special prefix that creates a kretprobe (dynamic tracing of a kernel function return) for the kernel function name provided as the remainder. You can also use kretprobes by declaring a normal C function, then using the Python BPF.attach_kretprobe (covered later) to associate it with a kernel function. Return value is available as PT_REGS_RC(ctx), given a function declaration of: kretprobe__kernel_function_name(struct pt_regs *ctx) For example: int kretprobe__tcp_v4_connect(struct pt_regs *ctx){    int ret = PT_REGS_RC(ctx);    [...]} This instruments the return of the tcp_v4_connect kernel function using a kretprobe, and stores the return value in ret. Examples in situ: \"https://github.com/iovisor/bcc/blob/4afa96a71c5dbfc4c507c3355e20baa6c184a3a8/examples/tracing/tcpv4connect.py#L38 code  ( \"https://github.com/iovisor/bcc/blob/5bd0eb21fd148927b078deb8ac29fff2fb044b66/examples/tracing/tcpv4connect_example.txt#L8 output )",
+        "Return": "int",
+        "Input Prameters": [ 
+        ]
+      }
+    },
+    {
+      "TRACEPOINT_PROBE": {
+        "Project": "bcc",
+        "FunctionName": "TRACEPOINT_PROBE",
+        "Return Type": null,
+        "Description": "TRACEPOINT_PROBE(category, event) This is a macro that instruments the tracepoint defined by category:event. The tracepoint name is <category>:<event>.The probe function name is tracepoint__<category>__<event>. Arguments are available in an args struct, which are the tracepoint arguments. One way to list these is to cat the relevant format file under /sys/kernel/debug/tracing/events/category/event/format. The args struct can be used in place of ctx in each functions requiring a context as an argument. This includes notably  \"#3-perf_submit perf_submit . For example: CTRACEPOINT_PROBE(random, urandom_read) {    // args is from /sys/kernel/debug/tracing/events/random/urandom_read/format    bpf_trace_printk(\"%d\\\\n\", args->got_bits);    return 0;} This instruments the tracepoint random:urandom_read tracepoint, and prints the tracepoint argument got_bits.When using Python API, this probe is automatically attached to the right tracepoint target.For C++, this tracepoint probe can be attached by specifying the tracepoint target and function name explicitly:BPF::attach_tracepoint(\"random:urandom_read\", \"tracepoint__random__urandom_read\")Note the name of the probe function defined above is tracepoint__random__urandom_read. Examples in situ: \"https://github.com/iovisor/bcc/blob/a4159da8c4ea8a05a3c6e402451f530d6e5a8b41/examples/tracing/urandomread.py#L19 code  ( \"https://github.com/iovisor/bcc/commit/e422f5e50ecefb96579b6391a2ada7f6367b83c4#diff-41e5ecfae4a3b38de5f4e0887ed160e5R10 output ), \"https://github.com/iovisor/bcc/search?q=TRACEPOINT_PROBE+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=TRACEPOINT_PROBE+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "attach_uprobe": {
+        "Project": "bcc",
+        "FunctionName": "attach_uprobe",
+        "Return Type": "int",
+        "Description": "These are instrumented by declaring a normal function in C, then associating it as a uprobe probe in Python via BPF.attach_uprobe (covered later). Arguments can be examined using PT_REGS_PARM macros. For example: Cint count(struct pt_regs *ctx) {    char buf[64];    bpf_probe_read_user(&buf, sizeof(buf), (void *)PT_REGS_PARM1(ctx));    bpf_trace_printk(\"%s %d\", buf, PT_REGS_PARM2(ctx));    return(0);} This reads the first argument as a string, and then prints it with the second argument as an integer. Examples in situ: \"https://github.com/iovisor/bcc/blob/4afa96a71c5dbfc4c507c3355e20baa6c184a3a8/examples/tracing/strlen_count.py#L26 code ",
+        "Return": "int",
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "attach_uretprobe": {
+        "Project": "bcc",
+        "FunctionName": "attach_uretprobe",
+        "Return Type": "int",
+        "Description": "These are instrumented by declaring a normal function in C, then associating it as a uretprobe probe in Python via BPF.attach_uretprobe (covered later). Return value is available as PT_REGS_RC(ctx), given a function declaration of: function_name(struct pt_regs *ctx) For example: CBPF_HISTOGRAM(dist);int count(struct pt_regs *ctx) {    dist.increment(PT_REGS_RC(ctx));    return 0;} This increments the bucket in the dist histogram that is indexed by the return value. Examples in situ: \"https://github.com/iovisor/bcc/blob/4afa96a71c5dbfc4c507c3355e20baa6c184a3a8/examples/tracing/strlen_hist.py#L39 code  ( \"https://github.com/iovisor/bcc/blob/4afa96a71c5dbfc4c507c3355e20baa6c184a3a8/examples/tracing/strlen_hist.py#L15 output ), \"https://github.com/iovisor/bcc/blob/4afa96a71c5dbfc4c507c3355e20baa6c184a3a8/tools/bashreadline.py code  ( \"https://github.com/iovisor/bcc/commit/aa87997d21e5c1a6a20e2c96dd25eb92adc8e85d#diff-2fd162f9e594206f789246ce97d62cf0R7 output )",
+        "Return": "int",
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      " bpf_usdt_": {
+        "Project": "bcc",
+        "FunctionName": " bpf_usdt_",
+        "Return Type": "int",
+        "Description": "These are User Statically-Defined Tracing (USDT) probes, which may be placed in some applications or libraries to provide a user-level equivalent of tracepoints. The primary BPF method provided for USDT support method is enable_probe. USDT probes are instrumented by declaring a normal function in C, then associating it as a USDT probe in Python via USDT.enable_probe. Arguments can be read via: bpf_usdt_readarg(index, ctx, &addr) For example: Cint do_trace(struct pt_regs *ctx) {    uint64_t addr;    char path[128];    bpf_usdt_readarg(6, ctx, &addr);    bpf_probe_read_user(&path, sizeof(path), (void *)addr);    bpf_trace_printk(\"path:%s\\\\n\", path);    return 0;}; This reads the sixth USDT argument, and then pulls it in as a string to path. When initializing USDTs via the third argument of BPF::init in the C API, if any USDT fails to init, entire BPF::init will fail. If you're OK with some USDTs failing to init, use BPF::init_usdt before calling BPF::init. Examples in situ: \"https://github.com/iovisor/bcc/commit/4f88a9401357d7b75e917abd994aa6ea97dda4d3#diff-04a7cad583be5646080970344c48c1f4R24 code , \"https://github.com/iovisor/bcc/search?q=bpf_usdt_readarg+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_usdt_readarg+path%3Atools&type=Code search /tools ",
+        "Return": "int",
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "RAW_TRACEPOINT_PROBE": {
+        "Project": "bcc",
+        "FunctionName": "RAW_TRACEPOINT_PROBE",
+        "Return Type": null,
+        "Description": "RAW_TRACEPOINT_PROBE(event) This is a macro that instruments the raw tracepoint defined by event. The argument is a pointer to struct bpf_raw_tracepoint_args, which is defined in  \"https://github.com/iovisor/bcc/blob/master/src/cc/compat/linux/virtual_bpf.h bpf.h .  The struct field args contains all parameters of the raw tracepoint where you can found at linux tree  \"https://github.com/torvalds/linux/tree/master/include/trace/events include/trace/events directory. For example:```CRAW_TRACEPOINT_PROBE(sched_switch){    // TP_PROTO(bool preempt, struct task_struct prev, struct task_struct next)    struct task_struct prev = (struct task_struct )ctx->args[1];    struct task_struct next= (struct task_struct )ctx->args[2];    s32 prev_tgid, next_tgid;",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "syscall__": {
+        "Project": "bcc",
+        "FunctionName": "syscall__",
+        "Return Type": "int",
+        "Description": "syscall__SYSCALLNAME syscall__ is a special prefix that creates a kprobe for the system call name provided as the remainder. You can use it by declaring a normal C function, then using the Python BPF.get_syscall_fnname(SYSCALLNAME) and BPF.attach_kprobe to associate it. Arguments are specified on the function declaration: syscall__SYSCALLNAME(struct pt_regs *ctx, [, argument1 ...]). For example:Cint syscall__execve(struct pt_regs *ctx,    const char __user *filename,    const char __user *const __user *__argv,    const char __user *const __user *__envp){    [...]} This instruments the execve system call. The first argument is always struct pt_regs *, the remainder are the arguments to the function (they don't need to be specified, if you don't intend to use them). Corresponding Python code:Pythonb = BPF(text=bpf_text)execve_fnname = b.get_syscall_fnname(\"execve\")b.attach_kprobe(event=execve_fnname, fn_name=\"syscall__execve\") Examples in situ: \"https://github.com/iovisor/bcc/blob/552658edda09298afdccc8a4b5e17311a2d8a771/tools/execsnoop.py#L101 code  ( \"https://github.com/iovisor/bcc/blob/552658edda09298afdccc8a4b5e17311a2d8a771/tools/execsnoop_example.txt#L8 output )",
+        "Return": "int",
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "KFUNC_PROBE": {
+        "Project": "bcc",
+        "FunctionName": "KFUNC_PROBE",
+        "Return Type": null,
+        "Description": "KFUNC_PROBE(function, typeof(arg1) arg1, typeof(arg2) arge ...) This is a macro that instruments the kernel function via trampolinebefore the function is executed. It's defined by function name andthe function arguments defined as argX. For example:CKFUNC_PROBE(do_sys_open, int dfd, const char *filename, int flags, int mode){    ... This instruments the do_sys_open kernel function and make its argumentsaccessible as standard argument values. Examples in situ: \"https://github.com/iovisor/bcc/search?q=KFUNC_PROBE+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "KRETFUNC_PROBE": {
+        "Project": "bcc",
+        "FunctionName": "KRETFUNC_PROBE",
+        "Return Type": null,
+        "Description": "KRETFUNC_PROBE(event, typeof(arg1) arg1, typeof(arg2) arge ..., int ret) This is a macro that instruments the kernel function via trampolineafter the function is executed. It's defined by function name andthe function arguments defined as argX. The last argument of the probe is the return value of the instrumented function. For example:CKRETFUNC_PROBE(do_sys_open, int dfd, const char *filename, int flags, int mode, int ret){    ... This instruments the do_sys_open kernel function and make its argumentsaccessible as standard argument values together with its return value. Examples in situ: \"https://github.com/iovisor/bcc/search?q=KRETFUNC_PROBE+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "LSM_PROBE": {
+        "Project": "bcc",
+        "FunctionName": "LSM_PROBE",
+        "Return Type": null,
+        "Description": "LSM_PROBE(hook, typeof(arg1) arg1, typeof(arg2) arg2 ...) This is a macro that instruments an LSM hook as a BPF program. It can beused to audit security events and implement MAC security policies in BPF.It is defined by specifying the hook name followed by its arguments. Hook names can be found in \"https://github.com/torvalds/linux/blob/v5.15/include/linux/security.h#L260 include/linux/security.h by taking functions like security_hookname and taking just the hookname part.For example, security_bpf would simply become bpf. Unlike other BPF program types, the return value specified in an LSM probematters. A return value of 0 allows the hook to succeed, whereasany non-zero return value will cause the hook to fail and deny thesecurity operation. The following example instruments a hook that denies all future BPF operations:CLSM_PROBE(bpf, int cmd, union bpf_attr *attr, unsigned int size){    return -EPERM;} This instruments the security_bpf hook and causes it to return -EPERM.Changing return -EPERM to return 0 would cause the BPF programto allow the operation instead. LSM probes require at least a 5.7+ kernel with the following configuation options set:- CONFIG_BPF_LSM=y- CONFIG_LSM comma separated string must contain \"bpf\" (for example,  CONFIG_LSM=\"lockdown,yama,bpf\") Examples in situ: \"https://github.com/iovisor/bcc/search?q=LSM_PROBE+path%3Atests&type=Code search /tests ",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "BPF_ITER": {
+        "Project": "bcc",
+        "FunctionName": "BPF_ITER",
+        "Return Type": null,
+        "Description": "BPF_ITER(target) This is a macro to define a program signature for a bpf iterator program. The argument target specifies what to iterate for the program. Currently, kernel does not have interface to discover what targets are supported. A good place to find what is supported is in  \"https://github.com/torvalds/linux/blob/master/tools/testing/selftests/bpf/prog_tests/bpf_iter.c tools/testing/selftests/bpf/prog_test/bpf_iter.c  and some sample bpf iter programs are in  \"https://github.com/torvalds/linux/tree/master/tools/testing/selftests/bpf/progs tools/testing/selftests/bpf/progs  with file name prefix bpf_iter. The following example defines a program for target task, which traverses all tasks in the kernel.```CBPF_ITER(task){  struct seq_file seq = ctx->meta->seq;  struct task_struct task = ctx->task; if (task == (void *)0)    return 0; ... task->pid, task->tgid, task->comm, ...  return 0;}``` BPF iterators are introduced in 5.8 kernel for task, task_file, bpf_map, netlink_sock and ipv6_route . In 5.9, support is added to tcp/udp sockets and bpf map element (hashmap, arraymap and sk_local_storage_map) traversal.",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "bpf_probe_read_kernel": {
+        "Project": "bcc",
+        "FunctionName": "bpf_probe_read_kernel",
+        "Return Type": "int",
+        "Description": "int bpf_probe_read_kernel(void *dst, int size, const void *src) Return: 0 on success This copies size bytes from kernel address space to the BPF stack, so that BPF can later operate on it. For safety, all kernel memory reads must pass through bpf_probe_read_kernel. This happens automatically in some cases, such as dereferencing kernel variables, as bcc will rewrite the BPF program to include the necessary bpf_probe_read_kernel. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_kernel+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_kernel+path%3Atools&type=Code search /tools ",
+        "Return": "0 on success. Error on failure",
+        "Input Prameters": [
+          "{Type: void* ,Var: dst}",
+          "{Type: int* ,Var: size}",
+          "{Type: const void* ,Var: src}"
+        ]
+      }
+    },
+    {
+      "bpf_probe_read_kernel_str": {
+        "Project": "bcc",
+        "FunctionName": "bpf_probe_read_kernel_str",
+        "Return Type": "int",
+        "Description": "int bpf_probe_read_kernel_str(void *dst, int size, const void *src) Return:  - > 0 length of the string including the trailing NULL on success  - \\< 0 error This copies a NULL terminated string from kernel address space to the BPF stack, so that BPF can later operate on it. In case the string length is smaller than size, the target is not padded with further NULL bytes. In case the string length is larger than size, just size - 1 bytes are copied and the last byte is set to NULL. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_kernel_str+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_kernel_str+path%3Atools&type=Code search /tools ",
+        "Return": "0 on success",
+        "Input Prameters": [
+            "{Type: void* ,Var: dst}",
+            "{Type: int* ,Var: size}",
+            "{Type: const void* ,Var: src}"
+        ]
+      }
+    },
+    {
+      "bpf_ktime_get_ns": {
+        "Project": "bcc",
+        "FunctionName": "bpf_ktime_get_ns",
+        "Return Type": "u64",
+        "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+        "Return": "u64 number of nanoseconds",
+        "Input Prameters": [
+        ]
+      }
+    },
+    {
+      "bpf_get_current_pid_tgid": {
+        "Project": "bcc",
+        "FunctionName": "bpf_get_current_pid_tgid",
+        "Return Type": "u64",
+        "Description": "u64 bpf_get_current_pid_tgid(void) Return: current->tgid << 32 | current->pid Returns the process ID in the lower 32 bits (kernel's view of the PID, which in user space is usually presented as the thread ID), and the thread group ID in the upper 32 bits (what user space often thinks of as the PID). By directly setting this to a u32, we discard the upper 32 bits. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_get_current_pid_tgid+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_get_current_pid_tgid+path%3Atools&type=Code search /tools ",
+        "Return": "current->tgid << 32 | current->pid Returns the process ID in the lower 32 bits (kernel's view of the PID, which in user space is usually presented as the thread ID), and the thread group ID in the upper 32 bits (what user space often thinks of as the PID)",
+        "Input Prameters": [
+        ]
+      }
+    },
+    {
+      "bpf_get_current_uid_gid": {
+        "Project": "bcc",
+        "FunctionName": "bpf_get_current_uid_gid",
+        "Return Type": null,
+        "Description": "u64 bpf_get_current_uid_gid(void) Return: current_gid << 32 | current_uid Returns the user ID and group IDs. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_get_current_uid_gid+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_get_current_uid_gid+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+          
+        ]
+      }
+    },
+    {
+      "bpf_get_current_comm": {
+        "Project": "bcc",
+        "FunctionName": "bpf_get_current_comm",
+        "Return Type": "int",
+        "Description": "bpf_get_current_comm(char *buf, int size_of_buf) Return: 0 on success Populates the first argument address with the current process name. It should be a pointer to a char array of at least size TASK_COMM_LEN, which is defined in linux/sched.h. For example: ```C include ",
+        "Return": "0 on success",
+        "Input Prameters": [
+            "{Type: char* ,Var: buf}",
+            "{Type: int ,Var: size_of_buf}"
+        ]
+      }
+    },
+    {
+      "bpf_get_current_task": {
+        "Project": "bcc",
+        "FunctionName": "bpf_get_current_task",
+        "Return Type": "struct task_struct *",
+        "Description": "bpf_get_current_task Return: current task as a pointer to struct task_struct. Returns a pointer to the current task's task_struct object. This helper can be used to compute the on-CPU time for a process, identify kernel threads, get the current CPU's run queue, or retrieve many other pieces of information. With Linux 4.13, due to issues with field randomization, you may need two #define directives before the includes:```C define randomized_struct_fields_start  struct {  define randomized_struct_fields_end    };  include ",
+        "Return": "current task as a pointer to struct task_struct. Returns a pointer to the current task's task_struct object.",
+        "Input Prameters": [
+        ]
+      }
+    },
+    {
+      "bpf_log2l": {
+        "Project": "bcc",
+        "FunctionName": "bpf_log2l",
+        "Return Type": "int",
+        "Description": "unsigned int bpf_log2l(unsigned long v) Returns the log-2 of the provided value. This is often used to create indexes for histograms, to construct power-of-2 histograms. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_log2l+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_log2l+path%3Atools&type=Code search /tools ",
+        "Return": "Returns the log-2 of the provided value",
+        "Input Prameters": [
+            "{Type: unsigned long ,Var: v}"
+        ]
+      }
+    },
+    {
+      "bpf_get_prandom_u32": {
+        "Project": "bcc",
+        "FunctionName": "bpf_get_prandom_u32",
+        "Return Type": "u32",
+        "Description": "u32 bpf_get_prandom_u32 Returns a pseudo-random u32. Example in situ: \"https://github.com/iovisor/bcc/search?q=bpf_get_prandom_u32+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_get_prandom_u32+path%3Atools&type=Code search /tools ",
+        "Return": "Returns a pseudo-random u32",
+        "Input Prameters": [
+        ]
+      }
+    },
+    {
+      "bpf_probe_read_user": {
+        "Project": "bcc",
+        "FunctionName": "bpf_probe_read_user",
+        "Return Type": "int",
+        "Description": "int bpf_probe_read_user(void *dst, int size, const void *src) Return: 0 on success This attempts to safely read size bytes from user address space to the BPF stack, so that BPF can later operate on it. For safety, all user address space memory reads must pass through bpf_probe_read_user. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_user+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_user+path%3Atools&type=Code search /tools ",
+        "Return": "0 on success",
+        "Input Prameters": [
+            "{Type: void* ,Var: dst}",
+            "{Type: int* ,Var: size}",
+            "{Type: const void* ,Var: src}"
+        ]
+      }
+    },
+    {
+      "bpf_probe_read_user_str": {
+        "Project": "bcc",
+        "FunctionName": "bpf_probe_read_user_str",
+        "Return Type": "int",
+        "Description": "int bpf_probe_read_user_str(void *dst, int size, const void *src) Return:  - > 0 length of the string including the trailing NULL on success  - \\< 0 error This copies a NULL terminated string from user address space to the BPF stack, so that BPF can later operate on it. In case the string length is smaller than size, the target is not padded with further NULL bytes. In case the string length is larger than size, just size - 1 bytes are copied and the last byte is set to NULL. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_user_str+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_probe_read_user_str+path%3Atools&type=Code search /tools ",
+        "Return": "Return: >0 length of the string including the trailing NULL on success <0 error",
+        "Input Prameters": [
+            "{Type: void* ,Var: dst}",
+            "{Type: int* ,Var: size}",
+            "{Type: const void* ,Var: src}"
+        ]
+      }
+    },
+    {
+      "bpf_get_ns_current_pid_tgid": {
+        "Project": "bcc",
+        "FunctionName": "bpf_get_ns_current_pid_tgid",
+        "Return Type": "u32",
+        "Description": "u32 bpf_get_ns_current_pid_tgid(u64 dev, u64 ino, struct bpf_pidns_info* nsdata, u32 size) Values for pid and tgid as seen from the current namespace will be returned in nsdata. Return 0 on success, or one of the following in case of failure: -EINVAL if dev and inum supplied don't match dev_t and inode number with nsfs of current task, or if dev conversion to dev_t lost high bits. -ENOENT if pidns does not exists for the current task. ",
+        "Return": "Return 0 on success,",
+        "Input Prameters": [
+            "{Type: u64 ,Var: dev}",
+            "{Type: u64 ,Var: ino}",
+            "{Type: struct bpf_pidns_info* ,Var: nsdata}",
+            "{Type: u32 ,Var: size}"
+        ]
+      }
+    },
+    {
+      "bpf_override_return": {
+        "Project": "bcc",
+        "FunctionName": "bpf_override_return",
+        "Return Type": "int",
+        "Description": "int bpf_override_return(struct pt_regs *, unsigned long rc) Return: 0 on success When used in a program attached to a function entry kprobe, causes theexecution of the function to be skipped, immediately returning rc instead.This is used for targeted error injection. bpf_override_return will only work when the kprobed function is whitelisted toallow error injections. Whitelisting entails tagging a function withALLOW_ERROR_INJECTION in the kernel source tree; see io_ctl_init foran example. If the kprobed function is not whitelisted, the bpf program willfail to attach with ioctl(PERF_EVENT_IOC_SET_BPF): Invalid argument Cint kprobe__io_ctl_init(void *ctx) {    bpf_override_return(ctx, -ENOMEM);    return 0;}",
+        "Return": " 0 on success",
+        "Input Prameters": [
+            "{Type: struct pt_regs * ,Var: }",
+            "{Type: unsigned long ,Var: rc}"
+        ]
+      }
+    },
+    {
+      "bpf_trace_printk": {
+        "Project": "bcc",
+        "FunctionName": "bpf_trace_printk",
+        "Return Type": "int",
+        "Description": "int bpf_trace_printk(const char *fmt, ...) Return: 0 on success A simple kernel facility for printf to the common trace_pipe (/sys/kernel/debug/tracing/trace_pipe). This is ok for some quick examples, but has limitations: 3 args max, 1 %s only, and trace_pipe is globally shared, so concurrent programs will have clashing output. A better interface is via BPF_PERF_OUTPUT. Note that calling this helper is made simpler than the original kernel version, which has fmt_size as the second parameter. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_trace_printk+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_trace_printk+path%3Atools&type=Code search /tools ",
+        "Return": " 0 on success",
+        "Input Prameters": [
+            "{Type: const char* ,Var: fmt}",
+            "{Type: ... ,Var: }"
+        ]
+      }
+    },
+    {
+      "BPF_PERF_OUTPUT": {
+        "Project": "bcc",
+        "FunctionName": "BPF_PERF_OUTPUT",
+        "Return Type": null,
+        "Description": "BPF_PERF_OUTPUT(name) Creates a BPF table for pushing out custom event data to user space via a perf ring buffer. This is the preferred method for pushing per-event data to user space. For example: ```Cstruct data_t {    u32 pid;    u64 ts;    char comm[TASK_COMM_LEN];};BPF_PERF_OUTPUT(events); int hello(struct pt_regs *ctx) {    struct data_t data = {};",
+        "Return": null,
+        "Input Prameters": [
+        ]
+      }
+    },
+    {
+      "perf_submit": {
+        "Project": "bcc",
+        "FunctionName": "perf_submit",
+        "Return Type": "int",
+        "Description": "int perf_submit((void *)ctx, (void *)data, u32 data_size) Return: 0 on success A method of a BPF_PERF_OUTPUT table, for submitting custom event data to user space. See the BPF_PERF_OUTPUT entry. (This ultimately calls bpf_perf_event_output.) The ctx parameter is provided in  \"#1-kprobes kprobes  or  \"#2-kretprobes kretprobes . For SCHED_CLS or SOCKET_FILTER programs, the struct __sk_buff *skb must be used instead. Examples in situ: \"https://github.com/iovisor/bcc/search?q=perf_submit+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=perf_submit+path%3Atools&type=Code search /tools ",
+        "Return": "0 on success",
+        "Input Prameters": [
+            "{Type: void* ,Var: ctx}",
+            "{Type: void* ,Var: data}",
+            "{Type: u32 ,Var: data_size}"
+        ]
+      }
+    },
+    {
+      "perf_submit_skb": {
+        "Project": "bcc",
+        "FunctionName": "perf_submit_skb",
+        "Return Type": "int",
+        "Description": "int perf_submit_skb((void *)ctx, u32 packet_size, (void *)data, u32 data_size) Return: 0 on success A method of a BPF_PERF_OUTPUT table available in networking program types, for submitting custom event data to user space, along with the first packet_size bytes of the packet buffer. See the BPF_PERF_OUTPUT entry. (This ultimately calls bpf_perf_event_output.) Examples in situ: \"https://github.com/iovisor/bcc/search?q=perf_submit_skb+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=perf_submit_skb+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type: void* ,Var: ctx}",
+            "{Type: u32 ,Var: packet_size}",
+            "{Type: void* ,Var: data}",
+            "{Type: u32 ,Var: data_size}"
+        ]
+      }
+    },
+    {
+      "BPF_RINGBUF_OUTPUT": {
+        "Project": "bcc",
+        "FunctionName": "BPF_RINGBUF_OUTPUT",
+        "Return Type": null,
+        "Description": "BPF_RINGBUF_OUTPUT(name, page_cnt) Creates a BPF table for pushing out custom event data to user space via a ringbuf ring buffer.BPF_RINGBUF_OUTPUT has several advantages over BPF_PERF_OUTPUT, summarized as follows: Buffer is shared across all CPUs, meaning no per-CPU allocation  Supports two APIs for BPF programs  map.ringbuf_output works like map.perf_submit (covered in  \"#6-ringbuf_output ringbuf_output )  map.ringbuf_reserve/map.ringbuf_submit/map.ringbuf_discard  split the process of reserving buffer space and submitting events into two steps  (covered in  \"#7-ringbuf_reserve ringbuf_reserve ,  \"#8-ringbuf_submit ringbuf_submit ,  \"#9-ringbuf_discard ringbuf_discard )    BPF APIs do not require access to a CPU ctx argument  Superior performance and latency in userspace thanks to a shared ring buffer manager  Supports two ways of consuming data in userspace  ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: page_cnt}"
+        ]
+      }
+    },
+    {
+      "ringbuf_output": {
+        "Project": "bcc",
+        "FunctionName": "ringbuf_output",
+        "Return Type": "int",
+        "Description": "int ringbuf_output((void *)data, u64 data_size, u64 flags) Return: 0 on success Flags: - BPF_RB_NO_WAKEUP: Do not sent notification of new data availability - BPF_RB_FORCE_WAKEUP: Send notification of new data availability unconditionally A method of the BPF_RINGBUF_OUTPUT table, for submitting custom event data to user space. This method works like perf_submit,although it does not require a ctx argument. Examples in situ: ",
+        "Return": "0 on success",
+        "Input Prameters": [
+            "{Type: void* ,Var: data}",
+            "{Type: u32 ,Var: data_size}",
+            "{Type: u64 ,Var: flags}"
+        ]
+      }
+    },
+    {
+      "ringbuf_reserve": {
+        "Project": "bcc",
+        "FunctionName": "ringbuf_reserve",
+        "Return Type": "void*",
+        "Description": "void* ringbuf_reserve(u64 data_size) Return: Pointer to data struct on success, NULL on failure A method of the BPF_RINGBUF_OUTPUT table, for reserving space in the ring buffer and simultaenouslyallocating a data struct for output. Must be used with one of ringbuf_submit or ringbuf_discard. Examples in situ: ",
+        "Return": "Pointer to data struct on success, NULL on failure",
+        "Input Prameters": [
+            "{Type: u64 ,Var: data_size}"
+        ]
+      }
+    },
+    {
+      "ringbuf_submit": {
+        "Project": "bcc",
+        "FunctionName": "ringbuf_submit",
+        "Return Type": "void",
+        "Description": "void ringbuf_submit((void *)data, u64 flags) Return: Nothing, always succeeds Flags: - BPF_RB_NO_WAKEUP: Do not sent notification of new data availability - BPF_RB_FORCE_WAKEUP: Send notification of new data availability unconditionally A method of the BPF_RINGBUF_OUTPUT table, for submitting custom event data to user space. Must be preceded by a call toringbuf_reserve to reserve space for the data. Examples in situ: ",
+        "Return": " Nothing, always succeeds",
+        "Input Prameters": [
+            "{Type: void* ,Var: data}",
+            "{Type: u64 ,Var: flags}"
+        ]
+      }
+    },
+    {
+      "ringbuf_discard": {
+        "Project": "bcc",
+        "FunctionName": "ringbuf_discard",
+        "Return Type": "void",
+        "Description": "void ringbuf_discard((void *)data, u64 flags) Return: Nothing, always succeeds Flags: - BPF_RB_NO_WAKEUP: Do not sent notification of new data availability - BPF_RB_FORCE_WAKEUP: Send notification of new data availability unconditionally A method of the BPF_RINGBUF_OUTPUT table, for discarding custom event data; userspaceignores the data associated with the discarded event. Must be preceded by a call toringbuf_reserve to reserve space for the data. Examples in situ: ",
+        "Return": "Nothing, always succeeds",
+        "Input Prameters": [
+            "{Type: void* ,Var: data}",
+            "{Type: u64 ,Var: flags}"
+        ]
+      }
+    },
+    {
+      "BPF_TABLE": {
+        "Project": "bcc",
+        "FunctionName": "BPF_TABLE",
+        "Return Type": null,
+        "Description": "BPF_TABLE(_table_type, _key_type, _leaf_type, _name, _max_entries) Creates a map named _name. Most of the time this will be used via higher-level macros, like BPF_HASH, BPF_ARRAY, BPF_HISTOGRAM, etc. BPF_F_TABLE is a variant that takes a flag in the last parameter. BPF_TABLE(...) is actually a wrapper to BPF_F_TABLE(..., 0 /* flag */). Methods (covered later): map.lookup, map.lookup_or_try_init, map.delete, map.update, map.insert, map.increment. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_TABLE+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_TABLE+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+          "{Type:  ,Var: _table_type}",
+          "{Type:  ,Var: _key_type}",
+          "{Type:  ,Var: _leaf_type}",
+          "{Type:  ,Var: _name}",
+          "{Type:  ,Var: _max_entries}"
+        ]
+      }
+    },
+    {
+      "BPF_HASH": {
+        "Project": "bcc",
+        "FunctionName": "BPF_HASH",
+        "Return Type": null,
+        "Description": "BPF_HASH(name [, key_type [, leaf_type [, size]]]) Creates a hash map (associative array) named name, with optional parameters. Defaults: BPF_HASH(name, key_type=u64, leaf_type=u64, size=10240) For example: CBPF_HASH(start, struct request *); This creates a hash named start where the key is a struct request *, and the value defaults to u64. This hash is used by the disksnoop.py example for saving timestamps for each I/O request, where the key is the pointer to struct request, and the value is the timestamp. This is a wrapper macro for BPF_TABLE(\"hash\", ...). Methods (covered later): map.lookup, map.lookup_or_try_init, map.delete, map.update, map.insert, map.increment. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_HASH+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_HASH+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key_type}",
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_ARRAY": {
+        "Project": "bcc",
+        "FunctionName": "BPF_ARRAY",
+        "Return Type": null,
+        "Description": "BPF_ARRAY(name [, leaf_type [, size]]) Creates an int-indexed array which is optimized for fastest lookup and update, named name, with optional parameters. Defaults: BPF_ARRAY(name, leaf_type=u64, size=10240) For example: CBPF_ARRAY(counts, u64, 32); This creates an array named counts where with 32 buckets and 64-bit integer values. This array is used by the funccount.py example for saving call count of each function. This is a wrapper macro for BPF_TABLE(\"array\", ...). Methods (covered later): map.lookup, map.update, map.increment. Note that all array elements are pre-allocated with zero values and can not be deleted. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_ARRAY+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_ARRAY+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_HISTOGRAM": {
+        "Project": "bcc",
+        "FunctionName": "BPF_HISTOGRAM",
+        "Return Type": null,
+        "Description": "BPF_HISTOGRAM(name [, key_type [, size ]]) Creates a histogram map named name, with optional parameters. Defaults: BPF_HISTOGRAM(name, key_type=int, size=64) For example: CBPF_HISTOGRAM(dist); This creates a histogram named dist, which defaults to 64 buckets indexed by keys of type int. This is a wrapper macro for BPF_TABLE(\"histgram\", ...). Methods (covered later): map.increment. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_HISTOGRAM+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_HISTOGRAM+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key_type}",
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_STACK_TRACE": {
+        "Project": "bcc",
+        "FunctionName": "BPF_STACK_TRACE",
+        "Return Type": null,
+        "Description": "BPF_STACK_TRACE(name, max_entries) Creates stack trace map named name, with a maximum entry count provided. These maps are used to store stack traces. For example: CBPF_STACK_TRACE(stack_traces, 1024); This creates stack trace map named stack_traces, with a maximum number of stack trace entries of 1024. This is a wrapper macro for BPF_TABLE(\"stacktrace\", ...). Methods (covered later): map.get_stackid. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_STACK_TRACE+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_STACK_TRACE+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: max_entries}"
+        ]
+      }
+    },
+    {
+      "BPF_PERF_ARRAY": {
+        "Project": "bcc",
+        "FunctionName": "BPF_PERF_ARRAY",
+        "Return Type": null,
+        "Description": "BPF_PERF_ARRAY(name, max_entries) Creates perf array named name, with a maximum entry count provided, which must be equal to the number of system cpus. These maps are used to fetch hardware performance counters. For example: Ctext=\"\"\"BPF_PERF_ARRAY(cpu_cycles, NUM_CPUS);\"\"\"b = bcc.BPF(text=text, cflags=[\"-DNUM_CPUS=%d\" % multiprocessing.cpu_count])b[\"cpu_cycles\"].open_perf_event(b[\"cpu_cycles\"].HW_CPU_CYCLES) This creates a perf array named cpu_cycles, with number of entries equal to the number of cpus/cores. The array is configured so that later calling map.perf_read will return a hardware-calculated counter of the number of cycles elapsed from some point in the past. Only one type of hardware counter may be configured per table at a time. Methods (covered later): map.perf_read. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_PERF_ARRAY+path%3Atests&type=Code search /tests ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: max_entries}"
+        ]
+      }
+    },
+    {
+      "BPF_PERCPU_HASH": {
+        "Project": "bcc",
+        "FunctionName": "BPF_PERCPU_HASH",
+        "Return Type": null,
+        "Description": "BPF_PERCPU_HASH(name [, key_type [, leaf_type [, size]]]) Creates NUM_CPU int-indexed hash maps (associative arrays) named name, with optional parameters. Each CPU will have a separate copy of this array. The copies are not kept synchronized in any way. Note that due to limits defined in the kernel (in linux/mm/percpu.c), the leaf_type cannot have a size of more than 32KB.In other words, BPF_PERCPU_HASH elements cannot be larger than 32KB in size. Defaults: BPF_PERCPU_HASH(name, key_type=u64, leaf_type=u64, size=10240) For example: CBPF_PERCPU_HASH(start, struct request *); This creates NUM_CPU hashes named start where the key is a struct request *, and the value defaults to u64. This is a wrapper macro for BPF_TABLE(\"percpu_hash\", ...). Methods (covered later): map.lookup, map.lookup_or_try_init, map.delete, map.update, map.insert, map.increment. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_PERCPU_HASH+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_PERCPU_HASH+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key_type}",
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_PERCPU_ARRAY": {
+        "Project": "bcc",
+        "FunctionName": "BPF_PERCPU_ARRAY",
+        "Return Type": null,
+        "Description": "BPF_PERCPU_ARRAY(name [, leaf_type [, size]]) Creates NUM_CPU int-indexed arrays which are optimized for fastest lookup and update, named name, with optional parameters. Each CPU will have a separate copy of this array. The copies are not kept synchronized in any way. Note that due to limits defined in the kernel (in linux/mm/percpu.c), the leaf_type cannot have a size of more than 32KB.In other words, BPF_PERCPU_ARRAY elements cannot be larger than 32KB in size. Defaults: BPF_PERCPU_ARRAY(name, leaf_type=u64, size=10240) For example: CBPF_PERCPU_ARRAY(counts, u64, 32); This creates NUM_CPU arrays named counts where with 32 buckets and 64-bit integer values. This is a wrapper macro for BPF_TABLE(\"percpu_array\", ...). Methods (covered later): map.lookup, map.update, map.increment. Note that all array elements are pre-allocated with zero values and can not be deleted. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_PERCPU_ARRAY+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_PERCPU_ARRAY+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_LPM_TRIE": {
+        "Project": "bcc",
+        "FunctionName": "BPF_LPM_TRIE",
+        "Return Type": null,
+        "Description": "BPF_LPM_TRIE(name [, key_type [, leaf_type [, size]]]) Creates a longest prefix match trie map named name, with optional parameters. Defaults: BPF_LPM_TRIE(name, key_type=u64, leaf_type=u64, size=10240) For example: cBPF_LPM_TRIE(trie, struct key_v6); This creates an LPM trie map named trie where the key is a struct key_v6, and the value defaults to u64. This is a wrapper macro to BPF_F_TABLE(\"lpm_trie\", ..., BPF_F_NO_PREALLOC). Methods (covered later): map.lookup, map.lookup_or_try_init, map.delete, map.update, map.insert, map.increment. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_LPM_TRIE+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_LPM_TRIE+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key_type}",
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_PROG_ARRAY": {
+        "Project": "bcc",
+        "FunctionName": "BPF_PROG_ARRAY",
+        "Return Type": null,
+        "Description": "BPF_PROG_ARRAY(name, size) This creates a program array named name with size entries. Each entry of the array is either a file descriptor to a bpf program or NULL. The array acts as a jump table so that bpf programs can \"tail-call\" other bpf programs. This is a wrapper macro for BPF_TABLE(\"prog\", ...). Methods (covered later): map.call. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_PROG_ARRAY+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=BPF_PROG_ARRAY+path%3Atests&type=Code search /tests , \"https://github.com/iovisor/bcc/blob/master/examples/networking/tunnel_monitor/monitor.py#L24-L26 assign fd ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_DEVMAP": {
+        "Project": "bcc",
+        "FunctionName": "BPF_DEVMAP",
+        "Return Type": null,
+        "Description": "BPF_DEVMAP(name, size) This creates a device map named name with size entries. Each entry of the map is an ifindex to a network interface. This map is only used in XDP. For example:CBPF_DEVMAP(devmap, 10); Methods (covered later): map.redirect_map. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_DEVMAP+path%3Aexamples&type=Code search /examples ,",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_CPUMAP": {
+        "Project": "bcc",
+        "FunctionName": "BPF_CPUMAP",
+        "Return Type": null,
+        "Description": "BPF_CPUMAP(name, size) This creates a cpu map named name with size entries. The index of the map represents the CPU id and each entry is the size of the ring buffer allocated for the CPU. This map is only used in XDP. For example:CBPF_CPUMAP(cpumap, 16); Methods (covered later): map.redirect_map. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_CPUMAP+path%3Aexamples&type=Code search /examples ,",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_XSKMAP": {
+        "Project": "bcc",
+        "FunctionName": "BPF_XSKMAP",
+        "Return Type": null,
+        "Description": "BPF_XSKMAP(name, size [, \"/sys/fs/bpf/xyz\"]) This creates a xsk map named name with size entries and pin it to the bpffs as a FILE. Each entry represents one NIC's queue id. This map is only used in XDP to redirect packet to an AF_XDP socket. If the AF_XDP socket is binded to a queue which is different than the current packet's queue id, the packet will be dropped. For kernel v5.3 and latter, lookup method is available and can be used to check whether and AF_XDP socket is available for the current packet's queue id. More details at  \"https://www.kernel.org/doc/html/latest/networking/af_xdp.html AF_XDP . For example:CBPF_XSKMAP(xsks_map, 8); Methods (covered later): map.redirect_map. map.lookup Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_XSKMAP+path%3Aexamples&type=Code search /examples ,",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_ARRAY_OF_MAPS": {
+        "Project": "bcc",
+        "FunctionName": "BPF_ARRAY_OF_MAPS",
+        "Return Type": null,
+        "Description": "BPF_ARRAY_OF_MAPS(name, inner_map_name, size) This creates an array map with a map-in-map type (BPF_MAP_TYPE_HASH_OF_MAPS) map named name with size entries. The inner map meta data is provided by map inner_map_name and can be most of array or hash maps except BPF_MAP_TYPE_PROG_ARRAY, BPF_MAP_TYPE_CGROUP_STORAGE and BPF_MAP_TYPE_PERCPU_CGROUP_STORAGE. For example:CBPF_TABLE(\"hash\", int, int, ex1, 1024);BPF_TABLE(\"hash\", int, int, ex2, 1024);BPF_ARRAY_OF_MAPS(maps_array, \"ex1\", 10);",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: inner_map_name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_HASH_OF_MAPS": {
+        "Project": "bcc",
+        "FunctionName": "BPF_HASH_OF_MAPS",
+        "Return Type": null,
+        "Description": "BPF_HASH_OF_MAPS(name, key_type, inner_map_name, size) This creates a hash map with a map-in-map type (BPF_MAP_TYPE_HASH_OF_MAPS) map named name with size entries. The inner map meta data is provided by map inner_map_name and can be most of array or hash maps except BPF_MAP_TYPE_PROG_ARRAY, BPF_MAP_TYPE_CGROUP_STORAGE and BPF_MAP_TYPE_PERCPU_CGROUP_STORAGE. For example:CBPF_ARRAY(ex1, int, 1024);BPF_ARRAY(ex2, int, 1024);BPF_HASH_OF_MAPS(maps_hash, struct custom_key, \"ex1\", 10);",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: key}",
+            "{Type:  ,Var: inner_map_name}",
+            "{Type:  ,Var: size}"
+        ]
+      }
+    },
+    {
+      "BPF_STACK": {
+        "Project": "bcc",
+        "FunctionName": "BPF_STACK",
+        "Return Type": null,
+        "Description": "BPF_STACK(name, leaf_type, max_entries[, flags]) Creates a stack named name with value type leaf_type and max entries max_entries.Stack and Queue maps are only available from Linux 4.20+. For example: CBPF_STACK(stack, struct event, 10240); This creates a stack named stack where the value type is struct event, that holds up to 10240 entries. Methods (covered later): map.push, map.pop, map.peek. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_STACK+path%3Atests&type=Code search /tests ,",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: max_entries}",
+            "{Type:  ,Var: flags}"
+        ]
+      }
+    },
+    {
+      "BPF_QUEUE": {
+        "Project": "bcc",
+        "FunctionName": "BPF_QUEUE",
+        "Return Type": null,
+        "Description": "BPF_QUEUE(name, leaf_type, max_entries[, flags]) Creates a queue named name with value type leaf_type and max entries max_entries.Stack and Queue maps are only available from Linux 4.20+. For example: CBPF_QUEUE(queue, struct event, 10240); This creates a queue named queue where the value type is struct event, that holds up to 10240 entries. Methods (covered later): map.push, map.pop, map.peek. Examples in situ: \"https://github.com/iovisor/bcc/search?q=BPF_QUEUE+path%3Atests&type=Code search /tests ,",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: leaf_type}",
+            "{Type:  ,Var: max_entries}",
+            "{Type:  ,Var: flags}"
+        ]
+      }
+    },
+    {
+      "BPF_SOCKHASH": {
+        "Project": "bcc",
+        "FunctionName": "BPF_SOCKHASH",
+        "Return Type": null,
+        "Description": "BPF_SOCKHASH(name[, key_type [, max_entries) Creates a hash named name, with optional parameters. sockhash is only available from Linux 4.18+. Default: BPF_SOCKHASH(name, key_type=u32, max_entries=10240) For example: Cstruct sock_key {  u32 remote_ip4;  u32 local_ip4;  u32 remote_port;  u32 local_port;};BPF_HASH(skh, struct sock_key, 65535); This creates a hash named skh where the key is a struct sock_key. A sockhash is a BPF map type that holds references to sock structs. Then with a new sk/msg redirect bpf helper BPF programs can use the map to redirect skbs/msgs between sockets (map.sk_redirect_hash/map.msg_redirect_hash). The difference between BPF_SOCKHASH and BPF_SOCKMAP is that BPF_SOCKMAP is implemented based on an array, and enforces keys to be four bytes. While BPF_SOCKHASH is implemented based on hash table, and the type of key can be specified freely. Methods (covered later): map.sock_hash_update, map.msg_redirect_hash, map.sk_redirect_hash.  \"https://github.com/iovisor/bcc/search?q=BPF_SOCKHASH+path%3Atests&type=Code search /tests ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: name}",
+            "{Type:  ,Var: key_type}",
+            "{Type:  ,Var: max_entries}"
+        ]
+      }
+    },
+    {
+      "map.lookup": {
+        "Project": "bcc",
+        "FunctionName": "map.lookup",
+        "Return Type": "*val",
+        "Description": "*val map.lookup(&key) Lookup the key in the map, and return a pointer to its value if it exists, else NULL. We pass the key in as an address to a pointer. Examples in situ: \"https://github.com/iovisor/bcc/search?q=lookup+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=lookup+path%3Atools&type=Code search /tools ",
+        "Return": "Lookup the key in the map, and return a pointer to its value if it exists, else NULL.",
+        "Input Prameters": [
+            "{Type:  ,Var: key}"
+        ]
+      }
+    },
+    {
+      "map.lookup_or_try_init": {
+        "Project": "bcc",
+        "FunctionName": "map.lookup_or_try_init",
+        "Return Type": "*val",
+        "Description": "*val map.lookup_or_try_init(&key, &zero) Lookup the key in the map, and return a pointer to its value if it exists, else initialize the key's value to the second argument. This is often used to initialize values to zero. If the key cannot be inserted (e.g. the map is full) then NULL is returned. Examples in situ: \"https://github.com/iovisor/bcc/search?q=lookup_or_try_init+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=lookup_or_try_init+path%3Atools&type=Code search /tools  Note: The old map.lookup_or_init may cause return from the function, so lookup_or_try_init is recommended as itdoes not have this side effect.",
+        "Return": " Lookup the key in the map, and return a pointer to its value if it exists, else initialize the key's value to the second argument. ",
+        "Input Prameters": [
+            "{Type:  ,Var: key}",
+            "{Type:  ,Var: zero}"
+        ]
+      }
+    },
+    {
+      "map.delete": {
+        "Project": "bcc",
+        "FunctionName": "map.delete",
+        "Return Type": null,
+        "Description": "map.delete(&key) Delete the key from the hash. Examples in situ: \"https://github.com/iovisor/bcc/search?q=delete+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=delete+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key}" 
+        ]
+      }
+    },
+    {
+      "map.update": {
+        "Project": "bcc",
+        "FunctionName": "map.update",
+        "Return Type": null,
+        "Description": "map.update(&key, &val) Associate the value in the second argument to the key, overwriting any previous value. Examples in situ: \"https://github.com/iovisor/bcc/search?q=update+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=update+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key}",
+            "{Type:  ,Var: val}"
+        ]
+      }
+    },
+    {
+      "map.insert": {
+        "Project": "bcc",
+        "FunctionName": "map.insert",
+        "Return Type": null,
+        "Description": "map.insert(&key, &val) Associate the value in the second argument to the key, only if there was no previous value. Examples in situ: \"https://github.com/iovisor/bcc/search?q=insert+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=insert+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key}",
+            "{Type:  ,Var: val}"
+        ]
+      }
+    },
+    {
+      "map.increment": {
+        "Project": "bcc",
+        "FunctionName": "map.increment",
+        "Return Type": null,
+        "Description": "map.increment(key[, increment_amount]) Increments the key's value by increment_amount, which defaults to 1. Used for histograms. map.increment are not atomic. In the concurrency case. If you want more accurate results, use map.atomic_increment instead of map.increment. The overhead of map.increment and map.atomic_increment is similar. Note. When using map.atomic_increment to operate on a BPF map of type BPF_MAP_TYPE_HASH, map.atomic_increment does not guarantee the atomicity of the operation when the specified key does not exist. Examples in situ: \"https://github.com/iovisor/bcc/search?q=increment+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=increment+path%3Atools&type=Code search /tools ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  ,Var: key}",
+            "{Type:  ,Var: increment_amount}"
+        ]
+      }
+    },
+    {
+      "map.get_stackid": {
+        "Project": "bcc",
+        "FunctionName": "map.get_stackid",
+        "Return Type": "int",
+        "Description": "int map.get_stackid(void *ctx, u64 flags) This walks the stack found via the struct pt_regs in ctx, saves it in the stack trace map, and returns a unique ID for the stack trace. Examples in situ: \"https://github.com/iovisor/bcc/search?q=get_stackid+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=get_stackid+path%3Atools&type=Code search /tools ",
+        "Return": "returns a unique ID for the stack trace",
+        "Input Prameters": [
+            "{Type:  void*,Var: ctx}",
+            "{Type:  u64,Var: flags}"
+        ]
+      }
+    },
+    {
+      "map.perf_read": {
+        "Project": "bcc",
+        "FunctionName": "map.perf_read",
+        "Return Type": "u64",
+        "Description": "u64 map.perf_read(u32 cpu) This returns the hardware performance counter as configured in  \"#5-bpf_perf_array 5. BPF_PERF_ARRAY  Examples in situ: \"https://github.com/iovisor/bcc/search?q=perf_read+path%3Atests&type=Code search /tests ",
+        "Return": "returns the hardware performance counter as configured in bpf_perf_array",
+        "Input Prameters": [
+            "{Type:  u32,Var: cpu}"
+        ]
+      }
+    },
+    {
+      "map.call": {
+        "Project": "bcc",
+        "FunctionName": "map.call",
+        "Return Type": "void",
+        "Description": "void map.call(void *ctx, int index) This invokes bpf_tail_call to tail-call the bpf program which the index entry in  \"#10-bpf_prog_array BPF_PROG_ARRAY  points to. A tail-call is different from the normal call. It reuses the current stack frame after jumping to another bpf program and never goes back. If the index entry is empty, it won't jump anywhere and the program execution continues as normal. For example: ```CBPF_PROG_ARRAY(prog_array, 10); int tail_call(void *ctx) {    bpf_trace_printk(\"Tail-call\\n\");    return 0;} int do_tail_call(void *ctx) {    bpf_trace_printk(\"Original program\\n\");    prog_array.call(ctx, 2);    return 0;}``` Pythonb = BPF(src_file=\"example.c\")tail_fn = b.load_func(\"tail_call\", BPF.KPROBE)prog_array = b.get_table(\"prog_array\")prog_array[c_int(2)] = c_int(tail_fn.fd)b.attach_kprobe(event=\"some_kprobe_event\", fn_name=\"do_tail_call\") This assigns tail_call to prog_array[2]. In the end of do_tail_call, prog_array.call(ctx, 2) tail-calls tail_call and executes it.  NOTE:  To prevent infinite loop, the maximum number of tail-calls is 32 ( \"https://github.com/torvalds/linux/search?l=C&q=MAX_TAIL_CALL_CNT+path%3Ainclude%2Flinux&type=Code MAX_TAIL_CALL_CNT ). Examples in situ: \"https://github.com/iovisor/bcc/search?l=C&q=call+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?l=C&q=call+path%3Atests&type=Code search /tests ",
+        "Return": null,
+        "Input Prameters": [
+            "{Type:  void*, Var: ctx}",
+            "{Type:  int, Var: index}"
+        ]
+      }
+    },
+    {
+      "map.redirect_map": {
+        "Project": "bcc",
+        "FunctionName": "map.redirect_map",
+        "Return Type": "int",
+        "Description": "int map.redirect_map(int index, int flags) This redirects the incoming packets based on the index entry. If the map is  \"#11-bpf_devmap BPF_DEVMAP , the packet will be sent to the transmit queue of the network interface that the entry points to. If the map is  \"#12-bpf_cpumap BPF_CPUMAP , the packet will be sent to the ring buffer of the index CPU and be processed by the CPU later. If the map is  \"#13-bpf_xskmap BPF_XSKMAP , the packet will be sent to the AF_XDP socket attached to the queue. If the packet is redirected successfully, the function will return XDP_REDIRECT. Otherwise, it will return XDP_ABORTED to discard the packet. For example:```CBPF_DEVMAP(devmap, 1); int redirect_example(struct xdp_md ctx) {    return devmap.redirect_map(0, 0);}int xdp_dummy(struct xdp_md ctx) {    return XDP_PASS;}``` ```Pythonip = pyroute2.IPRouteidx = ip.link_lookup(ifname=\"eth1\")[0] b = bcc.BPF(src_file=\"example.c\") devmap = b.get_table(\"devmap\")devmap[c_uint32(0)] = c_int(idx) in_fn = b.load_func(\"redirect_example\", BPF.XDP)out_fn = b.load_func(\"xdp_dummy\", BPF.XDP)b.attach_xdp(\"eth0\", in_fn, 0)b.attach_xdp(\"eth1\", out_fn, 0)``` Examples in situ: \"https://github.com/iovisor/bcc/search?l=C&q=redirect_map+path%3Aexamples&type=Code search /examples ,",
+        "Return": "If the packet is redirected successfully, the function will return XDP_REDIRECT. Otherwise, it will return XDP_ABORTED to discard the packet",
+        "Input Prameters": [
+            "{Type:  int, Var: index}",
+            "{Type:  int, Var: flags}"
+        ]
+      }
+    },
+    {
+      "map.push": {
+        "Project": "bcc",
+        "FunctionName": "map.push",
+        "Return Type": "int",
+        "Description": "int map.push(&val, int flags) Push an element onto a Stack or Queue table.Passing BPF_EXIST as a flag causes the Queue or Stack to discard the oldest element if it is full.Returns 0 on success, negative error on failure. Examples in situ: \"https://github.com/iovisor/bcc/search?q=push+path%3Atests&type=Code search /tests ,",
+        "Return": "0 on success, negative error on failure",
+        "Input Prameters": [
+            "{Type:  , Var: val}",
+            "{Type:  int, Var: flags}"
+        ]
+      }
+    },
+    {
+      "map.pop": {
+        "Project": "bcc",
+        "FunctionName": "map.pop",
+        "Return Type": "int",
+        "Description": "int map.pop(&val) Pop an element from a Stack or Queue table. *val is populated with the result.Unlike peeking, popping removes the element.Returns 0 on success, negative error on failure. Examples in situ: \"https://github.com/iovisor/bcc/search?q=pop+path%3Atests&type=Code search /tests ,",
+        "Return": "0 on success, negative error on failure",
+        "Input Prameters": [
+            "{Type:  , Var: val}"
+        ]
+      }
+    },
+    {
+      "map.peek": {
+        "Project": "bcc",
+        "FunctionName": "map.peek",
+        "Return Type": "int",
+        "Description": "int map.peek(&val) Peek an element at the head of a Stack or Queue table. *val is populated with the result.Unlike popping, peeking does not remove the element.Returns 0 on success, negative error on failure. Examples in situ: \"https://github.com/iovisor/bcc/search?q=peek+path%3Atests&type=Code search /tests ,",
+        "Return": "0 on success, negative error on failure",
+        "Input Prameters": [
+            "{Type:  , Var: val}"
+        ]
+      }
+    },
+    {
+      "map.sock_hash_update": {
+        "Project": "bcc",
+        "FunctionName": "map.sock_hash_update",
+        "Return Type": "int",
+        "Description": "int map.sock_hash_update(struct bpf_sock_ops *skops, &key, int flags) Add an entry to, or update a sockhash map referencing sockets. The skops is used as a new value for the entry associated to key. flags is one of: BPF_NOEXIST: The entry for key must not exist in the map.BPF_EXIST: The entry for key must already exist in the map.BPF_ANY: No condition on the existence of the entry for key. If the map has eBPF programs (parser and verdict), those will be inherited by the socket being added. If the socket is already attached to eBPF programs, this results in an error. Return 0 on success, or a negative error in case of failure. Examples in situ: \"https://github.com/iovisor/bcc/search?q=sock_hash_update+path%3Atests&type=Code search /tests ,",
+        "Return": "0 on success, or a negative error in case of failure.",
+        "Input Prameters": [
+            "{Type: struct bpf_sock_ops *, Var: skops}",
+            "{Type: , Var: key}",
+            "{Type: int, Var: flags}"
+        ]
+      }
+    },
+    {
+      "map.msg_redirect_hash": {
+        "Project": "bcc",
+        "FunctionName": "map.msg_redirect_hash",
+        "Return Type": "int",
+        "Description": "int map.msg_redirect_hash(struct sk_msg_buff *msg, void *key, u64 flags) This helper is used in programs implementing policies at the socket level. If the message msg is allowed to pass (i.e. if the verdict eBPF program returns SK_PASS), redirect it to the socket referenced by map (of type BPF_MAP_TYPE_SOCKHASH) using hash key. Both ingress and egress interfaces can be used for redirection. The BPF_F_INGRESS value in flags is used to make the distinction (ingress path is selected if the flag is present, egress path otherwise). This is the only flag supported for now. Return SK_PASS on success, or SK_DROP on error. Examples in situ: \"https://github.com/iovisor/bcc/search?q=msg_redirect_hash+path%3Atests&type=Code search /tests ,",
+        "Return": "SK_PASS on success, or SK_DROP on error",
+        "Input Prameters": [
+            "{Type: struct sk_msg_buff *, Var: msg}",
+            "{Type: void* , Var: key}",
+            "{Type: u64, Var: flags}"
+        ]
+      }
+    }
+  ]
