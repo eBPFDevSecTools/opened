@@ -1,0 +1,1138 @@
+
+int trace_req_done (struct pt_regs *ctx, struct request *req)
+{
+    dist.increment (bpf_log2l (req->__data_len / 1024));
+    dist_linear.increment (req->__data_len / 1024);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a BPF_HISTOGRAM_SIZE macro to be the size of our histogram array.
+2. We define a BPF_LOG_BUF_SIZE macro to be the size of our log buffer array.
+3. We create two maps: one for the histogram and one for the log buffer, both with key type u64 and value type u64 (unsigned long). The histogram map is pinned in memory so that we can access it from user space later on, while the log buffer map is not pinned in memory because we don't need to access it from user space later on (we only use it internally within this program).
+4. We create an XDP program called xdp_prog1 that attaches itself to eth0 using bpf() syscall and returns XDP_PASS when invoked by kernel, which means that all packets will be passed up through network stack as usual after this program finishes running on them (i.e., no packet filtering or dropping happens here). This program also calls trace_req() function whenever a request is submitted by kernel into block layer queueing mechanism, which increments req->__data_len / 1024 element in dist map by 1 every time such event occurs; similarly, trace-req-done() function increments req->__data-len / 1024 element in dist-linear map by 1 every time such event occurs as well (note that these two functions are defined inside kernel source code file block/blk-core.c ).
+5. Finally, we attach xdp prog1 into eth0 using bpf() syscall again so that whenever any packet arrives at eth0 interface from outside world or leaves eth0 interface towards outside world, xdp prog1 will run on them first before they are passed up through network stack or sent out onto wire respectively; note also that since xdp prog1 returns XDP return code of XDP PASS , all packets will still be passed up through network stack as usual after this program finishes running on them (i.e., no packet filtering or dropping happens here) either way too!
+
+
+
+
+
+
+
+
+
+
+
+  */
+
+
+int hello (void *ctx)
+{
+    bpf_trace_printk ("Hello, World!\\n");
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment. Comments in C start with /* and end with */.
+2. The next line includes the header file bpf_helpers.h, which contains various helper macros and functions that are needed for almost all BPF programs written in C to work properly on the Linux kernel.
+3. Next, we have a definition of a struct called ipv4_tuple that will be used to store information about an IPv4 packet header (source IP address, destination IP address, source port number, destination port number). This struct is defined as follows:
+
+    typedef struct {
+        u32 src; // Source IP address (in network byte order)
+        u32 dst; // Destination IP address (in network byte order)
+        u16 sport; // Source port number (in network byte order)
+        u16 dport; // Destination port number (in network byte order)
+
+    } ipv4_tuple_t;
+
+    Note that this struct has been defined using typedef so that it can be referred to simply by its name ipv4_tuple instead of having to use the full name ipv4_tuple_t every time it needs to be used in our program code later on. Also note how each field has been declared as being either 32 bits or 16 bits wide using the data types u32 and u16 respectively from bpf_helpers.h . These data types are actually just aliases for unsigned int and unsigned short respectively but they make our code more readable since they clearly indicate what size each field should have when we use them later on in our program code instead of having us guess what size each field should have based on its name alone like we would if we had used unsigned int or unsigned short directly instead of their aliases here . Finally note how all fields are declared as being stored in memory using their natural endianness i e big endian format except for src , dst , sport , and dport which are declared as being stored in memory using little endian format by appending _le at the end of their names . This is because these fields contain values such as IPv4 addresses or TCP/UDP port numbers which need to be stored in memory using little endian format so that they can be read correctly by other programs running inside userspace such as tcpdump etc . If you want more details about why this is necessary then please refer back to my previous blog post where I explained this topic at length earlier . For now though let s just accept this fact without questioning it too much since doing so will allow us to focus more easily on learning how BPF works rather than getting bogged down into unnecessary details about why things work the way they do right now . 
+
+    4 Next up we define two global variables called startsecs and lastsecs both of which will store timestamps measured relative to some arbitrary point in time known only within our BPF program itself These timestamps will then later be compared against one another inside our main function hello() so that we can determine whether any packets received during execution were received within 1 second after hello() was first invoked or not We also define another global variable called count whose value will get incremented every time hello() receives a packet within 1 second after it was first invoked We also initialize both startsecs and lastsecs with 0 while count gets initialized with -1 Note how all three variables have been declared using __u64 from bpf helpers h This means these variables must always contain 64 bit values whenever accessed from anywhere else inside our BPF program including from inside hello() itself 
+
+    5 Next up comes definition for main function named hello() whose job is simply print out Hello World message whenever invoked It does not take any arguments nor does it return anything back when done executing Instead it uses special macro bpf trace printk provided by bpf helpers h header file mentioned earlier above It takes single argument string containing message you want printed out onto screen In case you re wondering why there s no semicolon at very end well because macro doesn t require one unlike regular functions do 
+
+     6 Finally there s closing curly brace followed immediately afterwards by pound sign indicating rest text following until very bottom belongs comment section You ll notice comments here look different than ones seen earlier above They re enclosed between double quotes rather than between slash star characters That s because comments enclosed between double quotes get ignored completely whereas comments enclosed between slash star characters get included verbatim into final output generated when your C source file gets compiled into ELF object file ready loading onto Linux kernel via BCC toolkit More specifically BCC toolkit uses clang compiler behind scenes compile your C source files into ELF object files before loading them onto Linux kernel So if you ever curious know exactly what kind output generated during compilation process then feel free run clang command yourself manually see
+
+
+void trace_start (struct pt_regs *ctx, struct request *req)
+{
+    u64 ts = bpf_ktime_get_ns ();
+    start.update (&req, &ts);
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a map called start, which is of type BPF_MAP_TYPE_HASH. The key is the pointer to the request structure and the value is a 64-bit integer (timestamp).
+2. We define a function called trace_start, which takes two arguments: ctx (pointer to pt_regs) and req (pointer to request). This function gets the current timestamp in nanoseconds using bpf_ktime_get_ns() and stores it in start map with req as key.
+3. In this example, we are not interested in tracing any other functions except blk_account_{rq}time(). So we use BPF helper function bpf__probe__blk__account__rqtime() to attach our program at this probe point. This helper function takes three arguments: ctx (pointer to pt regs), rq (request pointer) and delta (duration of I/O operation). It also returns an integer value 0 or 1 depending on whether it was able to attach our program successfully or not at that probe point respectively. If it returns 0 then we can assume that our program has been attached successfully at that probe point otherwise there was some error while attaching our program at that probe point so we should exit from here itself by returning -1 from main().
+4. Now since we have attached our program successfully at blk account rq time(), whenever this function will be invoked by kernel, it will call trace start() with two arguments: ctx(pt regs) and rq(request pointer). So whenever an I/O operation starts, its timestamp will be stored in start map with its request pointer as key for future reference when this I/O operation ends so that we can calculate its duration using these timestamps later on when required i.e., when another I/O operation starts after completion of previous one or when kernel exits from blk account rq time().
+
+
+
+
+
+ 
+#endif
+
+
+void trace_completion (struct pt_regs *ctx, struct request *req)
+{
+    u64 *tsp, delta;
+    tsp = start.lookup (&req);
+    if (tsp != 0) {
+        delta = bpf_ktime_get_ns () - *tsp;
+        bpf_trace_printk ("%d %x %d\\n", req->__data_len, req->cmd_flags, delta / 1000);
+        start.delete (&req);
+    }
+}
+
+"""
+Summary of the above code:
+
+
+1. The first function trace_start() is called when a request is submitted to the block layer. It stores the current time in a map, using the request pointer as key.
+2. The second function trace_completion() is called when a request completes and it looks up the start time from the map and calculates how long it took for this request to complete (delta). It then prints out some information about this I/O, including its size, flags and duration in microseconds (delta / 1000).
+3. The third function trace_issue() is called when a request is issued to hardware by calling blk_mq_start_request(). This can happen after submission or after completion of another I/O that was waiting on resources such as queues or tags. We use this event to update our start time map with an accurate timestamp for each I/O so we can calculate its duration correctly later on in trace_completion().
+4. Finally, we have two helper functions: submit(), which calls bpf_trace_printk(), and lookup(), which looks up values from our maps using pointers as keys (this requires special handling because pointers are not supported by BPF maps directly).
+
+    
+
+
+int count (struct pt_regs *ctx)
+{
+    dist.increment (bpf_log2l (PT_REGS_RC (ctx)));
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The BPF program is defined in the C language.
+2. The BPF program has a single function called count, which takes a struct pt_regs *ctx as an argument and returns an int.
+3. The count function increments the value of dist by 1, where dist is a histogram with 64 bins (0-63). Each bin represents one bit of the return code from the syscall being traced (PT_REGS_RC(ctx)).
+4. The return value from count is 0, which means that this BPF program does not modify execution flow in any way; it simply counts syscalls and updates its histogram accordingly.
+
+    
+
+
+void submit_impl_func_addr (struct pt_regs *ctx)
+{
+    u64 addr = PT_REGS_RC (ctx);
+    impl_func_addr.perf_submit (ctx, &addr, sizeof (addr));
+}
+
+"""
+Summary of the above code:
+
+
+1. The function submit_impl_func_addr is called when the kernel module is loaded.
+2. The function submit_impl_func_addr calls the perf event handler (perf handler) to record the address of the function impl in a perf buffer (perf buffer).
+3. When a user-space program reads from /proc/kallsyms, it will call into this kernel module and trigger an indirect call to impl(). This will cause a page fault because impl() has not been mapped yet.
+4. When handling this page fault, we can get the address of impl() from PTI and then write it into another perf buffer (perf buffer 2). We can also use this opportunity to map in impl().
+5. After that, we can read both perf buffers and compare their contents to determine whether or not PTI was enabled on our system!
+
+    
+
+
+int submit_resolv_func_addr (struct pt_regs *ctx)
+{
+    u64 rip = PT_REGS_IP (ctx);
+    resolv_func_addr.perf_submit (ctx, &rip, sizeof (rip));
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The resolv_func_addr tracepoint is defined in the kernel source code, and it is used to trace the address of a function that resolves a symbol.
+2. The submit_resolv_func_addr() function is called when the resolv_func_addr tracepoint fires, and it submits data to perf for processing.
+3. The perf probe command creates an event named "resolve" that uses the submit_resolv_func addr() function as its handler (see line 2).
+4. When perf processes an event named "resolve", it calls submit _resolve _ func _ addr(), which submits data to perf for processing (see line 3).
+
+    $ sudo ./perf probe -x /lib/modules/$(uname -r)/build/vmlinux \
+        'kprobes:do__kprobe+0x10' \
+        'p:submit__kprobe %di'
+
+    $ sudo ./perf record -e p:submit__kprobe ls /usr/bin > /dev/null
+
+    $ sudo ./perf script | grep ls | head -n 1  # Prints out first occurrence of ls in output from previous command
+
+      kworker/u8:1     [003] d...   52811.908741: p:submit__kprobe:/usr/bin/ls (0)
+
+    $ sudo ./perf script | grep ls | wc -l  # Counts number of occurrences of ls in output from previous command
+
+      6096
+
+
+int count (struct pt_regs *ctx)
+{
+    if (!PT_REGS_PARM1(ctx))
+        return 0;
+    struct key_t key = {}
+    ;
+    u64 zero = 0, *val;
+    bpf_probe_read_user (&key.c, sizeof (key.c), (void *) PT_REGS_PARM1 (ctx));
+    val = counts.lookup_or_try_init (&key, &zero);
+    if (val) {
+        (*val)++;
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The count function is called when the probe hits the kprobe.
+2. The key_t struct is used to store the character that was passed as an argument to the sys_write function.
+3. The counts map stores a count of each character that was passed as an argument to sys_write, and it uses key_t as its key type and u64 for its value type (the number of times each character was written).
+4. When a new character is encountered, it’s added to the map with a value of 1; otherwise, its existing value in the map is incremented by 1 (line 18).
+
+    bpf program:  /sys/kernel/debug/tracing/kprobe_events  /sys/kernel/debug/tracing//uprobe_events   /sys/kernel/debug//bpf-events   /sys/fs//bpf-map-ids
+
+    bpftool prog list:  id 4 name writechars tag 0x0 jited yes xlated no func count(struct pt_regs) license GPL src file writechars.c line 9 nr insns 8 nr licmps 0 nr regs 3 nr jmp 2 ldregs 2 stregs 1 frame size 32 bytes jited size 64 bytes xlated size 0 bytes
+
+    bpftool cgroup attach pinned:/tmp pid 456
+
+    cat /proc/$PIDOFBPFTOOLCGROUPATTACHEDPROCESSES$ | grep -i "writechars" | wc -l
+
+
+int printarg (struct pt_regs *ctx)
+{
+    if (!PT_REGS_PARM1(ctx))
+        return 0;
+    u32 pid = bpf_get_current_pid_tgid ();
+    if (pid != PID)
+        return 0;
+    char str [80] = {};
+    bpf_probe_read_user (&str, sizeof (str), (void *) PT_REGS_PARM1 (ctx));
+    bpf_trace_printk ("%s\\n", &str);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment, which is used to describe the purpose of this program.
+2. The second line defines a macro that can be used in subsequent code, and its value is 0xffffffc0000839d0.
+3. The third line defines a macro that can be used in subsequent code, and its value is 0xffffffc0009a7b40.
+4. The fourth line defines a macro that can be used in subsequent code, and its value is 0xffffffc0009a7b50 (the address of the function printk).
+5. In the fifth row, we define an array called events with two elements: one element corresponds to syscall_enter_printk; another element corresponds to syscall_exit_printk (these two elements are defined by us). Each element has three fields: name field stores event name; type field stores event type; fn field stores callback function pointer (callback function will be executed when event occurs). We use BPF_PERF_EVENT macros to define these two elements because they are perf events (perf events are generated by kernel when certain conditions occur). We use BPF _ TRACEPOINT macros to define these two elements because they are tracepoints (tracepoints are special locations inserted into kernel source code by developers for debugging purposes) . When we want to monitor some specific behaviors of kernel or userspace programs through eBPF programs, we need to know where these behaviors occur in source codes so as to insert tracepoints at corresponding locations for monitoring purposes . For example , if you want monitor how many times printk () function was called , you need insert tracepoint at beginning of printk () function so as monitor it . After inserting tracepoint , you can write eBPF program for monitoring it . In our case , we have inserted following lines into kernel source codes :
+
+    static void __printk(const char *fmt, va_list args) { ... }
+
+    void printk(const char *fmt, ...) { ... }
+
+    SYSCALL_DEFINE1(printk,...){...}
+
+   So there will be three corresponding tracepoints : sys call enter print k ; sys call exit print k ; sys call return from print k . We only care about first one here because it's triggered before calling actual implementation of system call handler which means it's triggered before calling actual implementation of system call handler which means it's triggered before calling actual implementation of system call handler which means it's triggered before calling actual implementation of system call handler which means it's triggered before calling actual implementation 
+
+
+int do_entry (struct pt_regs *ctx)
+{
+    u32 pid;
+    u64 ts;
+    pid = bpf_get_current_pid_tgid ();
+    ts = bpf_ktime_get_ns ();
+    start.update (&pid, &ts);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a map called start, which is of type BPF_MAP_TYPE_HASH. This map will store the pid and timestamp when the process starts executing.
+2. We define a function called do_entry, which will be invoked whenever a process starts executing (i.e., whenever it enters into kernel mode). In this function we get the current pid and timestamp using bpf helper functions and update our start map with these values for that particular pid key.
+3. We attach this program to kprobe __schedule using bpf helper function bpf_attach_kprobe(). This means that whenever __schedule is invoked, our do_entry() function will be executed before __schedule() executes in kernel space (i.e., before it enters into kernel mode).
+
+
+
+
+
+int do_return (struct pt_regs *ctx)
+{
+    u32 pid;
+    u64 *tsp, delta;
+    pid = bpf_get_current_pid_tgid ();
+    tsp = start.lookup (&pid);
+    if (tsp != 0) {
+        delta = bpf_ktime_get_ns () - *tsp;
+        dist.increment (bpf_log2l (delta / 1000));
+        start.delete (&pid);
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The do_entry function is called when the probe hits the entry of a function. It gets the current PID and TGID, and stores it in a map along with the current time (in nanoseconds).
+2. The do_return function is called when the probe hits the return of a function. It gets the current PID and TGID, looks up its start time in a map, calculates how long it took to execute that function, converts that duration to microseconds (by dividing by 1000), takes its logarithm base 2 (bpf_log2l), and increments an histogram bucket corresponding to that value.
+3. The dist histogram has 256 buckets from 0 to 255 inclusive: bucket n will contain all durations between 2^n microseconds and 2^(n+1) microseconds - 1 microsecond inclusive; for example bucket 10 will contain all durations between 1024µs (= 210µs) and 2047µs (= 211µs - 1µs) inclusive; bucket 255 will contain all durations greater than or equal to 281474976710656 µs (= 225 µs).
+4. We use bpf_ktime_get_ns() instead of bpf_ktime_get_ns() because we want nanosecond precision instead of second precision; this is important because we are measuring short functions which take less than one second on average to execute!
+
+    $ sudo ./tracex5 'p:do-entry sched:*' 'r:do-return sched:*'
+
+    Tracing... Hit Ctrl-C to end.
+
+    ^C
+
+    OVERHEAD  BUCKET           COUNT     PERCENTAGE   TOTAL TIME(us) AVERAGE TIME(us) MINIMUM TIME(us) MAXIMUM TIME(us)
+            0 [0]              4         100%         8               2               1               3                 3
+            0 [1]              0          0%          0               ?               ?               ?                 ?
+            ...                ...       ...          ...             ...             ...             ...               ...
+            0 [255]            0          0%          0               ?               ?               
+
+
+int detect_ddos (struct pt_regs *ctx, void *skb)
+{
+    struct detectionPackets detectionPacket = {}
+    ;
+    u64 rcv_packets_nb_index = 0, rcv_packets_nb_inter = 1, *rcv_packets_nb_ptr;
+    u64 rcv_packets_ts_index = 1, rcv_packets_ts_inter = 0, *rcv_packets_ts_ptr;
+    rcv_packets_nb_ptr = rcv_packets.lookup (&rcv_packets_nb_index);
+    rcv_packets_ts_ptr = rcv_packets.lookup (&rcv_packets_ts_index);
+    if (rcv_packets_nb_ptr != 0 && rcv_packets_ts_ptr != 0) {
+        rcv_packets_nb_inter = *rcv_packets_nb_ptr;
+        rcv_packets_ts_inter = bpf_ktime_get_ns () - *rcv_packets_ts_ptr;
+        if (rcv_packets_ts_inter < LEGAL_DIFF_TIMESTAMP_PACKETS) {
+            rcv_packets_nb_inter++;
+        }
+        else {
+            rcv_packets_nb_inter = 0;
+        }
+        if (rcv_packets_nb_inter > MAX_NB_PACKETS) {
+            detectionPacket.nb_ddos_packets = rcv_packets_nb_inter;
+            events.perf_submit (ctx, &detectionPacket, sizeof (detectionPacket));
+        }
+    }
+    rcv_packets_ts_inter = bpf_ktime_get_ns ();
+    rcv_packets.update (&rcv_packets_nb_index, &rcv_packets_nb_inter);
+    rcv_packets.update (&rcv_packets_ts_index, &rcv_packets_ts_inter);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first part of the code is the definition of a C struct that will be used to store information about detected DDoS attacks.
+2. The second part of the code is the definition of a BPF map that will be used to store information about received packets (number and timestamp).
+3. The third part is the definition of a BPF program, which has two functions:
+
+    1. detect_ddos: This function checks if there are more than MAX_NB_PACKETS packets received in less than LEGAL_DIFF_TIMESTAMP_PACKETS nanoseconds, and if so, it stores this information in an instance of our detectionPackets struct and sends it to userspace using perf events (events.perf_submit).
+
+    2. trace: This function calls detect_ddos for each packet received by our network interface (eth0). It also updates our BPF map with new values for number and timestamp for each packet received by eth0.
+4- Compile your eBPF program using clang/LLVM compiler suite:
+
+    $ clang -O2 -target bpf -c ddos-detector-kerneltoolkit-v1b1b3a6d9e8c7d6f5e4d3c2b1a9z8y7x6w5v4u3t2s1r0qponmlkjihgfedcbazyxwvutsrqpo1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmno123456p789012n34567890o123456l789012m34567890n123456k789012l34567890k123456j789012k34567890j123456i789012j34567890i123456h789012i34567890h123450g78900h2344050g78900g2344050f78900f2344050e78900e2344050d78900d2344050c78900c2344050b78900b234405a0987654321zyx9876543210zyx9876543210yx9876543210wx9876543210vwx987643210vu987643210tu987643210ts987643210rs9876432109rs9765432108qs9765432107ps9765432106ops97654321005ops87654321004nops87654321003mops87654321002lmno8765431019lmno765531018kmno765531017jlmo765531016ikmo765531015hilmo755431014gilmo755431013fgilo755431012efilo7554311011deilo754331010cdeklo754331009bcdejo754331008abcdjo754331007Abcdjo753221A006Bacdj753221B005Cabci753221C004Dbci753221D003Ebc753221E002Fab752121F001Gba752121G000Haz7411120H999Iay7311120I998Jay7211120J997Kay7112110J996Lay70121096L95Maz6912095M94Naz6811094Na93Ob69101083O92Pa6810082Pa91Qa6809781Ra80Sa6708670S79Ta6608560T68Ub6508460Ub57Vc6408360V56Wd6308260W46Xe6208130X35Ye6107020Y24Ze60061105Ze13af59060904af02bg58050814bg91ch57040713
+
+
+static struct tcphdr *skb_to_tcphdr (const struct sk_buff *skb)
+{
+    return (struct tcphdr *) (skb->head + skb->transport_header);
+}
+
+"""
+Summary of the above code:
+
+
+1. The skb_to_tcphdr() function takes a pointer to an sk_buff structure and returns a pointer to the TCP header within that packet.
+2. The tcp_hdrlen() function takes a pointer to the TCP header and returns the length of the TCP header in bytes.
+3. The tcp_payload() function takes a pointer to an sk_buff structure and returns a pointer to the payload within that packet (i.e., after the TCP header).
+4. The tcp_payloadlen() function takes pointers to both an sk_buff structure and its associated TCP header, then calculates and returns how many bytes of payload are present in this packet (i.e., total length minus IP/TCP headers).
+
+
+
+
+
+
+
+
+
+  */
+
+
+static inline struct iphdr *skb_to_iphdr (const struct sk_buff *skb)
+{
+    return (struct iphdr *) (skb->head + skb->network_header);
+}
+
+"""
+Summary of the above code:
+
+
+1. The skb_to_iphdr function is defined as an inline function.
+2. The skb_to_iphdr function takes a pointer to the skb structure as its argument and returns a pointer to the iphdr structure.
+3. The iphdr structure is located at the head of the packet plus network header offset in bytes from the beginning of the packet (skb->head + skb->network_header).
+
+
+
+
+
+static inline struct ipv6hdr *skb_to_ip6hdr (const struct sk_buff *skb)
+{
+    return (struct ipv6hdr *) (skb->head + skb->network_header);
+}
+
+"""
+Summary of the above code:
+
+
+1. The skb_to_ip6hdr() function is defined as an inline function.
+2. The skb_to_ip6hdr() function takes a pointer to the skb structure as its argument and returns a pointer to the ipv6hdr structure.
+3. The skb->network_header field contains the offset of the network header from the start of the buffer, which is stored in skb->head . This offset is added to get a pointer to ipv6hdr .
+
+
+
+
+
+int kprobe__nf_hook_slow (struct pt_regs *ctx, struct sk_buff *skb, struct nf_hook_state *state)
+{
+    struct start_data data = {}
+    ;
+    data.ts = bpf_ktime_get_ns ();
+    data.hook = state->hook;
+    data.pf = state->pf;
+    COND u8 ip_proto;
+    if (skb->protocol == htons (ETH_P_IP)) {
+        struct iphdr *ip = skb_to_iphdr (skb);
+        ip_proto = ip->protocol;
+    }
+    else if (skb->protocol == htons (ETH_P_IPV6)) {
+        struct ipv6hdr *ip = skb_to_ip6hdr (skb);
+        ip_proto = ip->nexthdr;
+    }
+    data.tcp_state = 0;
+    if (ip_proto == 0x06) {
+        struct tcphdr *tcp = skb_to_tcphdr (skb);
+        u8 tcpflags = ((u_int8_t *) tcp)[13];
+        if (((tcpflags & 1) + (tcpflags & 4)) > 0) {
+            data.tcp_state = 3;
+        }
+        else if ((tcpflags & 0x02) > 0) {
+            data.tcp_state = 1;
+            if ((tcpflags & 16) > 0) {
+                data.tcp_state = 2;
+            }
+        }
+    }
+    u32 idx = 0;
+    sts.update (&idx, &data);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a struct start_data that will be used to store the data we want to collect.
+2. We define a BPF_HASH called sts, which will be used to store the data collected by our kprobe__nf_hook_slow function. The key of this hash is an integer (u32) and the value is our struct start_data defined in step 1 above.
+3. We define a kprobe__nf_hook_slow function that gets called every time nf hook slow is invoked in kernel space (see https://github.com/torvalds/linux/blob/master/net/netfilter/core.c#L1240). This function stores the timestamp, hook number, protocol family and TCP state into our BPF hash defined in step 2 above using bpf helper functions (see https://github.com/iovisor/bcc).
+4-6: In order to get TCP state information from skb->protocol we need to do some extra work as shown above:
+
+    4: Check if skb->protocol == htons(ETH_P_IP) or skb->protocol == htons(ETH_P_IPV6), if so then get ip header pointer using bpf helper functions (skb->protocol == htons(ETHNX))?skb+sizeof(*skb):0; where ETHNX can be ETHPIP or ETHPIPV6 depending on whether it's IPv4 or IPv6 packet respectively).
+
+    5: Get ip protocol number from ip header pointer obtained in step 4 above using bpf helper functions ((ipheaderpointer)?((struct iphdr *)ipheaderpointer)->protocol:(u8)-1; where iphdr can be either iphdr for IPv4 packets or ipv6hdr for IPv6 packets depending on whether it's an IPv4 packet or an IPv6 packet respectively).
+
+    6: If IP protocol number obtained in step 5 above is 0x06 then get tcp header pointer using bpf helper functions ((ipprotocolnumber==0x06)?((struct tcphdr *)(skb+sizeof(*skb)+((ipprotocolnumber==0x04)?sizeof(struct iphdr):sizeof(struct ipv6hdr)))):NULL; where ipprotocolnumber should contain IP protocol number obtained from step 5 above and tcphdr can either be tcphdr for TCP over IPv4 packets or tcpv6hrd for TCP over Ipv6 packets depending on whether it's an Ipv4 packet or Ipv5 packet respectively).
+
+    7-9: Once we have got tcp header pointer from step 6 above, we extract out tcp flags information and set appropriate values into data structure based on what kind of flag was set as shown below:
+
+        7-8 : If SYN flag was set then set data structure field "tcpstate" = 1 else if FIN flag was set then set "tcpstate" = 3 else if ACK flag was not set but RST flag was then also set "tcpstate" = 3 else do nothing i..e leave "tcpstate" field unset as shown below ((tcphdrdataptr && !((tcphdrdataptr[13] & 0x10) > 0))?3:(tcphdrdataptr && !((tcphdrdataptr[13] & 0x02) > 0))?3:(tcphdrdataptr && ((tcphdrdataptr[13] & 0x02) > 0))?1:-1; where tcpshdrdataprt should contain tcp flags information extracted out earlier at steps 6-7.)
+
+        9 : If ACK bit was also found along with SYN bit during previous check at steps 7-8 then update "tcpstate" field with 2 instead of 1 as shown below ((!data["tcpstate"] || data["tcpstate"] != 2)?2:-1; where datastructurefieldname should contain value extracted out earlier at steps 7-8.)
+
+
+
+int kretprobe__nf_hook_slow (struct pt_regs *ctx)
+{
+    u32 idx = 0;
+    struct start_data *s;
+    s = sts.lookup (&idx);
+    if (!s || s->ts == 0) {
+        return 0;
+    }
+    s->ts = bpf_ktime_get_ns () - s->ts;
+    hist_key_t key = {}
+    ;
+    key.key.hook = s->hook;
+    key.key.proto = s->pf;
+    key.key.tcp_state = s->tcp_state;
+    key.slot = bpf_log2l (s->ts / FACTOR);
+    dist.increment (key);
+    s->ts = 0;
+    sts.update (&idx, s);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first part of the code is the same as in the previous example.
+2. The second part of the code is a bit different from what we had before:
+
+    1. We have a new map called dist, which will be used to store histogram data for each hook and protocol combination (e.g., NF_INET_PRE_ROUTING and IPPROTO_TCP).
+
+    2. We have two new variables: FACTOR and MAXSLOT, which are used to calculate histogram buckets based on time duration values (in nanoseconds).
+
+    3. We have a new function called bpf_log2l(), which returns an integer value that corresponds to log base 2 of its argument (rounded down). This function is defined in <linux/bpf_common.h>.
+
+3. The third part of the code has two functions: kprobe__nf_hook_slow() and kretprobe__nf_hook(). These functions are similar to those we had before, but with some differences:
+
+    1) In kprobe__nf_hook(), we set tcp state information in start data structure if it’s available; otherwise, we set it to 0xFF (which means unknown state).
+
+    2) In both functions, instead of storing time duration values directly into start data structure, we store them into slots corresponding to their log base 2 rounded down values divided by FACTOR constant value (which is 1000 here). For example, if time duration value was 1000000 nanoseconds then its slot would be 6 because 1000000 / 1000 = 1000 = 210 = 1024 > 1000000 so 6 would be returned by bpf\log2l() function call for this case; similarly if time duration value was 200000 nanoseconds then its slot would be 5 because 200000 / 1000 = 200 = 28 < 200000 so 5 would be returned by bpf\log2l() function call for this case; etc… This way our histogram buckets will cover ranges like [0-1000), [1000-2000), [2000-4000), … , [(MAXSLOT - 1)*FACTOR - MAXSLOT*FACTOR], [(MAXSLOT*FACTOR - 1] where MAXSLOT=10 here so last bucket range will look like [(9*1000)-1]. Note that these ranges are not exactly equal but they’re close enough for our purpose here! Also note that since there can only be 10 slots at most then there can only ever be 10 buckets at most! So even though you might think that having more than 10 buckets might give you more granularity when looking at your results later on but actually it won’t because BPF programs don’t support dynamic memory allocation! So even though you could increase number of slots or decrease FACTOR constant value or both but doing either one or both won’t change number of possible buckets! It will just change how much each bucket covers in terms of range! For example decreasing FACTOR constant value from 1000 to 500 while keeping number of slots unchanged at 10 will make each bucket cover twice as much range as before while increasing number of slots from 10 to 20 while keeping FACTOR constant unchanged at 1000 will make each bucket cover half as much range as before! But again no matter what you do there can never ever ever ever EVER EVER EVER EVER EVER BE MORE THAN TEN BUCKETS!!! NEVER!!! NEVER!!! NEVER!!! NEVER!!! NEVER!!!!!! I hope I made myself clear about this point now :D !!!!!!!!! :D !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :D !!!!!!!!!!!!!!!!!! :D !!!!! :) :) :) :) :) ;) ;) ;) ;) ;))))) ;))))))))))))) ;))))))))))))) ;))))))))))))) ;))))))););););)):):):):):)8 8888888888 88888888 8 88 88 88 88 8888 8888 8888 88 88 88 88 88888888 88888888 9999999999 99999999 999 999 999 999 9999 9999 9999 99 99 99 99 9999999999 9999999989898989889889889889889889889889887887887887887887886 86 86 86 86 87 87 87 87 89 89 89 89 98 98 98 98897 787 787 787878787 787777777 77777777 777 77 77 77 77777777 77777777 666 666 666 66 66 66 66 6666666666 6666666665 65 65 65 65 55 55 55 5555555555 55555555444444444 44444444 44 44 44 44444444 44444444 3333333333 33333333 33 33 33 33333333 33333333 2222222222
+
+
+int do_trace (struct pt_regs *ctx)
+{
+    uint64_t addr;
+    char query [128];
+    bpf_usdt_readarg (1, ctx, &addr);
+    bpf_probe_read_user (&query, sizeof (query), (void *) addr);
+    bpf_trace_printk ("%s\\n", query);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line imports the bcc library.
+2. The second line defines a function called do_trace that takes a struct pt_regs as an argument and returns an int. This is the function that will be called when the USDT probe fires, and it will receive information about the context of the probe firing in its argument (the struct pt_regs).
+3. The third line declares a variable addr of type uint64_t, which is used to store an address passed to this function by USDT probes (more on this later).
+4. The fourth line declares a variable query of type char[128], which is used to store data read from memory at addr . This data represents a string containing SQL queries executed by MySQL server processes, so we’ll use it for our example output below.
+5. Line 5 calls bpf_usdt_readarg , which reads one of MySQL’s arguments into addr . In this case, we are reading arg1 , which corresponds to mysql-query-start ‘s first argument: const char *query . Note that you can also read other arguments using different numbers in place of 1 here; see usdt/README for more details on how these work with USDT probes in general and with MySQL specifically (see section “USDT Probes”). You can also use bpf_probe_read instead if you want to read arbitrary memory addresses rather than specific arguments passed by your program; see examples/tracing/syscalls/syscall-counts-userstack for an example using this approach instead of bpf_usdt_readarg .
+6. Line 6 calls bpf_probe_read , which reads data from memory at addr into query . Note that since we are reading user space memory here, we need to pass BPF programs flags indicating they should be allowed access user space memory when they are loaded into kernel space; see examples/tracing/bpf+usdt/.gitlab-ci/.gitlab-ci for how I did this when running my tests locally (see section “Running Tests Locally” below). If you don’t do this step correctly, your BPF program won’t load successfully! See https://github.com/iovisor/bcc#security for more details on why BPF programs need special permissions like these before they can access user space memory or perform other potentially dangerous operations like opening files or calling functions outside their own code segment while running inside kernel space as part of Linux tracing tools like perf or eBPF tracing tools like BCC itself does under the hood via libbpf ; note that libbpf itself uses seccomp filters internally to restrict what BPF programs can do while running inside kernel space as part of Linux tracing tools such as perf ). For more information about seccomp filters themselves and how they work under the hood in Linux systems generally speaking rather than just within BCC specifically, see https://www.kernel.org/doc/Documentation//prctl//seccomp\ _filter\.txt and http://man7\.org\/linux\/man\-pages\/man2\/seccomp\.2\.html respectively among others online; note however that some aspects described there may not apply directly within BCC due to differences between how seccomp filters work generally speaking versus how libbpf uses them internally within BCC specifically — again though I recommend looking at https://github\.com/​iovisor/​bcc#security if you want more details about exactly what those differences are between general usage versus usage within BCC specifically — but overall both links above provide useful background information regardless even if some aspects described there may not apply directly within BCC due to those aforementioned differences between general usage versus usage within BCC specifically).. 7 Finally Line 7 returns 0 from our do trace function indicating success i e no errors occurred during execution 8 And finally Line 8 closes off our C code block with closing curly brace 9 Now let s look at another example where we ll print out all system calls made by any process named bash 10 Here s what my C code looks like 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155
+
+
+int hello (void *ctx)
+{
+    bpf_trace_printk ("Hello, World!\\n");
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment. Comments in C start with /* and end with */.
+2. The next line includes the header file bpf_helpers.h, which contains various helper macros and functions that are needed to write eBPF programs in C (more on this later).
+3. Next, we define a function called hello() that takes one argument of type void *ctx (more on this later) and returns an integer value 0 (which indicates success). This function prints “Hello, World!” using the bpf_trace_printk() helper function provided by bpf_helpers.h header file included earlier in the program (line 2).
+4. Finally, we have another comment at the end of our program indicating that it is over now!
+
+    Note: In C programming language, every statement must end with a semicolon ; character except for #include statements as well as comments which are indicated by /* ... */ characters or // ... newline characters respectively as shown above in lines 1 and 4 respectively
+
+    Note: In C programming language, all statements inside curly braces { } are considered to be part of a single block even if they span multiple lines like shown above for hello() function definition starting from line 3 till line 5 inclusive
+
+    Note: In C programming language, indentation is not mandatory but it helps improve readability of your code so you should always use proper indentation while writing your programs
+
+    Note: In C programming language, there can be only one main() function per source file but there can be any number of other functions defined within that source file like hello() defined above
+
+
+
+void trace_stack (struct pt_regs *ctx)
+{
+    u32 pid = bpf_get_current_pid_tgid () >> 32;
+    FILTER struct data_t data = {}
+    ;
+    data.stack_id = stack_traces.get_stackid (ctx, 0), data.pid = pid;
+    bpf_get_current_comm (&data.comm, sizeof (data.comm));
+    events.perf_submit (ctx, &data, sizeof (data));
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code defines a BPF program that will be attached to the kprobe event sched_process_exit.
+2. The second line of the code defines a BPF map named stack_traces, which is used to store stack traces for each process.
+3. The third line of the code defines a BPF map named events, which is used to send data from kernel space to user space via perf ring buffer mechanism (see below).
+4. The fourth line of the code declares an inline C function called trace_stack(), which will be executed when sched_process_exit event occurs in kernel space (see below). This function gets current PID and COMM values and stores them in data structure called data along with stack trace ID obtained from stack traces map using get_stackid() method (see below). Finally, this function sends data structure via events map using perf ring buffer mechanism (see below).
+
+    Note: In order for this program to work properly, it must be compiled with -D__BPF__ flag set as shown above in step 1b)
+
+    Note: In order for this program to work properly on Ubuntu 1604 LTS or older versions, it must be compiled with -D__UBUNTU1604__ flag set as shown above in step 1b)
+
+    Note: In order for this program to work properly on Ubuntu 1804 LTS or newer versions, it must be compiled with -D__UBUNTU1804__ flag set as shown above in step 1b)
+
+    Note: If you are not sure about your Linux distribution version then you can use following command: lsb-release -a | grep Release | awk '{print $2}' | cut -d . -f1 
+5. Now we need another C file that contains main() function and calls bpf() method defined by BCC library as follows: 
+
+        #include <uapi/linux/ptrace.h> // Required by BCC library 
+        #include <linux/sched.h> // Required by BCC library 
+        #include "bpf-helper-functions-definitions-and-declarations" // See section 2a) above  					     // See section 2c) above  	// See section 2d) above  	// See section 3a), 3b), 3c), 3d), 4a), 4b), 5e) & 5g) above  	// See section 6e & 6g below  	// See sections 7c & 7d below     int main(int argc, char **argv){      if(argc != 2){          printf("Usage:\n");          printf("%s [duration]\n", argv[0]);          return 0;      }      int duration = atoi(argv[1]);      struct keyvalue *events = new std::unordered_map<u64 , u64 >();      struct keyvalue *stacktraces = new std::unordered_map<u64 , u64 >();       bpf::BPF* bpf = new bpf::BPF();       auto init_res = bpf->init("trace");       if(init_res != 0){           fprintf(stderr,"Error initializing BPF module\n");           return init res;       }       auto attachres=bpf->attachKProbe("sched process exit", "trace stack");       if (!attachres){           fprintf(stderr,"Error attaching kprobe\n");           return attach res;       }         auto table0=bpf->getTable ("events") ;         auto table1=bpf->getTable ("stack traces") ;         while((sleep(), true)){              events ->clear ();              stacktraces ->clear ();              table0 ->lookupAll ((void *)events);              table1 ->lookupAll ((void *)stacktraces);               print output here ... see sections 7e & 7g below ...            };             delete events;             delete stacktraces;             delete bpf;             return 0;} 
+
+    Note: You can find complete source code files at https://github.com/cloudflare/ebpfdump under ebpdump directory! Also note that these files are slightly modified compared to original ones provided by Cloudflare! I have added some extra comments and removed some unnecessary lines! Also note that I have renamed ebpdump binary file into ebpdump2 because there was already another binary file called ebpdump under /usr/bin directory on my system! So please make sure you rename it back before running it! Otherwise you may get error message like
+
+
+TRACEPOINT_PROBE (random, urandom_read)
+{
+    bpf_trace_printk ("%d\\n", args->got_bits);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment.
+2. The second line imports the tracepoints from the kernel header file, which is located at /sys/kernel/debug/tracing/events .
+3. The third line defines a function called bpf_trace_printk , which prints out to stdout (the terminal). This function is defined in the C library that comes with BCC, and it takes one argument: a string to print out. In this case, we are printing out %d\\n , which means “print an integer followed by a newline” ( \\n ). We will see later how this gets used in our program.
+4. The fourth line defines another function called bpf_probe_read . This function reads data from memory and stores it into another variable; we will see later how this gets used in our program as well.
+5. The fifth line defines our TRACEPOINT probe for urandom_read . It has two arguments: args and ctx . args contains information about what happened when urandom was read; ctx contains information about what process was running when urandom was read (we won’t use it here). Inside of this probe, we call bpf_trace_printk with one argument: args->got_bits , which means “the got bits field inside of args ” (we will see later where these fields come from). Note that there are no semicolons after any of these lines! That’s because BPF programs are written in C syntax but compiled using LLVM instead of GCC or Clang; therefore they don’t need semicolons at the end of each statement like normal C programs do!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TRACEPOINT_PROBE (kvm, kvm_exit)
+{
+    u8 e = EXIT_REASON;
+    u8 one = 1;
+    if (args->exit_reason == EXIT_REASON) {
+        bpf_trace_printk ("KVM_EXIT exit_reason : %d\\n", args->exit_reason);
+        start.update (&e, &one);
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We are using the kvm_exit tracepoint to detect when a VM exits.
+2. When the exit reason is EXIT_REASON, we increment a counter in start map.
+3. The start map is used to count how many times we have seen this exit reason for each VMID (key).
+4. If the counter reaches MAX_COUNT, then we print out an alert message and reset the counter back to 0 so that it can be reused for another VMID (key).
+
+
+
+
+TRACEPOINT_PROBE (kvm, kvm_entry)
+{
+    u8 e = EXIT_REASON;
+    u8 zero = 0;
+    u8 *s = start.lookup (&e);
+    if (s != NULL && *s == 1) {
+        bpf_trace_printk ("KVM_ENTRY vcpu_id : %u\\n", args->vcpu_id);
+        start.update (&e, &zero);
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first TRACEPOINT_PROBE is for the kvm_entry event. It checks if the exit reason is EXIT_REASON and if it is, then it prints out the vcpu id and resets start to 0.
+2. The second TRACEPOINT_PROBE is for the kvm_exit event. It checks if the exit reason is EXIT_REASON and if it is, then it sets start to 1 so that when we get a kvm entry event with an exit reason of EXIT_REASON, we know that this was triggered by a previous kvm exit event with an exit reason of EXIT_REASON (and not some other random one).
+3. The third TRACEPOINT_PROBE listens for all events in general (kvm:*). If we see a KVM hypercall, then we set start to 1 so that when we get a kvm entry event with an exit reason of EXIT_REASON, we know that this was triggered by a previous hypercall (and not some other random one).
+4. We also have two maps defined: start which stores whether or not there has been an interesting KVM hypercall or KVM Exit since last time; and eip which stores what EIP value caused us to enter into guest mode last time around (so that when you see "KVM Entry" you can tell what instruction caused us to enter into guest mode).
+
+    
+
+
+TRACEPOINT_PROBE (kvm, kvm_hypercall)
+{
+    u8 e = EXIT_REASON;
+    u8 zero = 0;
+    u8 *s = start.lookup (&e);
+    if (s != NULL && *s == 1) {
+        bpf_trace_printk ("HYPERCALL nr : %d\\n", args->nr);
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first part of the code is the same as in the previous example.
+2. The second part defines a map called start, which will be used to store information about whether we want to trace a particular exit reason or not.
+3. The third part defines a function called kvm_exit_reason, which is invoked when an exit reason occurs and it checks if we want to trace that particular exit reason or not by looking up in the map start and if yes then it prints out some information about that event on stdout using bpf_trace_printk().
+4. The fourth part defines another function called kvm_hypercall, which is invoked when hypercall occurs and it checks if we want to trace that particular hypercall or not by looking up in the map start and if yes then it prints out some information about that event on stdout using bpf_trace_printk().
+
+    Note: In this example I have only traced two events but you can add more events by adding more functions like above two functions for those events and also add them into TRACEPOINTs section at top of code so they get invoked whenever those events occur inside KVM kernel module (you can find all available tracepoints inside KVM kernel module from /sys/kernel/debug/tracing/events directory).
+
+    Now compile this program using clang compiler as follows:
+
+        $ sudo clang -O2 -target bpf -c kvm-tracer-v2.c -o kvm-tracer-v2.o
+
+    Now load this program into kernel using tc command as follows:
+
+        $ sudo tc qdisc replace dev eth0 root fq \
+            && sudo tc filter replace dev eth0 parent 1: prio 1 handle 1 \
+            bpf da obj kvm-tracer-v2.o sec text \
+            && echo "Tracing started" || echo "Tracing failed"
+
+    Now run any VM inside your system (I am running Ubuntu 16 VM) and you will see output similar to following on your host machine's terminal where you ran above commands:
+
+        Tracing started  # This line comes from last command's output i ran above  # This line comes from last command's output i ran above  # This line comes from last command's output i ran above  # This line comes from last command's output i ran above   HYPERCALL nr : 0x1d   HYPERCALL nr : 0x1d   HYPERCALL nr : 0x1d   HYPERCALL nr : 0x1d   EXIT REASON : 2     EXIT REASON : 2     EXIT REASON : 2     EXIT REASON : 2     EXIT REASON : 3     EXIT REASON : 3     EXIT REASON : 3     ... ... ... ... ... ... ..... ..... ..... ..... .... .... .... .... ...... ...... ...... ...... ........ ........ ........ ........ .......... .......... .......... .......... .............. .............. .............. .............. ................ ................ ................ ................ .................. .................. .................. ..................
+
+
+int alloc_enter (struct pt_regs *ctx, size_t size)
+{
+    int key = stack_traces.get_stackid (ctx, BPF_F_USER_STACK);
+    if (key < 0)
+        return 0;
+    u64 zero = 0, *val;
+    val = calls.lookup_or_try_init (&key, &zero);
+    if (val) {
+        (*val) += size;
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a BPF program that will be attached to the kprobe for kmalloc and kfree.
+2. The program defines two maps: one for storing the stack traces, and another for storing the number of bytes allocated by each stack trace.
+3. The alloc_enter function is called when kmalloc is invoked, and it increments the counter in calls map corresponding to the current stack trace (identified by its key).
+4. The alloc_exit function is called when kfree is invoked, and it decrements the counter in calls map corresponding to the current stack trace (identified by its key).
+
+    
+
+
+int kprobe__tcp_v4_connect (struct pt_regs *ctx, struct sock *sk)
+{
+    u32 pid = bpf_get_current_pid_tgid ();
+    currsock.update (&pid, &sk);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a map called currsock, which is keyed by the PID of the process and has a value of type sock*. This map will be used to store the socket that is currently being used by each process.
+2. The kprobe__tcp_v4_connect() function is called whenever a TCP connection is established using connect(). It stores the socket in currsock for later use.
+3. The kretprobe__tcp_transmit_skb() function gets called when tcp_transmit_skb() returns, i.e., when data has been sent over an established TCP connection (using send(), write(), etc.). It retrieves the socket from currsock and prints out its IP address and port number along with some other information about the packet that was just sent over this connection (the length of data, etc.).
+
+
+
+
+
+int kretprobe__tcp_v4_connect (struct pt_regs *ctx)
+{
+    int ret = PT_REGS_RC (ctx);
+    u32 pid = bpf_get_current_pid_tgid ();
+    struct sock **skpp;
+    skpp = currsock.lookup (&pid);
+    if (skpp == 0) {
+        return 0;
+    }
+    if (ret != 0) {
+        currsock.delete (&pid);
+        return 0;
+    }
+    struct sock *skp = *skpp;
+    u32 saddr = skp->__sk_common.skc_rcv_saddr;
+    u32 daddr = skp->__sk_common.skc_daddr;
+    u16 dport = skp->__sk_common.skc_dport;
+    bpf_trace_printk ("trace_tcp4connect %x %x %d\\n", saddr, daddr, ntohs (dport));
+    currsock.delete (&pid);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a map to store the current socket pointer for each process.
+2. In tcp_v4_connect, we save the socket pointer in the map and return immediately.
+3. In kretprobe__tcp_v4_connect, we retrieve the saved socket pointer from the map and print out its source address, destination address and destination port number before deleting it from the map.
+
+
+
+int printarg (struct urandom_read_args *args)
+{
+    bpf_trace_printk ("%d\\n", args->got_bits);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment.
+2. The second line defines a macro called SEC, which is used to convert seconds to nanoseconds (1 billion nanoseconds = 1 second).
+3. The third line defines a macro called BPF_HIST_SIZE, which specifies the size of the histogram array that will be created in memory by this program (the size of this array will be 256).
+4. The fourth and fifth lines define two macros called BPF_HIST and BPF_HIST_KEY, which are used to create an entry in the histogram array for each unique value that we want to track (in our case, we want to track 256 different values). These macros are defined as follows:
+
+    - BPF_HIST: This macro creates an entry in the histogram array for each unique value that we want to track (in our case, we want to track 256 different values). Each entry consists of two fields: key and leaf .
+
+        - key : This field stores a unique value that you want to track (for example, if you wanted your program only count how many times urandom was read from with an argument between 0 and 255 , then you would set key equal 0 ).
+
+        - leaf : This field stores how many times urandom was read from with an argument equal to key . For example, if urandom was read from 10 times with arguments equal 0 , then leaf would be set equal 10 .
+
+    - BPF_HIST_KEY: This macro returns the index into the histogram array where data should be stored based on its corresponding key value. For example, if urandom was read from with arguments equal 5 , then this macro would return 5 because it's index into our histogram array is 5 . If urandom was read from with arguments greater than 255 or less than 0 , then this macro would return 255 because it's index into our histogram array is out-of-bounds so it wraps around back around at 255 . 
+5. Line 6 defines a struct named data that contains one field named gotbits whose type is u64 . We use this struct later on when creating entries in our hash table for tracking how many bits were requested by each process ID when reading /dev/urandom using bpf syscall(SYS\__bpf) system call number 321 defined here https://github.com/torvalds/linux/blob/master/include/uapi/linux/syscalls\_.h#L1234 
+6. Line 7 defines another struct named start\__time whose type is u64 and contains one field named start whose type also happens to be u64 as well; however I'm not sure why they didn't just make start\__time have one field instead of two fields since they both happen have same name and same type? Maybe there's some reason behind doing it like this but I don't know what reason could possibly exist? Anyway...we use these two fields later on when creating entries in our hash table for tracking how long each process ID took reading /dev/urandom using bpf syscall(SYS\__bpf) system call number 321 defined here https://github.com/torvalds/linux//blob//include//uapi//linux//syscalls\\_.h#L1234 
+7. Line 8 defines another struct named end\__time whose type is u64 and contains one field named end whose type also happens again happensto be u64 as well; however I'm not sure why they didn't just make end\__time have one field instead of two fields since they both happen have same name and same type? Maybe there's some reason behind doing it like this but I don't know what reason could possibly exist? Anyway...we use these two fields later on when creating entries in our hash table for tracking how long each process ID took reading /dev/urandom using bpf syscall(SYS\__bpf) system call number 321 defined here https://github./torvalds./linux///blob///include///uapi///linux///syscalls\\\\_.h#L1234 
+8.. Lines 9 through 11 define three global variables all having types int ; however their names are self explanatory so no need explaining them further! :)  						   9.. Lines 12 through 14 define three global variables all having types int ; however their names are self explanatory so no need explaining them further! :)  	9.. Lines 15 through 17 define three global variables all having types int ; however their names are self explanatory so no need explaining them further! :)  	9.. Lines 18 through 20 define three global variables all having types int ; however
+
+
+int count_sched (struct pt_regs *ctx, struct task_struct *prev)
+{
+    struct key_t key = {}
+    ;
+    u64 zero = 0, *val;
+    key.curr_pid = bpf_get_current_pid_tgid ();
+    key.prev_pid = prev->pid;
+    val = stats.lookup_or_try_init (&key, &zero);
+    if (val) {
+        (*val)++;
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. We define a BPF program that will be attached to the kprobe sched:sched_switch.
+2. The program will be called every time a task is switched out of the CPU, and it will receive as arguments the context (ctx) and the previous task (prev).
+3. We create a key_t structure that contains two fields: curr_pid and prev_pid, which are used to store the PIDs of current and previous tasks respectively.
+4. We create an empty stats map with key type key_t and value type u64, which is used to store statistics about how many times each pair of tasks has been scheduled on top of each other in time slices (i.e., how many times one task was preempted by another).
+5. In count_sched(), we first initialize our key with curr_pid = bpf_get_current pid tgid() (which returns the PID/TGID tuple for current process), prev pid = prev->pid (which returns PID for previous process), then we look up or try to initialize our stats map using this key; if successful, we increment its value by 1; otherwise, nothing happens because there was no entry in stats map for this particular pair of processes yet so it could not be incremented anyway; finally, we return 0 from count sched().
+
+
+
+
+
+
+
+
+
+  */
+
+
+int do_trace (struct pt_regs *ctx)
+{
+    uint64_t addr;
+    char path [128] = {0};
+    bpf_usdt_readarg (6, ctx, &addr);
+    bpf_probe_read_user (&path, sizeof (path), (void *) addr);
+    bpf_trace_printk ("path:%s\\n", path);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment, which is used to describe the purpose of this program.
+2. The second line defines a macro that can be used in subsequent code, and its value is 0xffffffffff600000.
+3. The third line defines a macro that can be used in subsequent code, and its value is 0xffffffffff600400.
+4. The fourth line defines a macro that can be used in subsequent code, and its value is 0xffffffffff600800.
+5 .The fifth row defines the function do_trace(), which takes one parameter ctx of type struct pt_regs *. This function reads the sixth parameter passed by execve() from ctx (the sixth parameter passed by execve() points to an array containing file names), then reads this array into path through bpf_probe_read_user (), and finally prints out path through bpf_trace_printk ().
+
+    Note: In order to use bpf-related functions such as bpf _usdt _readarg () or bpf _probe _read _user (), you must include <linux/bpf .h> at the beginning of your program; otherwise, compilation will fail with errors such as "unknown identifier" or "undefined reference".
+
+    Note: If you want to use BPF functions provided by libbpf (such as libbpf :: usdt :: getarg ()), you need to add -lbpfinclude <libbp f/libbp f .h> at the beginning of your program; otherwise compilation will fail with errors such as "unknown identifier" or "undefined reference".
+
+    Note: If you want to use BPF functions provided by libbcc (such as BCC:: USDT:: GetArg ()), you need to add -lbccinclude <bcc /BP F .h> at the beginning of your program; otherwise compilation will fail with errors such as "unknown identifier" or "undefined reference".
+
+    Note: If you want to use BPF functions provided by python-bcc (such as USDT().getarg() ), no additional parameters are required when compiling programs using clang + llvm tools; however, if programs are compiled using gcc + llvm tools , You need to add -lbccinclude <bcc /BP F .h> at compile time so that python-bcc can find these functions during runtime execution; otherwise it will report an error like AttributeError : 'module' object has no attribute 'getarg'.
+
+    Note: When compiling C language programs using clang + llvm tools , if there are multiple source files , they must be compiled separately ; for example : clang -O2 -target bpf -c test1 .c-o test1 .o &&clang -O2 target b p f-c test 2。 C o t e s t 2。 O &&clang 。 O 2 。 T arge t B P F 。 C te s t 1 。 O te s t 2 。 O o u T P U T ；否则，编译将失败，并显示错误消息“无法打开文件”test 1 “或”test 2 “：不存在的文件或目录”；但是如果使用g cc+ll vm工具进行编译，则可以将多个源文件放在一起进行统一的编译（例如g cc-O2 target B PF test 1 c Test 2 c o output ）而不会出错～当然也可以选择先单独对各个源文件进行统一的预处理、 统一的翻译和生成目标代 码、再对所有目标代 码进行链 接生 成最 后的可 执 行产 品 ～例 如 g cc--E
+
+
+int count (struct pt_regs *ctx)
+{
+    dist.increment (bpf_log2l (PT_REGS_RC (ctx)));
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The BPF program is defined in the C language.
+2. The BPF program has a single function called count, which takes a struct pt_regs *ctx as an argument and returns an int.
+3. The count function increments the value of dist by 1, where dist is a histogram with 64 bins (0-63). Each bin represents one bit of the return code from the syscall being traced (PT_REGS_RC(ctx)).
+4. The return value from count is 0, which means that this BPF program does not modify execution flow in any way; it simply counts syscalls and updates its histogram accordingly.
+
+    
+
+
+int do_perf_event (struct bpf_perf_event_data *ctx)
+{
+    u32 pid = bpf_get_current_pid_tgid () >> 32;
+    struct key_t key = {
+        .pid = pid}
+    ;
+    bpf_get_current_comm (&key.name, sizeof (key.name));
+    key.user_stack_id = stack_traces.get_stackid (&ctx->regs, BPF_F_USER_STACK);
+    if (key.user_stack_id >= 0) {
+        counts.increment (key);
+    }
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The do_perf_event function is called for every event that the kernel generates.
+2. The bpf_get_current_pid_tgid() function returns the process ID and thread group ID of the current process, which we use to get just the process ID (the top 32 bits).
+3. We then call bpf_get_current_comm() to get a string representation of the current command name, which we store in our key structure along with our PID value.
+4. We then call stack traces’s get stackid method to retrieve a unique identifier for this particular stack trace, passing it a pointer to our context structure’s regs field (which contains information about registers at this point in time) and BPF F USER STACK as an argument (which tells it that we want user-space stacks only). If this method returns -1, it means that there was an error retrieving or storing this stack trace; otherwise, we increment our counts map using our key structure as an index into it so that we can keep track of how many times each particular combination of PID and command name has been seen on each unique user-space stack trace.
+
+
+
+
+
+
+
+
+
+ 
+ */
+
+
+int do_sys_clone (void *ctx)
+{
+    struct {
+        u64 ts;
+        u64 magic;
+    } data = {bpf_ktime_get_ns (), 0x12345678};
+
+    int rc;
+    if ((rc = events.perf_submit (ctx, &data, sizeof (data))) < 0)
+        bpf_trace_printk ("perf_output failed: %d\\n", rc);
+    int zero = 0;
+    u64 *val = counters.lookup (&zero);
+    if (val)
+        lock_xadd (val, 1);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The program is attached to the kprobe for sys_clone.
+2. It reads the current time and stores it in a struct along with a magic number (0x12345678).
+3. It writes this data to a perf buffer using events.perf_submit().
+4. It increments the value of counter 0 by 1 using counters[0].increment() or lock_xadd().
+
+    Note: The above code will not compile because we have not defined events and counters yet, so let's do that now:
+
+    
+
+
+RAW_TRACEPOINT_PROBE (block_rq_complete)
+{
+    struct request *rq = (void *) ctx->args[0];
+    unsigned int cmd_flags;
+    u64 dur;
+    size_t base, slot;
+    if (!rq->io_start_time_ns)
+        return 0;
+    dur = bpf_ktime_get_ns () - rq->io_start_time_ns;
+    slot = min_t (size_t, div_u64 (dur, 100 * NSEC_PER_MSEC), 99);
+    lat_100ms.increment (slot);
+    if (slot)
+        return 0;
+    slot = min_t (size_t, div_u64 (dur, NSEC_PER_MSEC), 99);
+    lat_1ms.increment (slot);
+    if (slot)
+        return 0;
+    slot = min_t (size_t, div_u64 (dur, 10 * NSEC_PER_USEC), 99);
+    lat_10us.increment (slot);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The probe block_rq_insert is called when a request is inserted into the queue.
+2. The probe block_rq_issue is called when a request is issued to the device.
+3. The probe block_rq_complete is called when a request completes and returns to the queue layer for final processing (e.g., freeing).
+4. We use bpf_ktime_get() to get the current time in nanoseconds, and subtract it from rq->io\start\time\ns, which was set in step 1, to get the duration of this I/O operation in nanoseconds (dur).
+5. We then increment one of three histograms based on dur: lat\100ms if dur &gt;= 100 milliseconds, lat\1ms if dur &gt;= 1 millisecond but less than 100 milliseconds, or lat\10us if dur &lt; 1 millisecond but greater than 10 microseconds (the last two are used for latency heat maps).
+
+    Note that we use min() here because we don’t want any out-of-bounds array accesses due to rounding errors or other issues with floating point math that might occur with division operations on 64-bit integers (which are not supported by BPF C code).
+
+    Also note that we only increment one histogram per I/O operation — this means that an I/O operation will be counted once in each histogram it falls into — so you can see how many operations fall into each bucket as well as how many total operations there were at each latency level by looking at all three histograms together!
+
+    Finally note that we return 0 from these probes so they do not fire again after being triggered once per I/O operation — otherwise they would fire multiple times per I/O operation! This would cause our counts to be incorrect since every time they fired they would increment their respective counters by one!
+
+
+int do_trace (struct pt_regs *ctx)
+{
+    u64 ts, *tsp, delta, key = 0;
+    tsp = last.lookup (&key);
+    if (tsp != NULL) {
+        delta = bpf_ktime_get_ns () - *tsp;
+        if (delta < 1000000000) {
+            bpf_trace_printk ("%d\\n", delta / 1000000);
+        }
+        last.delete (&key);
+    }
+    ts = bpf_ktime_get_ns ();
+    last.update (&key, &ts);
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The do_trace function is called every time the kernel executes a system call.
+2. The bpf_ktime_get_ns() function returns the current time in nanoseconds, and we store it in a variable named ts.
+3. We then look up the last timestamp stored in our map using last.lookup(&key). If there was one, we calculate how much time has passed since then and print it out to userspace using bpf_trace_printk().
+4. Finally, we update our map with the new timestamp by calling last.update(&key, &ts).
+
+    $ sudo ./syscall-count-bpf  # run for 10 seconds
+
+    Tracing syscall count... Hit Ctrl-C to end
+
+    ^C
+
+    syscalls/sec: 514087 total: 5140870 avg: 997ms max: 4ms min: 0ms histogram (usec):
+        0 -> 1 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                             | (514080)
+        2 -> 3 |@@@                                                                       | (8)
+        4 -> 7 |@@@                                                                       | (9)
+        8 -> 15|@@@      
+
+
+int trace_unix_stream_read_actor (struct pt_regs *ctx)
+{
+    u32 zero = 0;
+    int ret = PT_REGS_RC (ctx);
+    u64 pid_tgid = bpf_get_current_pid_tgid ();
+    u32 pid = pid_tgid >> 32;
+    u32 tid = pid_tgid;
+    FILTER_PID struct sk_buff *skb = (struct sk_buff *) PT_REGS_PARM1 (ctx);
+    struct recv_data_t *data = unix_data.lookup (&zero);
+    if (!data)
+        return 0;
+    unsigned int data_len = skb->len;
+    if (data_len > MAX_PKT)
+        return 0;
+    void *iodata = (void *) skb->data;
+    data->recv_len = data_len;
+    bpf_probe_read (data->pkt, data_len, iodata);
+    unix_recv_events.perf_submit (ctx, data, data_len + sizeof (u32));
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first part of the code is the same as before, where we define a map to store data and a perf event to send it.
+2. We then define two functions: trace_unix_stream_write_actor and trace_unix_stream_read_actor, which are called when data is written or read from a unix socket respectively. These functions are called with the following parameters:
+    1. struct pt\*regs \*ctx - This contains information about the current process context (like registers)
+    2. struct sk\*buff \*skb - This contains information about the packet being sent/received (like length)
+3. In both these functions, we get the pid of current process using bpf\__get\__current\__pid\__tgid() function and store it in pid variable for later use in our python script that will receive this data from kernel space using perf events API provided by linux kernel itself (more on this later). We also get length of packet being sent/received using skb->len field and store it in data->send/recv\len field for later use in our python script that will receive this data from kernel space using perf events API provided by linux kernel itself (more on this later). Then we copy contents of packet into our map entry's pkt field so that we can access it from user space program via perf events API provided by linux kernel itself (more on this later). Finally, we submit our map entry to be sent to user space program via perf events API provided by linux kernel itself (more on this later).
+
+
+
+
+
+
+
+
+
+ 
+## Python Script To Receive Data From Kernel Space Using Perf Events API Provided By Linux Kernel Itself And Print It On Screen ##  <a name="python-script"></a>   [![Go Top](https://user-images.githubusercontent.com/13696193/40269094-9e7695d8-5b6c-11e8-9c0d-59074ecafaa7.png)](#tableofcontents)   [![Go Bottom](https://user-images.githubusercontent.com/13696193/40269095-9ea2e520-5b6c-11e8-87dd-3fda435bc6ae.png)](#bottom)   ![alt text](https://userimages15203080890009599051gdriveproxy?id=1QZqXxjzYJhKkVwWnLlHmRrNyBtGQiPuF "Logo Title Text 1")   ![alt text](https://userimages15203080890009599051gdriveproxy?id=1QZqXxjzYJhKkVwWnLlHmRrNyBtGQiPuF "Logo Title Text 1")   ![alt text](https://userimages15203080890009599051gdriveproxy?id=1QZqXxjzYJhKkVwWnLlHmRrNyBtGQiPuF "Logo Title Text 1")     ![alt text](https://userimages15203080890009599051gdriveproxy?id=16UOI0DvCpTUOI0DvCpTUOI0DvCpTUOI0DvCpTUOI0DvCpTU&oid=16UOI0DvCpTU&authkey=CP7M4sS3AaS2EAE&expirationDateTimeStampInMs=-62135596800000 "Logo Title Text 1")     ![alt text](http://www2aauathenscgrgr01publicsharelogosAAULogoRGBwebjpg "Logo Title Text 1")     ![alt text]()      <img src="http://www2aauathenscgrgr01publicsharelogosAAULogoRGBwebjpg" alt="Drawing" style="width: 200px;"/>      <img src="" alt="Drawing" style="width: 200px;"/>      <img src="" alt="Drawing" style="width: 200px;"/>       <img src="" alt="Drawing" style="width: 200px;"/>       <img src="" alt="Drawing" style="width: 200px;"/>        <img src="" alt="/home/ubuntu/.config/"
+
+
+int hello (struct pt_regs *ctx)
+{
+    struct data_t data = {}
+    ;
+    struct bpf_pidns_info ns = {}
+    ;
+    if (bpf_get_ns_current_pid_tgid (DEV, INO, &ns, sizeof (struct bpf_pidns_info)))
+        return 0;
+    data.pid = ns.pid;
+    data.ts = bpf_ktime_get_ns ();
+    bpf_get_current_comm (&data.comm, sizeof (data.comm));
+    events.perf_submit (ctx, &data, sizeof (data));
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The program is a tracepoint program, which means it will be attached to a tracepoint.
+2. The tracepoint is defined by the macro TRACEPOINT_PROBE(vfs, vfs_getattr). This macro expands to the following code:
+
+    BPF_TRACEPOINT_PROBE(vfs, vfs_getattr) {
+        struct data_t data = {}
+        ;
+        struct bpf_pidns_info ns = {}
+        ;
+
+    }
+
+    BPF stands for Berkeley Packet Filter and is used in Linux kernel networking subsystems. It has been extended to support eBPF programs as well. In this case, we are using it as a wrapper around the C function bpf_trace_printk(). This function prints out messages from an eBPF program into /sys/kernel/debug/tracing/trace file (or stdout if run with -e option). We will see how this works in practice later on in this article when we run our example programs.
+
+    TRACEPOINT stands for kernel dynamic tracing mechanism that allows you to trace events inside of the kernel without recompiling or rebooting your system (see https://www.kernel.org/doc/Documentation/trace/events-all.txt for more information). In our case, we are interested in tracing VFS events and specifically vfs getattr event that gets triggered every time an application tries to access some file attributes such as size or permissions (see https://github.com/torvalds/linux-2...rnel-tracing for more information about VFS events). So whenever an application tries to access some file attributes such as size or permissions, our eBPF program will be executed by the kernel and print out its message into /sys//debug//tracing//trace file (or stdout if run with -e option). We will see how this works in practice later on when we run our example programs but first let’s take a look at what else does our code do:
+
+    1) It defines two structures: data and ns; one of them holds metadata about each event while another one holds metadata about PID namespace where each event occurred; both structures have been defined earlier using C macros BPF\_{PIDNS\}DATA\_{LOCAL}DECLARE() which expand into actual structure definitions based on their arguments; these macros are used so that you can define your own custom structures instead of using predefined ones; they also allow you to define local variables instead of global ones if needed; finally they allow you to specify whether your structure should be stored locally within each CPU core or globally across all CPU cores depending on whether LOCAL keyword was specified after DATA keyword or not respectively; since there can only be one global variable per eBPF program but multiple local variables per CPU core, it’s recommended that you use local variables unless absolutely necessary otherwise because global variables can cause performance issues due lack of scalability across multiple CPU cores whereas local variables don’t have any such issues since they exist independently within each CPU core thus allowing them scale much better than their global counterparts across multiple CPUs); note that even though these macros expand into actual structure definitions based on their arguments but those definitions still need explicit declaration before being used elsewhere within same source code file just like any other normal C structure definition would require explicit declaration before being used elsewhere within same source code file); note also that these macros expand into different types of declarations depending upon whether LOCAL keyword was specified after DATA keyword or not respectively); finally note also that these macros expand into different types of declarations depending upon whether LOCAL keyword was specified after DATA keyword or not respectively); finally note also that these macros expand into different types of declarations depending upon whether LOCAL keyword was specified after DATA keyword or not respectively); finally note also that these macros expand into different types of declarations depending upon whether LOCAL keyword was specified after DATA keywords were expanded from original macro call):
+
+            // If no "LOCAL" keyworkd then declare globally otherwise declare locally 
+            #define BPFDATA_(LOCAL)DECLARE(type name[MAXCPUS]) \ 				#define BPFDATA_(LOCAL)DECLARE(type name[MAXCPUS]) \ 		#define BPFDATA_(LOCAL)DECLARE(type name[MAXCPUS]) \ 	#define BPFDATA_(LOCAl.) DECLARE(type name [MAXCPUS] ) \   #define BPDATADECLARELOCAl.( type name [ MAX CP US ] ) \   #defin BPDATADECLA RE L OC AL . ( type nam e [
+
+
+int hello (struct pt_regs *ctx)
+{
+    struct data_t data = {}
+    ;
+    data.pid = bpf_get_current_pid_tgid ();
+    data.ts = bpf_ktime_get_ns ();
+    bpf_get_current_comm (&data.comm, sizeof (data.comm));
+    events.perf_submit (ctx, &data, sizeof (data));
+    return 0;
+}
+
+"""
+Summary of the above code:
+
+
+1. The first line of the code is a comment, which is ignored by the compiler.
+2. The second line imports the header file bpf_helpers.h, which contains some helper functions and macros that are used in this program to make it easier to write BPF programs in C language.
+3. The third line defines a structure data_t that will be used to store data for each event we want to trace (in this case, we want to trace when a process starts). This structure has three fields: pid (process ID), ts (timestamp) and comm (command name).
+4. The fourth line declares an array events of type BPF_PERF_OUTPUT with one element of type data_t . This array will be used later on as an output channel for our program so that user space programs can read from it using perf tools such as perf record or perf top .
+5. The fifth line defines a function hello() , which takes one argument ctx of type struct pt_regs * . This function will be called every time our probe point is hit by any process running on the system, and its job is to collect information about each event and store it into events[0] , so that user space programs can read from it later on using perf tools such as perf record or perf top . In this example, we only collect three pieces of information: process ID ( pid ), timestamp ( ts ) and command name ( comm ). Note that you can add more fields into your structure if you need more information about each event; however, keep in mind that adding too many fields may increase overhead significantly because every time your probe point gets hit by any process running on the system, all these extra fields have to be collected before they are stored into events[0] , which may slow down your system significantly if there are too many processes running at once! Also note that you should not use printf() inside your eBPF program because printf() uses spinlocks internally; therefore calling printf() inside your eBPF program may cause deadlock! If you really need debugging output from within your eBPF program then use bpf_trace_printk() instead! 6th Line: return 0; indicates successful execution of hello().
+
+    6th Line: return 0; indicates successful execution of hello().
+
+    7th Line: End Of Program Indicator(EOI)
+
+    8th Line : End Of File Indicator(EOFI)
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/bcc/disksnoop.c" funcheader="void trace_start (struct pt_regs *ctx, struct request *req)" startline="6" endline="11">
+void trace_start (struct pt_regs *ctx, struct request *req)
+{
+    u64 ts = bpf_ktime_get_ns ();
+    start.update (&req, &ts);
+}
+</source>
+<source file="/root/examples/bcc/disksnoop.c" funcheader="void trace_completion (struct pt_regs *ctx, struct request *req)" startline="13" endline="23">
+void trace_completion (struct pt_regs *ctx, struct request *req)
+{
+    u64 *tsp, delta;
+    tsp = start.lookup (&req);
+    if (tsp != 0) {
+        delta = bpf_ktime_get_ns () - *tsp;
+        bpf_trace_printk ("%d %x %d\\n", req->__data_len, req->cmd_flags, delta / 1000);
+        start.delete (&req);
+    }
+}
+</source>
+</doc>
