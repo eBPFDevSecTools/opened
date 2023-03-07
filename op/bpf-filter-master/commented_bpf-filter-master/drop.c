@@ -91,29 +91,29 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "xdp",
-    "raw_tracepoint_writable",
-    "sk_msg",
+    "cgroup_device",
+    "flow_dissector",
+    "sk_skb",
     "sched_act",
+    "lwt_out",
+    "sock_ops",
+    "kprobe",
+    "tracepoint",
+    "lwt_seg6local",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sched_cls",
     "raw_tracepoint",
     "lwt_xmit",
-    "lwt_out",
-    "cgroup_device",
     "socket_filter",
-    "lwt_seg6local",
     "cgroup_sock_addr",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock",
-    "sock_ops",
-    "lwt_in",
-    "tracepoint",
     "perf_event",
-    "sk_reuseport",
-    "kprobe",
-    "flow_dissector",
-    "cgroup_skb"
+    "xdp",
+    "cgroup_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sk_msg"
   ],
   "source": [
     "static __inline int compare_mac (__u8 *mac1, __u8 *mac2)\n",
@@ -126,10 +126,10 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   ],
   "humanFuncDescription": [
     {
-      "description": "This function compares mac addresses represented by two unsigned char arrays of length 6 mac1 and mac2 passed as arguments, returns 1 if true else 0",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-22"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],
@@ -174,29 +174,29 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "xdp",
-    "raw_tracepoint_writable",
-    "sk_msg",
+    "cgroup_device",
+    "flow_dissector",
+    "sk_skb",
     "sched_act",
+    "lwt_out",
+    "sock_ops",
+    "kprobe",
+    "tracepoint",
+    "lwt_seg6local",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sched_cls",
     "raw_tracepoint",
     "lwt_xmit",
-    "lwt_out",
-    "cgroup_device",
     "socket_filter",
-    "lwt_seg6local",
     "cgroup_sock_addr",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock",
-    "sock_ops",
-    "lwt_in",
-    "tracepoint",
     "perf_event",
-    "sk_reuseport",
-    "kprobe",
-    "flow_dissector",
-    "cgroup_skb"
+    "xdp",
+    "cgroup_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sk_msg"
   ],
   "source": [
     "static __inline int is_broadcast_mac (__u8 *m)\n",
@@ -209,10 +209,10 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   ],
   "humanFuncDescription": [
     {
-      "description": "This function returns if the mac addressed m passed as an unsigned char array of length 6 equals 0xffffffffffff which is the broadcast mac, returns 1 if equal else 0",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],
@@ -392,42 +392,42 @@ static __inline int is_broadcast_mac(__u8 *m) {
   "funcName": "filter",
   "updateMaps": [],
   "readMaps": [
+    "  iface_stat_map",
     "  iface_map",
-    "  iface_ip_map",
-    "  iface_stat_map"
+    "  iface_ip_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "static__inlineint",
   "helper": [
-    "bpf_trace_printk",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "raw_tracepoint_writable",
-    "sk_msg",
-    "sched_act",
-    "cgroup_sysctl",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "lwt_out",
     "cgroup_device",
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock",
-    "sock_ops",
-    "lwt_in",
-    "tracepoint",
-    "perf_event",
-    "sk_reuseport",
-    "kprobe",
     "flow_dissector",
-    "cgroup_skb"
+    "sk_skb",
+    "sched_act",
+    "lwt_out",
+    "sock_ops",
+    "kprobe",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "sched_cls",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "socket_filter",
+    "cgroup_sock_addr",
+    "perf_event",
+    "xdp",
+    "cgroup_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sk_msg"
   ],
   "source": [
     "static __inline int filter (struct  __sk_buff *skb)\n",
@@ -508,25 +508,12 @@ static __inline int is_broadcast_mac(__u8 *m) {
   ],
   "humanFuncDescription": [
     {
-      "description": "This function performs the action of a filter which allows packets only with certain mac and ip address to pass through. 
-      The filter described below is to be attached on the root interface of a pod's veth pair at TC layer and filters the outgoing traffic from pod. 
-      It takes in a packet in sk_buff form as argument. It first checks if the packet is well formed. 
-      If it is, it will reads a map called iface_stat_map using the packet ingress interface as the key, this map stores the counter of passed or dropped packets
-      Then, the filter reads maps called iface_map and iface_ip_map also with ingress interface of the packet as the key.
-      First map returns the mac address which is allowed to pass through the interface and second contains the ip address which is allowed.
-      The filter applied is of this form, allow packets coming from the pod only in these cases,
-      1) if the source or dest mac are broadcast addresses then allow,
-      2) if the packet source mac address matches that of the pod then allow,
-      3) if the packet source ip matches that of the pod then allow.
-      Filter doesn't stop the traffic going towards the pod.
-      Note that all the above filters are applied to the packet and traffic is allowed only in the cases mentioned above
-      It also prints the matching/unmatching mac or ip addresses."
-      "Returns TC_ACT_OK if filter passes else TC_ACT_SHOT. The filter also records the PASS or SHOT statistics in the map iface_stat_map",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
-    {
+    {}
   ],
   "AI_func_description": [
     {
@@ -669,29 +656,29 @@ static __inline int filter(struct __sk_buff *skb)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "xdp",
-    "raw_tracepoint_writable",
-    "sk_msg",
+    "cgroup_device",
+    "flow_dissector",
+    "sk_skb",
     "sched_act",
+    "lwt_out",
+    "sock_ops",
+    "kprobe",
+    "tracepoint",
+    "lwt_seg6local",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sched_cls",
     "raw_tracepoint",
     "lwt_xmit",
-    "lwt_out",
-    "cgroup_device",
     "socket_filter",
-    "lwt_seg6local",
     "cgroup_sock_addr",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock",
-    "sock_ops",
-    "lwt_in",
-    "tracepoint",
     "perf_event",
-    "sk_reuseport",
-    "kprobe",
-    "flow_dissector",
-    "cgroup_skb"
+    "xdp",
+    "cgroup_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sk_msg"
   ],
   "source": [
     "int bpf_filter (struct  __sk_buff *skb)\n",
@@ -701,10 +688,10 @@ static __inline int filter(struct __sk_buff *skb)
   ],
   "humanFuncDescription": [
     {
-      "description": "This is a wrapper function which calls the base function filter with the same arument passed to it and returns its value",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],

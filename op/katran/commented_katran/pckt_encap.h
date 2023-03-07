@@ -600,29 +600,29 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum)\n",
@@ -857,8 +857,8 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1059,8 +1059,8 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"

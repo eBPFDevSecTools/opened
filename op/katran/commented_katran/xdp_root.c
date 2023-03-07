@@ -57,27 +57,27 @@ struct {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "sched_act",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "int SEC (\"xdp\") xdp_root (struct xdp_md *ctx)\n",
@@ -99,10 +99,10 @@ struct {
       "date": ""
     },
     {
-      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook",
+      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook                   The program will jump into another eBPF program.                   For each index in root_array, the program attempts to jump into a program referenced at index i                   and passes ctx, a pointer to the context.                   This programs chains and executes the input program, and finally pass the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -157,27 +157,27 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "sched_act",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "int SEC (\"xdp\") xdp_val (struct xdp_md *ctx)\n",
@@ -199,10 +199,10 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
       "date": ""
     },
     {
-      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook",
+      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook                   The program will jump into another eBPF program.                   For each index in root_array, the program attempts to jump into a program referenced at index i                   and passes ctx, a pointer to the context.                   This programs chains and executes the input program, and finally pass the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

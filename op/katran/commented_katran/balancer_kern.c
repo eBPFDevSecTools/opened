@@ -94,27 +94,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "sched_act",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline bool is_under_flood (__u64 *cur_time)\n",
@@ -146,10 +146,10 @@ __attribute__((__always_inline__))
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -289,11 +289,11 @@ __attribute__((__always_inline__))
     " lru_map"
   ],
   "readMaps": [
+    "  lpm_src_v6",
     " stats",
     " reals",
     "  ch_rings",
-    "  lpm_src_v4",
-    "  lpm_src_v6"
+    "  lpm_src_v4"
   ],
   "input": [
     "struct real_definition **real",
@@ -308,29 +308,29 @@ __attribute__((__always_inline__))
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline bool get_packet_dst (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map)\n",
@@ -416,10 +416,10 @@ __attribute__((__always_inline__))
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -582,8 +582,8 @@ __attribute__((__always_inline__))
   "funcName": "connection_table_lookup",
   "updateMaps": [],
   "readMaps": [
-    " lru_map",
-    " reals"
+    " reals",
+    " lru_map"
   ],
   "input": [
     "struct real_definition **real",
@@ -597,27 +597,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "sched_act",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline void connection_table_lookup (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru)\n",
@@ -650,10 +650,10 @@ __attribute__((__always_inline__))
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -716,29 +716,29 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)\n",
@@ -811,10 +811,10 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -949,8 +949,8 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "funcName": "check_decap_dst",
   "updateMaps": [],
   "readMaps": [
-    "  stats",
-    " decap_dst"
+    " decap_dst",
+    "  stats"
   ],
   "input": [
     "struct packet_description *pckt",
@@ -962,29 +962,29 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int check_decap_dst (struct packet_description *pckt, bool is_ipv6, bool *pass)\n",
@@ -1019,10 +1019,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1083,29 +1083,29 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline bool reals_have_same_addr (struct real_definition *a, struct real_definition *b)\n",
@@ -1134,10 +1134,10 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1237,29 +1237,29 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int perform_global_lru_lookup (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6)\n",
@@ -1302,10 +1302,10 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1403,29 +1403,29 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, __u8 *protocol, bool pass)\n",
@@ -1481,10 +1481,10 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1571,29 +1571,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6, bool pass)\n",
@@ -1648,10 +1648,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1767,29 +1767,29 @@ process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline void increment_quic_cid_version_stats (int host_id)\n",
@@ -1815,10 +1815,10 @@ process_encaped_gue_pckt(
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1896,29 +1896,29 @@ increment_quic_cid_version_stats(int host_id) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline void increment_quic_cid_drop_no_real ()\n",
@@ -1939,10 +1939,10 @@ increment_quic_cid_version_stats(int host_id) {
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2016,29 +2016,29 @@ increment_quic_cid_drop_no_real() {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline void increment_quic_cid_drop_real_0 ()\n",
@@ -2059,10 +2059,10 @@ increment_quic_cid_drop_no_real() {
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2239,13 +2239,13 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
-    "  reals",
-    " stats",
+    " server_id_map",
+    "  stats",
     "  ctl_array",
+    " stats",
     "  reals_stats",
     " lru_mapping",
-    "  stats",
-    " server_id_map",
+    "  reals",
     "  vip_map"
   ],
   "input": [
@@ -2255,31 +2255,31 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_get_smp_processor_id"
+    "bpf_get_smp_processor_id",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
     "sched_act",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_packet (struct xdp_md *xdp, __u64 off, bool is_ipv6)\n",
@@ -2548,10 +2548,10 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2897,29 +2897,29 @@ SEC("xdp")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "int balancer_ingress (struct xdp_md *ctx)\n",
@@ -2953,10 +2953,10 @@ SEC("xdp")
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3013,29 +3013,29 @@ int balancer_ingress(struct xdp_md* ctx) {
   "output": "staticinline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline __u32 get_packet_hash (struct packet_description *pckt, bool hash_16bytes)\n",
@@ -3056,10 +3056,10 @@ int balancer_ingress(struct xdp_md* ctx) {
       "date": ""
     },
     {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

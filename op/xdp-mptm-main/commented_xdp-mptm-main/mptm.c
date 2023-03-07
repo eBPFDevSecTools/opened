@@ -113,14 +113,14 @@ SEC("mptm_encap_xdp")
   "output": "int",
   "helper": [
     "bpf_map_lookup_elem",
-    "redirect",
-    "bpf_redirect"
+    "bpf_redirect",
+    "redirect"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "lwt_xmit",
+    "xdp",
     "sched_act",
-    "xdp"
+    "lwt_xmit"
   ],
   "source": [
     "int mptm_encap (struct xdp_md *ctx)\n",
@@ -313,8 +313,8 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
     "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem",
     "bpf_redirect"
   ],
   "compatibleHookpoints": [

@@ -54,29 +54,29 @@
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)\n",
@@ -125,10 +125,10 @@
       "date": ""
     },
     {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -218,29 +218,29 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes)\n",
@@ -282,10 +282,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
       "date": ""
     },
     {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -358,29 +358,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6)\n",
@@ -425,10 +425,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
       "date": ""
     },
     {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -536,29 +536,29 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "kprobe",
+    "lwt_in",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline int process_packet (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp)\n",
@@ -624,10 +624,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
       "date": ""
     },
     {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -719,29 +719,29 @@ SEC("decap")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "int xdpdecap (struct xdp_md *ctx)\n",
@@ -775,10 +775,10 @@ SEC("decap")
       "date": ""
     },
     {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

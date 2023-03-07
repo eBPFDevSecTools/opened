@@ -53,8 +53,8 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
   "compatibleHookpoints": [
     "tracepoint",
     "kprobe",
-    "raw_tracepoint",
     "perf_event",
+    "raw_tracepoint",
     "raw_tracepoint_writable"
   ],
   "source": [

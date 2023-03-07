@@ -49,10 +49,10 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -142,10 +142,10 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -250,11 +250,11 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "compatibleHookpoints": [
     "xdp",
     "sched_cls",
+    "lwt_in",
+    "lwt_out",
     "lwt_xmit",
     "sched_act",
-    "lwt_seg6local",
-    "lwt_out",
-    "lwt_in"
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)\n",
@@ -414,29 +414,29 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)\n",
@@ -568,10 +568,10 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)\n",
@@ -676,10 +676,10 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -842,10 +842,10 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
     "sched_act",
-    "xdp",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -1031,10 +1031,10 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
     "sched_act",
-    "xdp",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)\n",

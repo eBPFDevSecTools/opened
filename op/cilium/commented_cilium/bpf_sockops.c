@@ -41,29 +41,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, struct sock_key *key)\n",
@@ -83,10 +83,10 @@
       "date": ""
     },
     {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -135,29 +135,29 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "static __always_inline void sk_lb4_key (struct lb4_key *lb4, const struct sock_key *key)\n",
@@ -174,10 +174,10 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
       "date": ""
     },
     {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -219,10 +219,10 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline bool redirect_to_proxy (int verdict)\n",
@@ -238,10 +238,10 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
       "date": ""
     },
     {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -364,10 +364,10 @@ static __always_inline bool redirect_to_proxy(int verdict)
       "date": ""
     },
     {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -466,29 +466,29 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)\n",
@@ -505,10 +505,10 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
       "date": ""
     },
     {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -548,29 +548,29 @@ __section("sockops")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "int bpf_sockmap (struct bpf_sock_ops *skops)\n",
@@ -608,10 +608,10 @@ __section("sockops")
       "date": ""
     },
     {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

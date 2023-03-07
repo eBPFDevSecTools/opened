@@ -44,29 +44,29 @@
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline __u16 csum_fold_helper (__u64 csum)\n",
@@ -131,29 +131,29 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static int min_helper (int a, int b)\n",
@@ -240,13 +240,13 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline void ipv4_csum (void *data_start, int data_size, __u64 *csum)\n",
@@ -300,29 +300,29 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
     "sched_act",
+    "cgroup_sysctl",
+    "sk_skb",
+    "cgroup_skb",
+    "cgroup_sock",
+    "flow_dissector",
+    "tracepoint",
+    "lwt_in",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_out",
     "socket_filter",
     "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
     "lwt_seg6local",
+    "sk_reuseport",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
     "sched_cls",
     "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "sock_ops"
   ],
   "source": [
     "static inline void ipv4_csum_inline (void *iph, __u64 *csum)\n",
@@ -463,13 +463,13 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline void ipv4_l4_csum (void *data_start, int data_size, __u64 *csum, struct iphdr *iph)\n",
@@ -614,13 +614,13 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline void ipv6_csum (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h)\n",
@@ -760,13 +760,13 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline __s64 add_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)\n",
@@ -937,13 +937,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline __s64 rem_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)\n",
@@ -1111,13 +1111,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline __s64 add_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)\n",
@@ -1285,13 +1285,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline __s64 rem_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)\n",
@@ -1463,13 +1463,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline bool gue_csum_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr)\n",
@@ -1635,13 +1635,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline bool gue_csum_v4 (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)\n",
@@ -1805,13 +1805,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_seg6local",
-    "sched_cls",
-    "xdp",
+    "lwt_in",
     "sched_act",
-    "lwt_xmit",
+    "xdp",
     "lwt_out",
-    "lwt_in"
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_seg6local"
   ],
   "source": [
     "static inline bool gue_csum_v4_in_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)\n",

@@ -58,29 +58,29 @@
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "int main (void)\n",
@@ -147,10 +147,10 @@
       "date": ""
     },
     {
-      "description": " Print and debug all the existing variables (especially fast path ",
+      "description": " Print and debug all the existing variables (especially fast path  sections that printk is not appropriate for) ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

@@ -56,6 +56,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             #dump to file
             #print(lines)
             #print("funcName: ",funcName," srcFile: ",srcFile)
+            funcName = funcName.replace('*','')
             capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine

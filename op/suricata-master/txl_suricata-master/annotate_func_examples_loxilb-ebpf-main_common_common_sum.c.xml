@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/loxilb-ebpf-main/common/common_sum.c" funcheader="static unsigned short calc_csum (unsigned short *addr, unsigned int count)" startline="11" endline="33">
+static unsigned short calc_csum (unsigned short *addr, unsigned int count)
+{
+    register unsigned long sum = 0;
+    while (count > 1) {
+        sum += *addr++;
+        count -= 2;
+    }
+    if (count > 0) {
+        sum += ((*addr) & htons (0xFF00));
+    }
+    while (sum >> 16) {
+        sum = (sum & 0xffff) + (sum >> 16);
+    }
+    sum = ~sum;
+    return ((unsigned short) sum);
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/loxilb-ebpf-main/common/common_sum.c" funcheader="void calc_tcp6_checksum (struct ip6_hdr *pIph, unsigned short *ipPayload)" startline="35" endline="93">
+void calc_tcp6_checksum (struct ip6_hdr *pIph, unsigned short *ipPayload)
+{
+    register unsigned long sum = 0;
+    unsigned short tcpLen = ntohs (pIph -> ip6_plen);
+    struct tcphdr *tcphdrp = (struct tcphdr *) (ipPayload);
+    sum += (pIph->ip6_src.s6_addr32[0] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[0]) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[1] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[1]) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[2] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[2]) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[3] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_src.s6_addr32[3]) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[0] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[0]) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[1] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[1]) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[2] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[2]) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[3] >> 16) & 0xFFFF;
+    sum += (pIph->ip6_dst.s6_addr32[3]) & 0xFFFF;
+    sum += htons (IPPROTO_TCP);
+    sum += htons (tcpLen);
+    tcphdrp->check = 0;
+    while (tcpLen > 1) {
+        sum += *ipPayload++;
+        tcpLen -= 2;
+    }
+    if (tcpLen > 0) {
+        sum += ((*ipPayload) & htons (0xFF00));
+    }
+    while (sum >> 16) {
+        sum = (sum & 0xffff) + (sum >> 16);
+    }
+    sum = ~sum;
+    tcphdrp->check = (unsigned short) sum;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/loxilb-ebpf-main/common/common_sum.c" funcheader="void calc_tcp_checksum (struct iphdr *pIph, unsigned short *ipPayload)" startline="95" endline="131">
+void calc_tcp_checksum (struct iphdr *pIph, unsigned short *ipPayload)
+{
+    register unsigned long sum = 0;
+    unsigned short tcpLen = ntohs (pIph->tot_len) - (pIph->ihl << 2);
+    struct tcphdr *tcphdrp = (struct tcphdr *) (ipPayload);
+    sum += (pIph->saddr >> 16) & 0xFFFF;
+    sum += (pIph->saddr) & 0xFFFF;
+    sum += (pIph->daddr >> 16) & 0xFFFF;
+    sum += (pIph->daddr) & 0xFFFF;
+    sum += htons (IPPROTO_TCP);
+    sum += htons (tcpLen);
+    tcphdrp->check = 0;
+    while (tcpLen > 1) {
+        sum += *ipPayload++;
+        tcpLen -= 2;
+    }
+    if (tcpLen > 0) {
+        sum += ((*ipPayload) & htons (0xFF00));
+    }
+    while (sum >> 16) {
+        sum = (sum & 0xffff) + (sum >> 16);
+    }
+    sum = ~sum;
+    tcphdrp->check = (unsigned short) sum;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/loxilb-ebpf-main/common/common_sum.c" funcheader="void calc_ip_csum (struct iphdr *iph)" startline="133" endline="138">
+void calc_ip_csum (struct iphdr *iph)
+{
+    iph->check = 0;
+    iph->check = calc_csum ((unsigned short *) iph, (iph->ihl) << 2);
+}
+</source>
+</doc>

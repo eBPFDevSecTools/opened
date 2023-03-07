@@ -195,12 +195,12 @@ xdp_rl_ingress_next_prog = {
     " rl_window_map"
   ],
   "readMaps": [
-    " rl_window_map",
-    " rl_recv_count_map",
-    "  rl_window_map",
     " rl_drop_count_map",
+    " rl_ports_map",
     " rl_config_map",
-    " rl_ports_map"
+    " rl_recv_count_map",
+    " rl_window_map",
+    "  rl_window_map"
   ],
   "input": [
     "struct  __sk_buff *ctx"
@@ -208,31 +208,31 @@ xdp_rl_ingress_next_prog = {
   "output": "static__always_inlineint",
   "helper": [
     "bpf_ktime_get_ns",
-    "bpf_map_update_elem",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
+    "lwt_in",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
+    "lwt_seg6local",
     "cgroup_sock_addr",
     "sk_skb",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
     "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
+    "flow_dissector",
     "xdp",
-    "raw_tracepoint_writable",
+    "tracepoint",
+    "perf_event",
+    "lwt_xmit",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "raw_tracepoint",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "sched_cls",
+    "sk_msg"
   ],
   "source": [
     "static __always_inline int _xdp_ratelimit (struct  __sk_buff *ctx)\n",
@@ -304,11 +304,10 @@ xdp_rl_ingress_next_prog = {
   ],
   "humanFuncDescription": [
     {
-      "description": "This function implements a TCP connection rate limiter. Takes in input a packet in struct xdp_mp * ctx form. It first checks if input is a valid ethernet packet. It ignores other than ethernet packets, other than ip packets, other than tcp packets. If the packet is a valid tcp packet, it check if the packet is a TCP syn packet as it performs connection rate limiting it ignores packets other than tcp syn packets and even tcp syn ack packets. If the packet is a TCP SYN hence connection establishment packet, the code reads a map rl_config_map with key set to number 0 and receives the allowed rate of connections configured from the userspace if the map read fails, the function returns TC_ACT_OK else it continues execution. Next it checks which time window the packet corresponds to, a window is essentially a 1 second sliding window calculated by calling bpf_ktime_get_ns and getting the current time. Current time is used to calculate current window cw_key and previous window(current - 1 s) is used to calculate previous window pw_key. The function then performs a bunch of map reads, 1) rl_window_map twice with keys cw_key and pw_key which gives the cw_count and pw_count essentially current window packet count and previous window packet count. 2) rl_recv_count_map with key set to number 0 which tracks number of incommming connections 3) rl_drop_count_map with key set to number 0 which tracks number of dropped connections. If this is the first packet in this window then the function updates the map rl_window_map with key cw_key and value 0 and sets the cw_count to 0. If this is a new connection and no previous connection were present then the rate limiter allows connection if cw_count < rate and returns TC_ACT_OK else it drops the connection and returns TC_ACT_SHOT. If there had been previous connections then it calculates the number of connections accepted in last 1 sec from current time, if the total connections are higher than allowed rate, it drops the connection and returns TC_ACT_SHOT else it allows the connection and returns TC_ACT_OK. The function also updates the current window count and drop count before returning."
-      ,
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],
@@ -421,27 +420,27 @@ SEC ("xdp_ratelimiting")
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
+    "lwt_in",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
-    "cgroup_sock_addr",
     "sk_skb",
-    "sock_ops",
+    "cgroup_sock_addr",
     "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
     "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
+    "flow_dissector",
     "xdp",
-    "raw_tracepoint_writable",
+    "tracepoint",
+    "perf_event",
+    "lwt_xmit",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "raw_tracepoint",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "sched_cls",
+    "sk_msg"
   ],
   "source": [
     "int _xdp_ratelimiting (struct  __sk_buff *ctx)\n",
@@ -456,10 +455,10 @@ SEC ("xdp_ratelimiting")
   ],
   "humanFuncDescription": [
     {
-      "description": "This is a wrapper function which calls the base function _xdp_ratelimit with the same arument passed to it and returns its value",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
     },
     {}
   ],

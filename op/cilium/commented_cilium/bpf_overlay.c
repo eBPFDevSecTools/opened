@@ -74,10 +74,10 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int handle_ipv6 (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -178,10 +178,10 @@
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -350,29 +350,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "int tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -392,10 +392,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -483,10 +483,10 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
     "sched_act",
-    "xdp",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "static __always_inline int handle_ipv4 (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -603,10 +603,10 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -778,29 +778,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "int tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -820,10 +820,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -916,10 +916,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
     "sched_act",
-    "xdp",
-    "sched_cls"
+    "lwt_xmit",
+    "xdp"
   ],
   "source": [
     "int tail_handle_arp (struct  __ctx_buff *ctx)\n",
@@ -965,10 +965,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1049,29 +1049,29 @@ pass_to_stack:
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "static __always_inline bool is_esp (struct  __ctx_buff *ctx, __u16 proto)\n",
@@ -1113,10 +1113,10 @@ pass_to_stack:
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1208,27 +1208,27 @@ __section("from-overlay")
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
+    "socket_filter",
     "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
     "lwt_out",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "int from_overlay (struct  __ctx_buff *ctx)\n",
@@ -1305,10 +1305,10 @@ __section("from-overlay")
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1438,29 +1438,29 @@ __section("to-overlay")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
     "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_act"
   ],
   "source": [
     "int to_overlay (struct  __ctx_buff *ctx)\n",
@@ -1501,10 +1501,10 @@ __section("to-overlay")
       "date": ""
     },
     {
-      "description": " The main goal of handle_ipv6 is to check the different condition including ",
+      "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
       "author": "Yichen Wang",
       "authorEmail": "wyichen@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

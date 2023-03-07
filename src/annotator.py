@@ -210,6 +210,8 @@ if __name__ == "__main__":
             help='directory with source code')
     my_parser.add_argument('-o','--txl_op_dir',action='store',required=True,
             help='directory to put txl annotated files')
+    my_parser.add_argument('-p','--db_file',action='store',required=True,
+            help='sqlite3 db name')
     my_parser.add_argument('-c','--opened_comment_stub_folder',action='store',required=False,
             help='directory to put source files with comment stub')
     my_parser.add_argument('-r','--bpfHelperFile', type=str,required=False,
@@ -262,7 +264,7 @@ if __name__ == "__main__":
 
     repo_path = run_cmd("readlink -f "+src_dir)
     repo_name = repo_path.split("/")[-1]
-    db_file = repo_name +".db"
+    db_file = args.db_file +".db"
 
     
     txl_func_list = repo_name+".function_file_list.json"

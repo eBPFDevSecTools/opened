@@ -120,12 +120,12 @@ SEC("tc")
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    " hc_ctrl_map",
-    " per_hckey_stats",
-    "  hc_pckt_macs",
+    "  hc_stats_map",
     " hc_reals_map",
+    " hc_ctrl_map",
+    "  hc_pckt_macs",
     " hc_key_map",
-    "  hc_stats_map"
+    " per_hckey_stats"
   ],
   "input": [
     "struct  __sk_buff *skb"
@@ -137,9 +137,9 @@ SEC("tc")
   ],
   "compatibleHookpoints": [
     "sched_act",
-    "sched_cls",
+    "xdp",
     "lwt_xmit",
-    "xdp"
+    "sched_cls"
   ],
   "source": [
     "int healthcheck_encap (struct  __sk_buff *skb)\n",
@@ -239,10 +239,10 @@ SEC("tc")
       "date": ""
     },
     {
-      "description": " Input is user accessible mirror of in-kernel sk_buff",
+      "description": " Input is user accessible mirror of in-kernel sk_buff                   This function performs healthcheck for encapsulation                   Use default action configured from tc (TC_ACT_UNSPEC), which is skip the packet, if                    1) program stats is NULL/stats_key is not found in hc_stats_map,                    2)mark of the sk_buff is 0,                    3)somark is not found in hc_reals_map                   The program returns error/healthcheck fails (TC_ACT_SHOT) if 1)packet is bigger than the specified size,                   2)do not have ifindex for main interface,                   3)do not find HC_SRC_MAC_POS or HC_DST_MAC_POS,                   4)the result for HC_ENCAP (healthcheck encap) is faulse.                   Otherwise, the packet passes the healthcheck, and will be redirected to another net device of index intf_ifindex. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
