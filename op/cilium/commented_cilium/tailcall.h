@@ -11,7 +11,18 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_staticconst struct __ctx_buff *ctx",
+          " const void *map",
+          "\t\t const __u32 slot"
+        ]
+      }
+    ]
+  },
   "startLine": 10,
   "endLine": 33,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
@@ -29,26 +40,26 @@
   ],
   "compatibleHookpoints": [
     "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline __maybe_unused void tail_call_static (const struct  __ctx_buff *ctx, const void *map, const __u32 slot)\n",
@@ -71,12 +82,13 @@
     "        );\n",
     "}\n"
   ],
-  "called_function_list": [
-    "__throw_build_bug",
-    "__builtin_constant_p"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -120,7 +132,26 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "tail_call": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_dynamicstruct __ctx_buff *ctx",
+          " const void *map",
+          " __u32 slot"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\tctx",
+          " map",
+          " slot"
+        ]
+      }
+    ]
+  },
   "startLine": 35,
   "endLine": 46,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
@@ -138,26 +169,26 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
   ],
   "compatibleHookpoints": [
     "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline __maybe_unused void tail_call_dynamic (struct  __ctx_buff *ctx, const void *map, __u32 slot)\n",
@@ -167,12 +198,13 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
     "    tail_call (ctx, map, slot);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "__throw_build_bug",
-    "__builtin_constant_p"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

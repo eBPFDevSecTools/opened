@@ -34,25 +34,6 @@ __attribute__((section("xdp"), used))
       "capability": "map_update",
       "map_update": [
         {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "sock_map_update",
-          "Input Params": [
-            "{Type: struct sock_ops ,Var: *skops}",
-            "{Type:  struct map ,Var: *map}",
-            "{Type:  void ,Var: *key}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sock_ops"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        },
-        {
           "Project": "libbpf",
           "Return Type": "int",
           "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
@@ -63,18 +44,24 @@ __attribute__((section("xdp"), used))
             "{Type:  struct bpf_map ,Var: *map}",
             "{Type:  void ,Var: *key}",
             "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sock_ops"
-          ],
-          "capabilities": [
-            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "bpf_sock_map_update": [
+      {
+        "opVar": "            int result ",
+        "inpVar": [
+          " ctx",
+          " &map",
+          " &key",
+          " 0"
+        ]
+      }
+    ]
+  },
   "startLine": 29,
   "endLine": 37,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c",
@@ -88,7 +75,6 @@ __attribute__((section("xdp"), used))
   ],
   "output": "int",
   "helper": [
-    "sock_map_update",
     "bpf_sock_map_update"
   ],
   "compatibleHookpoints": [
@@ -102,12 +88,13 @@ __attribute__((section("xdp"), used))
     "    return result;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ebpf_map_update_elem",
-    "ebpf_get_current_comm"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {}
   ],
   "AI_func_description": [

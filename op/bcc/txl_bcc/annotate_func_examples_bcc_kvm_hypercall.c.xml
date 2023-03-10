@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doc>
-<source file="/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c" funcheader="TRACEPOINT_PROBE (kvm, kvm_exit)" startline="3" endline="11">
+<source file="/root/examples/bcc/kvm_hypercall.c" funcheader="TRACEPOINT_PROBE (kvm, kvm_exit)" startline="4" endline="12">
 TRACEPOINT_PROBE (kvm, kvm_exit)
 {
     u8 e = EXIT_REASON;
@@ -12,7 +12,7 @@ TRACEPOINT_PROBE (kvm, kvm_exit)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c" funcheader="TRACEPOINT_PROBE (kvm, kvm_entry)" startline="12" endline="21">
+<source file="/root/examples/bcc/kvm_hypercall.c" funcheader="TRACEPOINT_PROBE (kvm, kvm_entry)" startline="14" endline="23">
 TRACEPOINT_PROBE (kvm, kvm_entry)
 {
     u8 e = EXIT_REASON;
@@ -25,7 +25,7 @@ TRACEPOINT_PROBE (kvm, kvm_entry)
     return 0;
 }
 </source>
-<source file="/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c" funcheader="TRACEPOINT_PROBE (kvm, kvm_hypercall)" startline="22" endline="30">
+<source file="/root/examples/bcc/kvm_hypercall.c" funcheader="TRACEPOINT_PROBE (kvm, kvm_hypercall)" startline="25" endline="33">
 TRACEPOINT_PROBE (kvm, kvm_hypercall)
 {
     u8 e = EXIT_REASON;

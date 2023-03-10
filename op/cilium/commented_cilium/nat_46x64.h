@@ -36,29 +36,29 @@
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline __maybe_unused bool is_v4_in_v6 (const union v6addr *daddr)\n",
@@ -74,11 +74,13 @@
     "    return ipv6_addrcmp (&dprobe, &dmasked) == 0;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ipv6_addrcmp"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -126,29 +128,29 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline __maybe_unused void build_v4_in_v6 (union v6addr *daddr, __be32 v4)\n",
@@ -159,11 +161,13 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
     "    daddr->p4 = v4;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "memset"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -205,29 +209,29 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline __maybe_unused void build_v4_from_v6 (const union v6addr *v6, __be32 *daddr)\n",
@@ -235,9 +239,13 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
     "    *daddr = v6->p4;\n",
     "}\n"
   ],
-  "called_function_list": [],
-  "call_depth": 0,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -275,29 +283,29 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int get_csum_offset (__u8 protocol)\n",
@@ -322,11 +330,13 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
     "    return csum_off;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "offsetof"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -384,24 +394,25 @@ static __always_inline int get_csum_offset(__u8 protocol)
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "lwt_seg6local"
-          ],
-          "capabilities": [
-            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &icmp4",
+          " sizeoficmp4",
+          " &icmp6",
+          " sizeoficmp6",
+          " 0"
+        ]
+      }
+    ]
+  },
   "startLine": 76,
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
@@ -418,12 +429,12 @@ static __always_inline int get_csum_offset(__u8 protocol)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "sched_cls",
+    "lwt_in",
+    "lwt_out",
     "lwt_xmit",
-    "lwt_out"
+    "sched_act",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int icmp4_to_icmp6 (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -504,14 +515,13 @@ static __always_inline int get_csum_offset(__u8 protocol)
     "    return csum_diff (&icmp4, sizeof (icmp4), &icmp6, sizeof (icmp6), 0);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_store_bytes",
-    "bpf_htonl",
-    "ctx_load_bytes",
-    "bpf_ntohs"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -625,24 +635,25 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "lwt_seg6local"
-          ],
-          "capabilities": [
-            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn &icmp6",
+          " sizeoficmp6",
+          " &icmp4",
+          " sizeoficmp4",
+          " 0"
+        ]
+      }
+    ]
+  },
   "startLine": 156,
   "endLine": 231,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
@@ -659,12 +670,12 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "sched_cls",
+    "lwt_in",
+    "lwt_out",
     "lwt_xmit",
-    "lwt_out"
+    "sched_act",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int icmp6_to_icmp4 (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -744,14 +755,13 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
     "    return csum_diff (&icmp6, sizeof (icmp6), &icmp4, sizeof (icmp4), 0);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "bpf_ntohl",
-    "ctx_store_bytes",
-    "bpf_htons",
-    "ctx_load_bytes"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -862,18 +872,6 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "lwt_seg6local"
-          ],
-          "capabilities": [
-            "read_skb"
           ]
         }
       ]
@@ -893,20 +891,47 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v4.saddr",
+          " 4",
+          " &v6.saddr",
+          " 16",
+          " csum"
+        ]
+      },
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v4.daddr",
+          " 4",
+          " &v6.daddr",
+          " 16",
+          " csum"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " nh_off + csum_off",
+          " 0",
+          " csum",
+          " csum_flags < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
   "startLine": 233,
   "endLine": 288,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
@@ -921,13 +946,13 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l4_csum_replace"
+    "l4_csum_replace",
+    "csum_diff"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
-    "lwt_xmit",
-    "sched_cls"
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline int ipv4_to_ipv6 (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6)\n",
@@ -984,19 +1009,13 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
     "    return 0;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ipv6_pseudohdr_checksum",
-    "ctx_store_bytes",
-    "ipv4_hdrlen",
-    "bpf_htons",
-    "ctx_load_bytes",
-    "ctx_change_proto",
-    "bpf_ntohs",
-    "icmp4_to_icmp6",
-    "get_csum_offset"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1087,18 +1106,6 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "lwt_seg6local"
-          ],
-          "capabilities": [
-            "read_skb"
           ]
         }
       ]
@@ -1118,14 +1125,6 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
           ]
         },
         {
@@ -1140,20 +1139,69 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: size}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\tcsum ",
+        "inpVar": [
+          " NULL",
+          " 0",
+          " &v4",
+          " sizeofv4",
+          " csum"
+        ]
+      },
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v6.saddr",
+          " 16",
+          " &v4.saddr",
+          " 4",
+          " csum"
+        ]
+      },
+      {
+        "opVar": "\t\tcsum ",
+        "inpVar": [
+          " &v6.daddr",
+          " 16",
+          " &v4.daddr",
+          " 4",
+          " csum"
+        ]
+      }
+    ],
+    "l3_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " nh_off + csum_off",
+          " 0",
+          " csum",
+          " 0 < 0\t\treturn DROP_CSUM_L3"
+        ]
+      }
+    ],
+    "l4_csum_replace": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif ctx",
+          " nh_off + csum_off",
+          " 0",
+          " csum",
+          " csum_flags < 0\t\treturn DROP_CSUM_L4"
+        ]
+      }
+    ]
+  },
   "startLine": 290,
   "endLine": 345,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/nat_46x64.h",
@@ -1167,14 +1215,14 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
     "l4_csum_replace",
+    "csum_diff",
     "l3_csum_replace"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
-    "lwt_xmit",
-    "sched_cls"
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline int ipv6_to_ipv4 (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4)\n",
@@ -1230,21 +1278,13 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
     "    return 0;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "icmp6_to_icmp4",
-    "ipv6_pseudohdr_checksum",
-    "csum_sub",
-    "ctx_store_bytes",
-    "ipv6_hdrlen",
-    "offsetof",
-    "bpf_htons",
-    "ctx_load_bytes",
-    "ctx_change_proto",
-    "bpf_ntohs",
-    "get_csum_offset"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

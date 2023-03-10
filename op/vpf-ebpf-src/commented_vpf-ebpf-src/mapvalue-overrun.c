@@ -31,45 +31,6 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
       "capability": "map_read",
       "map_read": [
         {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        },
-        {
           "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
@@ -78,40 +39,22 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      {
+        "opVar": "    uint64_t* ptr ",
+        "inpVar": [
+          " &map",
+          " &key"
+        ]
+      }
+    ]
+  },
   "startLine": 26,
   "endLine": 39,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapvalue-overrun.c",
@@ -125,33 +68,32 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
   ],
   "output": "int",
   "helper": [
-    "map_lookup_elem",
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "lwt_in",
-    "sk_msg",
-    "perf_event",
-    "cgroup_skb",
-    "lwt_xmit",
-    "sk_skb",
-    "cgroup_sock",
-    "socket_filter",
-    "sched_act",
-    "flow_dissector",
-    "tracepoint",
-    "cgroup_device",
-    "sock_ops",
-    "raw_tracepoint",
-    "lwt_seg6local",
     "xdp",
-    "sched_cls",
+    "tracepoint",
+    "perf_event",
+    "lwt_seg6local",
     "lwt_out",
-    "kprobe",
+    "cgroup_skb",
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "raw_tracepoint",
+    "cgroup_sysctl",
     "raw_tracepoint_writable",
-    "cgroup_sock_addr"
+    "sk_msg",
+    "sched_act",
+    "cgroup_device",
+    "sk_reuseport",
+    "kprobe",
+    "sock_ops",
+    "sched_cls",
+    "socket_filter",
+    "cgroup_sock",
+    "lwt_xmit"
   ],
   "source": [
     "int func (void *ctx)\n",
@@ -165,12 +107,13 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
     "    return (uint32_t) i;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ebpf_map_update_elem",
-    "ebpf_get_current_comm"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {}
   ],
   "AI_func_description": [

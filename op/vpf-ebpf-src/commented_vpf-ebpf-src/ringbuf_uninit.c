@@ -36,10 +36,32 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
     "void *ctx"
   ],
   "output": "int",
-  "helper": [
-    "ringbuf_output"
+  "helper": [],
+  "compatibleHookpoints": [
+    "xdp",
+    "tracepoint",
+    "perf_event",
+    "lwt_seg6local",
+    "lwt_out",
+    "cgroup_skb",
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "flow_dissector",
+    "raw_tracepoint",
+    "cgroup_sysctl",
+    "raw_tracepoint_writable",
+    "sk_msg",
+    "sched_act",
+    "cgroup_device",
+    "sk_reuseport",
+    "kprobe",
+    "sock_ops",
+    "sched_cls",
+    "socket_filter",
+    "cgroup_sock",
+    "lwt_xmit"
   ],
-  "compatibleHookpoints": null,
   "source": [
     "int test (void *ctx)\n",
     "{\n",
@@ -48,11 +70,13 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
     "    return 0;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "bpf_ringbuf_output"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {}
   ],
   "AI_func_description": [

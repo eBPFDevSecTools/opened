@@ -113,92 +113,6 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -217,75 +131,6 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "map_update_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}",
-            "{Type:  const void ,Var: *value}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
           ]
         }
       ]
@@ -294,98 +139,83 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "bcc",
-          "FunctionName": "bpf_ktime_get_ns",
-          "Return Type": "u64",
-          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
-          "Return": "u64 number of nanoseconds",
-          "Input Prameters": [],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        },
-        {
-          "Project": "cilium",
+          "Project": "libbpf",
           "Return Type": "u64",
           "Description": "Return the time elapsed since system boot , in nanoseconds. ",
           "Return": " Current ktime.",
-          "Function Name": "ktime_get_ns",
+          "Function Name": "bpf_ktime_get_ns",
           "Input Params": [
             "{Type: voi ,Var: void}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "bpf_map_lookup_elem": [
+      {
+        "opVar": "    uint64_t *rate ",
+        "inpVar": [
+          " &rl_config_map",
+          " &rkey"
+        ]
+      },
+      {
+        "opVar": "        uint64_t *pw_count ",
+        "inpVar": [
+          " &rl_window_map",
+          " &pw_key"
+        ]
+      },
+      {
+        "opVar": "        uint32_t *cw_count ",
+        "inpVar": [
+          " &rl_window_map",
+          " &cw_key"
+        ]
+      },
+      {
+        "opVar": "        uint64_t *in_count ",
+        "inpVar": [
+          " &rl_recv_count_map",
+          " &rkey"
+        ]
+      },
+      {
+        "opVar": "        uint64_t *drop_count ",
+        "inpVar": [
+          " &rl_drop_count_map",
+          " &rkey"
+        ]
+      },
+      {
+        "opVar": "        cw_count ",
+        "inpVar": [
+          " &rl_window_map",
+          " &cw_key"
+        ]
+      }
+    ],
+    "bpf_ktime_get_ns": [
+      {
+        "opVar": "        uint64_t tnow ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ],
+    "bpf_map_update_elem": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "        &rl_window_map",
+          " &cw_key",
+          " &init_count",
+          " BPF_NOEXIST"
+        ]
+      }
+    ]
+  },
   "startLine": 100,
   "endLine": 276,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_kern.c",
@@ -394,28 +224,43 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
     " rl_window_map"
   ],
   "readMaps": [
-    " rl_config_map",
     " rl_drop_count_map",
-    "  rl_window_map",
+    " rl_config_map",
+    " rl_recv_count_map",
     " rl_window_map",
-    " rl_recv_count_map"
+    "  rl_window_map"
   ],
   "input": [
     "struct xdp_md *ctx"
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "map_lookup_elem",
-    "XDP_PASS",
-    "bpf_map_update_elem",
-    "map_update_elem",
     "bpf_ktime_get_ns",
-    "ktime_get_ns",
-    "XDP_DROP"
+    "bpf_map_lookup_elem",
+    "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "xdp"
+    "lwt_in",
+    "sched_act",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "sk_skb",
+    "sk_reuseport",
+    "kprobe",
+    "lwt_out",
+    "cgroup_sock",
+    "flow_dissector",
+    "xdp",
+    "tracepoint",
+    "perf_event",
+    "lwt_xmit",
+    "socket_filter",
+    "cgroup_skb",
+    "raw_tracepoint",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "sched_cls",
+    "sk_msg"
   ],
   "source": [
     "static __always_inline int _xdp_ratelimit (struct xdp_md *ctx)\n",
@@ -498,13 +343,13 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
     "    return XDP_PASS;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "bpf_printk",
-    "bpf_ntohs",
-    "ntohs"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {}
   ],
   "AI_func_description": [
@@ -701,46 +546,7 @@ SEC("xdp_ratelimiting")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 279,
   "endLine": 289,
@@ -752,12 +558,31 @@ SEC("xdp_ratelimiting")
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "lwt_in",
+    "sched_act",
+    "lwt_seg6local",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "kprobe",
+    "cgroup_sysctl",
+    "lwt_out",
+    "cgroup_sock",
+    "cgroup_device",
+    "flow_dissector",
+    "xdp",
+    "tracepoint",
+    "perf_event",
+    "lwt_xmit",
+    "socket_filter",
+    "cgroup_skb",
+    "raw_tracepoint",
+    "sock_ops",
+    "raw_tracepoint_writable",
+    "sched_cls",
+    "sk_msg"
   ],
   "source": [
     "int _xdp_ratelimiting (struct xdp_md *ctx)\n",
@@ -770,12 +595,13 @@ SEC("xdp_ratelimiting")
     "    return XDP_PASS;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "bpf_printk",
-    "_xdp_ratelimit"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {}
   ],
   "AI_func_description": [
