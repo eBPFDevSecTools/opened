@@ -24,6 +24,34 @@ struct {
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
@@ -42,33 +70,40 @@ struct {
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\tbytecount ",
-        "inpVar": [
-          " &bytecount_map",
-          " &identity"
-        ]
-      }
-    ],
-    "map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\telse\t\t\t\t&bytecount_map",
-          " &identity",
-          " &len",
-          " BPF_ANY"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 11,
   "endLine": 24,
   "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bytecount.h",
@@ -85,33 +120,33 @@ struct {
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "map_update_elem",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sock_ops",
-    "sk_skb",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void custom_prog (const struct  __ctx_buff *ctx, __u32 identity)\n",
@@ -125,13 +160,12 @@ struct {
     "        map_update_elem (&bytecount_map, &identity, &len, BPF_ANY);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__sync_fetch_and_add",
+    "ctx_full_len"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

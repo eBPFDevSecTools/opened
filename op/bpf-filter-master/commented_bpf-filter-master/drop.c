@@ -91,29 +91,29 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "flow_dissector",
-    "sk_skb",
-    "sched_act",
-    "lwt_out",
-    "sock_ops",
-    "kprobe",
     "tracepoint",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
+    "socket_filter",
+    "sched_act",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock",
+    "cgroup_skb",
     "sk_reuseport",
+    "sock_ops",
     "sched_cls",
     "raw_tracepoint",
     "lwt_xmit",
-    "socket_filter",
-    "cgroup_sock_addr",
-    "perf_event",
-    "xdp",
-    "cgroup_skb",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "cgroup_sock",
-    "sk_msg"
+    "sk_skb",
+    "cgroup_sysctl",
+    "perf_event",
+    "cgroup_sock_addr",
+    "flow_dissector",
+    "sk_msg",
+    "lwt_out",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __inline int compare_mac (__u8 *mac1, __u8 *mac2)\n",
@@ -124,13 +124,9 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -174,29 +170,29 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "flow_dissector",
-    "sk_skb",
-    "sched_act",
-    "lwt_out",
-    "sock_ops",
-    "kprobe",
     "tracepoint",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
+    "socket_filter",
+    "sched_act",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock",
+    "cgroup_skb",
     "sk_reuseport",
+    "sock_ops",
     "sched_cls",
     "raw_tracepoint",
     "lwt_xmit",
-    "socket_filter",
-    "cgroup_sock_addr",
-    "perf_event",
-    "xdp",
-    "cgroup_skb",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "cgroup_sock",
-    "sk_msg"
+    "sk_skb",
+    "cgroup_sysctl",
+    "perf_event",
+    "cgroup_sock_addr",
+    "flow_dissector",
+    "sk_msg",
+    "lwt_out",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __inline int is_broadcast_mac (__u8 *m)\n",
@@ -207,13 +203,9 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -262,6 +254,46 @@ static __inline int is_broadcast_mac(__u8 *m) {
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -273,161 +305,104 @@ static __inline int is_broadcast_mac(__u8 *m) {
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        },
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "        inf ",
-        "inpVar": [
-          " &iface_stat_map",
-          " &idx"
-        ]
-      },
-      {
-        "opVar": "            bytes ",
-        "inpVar": [
-          " &iface_map",
-          " &idx"
-        ]
-      },
-      {
-        "opVar": "        bytes ",
-        "inpVar": [
-          " &iface_ip_map",
-          " &idx"
-        ]
-      }
-    ],
-    "bpf_trace_printk": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "                map_error",
-          " sizeofmap_error",
-          " statsstr"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "                map_error",
-          " sizeofmap_error",
-          " macstr"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "                map_error",
-          " sizeofmap_error",
-          " ipstr"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        broadcast",
-          " sizeofbroadcast"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        mac_unmatched",
-          " sizeofmac_unmatched"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        src_fmt",
-          " sizeofsrc_fmt",
-          "                         iface_mac[0] << 16 | iface_mac[1] << 8 | iface_mac[2]",
-          "                         iface_mac[3] << 16 | iface_mac[4] << 8 | iface_mac[5]"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        pkt_fmt",
-          " sizeofpkt_fmt",
-          "                         pkt_mac[0] << 16 | pkt_mac[1] << 8 | pkt_mac[2]",
-          "                         pkt_mac[3] << 16 | pkt_mac[4] << 8 | pkt_mac[5]"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "            mac_matched",
-          " sizeofmac_matched"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        ip_unmatched",
-          " sizeofip_unmatched",
-          " iface_ip",
-          " pkt_ip"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "            ip_matched",
-          " sizeofip_matched",
-          " iface_ip",
-          " pkt_ip"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 117,
   "endLine": 227,
   "File": "/home/sayandes/opened_extraction/examples/bpf-filter-master/ebpf/drop.c",
   "funcName": "filter",
   "updateMaps": [],
   "readMaps": [
+    "  iface_ip_map",
     "  iface_stat_map",
-    "  iface_map",
-    "  iface_ip_map"
+    "  iface_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "static__inlineint",
   "helper": [
+    "TC_ACT_OK",
+    "bpf_trace_printk",
+    "TC_ACT_SHOT",
     "bpf_map_lookup_elem",
-    "bpf_trace_printk"
+    "map_lookup_elem",
+    "trace_printk"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "flow_dissector",
-    "sk_skb",
     "sched_act",
-    "lwt_out",
-    "sock_ops",
-    "kprobe",
-    "tracepoint",
-    "lwt_seg6local",
-    "cgroup_sysctl",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "socket_filter",
-    "cgroup_sock_addr",
-    "perf_event",
-    "xdp",
-    "cgroup_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "cgroup_sock",
-    "sk_msg"
+    "sched_cls"
   ],
   "source": [
     "static __inline int filter (struct  __sk_buff *skb)\n",
@@ -506,13 +481,15 @@ static __inline int is_broadcast_mac(__u8 *m) {
     "    return TC_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ADD_PASS_STAT",
+    "bpf_memcpy",
+    "compare_mac",
+    "is_broadcast_mac",
+    "ADD_DROP_STAT"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -656,29 +633,29 @@ static __inline int filter(struct __sk_buff *skb)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "flow_dissector",
-    "sk_skb",
-    "sched_act",
-    "lwt_out",
-    "sock_ops",
-    "kprobe",
     "tracepoint",
+    "xdp",
     "lwt_seg6local",
-    "cgroup_sysctl",
+    "socket_filter",
+    "sched_act",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock",
+    "cgroup_skb",
     "sk_reuseport",
+    "sock_ops",
     "sched_cls",
     "raw_tracepoint",
     "lwt_xmit",
-    "socket_filter",
-    "cgroup_sock_addr",
-    "perf_event",
-    "xdp",
-    "cgroup_skb",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "cgroup_sock",
-    "sk_msg"
+    "sk_skb",
+    "cgroup_sysctl",
+    "perf_event",
+    "cgroup_sock_addr",
+    "flow_dissector",
+    "sk_msg",
+    "lwt_out",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "int bpf_filter (struct  __sk_buff *skb)\n",
@@ -686,13 +663,11 @@ static __inline int filter(struct __sk_buff *skb)
     "    return filter (skb);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "filter"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

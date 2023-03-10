@@ -23,26 +23,7 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "ctx__to_proxy_hairpinstruct __ctx_buff *ctx",
-          " __be16 proxy_port",
-          " const bool is_ipv6"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx_ctx",
-          " HOST_IFINDEX",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 22,
   "endLine": 63,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
@@ -59,10 +40,10 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_hairpin (struct  __ctx_buff *ctx, __be16 proxy_port, const bool is_ipv6)\n",
@@ -101,13 +82,19 @@
     "    return ctx_redirect (ctx, HOST_IFINDEX, 0);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_redirect",
+    "bpf_barrier",
+    "cilium_dbg",
+    "IS_ERR",
+    "ipv6_l3",
+    "defined",
+    "ctx_store_meta",
+    "revalidate_data",
+    "ipv4_l3"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -170,25 +157,7 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "ctx__to_proxy_hairpin_ipv4struct __ctx_buff *ctx",
-          " __be16 proxy_port"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\treturn ctx__to_proxy_hairpinctx",
-          " proxy_port",
-          " false"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 66,
   "endLine": 70,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
@@ -204,10 +173,10 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_hairpin_ipv4 (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
@@ -215,13 +184,11 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
     "    return ctx_redirect_to_proxy_hairpin (ctx, proxy_port, false);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_redirect_to_proxy_hairpin"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -248,25 +215,7 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "ctx__to_proxy_hairpin_ipv6struct __ctx_buff *ctx",
-          " __be16 proxy_port"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\treturn ctx__to_proxy_hairpinctx",
-          " proxy_port",
-          " true"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 74,
   "endLine": 78,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy_hairpin.h",
@@ -282,10 +231,10 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_hairpin_ipv6 (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
@@ -293,13 +242,11 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
     "    return ctx_redirect_to_proxy_hairpin (ctx, proxy_port, true);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_redirect_to_proxy_hairpin"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
