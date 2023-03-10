@@ -30,29 +30,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void *ctx_data (const struct  __ctx_buff *ctx)\n",
@@ -60,13 +60,9 @@
     "    return (void *) (unsigned long) ctx->data;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -103,29 +99,29 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void *ctx_data_meta (const struct  __ctx_buff *ctx)\n",
@@ -133,13 +129,9 @@ static __always_inline void *ctx_data(const struct __ctx_buff *ctx)
     "    return (void *) (unsigned long) ctx->data_meta;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -176,29 +168,29 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void *ctx_data_end (const struct  __ctx_buff *ctx)\n",
@@ -206,13 +198,9 @@ static __always_inline void *ctx_data_meta(const struct __ctx_buff *ctx)
     "    return (void *) (unsigned long) ctx->data_end;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -250,29 +238,29 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool ctx_no_room (const void *needed, const void *limit)\n",
@@ -280,13 +268,11 @@ static __always_inline void *ctx_data_end(const struct __ctx_buff *ctx)
     "    return unlikely (needed > limit);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "unlikely"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

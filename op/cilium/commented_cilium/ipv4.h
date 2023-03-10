@@ -51,29 +51,29 @@ struct {
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int ipv4_load_daddr (struct  __ctx_buff *ctx, int off, __u32 *dst)\n",
@@ -81,13 +81,12 @@ struct {
     "    return ctx_load_bytes (ctx, off + offsetof (struct iphdr, daddr), dst, 4);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "offsetof",
+    "ctx_load_bytes"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -127,26 +126,20 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: size}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "lwt_xmit"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "l3_csum_replace": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tctx",
-          " off + offsetofstruct iphdr",
-          " check",
-          " ttl",
-          " new_ttl",
-          " 2"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 41,
   "endLine": 55,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
@@ -163,9 +156,9 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
     "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int ipv4_dec_ttl (struct  __ctx_buff *ctx, int off, const struct iphdr *ip4)\n",
@@ -179,13 +172,12 @@ static __always_inline int ipv4_load_daddr(struct __ctx_buff *ctx, int off,
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_bytes",
+    "offsetof"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -233,29 +225,29 @@ static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int ipv4_hdrlen (const struct iphdr *ip4)\n",
@@ -263,13 +255,9 @@ static __always_inline int ipv4_dec_ttl(struct __ctx_buff *ctx, int off,
     "    return ip4->ihl * 4;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -306,29 +294,29 @@ static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool ipv4_is_fragment (const struct iphdr *ip4)\n",
@@ -336,13 +324,11 @@ static __always_inline int ipv4_hdrlen(const struct iphdr *ip4)
     "    return ip4->frag_off & bpf_htons (0x3FFF);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -388,29 +374,29 @@ static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool ipv4_is_not_first_fragment (const struct iphdr *ip4)\n",
@@ -418,13 +404,11 @@ static __always_inline bool ipv4_is_fragment(const struct iphdr *ip4)
     "    return ip4->frag_off & bpf_htons (0x1FFF);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -463,29 +447,29 @@ static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool ipv4_has_l4_header (const struct iphdr *ip4)\n",
@@ -493,13 +477,11 @@ static __always_inline bool ipv4_is_not_first_fragment(const struct iphdr *ip4)
     "    return !ipv4_is_not_first_fragment (ip4);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv4_is_not_first_fragment"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -538,29 +520,29 @@ static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool ipv4_is_in_subnet (__be32 addr, __be32 subnet, int prefixlen)\n",
@@ -568,13 +550,11 @@ static __always_inline bool ipv4_has_l4_header(const struct iphdr *ip4)
     "    return (addr & bpf_htonl (~((1 << (32 - prefixlen)) - 1))) == subnet;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htonl"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -612,22 +592,40 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\ttmp ",
-        "inpVar": [
-          " &IPV4_FRAG_DATAGRAMS_MAP",
-          " frag_id"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 95,
   "endLine": 108,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
@@ -645,29 +643,29 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int ipv4_frag_get_l4ports (const struct ipv4_frag_id *frag_id, struct ipv4_frag_l4ports *ports)\n",
@@ -680,13 +678,11 @@ static __always_inline bool ipv4_is_in_subnet(__be32 addr,
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -734,26 +730,40 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\t\tif &IPV4_FRAG_DATAGRAMS_MAP",
-          " &frag_id",
-          " ports",
-          " BPF_ANY\t\t\tupdate_metricsctx_full_lenctx",
-          " dir",
-          " REASON_FRAG_PACKET_UPDATE"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 110,
   "endLine": 161,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/ipv4.h",
@@ -775,29 +785,29 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
     "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int ipv4_handle_fragmentation (struct  __ctx_buff *ctx, const struct iphdr *ip4, int l4_off, enum ct_dir ct_dir, struct ipv4_frag_l4ports *ports, bool *has_l4_header)\n",
@@ -832,13 +842,19 @@ ipv4_frag_get_l4ports(const struct ipv4_frag_id *frag_id,
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update_metrics",
+    "unlikely",
+    "ctx_full_len",
+    "ct_to_metrics_dir",
+    "ipv4_is_fragment",
+    "ipv4_is_not_first_fragment",
+    "ipv4_frag_get_l4ports",
+    "ctx_load_bytes",
+    "likely"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

@@ -30,21 +30,38 @@ __attribute__((section("xdp"), used))
           "Function Name": "get_prandom_u32",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "get_prandom_u32": [
-      {
-        "opVar": "    uint32_t rand32 ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 18,
   "endLine": 58,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
@@ -59,27 +76,27 @@ __attribute__((section("xdp"), used))
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "tracepoint",
-    "perf_event",
-    "lwt_seg6local",
-    "lwt_out",
-    "cgroup_skb",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sk_msg",
-    "sched_act",
     "sk_reuseport",
-    "kprobe",
-    "sock_ops",
-    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "perf_event",
+    "cgroup_skb",
+    "lwt_xmit",
+    "sk_skb",
     "socket_filter",
     "cgroup_sock",
-    "lwt_xmit"
+    "sched_act",
+    "flow_dissector",
+    "tracepoint",
+    "sock_ops",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "xdp",
+    "sched_cls",
+    "lwt_out",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr"
   ],
   "source": [
     "int test_packet_access (struct xdp_md *ctx)\n",
@@ -111,13 +128,9 @@ __attribute__((section("xdp"), used))
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

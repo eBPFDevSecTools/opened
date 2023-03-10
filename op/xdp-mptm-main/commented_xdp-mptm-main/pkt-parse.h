@@ -59,29 +59,29 @@ extern struct bpf_map_def mptm_tunnel_iface_map;
   "output": "static__ALWAYS_INLINE__int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
-    "tracepoint",
     "raw_tracepoint_writable",
-    "flow_dissector",
     "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "raw_tracepoint",
-    "sock_ops",
-    "cgroup_skb",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "sched_act",
-    "kprobe",
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "perf_event",
-    "sk_msg",
     "lwt_xmit",
+    "lwt_in",
+    "cgroup_skb",
+    "perf_event",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "raw_tracepoint",
+    "sk_msg",
+    "socket_filter",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_device",
+    "cgroup_sock",
+    "sk_reuseport",
+    "kprobe",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_sysctl",
     "xdp",
-    "cgroup_sock"
+    "sock_ops",
+    "sched_cls"
   ],
   "source": [
     "static __ALWAYS_INLINE__ int parse_pkt_headers (void *data, void *data_end, struct ethhdr **ethhdr, struct iphdr **iphdr, struct udphdr **udphdr)\n",
@@ -121,13 +121,13 @@ extern struct bpf_map_def mptm_tunnel_iface_map;
     "    return 1;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "parse_ethhdr",
+    "parse_iphdr",
+    "parse_udphdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

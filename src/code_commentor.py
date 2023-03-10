@@ -7,6 +7,8 @@ import os
 import json
 import summarizer as smt
 import argparse
+import subprocess
+import shutil
 from collections import defaultdict
 from tinydb import TinyDB
 import utils.comment_extractor as extractor
@@ -15,6 +17,15 @@ def insert_to_db(db,comment_dict):
     comment_json = json.dumps(comment_dict)
     #print("Inserting comments to DB: "+ comment_json )
     db.insert(comment_dict)
+
+
+def run_cmd(cmd):
+    print("Running: ",cmd)
+    status, output = subprocess.getstatusoutput(cmd)
+    if(status != 0):
+        print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
+        exit(1)
+    return output
 
 
 def dump_comment(fname,startLineDict, ofname):
@@ -35,12 +46,25 @@ def dump_comment(fname,startLineDict, ofname):
     ifile.close()
 
 
+def get_called_fn_list(fn_name, db_file_name, manpage_info_dict):
+    fn_name_s = fn_name.replace("*","")
+    cmd = "cqsearch -s "+ db_file_name+" -t "+ fn_name_s +"  -p 7  -u -e"
+    op = run_cmd(cmd).split("\n")
+    called_fn_dict = set()
+    for en in op:
+        if "Search string:" not in en:
+            fn_det_list = en.split("\t")
+            func = fn_det_list[0].replace("*","")
+            if func not in manpage_info_dict and func != "DECLARE":
+                called_fn_dict.add(func)
+    return list(called_fn_dict)
+
 def generate_comment(capability_dict):
     return "/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db,human_comments_file):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db,human_comments_file, db_file_name):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -52,12 +76,12 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
     for line in inputFile.readlines():
         ending = re.match(r"</source",line)
         if ending:
-            srcSeen = False;
+            srcSeen = False
             #dump to file
             #print(lines)
             #print("funcName: ",funcName," srcFile: ",srcFile)
             funcName = funcName.replace('*','')
-            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
+            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, helperdict)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
@@ -66,9 +90,16 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)
             capability_dict['input'] = funcArgs.split(',')
             capability_dict['output'] = output
-            capability_dict['helper'] = smt.get_helper_list(lines,helperdict)
+            capability_dict['helper'] = smt.get_helper_list(lines, helperdict)
             capability_dict['compatibleHookpoints'] = smt.get_compatible_hookpoints(capability_dict['helper'] , helperdict)
             capability_dict['source'] = lines
+            capability_dict['called_function_list'] = get_called_fn_list(funcName, db_file_name, helperdict)
+            if capability_dict['called_function_list'] is not None and not len(capability_dict['called_function_list']):
+                capability_dict["call_depth"] =  0
+            else:
+                capability_dict["call_depth"] = -1
+
+
             func_desc_list = []
             human_description = extractor.get_human_func_description(human_comments_file,srcFile,funcName)
             empty_desc = {}

@@ -58,29 +58,29 @@
   "output": "static__always_inline__u8",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __u8 icmp6_load_type (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -90,13 +90,11 @@
     "    return type;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_load_bytes"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -138,6 +136,18 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
@@ -157,65 +167,20 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "lwt_xmit"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "csum_diff": [
-      {
-        "opVar": "\t\tsum ",
-        "inpVar": [
-          " sip.addr",
-          " 16",
-          " router_ip.addr",
-          " 16",
-          " 0"
-        ]
-      },
-      {
-        "opVar": "\tsum ",
-        "inpVar": [
-          " dip.addr",
-          " 16",
-          " sip.addr",
-          " 16",
-          " 0"
-        ]
-      }
-    ],
-    "l4_csum_replace": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ctx",
-          " csum_off",
-          " 0",
-          " sum",
-          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ctx",
-          " csum_off",
-          " 0",
-          " sum",
-          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\treturn _selfctx"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 51,
   "endLine": 90,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -228,14 +193,14 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
     "csum_diff",
+    "l4_csum_replace",
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int icmp6_send_reply (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -265,13 +230,21 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
     "    return redirect_self (ctx);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv6_load_daddr",
+    "ipv6_store_daddr",
+    "eth_store_daddr",
+    "eth_load_saddr",
+    "cilium_dbg_capture",
+    "ctx_get_ifindex",
+    "ipv6_store_saddr",
+    "eth_store_saddr",
+    "BPF_V6",
+    "redirect_self",
+    "ipv6_load_saddr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -346,6 +319,18 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
@@ -365,37 +350,20 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "lwt_xmit"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "csum_diff": [
-      {
-        "opVar": "\t\tsum ",
-        "inpVar": [
-          " &icmp6hdr_old",
-          " sizeoficmp6hdr_old",
-          "\t\t\t&icmp6hdr",
-          " sizeoficmp6hdr",
-          " 0"
-        ]
-      }
-    ],
-    "l4_csum_replace": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ctx",
-          " csum_off",
-          " 0",
-          " sum",
-          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 92,
   "endLine": 125,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -408,13 +376,13 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int __icmp6_send_echo_reply (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -439,13 +407,14 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
     "    return icmp6_send_reply (ctx, nh_off);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_bytes",
+    "cilium_dbg",
+    "icmp6_send_reply",
+    "ctx_load_bytes"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -514,29 +483,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int tail_icmp6_send_echo_reply (struct  __ctx_buff *ctx)\n",
@@ -550,13 +519,15 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "IS_ERR",
+    "ctx_store_meta",
+    "ctx_load_meta",
+    "__icmp6_send_echo_reply",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -597,17 +568,7 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tep_ctx",
-          " CILIUM_CALL_SEND_ICMP6_ECHO_REPLY"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 151,
   "endLine": 160,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -625,26 +586,26 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
   ],
   "compatibleHookpoints": [
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int icmp6_send_echo_reply (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction)\n",
@@ -655,13 +616,12 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
     "    return DROP_MISSED_TAIL_CALL;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_meta",
+    "ep_tail_call"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -715,6 +675,18 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
@@ -734,57 +706,20 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "lwt_xmit"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "csum_diff": [
-      {
-        "opVar": "\t\tsum ",
-        "inpVar": [
-          " &icmp6hdr_old",
-          " sizeoficmp6hdr_old",
-          "\t\t\t&icmp6hdr",
-          " sizeoficmp6hdr",
-          " 0"
-        ]
-      },
-      {
-        "opVar": "\t\tsum ",
-        "inpVar": [
-          " opts_old",
-          " sizeofopts_old",
-          " opts",
-          " sizeofopts",
-          " 0"
-        ]
-      }
-    ],
-    "l4_csum_replace": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ctx",
-          " csum_off",
-          " 0",
-          " sum",
-          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ctx",
-          " csum_off",
-          " 0",
-          " sum",
-          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 171,
   "endLine": 232,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -799,13 +734,13 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "l4_csum_replace",
-    "csum_diff"
+    "csum_diff",
+    "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int send_icmp6_ndisc_adv (struct  __ctx_buff *ctx, int nh_off, union macaddr *mac, bool to_router)\n",
@@ -853,13 +788,13 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
     "    return icmp6_send_reply (ctx, nh_off);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_bytes",
+    "icmp6_send_reply",
+    "ctx_load_bytes"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -956,25 +891,24 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "csum_diff": [
-      {
-        "opVar": "\t\tsum ",
-        "inpVar": [
-          " NULL",
-          " 0",
-          " data",
-          " payload_len",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 234,
   "endLine": 244,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -992,12 +926,12 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_cls",
-    "lwt_in",
-    "lwt_out",
-    "lwt_xmit",
     "sched_act",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "lwt_in",
+    "sched_cls",
+    "lwt_xmit",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline __be32 compute_icmp6_csum (char data [80], __u16 payload_len, struct ipv6hdr *ipv6hdr)\n",
@@ -1008,13 +942,11 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
     "    return sum;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv6_pseudohdr_checksum"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1061,25 +993,20 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
             "{Type:  u64 ,Var: from}",
             "{Type:  u64 ,Var: to}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "lwt_xmit"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "l4_csum_replace": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tif ctx",
-          " csum_off",
-          " 0",
-          " sum",
-          " BPF_F_PSEUDO_HDR < 0\t\treturn DROP_CSUM_L4"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 247,
   "endLine": 327,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -1095,9 +1022,9 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
     "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int __icmp6_send_time_exceeded (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -1159,13 +1086,21 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
     "    return icmp6_send_reply (ctx, nh_off);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_change_tail",
+    "ctx_full_len",
+    "ctx_store_bytes",
+    "cilium_dbg",
+    "ipv6_store_nexthdr",
+    "compute_icmp6_csum",
+    "bpf_htons",
+    "ctx_load_bytes",
+    "icmp6_send_reply",
+    "bpf_ntohs",
+    "ipv6_store_paylen"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1282,29 +1217,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int tail_icmp6_send_time_exceeded (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -1325,13 +1260,15 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
     "# endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "IS_ERR",
+    "__icmp6_send_time_exceeded",
+    "ctx_store_meta",
+    "ctx_load_meta",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1377,17 +1314,7 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tep_ctx",
-          " CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 359,
   "endLine": 368,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -1405,26 +1332,26 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
   ],
   "compatibleHookpoints": [
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int icmp6_send_time_exceeded (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction)\n",
@@ -1435,13 +1362,12 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
     "    return DROP_MISSED_TAIL_CALL;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_meta",
+    "ep_tail_call"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1485,29 +1411,29 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int __icmp6_handle_ns (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -1530,13 +1456,16 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
     "    return ACTION_UNKNOWN_ICMP6_NS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv6_addrcmp",
+    "cilium_dbg",
+    "send_icmp6_ndisc_adv",
+    "BPF_V6",
+    "ctx_load_bytes",
+    "__lookup_ip6_endpoint"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1600,29 +1529,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int tail_icmp6_handle_ns (struct  __ctx_buff *ctx)\n",
@@ -1636,13 +1565,15 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "IS_ERR",
+    "__icmp6_handle_ns",
+    "ctx_store_meta",
+    "ctx_load_meta",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1684,17 +1615,7 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tep_ctx",
-          " CILIUM_CALL_HANDLE_ICMP6_NS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 425,
   "endLine": 434,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/icmp6.h",
@@ -1712,26 +1633,26 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
   ],
   "compatibleHookpoints": [
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int icmp6_handle_ns (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction)\n",
@@ -1742,13 +1663,12 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
     "    return DROP_MISSED_TAIL_CALL;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_meta",
+    "ep_tail_call"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1794,29 +1714,29 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
     "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
     "lwt_seg6local",
-    "tracepoint",
+    "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
     "perf_event",
     "sk_msg",
-    "cgroup_sock",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "sched_act"
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int icmp6_handle (struct  __ctx_buff *ctx, int nh_off, struct ipv6hdr *ip6, enum metric_dir direction)\n",
@@ -1836,13 +1756,16 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv6_addrcmp",
+    "cilium_dbg",
+    "icmp6_send_echo_reply",
+    "BPF_V6",
+    "icmp6_load_type",
+    "icmp6_handle_ns"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1884,7 +1807,29 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 460,
   "endLine": 531,
@@ -1896,31 +1841,13 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
     "struct  __ctx_buff * ctx __maybe_unused"
   ],
   "output": "static__always_inlineint",
-  "helper": [],
+  "helper": [
+    "CTX_ACT_OK"
+  ],
   "compatibleHookpoints": [
-    "cgroup_sysctl",
-    "socket_filter",
-    "flow_dissector",
-    "lwt_out",
-    "cgroup_device",
-    "raw_tracepoint",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_xmit",
-    "sk_skb",
-    "sock_ops",
-    "sk_reuseport",
+    "sched_act",
     "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "tracepoint",
-    "perf_event",
-    "sk_msg",
-    "cgroup_sock",
-    "kprobe",
-    "sched_cls",
-    "sched_act"
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int icmp6_host_handle (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -1943,13 +1870,12 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
     "#endif /* ENABLE_HOST_FIREWALL */\n",
     "}\n"
   ],
+  "called_function_list": [
+    "icmp6_load_type",
+    "icmp6_handle_ns"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
