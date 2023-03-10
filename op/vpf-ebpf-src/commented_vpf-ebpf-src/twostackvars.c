@@ -22,33 +22,38 @@ static int (*get_prandom_u32)() = (void*)7;
           "Function Name": "get_prandom_u32",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "get_prandom_u32": [
-      {
-        "opVar": "    uint32_t rand32 ",
-        "inpVar": [
-          " "
-        ]
-      },
-      {
-        "opVar": "            stack_buffer[i] ",
-        "inpVar": [
-          " "
-        ]
-      },
-      {
-        "opVar": "            stack_buffer2[i] ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 10,
   "endLine": 46,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c",
@@ -63,27 +68,27 @@ static int (*get_prandom_u32)() = (void*)7;
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "tracepoint",
-    "perf_event",
-    "lwt_seg6local",
-    "lwt_out",
-    "cgroup_skb",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "flow_dissector",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sk_msg",
-    "sched_act",
     "sk_reuseport",
-    "kprobe",
-    "sock_ops",
-    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "perf_event",
+    "cgroup_skb",
+    "lwt_xmit",
+    "sk_skb",
     "socket_filter",
     "cgroup_sock",
-    "lwt_xmit"
+    "sched_act",
+    "flow_dissector",
+    "tracepoint",
+    "sock_ops",
+    "raw_tracepoint",
+    "lwt_seg6local",
+    "xdp",
+    "sched_cls",
+    "lwt_out",
+    "kprobe",
+    "raw_tracepoint_writable",
+    "cgroup_sock_addr"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",
@@ -109,13 +114,12 @@ static int (*get_prandom_u32)() = (void*)7;
     "    return *ptr;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ebpf_map_update_elem",
+    "ebpf_get_current_comm"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
