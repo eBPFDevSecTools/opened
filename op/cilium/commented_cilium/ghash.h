@@ -46,29 +46,29 @@
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __u32 hash_32 (__u32 val, __u32 bits)\n",
@@ -76,13 +76,9 @@
     "    return (val * GOLDEN_RATIO_32) >> (32 - bits);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -121,29 +117,29 @@ static __always_inline __u32 hash_32(__u32 val, __u32 bits)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __u32 hash_64 (__u64 val, __u32 bits)\n",
@@ -151,13 +147,9 @@ static __always_inline __u32 hash_32(__u32 val, __u32 bits)
     "    return (val * GOLDEN_RATIO_64) >> (64 - bits);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

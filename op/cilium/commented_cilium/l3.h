@@ -18,7 +18,29 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 18,
   "endLine": 38,
@@ -34,31 +56,13 @@
     " __u8 direction"
   ],
   "output": "static__always_inlineint",
-  "helper": [],
+  "helper": [
+    "CTX_ACT_OK"
+  ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
     "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int ipv6_l3 (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, __u8 direction)\n",
@@ -77,13 +81,15 @@
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "eth_store_daddr",
+    "ipv6_dec_hoplimit",
+    "IS_ERR",
+    "eth_store_saddr",
+    "icmp6_send_time_exceeded"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -124,7 +130,29 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 41,
   "endLine": 56,
@@ -140,31 +168,13 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     " struct iphdr *ip4"
   ],
   "output": "static__always_inlineint",
-  "helper": [],
+  "helper": [
+    "CTX_ACT_OK"
+  ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
     "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int ipv4_l3 (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, struct iphdr *ip4)\n",
@@ -179,13 +189,13 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv4_dec_ttl",
+    "eth_store_daddr",
+    "eth_store_saddr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -227,29 +237,30 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\treturn _epctx",
-          " ep->ifindex",
-          " from_host"
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t_dynamicctx",
-          " &POLICY_CALL_MAP",
-          " ep->lxc_id"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 65,
   "endLine": 106,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
@@ -266,11 +277,11 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "redirect",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_act",
     "xdp",
     "sched_cls"
@@ -307,13 +318,19 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update_metrics",
+    "ctx_full_len",
+    "cilium_dbg",
+    "tail_call_dynamic",
+    "ipv6_l3",
+    "defined",
+    "redirect_ep",
+    "set_identity_mark",
+    "ctx_store_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -380,29 +397,30 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\treturn _epctx",
-          " ep->ifindex",
-          " from_host"
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t_dynamicctx",
-          " &POLICY_CALL_MAP",
-          " ep->lxc_id"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 114,
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
@@ -420,11 +438,11 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "redirect",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_act",
     "xdp",
     "sched_cls"
@@ -461,13 +479,19 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update_metrics",
+    "ctx_full_len",
+    "cilium_dbg",
+    "tail_call_dynamic",
+    "defined",
+    "redirect_ep",
+    "set_identity_mark",
+    "ipv4_l3",
+    "ctx_store_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -541,22 +565,40 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\tcfg ",
-        "inpVar": [
-          " &ENCRYPT_MAP",
-          " &encrypt_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 157,
   "endLine": 185,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
@@ -573,29 +615,29 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __u8 get_min_encrypt_key (__u8 peer_key __maybe_unused)\n",
@@ -620,13 +662,9 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "#endif /* ENABLE_IPSEC */\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

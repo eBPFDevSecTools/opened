@@ -45,7 +45,7 @@ struct {
   "startLine": 40,
   "endLine": 47,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h",
-  "funcName": "*get_ct_map6",
+  "funcName": "get_ct_map6",
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -54,29 +54,29 @@ struct {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void *get_ct_map6 (const struct ipv6_ct_tuple *tuple)\n",
@@ -86,13 +86,9 @@ struct {
     "    return &CT_MAP_ANY6;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -148,7 +144,7 @@ struct {
   "startLine": 73,
   "endLine": 80,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/conntrack_map.h",
-  "funcName": "*get_ct_map4",
+  "funcName": "get_ct_map4",
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -157,29 +153,29 @@ struct {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void *get_ct_map4 (const struct ipv4_ct_tuple *tuple)\n",
@@ -189,13 +185,9 @@ struct {
     "    return &CT_MAP_ANY4;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

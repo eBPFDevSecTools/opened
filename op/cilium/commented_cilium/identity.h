@@ -25,29 +25,29 @@
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool identity_in_range (__u32 identity, __u32 range_start, __u32 range_end)\n",
@@ -55,13 +55,9 @@
     "    return range_start <= identity && identity <= range_end;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -98,29 +94,29 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool identity_is_remote_node (__u32 identity)\n",
@@ -128,13 +124,9 @@ static __always_inline bool identity_in_range(__u32 identity, __u32 range_start,
     "    return identity == REMOTE_NODE_ID || identity == KUBE_APISERVER_NODE_ID;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -186,29 +178,29 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool identity_is_node (__u32 identity)\n",
@@ -216,13 +208,11 @@ static __always_inline bool identity_is_remote_node(__u32 identity)
     "    return identity == HOST_ID || identity_is_remote_node (identity);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "identity_is_remote_node"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -277,29 +267,29 @@ static __always_inline bool identity_is_node(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool identity_is_reserved (__u32 identity)\n",
@@ -307,13 +297,11 @@ static __always_inline bool identity_is_node(__u32 identity)
     "    return identity < UNMANAGED_ID || identity_is_remote_node (identity);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "identity_is_remote_node"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -368,29 +356,29 @@ static __always_inline bool identity_is_reserved(__u32 identity)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool identity_is_cluster (__u32 identity)\n",
@@ -402,13 +390,11 @@ static __always_inline bool identity_is_reserved(__u32 identity)
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "identity_in_range"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -454,29 +440,29 @@ static __always_inline bool identity_is_cluster(__u32 identity)
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __u32 inherit_identity_from_host (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -519,13 +505,14 @@ static __always_inline bool identity_is_cluster(__u32 identity)
     "    return magic;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "get_epid",
+    "cilium_dbg",
+    "get_identity",
+    "defined"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

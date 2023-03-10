@@ -54,29 +54,29 @@
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused void __bpf_memset_builtin (void *d, __u8 c, __u64 len)\n",
@@ -84,13 +84,11 @@
     "    __builtin_memset (d, c, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_memset"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -132,29 +130,29 @@ __bpf_memset_builtin(void *d, __u8 c, __u64 len)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void __bpf_memzero (void *d, __u64 len)\n",
@@ -334,13 +332,14 @@ __bpf_memset_builtin(void *d, __u8 c, __u64 len)
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memset_builtin",
+    "__it_set",
+    "__throw_build_bug",
+    "__builtin_constant_p"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -455,29 +454,29 @@ static __always_inline void __bpf_memzero(void *d, __u64 len)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused void __bpf_no_builtin_memset (void * d __maybe_unused, __u8 c __maybe_unused, __u64 len __maybe_unused)\n",
@@ -485,13 +484,11 @@ static __always_inline void __bpf_memzero(void *d, __u64 len)
     "    __throw_build_bug ();\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__throw_build_bug"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -535,29 +532,29 @@ __bpf_no_builtin_memset(void *d __maybe_unused, __u8 c __maybe_unused,
   "output": "\\memset\\)void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline  __nobuiltin (\"memset\") void memset (void *d, int c, __u64 len)\n",
@@ -568,13 +565,13 @@ __bpf_no_builtin_memset(void *d __maybe_unused, __u8 c __maybe_unused,
     "        __bpf_memset_builtin (d, (__u8) c, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memset_builtin",
+    "__bpf_memzero",
+    "__builtin_constant_p"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -617,29 +614,29 @@ static __always_inline __nobuiltin("memset") void memset(void *d, int c,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused void __bpf_memcpy_builtin (void *d, const void *s, __u64 len)\n",
@@ -647,13 +644,11 @@ static __always_inline __nobuiltin("memset") void memset(void *d, int c,
     "    __builtin_memcpy (d, s, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -694,29 +689,29 @@ __bpf_memcpy_builtin(void *d, const void *s, __u64 len)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void __bpf_memcpy (void *d, const void *s, __u64 len)\n",
@@ -901,13 +896,14 @@ __bpf_memcpy_builtin(void *d, const void *s, __u64 len)
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memcpy_builtin",
+    "__throw_build_bug",
+    "__builtin_constant_p",
+    "__it_mob"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1028,29 +1024,29 @@ static __always_inline void __bpf_memcpy(void *d, const void *s, __u64 len)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused void __bpf_no_builtin_memcpy (void * d __maybe_unused, const void * s __maybe_unused, __u64 len __maybe_unused)\n",
@@ -1058,13 +1054,11 @@ static __always_inline void __bpf_memcpy(void *d, const void *s, __u64 len)
     "    __throw_build_bug ();\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__throw_build_bug"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1108,29 +1102,29 @@ __bpf_no_builtin_memcpy(void *d __maybe_unused, const void *s __maybe_unused,
   "output": "\\memcpy\\)void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline  __nobuiltin (\"memcpy\") void memcpy (void *d, const void *s, __u64 len)\n",
@@ -1138,13 +1132,11 @@ __bpf_no_builtin_memcpy(void *d __maybe_unused, const void *s __maybe_unused,
     "    return __bpf_memcpy (d, s, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1184,29 +1176,29 @@ static __always_inline __nobuiltin("memcpy") void memcpy(void *d, const void *s,
   "output": "static__always_inline__maybe_unused__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused __u64 __bpf_memcmp_builtin (const void *x, const void *y, __u64 len)\n",
@@ -1214,13 +1206,11 @@ static __always_inline __nobuiltin("memcpy") void memcpy(void *d, const void *s,
     "    return __builtin_bcmp (x, y, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bcmp"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1269,29 +1259,29 @@ __bpf_memcmp_builtin(const void *x, const void *y, __u64 len)
   "output": "static__always_inline__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __u64 __bpf_memcmp (const void *x, const void *y, __u64 len)\n",
@@ -1439,13 +1429,14 @@ __bpf_memcmp_builtin(const void *x, const void *y, __u64 len)
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memcmp_builtin",
+    "__it_xor",
+    "__throw_build_bug",
+    "__builtin_constant_p"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1554,29 +1545,29 @@ static __always_inline __u64 __bpf_memcmp(const void *x, const void *y,
   "output": "static__always_inline__maybe_unused__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused __u64 __bpf_no_builtin_memcmp (const void * x __maybe_unused, const void * y __maybe_unused, __u64 len __maybe_unused)\n",
@@ -1585,13 +1576,11 @@ static __always_inline __u64 __bpf_memcmp(const void *x, const void *y,
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__throw_build_bug"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1639,29 +1628,29 @@ __bpf_no_builtin_memcmp(const void *x __maybe_unused,
   "output": "\\memcmp\\)__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline  __nobuiltin (\"memcmp\") __u64 memcmp (const void *x, const void *y, __u64 len)\n",
@@ -1669,13 +1658,11 @@ __bpf_no_builtin_memcmp(const void *x __maybe_unused,
     "    return __bpf_memcmp (x, y, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memcmp"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1716,29 +1703,29 @@ static __always_inline __nobuiltin("memcmp") __u64 memcmp(const void *x,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused void __bpf_memmove_builtin (void *d, const void *s, __u64 len)\n",
@@ -1746,13 +1733,11 @@ static __always_inline __nobuiltin("memcmp") __u64 memcmp(const void *x,
     "    __builtin_memmove (d, s, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_memmove"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1793,29 +1778,29 @@ __bpf_memmove_builtin(void *d, const void *s, __u64 len)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void __bpf_memmove_bwd (void *d, const void *s, __u64 len)\n",
@@ -1823,13 +1808,11 @@ __bpf_memmove_builtin(void *d, const void *s, __u64 len)
     "    __bpf_memcpy (d, s, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1869,29 +1852,29 @@ static __always_inline void __bpf_memmove_bwd(void *d, const void *s, __u64 len)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void __bpf_memmove_fwd (void *d, const void *s, __u64 len)\n",
@@ -2070,13 +2053,14 @@ static __always_inline void __bpf_memmove_bwd(void *d, const void *s, __u64 len)
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__it_mof",
+    "__bpf_memmove_builtin",
+    "__throw_build_bug",
+    "__builtin_constant_p"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -2189,29 +2173,29 @@ static __always_inline void __bpf_memmove_fwd(void *d, const void *s, __u64 len)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline __maybe_unused void __bpf_no_builtin_memmove (void * d __maybe_unused, const void * s __maybe_unused, __u64 len __maybe_unused)\n",
@@ -2219,13 +2203,11 @@ static __always_inline void __bpf_memmove_fwd(void *d, const void *s, __u64 len)
     "    __throw_build_bug ();\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__throw_build_bug"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -2269,29 +2251,29 @@ __bpf_no_builtin_memmove(void *d __maybe_unused, const void *s __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void __bpf_memmove (void *d, const void *s, __u64 len)\n",
@@ -2302,13 +2284,12 @@ __bpf_no_builtin_memmove(void *d __maybe_unused, const void *s __maybe_unused,
     "        return __bpf_memmove_bwd (d, s, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memmove_bwd",
+    "__bpf_memmove_fwd"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -2359,29 +2340,29 @@ static __always_inline void __bpf_memmove(void *d, const void *s, __u64 len)
   "output": "\\memmove\\)void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline  __nobuiltin (\"memmove\") void memmove (void *d, const void *s, __u64 len)\n",
@@ -2389,13 +2370,11 @@ static __always_inline void __bpf_memmove(void *d, const void *s, __u64 len)
     "    return __bpf_memmove (d, s, len);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_memmove"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

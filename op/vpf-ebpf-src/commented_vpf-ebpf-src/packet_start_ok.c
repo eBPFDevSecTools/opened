@@ -32,29 +32,29 @@ __attribute__((section("xdp"), used))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "cgroup_sock_addr",
     "sk_reuseport",
-    "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
-    "lwt_out",
     "cgroup_sysctl",
-    "lwt_xmit",
-    "tracepoint",
+    "lwt_in",
     "sk_msg",
-    "lwt_seg6local",
-    "cgroup_device",
+    "perf_event",
     "cgroup_skb",
+    "lwt_xmit",
+    "sk_skb",
+    "socket_filter",
+    "cgroup_sock",
+    "sched_act",
+    "flow_dissector",
+    "tracepoint",
+    "cgroup_device",
+    "sock_ops",
     "raw_tracepoint",
+    "lwt_seg6local",
+    "xdp",
+    "sched_cls",
+    "lwt_out",
+    "kprobe",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "cgroup_sock_addr"
   ],
   "source": [
     "int read_write_packet_start (struct xdp_md *ctx)\n",
@@ -68,13 +68,9 @@ __attribute__((section("xdp"), used))
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

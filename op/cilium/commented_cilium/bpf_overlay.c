@@ -46,22 +46,33 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx_ctx",
-          " HOST_IFINDEX",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 46,
   "endLine": 180,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -71,13 +82,13 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "sched_act",
-    "lwt_xmit",
-    "xdp"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int handle_ipv6 (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -170,6 +181,49 @@
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "set_encrypt_dip",
+    "ctx_redirect",
+    "srv6_lookup_sid",
+    "ctx_get_tunnel_key",
+    "ipv6_hdrlen",
+    "ctx_skip_host_fw",
+    "nodeport_lb6",
+    "identity_is_remote_node",
+    "is_srv6_packet",
+    "encap_remap_v6_host_address",
+    "ctx_get_xfer",
+    "ipv6_host_policy_egress",
+    "likely",
+    "set_encrypt_key_meta",
+    "unlikely",
+    "ep_tail_call",
+    "set_identity_meta",
+    "send_trace_notify",
+    "rewrite_dmac_to_host",
+    "defined",
+    "get_identity",
+    "get_min_encrypt_key",
+    "encap_and_redirect_netdev",
+    "update_metrics",
+    "ctx_change_type",
+    "revalidate_data_pull",
+    "ctx_full_len",
+    "IS_ERR",
+    "ipv6_l3",
+    "ipcache_lookup6",
+    "ipv6_local_delivery",
+    "lookup_ip6_endpoint",
+    "encap_and_redirect_with_nodeid",
+    "cilium_dbg",
+    "cilium_dbg_capture",
+    "bpf_skip_nodeport",
+    "icmp6_host_handle",
+    "revalidate_data",
+    "set_identity_mark",
+    "ipv6_host_policy_ingress"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " The main goal of handle_ipv6 is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. The first step is to verify the background by  using revalidate_data_pull and the pointer ctx (maybe the starting point of a protocol?).  Ret should be the new address of this IPV6 sector. If nodeport is not activated,  ret is set by encap_remap_v6_host address.Then check if the net is decrypted by using mark. Identity is equal to identity of ctx if the net is decrypted, but tunnel id if not. Check if the ID is equal to host_ID since any node encapsulating will map any HOST_ID source to be presented as REMOTE_NODE_ID, therefore any attempt to signal HOST_ID as source from a remote node can be dropped.After that, check esp protocol,ESPis a member of the Internet Protocol Security set of protocols that encrypt and authenticate the packets of data between computers using a Virtual Private Network. If ESP is activated, we set mark for the ID and change the type of ctx to packet_host to pass it up.If Esp is not activated, we look up the IPV6 address in list of local endpoints. If the endpoints reach the host, we go to the host  and set the ret, else we find the next headerlength and return that. ",
@@ -334,7 +388,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "helperCallParams": {},
   "startLine": 183,
   "endLine": 192,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv6",
   "updateMaps": [],
   "readMaps": [],
@@ -344,29 +398,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "perf_event",
-    "sk_reuseport",
-    "flow_dissector",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_msg",
     "socket_filter",
-    "lwt_out",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sysctl",
+    "lwt_seg6local",
     "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
     "sk_skb",
     "tracepoint",
-    "lwt_xmit",
-    "sock_ops",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
+    "sched_cls",
     "raw_tracepoint",
-    "cgroup_sock"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -378,6 +432,15 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_OVERLAY)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__tail_handle_ipv6",
+    "IS_ERR",
+    "handle_ipv6",
+    "ctx_store_meta",
+    "ctx_load_meta",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " This function is to handle the tail of a protocol and check it it has any error for ipv6 ",
@@ -416,6 +479,27 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -427,35 +511,43 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\t\t\tinfo ",
-        "inpVar": [
-          " &VTEP_MAP",
-          " &vkey"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx_ctx",
-          " HOST_IFINDEX",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 196,
   "endLine": 333,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "handle_ipv4",
   "updateMaps": [],
   "readMaps": [
@@ -467,14 +559,14 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
-    "map_lookup_elem"
+    "CTX_ACT_OK",
+    "map_lookup_elem",
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "xdp",
     "sched_act",
-    "lwt_xmit"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int handle_ipv4 (struct  __ctx_buff *ctx, __u32 *identity)\n",
@@ -583,6 +675,48 @@ int tail_handle_ipv6(struct __ctx_buff *ctx)
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "set_encrypt_dip",
+    "lookup_ip4_endpoint",
+    "ctx_redirect",
+    "ctx_get_tunnel_key",
+    "ipcache_lookup4",
+    "ctx_skip_host_fw",
+    "identity_is_remote_node",
+    "ctx_get_xfer",
+    "set_encrypt_key_meta",
+    "unlikely",
+    "ep_tail_call",
+    "send_trace_notify",
+    "ipv4_is_fragment",
+    "rewrite_dmac_to_host",
+    "defined",
+    "get_identity",
+    "ipv4_host_policy_egress",
+    "send_drop_notify_error",
+    "get_min_encrypt_key",
+    "ipv4_l3",
+    "encap_and_redirect_netdev",
+    "eth_store_daddr",
+    "update_metrics",
+    "ipv4_host_policy_ingress",
+    "ctx_change_type",
+    "revalidate_data_pull",
+    "ctx_full_len",
+    "IS_ERR",
+    "nodeport_lb4",
+    "__encap_and_redirect_with_nodeid",
+    "ctx_store_meta",
+    "ipv4_local_delivery",
+    "encap_and_redirect_with_nodeid",
+    "cilium_dbg",
+    "cilium_dbg_capture",
+    "bpf_skip_nodeport",
+    "set_identity_meta",
+    "revalidate_data",
+    "set_identity_mark"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " This function is similar to handle_ipv6 to handle ipv4 packet. The main goal of it is to check the different condition including  if nodeport, IPSEC is enabled and if the pulling data or decrypting gets error.  Then make different action to handle according situatoins to convert the IPV6 to a virtual  network which points to overlay. IPV4 fragmentation check is added. ",
@@ -750,7 +884,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "helperCallParams": {},
   "startLine": 336,
   "endLine": 345,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_ipv4",
   "updateMaps": [],
   "readMaps": [],
@@ -760,29 +894,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "perf_event",
-    "sk_reuseport",
-    "flow_dissector",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_msg",
     "socket_filter",
-    "lwt_out",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sysctl",
+    "lwt_seg6local",
     "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
     "sk_skb",
     "tracepoint",
-    "lwt_xmit",
-    "sock_ops",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
+    "sched_cls",
     "raw_tracepoint",
-    "cgroup_sock"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -794,6 +928,15 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_OVERLAY)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "IS_ERR",
+    "ctx_store_meta",
+    "handle_ipv4",
+    "ctx_load_meta",
+    "__tail_handle_ipv4",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " check if there is error about the tail of ipv4 packet. ",
@@ -836,6 +979,27 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -847,37 +1011,43 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\tinfo ",
-        "inpVar": [
-          " &VTEP_MAP",
-          " &vkey"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif info->tunnel_endpoint\t\treturn __encap_and__with_nodeidctx",
-          "\t\t\t\t\t\t\tinfo->tunnel_endpoint",
-          "\t\t\t\t\t\t\tSECLABEL",
-          "\t\t\t\t\t\t\tWORLD_ID",
-          "\t\t\t\t\t\t\t&trace"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 353,
   "endLine": 395,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "tail_handle_arp",
   "updateMaps": [],
   "readMaps": [
@@ -888,14 +1058,14 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   ],
   "output": "int",
   "helper": [
-    "redirect",
-    "map_lookup_elem"
+    "CTX_ACT_OK",
+    "map_lookup_elem",
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "xdp",
     "sched_act",
-    "lwt_xmit"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "int tail_handle_arp (struct  __ctx_buff *ctx)\n",
@@ -933,6 +1103,18 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_get_tunnel_key",
+    "unlikely",
+    "send_trace_notify",
+    "arp_prepare_response",
+    "arp_validate",
+    "__encap_and_redirect_with_nodeid",
+    "__lookup_ip4_endpoint",
+    "arp_respond",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " Handle the tail for ARP requests from VTEP. Check different occasions including tunnel_key geting, arp validating, and if endpoint of tunnel is reached. ",
@@ -1008,7 +1190,7 @@ pass_to_stack:
   "helperCallParams": {},
   "startLine": 401,
   "endLine": 428,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "is_esp",
   "updateMaps": [],
   "readMaps": [],
@@ -1019,29 +1201,29 @@ pass_to_stack:
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "perf_event",
-    "sk_reuseport",
-    "flow_dissector",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_msg",
     "socket_filter",
-    "lwt_out",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sysctl",
+    "lwt_seg6local",
     "cgroup_device",
+    "lwt_xmit",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
+    "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
     "sk_skb",
     "tracepoint",
-    "lwt_xmit",
-    "sock_ops",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
+    "sched_cls",
     "raw_tracepoint",
-    "cgroup_sock"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool is_esp (struct  __ctx_buff *ctx, __u16 proto)\n",
@@ -1075,6 +1257,11 @@ pass_to_stack:
     "    return protocol == IPPROTO_ESP;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons",
+    "revalidate_data_pull"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " The built in function to check if esp protocol is used and if pulling data have error. ",
@@ -1132,35 +1319,33 @@ __section("from-overlay")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tcase bpf_htonsETH_P_IPV6:#ifdef ENABLE_IPV6\t\tep_ctx",
-          " CILIUM_CALL_IPV6_FROM_OVERLAY"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tcase bpf_htonsETH_P_IP:#ifdef ENABLE_IPV4\t\tep_ctx",
-          " CILIUM_CALL_IPV4_FROM_OVERLAY"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#ifdef ENABLE_VTEP\tcase bpf_htonsETH_P_ARP:\t\tep_ctx",
-          " CILIUM_CALL_ARP"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 435,
   "endLine": 527,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "from_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -1169,30 +1354,13 @@ __section("from-overlay")
   ],
   "output": "int",
   "helper": [
+    "CTX_ACT_OK",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "perf_event",
-    "sk_reuseport",
-    "flow_dissector",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_msg",
-    "socket_filter",
-    "lwt_out",
     "sched_act",
-    "cgroup_skb",
-    "sk_skb",
-    "tracepoint",
-    "lwt_xmit",
-    "sock_ops",
-    "kprobe",
-    "raw_tracepoint",
-    "cgroup_sock"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "int from_overlay (struct  __ctx_buff *ctx)\n",
@@ -1261,6 +1429,19 @@ __section("from-overlay")
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ep_tail_call",
+    "send_trace_notify",
+    "IS_ERR",
+    "validate_ethertype",
+    "is_esp",
+    "bpf_htons",
+    "send_drop_notify_error",
+    "bpf_skip_nodeport_clear",
+    "get_identity",
+    "bpf_clear_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " handle different possible packets come to the program. First check if it is esp protocol, then check the decrypted or not and get the identity from the metadata.  ",
@@ -1382,11 +1563,33 @@ __section("to-overlay")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 533,
   "endLine": 568,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_overlay.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_overlay.c",
   "funcName": "to_overlay",
   "updateMaps": [],
   "readMaps": [],
@@ -1394,31 +1597,13 @@ __section("to-overlay")
     "struct  __ctx_buff *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "CTX_ACT_OK"
+  ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "perf_event",
-    "sk_reuseport",
-    "flow_dissector",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_msg",
-    "socket_filter",
-    "lwt_out",
     "sched_act",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sk_skb",
-    "tracepoint",
-    "lwt_xmit",
-    "sock_ops",
-    "kprobe",
-    "raw_tracepoint",
-    "cgroup_sock"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "int to_overlay (struct  __ctx_buff *ctx)\n",
@@ -1451,6 +1636,17 @@ __section("to-overlay")
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update_metrics",
+    "handle_nat_fwd",
+    "unlikely",
+    "ctx_full_len",
+    "IS_ERR",
+    "edt_sched_departure",
+    "encap_remap_v6_host_address",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " TO BE ADDED  ",

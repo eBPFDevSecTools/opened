@@ -15,11 +15,54 @@ __section("from-network")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "CTX_ACT_REDIRECT",
+          "Return": 7,
+          "Description": "Cilium wrapper. This allows to redirect the skb to the same or another\u2019s device ingress or egress path together with the redirect() helper. Being able to inject the packet into another device\u2019s ingress or egress direction allows for full flexibility in packet forwarding with BPF. There are no requirements on the target networking device other than being a networking device itself, there is no need to run another instance of cls_bpf on the target device or other such restrictions.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 15,
   "endLine": 88,
-  "File": "/home/palani/github/opened_extraction/examples/cilium/bpf_network.c",
+  "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_network.c",
   "funcName": "from_network",
   "updateMaps": [],
   "readMaps": [],
@@ -27,31 +70,14 @@ __section("from-network")
     "struct  __ctx_buff *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "CTX_ACT_OK",
+    "CTX_ACT_REDIRECT"
+  ],
   "compatibleHookpoints": [
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint_writable",
-    "cgroup_sock_addr",
-    "perf_event",
-    "sk_reuseport",
-    "flow_dissector",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_msg",
-    "socket_filter",
-    "lwt_out",
     "sched_act",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sk_skb",
-    "tracepoint",
-    "lwt_xmit",
-    "sock_ops",
-    "kprobe",
-    "raw_tracepoint",
-    "cgroup_sock"
+    "xdp",
+    "sched_cls"
   ],
   "source": [
     "int from_network (struct  __ctx_buff *ctx)\n",
@@ -85,6 +111,13 @@ __section("from-network")
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "do_decrypt",
+    "send_trace_notify",
+    "bpf_clear_meta",
+    "validate_ethertype"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
       "description": " Initialize the ctx buffer, passing protocols to the stack according to the imput packets (ESP packets coming from network; Non-ESP packets coming from network; Non-ESP packets coming from stack re-inserted by xfrm) ",

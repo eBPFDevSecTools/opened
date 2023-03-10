@@ -41,29 +41,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, struct sock_key *key)\n",
@@ -75,18 +75,17 @@
     "    key->dport = READ_ONCE (ops->remote_port) >> 16;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_ntohl",
+    "READ_ONCE"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -135,29 +134,29 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline void sk_lb4_key (struct lb4_key *lb4, const struct sock_key *key)\n",
@@ -166,18 +165,14 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
     "    lb4->dport = (__u16) key->dport;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " copy address and dport of lb4 from socket key ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -219,9 +214,9 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
     "redirect"
   ],
   "compatibleHookpoints": [
+    "sched_act",
     "lwt_xmit",
     "xdp",
-    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -230,18 +225,16 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
     "    return verdict > 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "is_defined"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " check if verdict is larger than 0  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -265,36 +258,7 @@ static __always_inline bool redirect_to_proxy(int verdict)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif _to_proxyverdict "
-        ]
-      }
-    ],
-    "sock_hash_update": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tskops",
-          " &SOCK_OPS_MAP",
-          " &key",
-          " BPF_NOEXIST"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tskops",
-          " &SOCK_OPS_MAP",
-          " &key",
-          " BPF_NOEXIST"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 55,
   "endLine": 118,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
@@ -306,8 +270,8 @@ static __always_inline bool redirect_to_proxy(int verdict)
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "redirect",
-    "sock_hash_update"
+    "sock_hash_update",
+    "redirect"
   ],
   "compatibleHookpoints": [],
   "source": [
@@ -356,18 +320,22 @@ static __always_inline bool redirect_to_proxy(int verdict)
     "    sock_hash_update (skops, &SOCK_OPS_MAP, &key, BPF_NOEXIST);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "sk_extract4_key",
+    "policy_sk_egress",
+    "sk_lb4_key",
+    "__lookup_ip4_endpoint",
+    "lookup_ip4_remote_endpoint",
+    "redirect_to_proxy",
+    "lb4_lookup_service"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " update the destination and source port, ip to the skops with respect to whther  the packet is redirect to proxy port (or we say whether verdict is larger than 0) ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -466,29 +434,29 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)\n",
@@ -497,18 +465,16 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
     "        bpf_sock_ops_ipv4 (skops);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_sock_ops_ipv4"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " update the destination and source port, ip to the skops with respect to whther  the packet is redirect to proxy port (or we say whether verdict is larger than 0) same as bpf_sock_ops_ipv4 but adapt for ipv6 ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -548,29 +514,29 @@ __section("sockops")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int bpf_sockmap (struct bpf_sock_ops *skops)\n",
@@ -600,18 +566,17 @@ __section("sockops")
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_sock_ops_ipv4",
+    "bpf_sock_ops_ipv6"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " calling bpf_sock_ops_ipv4 or bpf_sock_ops_ipv6 according to the family ip version  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

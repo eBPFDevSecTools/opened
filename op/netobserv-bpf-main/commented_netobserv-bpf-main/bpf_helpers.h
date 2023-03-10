@@ -99,18 +99,7 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "_staticvoid *ctx",
-          " const void *map",
-          " const __u32 slot"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 98,
   "endLine": 123,
   "File": "/home/sayandes/opened_extraction/examples/netobserv-bpf-main/headers/bpf_helpers.h",
@@ -124,30 +113,31 @@
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "bpf_tail_call"
+    "bpf_tail_call",
+    "tail_call"
   ],
   "compatibleHookpoints": [
-    "sk_msg",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sk_skb",
-    "lwt_out",
-    "perf_event",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
-    "lwt_in",
-    "sched_act",
-    "xdp",
-    "flow_dissector",
-    "cgroup_sock",
     "tracepoint",
-    "cgroup_skb",
-    "lwt_seg6local",
+    "lwt_in",
     "kprobe",
-    "sched_cls",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "lwt_out",
+    "sk_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sock_ops",
-    "socket_filter"
+    "sched_act",
+    "flow_dissector",
+    "xdp",
+    "cgroup_sock_addr",
+    "sk_msg",
+    "perf_event",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "cgroup_skb",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline void bpf_tail_call_static (void *ctx, const void *map, const __u32 slot)\n",
@@ -170,13 +160,12 @@
     "        );\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__bpf_unreachable",
+    "__builtin_constant_p"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

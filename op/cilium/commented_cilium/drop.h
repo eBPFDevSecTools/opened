@@ -66,29 +66,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "int __send_drop_notify (struct  __ctx_buff *ctx)\n",
@@ -112,13 +112,17 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
     "    return exitcode;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "min_t",
+    "ctx_event_output",
+    "ctx_full_len",
+    "typeof",
+    "ctx_load_meta",
+    "__notify_common_hdr",
+    "__notify_pktcap_hdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -180,17 +184,7 @@ int __send_drop_notify(struct __ctx_buff *ctx)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tep_ctx",
-          " CILIUM_CALL_DROP_NOTIFY"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 95,
   "endLine": 116,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
@@ -213,27 +207,27 @@ int __send_drop_notify(struct __ctx_buff *ctx)
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
+    "socket_filter",
+    "lwt_seg6local",
     "lwt_xmit",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int _send_drop_notify (__u8 file, __u16 line, struct  __ctx_buff *ctx, __u32 src, __u32 dst, __u32 dst_id, __u32 reason, __u32 exitcode, enum metric_dir direction)\n",
@@ -250,13 +244,16 @@ int __send_drop_notify(struct __ctx_buff *ctx)
     "    return exitcode;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update_metrics",
+    "ctx_full_len",
+    "ep_tail_call",
+    "__builtin_constant_p",
+    "ctx_store_meta",
+    "__throw_build_bug"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -319,29 +316,29 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int _send_drop_notify (__u8 file __maybe_unused, __u16 line __maybe_unused, struct  __ctx_buff *ctx, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u32 dst_id __maybe_unused, __u32 reason, __u32 exitcode, enum metric_dir direction)\n",
@@ -350,13 +347,16 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
     "    return exitcode;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update_metrics",
+    "ctx_full_len",
+    "ep_tail_call",
+    "__builtin_constant_p",
+    "ctx_store_meta",
+    "__throw_build_bug"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

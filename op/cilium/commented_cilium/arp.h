@@ -37,29 +37,29 @@ struct arp_eth {
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int arp_check (struct ethhdr *eth, const struct arphdr *arp, union macaddr *mac)\n",
@@ -68,13 +68,13 @@ struct arp_eth {
     "    return arp->ar_op == bpf_htons (ARPOP_REQUEST) && arp->ar_hrd == bpf_htons (ARPHRD_ETHER) && (eth_is_bcast (dmac) || !eth_addrcmp (dmac, mac));\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons",
+    "eth_addrcmp",
+    "eth_is_bcast"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -121,29 +121,29 @@ static __always_inline int arp_check(struct ethhdr *eth,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline int arp_prepare_response (struct  __ctx_buff *ctx, union macaddr *smac, __be32 sip, union macaddr *dmac, __be32 tip)\n",
@@ -154,13 +154,14 @@ static __always_inline int arp_check(struct ethhdr *eth,
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_bytes",
+    "eth_store_saddr",
+    "eth_store_daddr",
+    "bpf_htons"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -215,29 +216,29 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
+    "socket_filter",
+    "lwt_seg6local",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
     "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
+    "cgroup_sock",
+    "xdp",
+    "sock_ops",
+    "sched_act",
     "sk_reuseport",
+    "lwt_in",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sk_skb",
+    "tracepoint",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
+    "lwt_out",
     "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
     "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "raw_tracepoint_writable",
+    "cgroup_skb"
   ],
   "source": [
     "static __always_inline bool arp_validate (const struct  __ctx_buff *ctx, union macaddr *mac, union macaddr *smac, __be32 *sip, __be32 *tip)\n",
@@ -258,13 +259,11 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "arp_check"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -307,18 +306,7 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\treturn ctx_ctx",
-          " ctx_get_ifindexctx",
-          " direction"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 75,
   "endLine": 90,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/arp.h",
@@ -338,9 +326,9 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
     "redirect"
   ],
   "compatibleHookpoints": [
+    "sched_act",
     "lwt_xmit",
     "xdp",
-    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -355,13 +343,16 @@ arp_validate(const struct __ctx_buff *ctx, union macaddr *mac,
     "    return send_drop_notify_error (ctx, 0, ret, CTX_ACT_DROP, METRIC_EGRESS);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_redirect",
+    "unlikely",
+    "arp_prepare_response",
+    "cilium_dbg_capture",
+    "ctx_get_ifindex",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
