@@ -19,7 +19,19 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__nomark_ipsecstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t\t__u8 key",
+          " __u32 seclabel"
+        ]
+      }
+    ]
+  },
   "startLine": 18,
   "endLine": 40,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -37,10 +49,10 @@
     "redirect"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -51,12 +63,13 @@
     "    return IPSEC_ENDPOINT;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_store_meta",
-    "or_encrypt_key"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -99,7 +112,19 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__ipsecstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t __u8 key",
+          " __u32 seclabel"
+        ]
+      }
+    ]
+  },
   "startLine": 42,
   "endLine": 57,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -117,10 +142,10 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -131,13 +156,13 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "    return IPSEC_ENDPOINT;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "set_encrypt_key_mark",
-    "set_identity_mark",
-    "ctx_store_meta"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -189,24 +214,25 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "lwt_seg6local"
-          ],
-          "capabilities": [
-            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "csum_diff": [
+      {
+        "opVar": "\t\tsum ",
+        "inpVar": [
+          " which",
+          " 16",
+          " &host_ip",
+          " 16",
+          " 0"
+        ]
+      }
+    ]
+  },
   "startLine": 60,
   "endLine": 117,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -223,12 +249,12 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "compatibleHookpoints": [
     "xdp",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "sched_cls",
+    "lwt_in",
+    "lwt_out",
     "lwt_xmit",
-    "lwt_out"
+    "sched_act",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)\n",
@@ -286,20 +312,13 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "    return 0;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ipv6_addrcmp",
-    "ctx_store_bytes",
-    "ipv6_hdrlen",
-    "offsetof",
-    "csum_l4_offset_and_flags",
-    "csum_l4_replace",
-    "validate_ethertype",
-    "bpf_htons",
-    "BPF_V6",
-    "revalidate_data"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -395,29 +414,29 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)\n",
@@ -447,15 +466,13 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
     "    return 0;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "unlikely",
-    "cilium_dbg",
-    "bpf_htonl",
-    "send_trace_notify",
-    "ctx_set_tunnel_key"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -511,7 +528,28 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "__encap_and__with_nodeidstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t\t __u32 seclabel",
+          " __u32 vni",
+          "\t\t\t\t const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " ENCAP_IFINDEX",
+          " 0"
+        ]
+      }
+    ]
+  },
   "startLine": 156,
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -530,10 +568,10 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)\n",
@@ -544,12 +582,13 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "    return ctx_redirect (ctx, ENCAP_IFINDEX, 0);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_redirect",
-    "__encap_with_nodeid"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -586,7 +625,39 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__with_nodeidstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t\t       __u8 key __maybe_unused",
+          " __u32 seclabel",
+          "\t\t\t       const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_IPSEC\tif key\t\treturn encap_and__nomark_ipsecctx",
+          " tunnel_endpoint",
+          " key",
+          " seclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#endif\treturn __encap_and__with_nodeidctx",
+          " tunnel_endpoint",
+          " seclabel",
+          " NOT_VTEP_DST",
+          "\t\t\t\t\t\ttrace"
+        ]
+      }
+    ]
+  },
   "startLine": 174,
   "endLine": 185,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -605,10 +676,10 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "redirect"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -622,12 +693,13 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "    return __encap_and_redirect_with_nodeid (ctx, tunnel_endpoint, seclabel, NOT_VTEP_DST, trace);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "__encap_and_redirect_with_nodeid",
-    "encap_and_redirect_nomark_ipsec"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -681,40 +753,73 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__lxcstruct __ctx_buff *ctx",
+          " __u32 tunnel_endpoint",
+          "\t\t       __u8 encrypt_key __maybe_unused",
+          "\t\t       struct endpoint_key *key",
+          " __u32 seclabel",
+          "\t\t       const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#ifdef ENABLE_IPSEC\t\tif encrypt_key\t\t\treturn encap_and__ipsecctx",
+          " tunnel_endpoint",
+          "\t\t\t\t\t\t\tencrypt_key",
+          " seclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "#else\t\treturn __encap_and__with_nodeidctx",
+          " tunnel_endpoint",
+          "\t\t\t\t\t\t\tseclabel",
+          " NOT_VTEP_DST",
+          " trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn encap_and__ipsecctx",
+          " tunnel->ip4",
+          "\t\t\t\t\t\tmin_encrypt_key",
+          "\t\t\t\t\t\tseclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif\treturn __encap_and__with_nodeidctx",
+          " tunnel->ip4",
+          " seclabel",
+          "\t\t\t\t\t\tNOT_VTEP_DST",
+          " trace"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "#endif \t\ttunnel ",
+        "inpVar": [
+          " &TUNNEL_MAP",
+          " key"
+        ]
+      }
+    ]
+  },
   "startLine": 197,
   "endLine": 242,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -737,10 +842,10 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -776,15 +881,13 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "    return __encap_and_redirect_with_nodeid (ctx, tunnel->ip4, seclabel, NOT_VTEP_DST, trace);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "get_min_encrypt_key",
-    "__encap_with_nodeid",
-    "encap_and_redirect_ipsec",
-    "__encap_and_redirect_with_nodeid",
-    "defined"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -862,40 +965,52 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "encap_and__netdevstruct __ctx_buff *ctx",
+          " struct endpoint_key *k",
+          "\t\t\t  __u32 seclabel",
+          " const struct trace_ctx *trace"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t\treturn encap_and__nomark_ipsecctx",
+          " tunnel->ip4",
+          "\t\t\t\t\t\t       key",
+          " seclabel"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\t#endif\treturn __encap_and__with_nodeidctx",
+          " tunnel->ip4",
+          " seclabel",
+          "\t\t\t\t\t\tNOT_VTEP_DST",
+          " trace"
+        ]
+      }
+    ],
+    "map_lookup_elem": [
+      {
+        "opVar": "\ttunnel ",
+        "inpVar": [
+          " &TUNNEL_MAP",
+          " k"
+        ]
+      }
+    ]
+  },
   "startLine": 244,
   "endLine": 264,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
@@ -916,10 +1031,10 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
     "lwt_xmit",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -939,13 +1054,13 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "    return __encap_and_redirect_with_nodeid (ctx, tunnel->ip4, seclabel, NOT_VTEP_DST, trace);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "get_min_encrypt_key",
-    "__encap_and_redirect_with_nodeid",
-    "encap_and_redirect_nomark_ipsec"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

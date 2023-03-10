@@ -17,29 +17,7 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 17,
   "endLine": 100,
@@ -53,13 +31,31 @@
     " struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv6_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, struct trace_ctx *trace)\n",
@@ -120,21 +116,13 @@
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "send_policy_verdict_notify",
-    "ipv6_addr_copy",
-    "ipv6_hdrlen",
-    "cilium_dbg",
-    "IS_ERR",
-    "lookup_ip6_remote_endpoint",
-    "policy_can_egress6",
-    "ct_lookup6",
-    "ct_create6",
-    "get_ct_map6",
-    "revalidate_data"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -237,29 +225,7 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 102,
   "endLine": 199,
@@ -273,13 +239,31 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     " struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv6_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)\n",
@@ -345,22 +329,13 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_change_type",
-    "policy_can_access_ingress",
-    "send_policy_verdict_notify",
-    "ipv6_addr_copy",
-    "cilium_dbg",
-    "ipv6_hdrlen",
-    "IS_ERR",
-    "lookup_ip6_remote_endpoint",
-    "ct_lookup6",
-    "ct_create6",
-    "get_ct_map6",
-    "revalidate_data"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -480,29 +455,7 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 204,
   "endLine": 249,
@@ -516,13 +469,31 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     " struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int whitelist_snated_egress_connections (struct  __ctx_buff *ctx, __u32 ipcache_srcid, struct trace_ctx *trace)\n",
@@ -553,16 +524,13 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ct_lookup4",
-    "IS_ERR",
-    "ipv4_hdrlen",
-    "get_ct_map4",
-    "revalidate_data",
-    "ct_create4"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -628,29 +596,7 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 252,
   "endLine": 337,
@@ -665,13 +611,31 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     " struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv4_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 ipcache_srcid __maybe_unused, struct trace_ctx *trace)\n",
@@ -735,21 +699,13 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ct_lookup4",
-    "send_policy_verdict_notify",
-    "cilium_dbg",
-    "IS_ERR",
-    "policy_can_egress4",
-    "ipv4_hdrlen",
-    "lookup_ip4_remote_endpoint",
-    "get_ct_map4",
-    "revalidate_data",
-    "whitelist_snated_egress_connections",
-    "ct_create4"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -854,29 +810,7 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 339,
   "endLine": 439,
@@ -890,13 +824,31 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     " struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv4_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)\n",
@@ -963,22 +915,13 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_change_type",
-    "policy_can_access_ingress",
-    "ct_lookup4",
-    "send_policy_verdict_notify",
-    "cilium_dbg",
-    "IS_ERR",
-    "ipv4_is_fragment",
-    "ipv4_hdrlen",
-    "lookup_ip4_remote_endpoint",
-    "get_ct_map4",
-    "revalidate_data",
-    "ct_create4"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

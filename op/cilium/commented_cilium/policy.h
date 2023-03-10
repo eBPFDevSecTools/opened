@@ -17,27 +17,6 @@
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -49,40 +28,43 @@
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      }
+    ]
+  },
   "startLine": 15,
   "endLine": 79,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
@@ -98,13 +80,32 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int policy_sk_egress (__u32 identity, __u32 ip, __u16 dport)\n",
@@ -158,14 +159,13 @@
     "    return DROP_POLICY;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "__sync_fetch_and_add",
-    "lookup_ip4_endpoint_policy_map",
-    "unlikely",
-    "likely"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -264,29 +264,29 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline void account (struct  __ctx_buff *ctx, struct policy_entry *policy)\n",
@@ -295,12 +295,13 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
     "    __sync_fetch_and_add (&policy->bytes, ctx_full_len (ctx));\n",
     "}\n"
   ],
-  "called_function_list": [
-    "__sync_fetch_and_add",
-    "ctx_full_len"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -328,27 +329,6 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -360,40 +340,43 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "map_lookup_elem": [
+      {
+        "opVar": "\t\t\t\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\t\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      },
+      {
+        "opVar": "\tpolicy ",
+        "inpVar": [
+          " map",
+          " &key"
+        ]
+      }
+    ]
+  },
   "startLine": 89,
   "endLine": 222,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
@@ -415,13 +398,32 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int __policy_can_access (const void *map, struct  __ctx_buff *ctx, __u32 local_id, __u32 remote_id, __u16 dport, __u8 proto, int dir, bool is_untracked_fragment, __u8 *match_type)\n",
@@ -526,19 +528,13 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
     "    return DROP_POLICY;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "cilium_dbg3",
-    "account",
-    "unlikely",
-    "ipv6_hdrlen",
-    "ipv4_hdrlen",
-    "ctx_load_bytes",
-    "ctx_load_meta",
-    "revalidate_data",
-    "likely"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -707,29 +703,7 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 240,
   "endLine": 264,
@@ -748,13 +722,31 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
     " __u8 *audited"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int policy_can_access_ingress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, bool is_untracked_fragment, __u8 *match_type, __u8 *audited)\n",
@@ -776,13 +768,13 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
     "    return ret;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "cilium_dbg",
-    "__policy_can_access",
-    "IS_ERR"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -842,29 +834,29 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline bool is_encap (__u16 dport, __u8 proto)\n",
@@ -872,11 +864,13 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
     "    return proto == IPPROTO_UDP && dport == bpf_htons (TUNNEL_PORT);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "bpf_htons"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -900,29 +894,7 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 273,
   "endLine": 296,
@@ -940,13 +912,31 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
     " __u8 *audited"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "CTX_ACT_OK"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
     "xdp",
-    "sched_cls"
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
+    "perf_event",
+    "sk_msg",
+    "cgroup_sock",
+    "kprobe",
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int policy_can_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 dst_id, __u16 dport, __u8 proto, __u8 *match_type, __u8 *audited)\n",
@@ -974,14 +964,13 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
     "    return ret;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "is_encap",
-    "cilium_dbg",
-    "__policy_can_access",
-    "IS_ERR"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1043,29 +1032,29 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int policy_can_egress6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)\n",
@@ -1073,11 +1062,13 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
     "    return policy_can_egress (ctx, src_id, dst_id, tuple->dport, tuple->nexthdr, match_type, audited);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "policy_can_egress"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1123,29 +1114,29 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int policy_can_egress4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)\n",
@@ -1153,11 +1144,13 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
     "    return policy_can_egress (ctx, src_id, dst_id, tuple->dport, tuple->nexthdr, match_type, audited);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "policy_can_egress"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1205,29 +1198,29 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline void policy_mark_skip (struct  __ctx_buff *ctx)\n",
@@ -1235,11 +1228,13 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
     "    ctx_store_meta (ctx, CB_POLICY, 1);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_store_meta"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -1276,29 +1271,29 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "cgroup_device",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline void policy_clear_mark (struct  __ctx_buff *ctx)\n",
@@ -1306,11 +1301,13 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
     "    ctx_store_meta (ctx, CB_POLICY, 0);\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_store_meta"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

@@ -25,38 +25,21 @@
           "Function Name": "get_smp_processor_id",
           "Input Params": [
             "{Type: voi ,Var: void}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "get_smp_processor_id": [
+      {
+        "opVar": "#ifndef HAVE_LARGE_INSN_LIMIT       volatile int __maybe_unused id ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ]
+  },
   "startLine": 13,
   "endLine": 18,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h",
@@ -72,26 +55,26 @@
   ],
   "compatibleHookpoints": [
     "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
     "flow_dissector",
+    "lwt_out",
+    "raw_tracepoint",
+    "cgroup_sock_addr",
+    "lwt_in",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sk_reuseport",
+    "xdp",
+    "raw_tracepoint_writable",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "tracepoint",
     "perf_event",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "lwt_out",
+    "cgroup_sock",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "sched_act"
   ],
   "source": [
     "static __always_inline void relax_verifier (void)\n",
@@ -103,9 +86,13 @@
     "#endif\n",
     "}\n"
   ],
-  "called_function_list": [],
-  "call_depth": 0,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

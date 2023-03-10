@@ -16,27 +16,6 @@
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -49,14 +28,6 @@
             "{Type:  struct fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
           ]
         },
         {
@@ -69,20 +40,59 @@
             "{Type:  struct bpf_fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_direct_v6struct __ctx_buff *ctx __maybe_unused",
+          "\t\t   int l3_off __maybe_unused",
+          "\t\t   struct ipv6hdr *ip6 __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif no_neigh\t\treturn _neighoif",
+          " nh",
+          " nh ? sizeof*nh : 0",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " oif",
+          " 0"
+        ]
+      }
+    ],
+    "bpf_fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup fib_params ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ],
+    "fib_lookup": [
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params",
+          " sizeoffib_params",
+          "\t\t\t BPF_FIB_LOOKUP_DIRECT"
+        ]
+      }
+    ]
+  },
   "startLine": 14,
   "endLine": 66,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
@@ -96,15 +106,14 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
     "redirect",
     "fib_lookup",
     "bpf_fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int redirect_direct_v6 (struct  __ctx_buff * ctx __maybe_unused, int l3_off __maybe_unused, struct ipv6hdr * ip6 __maybe_unused)\n",
@@ -154,19 +163,13 @@
     "    return CTX_ACT_DROP;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_redirect",
-    "eth_store_daddr",
-    "unlikely",
-    "ipv6_addr_copy",
-    "redirect_neigh",
-    "eth_store_saddr",
-    "ipv6_l3",
-    "is_defined",
-    "__bpf_memcpy_builtin"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [
@@ -242,27 +245,6 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -275,14 +257,6 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
             "{Type:  struct fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
           ]
         },
         {
@@ -295,20 +269,59 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
             "{Type:  struct bpf_fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "redirect": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "_direct_v4struct __ctx_buff *ctx __maybe_unused",
+          "\t\t   int l3_off __maybe_unused",
+          "\t\t   struct iphdr *ip4 __maybe_unused"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\tif no_neigh\t\treturn _neighoif",
+          " nh",
+          " nh ? sizeof*nh : 0",
+          " 0"
+        ]
+      },
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "\treturn ctx_ctx",
+          " oif",
+          " 0"
+        ]
+      }
+    ],
+    "bpf_fib_lookup": [
+      {
+        "opVar": "\tstruct bpf_fib_lookup fib_params ",
+        "inpVar": [
+          " "
+        ]
+      }
+    ],
+    "fib_lookup": [
+      {
+        "opVar": "\tret ",
+        "inpVar": [
+          " ctx",
+          " &fib_params",
+          " sizeoffib_params",
+          "\t\t\t BPF_FIB_LOOKUP_DIRECT"
+        ]
+      }
+    ]
+  },
   "startLine": 70,
   "endLine": 126,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
@@ -322,15 +335,14 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
     "redirect",
     "fib_lookup",
     "bpf_fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "sched_act",
-    "xdp",
-    "sched_cls"
+    "xdp"
   ],
   "source": [
     "static __always_inline int redirect_direct_v4 (struct  __ctx_buff * ctx __maybe_unused, int l3_off __maybe_unused, struct iphdr * ip4 __maybe_unused)\n",
@@ -380,18 +392,13 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
     "    return CTX_ACT_DROP;\n",
     "}\n"
   ],
-  "called_function_list": [
-    "ctx_redirect",
-    "eth_store_daddr",
-    "unlikely",
-    "redirect_neigh",
-    "eth_store_saddr",
-    "is_defined",
-    "__bpf_memcpy_builtin",
-    "ipv4_l3"
-  ],
-  "call_depth": -1,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     null
   ],
   "AI_func_description": [

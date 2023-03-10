@@ -22,27 +22,6 @@ __attribute__((section("socket_filter"), used))
       "capability": "update_pkt",
       "update_pkt": [
         {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Grows headroom of packet associated to <[ skb ]>(IP: 0) and adjusts the offset of the MAC header accordingly , adding <[ len ]>(IP: 1) bytes of space. It automatically extends and reallocates memory as required. This helper can be used on a layer 3 <[ skb ]>(IP: 0) to push a MAC header for redirection into a layer 2 device. All values for <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "skb_change_head",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: len}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit",
-            "sk_skb"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        },
-        {
           "Project": "libbpf",
           "Return Type": "int",
           "Description": "Grows headroom of packet associated to <[ skb ]>(IP: 0) and adjusts the offset of the MAC header accordingly , adding <[ len ]>(IP: 1) bytes of space. It automatically extends and reallocates memory as required. This helper can be used on a layer 3 <[ skb ]>(IP: 0) to push a MAC header for redirection into a layer 2 device. All values for <[ flags ]>(IP: 2) are reserved for future usage , and must be left at zero. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
@@ -52,21 +31,23 @@ __attribute__((section("socket_filter"), used))
             "{Type: struct sk_buff ,Var: *skb}",
             "{Type:  u32 ,Var: len}",
             "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit",
-            "sk_skb"
-          ],
-          "capabilities": [
-            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {},
+  "helperCallParams": {
+    "bpf_skb_change_head": [
+      {
+        "opVar": "NA",
+        "inpVar": [
+          "    ctx",
+          " 4",
+          " 0"
+        ]
+      }
+    ]
+  },
   "startLine": 17,
   "endLine": 34,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
@@ -78,14 +59,13 @@ __attribute__((section("socket_filter"), used))
   ],
   "output": "int",
   "helper": [
-    "skb_change_head",
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sk_skb",
     "sched_cls",
-    "lwt_xmit"
+    "lwt_xmit",
+    "sk_skb",
+    "sched_act"
   ],
   "source": [
     "int reallocate_invalidates (struct sk_buff *ctx)\n",
@@ -102,9 +82,13 @@ __attribute__((section("socket_filter"), used))
     "    return 0;\n",
     "}\n"
   ],
-  "called_function_list": [],
-  "call_depth": 0,
   "humanFuncDescription": [
+    {
+      "description": "",
+      "author": "",
+      "authorEmail": "",
+      "date": ""
+    },
     {}
   ],
   "AI_func_description": [
