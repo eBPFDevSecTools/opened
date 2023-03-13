@@ -75,8 +75,8 @@ __section("from-network")
     "CTX_ACT_REDIRECT"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -113,9 +113,9 @@ __section("from-network")
   ],
   "called_function_list": [
     "do_decrypt",
-    "send_trace_notify",
     "bpf_clear_meta",
-    "validate_ethertype"
+    "validate_ethertype",
+    "send_trace_notify"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

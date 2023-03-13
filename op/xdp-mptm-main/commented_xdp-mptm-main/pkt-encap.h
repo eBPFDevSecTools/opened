@@ -53,29 +53,29 @@
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
+    "sk_msg",
+    "cgroup_skb",
+    "sched_cls",
+    "sk_skb",
+    "tracepoint",
+    "kprobe",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "socket_filter",
     "raw_tracepoint_writable",
     "lwt_out",
-    "lwt_xmit",
     "lwt_in",
-    "cgroup_skb",
-    "perf_event",
+    "cgroup_device",
     "flow_dissector",
+    "perf_event",
+    "xdp",
     "cgroup_sock_addr",
     "raw_tracepoint",
-    "sk_msg",
-    "socket_filter",
-    "tracepoint",
-    "sk_skb",
-    "cgroup_device",
-    "cgroup_sock",
-    "sk_reuseport",
-    "kprobe",
     "lwt_seg6local",
-    "sched_act",
-    "cgroup_sysctl",
-    "xdp",
     "sock_ops",
-    "sched_cls"
+    "lwt_xmit",
+    "sched_act"
   ],
   "source": [
     "static __ALWAYS_INLINE__ void set_dst_mac (void *data, unsigned char *dst_mac)\n",
@@ -132,29 +132,29 @@ static __ALWAYS_INLINE__ void set_dst_mac(void *data, unsigned char *dst_mac)
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
+    "sk_msg",
+    "cgroup_skb",
+    "sched_cls",
+    "sk_skb",
+    "tracepoint",
+    "kprobe",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "socket_filter",
     "raw_tracepoint_writable",
     "lwt_out",
-    "lwt_xmit",
     "lwt_in",
-    "cgroup_skb",
-    "perf_event",
+    "cgroup_device",
     "flow_dissector",
+    "perf_event",
+    "xdp",
     "cgroup_sock_addr",
     "raw_tracepoint",
-    "sk_msg",
-    "socket_filter",
-    "tracepoint",
-    "sk_skb",
-    "cgroup_device",
-    "cgroup_sock",
-    "sk_reuseport",
-    "kprobe",
     "lwt_seg6local",
-    "sched_act",
-    "cgroup_sysctl",
-    "xdp",
     "sock_ops",
-    "sched_cls"
+    "lwt_xmit",
+    "sched_act"
   ],
   "source": [
     "static __ALWAYS_INLINE__ void set_src_mac (void *data, unsigned char *src_mac)\n",
@@ -210,29 +210,29 @@ static __ALWAYS_INLINE__ void set_src_mac(void *data, unsigned char *src_mac)
   "output": "static__ALWAYS_INLINE____u16",
   "helper": [],
   "compatibleHookpoints": [
+    "sk_msg",
+    "cgroup_skb",
+    "sched_cls",
+    "sk_skb",
+    "tracepoint",
+    "kprobe",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "socket_filter",
     "raw_tracepoint_writable",
     "lwt_out",
-    "lwt_xmit",
     "lwt_in",
-    "cgroup_skb",
-    "perf_event",
+    "cgroup_device",
     "flow_dissector",
+    "perf_event",
+    "xdp",
     "cgroup_sock_addr",
     "raw_tracepoint",
-    "sk_msg",
-    "socket_filter",
-    "tracepoint",
-    "sk_skb",
-    "cgroup_device",
-    "cgroup_sock",
-    "sk_reuseport",
-    "kprobe",
     "lwt_seg6local",
-    "sched_act",
-    "cgroup_sysctl",
-    "xdp",
     "sock_ops",
-    "sched_cls"
+    "lwt_xmit",
+    "sched_act"
   ],
   "source": [
     "static __ALWAYS_INLINE__ __u16 csum_fold_helper (__u64 csum)\n",
@@ -293,29 +293,29 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
+    "sk_msg",
+    "cgroup_skb",
+    "sched_cls",
+    "sk_skb",
+    "tracepoint",
+    "kprobe",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "socket_filter",
     "raw_tracepoint_writable",
     "lwt_out",
-    "lwt_xmit",
     "lwt_in",
-    "cgroup_skb",
-    "perf_event",
+    "cgroup_device",
     "flow_dissector",
+    "perf_event",
+    "xdp",
     "cgroup_sock_addr",
     "raw_tracepoint",
-    "sk_msg",
-    "socket_filter",
-    "tracepoint",
-    "sk_skb",
-    "cgroup_device",
-    "cgroup_sock",
-    "sk_reuseport",
-    "kprobe",
     "lwt_seg6local",
-    "sched_act",
-    "cgroup_sysctl",
-    "xdp",
     "sock_ops",
-    "sched_cls"
+    "lwt_xmit",
+    "sched_act"
   ],
   "source": [
     "static __ALWAYS_INLINE__ void ipv4_csum_inline (void *iph, __u64 *csum)\n",
@@ -330,8 +330,8 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
     "}\n"
   ],
   "called_function_list": [
-    "unroll",
-    "csum_fold_helper"
+    "csum_fold_helper",
+    "unroll"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -367,41 +367,8 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        },
         {
           "Project": "libbpf",
           "Return Type": "int",
@@ -415,29 +382,26 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
           "capabilities": [
             "pkt_stop_processing_drop_packet"
           ]
+        },
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
         }
       ]
     },
     {
       "capability": "update_pkt",
       "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ],
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        },
         {
           "Project": "libbpf",
           "Return Type": "int",
@@ -453,6 +417,25 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
           ],
           "capabilities": [
             "update_pkt"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -472,11 +455,10 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   ],
   "output": "static__ALWAYS_INLINE__int",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP",
     "XDP_ABORTED",
-    "xdp_adjust_head",
-    "bpf_xdp_adjust_head"
+    "bpf_xdp_adjust_head",
+    "XDP_PASS",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -564,9 +546,9 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   ],
   "called_function_list": [
     "__builtin_memset",
-    "set_src_mac",
-    "mptm_print",
     "set_dst_mac",
+    "mptm_print",
+    "set_src_mac",
     "bpf_htons",
     "ipv4_csum_inline"
   ],
@@ -717,29 +699,29 @@ static __ALWAYS_INLINE__ int __encap_geneve(struct xdp_md *ctx,
   "output": "static__ALWAYS_INLINE__int",
   "helper": [],
   "compatibleHookpoints": [
+    "sk_msg",
+    "cgroup_skb",
+    "sched_cls",
+    "sk_skb",
+    "tracepoint",
+    "kprobe",
+    "cgroup_sock",
+    "cgroup_sysctl",
+    "sk_reuseport",
+    "socket_filter",
     "raw_tracepoint_writable",
     "lwt_out",
-    "lwt_xmit",
     "lwt_in",
-    "cgroup_skb",
-    "perf_event",
+    "cgroup_device",
     "flow_dissector",
+    "perf_event",
+    "xdp",
     "cgroup_sock_addr",
     "raw_tracepoint",
-    "sk_msg",
-    "socket_filter",
-    "tracepoint",
-    "sk_skb",
-    "cgroup_device",
-    "cgroup_sock",
-    "sk_reuseport",
-    "kprobe",
     "lwt_seg6local",
-    "sched_act",
-    "cgroup_sysctl",
-    "xdp",
     "sock_ops",
-    "sched_cls"
+    "lwt_xmit",
+    "sched_act"
   ],
   "source": [
     "static __ALWAYS_INLINE__ int encap_geneve (struct xdp_md *ctx, struct ethhdr *eth, mptm_tunnel_info *tn)\n",
@@ -781,25 +763,6 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -814,6 +777,25 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
           ],
           "capabilities": [
             "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -833,8 +815,8 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
   ],
   "output": "static__ALWAYS_INLINE__int",
   "helper": [
-    "XDP_PASS",
-    "XDP_ABORTED"
+    "XDP_ABORTED",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"

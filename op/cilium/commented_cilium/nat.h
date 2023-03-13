@@ -67,29 +67,29 @@ struct nat_entry {
   "output": "static__always_inline__be16",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __be16 __snat_clamp_port_range (__u16 start, __u16 end, __u16 val)\n",
@@ -123,49 +123,7 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "cilium",
-          "Return Type": "u32",
-          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
-          "Return": " A random 32-bit unsigned value.",
-          "Function Name": "get_prandom_u32",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 57,
   "endLine": 62,
@@ -183,27 +141,27 @@ static __always_inline __be16 __snat_clamp_port_range(__u16 start, __u16 end,
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "raw_tracepoint",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_skb",
+    "socket_filter",
     "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
+    "kprobe",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline __maybe_unused __be16 __snat_try_keep_port (__u16 start, __u16 end, __u16 val)\n",
@@ -304,29 +262,29 @@ __snat_try_keep_port(__u16 start, __u16 end, __u16 val)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused void *__snat_lookup (const void *map, const void *tuple)\n",
@@ -404,45 +362,6 @@ __snat_lookup(const void *map, const void *tuple)
           "capabilities": [
             "map_update"
           ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "map_delete_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
         }
       ]
     }
@@ -469,29 +388,29 @@ __snat_lookup(const void *map, const void *tuple)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused int __snat_update (const void *map, const void *otuple, const void *ostate, const void *rtuple, const void *rstate)\n",
@@ -541,52 +460,7 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "map_update",
-      "map_update": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "map_delete_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 85,
   "endLine": 90,
@@ -606,29 +480,29 @@ __snat_update(const void *map, const void *otuple, const void *ostate,
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused void __snat_delete (const void *map, const void *otuple, const void *rtuple)\n",
@@ -722,29 +596,29 @@ struct {
   "output": "static__always_inlinestructipv4_nat_entry",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline struct ipv4_nat_entry *snat_v4_lookup (const struct ipv4_ct_tuple *tuple)\n",
@@ -797,29 +671,29 @@ struct ipv4_nat_entry *snat_v4_lookup(const struct ipv4_ct_tuple *tuple)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v4_update (const struct ipv4_ct_tuple *otuple, const struct ipv4_nat_entry *ostate, const struct ipv4_ct_tuple *rtuple, const struct ipv4_nat_entry *rstate)\n",
@@ -873,29 +747,29 @@ static __always_inline int snat_v4_update(const struct ipv4_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v4_delete (const struct ipv4_ct_tuple *otuple, const struct ipv4_ct_tuple *rtuple)\n",
@@ -946,29 +820,29 @@ static __always_inline void snat_v4_delete(const struct ipv4_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v4_swap_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)\n",
@@ -1032,29 +906,29 @@ static __always_inline void snat_v4_swap_tuple(const struct ipv4_ct_tuple *otupl
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v4_reverse_tuple (const struct ipv4_ct_tuple *otuple, struct ipv4_ct_tuple *rtuple)\n",
@@ -1070,8 +944,8 @@ static __always_inline void snat_v4_swap_tuple(const struct ipv4_ct_tuple *otupl
     "}\n"
   ],
   "called_function_list": [
-    "snat_v4_swap_tuple",
-    "snat_v4_lookup"
+    "snat_v4_lookup",
+    "snat_v4_swap_tuple"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1121,29 +995,29 @@ static __always_inline int snat_v4_reverse_tuple(const struct ipv4_ct_tuple *otu
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v4_ct_canonicalize (struct ipv4_ct_tuple *otuple)\n",
@@ -1198,29 +1072,29 @@ static __always_inline void snat_v4_ct_canonicalize(struct ipv4_ct_tuple *otuple
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v4_delete_tuples (struct ipv4_ct_tuple *otuple)\n",
@@ -1268,49 +1142,7 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "cilium",
-          "Return Type": "u32",
-          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
-          "Return": " A random 32-bit unsigned value.",
-          "Function Name": "get_prandom_u32",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 206,
   "endLine": 258,
@@ -1330,11 +1162,11 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "kprobe",
     "raw_tracepoint",
+    "tracepoint",
     "perf_event",
-    "raw_tracepoint_writable"
+    "raw_tracepoint_writable",
+    "kprobe"
   ],
   "source": [
     "static __always_inline int snat_v4_new_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *otuple, struct ipv4_nat_entry *ostate, const struct ipv4_nat_target *target)\n",
@@ -1375,16 +1207,16 @@ static __always_inline void snat_v4_delete_tuples(struct ipv4_ct_tuple *otuple)
     "}\n"
   ],
   "called_function_list": [
-    "snat_v4_swap_tuple",
     "snat_v4_update",
-    "__snat_try_keep_port",
     "__snat_clamp_port_range",
-    "bpf_htons",
-    "bpf_mono_now",
-    "bpf_ntohs",
-    "memset",
+    "__snat_try_keep_port",
     "send_signal_nat_fill_up",
-    "snat_v4_lookup"
+    "snat_v4_swap_tuple",
+    "bpf_mono_now",
+    "bpf_htons",
+    "bpf_ntohs",
+    "snat_v4_lookup",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1478,29 +1310,29 @@ static __always_inline int snat_v4_new_mapping(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v4_track_local (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, const struct ipv4_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)\n",
@@ -1536,12 +1368,12 @@ static __always_inline int snat_v4_new_mapping(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "get_ct_map4",
     "ct_lookup4",
-    "IS_ERR",
+    "ct_create4",
     "memcpy",
-    "memset",
-    "ct_create4"
+    "IS_ERR",
+    "get_ct_map4",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1623,29 +1455,29 @@ static __always_inline int snat_v4_track_local(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v4_handle_mapping (struct  __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, struct ipv4_nat_entry **state, struct ipv4_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv4_nat_target *target)\n",
@@ -1664,9 +1496,9 @@ static __always_inline int snat_v4_track_local(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "snat_v4_new_mapping",
     "snat_v4_track_local",
     "snat_v4_lookup",
+    "snat_v4_new_mapping",
     "bpf_ntohs"
   ],
   "call_depth": -1,
@@ -1742,33 +1574,6 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
           ]
         }
       ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l3_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: size}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -1787,12 +1592,15 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l3_csum_replace"
+    "csum_diff"
   ],
   "compatibleHookpoints": [
+    "xdp",
     "sched_act",
+    "lwt_out",
+    "lwt_seg6local",
     "lwt_xmit",
+    "lwt_in",
     "sched_cls"
   ],
   "source": [
@@ -1842,11 +1650,11 @@ static __always_inline int snat_v4_handle_mapping(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_bytes",
-    "offsetof",
-    "csum_l4_offset_and_flags",
     "csum_l4_replace",
-    "l4_modify_port"
+    "l4_modify_port",
+    "ctx_store_bytes",
+    "csum_l4_offset_and_flags",
+    "offsetof"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1956,33 +1764,6 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
           ]
         }
       ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Recompute the layer 3 (e. g. IP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored in size. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and <[ size ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l3_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: size}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -2000,12 +1781,15 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l3_csum_replace"
+    "csum_diff"
   ],
   "compatibleHookpoints": [
+    "xdp",
     "sched_act",
+    "lwt_out",
+    "lwt_seg6local",
     "lwt_xmit",
+    "lwt_in",
     "sched_cls"
   ],
   "source": [
@@ -2053,11 +1837,11 @@ static __always_inline int snat_v4_rewrite_egress(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_bytes",
-    "offsetof",
-    "csum_l4_offset_and_flags",
     "csum_l4_replace",
-    "l4_modify_port"
+    "l4_modify_port",
+    "ctx_store_bytes",
+    "csum_l4_offset_and_flags",
+    "offsetof"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2151,29 +1935,29 @@ static __always_inline int snat_v4_rewrite_ingress(struct __ctx_buff *ctx,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline bool snat_v4_can_skip (const struct ipv4_nat_target *target, const struct ipv4_ct_tuple *tuple, enum nat_dir dir, bool from_endpoint, bool icmp_echoreply)\n",
@@ -2227,27 +2011,6 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_update",
       "map_update": [
         {
@@ -2292,6 +2055,27 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -2310,12 +2094,12 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
   ],
   "output": "static__always_inline__maybe_unusedint",
   "helper": [
-    "CTX_ACT_OK",
-    "map_update_elem"
+    "map_update_elem",
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -2363,11 +2147,11 @@ snat_v4_can_skip(const struct ipv4_nat_target *target,
     "}\n"
   ],
   "called_function_list": [
-    "build_bug_on",
+    "revalidate_data",
     "ipv4_hdrlen",
-    "ctx_load_bytes",
+    "build_bug_on",
     "bpf_mono_now",
-    "revalidate_data"
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2482,8 +2266,8 @@ static __always_inline __maybe_unused int snat_v4_create_dsr(struct __ctx_buff *
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -2548,15 +2332,15 @@ static __always_inline __maybe_unused int snat_v4_create_dsr(struct __ctx_buff *
     "}\n"
   ],
   "called_function_list": [
+    "revalidate_data",
+    "snat_v4_can_skip",
+    "ipv4_hdrlen",
+    "snat_v4_rewrite_egress",
     "snat_v4_handle_mapping",
     "build_bug_on",
-    "snat_v4_can_skip",
     "snat_v4_rewrite_ingress",
     "ipv4_has_l4_header",
-    "ipv4_hdrlen",
-    "ctx_load_bytes",
-    "snat_v4_rewrite_egress",
-    "revalidate_data"
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2685,8 +2469,8 @@ snat_v4_process(struct __ctx_buff *ctx, enum nat_dir dir,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -2696,15 +2480,15 @@ snat_v4_process(struct __ctx_buff *ctx, enum nat_dir dir,
     "}\n"
   ],
   "called_function_list": [
+    "revalidate_data",
+    "snat_v4_can_skip",
+    "ipv4_hdrlen",
+    "snat_v4_rewrite_egress",
     "snat_v4_handle_mapping",
     "build_bug_on",
-    "snat_v4_can_skip",
     "snat_v4_rewrite_ingress",
     "ipv4_has_l4_header",
-    "ipv4_hdrlen",
-    "ctx_load_bytes",
-    "snat_v4_rewrite_egress",
-    "revalidate_data"
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2748,29 +2532,29 @@ int snat_v4_process(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused void snat_v4_delete_tuples (struct ipv4_ct_tuple * tuple __maybe_unused)\n",
@@ -2854,29 +2638,29 @@ struct {
   "output": "static__always_inlinestructipv6_nat_entry",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline struct ipv6_nat_entry *snat_v6_lookup (struct ipv6_ct_tuple *tuple)\n",
@@ -2929,29 +2713,29 @@ struct ipv6_nat_entry *snat_v6_lookup(struct ipv6_ct_tuple *tuple)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v6_update (struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, struct ipv6_ct_tuple *rtuple, struct ipv6_nat_entry *rstate)\n",
@@ -3005,29 +2789,29 @@ static __always_inline int snat_v6_update(struct ipv6_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v6_delete (const struct ipv6_ct_tuple *otuple, const struct ipv6_ct_tuple *rtuple)\n",
@@ -3078,29 +2862,29 @@ static __always_inline void snat_v6_delete(const struct ipv6_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v6_swap_tuple (const struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)\n",
@@ -3164,29 +2948,29 @@ static __always_inline void snat_v6_swap_tuple(const struct ipv6_ct_tuple *otupl
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v6_reverse_tuple (struct ipv6_ct_tuple *otuple, struct ipv6_ct_tuple *rtuple)\n",
@@ -3253,29 +3037,29 @@ static __always_inline int snat_v6_reverse_tuple(struct ipv6_ct_tuple *otuple,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v6_ct_canonicalize (struct ipv6_ct_tuple *otuple)\n",
@@ -3335,29 +3119,29 @@ static __always_inline void snat_v6_ct_canonicalize(struct ipv6_ct_tuple *otuple
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void snat_v6_delete_tuples (struct ipv6_ct_tuple *otuple)\n",
@@ -3372,8 +3156,8 @@ static __always_inline void snat_v6_ct_canonicalize(struct ipv6_ct_tuple *otuple
   ],
   "called_function_list": [
     "snat_v6_ct_canonicalize",
-    "snat_v6_delete",
-    "snat_v6_reverse_tuple"
+    "snat_v6_reverse_tuple",
+    "snat_v6_delete"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3405,49 +3189,7 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "cilium",
-          "Return Type": "u32",
-          "Description": "Get a pseudo-random number. From a security point of view , this helper uses its own pseudo-random internal state , and cannot be used to infer the seed of other random functions in the kernel. However , it is essential to note that the generator used by the helper is not cryptographically secure. ",
-          "Return": " A random 32-bit unsigned value.",
-          "Function Name": "get_prandom_u32",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 693,
   "endLine": 745,
@@ -3467,11 +3209,11 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "tracepoint",
-    "kprobe",
     "raw_tracepoint",
+    "tracepoint",
     "perf_event",
-    "raw_tracepoint_writable"
+    "raw_tracepoint_writable",
+    "kprobe"
   ],
   "source": [
     "static __always_inline int snat_v6_new_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *otuple, struct ipv6_nat_entry *ostate, const struct ipv6_nat_target *target)\n",
@@ -3512,17 +3254,17 @@ static __always_inline void snat_v6_delete_tuples(struct ipv6_ct_tuple *otuple)
     "}\n"
   ],
   "called_function_list": [
-    "snat_v6_lookup",
-    "ipv6_addrcmp",
-    "send_signal_nat_fill_up",
     "snat_v6_swap_tuple",
+    "snat_v6_lookup",
     "__snat_try_keep_port",
-    "__snat_clamp_port_range",
-    "bpf_htons",
+    "send_signal_nat_fill_up",
+    "ipv6_addrcmp",
+    "snat_v6_update",
     "bpf_mono_now",
+    "bpf_htons",
     "bpf_ntohs",
-    "memset",
-    "snat_v6_update"
+    "__snat_clamp_port_range",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3616,29 +3358,29 @@ static __always_inline int snat_v6_new_mapping(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v6_track_local (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, const struct ipv6_nat_entry *state, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)\n",
@@ -3673,13 +3415,13 @@ static __always_inline int snat_v6_new_mapping(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
+    "memcpy",
     "ipv6_addrcmp",
     "IS_ERR",
     "ct_lookup6",
-    "memcpy",
+    "get_ct_map6",
     "ct_create6",
-    "memset",
-    "get_ct_map6"
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3760,29 +3502,29 @@ static __always_inline int snat_v6_track_local(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int snat_v6_handle_mapping (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry **state, struct ipv6_nat_entry *tmp, enum nat_dir dir, __u32 off, const struct ipv6_nat_target *target)\n",
@@ -3802,8 +3544,8 @@ static __always_inline int snat_v6_track_local(struct __ctx_buff *ctx,
   ],
   "called_function_list": [
     "snat_v6_lookup",
-    "snat_v6_new_mapping",
     "snat_v6_track_local",
+    "snat_v6_new_mapping",
     "bpf_ntohs"
   ],
   "call_depth": -1,
@@ -3901,11 +3643,11 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
   "compatibleHookpoints": [
     "xdp",
     "sched_act",
+    "lwt_out",
     "lwt_seg6local",
-    "lwt_in",
-    "sched_cls",
     "lwt_xmit",
-    "lwt_out"
+    "lwt_in",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int snat_v6_rewrite_egress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)\n",
@@ -3946,12 +3688,12 @@ static __always_inline int snat_v6_handle_mapping(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addrcmp",
-    "ctx_store_bytes",
-    "offsetof",
-    "csum_l4_offset_and_flags",
     "csum_l4_replace",
-    "l4_modify_port"
+    "l4_modify_port",
+    "ctx_store_bytes",
+    "ipv6_addrcmp",
+    "csum_l4_offset_and_flags",
+    "offsetof"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4072,11 +3814,11 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
   "compatibleHookpoints": [
     "xdp",
     "sched_act",
+    "lwt_out",
     "lwt_seg6local",
-    "lwt_in",
-    "sched_cls",
     "lwt_xmit",
-    "lwt_out"
+    "lwt_in",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int snat_v6_rewrite_ingress (struct  __ctx_buff *ctx, struct ipv6_ct_tuple *tuple, struct ipv6_nat_entry *state, __u32 off)\n",
@@ -4117,12 +3859,12 @@ static __always_inline int snat_v6_rewrite_egress(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addrcmp",
-    "ctx_store_bytes",
-    "offsetof",
-    "csum_l4_offset_and_flags",
     "csum_l4_replace",
-    "l4_modify_port"
+    "l4_modify_port",
+    "ctx_store_bytes",
+    "ipv6_addrcmp",
+    "csum_l4_offset_and_flags",
+    "offsetof"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4209,29 +3951,29 @@ static __always_inline int snat_v6_rewrite_ingress(struct __ctx_buff *ctx,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline bool snat_v6_can_skip (const struct ipv6_nat_target *target, const struct ipv6_ct_tuple *tuple, enum nat_dir dir, bool icmp_echoreply)\n",
@@ -4284,27 +4026,6 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_update",
       "map_update": [
         {
@@ -4349,6 +4070,27 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -4367,12 +4109,12 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
   ],
   "output": "static__always_inline__maybe_unusedint",
   "helper": [
-    "CTX_ACT_OK",
-    "map_update_elem"
+    "map_update_elem",
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -4423,12 +4165,12 @@ snat_v6_can_skip(const struct ipv6_nat_target *target,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addr_copy",
-    "build_bug_on",
+    "revalidate_data",
     "ipv6_hdrlen",
-    "ctx_load_bytes",
+    "build_bug_on",
     "bpf_mono_now",
-    "revalidate_data"
+    "ipv6_addr_copy",
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4546,8 +4288,8 @@ static __always_inline __maybe_unused int snat_v6_create_dsr(struct __ctx_buff *
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -4619,15 +4361,15 @@ static __always_inline __maybe_unused int snat_v6_create_dsr(struct __ctx_buff *
     "}\n"
   ],
   "called_function_list": [
-    "snat_v6_can_skip",
-    "snat_v6_rewrite_ingress",
-    "ipv6_addr_copy",
-    "build_bug_on",
+    "revalidate_data",
     "ipv6_hdrlen",
-    "ctx_load_bytes",
     "snat_v6_handle_mapping",
     "snat_v6_rewrite_egress",
-    "revalidate_data"
+    "snat_v6_rewrite_ingress",
+    "build_bug_on",
+    "snat_v6_can_skip",
+    "ipv6_addr_copy",
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4765,8 +4507,8 @@ snat_v6_process(struct __ctx_buff *ctx, enum nat_dir dir,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -4776,15 +4518,15 @@ snat_v6_process(struct __ctx_buff *ctx, enum nat_dir dir,
     "}\n"
   ],
   "called_function_list": [
-    "snat_v6_can_skip",
-    "snat_v6_rewrite_ingress",
-    "ipv6_addr_copy",
-    "build_bug_on",
+    "revalidate_data",
     "ipv6_hdrlen",
-    "ctx_load_bytes",
     "snat_v6_handle_mapping",
     "snat_v6_rewrite_egress",
-    "revalidate_data"
+    "snat_v6_rewrite_ingress",
+    "build_bug_on",
+    "snat_v6_can_skip",
+    "ipv6_addr_copy",
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4827,29 +4569,29 @@ int snat_v6_process(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused void snat_v6_delete_tuples (struct ipv6_ct_tuple * tuple __maybe_unused)\n",
@@ -4858,8 +4600,8 @@ int snat_v6_process(struct __ctx_buff *ctx __maybe_unused,
   ],
   "called_function_list": [
     "snat_v6_ct_canonicalize",
-    "snat_v6_delete",
-    "snat_v6_reverse_tuple"
+    "snat_v6_reverse_tuple",
+    "snat_v6_delete"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4900,29 +4642,29 @@ void snat_v6_delete_tuples(struct ipv6_ct_tuple *tuple __maybe_unused)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline bool snat_v6_has_v4_match (const struct ipv4_ct_tuple * tuple4 __maybe_unused)\n",
@@ -4946,10 +4688,10 @@ void snat_v6_delete_tuples(struct ipv6_ct_tuple *tuple __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "memset",
     "snat_v6_lookup",
+    "defined",
     "build_v4_in_v6",
-    "defined"
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5056,29 +4798,29 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused void ct_delete4 (const void *map, struct ipv4_ct_tuple *tuple, struct  __ctx_buff *ctx)\n",
@@ -5092,8 +4834,8 @@ snat_v6_has_v4_match(const struct ipv4_ct_tuple *tuple4 __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "cilium_dbg",
-    "snat_v4_delete_tuples"
+    "snat_v4_delete_tuples",
+    "cilium_dbg"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5192,29 +4934,29 @@ ct_delete4(const void *map, struct ipv4_ct_tuple *tuple, struct __ctx_buff *ctx)
     "map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __maybe_unused void ct_delete6 (const void *map, struct ipv6_ct_tuple *tuple, struct  __ctx_buff *ctx)\n",

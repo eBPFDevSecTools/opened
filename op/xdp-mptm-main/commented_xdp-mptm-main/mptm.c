@@ -54,25 +54,6 @@ SEC("mptm_encap_xdp")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -113,44 +94,24 @@ SEC("mptm_encap_xdp")
           "capabilities": [
             "map_read"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
           "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
+            "xdp"
           ],
           "capabilities": [
-            "map_read"
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -170,13 +131,10 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
-    "redirect_map",
+    "bpf_redirect",
     "bpf_map_lookup_elem",
-    "redirect",
     "bpf_redirect_map",
-    "map_lookup_elem",
-    "bpf_redirect"
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -222,13 +180,13 @@ SEC("mptm_encap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "likely",
-    "xdp_stats_record_action",
     "parse_pkt_headers",
-    "encap_vlan",
     "mptm_print",
+    "encap_geneve",
     "bpf_debug",
-    "encap_geneve"
+    "xdp_stats_record_action",
+    "encap_vlan",
+    "likely"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -320,25 +278,6 @@ SEC("mptm_decap_xdp")
       ]
     },
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -379,68 +318,12 @@ SEC("mptm_decap_xdp")
           "capabilities": [
             "map_read"
           ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
         }
       ]
     },
     {
       "capability": "update_pkt",
       "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ],
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        },
         {
           "Project": "libbpf",
           "Return Type": "int",
@@ -456,6 +339,25 @@ SEC("mptm_decap_xdp")
           ],
           "capabilities": [
             "update_pkt"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -475,16 +377,12 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP",
-    "redirect_map",
-    "bpf_map_lookup_elem",
-    "xdp_adjust_head",
-    "redirect",
-    "bpf_xdp_adjust_head",
+    "bpf_redirect",
     "bpf_redirect_map",
-    "map_lookup_elem",
-    "bpf_redirect"
+    "XDP_PASS",
+    "bpf_map_lookup_elem",
+    "bpf_xdp_adjust_head",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -536,10 +434,10 @@ SEC("mptm_decap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "parse_pkt_headers",
     "mptm_print",
+    "xdp_stats_record_action",
     "unlikely",
-    "xdp_stats_record_action"
+    "parse_pkt_headers"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

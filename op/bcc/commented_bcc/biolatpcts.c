@@ -45,42 +45,6 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
           "capabilities": [
             "read_sys_info"
           ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "u64",
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": " Current ktime.",
-          "Function Name": "ktime_get_ns",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
         }
       ]
     }
@@ -97,33 +61,30 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   ],
   "output": "NA",
   "helper": [
-    "TRACEPOINT_PROBE",
-    "bpf_ktime_get_ns",
-    "RAW_TRACEPOINT_PROBE",
-    "ktime_get_ns"
+    "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock",
-    "lwt_in",
-    "sk_msg",
-    "xdp",
     "lwt_out",
-    "raw_tracepoint",
-    "sched_act",
-    "raw_tracepoint_writable",
-    "perf_event",
     "sk_reuseport",
-    "kprobe",
+    "sched_cls",
+    "sk_msg",
     "cgroup_sock_addr",
+    "xdp",
+    "lwt_in",
     "cgroup_skb",
-    "tracepoint",
+    "sched_act",
     "lwt_xmit",
+    "raw_tracepoint",
+    "flow_dissector",
+    "tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "perf_event",
     "lwt_seg6local",
     "sock_ops",
-    "socket_filter",
     "sk_skb",
-    "flow_dissector"
+    "kprobe",
+    "socket_filter"
   ],
   "source": [
     "RAW_TRACEPOINT_PROBE (block_rq_complete)\n",
@@ -149,9 +110,9 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "}\n"
   ],
   "called_function_list": [
+    "div_u64",
     "increment",
-    "min_t",
-    "div_u64"
+    "min_t"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

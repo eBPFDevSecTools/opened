@@ -29,95 +29,7 @@ struct ctx;
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "map_update",
-      "map_update": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "map_update_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}",
-            "{Type:  const void ,Var: *value}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        },
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_map_update_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}",
-            "{Type:  const void ,Var: *value}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 29,
   "endLine": 36,
@@ -131,34 +43,31 @@ struct ctx;
     "struct ctx *ctx"
   ],
   "output": "int",
-  "helper": [
-    "map_update_elem",
-    "bpf_map_update_elem"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "lwt_in",
-    "sk_msg",
-    "perf_event",
-    "cgroup_skb",
-    "lwt_xmit",
-    "sk_skb",
     "cgroup_sock",
-    "socket_filter",
-    "sched_act",
-    "flow_dissector",
-    "tracepoint",
-    "cgroup_device",
+    "cgroup_skb",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "lwt_xmit",
     "sock_ops",
     "raw_tracepoint",
-    "lwt_seg6local",
-    "xdp",
-    "sched_cls",
-    "lwt_out",
-    "kprobe",
+    "perf_event",
+    "sk_reuseport",
+    "flow_dissector",
+    "cgroup_sysctl",
+    "sched_act",
     "raw_tracepoint_writable",
-    "cgroup_sock_addr"
+    "kprobe",
+    "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "lwt_seg6local",
+    "cgroup_device",
+    "xdp",
+    "tracepoint",
+    "socket_filter"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",

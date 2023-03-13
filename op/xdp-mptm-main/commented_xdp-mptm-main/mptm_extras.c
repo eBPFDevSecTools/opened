@@ -37,10 +37,8 @@ SEC("mptm_redirect_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect_map",
-    "redirect",
     "bpf_redirect",
-    "redirect_map"
+    "bpf_redirect_map"
   ],
   "compatibleHookpoints": [
     "xdp"

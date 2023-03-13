@@ -51,12 +51,11 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
-    "redirect"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -121,10 +120,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
     "ctx_change_type",
-    "bpf_htons",
-    "revalidate_data_pull"
+    "revalidate_data_pull",
+    "ctx_redirect",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -246,8 +245,8 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -257,10 +256,10 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
     "ctx_change_type",
-    "bpf_htons",
-    "revalidate_data_pull"
+    "revalidate_data_pull",
+    "ctx_redirect",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

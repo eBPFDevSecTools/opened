@@ -91,29 +91,29 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "xdp",
     "lwt_seg6local",
-    "socket_filter",
-    "sched_act",
-    "kprobe",
-    "cgroup_device",
-    "cgroup_sock",
-    "cgroup_skb",
-    "sk_reuseport",
-    "sock_ops",
-    "sched_cls",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "lwt_in",
-    "sk_skb",
     "cgroup_sysctl",
-    "perf_event",
+    "socket_filter",
+    "cgroup_device",
     "cgroup_sock_addr",
-    "flow_dissector",
-    "sk_msg",
+    "sk_skb",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "sched_cls",
+    "sched_act",
+    "lwt_in",
+    "kprobe",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "cgroup_sock",
     "lwt_out",
-    "raw_tracepoint_writable"
+    "perf_event",
+    "flow_dissector",
+    "sk_msg"
   ],
   "source": [
     "static __inline int compare_mac (__u8 *mac1, __u8 *mac2)\n",
@@ -170,29 +170,29 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "xdp",
     "lwt_seg6local",
-    "socket_filter",
-    "sched_act",
-    "kprobe",
-    "cgroup_device",
-    "cgroup_sock",
-    "cgroup_skb",
-    "sk_reuseport",
-    "sock_ops",
-    "sched_cls",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "lwt_in",
-    "sk_skb",
     "cgroup_sysctl",
-    "perf_event",
+    "socket_filter",
+    "cgroup_device",
     "cgroup_sock_addr",
-    "flow_dissector",
-    "sk_msg",
+    "sk_skb",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "sched_cls",
+    "sched_act",
+    "lwt_in",
+    "kprobe",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "cgroup_sock",
     "lwt_out",
-    "raw_tracepoint_writable"
+    "perf_event",
+    "flow_dissector",
+    "sk_msg"
   ],
   "source": [
     "static __inline int is_broadcast_mac (__u8 *m)\n",
@@ -254,26 +254,6 @@ static __inline int is_broadcast_mac(__u8 *m) {
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -334,44 +314,25 @@ static __inline int is_broadcast_mac(__u8 *m) {
           "capabilities": [
             "map_read"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
           "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
             "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
+            "sched_act"
           ],
           "capabilities": [
-            "map_read"
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -385,24 +346,22 @@ static __inline int is_broadcast_mac(__u8 *m) {
   "updateMaps": [],
   "readMaps": [
     "  iface_ip_map",
-    "  iface_stat_map",
-    "  iface_map"
+    "  iface_map",
+    "  iface_stat_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "static__inlineint",
   "helper": [
-    "TC_ACT_OK",
-    "bpf_trace_printk",
     "TC_ACT_SHOT",
     "bpf_map_lookup_elem",
-    "map_lookup_elem",
-    "trace_printk"
+    "TC_ACT_OK",
+    "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __inline int filter (struct  __sk_buff *skb)\n",
@@ -482,9 +441,9 @@ static __inline int is_broadcast_mac(__u8 *m) {
     "}\n"
   ],
   "called_function_list": [
-    "ADD_PASS_STAT",
-    "bpf_memcpy",
     "compare_mac",
+    "bpf_memcpy",
+    "ADD_PASS_STAT",
     "is_broadcast_mac",
     "ADD_DROP_STAT"
   ],
@@ -633,29 +592,29 @@ static __inline int filter(struct __sk_buff *skb)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "xdp",
     "lwt_seg6local",
-    "socket_filter",
-    "sched_act",
-    "kprobe",
-    "cgroup_device",
-    "cgroup_sock",
-    "cgroup_skb",
-    "sk_reuseport",
-    "sock_ops",
-    "sched_cls",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "lwt_in",
-    "sk_skb",
     "cgroup_sysctl",
-    "perf_event",
+    "socket_filter",
+    "cgroup_device",
     "cgroup_sock_addr",
-    "flow_dissector",
-    "sk_msg",
+    "sk_skb",
+    "cgroup_skb",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "xdp",
+    "lwt_xmit",
+    "tracepoint",
+    "sched_cls",
+    "sched_act",
+    "lwt_in",
+    "kprobe",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "cgroup_sock",
     "lwt_out",
-    "raw_tracepoint_writable"
+    "perf_event",
+    "flow_dissector",
+    "sk_msg"
   ],
   "source": [
     "int bpf_filter (struct  __sk_buff *skb)\n",

@@ -58,29 +58,29 @@
   "output": "static__always_inline__u8",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline __u8 icmp6_load_type (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -151,33 +151,6 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
           ]
         }
       ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l4_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -193,14 +166,14 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l4_csum_replace",
-    "redirect"
+    "redirect",
+    "csum_diff"
   ],
   "compatibleHookpoints": [
+    "xdp",
     "sched_act",
-    "lwt_xmit",
-    "sched_cls"
+    "sched_cls",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline int icmp6_send_reply (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -231,17 +204,17 @@ static __always_inline __u8 icmp6_load_type(struct __ctx_buff *ctx, int nh_off)
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_load_daddr",
-    "ipv6_store_daddr",
-    "eth_store_daddr",
     "eth_load_saddr",
-    "cilium_dbg_capture",
-    "ctx_get_ifindex",
-    "ipv6_store_saddr",
+    "ipv6_load_saddr",
     "eth_store_saddr",
     "BPF_V6",
+    "eth_store_daddr",
+    "cilium_dbg_capture",
+    "ipv6_load_daddr",
     "redirect_self",
-    "ipv6_load_saddr"
+    "ipv6_store_daddr",
+    "ctx_get_ifindex",
+    "ipv6_store_saddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -334,33 +307,6 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
           ]
         }
       ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l4_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -376,12 +322,15 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l4_csum_replace"
+    "csum_diff"
   ],
   "compatibleHookpoints": [
+    "xdp",
     "sched_act",
+    "lwt_out",
+    "lwt_seg6local",
     "lwt_xmit",
+    "lwt_in",
     "sched_cls"
   ],
   "source": [
@@ -409,8 +358,8 @@ static __always_inline int icmp6_send_reply(struct __ctx_buff *ctx, int nh_off)
   ],
   "called_function_list": [
     "ctx_store_bytes",
-    "cilium_dbg",
     "icmp6_send_reply",
+    "cilium_dbg",
     "ctx_load_bytes"
   ],
   "call_depth": -1,
@@ -483,29 +432,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "int tail_icmp6_send_echo_reply (struct  __ctx_buff *ctx)\n",
@@ -520,11 +469,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_ECHO_REPLY)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "ctx_store_meta",
     "ctx_load_meta",
-    "__icmp6_send_echo_reply",
-    "send_drop_notify_error"
+    "ctx_store_meta",
+    "IS_ERR",
+    "send_drop_notify_error",
+    "__icmp6_send_echo_reply"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -581,31 +530,31 @@ int tail_icmp6_send_echo_reply(struct __ctx_buff *ctx)
     " enum metric_dir direction"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "tail_call"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int icmp6_send_echo_reply (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction)\n",
@@ -690,33 +639,6 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
           ]
         }
       ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l4_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -734,12 +656,15 @@ static __always_inline int icmp6_send_echo_reply(struct __ctx_buff *ctx,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "csum_diff",
-    "l4_csum_replace"
+    "csum_diff"
   ],
   "compatibleHookpoints": [
+    "xdp",
     "sched_act",
+    "lwt_out",
+    "lwt_seg6local",
     "lwt_xmit",
+    "lwt_in",
     "sched_cls"
   ],
   "source": [
@@ -927,11 +852,11 @@ static __always_inline int send_icmp6_ndisc_adv(struct __ctx_buff *ctx,
   "compatibleHookpoints": [
     "xdp",
     "sched_act",
+    "lwt_out",
     "lwt_seg6local",
-    "lwt_in",
-    "sched_cls",
     "lwt_xmit",
-    "lwt_out"
+    "lwt_in",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline __be32 compute_icmp6_csum (char data [80], __u16 payload_len, struct ipv6hdr *ipv6hdr)\n",
@@ -977,35 +902,7 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Recompute the layer 4 (e. g. TCP , UDP or ICMP) checksum for the packet associated <[ to ]>(IP: 3) skb. Computation is incremental , so the helper must know the former value of the header field that was modified (from) , the new value of this field (to) , and the number of bytes (2 or 4) for this field , stored on the lowest four bits of flags. Alternatively , it is possible <[ to ]>(IP: 3) store the difference between the previous and the new values of the header field in <[ to ]>(IP: 3) , by setting <[ from ]>(IP: 2) and the four lowest bits of <[ flags ]>(IP: 4) <[ to ]>(IP: 3) 0. For both methods , <[ offset ]>(IP: 1) indicates the location of the IP checksum within the packet. In addition <[ to ]>(IP: 3) the size of the field , <[ flags ]>(IP: 4) can be added (bitwise OR) actual flags. With BPF_F_MARK_MANGLED_0 , a null checksum is left untouched (unless BPF_F_MARK_ENFORCE is added as well) , and for updates resulting in a null checksum the value is set <[ to ]>(IP: 3) CSUM_MANGLED_0 instead. Flag BPF_F_PSEUDO_HDR indicates the checksum is <[ to ]>(IP: 3) be computed against a pseudo-header. This helper works in combination with csum_diff() , which does not update the checksum in-place , but offers more flexibility and can handle sizes larger than 2 or 4 for the checksum <[ to ]>(IP: 3) update. A call <[ to ]>(IP: 3) this helper is susceptible <[ to ]>(IP: 3) change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "l4_csum_replace",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  u32 ,Var: offset}",
-            "{Type:  u64 ,Var: from}",
-            "{Type:  u64 ,Var: to}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "lwt_xmit"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 247,
   "endLine": 327,
@@ -1018,13 +915,31 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
     " int nh_off"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "l4_csum_replace"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "sk_skb",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
     "sched_act",
+    "lwt_out",
     "lwt_xmit",
-    "sched_cls"
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
+    "kprobe",
+    "sched_cls",
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int __icmp6_send_time_exceeded (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -1088,16 +1003,16 @@ static __always_inline __be32 compute_icmp6_csum(char data[80], __u16 payload_le
   ],
   "called_function_list": [
     "ctx_change_tail",
-    "ctx_full_len",
     "ctx_store_bytes",
-    "cilium_dbg",
     "ipv6_store_nexthdr",
     "compute_icmp6_csum",
+    "ctx_full_len",
+    "ipv6_store_paylen",
+    "cilium_dbg",
     "bpf_htons",
-    "ctx_load_bytes",
-    "icmp6_send_reply",
     "bpf_ntohs",
-    "ipv6_store_paylen"
+    "icmp6_send_reply",
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1217,29 +1132,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "int tail_icmp6_send_time_exceeded (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -1261,10 +1176,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SEND_ICMP6_TIME_EXCEEDED)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
     "__icmp6_send_time_exceeded",
-    "ctx_store_meta",
     "ctx_load_meta",
+    "ctx_store_meta",
+    "IS_ERR",
     "send_drop_notify_error"
   ],
   "call_depth": -1,
@@ -1327,31 +1242,31 @@ int tail_icmp6_send_time_exceeded(struct __ctx_buff *ctx __maybe_unused)
     " enum metric_dir direction"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "tail_call"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int icmp6_send_time_exceeded (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction)\n",
@@ -1411,29 +1326,29 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int __icmp6_handle_ns (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -1457,12 +1372,12 @@ static __always_inline int icmp6_send_time_exceeded(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
+    "BPF_V6",
+    "__lookup_ip6_endpoint",
     "ipv6_addrcmp",
     "cilium_dbg",
     "send_icmp6_ndisc_adv",
-    "BPF_V6",
-    "ctx_load_bytes",
-    "__lookup_ip6_endpoint"
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1529,29 +1444,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "int tail_icmp6_handle_ns (struct  __ctx_buff *ctx)\n",
@@ -1566,10 +1481,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_HANDLE_ICMP6_NS)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
     "__icmp6_handle_ns",
-    "ctx_store_meta",
     "ctx_load_meta",
+    "ctx_store_meta",
+    "IS_ERR",
     "send_drop_notify_error"
   ],
   "call_depth": -1,
@@ -1628,31 +1543,31 @@ int tail_icmp6_handle_ns(struct __ctx_buff *ctx)
     " enum metric_dir direction"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "tail_call"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int icmp6_handle_ns (struct  __ctx_buff *ctx, int nh_off, enum metric_dir direction)\n",
@@ -1714,29 +1629,29 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int icmp6_handle (struct  __ctx_buff *ctx, int nh_off, struct ipv6hdr *ip6, enum metric_dir direction)\n",
@@ -1757,12 +1672,12 @@ static __always_inline int icmp6_handle_ns(struct __ctx_buff *ctx, int nh_off,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addrcmp",
-    "cilium_dbg",
-    "icmp6_send_echo_reply",
+    "icmp6_handle_ns",
     "BPF_V6",
     "icmp6_load_type",
-    "icmp6_handle_ns"
+    "icmp6_send_echo_reply",
+    "ipv6_addrcmp",
+    "cilium_dbg"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1845,8 +1760,8 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -1871,8 +1786,8 @@ static __always_inline int icmp6_handle(struct __ctx_buff *ctx, int nh_off,
     "}\n"
   ],
   "called_function_list": [
-    "icmp6_load_type",
-    "icmp6_handle_ns"
+    "icmp6_handle_ns",
+    "icmp6_load_type"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

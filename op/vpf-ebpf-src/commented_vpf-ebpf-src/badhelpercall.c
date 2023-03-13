@@ -8,55 +8,7 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Copy the comm attribute of the current task into <[ buf ]>(IP: 0) of size_of_buf. The comm attribute contains the name of the executable (excluding the path) for the current task. The <[ size_of_buf ]>(IP: 1) must be strictly positive. On success , the helper makes sure that the <[ buf ]>(IP: 0) is NUL-terminated. On failure , it is filled with zeroes. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "get_current_comm",
-          "Input Params": [
-            "{Type: char ,Var: *buf}",
-            "{Type:  u32 ,Var: size_of_buf}"
-          ],
-          "compatible_hookpoints": [
-            "kprobe",
-            "tracepoint",
-            "perf_event",
-            "raw_tracepoint",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        },
-        {
-          "Project": "bcc",
-          "FunctionName": "bpf_get_current_comm",
-          "Return Type": "int",
-          "Description": "bpf_get_current_comm(char *buf, int size_of_buf) Return: 0 on success Populates the first argument address with the current process name. It should be a pointer to a char array of at least size TASK_COMM_LEN, which is defined in linux/sched.h. For example: ```C include ",
-          "Return": "0 on success",
-          "Input Prameters": [
-            "{Type: char* ,Var: buf}",
-            "{Type: int ,Var: size_of_buf}"
-          ],
-          "compatible_hookpoints": [
-            "kprobe",
-            "tracepoint",
-            "perf_event",
-            "raw_tracepoint",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    }
-  ],
+  "capabilities": [],
   "helperCallParams": {},
   "startLine": 8,
   "endLine": 15,
@@ -68,16 +20,31 @@ static int (*ebpf_get_current_comm)(char* buffer, uint32_t buffer_size) = (void*
     "NA"
   ],
   "output": "int",
-  "helper": [
-    "get_current_comm",
-    "bpf_get_current_comm"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "kprobe",
-    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "cgroup_skb",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "lwt_xmit",
+    "sock_ops",
     "raw_tracepoint",
-    "perf_event"
+    "perf_event",
+    "sk_reuseport",
+    "flow_dissector",
+    "cgroup_sysctl",
+    "sched_act",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "sk_msg",
+    "lwt_seg6local",
+    "cgroup_device",
+    "xdp",
+    "tracepoint",
+    "socket_filter"
   ],
   "source": [
     "int func ()\n",

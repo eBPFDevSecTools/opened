@@ -60,8 +60,8 @@ def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
     if helpers is None or len(helpers) == 0:
         hook_set = get_all_available_hookpoints(helper_hookpoint_dict)
-        print("Helpers None: ")
-        print(hook_set)
+        #print("Helpers None: ")
+        #print(hook_set)
         return list(hook_set)
         #return ["All_hookpoints"]
     
@@ -121,11 +121,11 @@ def load_bpf_helper_map(fname):
             ret[keys] = entry[keys]
     return ret
 
-def check_and_return_func_present(my_dict,line):
+def check_and_return_func_present(helperdict, line):
     hls =  list()
-    for key in my_dict.keys():
-        if line.find(key)>=0:
-            hls.append(key)
+    for helper in helperdict.keys():
+        if line.find(' '+helper)>=0:
+            hls.append(helper)
     return hls
 
 def get_helper_encoding(lines, helperdict, helperCallParams):
@@ -175,7 +175,7 @@ def read_src_file(fname,beg,end):
     lines = lines.replace("}","").replace("{",";").replace("\n","");
     return lines.split(";")
     
-def get_capability_dict(begL, endL, example_file, isCilium, helperdict):
+def get_capability_dict(begL, endL, example_file, helperdict):
     code_lines = read_src_file(example_file,begL,endL)
 
     helperCallParams = defaultdict(list)
@@ -205,28 +205,14 @@ if __name__ == "__main__":
 
     parser.add_argument('-e','--secName', type=str,required=True,
             help='Section Name')
-    parser.add_argument('-q','--isCilium', type=bool,required=True,
-            help='whether repository is cilium')
-
 
     args = parser.parse_args()
 
     print("Args",args)
-
-
     
     fname = args.srcFile
     sec_name = args.secName
     bpf_helper_file= '../asset/bpf_helpers_desc_mod.json'
-    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
-    isCilium=args.isCilium
-
-    if(isCilium == True):
-        print("Warning: bpf_helper_file not specified using default asset/cilium.helper_hookpoint_map.json\n")
-        map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
-        map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
-    
     if(args.bpfHelperFile is not None):
         bpf_helper_file = args.bpfHelperFile
     

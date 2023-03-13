@@ -44,9 +44,9 @@ def clean_intermediate_files(file_list):
             print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 def run_cmd(cmd):
-    print("Running: ",cmd)
     status, output = subprocess.getstatusoutput(cmd)
     if(status != 0):
+        print("Running: ",cmd)
         print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
         exit(1)
     return output
@@ -55,6 +55,12 @@ def create_directories(dir_list):
     for dr in dir_list:
         if not os.path.exists(dr):
             os.mkdir(dr)
+
+def insert_to_db(db,comment_dict):
+    comment_json = json.dumps(comment_dict)
+    #print("Inserting comments to DB: "+ comment_json )
+    db.insert(comment_dict)
+
 
 #cqmakedb -s ./myproject.db -c ./cscope.out -t ./tags -p
 def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
@@ -115,8 +121,7 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium, helperdi
             fn_def['fileName'] = srcFile
             fn_def['startLine'] = str(startLine)
             fn_def['endLine'] = str(endLine)
-            fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, isCilium, helperdict)
-            #print(fn_def)
+            fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, helperdict)
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
@@ -137,11 +142,10 @@ def create_txl_annotation(cscope_file, opdir,func_file_def_dict, map_file_def_di
         opfile_struct_annotate= run_cmd("readlink -f "+opfile_struct_annotate)
         logfile= opdir+"/LOG"
 
-        print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
-        op = run_cmd("txl -o "+ opfile_function_annotate+" "+full_line+"  asset/txl/c-extract-functions.txl")
-        op = run_cmd("txl -o "+opfile_struct_annotate+" "+full_line +" asset/txl/c-extract-struct.txl")
+        #print("File to annotate - ",full_line,"output in",opfile_function_annotate,opfile_struct_annotate)
+        op = run_cmd("txl -o "+ opfile_function_annotate+" "+ full_line +" asset/txl/c-extract-functions.txl")
+        op = run_cmd("txl -o "+ opfile_struct_annotate +" "+  full_line +" asset/txl/c-extract-struct.txl")
         func_file_def_dict = parseTXLFunctionOutputFile(opfile_function_annotate, func_file_def_dict, isCilium, helperdict)
-        #print(func_file_def_dict)
         map_file_def_dict = parseTXLStructOutputFile(opfile_struct_annotate, map_file_def_dict)
         txl_dict_func_file[full_line] = opfile_function_annotate
     return func_file_def_dict, txl_dict_func_file, map_file_def_dict
@@ -150,7 +154,7 @@ def create_cqmakedb(db_file, cscope_file, tags_folder):
     run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
     return
 
-def create_code_comments(txl_dict, helperdict, opdir, isCilium,comments_db,human_comments_file, db_file):
+def create_code_comments(txl_dict, helperdict, opdir, isCilium, human_comments_file, db_file):
     if(isCilium == False):
         map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
         map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
@@ -158,12 +162,14 @@ def create_code_comments(txl_dict, helperdict, opdir, isCilium,comments_db,human
         map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
         map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
+    funcCapDict = dict()
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')
-        cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db,human_comments_file, db_file)
+        funcCapDict = cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, human_comments_file, db_file, funcCapDict)
+
         xmlFile.close()
-    return
+    return funcCapDict
 
 
 # parses output from c-extract-struct.txl
@@ -223,7 +229,6 @@ if __name__ == "__main__":
             help='whether repository is cilium')
     my_parser.add_argument('-d','--human_comments_file', action='store',required=False,
             help='JSON with information containing human comments ')
-
 
     args = my_parser.parse_args()
     print(vars(args))
@@ -289,28 +294,35 @@ if __name__ == "__main__":
     intermediate_f_list = []
     intermediate_f_list.append(cscope_out)
     intermediate_f_list.append(tags_folder)
+
     make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
+    # run code query to generate annotated function call graph
+    create_cqmakedb(db_file, cscope_out, tags_folder)
 
     txl_dict_struct = defaultdict(list)
     txl_dict_func = defaultdict(list)
     txl_dict_func, txl_func_file, txl_dict_struct = create_txl_annotation(cscope_files, txl_op_dir, txl_dict_func, txl_dict_struct, isCilium, helperdict)
+    funcCapDict = dict()
     if (cmt_op_dir is not None):
         comments_db_file = cmt_op_dir+"/"+ db_file +"_comments.db"
         comments_db = TinyDB(comments_db_file)
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
-        create_code_comments(txl_func_file, helperdict, cmt_op_dir, isCilium,comments_db,human_comments_file, db_file)
+        funcCapDict = create_code_comments(txl_func_file, helperdict, cmt_op_dir, isCilium, human_comments_file, db_file)
+        insert_to_db(comments_db, funcCapDict)
     else:
         print("no comment file found!")
-    # run code query to generate annotated function call graph
-    create_cqmakedb(db_file, cscope_out, tags_folder)
+   
     if args.annotate_only:
         #clean up
         clean_intermediate_files(intermediate_f_list)
         exit(0)
 
     with open(txl_func_list, "w") as outfile:
-        json.dump(txl_dict_func, outfile)
+        if cmt_op_dir is None:
+            json.dump(txl_dict_func, outfile)
+        else:
+            json.dump(funcCapDict, outfile)
     outfile.close()
 
     with open(txl_struct_list, "w") as outfile:

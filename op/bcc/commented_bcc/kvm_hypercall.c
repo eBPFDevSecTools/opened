@@ -17,34 +17,32 @@ BPF_HASH(start, u8, u8);
   ],
   "output": "NA",
   "helper": [
-    "TRACEPOINT_PROBE",
-    "trace_printk",
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock",
-    "lwt_in",
-    "sk_msg",
-    "xdp",
-    "cgroup_sysctl",
     "lwt_out",
-    "raw_tracepoint",
-    "sched_act",
-    "raw_tracepoint_writable",
-    "perf_event",
     "sk_reuseport",
-    "kprobe",
+    "sched_cls",
+    "sk_msg",
     "cgroup_sock_addr",
+    "xdp",
+    "lwt_in",
     "cgroup_skb",
-    "tracepoint",
+    "sched_act",
+    "cgroup_device",
     "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_sysctl",
+    "flow_dissector",
+    "tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "perf_event",
     "lwt_seg6local",
     "sock_ops",
-    "socket_filter",
-    "cgroup_device",
     "sk_skb",
-    "flow_dissector"
+    "kprobe",
+    "socket_filter"
   ],
   "source": [
     "TRACEPOINT_PROBE (kvm, kvm_exit)\n",
@@ -59,8 +57,8 @@ BPF_HASH(start, u8, u8);
     "}\n"
   ],
   "called_function_list": [
-    "update",
-    "lookup"
+    "lookup",
+    "update"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -104,34 +102,32 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
   ],
   "output": "NA",
   "helper": [
-    "TRACEPOINT_PROBE",
-    "trace_printk",
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock",
-    "lwt_in",
-    "sk_msg",
-    "xdp",
-    "cgroup_sysctl",
     "lwt_out",
-    "raw_tracepoint",
-    "sched_act",
-    "raw_tracepoint_writable",
-    "perf_event",
     "sk_reuseport",
-    "kprobe",
+    "sched_cls",
+    "sk_msg",
     "cgroup_sock_addr",
+    "xdp",
+    "lwt_in",
     "cgroup_skb",
-    "tracepoint",
+    "sched_act",
+    "cgroup_device",
     "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_sysctl",
+    "flow_dissector",
+    "tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "perf_event",
     "lwt_seg6local",
     "sock_ops",
-    "socket_filter",
-    "cgroup_device",
     "sk_skb",
-    "flow_dissector"
+    "kprobe",
+    "socket_filter"
   ],
   "source": [
     "TRACEPOINT_PROBE (kvm, kvm_entry)\n",
@@ -147,8 +143,8 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
     "}\n"
   ],
   "called_function_list": [
-    "update",
-    "lookup"
+    "lookup",
+    "update"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -193,34 +189,32 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
   ],
   "output": "NA",
   "helper": [
-    "TRACEPOINT_PROBE",
-    "trace_printk",
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock",
-    "lwt_in",
-    "sk_msg",
-    "xdp",
-    "cgroup_sysctl",
     "lwt_out",
-    "raw_tracepoint",
-    "sched_act",
-    "raw_tracepoint_writable",
-    "perf_event",
     "sk_reuseport",
-    "kprobe",
+    "sched_cls",
+    "sk_msg",
     "cgroup_sock_addr",
+    "xdp",
+    "lwt_in",
     "cgroup_skb",
-    "tracepoint",
+    "sched_act",
+    "cgroup_device",
     "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_sysctl",
+    "flow_dissector",
+    "tracepoint",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "perf_event",
     "lwt_seg6local",
     "sock_ops",
-    "socket_filter",
-    "cgroup_device",
     "sk_skb",
-    "flow_dissector"
+    "kprobe",
+    "socket_filter"
   ],
   "source": [
     "TRACEPOINT_PROBE (kvm, kvm_hypercall)\n",
@@ -235,8 +229,8 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
     "}\n"
   ],
   "called_function_list": [
-    "update",
-    "lookup"
+    "lookup",
+    "update"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

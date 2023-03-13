@@ -23,9 +23,9 @@ def check_if_cmd_available():
     return True
 
 def run_cmd(cmd):
-    print("Running: ",cmd)
     status, output = subprocess.getstatusoutput(cmd)
     if(status != 0):
+        print("Running: ",cmd)
         print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
         exit(1)
     return output

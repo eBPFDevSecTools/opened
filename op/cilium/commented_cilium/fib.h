@@ -16,27 +16,6 @@
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -80,6 +59,27 @@
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -96,14 +96,14 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
-    "redirect",
     "fib_lookup",
+    "redirect",
+    "CTX_ACT_OK",
     "bpf_fib_lookup"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -155,15 +155,15 @@
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "eth_store_daddr",
     "unlikely",
-    "ipv6_addr_copy",
-    "redirect_neigh",
     "eth_store_saddr",
+    "__bpf_memcpy_builtin",
+    "eth_store_daddr",
+    "ctx_redirect",
+    "redirect_neigh",
     "ipv6_l3",
-    "is_defined",
-    "__bpf_memcpy_builtin"
+    "ipv6_addr_copy",
+    "is_defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -242,27 +242,6 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -306,6 +285,27 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -322,14 +322,14 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
-    "redirect",
     "fib_lookup",
+    "redirect",
+    "CTX_ACT_OK",
     "bpf_fib_lookup"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -381,14 +381,14 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "eth_store_daddr",
+    "ipv4_l3",
     "unlikely",
-    "redirect_neigh",
     "eth_store_saddr",
-    "is_defined",
     "__bpf_memcpy_builtin",
-    "ipv4_l3"
+    "eth_store_daddr",
+    "ctx_redirect",
+    "redirect_neigh",
+    "is_defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

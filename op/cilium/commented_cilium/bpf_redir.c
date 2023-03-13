@@ -40,29 +40,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)\n",
@@ -75,8 +75,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohl",
-    "READ_ONCE"
+    "READ_ONCE",
+    "bpf_ntohl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -132,10 +132,11 @@ __section("sk_msg")
   ],
   "output": "int",
   "helper": [
-    "redirect",
     "msg_redirect_hash"
   ],
-  "compatibleHookpoints": [],
+  "compatibleHookpoints": [
+    "sk_msg"
+  ],
   "source": [
     "int bpf_redir_proxy (struct sk_msg_md *msg)\n",
     "{\n",
@@ -159,8 +160,8 @@ __section("sk_msg")
   ],
   "called_function_list": [
     "sk_msg_extract4_key",
-    "policy_sk_egress",
-    "lookup_ip4_remote_endpoint"
+    "lookup_ip4_remote_endpoint",
+    "policy_sk_egress"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

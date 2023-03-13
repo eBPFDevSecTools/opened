@@ -28,27 +28,27 @@
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "raw_tracepoint",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_skb",
+    "socket_filter",
     "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
+    "kprobe",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline __maybe_unused void tail_call_static (const struct  __ctx_buff *ctx, const void *map, const __u32 slot)\n",
@@ -72,8 +72,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__throw_build_bug",
-    "__builtin_constant_p"
+    "__builtin_constant_p",
+    "__throw_build_bug"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -137,27 +137,27 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "raw_tracepoint",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_skb",
+    "socket_filter",
     "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
+    "kprobe",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline __maybe_unused void tail_call_dynamic (struct  __ctx_buff *ctx, const void *map, __u32 slot)\n",
@@ -168,8 +168,8 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
     "}\n"
   ],
   "called_function_list": [
-    "__throw_build_bug",
-    "__builtin_constant_p"
+    "__builtin_constant_p",
+    "__throw_build_bug"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

@@ -135,8 +135,8 @@ struct {
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -157,11 +157,11 @@ struct {
     "}\n"
   ],
   "called_function_list": [
-    "ctx_adjust_meta",
-    "ctx_data_meta",
-    "ctx_no_room",
     "ctx_load_meta",
-    "ctx_data"
+    "ctx_no_room",
+    "ctx_adjust_meta",
+    "ctx_data",
+    "ctx_data_meta"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -243,12 +243,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
   ],
   "output": "int",
   "helper": [
-    "CTX_ACT_OK",
-    "tail_call"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -269,12 +268,12 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
     "}\n"
   ],
   "called_function_list": [
-    "ep_tail_call",
-    "IS_ERR",
-    "nodeport_lb4",
-    "bpf_skip_nodeport",
     "bpf_xdp_exit",
-    "send_drop_notify_error"
+    "bpf_skip_nodeport",
+    "IS_ERR",
+    "ep_tail_call",
+    "send_drop_notify_error",
+    "nodeport_lb4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -327,31 +326,31 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
     "struct  __ctx_buff *ctx"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "tail_call"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int check_v4_lb (struct  __ctx_buff *ctx)\n",
@@ -428,8 +427,8 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -521,8 +520,8 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
   "funcName": "check_v4",
   "updateMaps": [],
   "readMaps": [
-    " CIDR4_HMAP_NAME",
-    " CIDR4_LMAP_NAME"
+    " CIDR4_LMAP_NAME",
+    " CIDR4_HMAP_NAME"
   ],
   "input": [
     "struct  __ctx_buff *ctx"
@@ -532,29 +531,29 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int check_v4 (struct  __ctx_buff *ctx)\n",
@@ -584,10 +583,10 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "check_v4_lb",
     "memcpy",
-    "ctx_data_end",
+    "check_v4_lb",
     "ctx_no_room",
+    "ctx_data_end",
     "ctx_data"
   ],
   "call_depth": -1,
@@ -648,29 +647,29 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int check_v4 (struct  __ctx_buff *ctx)\n",
@@ -679,10 +678,10 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "check_v4_lb",
     "memcpy",
-    "ctx_data_end",
+    "check_v4_lb",
     "ctx_no_room",
+    "ctx_data_end",
     "ctx_data"
   ],
   "call_depth": -1,
@@ -752,8 +751,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -769,11 +768,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "bpf_skip_nodeport",
-    "nodeport_lb6",
     "bpf_xdp_exit",
-    "send_drop_notify_error"
+    "bpf_skip_nodeport",
+    "IS_ERR",
+    "send_drop_notify_error",
+    "nodeport_lb6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -820,31 +819,31 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
     "struct  __ctx_buff *ctx"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "tail_call"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int check_v6_lb (struct  __ctx_buff *ctx)\n",
@@ -921,8 +920,8 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -1014,8 +1013,8 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
   "funcName": "check_v6",
   "updateMaps": [],
   "readMaps": [
-    " CIDR6_LMAP_NAME",
-    " CIDR6_HMAP_NAME"
+    " CIDR6_HMAP_NAME",
+    " CIDR6_LMAP_NAME"
   ],
   "input": [
     "struct  __ctx_buff *ctx"
@@ -1025,29 +1024,29 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int check_v6 (struct  __ctx_buff *ctx)\n",
@@ -1078,9 +1077,9 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
   ],
   "called_function_list": [
     "check_v6_lb",
-    "ctx_data_end",
-    "ctx_no_room",
     "__bpf_memcpy_builtin",
+    "ctx_no_room",
+    "ctx_data_end",
     "ctx_data"
   ],
   "call_depth": -1,
@@ -1141,29 +1140,29 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "static __always_inline int check_v6 (struct  __ctx_buff *ctx)\n",
@@ -1173,9 +1172,9 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
   ],
   "called_function_list": [
     "check_v6_lb",
-    "ctx_data_end",
-    "ctx_no_room",
     "__bpf_memcpy_builtin",
+    "ctx_no_room",
+    "ctx_data_end",
     "ctx_data"
   ],
   "call_depth": -1,
@@ -1242,8 +1241,8 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -1277,13 +1276,13 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
+    "bpf_xdp_exit",
+    "ctx_store_meta",
+    "bpf_skip_nodeport_clear",
     "check_v6",
     "validate_ethertype",
     "check_v4",
-    "bpf_htons",
-    "ctx_store_meta",
-    "bpf_skip_nodeport_clear",
-    "bpf_xdp_exit"
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1348,29 +1347,29 @@ __section("from-netdev")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
-    "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
     "sk_skb",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
+    "sk_msg",
+    "lwt_seg6local",
+    "lwt_in",
+    "xdp",
+    "sched_act",
     "lwt_out",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "cgroup_sock",
+    "sock_ops",
+    "raw_tracepoint",
+    "perf_event",
     "kprobe",
     "sched_cls",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_skb"
+    "cgroup_device"
   ],
   "source": [
     "int bpf_xdp_entry (struct  __ctx_buff *ctx)\n",
