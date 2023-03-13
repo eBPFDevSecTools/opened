@@ -118,10 +118,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "parse_icmpv6",
-    "memcpy",
+    "bpf_ntohs",
     "parse_icmp",
-    "bpf_ntohs"
+    "parse_icmpv6",
+    "memcpy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -276,10 +276,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "}\n"
   ],
   "called_function_list": [
-    "decap_v6",
-    "recirculate",
     "decrement_ttl",
-    "decap_v4"
+    "decap_v6",
+    "decap_v4",
+    "recirculate"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -636,28 +636,28 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "get_packet_dst",
-    "connection_table_lookup",
-    "process_encaped_ipip_pckt",
     "bpf_htons",
-    "check_decap_dst",
-    "PCKT_ENCAP_V6",
-    "increment_quic_cid_drop_real_0",
-    "memcpy",
-    "increment_quic_cid_drop_no_real",
     "process_encaped_gue_pckt",
-    "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "REPORT_TCP_NONSYN_LRUMISS",
     "perform_global_lru_lookup",
-    "REPORT_PACKET_TOOBIG",
-    "parse_udp",
-    "process_l3_headers",
-    "PCKT_ENCAP_V4",
-    "parse_quic",
-    "send_icmp_too_big",
+    "parse_tcp",
+    "PCKT_ENCAP_V6",
     "tcp_hdr_opt_lookup",
     "increment_quic_cid_version_stats",
-    "parse_tcp"
+    "memcpy",
+    "send_icmp_too_big",
+    "REPORT_PACKET_TOOBIG",
+    "increment_quic_cid_drop_real_0",
+    "check_decap_dst",
+    "connection_table_lookup",
+    "REPORT_TCP_NONSYN_LRUMISS",
+    "parse_udp",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "increment_quic_cid_drop_no_real",
+    "process_encaped_ipip_pckt",
+    "process_l3_headers",
+    "parse_quic",
+    "get_packet_dst",
+    "PCKT_ENCAP_V4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

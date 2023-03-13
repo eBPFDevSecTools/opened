@@ -64,27 +64,27 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "sk_reuseport",
-    "sched_cls",
-    "sk_msg",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_in",
-    "cgroup_skb",
-    "sched_act",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "flow_dissector",
-    "tracepoint",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "perf_event",
-    "lwt_seg6local",
     "sock_ops",
-    "sk_skb",
+    "socket_filter",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "cgroup_skb",
+    "lwt_xmit",
     "kprobe",
-    "socket_filter"
+    "sched_cls",
+    "tracepoint",
+    "sk_reuseport",
+    "flow_dissector",
+    "sk_skb",
+    "sched_act",
+    "xdp",
+    "sk_msg",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "lwt_in",
+    "raw_tracepoint",
+    "lwt_seg6local"
   ],
   "source": [
     "RAW_TRACEPOINT_PROBE (block_rq_complete)\n",
@@ -110,9 +110,9 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "}\n"
   ],
   "called_function_list": [
-    "div_u64",
+    "min_t",
     "increment",
-    "min_t"
+    "div_u64"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

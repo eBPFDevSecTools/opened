@@ -32,8 +32,8 @@ def get_func_description(db, path, op_dict):
     fname = path.split('/')[-1]
     q = Query()
     res = comments_db.search(q.File.search(fname))
-    print("Result")
-    print(res)
+    #print("Result")
+    #print(res)
     cdict = {}
     for e in res:
         print(e['email'])

@@ -75,9 +75,9 @@ __section("from-network")
     "CTX_ACT_REDIRECT"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "int from_network (struct  __ctx_buff *ctx)\n",
@@ -112,9 +112,9 @@ __section("from-network")
     "}\n"
   ],
   "called_function_list": [
+    "validate_ethertype",
     "do_decrypt",
     "bpf_clear_meta",
-    "validate_ethertype",
     "send_trace_notify"
   ],
   "call_depth": -1,

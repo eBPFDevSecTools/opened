@@ -14,6 +14,48 @@ import json
 from collections import defaultdict
 from tinydb import TinyDB
 
+#XXX remove functions which do not have an entry in capdict from the list of called functions??
+def add_level_info(capdict):
+    q = []
+    level_dict = dict()
+    map1 = dict()
+    map2 = dict()
+    cnt =0
+    for fn in capdict.keys():
+        key = fn #+':'+en['startLine']+':'+en['File']
+        cnt  = cnt +1
+        for en in capdict[fn]:
+            if en['call_depth'] == 0:
+                q.append(key)
+            else:
+                map2[key] = len(en['called_function_list'])
+                for f in en['called_function_list']:
+                    if f not in map1:
+                        map1[f] = list()
+                    map1[f].append(fn)
+    print("tot func: "+str(cnt))
+    print(q)
+    level = 0
+    while len(q) != 0:
+        n = len(q)
+        print(n)
+        for idx in range(n):
+            nd = q.pop(0)
+            level_dict[nd] = level
+            if nd not in map1:
+                continue
+            for en in map1[nd]:
+                map2[en] = map2[en] - 1
+                if map2[en] == 0:
+                    q.append(en)
+        level = level + 1
+    for fn in capdict.keys():
+        key = fn #+':'+en['startLine']+':'+en['File']
+        for en in capdict[fn]:
+            if fn in level_dict:
+                en['call_depth'] = level_dict[fn]
+    print(capdict)
+
 def check_if_cmd_available():
     commands = ['txl', 'cscope', 'ctags', 'cqmakedb']
     for cmd in commands:
@@ -309,6 +351,7 @@ if __name__ == "__main__":
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
         funcCapDict = create_code_comments(txl_func_file, helperdict, cmt_op_dir, isCilium, human_comments_file, db_file)
+        add_level_info(funcCapDict)
         insert_to_db(comments_db, funcCapDict)
     else:
         print("no comment file found!")
@@ -328,6 +371,9 @@ if __name__ == "__main__":
     with open(txl_struct_list, "w") as outfile:
         json.dump(txl_dict_struct, outfile)
     outfile.close()
-    
+
+
     #clean up
     clean_intermediate_files(intermediate_f_list)
+
+

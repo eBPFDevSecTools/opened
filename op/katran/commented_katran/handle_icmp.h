@@ -138,29 +138,29 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
     "lwt_out",
-    "sock_ops",
-    "xdp",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
-    "sk_reuseport",
-    "tracepoint",
     "lwt_in",
-    "sched_act",
-    "lwt_seg6local",
-    "cgroup_sysctl",
-    "sk_msg",
-    "perf_event",
-    "lwt_xmit",
-    "flow_dissector",
-    "cgroup_skb",
-    "sk_skb",
-    "cgroup_sock",
     "cgroup_device",
-    "socket_filter"
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "sched_act",
+    "raw_tracepoint",
+    "lwt_xmit",
+    "cgroup_sock",
+    "sock_ops",
+    "tracepoint",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sched_cls",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "sk_skb",
+    "socket_filter",
+    "kprobe",
+    "cgroup_sysctl",
+    "cgroup_skb",
+    "cgroup_sock_addr"
   ],
   "source": [
     "static inline void swap_mac (void *data, struct ethhdr *orig_eth)\n",
@@ -271,8 +271,8 @@ __attribute__((__always_inline__)) static inline void swap_mac(
     "}\n"
   ],
   "called_function_list": [
-    "swap_mac_and_send",
-    "ipv4_csum_inline"
+    "ipv4_csum_inline",
+    "swap_mac_and_send"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -388,8 +388,8 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
     "}\n"
   ],
   "called_function_list": [
-    "swap_mac_and_send",
-    "memcpy"
+    "memcpy",
+    "swap_mac_and_send"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -542,8 +542,8 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
     "}\n"
   ],
   "called_function_list": [
-    "ipv4_csum",
     "bpf_htons",
+    "ipv4_csum",
     "swap_mac"
   ],
   "call_depth": -1,
@@ -711,12 +711,12 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
     "}\n"
   ],
   "called_function_list": [
-    "memset",
-    "bpf_htonl",
-    "ipv6_csum",
     "bpf_htons",
+    "bpf_htonl",
     "memcpy",
-    "swap_mac"
+    "ipv6_csum",
+    "swap_mac",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

@@ -53,11 +53,11 @@ struct signal_msg {
     "send_signal"
   ],
   "compatibleHookpoints": [
+    "kprobe",
     "raw_tracepoint",
-    "tracepoint",
     "perf_event",
     "raw_tracepoint_writable",
-    "kprobe"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)\n",
@@ -111,11 +111,11 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
+    "kprobe",
     "raw_tracepoint",
-    "tracepoint",
     "perf_event",
     "raw_tracepoint_writable",
-    "kprobe"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
@@ -175,11 +175,11 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
+    "kprobe",
     "raw_tracepoint",
-    "tracepoint",
     "perf_event",
     "raw_tracepoint_writable",
-    "kprobe"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",

@@ -118,8 +118,8 @@ SEC("xdp")
   "funcName": "pktcntr",
   "updateMaps": [],
   "readMaps": [
-    " cntrs_array",
-    " ctl_array"
+    " ctl_array",
+    " cntrs_array"
   ],
   "input": [
     "struct xdp_md *ctx"

@@ -45,29 +45,29 @@
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void bpf_skip_nodeport_clear (struct  __ctx_buff *ctx)\n",
@@ -117,29 +117,29 @@ bpf_skip_nodeport_clear(struct __ctx_buff *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void bpf_skip_nodeport_set (struct  __ctx_buff *ctx)\n",
@@ -189,29 +189,29 @@ bpf_skip_nodeport_set(struct __ctx_buff *ctx)
   "output": "static__always_inline__maybe_unusedbool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused bool bpf_skip_nodeport (struct  __ctx_buff *ctx)\n",
@@ -293,29 +293,29 @@ struct dsr_opt_v6 {
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool nodeport_uses_dsr (__u8 nexthdr __maybe_unused)\n",
@@ -384,29 +384,29 @@ static __always_inline bool nodeport_uses_dsr(__u8 nexthdr __maybe_unused)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void bpf_mark_snat_done (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -463,29 +463,29 @@ bpf_mark_snat_done(struct __ctx_buff *ctx __maybe_unused)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool bpf_skip_recirculation (const struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -547,29 +547,29 @@ bpf_skip_recirculation(const struct __ctx_buff *ctx __maybe_unused)
   "output": "static__always_inline__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline __u64 ctx_adjust_hroom_dsr_flags (void)\n",
@@ -627,29 +627,29 @@ static __always_inline __u64 ctx_adjust_hroom_dsr_flags(void)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool dsr_fail_needs_reply (int code __maybe_unused)\n",
@@ -707,29 +707,29 @@ static __always_inline bool dsr_fail_needs_reply(int code __maybe_unused)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool dsr_is_too_big (struct  __ctx_buff * ctx __maybe_unused, __u16 expanded_len __maybe_unused)\n",
@@ -789,29 +789,29 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int maybe_add_l2_hdr (struct  __ctx_buff * ctx __maybe_unused, __u32 ifindex __maybe_unused, bool * l2_hdr_required __maybe_unused)\n",
@@ -829,10 +829,10 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
     "}\n"
   ],
   "called_function_list": [
-    "ctx_get_protocol",
     "IS_L3_DEV",
     "ctx_change_head",
-    "eth_store_proto"
+    "eth_store_proto",
+    "ctx_get_protocol"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -894,29 +894,29 @@ maybe_add_l2_hdr(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool nodeport_uses_dsr6 (const struct ipv6_ct_tuple *tuple)\n",
@@ -969,29 +969,29 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool snat_v6_needed (struct  __ctx_buff *ctx, const union v6addr *addr)\n",
@@ -1017,10 +1017,10 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "nodeport_uses_dsr",
     "ipv6_hdrlen",
-    "ipv6_addrcmp"
+    "ipv6_addrcmp",
+    "nodeport_uses_dsr",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1104,9 +1104,9 @@ static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int nodeport_nat_ipv6_fwd (struct  __ctx_buff *ctx, const union v6addr *addr)\n",
@@ -1124,9 +1124,9 @@ static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
+    "snat_v6_needed",
     "ipv6_addr_copy",
-    "snat_v6_process",
-    "snat_v6_needed"
+    "snat_v6_process"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1183,29 +1183,29 @@ static __always_inline int nodeport_nat_ipv6_fwd(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void rss_gen_src6 (union v6addr *src, const union v6addr *client, __be32 l4_hint)\n",
@@ -1234,8 +1234,8 @@ static __always_inline int nodeport_nat_ipv6_fwd(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "hash_32",
-    "bpf_htonl"
+    "bpf_htonl",
+    "hash_32"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1303,29 +1303,29 @@ static __always_inline void rss_gen_src6(union v6addr *src,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int dsr_set_ipip6 (struct  __ctx_buff *ctx, const struct ipv6hdr *ip6, const union v6addr *backend_addr, __be32 l4_hint, int *ohead)\n",
@@ -1359,14 +1359,14 @@ static __always_inline void rss_gen_src6(union v6addr *src,
     "}\n"
   ],
   "called_function_list": [
-    "rss_gen_src6",
-    "ctx_adjust_hroom",
-    "ctx_store_bytes",
     "dsr_is_too_big",
-    "ctx_adjust_hroom_dsr_flags",
+    "rss_gen_src6",
+    "ctx_store_bytes",
     "bpf_htons",
-    "bpf_ntohs",
-    "offsetof"
+    "ctx_adjust_hroom_dsr_flags",
+    "ctx_adjust_hroom",
+    "offsetof",
+    "bpf_ntohs"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1445,29 +1445,29 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int dsr_set_ext6 (struct  __ctx_buff *ctx, struct ipv6hdr *ip6, const union v6addr *svc_addr, __be16 svc_port, int *ohead)\n",
@@ -1496,14 +1496,14 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_adjust_hroom",
-    "ctx_store_bytes",
     "dsr_is_too_big",
-    "build_bug_on",
-    "ctx_adjust_hroom_dsr_flags",
+    "ctx_store_bytes",
     "bpf_htons",
+    "ctx_adjust_hroom_dsr_flags",
+    "ipv6_addr_copy",
+    "ctx_adjust_hroom",
     "bpf_ntohs",
-    "ipv6_addr_copy"
+    "build_bug_on"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1577,29 +1577,29 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int find_dsr_v6 (struct  __ctx_buff *ctx, __u8 nexthdr, struct dsr_opt_v6 *dsr_opt, bool *found)\n",
@@ -1643,9 +1643,9 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_authlen",
+    "ctx_load_bytes",
     "ipv6_optlen",
-    "ctx_load_bytes"
+    "ipv6_authlen"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1731,29 +1731,29 @@ static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int handle_dsr_v6 (struct  __ctx_buff *ctx, bool *dsr)\n",
@@ -1776,9 +1776,9 @@ static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
     "snat_v6_create_dsr",
-    "find_dsr_v6"
+    "find_dsr_v6",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1837,29 +1837,29 @@ static __always_inline int handle_dsr_v6(struct __ctx_buff *ctx, bool *dsr)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int xlate_dsr_v6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, int l4_off)\n",
@@ -1968,12 +1968,12 @@ static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "sched_act",
-    "lwt_out",
     "lwt_seg6local",
+    "lwt_out",
     "lwt_xmit",
+    "xdp",
     "lwt_in",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -2039,27 +2039,27 @@ static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "eth_load_daddr",
-    "ctx_adjust_hroom",
-    "unlikely",
-    "eth_store_saddr",
-    "eth_store_daddr",
-    "ipv6_pseudohdr_checksum",
-    "ctx_data",
-    "bpf_htons",
-    "bpf_htonl",
-    "ctx_get_ifindex",
-    "eth_load_saddr",
-    "csum_fold",
-    "ctx_adjust_hroom_dsr_flags",
-    "bpf_ntohs",
-    "ctx_redirect",
-    "ctx_data_end",
-    "update_metrics",
     "ctx_store_bytes",
+    "ctx_get_ifindex",
+    "ctx_data_end",
+    "eth_load_saddr",
+    "bpf_htonl",
+    "eth_store_daddr",
+    "send_drop_notify_error",
+    "ctx_adjust_hroom",
+    "csum_fold",
+    "ipv6_pseudohdr_checksum",
+    "bpf_ntohs",
+    "ctx_adjust_hroom_dsr_flags",
+    "ctx_redirect",
+    "bpf_htons",
+    "unlikely",
     "ctx_adjust_troom",
-    "ctx_full_len",
-    "send_drop_notify_error"
+    "update_metrics",
+    "eth_load_daddr",
+    "eth_store_saddr",
+    "ctx_data",
+    "ctx_full_len"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2160,13 +2160,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "cilium",
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
+          "Function Name": "bpf_fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  struct bpf_fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -2180,13 +2180,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
           ]
         },
         {
-          "Project": "libbpf",
+          "Project": "cilium",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "bpf_fib_lookup",
+          "Function Name": "fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct bpf_fib_lookup ,Var: *params}",
+            "{Type:  struct fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -2214,13 +2214,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
   ],
   "output": "int",
   "helper": [
-    "fib_lookup",
-    "bpf_fib_lookup"
+    "bpf_fib_lookup",
+    "fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "int tail_nodeport_ipv6_dsr (struct  __ctx_buff *ctx)\n",
@@ -2296,21 +2296,21 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "ipv6_addr_copy",
+    "send_drop_notify_error_ext",
+    "maybe_add_l2_hdr",
     "unlikely",
-    "eth_store_saddr",
     "cilium_capture_out",
+    "ctx_get_ifindex",
+    "ctx_redirect",
+    "dsr_fail_needs_reply",
     "ctx_load_meta",
     "dsr_reply_icmp6",
-    "maybe_add_l2_hdr",
-    "eth_store_daddr",
-    "ctx_redirect",
-    "dsr_set_ext6",
-    "send_drop_notify_error_ext",
-    "ctx_get_ifindex",
     "dsr_set_ipip6",
-    "dsr_fail_needs_reply"
+    "ipv6_addr_copy",
+    "eth_store_saddr",
+    "eth_store_daddr",
+    "dsr_set_ext6",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2416,13 +2416,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "cilium",
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
+          "Function Name": "bpf_fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  struct bpf_fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -2436,13 +2436,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
           ]
         },
         {
-          "Project": "libbpf",
+          "Project": "cilium",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "bpf_fib_lookup",
+          "Function Name": "fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct bpf_fib_lookup ,Var: *params}",
+            "{Type:  struct fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -2470,13 +2470,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
   ],
   "output": "int",
   "helper": [
-    "fib_lookup",
-    "bpf_fib_lookup"
+    "bpf_fib_lookup",
+    "fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "int tail_nodeport_nat_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -2601,26 +2601,26 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "lb6_to_lb4",
-    "eth_store_saddr",
-    "eth_store_daddr",
+    "bpf_mark_snat_done",
+    "maybe_add_l2_hdr",
     "ctx_get_ifindex",
     "build_v4_in_v6",
-    "BPF_V6",
-    "ipcache_lookup6",
-    "ep_tail_call",
-    "send_drop_notify_error_ext",
-    "cilium_capture_out",
-    "bpf_mark_snat_done",
-    "ctx_load_meta",
-    "maybe_add_l2_hdr",
-    "ctx_redirect",
-    "IS_ERR",
+    "ipv6_addr_copy",
+    "eth_store_daddr",
     "__encap_with_nodeid",
+    "cilium_capture_out",
+    "ctx_load_meta",
+    "ipcache_lookup6",
     "bpf_skip_nodeport_set",
+    "BPF_V6",
+    "ctx_redirect",
     "snat_v6_process",
-    "ipv6_addr_copy"
+    "revalidate_data",
+    "send_drop_notify_error_ext",
+    "IS_ERR",
+    "ep_tail_call",
+    "eth_store_saddr",
+    "lb6_to_lb4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2786,52 +2786,6 @@ drop_err:
 {
   "capabilities": [
     {
-      "capability": "map_update",
-      "map_update": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "map_update_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}",
-            "{Type:  const void ,Var: *value}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -2895,6 +2849,52 @@ drop_err:
           ]
         }
       ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -2914,14 +2914,14 @@ drop_err:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_update_elem",
     "CTX_ACT_OK",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "map_update_elem"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int nodeport_lb6 (struct  __ctx_buff *ctx, __u32 src_identity)\n",
@@ -3060,36 +3060,36 @@ drop_err:
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "unlikely",
-    "cilium_capture_in",
     "send_trace_notify",
-    "ctx_store_meta",
-    "lb6_extract_key",
-    "eth_load_saddr",
-    "lb6_to_lb4_service",
-    "eth_addrcmp",
-    "ep_tail_call",
-    "bpf_ntohs",
-    "lb6_local",
-    "ct_lookup6",
-    "lb6_svc_is_l7loadbalancer",
     "is_v4_in_v6",
-    "lb6_svc_is_routable",
-    "__lookup_ip6_endpoint",
-    "IS_ERR",
-    "ctx_redirect_to_proxy_hairpin_ipv6",
-    "ct_create6",
-    "edt_set_aggregate",
     "ipv6_hdrlen",
-    "lb6_lookup_service",
-    "lb6_src_range_ok",
-    "lb6_svc_is_hostport",
-    "get_ct_map6",
-    "nodeport_uses_dsr6",
-    "defined",
+    "eth_load_saddr",
     "ipv6_addr_copy",
-    "ctx_set_xfer"
+    "ct_lookup6",
+    "lb6_local",
+    "edt_set_aggregate",
+    "defined",
+    "lb6_svc_is_l7loadbalancer",
+    "nodeport_uses_dsr6",
+    "bpf_ntohs",
+    "lb6_src_range_ok",
+    "ctx_set_xfer",
+    "__lookup_ip6_endpoint",
+    "lb6_extract_key",
+    "lb6_lookup_service",
+    "cilium_capture_in",
+    "lb6_to_lb4_service",
+    "lb6_svc_is_routable",
+    "get_ct_map6",
+    "revalidate_data",
+    "eth_addrcmp",
+    "ctx_store_meta",
+    "IS_ERR",
+    "ep_tail_call",
+    "unlikely",
+    "lb6_svc_is_hostport",
+    "ct_create6",
+    "ctx_redirect_to_proxy_hairpin_ipv6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3278,28 +3278,29 @@ redo:
 {
   "capabilities": [
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
           "Project": "cilium",
           "Return Type": "int",
-          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
-          "Input Params": [
-            "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
-            "{Type:  int ,Var: plen}",
-            "{Type:  u32 ,Var: flags}"
-          ],
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
           "compatible_hookpoints": [
+            "xdp",
             "sched_cls",
-            "sched_act",
-            "xdp"
+            "sched_act"
           ],
           "capabilities": [
-            "read_sys_info"
+            "pkt_go_to_next_module"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
         {
           "Project": "libbpf",
           "Return Type": "int",
@@ -3319,26 +3320,25 @@ redo:
           "capabilities": [
             "read_sys_info"
           ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
+        },
         {
           "Project": "cilium",
           "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ],
           "compatible_hookpoints": [
-            "xdp",
             "sched_cls",
-            "sched_act"
+            "sched_act",
+            "xdp"
           ],
           "capabilities": [
-            "pkt_go_to_next_module"
+            "read_sys_info"
           ]
         }
       ]
@@ -3404,15 +3404,15 @@ redo:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "fib_lookup",
     "CTX_ACT_OK",
     "bpf_fib_lookup",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int rev_nodeport_lb6 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)\n",
@@ -3516,28 +3516,28 @@ redo:
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "eth_store_saddr",
-    "unlikely",
-    "eth_store_saddr_aligned",
-    "eth_store_daddr",
-    "ctx_get_ifindex",
-    "bpf_skip_recirculation",
-    "get_ct_map6",
-    "ipcache_lookup6",
-    "ep_tail_call",
-    "ct_lookup6",
-    "NATIVE_DEV_MAC_BY_IFINDEX",
     "bpf_mark_snat_done",
     "maybe_add_l2_hdr",
-    "IS_ERR",
-    "csum_l4_offset_and_flags",
-    "lb6_rev_nat",
-    "__encap_with_nodeid",
-    "bpf_skip_nodeport_set",
+    "ctx_get_ifindex",
+    "eth_store_saddr_aligned",
     "ipv6_hdrlen",
+    "ct_lookup6",
+    "ipv6_addr_copy",
+    "eth_store_daddr",
+    "__encap_with_nodeid",
+    "lb6_rev_nat",
+    "ipcache_lookup6",
+    "bpf_skip_nodeport_set",
+    "csum_l4_offset_and_flags",
     "eth_store_daddr_aligned",
-    "ipv6_addr_copy"
+    "NATIVE_DEV_MAC_BY_IFINDEX",
+    "bpf_skip_recirculation",
+    "get_ct_map6",
+    "revalidate_data",
+    "IS_ERR",
+    "unlikely",
+    "ep_tail_call",
+    "eth_store_saddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3697,29 +3697,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "int tail_rev_nodeport_lb6 (struct  __ctx_buff *ctx)\n",
@@ -3759,19 +3759,19 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
     "}\n"
   ],
   "called_function_list": [
-    "edt_set_aggregate",
-    "rev_nodeport_lb6",
-    "revalidate_data",
-    "lb6_to_lb4",
-    "cilium_capture_out",
-    "is_v4_in_v6",
-    "ctx_redirect",
-    "IS_ERR",
-    "send_drop_notify_error",
     "send_drop_notify_error_ext",
     "ctx_skip_host_fw_set",
+    "cilium_capture_out",
+    "IS_ERR",
+    "edt_set_aggregate",
+    "ctx_redirect",
+    "is_v4_in_v6",
+    "ipv6_host_policy_ingress",
+    "send_drop_notify_error",
+    "rev_nodeport_lb6",
+    "lb6_to_lb4",
     "defined",
-    "ipv6_host_policy_ingress"
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3856,29 +3856,29 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4),
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "int tail_handle_nat_fwd_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -3906,11 +3906,11 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4),
     "}\n"
   ],
   "called_function_list": [
-    "BPF_V6",
-    "send_trace_notify",
-    "IS_ERR",
-    "send_drop_notify_error",
     "nodeport_nat_ipv6_fwd",
+    "IS_ERR",
+    "send_trace_notify",
+    "send_drop_notify_error",
+    "BPF_V6",
     "defined"
   ],
   "call_depth": -1,
@@ -3969,29 +3969,29 @@ int tail_handle_nat_fwd_ipv6(struct __ctx_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool nodeport_uses_dsr4 (const struct ipv4_ct_tuple *tuple)\n",
@@ -4058,29 +4058,29 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline bool snat_v4_needed (struct  __ctx_buff *ctx, __be32 *addr, bool * from_endpoint __maybe_unused)\n",
@@ -4183,18 +4183,18 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
+    "identity_is_remote_node",
+    "ct_is_reply4",
+    "__lookup_ip4_endpoint",
     "lookup_ip4_remote_endpoint",
+    "get_ct_map4",
+    "memcpy",
     "ipv4_hdrlen",
     "lookup_ip4_egress_gw_policy",
-    "identity_is_remote_node",
-    "memcpy",
-    "ipv4_is_in_subnet",
-    "__lookup_ip4_endpoint",
-    "get_ct_map4",
     "identity_is_cluster",
-    "ct_is_reply4",
-    "defined"
+    "ipv4_is_in_subnet",
+    "defined",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4413,9 +4413,9 @@ skip_egress_gateway:
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int nodeport_nat_ipv4_fwd (struct  __ctx_buff *ctx)\n",
@@ -4493,29 +4493,29 @@ static __always_inline int nodeport_nat_ipv4_fwd(struct __ctx_buff *ctx)
   "output": "static__always_inline__be32",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline __be32 rss_gen_src4 (__be32 client, __be32 l4_hint)\n",
@@ -4528,8 +4528,8 @@ static __always_inline int nodeport_nat_ipv4_fwd(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "hash_32",
-    "bpf_htonl"
+    "bpf_htonl",
+    "hash_32"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4618,12 +4618,12 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "sched_act",
-    "lwt_out",
     "lwt_seg6local",
+    "lwt_out",
     "lwt_xmit",
+    "xdp",
     "lwt_in",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -4671,14 +4671,14 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_adjust_hroom",
-    "ctx_store_bytes",
-    "rss_gen_src4",
     "dsr_is_too_big",
-    "ctx_adjust_hroom_dsr_flags",
+    "ctx_store_bytes",
     "bpf_htons",
-    "bpf_ntohs",
-    "offsetof"
+    "ctx_adjust_hroom_dsr_flags",
+    "ctx_adjust_hroom",
+    "rss_gen_src4",
+    "offsetof",
+    "bpf_ntohs"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4805,12 +4805,12 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "sched_act",
-    "lwt_out",
     "lwt_seg6local",
+    "lwt_out",
     "lwt_xmit",
+    "xdp",
     "lwt_in",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -4850,15 +4850,15 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_adjust_hroom",
-    "ctx_store_bytes",
     "dsr_is_too_big",
-    "ctx_adjust_hroom_dsr_flags",
+    "ctx_store_bytes",
     "bpf_htons",
+    "ctx_adjust_hroom_dsr_flags",
+    "ctx_load_bytes",
     "bpf_htonl",
+    "ctx_adjust_hroom",
     "offsetof",
-    "bpf_ntohs",
-    "ctx_load_bytes"
+    "bpf_ntohs"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4949,29 +4949,29 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int handle_dsr_v4 (struct  __ctx_buff *ctx, bool *dsr)\n",
@@ -5002,10 +5002,10 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "snat_v4_create_dsr",
-    "revalidate_data",
+    "bpf_ntohl",
     "ctx_load_bytes",
-    "bpf_ntohl"
+    "snat_v4_create_dsr",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5084,29 +5084,29 @@ static __always_inline int handle_dsr_v4(struct __ctx_buff *ctx, bool *dsr)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int xlate_dsr_v4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, int l4_off, bool has_l4_header)\n",
@@ -5124,8 +5124,8 @@ static __always_inline int handle_dsr_v4(struct __ctx_buff *ctx, bool *dsr)
     "}\n"
   ],
   "called_function_list": [
-    "snat_v4_lookup",
-    "snat_v4_rewrite_egress"
+    "snat_v4_rewrite_egress",
+    "snat_v4_lookup"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5215,12 +5215,12 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "xdp",
-    "sched_act",
-    "lwt_out",
     "lwt_seg6local",
+    "lwt_out",
     "lwt_xmit",
+    "xdp",
     "lwt_in",
+    "sched_act",
     "sched_cls"
   ],
   "source": [
@@ -5290,24 +5290,24 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "eth_load_saddr",
-    "eth_load_daddr",
-    "ctx_adjust_hroom",
-    "ipv4_hdrlen",
     "ctx_store_bytes",
-    "eth_store_saddr",
-    "csum_fold",
-    "ctx_adjust_troom",
-    "eth_store_daddr",
-    "ctx_redirect",
-    "ctx_full_len",
-    "send_drop_notify_error",
-    "ctx_adjust_hroom_dsr_flags",
     "bpf_htons",
-    "update_metrics",
     "ctx_get_ifindex",
+    "memset",
+    "ctx_adjust_troom",
+    "ctx_adjust_hroom_dsr_flags",
+    "eth_store_daddr",
+    "update_metrics",
+    "ctx_redirect",
+    "eth_load_daddr",
     "ctx_load_bytes",
-    "memset"
+    "eth_load_saddr",
+    "send_drop_notify_error",
+    "ipv4_hdrlen",
+    "ctx_adjust_hroom",
+    "eth_store_saddr",
+    "ctx_full_len",
+    "csum_fold"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5419,13 +5419,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "cilium",
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
+          "Function Name": "bpf_fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  struct bpf_fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -5439,13 +5439,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
           ]
         },
         {
-          "Project": "libbpf",
+          "Project": "cilium",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "bpf_fib_lookup",
+          "Function Name": "fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct bpf_fib_lookup ,Var: *params}",
+            "{Type:  struct fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -5473,13 +5473,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
   ],
   "output": "int",
   "helper": [
-    "fib_lookup",
-    "bpf_fib_lookup"
+    "bpf_fib_lookup",
+    "fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "int tail_nodeport_ipv4_dsr (struct  __ctx_buff *ctx)\n",
@@ -5548,20 +5548,20 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "cilium_capture_out",
-    "unlikely",
-    "eth_store_saddr",
-    "ctx_load_meta",
-    "maybe_add_l2_hdr",
-    "eth_store_daddr",
-    "dsr_set_opt4",
-    "ctx_redirect",
-    "dsr_reply_icmp4",
-    "dsr_set_ipip4",
-    "ctx_get_ifindex",
     "send_drop_notify_error_ext",
-    "dsr_fail_needs_reply"
+    "dsr_set_ipip4",
+    "maybe_add_l2_hdr",
+    "unlikely",
+    "cilium_capture_out",
+    "ctx_get_ifindex",
+    "ctx_redirect",
+    "ctx_load_meta",
+    "dsr_set_opt4",
+    "eth_store_saddr",
+    "dsr_reply_icmp4",
+    "eth_store_daddr",
+    "dsr_fail_needs_reply",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5660,13 +5660,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "cilium",
+          "Project": "libbpf",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
+          "Function Name": "bpf_fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  struct bpf_fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -5680,13 +5680,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
           ]
         },
         {
-          "Project": "libbpf",
+          "Project": "cilium",
           "Return Type": "int",
           "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "bpf_fib_lookup",
+          "Function Name": "fib_lookup",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
-            "{Type:  struct bpf_fib_lookup ,Var: *params}",
+            "{Type:  struct fib_lookup ,Var: *params}",
             "{Type:  int ,Var: plen}",
             "{Type:  u32 ,Var: flags}"
           ],
@@ -5714,13 +5714,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
   ],
   "output": "int",
   "helper": [
-    "fib_lookup",
-    "bpf_fib_lookup"
+    "bpf_fib_lookup",
+    "fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "int tail_nodeport_nat_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -5824,22 +5824,22 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "cilium_capture_out",
-    "eth_store_saddr",
+    "send_drop_notify_error_ext",
     "bpf_mark_snat_done",
-    "ctx_load_meta",
-    "maybe_add_l2_hdr",
-    "eth_store_daddr",
-    "ctx_redirect",
-    "ipcache_lookup4",
     "IS_ERR",
     "ep_tail_call",
+    "ctx_get_ifindex",
+    "maybe_add_l2_hdr",
+    "ipcache_lookup4",
+    "ctx_load_meta",
+    "eth_store_daddr",
+    "cilium_capture_out",
+    "ctx_redirect",
+    "eth_store_saddr",
+    "bpf_skip_nodeport_set",
     "snat_v4_process",
     "__encap_with_nodeid",
-    "bpf_skip_nodeport_set",
-    "ctx_get_ifindex",
-    "send_drop_notify_error_ext"
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -6010,52 +6010,6 @@ drop_err:
 {
   "capabilities": [
     {
-      "capability": "map_update",
-      "map_update": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "map_update_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}",
-            "{Type:  const void ,Var: *value}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -6119,6 +6073,52 @@ drop_err:
           ]
         }
       ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "map_update_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -6138,14 +6138,14 @@ drop_err:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_update_elem",
     "CTX_ACT_OK",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "map_update_elem"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int nodeport_lb4 (struct  __ctx_buff *ctx, __u32 src_identity)\n",
@@ -6292,38 +6292,38 @@ drop_err:
     "}\n"
   ],
   "called_function_list": [
-    "lb4_populate_ports",
-    "revalidate_data",
-    "unlikely",
-    "cilium_capture_in",
+    "__lookup_ip4_endpoint",
+    "ct_lookup4",
+    "nodeport_uses_dsr4",
     "send_trace_notify",
-    "ctx_store_meta",
-    "defined",
-    "lb4_to_lb6",
-    "ipv4_has_l4_header",
+    "lb4_lookup_service",
     "eth_load_saddr",
     "lb4_extract_key",
-    "lb4_svc_is_hostport",
     "lb4_to_lb6_service",
-    "nodeport_uses_dsr4",
-    "lb4_svc_is_routable",
-    "eth_addrcmp",
-    "ep_tail_call",
-    "bpf_ntohs",
-    "ct_lookup4",
+    "edt_set_aggregate",
+    "lb4_populate_ports",
+    "defined",
     "ct_create4",
-    "lb4_svc_is_l7loadbalancer",
-    "IS_ERR",
+    "ipv4_has_l4_header",
+    "ipv4_hdrlen",
+    "ctx_redirect_to_proxy_hairpin_ipv4",
+    "bpf_ntohs",
+    "ctx_set_xfer",
+    "get_ct_map4",
+    "lb4_svc_is_routable",
+    "cilium_capture_in",
     "lb4_src_range_ok",
     "lb4_local",
-    "get_ct_map4",
-    "lb4_lookup_service",
-    "edt_set_aggregate",
-    "ipv4_hdrlen",
-    "snat_v6_has_v4_match",
-    "__lookup_ip4_endpoint",
-    "ctx_redirect_to_proxy_hairpin_ipv4",
-    "ctx_set_xfer"
+    "lb4_svc_is_l7loadbalancer",
+    "revalidate_data",
+    "eth_addrcmp",
+    "lb4_to_lb6",
+    "ctx_store_meta",
+    "IS_ERR",
+    "ep_tail_call",
+    "lb4_svc_is_hostport",
+    "unlikely",
+    "snat_v6_has_v4_match"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -6528,28 +6528,29 @@ redo:
 {
   "capabilities": [
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
           "Project": "cilium",
           "Return Type": "int",
-          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
-          "Input Params": [
-            "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
-            "{Type:  int ,Var: plen}",
-            "{Type:  u32 ,Var: flags}"
-          ],
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
           "compatible_hookpoints": [
+            "xdp",
             "sched_cls",
-            "sched_act",
-            "xdp"
+            "sched_act"
           ],
           "capabilities": [
-            "read_sys_info"
+            "pkt_go_to_next_module"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
         {
           "Project": "libbpf",
           "Return Type": "int",
@@ -6569,26 +6570,25 @@ redo:
           "capabilities": [
             "read_sys_info"
           ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
+        },
         {
           "Project": "cilium",
           "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ],
           "compatible_hookpoints": [
-            "xdp",
             "sched_cls",
-            "sched_act"
+            "sched_act",
+            "xdp"
           ],
           "capabilities": [
-            "pkt_go_to_next_module"
+            "read_sys_info"
           ]
         }
       ]
@@ -6654,15 +6654,15 @@ redo:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "fib_lookup",
     "CTX_ACT_OK",
     "bpf_fib_lookup",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "fib_lookup"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int rev_nodeport_lb4 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)\n",
@@ -6790,30 +6790,30 @@ redo:
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
-    "lookup_ip4_egress_gw_policy",
-    "unlikely",
-    "lb4_rev_nat",
-    "eth_store_saddr_aligned",
-    "eth_store_saddr",
-    "eth_store_daddr",
-    "ctx_get_ifindex",
-    "ipv4_has_l4_header",
-    "bpf_skip_recirculation",
-    "ep_tail_call",
-    "ct_lookup4",
-    "NATIVE_DEV_MAC_BY_IFINDEX",
     "bpf_mark_snat_done",
     "maybe_add_l2_hdr",
-    "ipcache_lookup4",
-    "IS_ERR",
-    "csum_l4_offset_and_flags",
+    "ctx_get_ifindex",
+    "ct_lookup4",
+    "eth_store_saddr_aligned",
+    "eth_store_daddr",
     "__encap_with_nodeid",
-    "bpf_skip_nodeport_set",
-    "get_ct_map4",
+    "defined",
+    "ipcache_lookup4",
+    "ipv4_has_l4_header",
     "ipv4_hdrlen",
+    "bpf_skip_nodeport_set",
+    "csum_l4_offset_and_flags",
     "eth_store_daddr_aligned",
-    "defined"
+    "NATIVE_DEV_MAC_BY_IFINDEX",
+    "get_ct_map4",
+    "lb4_rev_nat",
+    "bpf_skip_recirculation",
+    "revalidate_data",
+    "IS_ERR",
+    "unlikely",
+    "ep_tail_call",
+    "eth_store_saddr",
+    "lookup_ip4_egress_gw_policy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7022,29 +7022,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "int tail_rev_nodeport_lb4 (struct  __ctx_buff *ctx)\n",
@@ -7074,16 +7074,16 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
     "}\n"
   ],
   "called_function_list": [
-    "edt_set_aggregate",
-    "cilium_capture_out",
-    "ipv4_host_policy_ingress",
-    "ctx_redirect",
-    "IS_ERR",
-    "send_drop_notify_error",
     "send_drop_notify_error_ext",
     "ctx_skip_host_fw_set",
-    "defined",
-    "rev_nodeport_lb4"
+    "cilium_capture_out",
+    "IS_ERR",
+    "ctx_redirect",
+    "send_drop_notify_error",
+    "edt_set_aggregate",
+    "ipv4_host_policy_ingress",
+    "rev_nodeport_lb4",
+    "defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7159,29 +7159,29 @@ declare_tailcall_if(__or3(__and(is_defined(ENABLE_IPV4),
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "int tail_handle_nat_fwd_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -7204,10 +7204,10 @@ declare_tailcall_if(__or3(__and(is_defined(ENABLE_IPV4),
     "}\n"
   ],
   "called_function_list": [
-    "send_trace_notify",
     "IS_ERR",
-    "send_drop_notify_error",
     "nodeport_nat_ipv4_fwd",
+    "send_trace_notify",
+    "send_drop_notify_error",
     "defined"
   ],
   "call_depth": -1,
@@ -7267,29 +7267,29 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int health_encap_v4 (struct  __ctx_buff *ctx, __u32 tunnel_ep, __u32 seclabel)\n",
@@ -7306,9 +7306,9 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
   ],
   "called_function_list": [
     "ctx_set_tunnel_key",
+    "memset",
     "bpf_htonl",
-    "unlikely",
-    "memset"
+    "unlikely"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7366,29 +7366,29 @@ health_encap_v4(struct __ctx_buff *ctx, __u32 tunnel_ep,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline int health_encap_v6 (struct  __ctx_buff *ctx, const union v6addr *tunnel_ep, __u32 seclabel)\n",
@@ -7408,8 +7408,8 @@ health_encap_v4(struct __ctx_buff *ctx, __u32 tunnel_ep,
   ],
   "called_function_list": [
     "ctx_set_tunnel_key",
-    "unlikely",
-    "memset"
+    "memset",
+    "unlikely"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7474,33 +7474,6 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
       ]
     },
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "cilium",
-          "Return Type": "u64",
-          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
-          "Return": " A 8-byte long non-decreasing number.",
-          "Function Name": "get_socket_cookie",
-          "Input Params": [
-            "{Type: struct sock_ops ,Var: *ctx}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "sched_cls",
-            "sched_act",
-            "cgroup_skb",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_sock_addr"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -7543,6 +7516,33 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
           ]
         }
       ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "u64",
+          "Description": "Equivalent to get_socket_cookie() helper that accepts skb , but gets socket from struct sock_ops context. ",
+          "Return": " A 8-byte long non-decreasing number.",
+          "Function Name": "get_socket_cookie",
+          "Input Params": [
+            "{Type: struct sock_ops ,Var: *ctx}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "sched_cls",
+            "sched_act",
+            "cgroup_skb",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_sock_addr"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -7561,12 +7561,12 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
   "output": "static__always_inlineint",
   "helper": [
     "CTX_ACT_OK",
-    "get_socket_cookie",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "get_socket_cookie"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int lb_handle_health (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -7619,11 +7619,11 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "health_encap_v6",
     "validate_ethertype",
-    "health_encap_v4",
     "bpf_htons",
+    "ctx_redirect",
+    "health_encap_v4",
+    "health_encap_v6",
     "defined"
   ],
   "call_depth": -1,
@@ -7732,9 +7732,9 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int handle_nat_fwd (struct  __ctx_buff *ctx)\n",
@@ -7768,14 +7768,14 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "__or",
-    "build_bug_on",
-    "__and",
     "validate_ethertype",
     "bpf_htons",
+    "is_defined",
     "__or3",
     "invoke_tailcall_if",
-    "is_defined"
+    "__and",
+    "__or",
+    "build_bug_on"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

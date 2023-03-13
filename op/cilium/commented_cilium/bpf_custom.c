@@ -46,29 +46,29 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
-    "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "socket_filter",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "int custom_hook (const struct  __ctx_buff *ctx)\n",
@@ -81,8 +81,8 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
     "}\n"
   ],
   "called_function_list": [
-    "ctx_load_meta",
-    "custom_prog"
+    "custom_prog",
+    "ctx_load_meta"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

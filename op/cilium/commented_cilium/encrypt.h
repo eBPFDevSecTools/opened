@@ -54,9 +54,9 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int do_decrypt (struct  __ctx_buff *ctx, __u16 proto)\n",
@@ -121,9 +121,9 @@
   ],
   "called_function_list": [
     "ctx_change_type",
-    "revalidate_data_pull",
     "ctx_redirect",
-    "bpf_htons"
+    "bpf_htons",
+    "revalidate_data_pull"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -245,9 +245,9 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
+    "sched_cls",
     "xdp",
-    "sched_act",
-    "sched_cls"
+    "sched_act"
   ],
   "source": [
     "static __always_inline int do_decrypt (struct  __ctx_buff  __maybe_unused *ctx, __u16 __maybe_unused proto)\n",
@@ -257,9 +257,9 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   ],
   "called_function_list": [
     "ctx_change_type",
-    "revalidate_data_pull",
     "ctx_redirect",
-    "bpf_htons"
+    "bpf_htons",
+    "revalidate_data_pull"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

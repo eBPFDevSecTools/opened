@@ -74,33 +74,33 @@ struct {
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "map_update_elem",
-    "map_lookup_elem"
+    "map_lookup_elem",
+    "map_update_elem"
   ],
   "compatibleHookpoints": [
-    "sk_skb",
     "sk_msg",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "sched_act",
-    "lwt_out",
-    "lwt_xmit",
     "flow_dissector",
-    "cgroup_sock_addr",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "cgroup_skb",
     "socket_filter",
-    "raw_tracepoint_writable",
     "cgroup_sock",
-    "sock_ops",
+    "cgroup_sysctl",
+    "kprobe",
     "raw_tracepoint",
     "perf_event",
-    "kprobe",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sock_ops",
+    "lwt_out",
+    "xdp",
+    "cgroup_skb",
+    "sk_reuseport",
+    "cgroup_sock_addr",
+    "cgroup_device",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint_writable",
+    "sched_act",
     "sched_cls",
-    "cgroup_device"
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void custom_prog (const struct  __ctx_buff *ctx, __u32 identity)\n",
@@ -115,8 +115,8 @@ struct {
     "}\n"
   ],
   "called_function_list": [
-    "__sync_fetch_and_add",
-    "ctx_full_len"
+    "ctx_full_len",
+    "__sync_fetch_and_add"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

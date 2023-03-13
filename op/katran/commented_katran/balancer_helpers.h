@@ -111,26 +111,26 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_perf_event_output",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_perf_event_output"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_out",
-    "sock_ops",
-    "xdp",
     "perf_event",
-    "tracepoint",
-    "cgroup_skb",
-    "sk_skb",
+    "lwt_out",
     "lwt_in",
-    "socket_filter",
     "sched_act",
-    "raw_tracepoint_writable",
-    "lwt_xmit",
+    "xdp",
     "raw_tracepoint",
+    "cgroup_skb",
+    "sched_cls",
     "lwt_seg6local",
-    "kprobe"
+    "lwt_xmit",
+    "sock_ops",
+    "sk_skb",
+    "socket_filter",
+    "tracepoint",
+    "kprobe",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)\n",
