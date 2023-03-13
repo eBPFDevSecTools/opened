@@ -10,3 +10,5 @@ python3 src/utils/comment_extractor.py -s ./op/xdp-mptm-main/commented_xdp-mptm-
 
 #rate-limiter
 python3 src/utils/comment_extractor.py -s ./op/ebpf-ratelimiter-main/commented_ebpf-ratelimiter-main -d ./repo_db/ratelimiter_comments.db
+#bpf-filter
+python3 src/utils/comment_extractor.py -s ./op/bpf-filter-master/commented_bpf-filter-master -d ./repo_db/bpffilter_comments.db
