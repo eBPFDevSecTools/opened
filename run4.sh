@@ -6,4 +6,7 @@ python3 src/utils/comment_extractor.py -s ./op/bcc/commented_bcc -d ./op/bcc/com
 python3 src/utils/query.py -f /home/palani/func_level_info/bcc.function_file_list.json  -d ./op/bcc/commented_bcc/bcc_comments_human.db
 
 #mptm
-python3 src/utils/comment_extractor.py -s ./op/xdp-mptm-main/commented_xdp-mptm-main -d ../../repo_db/mptm_comments.db
+python3 src/utils/comment_extractor.py -s ./op/xdp-mptm-main/commented_xdp-mptm-main -d ./repo_db/mptm_comments.db
+
+#rate-limiter
+python3 src/utils/comment_extractor.py -s ./op/ebpf-ratelimiter-main/commented_ebpf-ratelimiter-main -d ./repo_db/ratelimiter_comments.db
