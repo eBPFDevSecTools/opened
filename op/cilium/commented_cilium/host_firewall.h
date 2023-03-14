@@ -57,9 +57,9 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv6_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, struct trace_ctx *trace)\n",
@@ -121,17 +121,17 @@
     "}\n"
   ],
   "called_function_list": [
-    "send_policy_verdict_notify",
     "ipv6_addr_copy",
-    "ipv6_hdrlen",
-    "cilium_dbg",
-    "IS_ERR",
     "lookup_ip6_remote_endpoint",
-    "policy_can_egress6",
     "ct_lookup6",
     "ct_create6",
-    "get_ct_map6",
-    "revalidate_data"
+    "ipv6_hdrlen",
+    "send_policy_verdict_notify",
+    "policy_can_egress6",
+    "IS_ERR",
+    "cilium_dbg",
+    "revalidate_data",
+    "get_ct_map6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -277,9 +277,9 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv6_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)\n",
@@ -346,18 +346,18 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_change_type",
-    "policy_can_access_ingress",
-    "send_policy_verdict_notify",
     "ipv6_addr_copy",
-    "cilium_dbg",
-    "ipv6_hdrlen",
-    "IS_ERR",
     "lookup_ip6_remote_endpoint",
     "ct_lookup6",
     "ct_create6",
-    "get_ct_map6",
-    "revalidate_data"
+    "ipv6_hdrlen",
+    "send_policy_verdict_notify",
+    "ctx_change_type",
+    "IS_ERR",
+    "policy_can_access_ingress",
+    "cilium_dbg",
+    "revalidate_data",
+    "get_ct_map6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -520,9 +520,9 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int whitelist_snated_egress_connections (struct  __ctx_buff *ctx, __u32 ipcache_srcid, struct trace_ctx *trace)\n",
@@ -554,12 +554,12 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "}\n"
   ],
   "called_function_list": [
-    "ct_lookup4",
-    "IS_ERR",
-    "ipv4_hdrlen",
+    "ct_create4",
     "get_ct_map4",
-    "revalidate_data",
-    "ct_create4"
+    "ct_lookup4",
+    "ipv4_hdrlen",
+    "IS_ERR",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -669,9 +669,9 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv4_host_policy_egress (struct  __ctx_buff *ctx, __u32 src_id, __u32 ipcache_srcid __maybe_unused, struct trace_ctx *trace)\n",
@@ -736,17 +736,17 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "}\n"
   ],
   "called_function_list": [
+    "lookup_ip4_remote_endpoint",
+    "ct_create4",
+    "get_ct_map4",
     "ct_lookup4",
     "send_policy_verdict_notify",
-    "cilium_dbg",
-    "IS_ERR",
+    "whitelist_snated_egress_connections",
     "policy_can_egress4",
     "ipv4_hdrlen",
-    "lookup_ip4_remote_endpoint",
-    "get_ct_map4",
-    "revalidate_data",
-    "whitelist_snated_egress_connections",
-    "ct_create4"
+    "IS_ERR",
+    "cilium_dbg",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -894,9 +894,9 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv4_host_policy_ingress (struct  __ctx_buff *ctx, __u32 *src_id, struct trace_ctx *trace)\n",
@@ -964,18 +964,18 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_change_type",
-    "policy_can_access_ingress",
+    "lookup_ip4_remote_endpoint",
+    "ct_create4",
+    "get_ct_map4",
     "ct_lookup4",
     "send_policy_verdict_notify",
-    "cilium_dbg",
-    "IS_ERR",
     "ipv4_is_fragment",
+    "ctx_change_type",
     "ipv4_hdrlen",
-    "lookup_ip4_remote_endpoint",
-    "get_ct_map4",
-    "revalidate_data",
-    "ct_create4"
+    "policy_can_access_ingress",
+    "IS_ERR",
+    "cilium_dbg",
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

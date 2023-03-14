@@ -102,17 +102,40 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
 {
   "capabilities": [
     {
-      "capability": "map_read",
-      "map_read": [
+      "capability": "read_sys_info",
+      "read_sys_info": [
         {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
+          "Return Type": "u64",
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
@@ -131,91 +154,122 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     },
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
           "Project": "libbpf",
-          "Return Type": "u64",
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": " Current ktime.",
-          "Function Name": "bpf_ktime_get_ns",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
           "Input Params": [
-            "{Type: voi ,Var: void}"
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    uint64_t *rate ",
-        "inpVar": [
-          " &rl_config_map",
-          " &rkey"
-        ]
-      },
-      {
-        "opVar": "        uint64_t *pw_count ",
-        "inpVar": [
-          " &rl_window_map",
-          " &pw_key"
-        ]
-      },
-      {
-        "opVar": "        uint32_t *cw_count ",
-        "inpVar": [
-          " &rl_window_map",
-          " &cw_key"
-        ]
-      },
-      {
-        "opVar": "        uint64_t *in_count ",
-        "inpVar": [
-          " &rl_recv_count_map",
-          " &rkey"
-        ]
-      },
-      {
-        "opVar": "        uint64_t *drop_count ",
-        "inpVar": [
-          " &rl_drop_count_map",
-          " &rkey"
-        ]
-      },
-      {
-        "opVar": "        cw_count ",
-        "inpVar": [
-          " &rl_window_map",
-          " &cw_key"
-        ]
-      }
-    ],
-    "bpf_ktime_get_ns": [
-      {
-        "opVar": "        uint64_t tnow ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ],
-    "bpf_map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        &rl_window_map",
-          " &cw_key",
-          " &init_count",
-          " BPF_NOEXIST"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 100,
   "endLine": 276,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_kern.c",
@@ -225,10 +279,10 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
   ],
   "readMaps": [
     " rl_window_map",
-    " rl_recv_count_map",
-    " rl_drop_count_map",
+    "  rl_window_map",
     " rl_config_map",
-    "  rl_window_map"
+    " rl_recv_count_map",
+    " rl_drop_count_map"
   ],
   "input": [
     "struct xdp_md *ctx"
@@ -237,30 +291,12 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
   "helper": [
     "bpf_ktime_get_ns",
     "bpf_map_update_elem",
-    "bpf_map_lookup_elem"
+    "XDP_PASS",
+    "bpf_map_lookup_elem",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "perf_event",
-    "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
-    "sk_reuseport",
-    "kprobe",
-    "lwt_out",
-    "cgroup_skb",
-    "cgroup_sock",
-    "xdp",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "lwt_in"
+    "xdp"
   ],
   "source": [
     "static __always_inline int _xdp_ratelimit (struct xdp_md *ctx)\n",
@@ -343,14 +379,13 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ntohs",
+    "bpf_ntohs",
+    "bpf_printk"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function implements a TCP connection rate limiter. Takes in input a packet in struct xdp_mp * ctx form. It first checks if input is a valid ethernet packet. It ignores other than ethernet packets, other than ip packets, other than tcp packets. If the packet is a valid tcp packet, it check if the packet is a TCP syn packet as it performs connection rate limiting it ignores packets other than tcp syn packets and even tcp syn ack packets. If the packet is a TCP SYN hence connection establishment packet, the code reads a map rl_config_map with key set to number 0 and receives the allowed rate of connections configured from the userspace if the map read fails, the function returns XDP_PASS else it continues execution. Next it checks which time window the packet corresponds to, a window is essentially a 1 second sliding window calculated by calling bpf_ktime_get_ns and getting the current time. Current time is used to calculate current window cw_key and previous window(current - 1 s) is used to calculate previous window pw_key. The function then performs a bunch of map reads, 1) rl_window_map twice with keys cw_key and pw_key which gives the cw_count and pw_count essentially current window packet count and previous window packet count. 2) rl_recv_count_map with key set to number 0 which tracks number of incommming connections 3) rl_drop_count_map with key set to number 0 which tracks number of dropped connections. If this is the first packet in this window then the function updates the map rl_window_map with key cw_key and value 0 and sets the cw_count to 0. If this is a new connection and no previous connection were present then the rate limiter allows connection if cw_count < rate and returns XDP_PASS else it drops the connection and returns XDP_DROP. If there had been previous connections then it calculates the number of connections accepted in last 1 sec from current time, if the total connections are higher than allowed rate, it drops the connection and returns XDP_DROP else it allows the connection and returns XDP_PASS. The function also updates the current window count and drop count before returning."
-      ,
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -364,7 +399,7 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
   ]
 } 
  OPENED COMMENT END 
- */
+ */ 
 static __always_inline int _xdp_ratelimit(struct xdp_md *ctx)
 {
     void *data_end = (void *)(long)ctx->data_end;
@@ -419,7 +454,7 @@ static __always_inline int _xdp_ratelimit(struct xdp_md *ctx)
     //bpf_printk("Check: rate  %d\n",rkey);
     if (!rate){
         bpf_printk("Return: rate %d\n",rkey);
-	    return XDP_PASS;
+	return XDP_PASS;
     } else {
       //bpf_printk("Set: rate %d\n",*rate);
     }
@@ -547,7 +582,46 @@ SEC("xdp_ratelimiting")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 279,
   "endLine": 289,
@@ -559,31 +633,12 @@ SEC("xdp_ratelimiting")
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "XDP_PASS",
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
-    "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
-    "sk_reuseport",
-    "kprobe",
-    "lwt_out",
-    "cgroup_skb",
-    "cgroup_sock",
-    "xdp",
-    "raw_tracepoint_writable",
-    "socket_filter",
-    "lwt_in"
+    "xdp"
   ],
   "source": [
     "int _xdp_ratelimiting (struct xdp_md *ctx)\n",
@@ -596,13 +651,12 @@ SEC("xdp_ratelimiting")
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_printk",
+    "_xdp_ratelimit"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This is a wrapper function which calls the base function _xdp_ratelimit with the same arument passed to it and returns its value",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [

@@ -40,45 +40,6 @@ struct ebpf_map inner_map =
       "capability": "map_read",
       "map_read": [
         {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        },
-        {
           "Project": "libbpf",
           "Return Type": "void*",
           "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
@@ -127,42 +88,41 @@ struct ebpf_map inner_map =
   "funcName": "func",
   "updateMaps": [],
   "readMaps": [
+    " nolocal_lru_map",
     "  inner_map",
-    " array_of_maps",
-    " nolocal_lru_map"
+    " array_of_maps"
   ],
   "input": [
     "void *ctx"
   ],
   "output": "int",
   "helper": [
-    "map_lookup_elem",
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "lwt_in",
-    "sk_msg",
-    "perf_event",
     "cgroup_skb",
-    "lwt_xmit",
-    "sk_skb",
+    "cgroup_sock_addr",
     "cgroup_sock",
-    "socket_filter",
-    "sched_act",
-    "flow_dissector",
     "tracepoint",
-    "cgroup_device",
-    "sock_ops",
-    "raw_tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
     "lwt_seg6local",
-    "xdp",
+    "sk_reuseport",
     "sched_cls",
     "lwt_out",
-    "kprobe",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "cgroup_sock_addr"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "xdp"
   ],
   "source": [
     "int func (void *ctx)\n",

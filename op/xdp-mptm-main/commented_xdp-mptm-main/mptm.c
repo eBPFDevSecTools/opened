@@ -54,6 +54,25 @@ SEC("mptm_encap_xdp")
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -65,40 +84,40 @@ SEC("mptm_encap_xdp")
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    tn ",
-        "inpVar": [
-          " &mptm_tnl_info_map",
-          " &key"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        if likelytn-> "
-        ]
-      }
-    ],
-    "bpf_redirect": [
-      {
-        "opVar": "         action ",
-        "inpVar": [
-          " _map&mptm_tnl_redirect_devmap",
-          " tn->veth_iface",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 52,
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
@@ -112,23 +131,65 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
+    "XDP_PASS",
+    "bpf_redirect_map",
     "bpf_redirect",
-    "redirect"
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_cls",
-    "xdp",
-    "sched_act"
+    "xdp"
   ],
+  "source": [
+    "int mptm_encap (struct xdp_md *ctx)\n",
+    "{\n",
+    "    int action = XDP_PASS;\n",
+    "    struct ethhdr *eth;\n",
+    "    struct iphdr *ip;\n",
+    "    struct tunnel_info *tn;\n",
+    "    tunnel_map_key_t key;\n",
+    "    __u8 tun_type;\n",
+    "    void *data = (void *) ((long) ctx->data);\n",
+    "    void *data_end = (void *) ((long) ctx->data_end);\n",
+    "    if (parse_pkt_headers (data, data_end, &eth, &ip, NULL) != 0) {\n",
+    "        goto out;\n",
+    "    }\n",
+    "    key.s_addr = ip->saddr;\n",
+    "    key.d_addr = ip->daddr;\n",
+    "    tn = bpf_map_lookup_elem (& mptm_tnl_info_map, & key);\n",
+    "    if (tn == NULL) {\n",
+    "        mptm_print (\"[ERR] map entry missing for key-{saddr:%x,daddr:%x}\\n\", key.s_addr, key.d_addr);\n",
+    "        goto out;\n",
+    "    }\n",
+    "    tun_type = tn->tunnel_type;\n",
+    "    if (tun_type == VLAN) {\n",
+    "        action = encap_vlan (ctx, eth, tn);\n",
+    "    }\n",
+    "    else if (tun_type == GENEVE) {\n",
+    "        action = encap_geneve (ctx, eth, tn);\n",
+    "    }\n",
+    "    else {\n",
+    "        bpf_debug (\"[ERR] tunnel type is unknown\");\n",
+    "        goto out;\n",
+    "    }\n",
+    "    if (likely (tn->redirect)) {\n",
+    "        __u64 flags = 0;\n",
+    "        action = bpf_redirect_map (& mptm_tnl_redirect_devmap, tn -> veth_iface, flags);\n",
+    "    }\n",
+    "out :\n",
+    "    return xdp_stats_record_action (ctx, action);\n",
+    "}\n"
+  ],
+  "called_function_list": [
+    "encap_vlan",
+    "bpf_debug",
+    "parse_pkt_headers",
+    "encap_geneve",
+    "xdp_stats_record_action",
+    "mptm_print",
+    "likely"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function performs the encapsulation of specific tunnel on an outgoing packet. It parse the packet eth and ip header using the parse_pkt_headers helper function. It then performs a map lookup into mptm_tnl_info_map with key which is a struct containing the ip source and dst addr of the packet. The map lookup returns a tunnel_info object *tn, which is used further to encapsulate differnet tunnel based on the rule programmed in the tunnel_info object retrieved from the map. This function will then call appropriate helper function encap_<tunnel> to encapsulate appropriate tunnel on the packet and finally redirects the packet to an outbound interface which is pre programmed in a devmap with the key taken as tn->veth_iface object and flags as none. It will return XDP_REDIRECT on successful encapsulation or XDP_PASS/XDP_ABORTED based on the return value of helper functions used.",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -198,6 +259,44 @@ SEC("mptm_decap_xdp")
 {
   "capabilities": [
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "update_pkt",
       "update_pkt": [
         {
@@ -209,6 +308,12 @@ SEC("mptm_decap_xdp")
           "Input Params": [
             "{Type: struct xdp_buff ,Var: *xdp_md}",
             "{Type:  int ,Var: delta}"
+          ],
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
@@ -225,41 +330,40 @@ SEC("mptm_decap_xdp")
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "        long ret ",
-        "inpVar": [
-          " ctx",
-          " outer_hdr_size"
-        ]
-      }
-    ],
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "        tn ",
-        "inpVar": [
-          " &mptm_tnl_info_map",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_redirect": [
-      {
-        "opVar": "                action ",
-        "inpVar": [
-          " _map&mptm_tnl_redirect_devmap",
-          " tn->eth0_iface",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 102,
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
@@ -273,20 +377,70 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
+    "bpf_redirect",
+    "XDP_DROP",
+    "XDP_PASS",
+    "bpf_redirect_map",
     "bpf_xdp_adjust_head",
-    "bpf_redirect"
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
   ],
+  "source": [
+    "int mptm_decap (struct xdp_md *ctx)\n",
+    "{\n",
+    "    int action = XDP_PASS;\n",
+    "    struct ethhdr *eth;\n",
+    "    struct iphdr *ip;\n",
+    "    struct udphdr *udp;\n",
+    "    void *data = (void *) ((long) ctx->data);\n",
+    "    void *data_end = (void *) ((long) ctx->data_end);\n",
+    "    if (parse_pkt_headers (data, data_end, &eth, &ip, &udp) != 0)\n",
+    "        goto out;\n",
+    "    if (udp->dest == BE_GENEVE_DSTPORT) {\n",
+    "        int outer_hdr_size = sizeof (struct genevehdr) + sizeof (struct udphdr) + sizeof (struct iphdr) + sizeof (struct ethhdr);\n",
+    "        long ret = bpf_xdp_adjust_head (ctx, outer_hdr_size);\n",
+    "        if (ret != 0l) {\n",
+    "            mptm_print (\"[Agent:] DROP (BUG): Failure adjusting packet header!\\n\");\n",
+    "            return XDP_DROP;\n",
+    "        }\n",
+    "        data = (void *) (long) ctx->data;\n",
+    "        data_end = (void *) (long) ctx->data_end;\n",
+    "        struct ethhdr *inner_eth;\n",
+    "        struct iphdr *inner_ip;\n",
+    "        if (parse_pkt_headers (data, data_end, &inner_eth, &inner_ip, NULL) != 0)\n",
+    "            goto out;\n",
+    "        tunnel_map_key_t key;\n",
+    "        struct tunnel_info *tn;\n",
+    "        __u8 tun_type;\n",
+    "        __u64 flags = 0;\n",
+    "        key.s_addr = inner_ip->daddr;\n",
+    "        key.d_addr = inner_ip->saddr;\n",
+    "        tn = bpf_map_lookup_elem (& mptm_tnl_info_map, & key);\n",
+    "        if (tn == NULL) {\n",
+    "            mptm_print (\"[ERR] map entry missing for key {saddr:%x,daddr:%x}\\n\", key.s_addr, key.d_addr);\n",
+    "            goto out;\n",
+    "        }\n",
+    "        tun_type = tn->tunnel_type;\n",
+    "        if (unlikely (tun_type != GENEVE)) {\n",
+    "            mptm_print (\"Packet is changed but did not belong to us!\");\n",
+    "            return XDP_DROP;\n",
+    "        }\n",
+    "        action = bpf_redirect_map (& mptm_tnl_redirect_devmap, tn -> eth0_iface, flags);\n",
+    "    }\n",
+    "out :\n",
+    "    return xdp_stats_record_action (ctx, action);\n",
+    "}\n"
+  ],
+  "called_function_list": [
+    "parse_pkt_headers",
+    "unlikely",
+    "mptm_print",
+    "xdp_stats_record_action"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function performs the decapsulation of specific tunnel on an incoming packet. It parse the packet eth, ip and udp header using the parse_pkt_headers helper function. If the packet is a UDP packet and if the UDP dest port is 0xc117 the geneve tunnel destination port, then it will remove the geneve header from the packet,by reducing its data size by sizeof(struct genevehdr+ struct udphdr + struct iphdr + struct ethhdr) by calling bpf_xdp_adjust_head. After that it recalculates the packet headers using parse_pkt_headers and does a sanity check on if Geneve tunnel is what was intended for this packet. Finally the packet is redirected to appropriate interface using mptm_tnl_redirect_devmap",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [

@@ -113,31 +113,30 @@
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "bpf_tail_call",
-    "tail_call"
+    "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "xdp",
+    "lwt_xmit",
+    "sk_skb",
+    "cgroup_sock",
+    "sched_cls",
     "perf_event",
     "kprobe",
-    "sk_skb",
     "sk_reuseport",
-    "lwt_seg6local",
-    "raw_tracepoint",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "sched_cls",
-    "lwt_xmit",
-    "sched_act",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_skb",
-    "cgroup_sock",
     "sk_msg",
+    "lwt_out",
+    "sched_act",
+    "xdp",
+    "cgroup_skb",
+    "tracepoint",
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
     "socket_filter",
+    "raw_tracepoint_writable",
     "lwt_in",
-    "flow_dissector"
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void bpf_tail_call_static (void *ctx, const void *map, const __u32 slot)\n",
@@ -161,8 +160,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__bpf_unreachable",
-    "__builtin_constant_p"
+    "__builtin_constant_p",
+    "__bpf_unreachable"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

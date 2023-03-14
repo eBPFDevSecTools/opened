@@ -26,29 +26,29 @@
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
     "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
+    "sched_cls",
     "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
     "cgroup_sock_addr",
+    "tracepoint",
     "cgroup_sysctl",
     "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "raw_tracepoint",
     "raw_tracepoint_writable",
-    "cgroup_skb"
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 map_array_get_32 (const __u32 *array, __u32 index, const __u32 limit)\n",
@@ -69,8 +69,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__throw_build_bug",
-    "__builtin_constant_p"
+    "__builtin_constant_p",
+    "__throw_build_bug"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

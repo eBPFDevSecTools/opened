@@ -53,37 +53,43 @@
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "cgroup_skb",
+    "lwt_out",
     "cgroup_sysctl",
     "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
+    "sched_cls",
+    "cgroup_sock_addr",
     "lwt_in",
-    "xdp"
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "socket_filter",
+    "xdp",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_device",
+    "kprobe",
+    "lwt_seg6local"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ void set_dst_mac (void *data, unsigned char *dst_mac)\n",
+    "{\n",
+    "    unsigned short *p = data;\n",
+    "    unsigned short *dst = (unsigned short *) dst_mac;\n",
+    "    p[0] = dst[0];\n",
+    "    p[1] = dst[1];\n",
+    "    p[2] = dst[2];\n",
+    "}\n"
+  ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in two arguments 1) void *data 2) unsigned char *dst_mac and will set the mac represented by dst_mac array 0,1,2 to the pointer pointed by data at array offset 0,1,2",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -126,37 +132,43 @@ static __ALWAYS_INLINE__ void set_dst_mac(void *data, unsigned char *dst_mac)
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "cgroup_skb",
+    "lwt_out",
     "cgroup_sysctl",
     "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
+    "sched_cls",
+    "cgroup_sock_addr",
     "lwt_in",
-    "xdp"
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "socket_filter",
+    "xdp",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_device",
+    "kprobe",
+    "lwt_seg6local"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ void set_src_mac (void *data, unsigned char *src_mac)\n",
+    "{\n",
+    "    unsigned short *p = data;\n",
+    "    unsigned short *src = (unsigned short *) src_mac;\n",
+    "    p[3] = src[0];\n",
+    "    p[4] = src[1];\n",
+    "    p[5] = src[2];\n",
+    "}\n"
+  ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in two arguments 1) void *data 2) unsigned char *src_mac and will set the mac represented by src_mac array 0,1,2 to the pointer pointed by data at array offset [3,4,5]",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -198,37 +210,46 @@ static __ALWAYS_INLINE__ void set_src_mac(void *data, unsigned char *src_mac)
   "output": "static__ALWAYS_INLINE____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "cgroup_skb",
+    "lwt_out",
     "cgroup_sysctl",
     "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
+    "sched_cls",
+    "cgroup_sock_addr",
     "lwt_in",
-    "xdp"
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "socket_filter",
+    "xdp",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_device",
+    "kprobe",
+    "lwt_seg6local"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ __u16 csum_fold_helper (__u64 csum)\n",
+    "{\n",
+    "    int i;\n",
+    "\n",
+    "#pragma unroll\n",
+    "    for (i = 0; i < 4; i++) {\n",
+    "        if (csum >> 16)\n",
+    "            csum = (csum & 0xffff) + (csum >> 16);\n",
+    "    }\n",
+    "    return ~csum;\n",
+    "}\n"
+  ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in a __u64 csum helps in recomputing ipv4 checksum, return folded checksum as __u16",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -272,37 +293,48 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "cgroup_skb",
+    "lwt_out",
     "cgroup_sysctl",
     "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
+    "sched_cls",
+    "cgroup_sock_addr",
     "lwt_in",
-    "xdp"
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "socket_filter",
+    "xdp",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_device",
+    "kprobe",
+    "lwt_seg6local"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ void ipv4_csum_inline (void *iph, __u64 *csum)\n",
+    "{\n",
+    "    __u16 *next_iph_u16 = (__u16 *) iph;\n",
+    "\n",
+    "#pragma clang loop unroll(full)\n",
+    "    for (int i = 0; i < sizeof (struct iphdr) >> 1; i++) {\n",
+    "        *csum += *next_iph_u16++;\n",
+    "    }\n",
+    "    *csum = csum_fold_helper (*csum);\n",
+    "}\n"
+  ],
+  "called_function_list": [
+    "csum_fold_helper",
+    "unroll"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in an ip header void *iph and a checksum __u64 *csum, recomputes ipv4 checksum and stores the result back in *csum argument, does not return anything.",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -335,6 +367,25 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "update_pkt",
       "update_pkt": [
         {
@@ -346,22 +397,51 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
           "Input Params": [
             "{Type: struct xdp_buff ,Var: *xdp_md}",
             "{Type:  int ,Var: delta}"
+          ],
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "update_pkt"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        },
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_ABORTED",
+          "Return": 0,
+          "Description": "which serves denoting an exception like state from the program and has the same behavior as XDP_DROP only that XDP_ABORTED passes the trace_xdp_exception tracepoint which can be additionally monitored to detect misbehavior.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "    long ret ",
-        "inpVar": [
-          " ctx",
-          " 0-outer_hdr_size"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 82,
   "endLine": 192,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
@@ -375,18 +455,105 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   ],
   "output": "static__ALWAYS_INLINE__int",
   "helper": [
-    "bpf_xdp_adjust_head"
+    "XDP_PASS",
+    "bpf_xdp_adjust_head",
+    "XDP_DROP",
+    "XDP_ABORTED"
   ],
   "compatibleHookpoints": [
     "xdp"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ int __encap_geneve (struct xdp_md *ctx, struct ethhdr *eth, geneve_tunnel_info *tn)\n",
+    "{\n",
+    "    int gnv_hdr_size = sizeof (struct genevehdr);\n",
+    "    int udp_hdr_size = sizeof (struct udphdr);\n",
+    "    int ip_hdr_size = sizeof (struct iphdr);\n",
+    "    int eth_hdr_size = sizeof (struct ethhdr);\n",
+    "    void *data = (void *) (long) ctx->data;\n",
+    "    void *data_end = (void *) (long) ctx->data_end;\n",
+    "    int old_size = (int) (data_end - data);\n",
+    "    struct ethhdr *eth_inner_hdr = (struct ethhdr *) data;\n",
+    "    if (eth_inner_hdr + 1 > data_end) {\n",
+    "        mptm_print (\"[Agent: ] ABORTED: Bad ETH header offset \\n\");\n",
+    "        return XDP_ABORTED;\n",
+    "    }\n",
+    "    set_dst_mac (data, tn->inner_dest_mac);\n",
+    "    int outer_hdr_size = gnv_hdr_size + udp_hdr_size + ip_hdr_size + eth_hdr_size;\n",
+    "    long ret = bpf_xdp_adjust_head (ctx, (0 - outer_hdr_size));\n",
+    "    if (ret != 0l) {\n",
+    "        mptm_print (\"[Agent:] DROP (BUG): Failure adjusting packet header!\\n\");\n",
+    "        return XDP_DROP;\n",
+    "    }\n",
+    "    data = (void *) (long) ctx->data;\n",
+    "    data_end = (void *) (long) ctx->data_end;\n",
+    "    struct ethhdr *ethcpy;\n",
+    "    ethcpy = data;\n",
+    "    if (ethcpy + 1 > data_end) {\n",
+    "        mptm_print (\"[Agent: ] ABORTED: Bad ETH header offset \\n\");\n",
+    "        return XDP_ABORTED;\n",
+    "    }\n",
+    "    struct iphdr *ip = (struct iphdr *) (ethcpy + 1);\n",
+    "    if (ip + 1 > data_end) {\n",
+    "        mptm_print (\"ABORTED: Bad ip header offset ip: %x data_end:%x \\n\", ip + 1, data_end);\n",
+    "        return XDP_ABORTED;\n",
+    "    }\n",
+    "    struct udphdr *udp = (struct udphdr *) (ip + 1);\n",
+    "    if (udp + 1 > data_end) {\n",
+    "        mptm_print (\"ABORTED: Bad udp header offset \\n\");\n",
+    "        return XDP_ABORTED;\n",
+    "    }\n",
+    "    struct genevehdr *geneve = (struct genevehdr *) (udp + 1);\n",
+    "    if (geneve + 1 > data_end) {\n",
+    "        mptm_print (\"ABORTED: Bad GENEVE header offset \\n\");\n",
+    "        return XDP_ABORTED;\n",
+    "    }\n",
+    "    ethcpy->h_proto = BE_ETH_P_IP;\n",
+    "    set_dst_mac (data, tn->dest_mac);\n",
+    "    set_src_mac (data, tn->source_mac);\n",
+    "    int outer_ip_payload = gnv_hdr_size + udp_hdr_size + ip_hdr_size + old_size;\n",
+    "    int outer_udp_payload = gnv_hdr_size + udp_hdr_size + old_size;\n",
+    "    ip->version = 4;\n",
+    "    ip->ihl = ip_hdr_size >> 2;\n",
+    "    ip->frag_off = 0;\n",
+    "    ip->protocol = IPPROTO_UDP;\n",
+    "    ip->check = 0;\n",
+    "    ip->tos = 0;\n",
+    "    ip->tot_len = bpf_htons (outer_ip_payload);\n",
+    "    ip->daddr = tn->dest_addr;\n",
+    "    ip->saddr = tn->source_addr;\n",
+    "    ip->ttl = DEFAULT_TTL;\n",
+    "    __u64 c_sum = 0;\n",
+    "    ipv4_csum_inline (ip, &c_sum);\n",
+    "    ip->check = c_sum;\n",
+    "    udp->check = 0;\n",
+    "    udp->source = tn->source_port;\n",
+    "    udp->dest = BE_GENEVE_DSTPORT;\n",
+    "    udp->len = bpf_htons (outer_udp_payload);\n",
+    "    __builtin_memset (geneve, 0, gnv_hdr_size);\n",
+    "    geneve->opt_len = 0 / 4;\n",
+    "    geneve->ver = 0;\n",
+    "    geneve->rsvd1 = 0;\n",
+    "    geneve->rsvd2 = 0;\n",
+    "    geneve->oam = 0;\n",
+    "    geneve->critical = 0;\n",
+    "    geneve->proto_type = bpf_htons (ETH_P_TEB);\n",
+    "    geneve->vni[0] = (__u8) (tn->vlan_id >> 16);\n",
+    "    geneve->vni[1] = (__u8) (tn->vlan_id >> 8);\n",
+    "    geneve->vni[2] = (__u8) tn->vlan_id;\n",
+    "    return XDP_PASS;\n",
+    "}\n"
+  ],
+  "called_function_list": [
+    "__builtin_memset",
+    "bpf_htons",
+    "mptm_print",
+    "set_dst_mac",
+    "set_src_mac",
+    "ipv4_csum_inline"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in 3 arguments, 1) packet represented by struct xdp_mp *ctx, 2) struct ethhdr *eth, 3) geneve_tunnel_info *tn. It performs a geneve header encapsulation on top of the existing packet the details of geneve header are taken from tn argument. Specifically it expands the packet header by first calling the function bpf_xdp_adjust_head with extra size outer_hdr_size equal to geneve header + udp header + ip header + eth header and then it recalculates the new outer headers of expanded packet and populates the header information by taking relevant information from geneve_tunnel_info *tn object and programs the headers according to geneve protocol. Return XDP_PASS on success or XDP_ABORTED on failure",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -532,37 +699,42 @@ static __ALWAYS_INLINE__ int __encap_geneve(struct xdp_md *ctx,
   "output": "static__ALWAYS_INLINE__int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
+    "tracepoint",
+    "sk_msg",
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "cgroup_skb",
+    "lwt_out",
     "cgroup_sysctl",
     "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
+    "sk_reuseport",
     "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
+    "sched_cls",
+    "cgroup_sock_addr",
     "lwt_in",
-    "xdp"
+    "raw_tracepoint_writable",
+    "raw_tracepoint",
+    "socket_filter",
+    "xdp",
+    "lwt_xmit",
+    "flow_dissector",
+    "cgroup_device",
+    "kprobe",
+    "lwt_seg6local"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ int encap_geneve (struct xdp_md *ctx, struct ethhdr *eth, mptm_tunnel_info *tn)\n",
+    "{\n",
+    "    struct geneve_info *geneve = (geneve_tunnel_info *) (&tn->tnl_info.geneve);\n",
+    "    return __encap_geneve (ctx, eth, geneve);\n",
+    "}\n"
+  ],
+  "called_function_list": [
+    "__encap_geneve"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in a packet represented by struct xdp_mp *ctx along side its eth header struct ethhdr *eth and mptm_tunnel_info *tn, it computes the geneve tunnel information to be pushed on the packet via mptm_tunnel_info and encapsulates the packet in a geneve tunnel by calling a helper funciton __encap_geneve. Returns XDP_PASS on success or XDP_ABORTED on failure.",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -589,7 +761,46 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_ABORTED",
+          "Return": 0,
+          "Description": "which serves denoting an exception like state from the program and has the same behavior as XDP_DROP only that XDP_ABORTED passes the trace_xdp_exception tracepoint which can be additionally monitored to detect misbehavior.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 203,
   "endLine": 214,
@@ -603,39 +814,30 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
     " mptm_tunnel_info *tn"
   ],
   "output": "static__ALWAYS_INLINE__int",
-  "helper": [],
+  "helper": [
+    "XDP_PASS",
+    "XDP_ABORTED"
+  ],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
-    "cgroup_sysctl",
-    "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
-    "lwt_in",
     "xdp"
   ],
+  "source": [
+    "static __ALWAYS_INLINE__ int encap_vlan (struct xdp_md *ctx, struct ethhdr *eth, mptm_tunnel_info *tn)\n",
+    "{\n",
+    "    struct vlan_info *vlan = (vlan_tunnel_info *) (&tn->tnl_info.vlan);\n",
+    "    if (vlan_tag_push (ctx, eth, vlan->vlan_id) != 0) {\n",
+    "        mptm_print (\"[ERR] vlan tag push failed %d\\n\", vlan->vlan_id);\n",
+    "        return XDP_ABORTED;\n",
+    "    }\n",
+    "    return XDP_PASS;\n",
+    "}\n"
+  ],
+  "called_function_list": [
+    "vlan_tag_push",
+    "mptm_print"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in a packet represented by struct xdp_mp *ctx along side its eth header struct ethhdr *eth and mptm_tunnel_info *tn, it computes the vlan tunnel to be pushed on the packet via mptm_tunnel_info and encapsulates the packet in a vlan by pusing a vlan tag on the packet eth hdr by calling a helper funciton vlan_tag_push. Returns XDP_PASS on success or XDP_ABORTED on failure.",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [

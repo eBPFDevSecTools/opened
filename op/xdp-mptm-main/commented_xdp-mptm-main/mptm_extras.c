@@ -25,18 +25,7 @@ SEC("mptm_redirect_xdp")
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    return _map&mptm_extras_redirect_devmap",
-          " key",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 24,
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c",
@@ -49,21 +38,22 @@ SEC("mptm_redirect_xdp")
   "output": "int",
   "helper": [
     "bpf_redirect",
-    "redirect"
+    "bpf_redirect_map"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_cls",
-    "xdp",
-    "sched_act"
+    "xdp"
   ],
+  "source": [
+    "int mptm_redirect (struct xdp_md *ctx)\n",
+    "{\n",
+    "    __u64 flags = 0;\n",
+    "    __u32 key = ctx->ingress_ifindex;\n",
+    "    return bpf_redirect_map (&mptm_extras_redirect_devmap, key, flags);\n",
+    "}\n"
+  ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "This function takes in a packet represented by struct xdp_md context and redirects it to another interface via a BPF_REDIRECT_DEVMAP with key which is the packet's ingress interface and flags as zero.",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [
@@ -89,7 +79,27 @@ SEC("mptm_pass_xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 32,
   "endLine": 34,
@@ -101,39 +111,21 @@ SEC("mptm_pass_xdp")
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "XDP_PASS"
+  ],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "lwt_seg6local",
-    "cgroup_sysctl",
-    "sock_ops",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "cgroup_skb",
-    "sched_cls",
-    "sched_act",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock_addr",
-    "sk_skb",
-    "sk_msg",
-    "cgroup_sock",
-    "tracepoint",
-    "lwt_xmit",
-    "socket_filter",
-    "lwt_in",
     "xdp"
   ],
+  "source": [
+    "int mptm_pass (struct xdp_md *ctx)\n",
+    "{\n",
+    "    return XDP_PASS;\n",
+    "}\n"
+  ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "This function just returns XDP_PASS for any packet that is passed to it as struct xdp_mp context",
-      "author": "Dushyant Behl",
-      "authorEmail": "dushyantbehl@in.ibm.com",
-      "date": "2023-02-20"
-    },
     {}
   ],
   "AI_func_description": [

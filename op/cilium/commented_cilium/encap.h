@@ -33,14 +33,31 @@
     " __u32 seclabel"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -52,8 +69,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_meta",
-    "or_encrypt_key"
+    "or_encrypt_key",
+    "ctx_store_meta"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -113,14 +130,31 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     " __u32 seclabel"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -133,8 +167,8 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "called_function_list": [
     "set_encrypt_key_mark",
-    "set_identity_mark",
-    "ctx_store_meta"
+    "ctx_store_meta",
+    "set_identity_mark"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -222,13 +256,13 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "xdp",
+    "sched_cls",
     "sched_act",
     "lwt_seg6local",
-    "lwt_in",
-    "sched_cls",
+    "lwt_out",
     "lwt_xmit",
-    "lwt_out"
+    "xdp",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)\n",
@@ -287,15 +321,15 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addrcmp",
-    "ctx_store_bytes",
-    "ipv6_hdrlen",
-    "offsetof",
-    "csum_l4_offset_and_flags",
-    "csum_l4_replace",
     "validate_ethertype",
-    "bpf_htons",
+    "offsetof",
+    "ipv6_addrcmp",
+    "ipv6_hdrlen",
     "BPF_V6",
+    "ctx_store_bytes",
+    "bpf_htons",
+    "csum_l4_replace",
+    "csum_l4_offset_and_flags",
     "revalidate_data"
   ],
   "call_depth": -1,
@@ -395,29 +429,29 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_seg6local",
     "cgroup_device",
-    "lwt_xmit",
-    "cgroup_sock",
-    "xdp",
-    "sock_ops",
-    "sched_act",
-    "sk_reuseport",
-    "lwt_in",
-    "flow_dissector",
+    "sched_cls",
     "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
     "sk_msg",
-    "sk_skb",
-    "tracepoint",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
     "cgroup_sock_addr",
+    "tracepoint",
     "cgroup_sysctl",
     "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "raw_tracepoint",
     "raw_tracepoint_writable",
-    "cgroup_skb"
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)\n",
@@ -448,11 +482,11 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "unlikely",
-    "cilium_dbg",
-    "bpf_htonl",
     "send_trace_notify",
-    "ctx_set_tunnel_key"
+    "unlikely",
+    "ctx_set_tunnel_key",
+    "cilium_dbg",
+    "bpf_htonl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -526,14 +560,31 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     " const struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)\n",
@@ -545,8 +596,8 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "__encap_with_nodeid"
+    "__encap_with_nodeid",
+    "ctx_redirect"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -601,14 +652,31 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     " const struct trace_ctx *trace"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -623,8 +691,8 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
-    "__encap_and_redirect_with_nodeid",
-    "encap_and_redirect_nomark_ipsec"
+    "encap_and_redirect_nomark_ipsec",
+    "__encap_and_redirect_with_nodeid"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -733,14 +801,32 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -780,8 +866,8 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "get_min_encrypt_key",
     "__encap_with_nodeid",
     "encap_and_redirect_ipsec",
-    "__encap_and_redirect_with_nodeid",
-    "defined"
+    "defined",
+    "__encap_and_redirect_with_nodeid"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -912,14 +998,32 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -941,8 +1045,8 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   ],
   "called_function_list": [
     "get_min_encrypt_key",
-    "__encap_and_redirect_with_nodeid",
-    "encap_and_redirect_nomark_ipsec"
+    "encap_and_redirect_nomark_ipsec",
+    "__encap_and_redirect_with_nodeid"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

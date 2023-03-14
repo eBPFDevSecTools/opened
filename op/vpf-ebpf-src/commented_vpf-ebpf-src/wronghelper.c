@@ -34,25 +34,6 @@ __attribute__((section("xdp"), used))
       "capability": "map_update",
       "map_update": [
         {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "sock_map_update",
-          "Input Params": [
-            "{Type: struct sock_ops ,Var: *skops}",
-            "{Type:  struct map ,Var: *map}",
-            "{Type:  void ,Var: *key}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sock_ops"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        },
-        {
           "Project": "libbpf",
           "Return Type": "int",
           "Description": "Add an entry to , or update a <[ map ]>(IP: 1) referencing sockets. The <[ skops ]>(IP: 0) is used as a new value for the entry associated to key. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 2) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 2) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. If the <[ map ]>(IP: 1) has eBPF programs (parser and verdict) , those will be inherited by the socket being added. If the socket is already attached to eBPF programs , this results in an error. ",
@@ -88,7 +69,6 @@ __attribute__((section("xdp"), used))
   ],
   "output": "int",
   "helper": [
-    "sock_map_update",
     "bpf_sock_map_update"
   ],
   "compatibleHookpoints": [

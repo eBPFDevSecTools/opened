@@ -43,7 +43,7 @@
   "startLine": 38,
   "endLine": 44,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
-  "funcName": "*strsep",
+  "funcName": "strsep",
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -53,29 +53,29 @@
   "output": "char",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "char *strsep (char **stringp, const char *delim)\n",
@@ -86,13 +86,11 @@
     "    return input;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "strtok_s"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -134,29 +132,29 @@ char* strsep(char** stringp, const char* delim)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "int gettimeofday (struct timeval *tv, struct timezone *tz)\n",
@@ -172,13 +170,11 @@ char* strsep(char** stringp, const char* delim)
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "GetSystemTimeAsFileTime"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -248,29 +244,29 @@ static const struct option long_options[] = {
   "output": "staticvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static void usage (char *argv [])\n",
@@ -291,13 +287,11 @@ static const struct option long_options[] = {
     "    printf (\"\\n\");\n",
     "}\n"
   ],
+  "called_function_list": [
+    "printf"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -351,29 +345,29 @@ static void usage(char *argv[])
   "output": "void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "void log_timestamp (char *log_ts)\n",
@@ -389,13 +383,14 @@ static void usage(char *argv[])
     "    snprintf (log_ts, DATE_LEN + TIMESTAMP_LEN, \"%s.%06ld\", tmbuf, tv.tv_usec);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "gettimeofday",
+    "strftime",
+    "snprintf",
+    "localtime"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -440,29 +435,29 @@ void log_timestamp(char *log_ts) {
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static int get_length (const char *str)\n",
@@ -475,13 +470,9 @@ void log_timestamp(char *log_ts) {
     "    return len;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -516,7 +507,7 @@ static int get_length(const char *str)
   "startLine": 132,
   "endLine": 145,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
-  "funcName": "*set_logfile",
+  "funcName": "set_logfile",
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -525,29 +516,29 @@ static int get_length(const char *str)
   "output": "staticFILE",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static FILE *set_logfile (void)\n",
@@ -564,13 +555,12 @@ static int get_length(const char *str)
     "    return info;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "fprintf",
+    "fopen"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -617,22 +607,40 @@ static FILE* set_logfile(void)
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_delete_elem": [
-      {
-        "opVar": "       ret ",
-        "inpVar": [
-          " map_fd",
-          " &key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 148,
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
@@ -649,29 +657,29 @@ static FILE* set_logfile(void)
     "bpf_map_delete_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static int xdp_unlink_bpf_chain (const char *map_filename)\n",
@@ -694,13 +702,14 @@ static FILE* set_logfile(void)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "log_err",
+    "bpf_obj_get",
+    "log_warn",
+    "remove"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -755,29 +764,29 @@ static int xdp_unlink_bpf_chain(const char *map_filename) {
   "output": "staticvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static void signal_handler (int signal)\n",
@@ -793,13 +802,15 @@ static int xdp_unlink_bpf_chain(const char *map_filename) {
     "    exit (EXIT_SUCCESS);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "log_info",
+    "exit",
+    "close",
+    "fclose",
+    "xdp_unlink_bpf_chain"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -845,29 +856,29 @@ static void signal_handler(int signal)
   "output": "static__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static __u64 time_get_ns (void)\n",
@@ -889,13 +900,13 @@ static void signal_handler(int signal)
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [
+    "clock_gettime",
+    "QueryPerformanceFrequency",
+    "QueryPerformanceCounter"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -931,34 +942,8 @@ static __u64 time_get_ns(void)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "map_update",
-      "map_update": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Delete entry with <[ key ]>(IP: 1) from map. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_map_delete_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_map_delete_elem": [
-      {
-        "opVar": "            if (bpf_map_delete_elem(map_fd[1], &next_key) !",
-        "inpVar": [
-          " 0 "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 203,
   "endLine": 226,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
@@ -971,33 +956,31 @@ static __u64 time_get_ns(void)
     "void"
   ],
   "output": "staticvoid",
-  "helper": [
-    "bpf_map_delete_elem"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static void delete_stale_entries (void)\n",
@@ -1021,13 +1004,15 @@ static __u64 time_get_ns(void)
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [
+    "log_info",
+    "exit",
+    "time_get_ns",
+    "log_debug",
+    "bpf_map_get_next_key"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -1075,7 +1060,7 @@ static void delete_stale_entries(void)
   "startLine": 228,
   "endLine": 242,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
-  "funcName": "*trim_space",
+  "funcName": "trim_space",
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1084,29 +1069,29 @@ static void delete_stale_entries(void)
   "output": "staticchar",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static char *trim_space (char *str)\n",
@@ -1123,13 +1108,12 @@ static void delete_stale_entries(void)
     "    return str;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "isspace",
+    "get_length"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -1164,18 +1148,7 @@ static char* trim_space(char *str) {
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "strtol": [
-      {
-        "opVar": "  long long_var ",
-        "inpVar": [
-          " str",
-          " &endptr",
-          " 10"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 244,
   "endLine": 255,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
@@ -1204,13 +1177,11 @@ static char* trim_space(char *str) {
     "    return (int) long_var;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "fprintf"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -1256,24 +1227,40 @@ static int strtoi(const char *str) {
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        map_fd[4]",
-          " &port",
-          " &pval",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 257,
   "endLine": 270,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
@@ -1290,29 +1277,29 @@ static int strtoi(const char *str) {
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "static void update_ports (char *ports)\n",
@@ -1329,13 +1316,15 @@ static int strtoi(const char *str) {
     "    free (tmp);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "trim_space",
+    "strdup",
+    "strsep",
+    "free",
+    "strtoi"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -1383,60 +1372,49 @@ static void update_ports(char *ports)
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "            ifprev_prog_map_fd",
-          " &pkey",
-          " &prog_fd[0]",
-          " 0 "
-        ]
-      },
-      {
-        "opVar": "        ret ",
-        "inpVar": [
-          " map_fd[0]",
-          " &ckey",
-          " &rate",
-          " 0"
-        ]
-      },
-      {
-        "opVar": "        ret ",
-        "inpVar": [
-          " map_fd[2]",
-          " &rkey",
-          " &recv_count",
-          " 0"
-        ]
-      },
-      {
-        "opVar": "        ret ",
-        "inpVar": [
-          " map_fd[3]",
-          " &dkey",
-          " &drop_count",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 272,
   "endLine": 423,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_user.c",
   "funcName": "main",
   "updateMaps": [
-    " map_fd [3]",
-    " prev_prog_map_fd",
     " map_fd [2]",
-    " map_fd [0]"
+    " map_fd [3]",
+    " map_fd [0]",
+    " prev_prog_map_fd"
   ],
   "readMaps": [],
   "input": [
@@ -1448,29 +1426,29 @@ static void update_ports(char *ports)
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "raw_tracepoint",
-    "perf_event",
     "sched_act",
-    "flow_dissector",
-    "sched_cls",
-    "tracepoint",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_cls",
+    "lwt_in",
+    "perf_event",
     "cgroup_sysctl",
-    "sock_ops",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "sk_msg",
     "sk_reuseport",
     "kprobe",
-    "lwt_out",
-    "cgroup_skb",
     "cgroup_sock",
-    "xdp",
+    "sk_msg",
     "raw_tracepoint_writable",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "lwt_seg6local",
+    "xdp",
+    "cgroup_device",
+    "tracepoint",
     "socket_filter",
-    "lwt_in"
+    "lwt_out",
+    "raw_tracepoint",
+    "flow_dissector"
   ],
   "source": [
     "int main (int argc, char **argv)\n",
@@ -1606,13 +1584,33 @@ static void update_ports(char *ports)
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [
+    "getopt_long",
+    "strncpy",
+    "strtoi",
+    "log_info",
+    "setrlimit",
+    "usage",
+    "memset",
+    "exit",
+    "set_logfile",
+    "sleep",
+    "close",
+    "log_err",
+    "bpf_obj_get",
+    "snprintf",
+    "signal",
+    "get_length",
+    "if_nametoindex",
+    "fflush",
+    "delete_stale_entries",
+    "bpf_obj_pin",
+    "load_bpf_file",
+    "update_ports",
+    "perror"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

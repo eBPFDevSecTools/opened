@@ -36,14 +36,31 @@
     " const bool is_ipv6"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_hairpin (struct  __ctx_buff *ctx, __be16 proxy_port, const bool is_ipv6)\n",
@@ -83,15 +100,15 @@
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "bpf_barrier",
-    "cilium_dbg",
-    "IS_ERR",
     "ipv6_l3",
-    "defined",
+    "bpf_barrier",
+    "ipv4_l3",
     "ctx_store_meta",
+    "IS_ERR",
+    "cilium_dbg",
     "revalidate_data",
-    "ipv4_l3"
+    "defined",
+    "ctx_redirect"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -169,14 +186,31 @@ ctx_redirect_to_proxy_hairpin(struct __ctx_buff *ctx, __be16 proxy_port, const b
     " __be16 proxy_port"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_hairpin_ipv4 (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
@@ -227,14 +261,31 @@ ctx_redirect_to_proxy_hairpin_ipv4(struct __ctx_buff *ctx, __be16 proxy_port)
     " __be16 proxy_port"
   ],
   "output": "static__always_inlineint",
-  "helper": [
-    "redirect"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
+    "cgroup_device",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
     "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_hairpin_ipv6 (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
