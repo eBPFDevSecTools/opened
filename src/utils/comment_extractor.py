@@ -8,6 +8,43 @@ import os
 from tinydb import Query
 
 
+def update_human_func_description(comments_db,comment_dict):
+    funcName = comment_dict['funcName']
+    fname = comment_dict['File']
+    startLine = comment_dict['startLine']
+    json_str = json.dumps(comment_dict)
+    q = Query()
+    res = comments_db.search(Query().funcName.matches(funcName))
+    print("Query Result1: " + str(len(res)))
+    print(res)
+    for e in res:
+        print(e['funcName'])
+        human_descs = e['humanFuncDescription']
+        print("Human Descs: ")
+        print(human_descs)
+        if len(human_descs) > 1:
+            e['humanFuncDescription'].append(json_str)
+        else:
+            #check if description is empty
+            if(len(human_descs) == 1) :
+               desc = human_descs[0]
+               if desc['description'] == " " :
+                   e['humanFuncDescription'] = json_str
+            else:
+               e['humanFuncDescription'].append(json_str)
+               
+               
+
+    print("VALIDATING")
+    res = comments_db.search(Query().funcName.matches(funcName)
+    print("Query REsult2: " + str(len(res)))
+    print(res)
+    for e in res:
+        print(e['funcName'])
+        print(e['humanFuncDescription'])
+
+
+
 def get_human_func_description(human_comments_file, path, func_name):
     cdict = {}
     if human_comments_file == None:
