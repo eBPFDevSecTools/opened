@@ -138,29 +138,29 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_out",
+    "socket_filter",
     "lwt_in",
-    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void swap_mac (void *data, struct ethhdr *orig_eth)\n",
@@ -271,8 +271,8 @@ __attribute__((__always_inline__)) static inline void swap_mac(
     "}\n"
   ],
   "called_function_list": [
-    "ipv4_csum_inline",
-    "swap_mac_and_send"
+    "swap_mac_and_send",
+    "ipv4_csum_inline"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -543,8 +543,8 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   ],
   "called_function_list": [
     "bpf_htons",
-    "ipv4_csum",
-    "swap_mac"
+    "swap_mac",
+    "ipv4_csum"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -711,12 +711,12 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
     "}\n"
   ],
   "called_function_list": [
+    "memset",
     "bpf_htons",
-    "bpf_htonl",
-    "memcpy",
-    "ipv6_csum",
     "swap_mac",
-    "memset"
+    "memcpy",
+    "bpf_htonl",
+    "ipv6_csum"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -840,8 +840,8 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
     "}\n"
   ],
   "called_function_list": [
-    "send_icmp6_too_big",
-    "send_icmp4_too_big"
+    "send_icmp4_too_big",
+    "send_icmp6_too_big"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

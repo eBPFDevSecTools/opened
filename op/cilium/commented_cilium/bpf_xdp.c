@@ -135,8 +135,8 @@ struct {
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -158,10 +158,10 @@ struct {
   ],
   "called_function_list": [
     "ctx_data_meta",
-    "ctx_load_meta",
-    "ctx_adjust_meta",
     "ctx_data",
-    "ctx_no_room"
+    "ctx_adjust_meta",
+    "ctx_no_room",
+    "ctx_load_meta"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -246,8 +246,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -268,12 +268,12 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_NETDEV)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "ep_tail_call",
     "bpf_xdp_exit",
+    "nodeport_lb4",
     "bpf_skip_nodeport",
+    "IS_ERR",
     "send_drop_notify_error",
-    "nodeport_lb4"
+    "ep_tail_call"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -328,29 +328,29 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int check_v4_lb (struct  __ctx_buff *ctx)\n",
@@ -360,8 +360,8 @@ int tail_lb_ipv4(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "send_drop_notify_error",
-    "ep_tail_call"
+    "ep_tail_call",
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -427,8 +427,8 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -438,8 +438,8 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "send_drop_notify_error",
-    "ep_tail_call"
+    "ep_tail_call",
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -520,8 +520,8 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
   "funcName": "check_v4",
   "updateMaps": [],
   "readMaps": [
-    " CIDR4_LMAP_NAME",
-    " CIDR4_HMAP_NAME"
+    " CIDR4_HMAP_NAME",
+    " CIDR4_LMAP_NAME"
   ],
   "input": [
     "struct  __ctx_buff *ctx"
@@ -531,29 +531,29 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int check_v4 (struct  __ctx_buff *ctx)\n",
@@ -583,10 +583,10 @@ static __always_inline int check_v4_lb(struct __ctx_buff *ctx __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
+    "ctx_data",
+    "memcpy",
     "check_v4_lb",
     "ctx_data_end",
-    "memcpy",
-    "ctx_data",
     "ctx_no_room"
   ],
   "call_depth": -1,
@@ -647,29 +647,29 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int check_v4 (struct  __ctx_buff *ctx)\n",
@@ -678,10 +678,10 @@ static __always_inline int check_v4(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
+    "ctx_data",
+    "memcpy",
     "check_v4_lb",
     "ctx_data_end",
-    "memcpy",
-    "ctx_data",
     "ctx_no_room"
   ],
   "call_depth": -1,
@@ -751,8 +751,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -768,10 +768,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_NETDEV)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
     "bpf_xdp_exit",
     "nodeport_lb6",
     "bpf_skip_nodeport",
+    "IS_ERR",
     "send_drop_notify_error"
   ],
   "call_depth": -1,
@@ -821,29 +821,29 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int check_v6_lb (struct  __ctx_buff *ctx)\n",
@@ -853,8 +853,8 @@ int tail_lb_ipv6(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "send_drop_notify_error",
-    "ep_tail_call"
+    "ep_tail_call",
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -920,8 +920,8 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -931,8 +931,8 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "send_drop_notify_error",
-    "ep_tail_call"
+    "ep_tail_call",
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1024,29 +1024,29 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int check_v6 (struct  __ctx_buff *ctx)\n",
@@ -1076,11 +1076,11 @@ static __always_inline int check_v6_lb(struct __ctx_buff *ctx __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "check_v6_lb",
-    "ctx_data_end",
-    "__bpf_memcpy_builtin",
     "ctx_data",
-    "ctx_no_room"
+    "ctx_data_end",
+    "ctx_no_room",
+    "check_v6_lb",
+    "__bpf_memcpy_builtin"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1140,29 +1140,29 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int check_v6 (struct  __ctx_buff *ctx)\n",
@@ -1171,11 +1171,11 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "check_v6_lb",
-    "ctx_data_end",
-    "__bpf_memcpy_builtin",
     "ctx_data",
-    "ctx_no_room"
+    "ctx_data_end",
+    "ctx_no_room",
+    "check_v6_lb",
+    "__bpf_memcpy_builtin"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1241,8 +1241,8 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -1277,12 +1277,12 @@ static __always_inline int check_v6(struct __ctx_buff *ctx)
   ],
   "called_function_list": [
     "validate_ethertype",
-    "bpf_htons",
-    "ctx_store_meta",
+    "check_v4",
     "bpf_skip_nodeport_clear",
     "bpf_xdp_exit",
-    "check_v6",
-    "check_v4"
+    "bpf_htons",
+    "ctx_store_meta",
+    "check_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1347,29 +1347,29 @@ __section("from-netdev")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int bpf_xdp_entry (struct  __ctx_buff *ctx)\n",

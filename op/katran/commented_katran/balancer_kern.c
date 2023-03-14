@@ -128,27 +128,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "lwt_in",
-    "flow_dissector",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
     "socket_filter",
-    "kprobe",
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool is_under_flood (__u64 *cur_time)\n",
@@ -326,11 +326,11 @@ __attribute__((__always_inline__))
     " lru_map"
   ],
   "readMaps": [
-    "  lpm_src_v6",
+    " reals",
     "  ch_rings",
     "  lpm_src_v4",
-    " stats",
-    " reals"
+    "  lpm_src_v6",
+    " stats"
   ],
   "input": [
     "struct real_definition **real",
@@ -345,29 +345,29 @@ __attribute__((__always_inline__))
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "cgroup_device",
+    "socket_filter",
     "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool get_packet_dst (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map)\n",
@@ -446,9 +446,9 @@ __attribute__((__always_inline__))
     "}\n"
   ],
   "called_function_list": [
+    "is_under_flood",
     "memcpy",
     "memset",
-    "is_under_flood",
     "get_packet_hash"
   ],
   "call_depth": -1,
@@ -662,27 +662,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "lwt_in",
-    "flow_dissector",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
     "socket_filter",
-    "kprobe",
+    "lwt_in",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void connection_table_lookup (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru)\n",
@@ -865,10 +865,10 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
     "}\n"
   ],
   "called_function_list": [
+    "memcpy",
     "bpf_ntohs",
-    "parse_icmp",
     "parse_icmpv6",
-    "memcpy"
+    "parse_icmp"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1041,8 +1041,8 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "funcName": "check_decap_dst",
   "updateMaps": [],
   "readMaps": [
-    "  stats",
-    " decap_dst"
+    " decap_dst",
+    "  stats"
   ],
   "input": [
     "struct packet_description *pckt",
@@ -1152,29 +1152,29 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_out",
+    "socket_filter",
     "lwt_in",
-    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool reals_have_same_addr (struct real_definition *a, struct real_definition *b)\n",
@@ -1310,8 +1310,8 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
   "funcName": "perform_global_lru_lookup",
   "updateMaps": [],
   "readMaps": [
-    " stats",
-    " global_lru_maps"
+    " global_lru_maps",
+    " stats"
   ],
   "input": [
     "struct real_definition **dst",
@@ -1362,8 +1362,8 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
     "}\n"
   ],
   "called_function_list": [
-    "reals_have_same_addr",
     "get_packet_dst",
+    "reals_have_same_addr",
     "connection_table_lookup"
   ],
   "call_depth": -1,
@@ -1749,10 +1749,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "recirculate",
     "decrement_ttl",
-    "gue_decap_v6",
-    "gue_decap_v4"
+    "gue_decap_v4",
+    "recirculate",
+    "gue_decap_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1894,29 +1894,29 @@ process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
+    "socket_filter",
     "lwt_in",
-    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void increment_quic_cid_version_stats (int host_id)\n",
@@ -2037,29 +2037,29 @@ increment_quic_cid_version_stats(int host_id) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
+    "socket_filter",
     "lwt_in",
-    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void increment_quic_cid_drop_no_real ()\n",
@@ -2171,29 +2171,29 @@ increment_quic_cid_drop_no_real() {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
+    "socket_filter",
     "lwt_in",
-    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void increment_quic_cid_drop_real_0 ()\n",
@@ -2287,44 +2287,6 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
       ]
     },
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -2366,6 +2328,25 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
       ]
     },
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "pkt_alter_or_redo_processing_or_interface",
       "pkt_alter_or_redo_processing_or_interface": [
         {
@@ -2383,6 +2364,25 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -2392,14 +2392,14 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
-    " server_id_map",
-    "  ctl_array",
-    "  reals_stats",
     " lru_mapping",
-    "  vip_map",
+    "  reals",
+    "  reals_stats",
     "  stats",
+    "  ctl_array",
+    "  vip_map",
     " stats",
-    "  reals"
+    " server_id_map"
   ],
   "input": [
     "struct xdp_md *xdp",
@@ -2409,10 +2409,10 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   "output": "staticinlineint",
   "helper": [
     "bpf_map_lookup_elem",
-    "XDP_PASS",
-    "XDP_DROP",
     "bpf_get_smp_processor_id",
-    "XDP_TX"
+    "XDP_DROP",
+    "XDP_TX",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -2677,28 +2677,28 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
     "}\n"
   ],
   "called_function_list": [
-    "bpf_htons",
-    "process_encaped_gue_pckt",
-    "perform_global_lru_lookup",
-    "parse_tcp",
-    "PCKT_ENCAP_V6",
-    "tcp_hdr_opt_lookup",
-    "increment_quic_cid_version_stats",
-    "memcpy",
-    "send_icmp_too_big",
     "REPORT_PACKET_TOOBIG",
-    "increment_quic_cid_drop_real_0",
-    "check_decap_dst",
-    "connection_table_lookup",
-    "REPORT_TCP_NONSYN_LRUMISS",
-    "parse_udp",
-    "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "increment_quic_cid_drop_no_real",
-    "process_encaped_ipip_pckt",
-    "process_l3_headers",
     "parse_quic",
+    "PCKT_ENCAP_V6",
+    "increment_quic_cid_drop_real_0",
     "get_packet_dst",
-    "PCKT_ENCAP_V4"
+    "increment_quic_cid_drop_no_real",
+    "connection_table_lookup",
+    "PCKT_ENCAP_V4",
+    "bpf_htons",
+    "REPORT_TCP_NONSYN_LRUMISS",
+    "tcp_hdr_opt_lookup",
+    "process_l3_headers",
+    "perform_global_lru_lookup",
+    "parse_udp",
+    "parse_tcp",
+    "increment_quic_cid_version_stats",
+    "send_icmp_too_big",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "process_encaped_ipip_pckt",
+    "memcpy",
+    "check_decap_dst",
+    "process_encaped_gue_pckt"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3186,29 +3186,29 @@ int balancer_ingress(struct xdp_md* ctx) {
   "output": "staticinline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_out",
+    "socket_filter",
     "lwt_in",
-    "cgroup_device",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
     "flow_dissector",
     "perf_event",
     "sk_msg",
-    "sched_act",
-    "raw_tracepoint",
-    "lwt_xmit",
-    "cgroup_sock",
-    "sock_ops",
-    "tracepoint",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sched_cls",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sk_skb",
-    "socket_filter",
-    "kprobe",
-    "cgroup_sysctl",
+    "sched_act",
     "cgroup_skb",
-    "cgroup_sock_addr"
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline __u32 get_packet_hash (struct packet_description *pckt, bool hash_16bytes)\n",

@@ -14,6 +14,16 @@ import json
 from collections import defaultdict
 from tinydb import TinyDB
 
+def remove_txl_missed_fn(capdict):
+    for fn in capdict.keys():
+        for en in capdict[fn]:
+            if len(list(en['called_function_list'])) == 0:
+                continue
+            for f in list(en['called_function_list']):
+                if f not in capdict.keys():
+                    en['called_function_list'].remove(f)
+    return capdict
+
 #XXX remove functions which do not have an entry in capdict from the list of called functions??
 def add_level_info(capdict):
     q = []
@@ -22,23 +32,20 @@ def add_level_info(capdict):
     map2 = dict()
     cnt =0
     for fn in capdict.keys():
-        key = fn #+':'+en['startLine']+':'+en['File']
-        cnt  = cnt +1
-        for en in capdict[fn]:
-            if en['call_depth'] == 0:
-                q.append(key)
+        for en in list(capdict[fn]):
+            #print(fn+" calls: "+ str(en['called_function_list']))
+            cnt  = cnt +1
+            if len(list(en['called_function_list'])) == 0:
+                q.append(fn)
             else:
-                map2[key] = len(en['called_function_list'])
-                for f in en['called_function_list']:
+                map2[fn] = len(en['called_function_list'])
+                for f in list(en['called_function_list']):
                     if f not in map1:
                         map1[f] = list()
                     map1[f].append(fn)
-    print("tot func: "+str(cnt))
-    print(q)
     level = 0
     while len(q) != 0:
         n = len(q)
-        print(n)
         for idx in range(n):
             nd = q.pop(0)
             level_dict[nd] = level
@@ -49,12 +56,14 @@ def add_level_info(capdict):
                 if map2[en] == 0:
                     q.append(en)
         level = level + 1
+    nc = 0
     for fn in capdict.keys():
-        key = fn #+':'+en['startLine']+':'+en['File']
+        if fn not in level_dict:
+            continue
         for en in capdict[fn]:
-            if fn in level_dict:
-                en['call_depth'] = level_dict[fn]
-    print(capdict)
+            en['call_depth'] = level_dict[fn]
+            nc = nc +1
+    print("Found depth for: " + str(nc) + " out of " +str(cnt))
 
 def check_if_cmd_available():
     commands = ['txl', 'cscope', 'ctags', 'cqmakedb']
@@ -62,7 +71,7 @@ def check_if_cmd_available():
         if shutil.which(cmd) is None:
             print("Command: ",cmd," unavailable.. ", "Exiting")
             return False
-    print("All necessary commands found...")
+    #print("All necessary commands found...")
     return True
 
 def check_if_file_available():
@@ -71,7 +80,7 @@ def check_if_file_available():
         if os.path.isfile(fl) is False:
             print("File: ",fl," unavailable.. ", "Exiting")
             return False
-    print("All necessary asset files found...")
+    #print("All necessary asset files found...")
     return True
 
 #rm cscope.files cscope.out tags myproject.db 
@@ -273,7 +282,7 @@ if __name__ == "__main__":
             help='JSON with information containing human comments ')
 
     args = my_parser.parse_args()
-    print(vars(args))
+    #print(vars(args))
     if(not check_if_cmd_available() or not check_if_file_available()):
        exit(1)
 
@@ -351,6 +360,7 @@ if __name__ == "__main__":
         if(args.bpfHelperFile is not None):
             bpf_helper_file = args.bpfHelperFile
         funcCapDict = create_code_comments(txl_func_file, helperdict, cmt_op_dir, isCilium, human_comments_file, db_file)
+        funcCapDict = remove_txl_missed_fn(funcCapDict)
         add_level_info(funcCapDict)
         insert_to_db(comments_db, funcCapDict)
     else:

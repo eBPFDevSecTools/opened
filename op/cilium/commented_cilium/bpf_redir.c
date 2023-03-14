@@ -40,29 +40,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)\n",
@@ -75,8 +75,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohl",
-    "READ_ONCE"
+    "READ_ONCE",
+    "bpf_ntohl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -159,8 +159,8 @@ __section("sk_msg")
     "}\n"
   ],
   "called_function_list": [
-    "lookup_ip4_remote_endpoint",
     "sk_msg_extract4_key",
+    "lookup_ip4_remote_endpoint",
     "policy_sk_egress"
   ],
   "call_depth": -1,

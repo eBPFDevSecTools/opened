@@ -17,27 +17,6 @@ __section("from-network")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_alter_or_redo_processing_or_interface",
       "pkt_alter_or_redo_processing_or_interface": [
         {
@@ -57,6 +36,27 @@ __section("from-network")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -71,12 +71,12 @@ __section("from-network")
   ],
   "output": "int",
   "helper": [
-    "CTX_ACT_OK",
-    "CTX_ACT_REDIRECT"
+    "CTX_ACT_REDIRECT",
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -112,8 +112,8 @@ __section("from-network")
     "}\n"
   ],
   "called_function_list": [
-    "validate_ethertype",
     "do_decrypt",
+    "validate_ethertype",
     "bpf_clear_meta",
     "send_trace_notify"
   ],

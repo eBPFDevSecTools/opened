@@ -118,10 +118,10 @@
     "}\n"
   ],
   "called_function_list": [
+    "memcpy",
     "bpf_ntohs",
-    "parse_icmp",
     "parse_icmpv6",
-    "memcpy"
+    "parse_icmp"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -420,10 +420,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "recirculate",
     "decrement_ttl",
-    "gue_decap_v6",
-    "gue_decap_v4"
+    "gue_decap_v4",
+    "recirculate",
+    "gue_decap_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -492,25 +492,6 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -553,6 +534,25 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -573,8 +573,8 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -636,28 +636,28 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "bpf_htons",
-    "process_encaped_gue_pckt",
-    "perform_global_lru_lookup",
-    "parse_tcp",
-    "PCKT_ENCAP_V6",
-    "tcp_hdr_opt_lookup",
-    "increment_quic_cid_version_stats",
-    "memcpy",
-    "send_icmp_too_big",
     "REPORT_PACKET_TOOBIG",
-    "increment_quic_cid_drop_real_0",
-    "check_decap_dst",
-    "connection_table_lookup",
-    "REPORT_TCP_NONSYN_LRUMISS",
-    "parse_udp",
-    "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "increment_quic_cid_drop_no_real",
-    "process_encaped_ipip_pckt",
-    "process_l3_headers",
     "parse_quic",
+    "PCKT_ENCAP_V6",
+    "increment_quic_cid_drop_real_0",
     "get_packet_dst",
-    "PCKT_ENCAP_V4"
+    "increment_quic_cid_drop_no_real",
+    "connection_table_lookup",
+    "PCKT_ENCAP_V4",
+    "bpf_htons",
+    "REPORT_TCP_NONSYN_LRUMISS",
+    "tcp_hdr_opt_lookup",
+    "process_l3_headers",
+    "perform_global_lru_lookup",
+    "parse_udp",
+    "parse_tcp",
+    "increment_quic_cid_version_stats",
+    "send_icmp_too_big",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "process_encaped_ipip_pckt",
+    "memcpy",
+    "check_decap_dst",
+    "process_encaped_gue_pckt"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

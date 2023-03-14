@@ -57,8 +57,8 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -121,17 +121,17 @@
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "lookup_ip6_remote_endpoint",
-    "send_policy_verdict_notify",
-    "ipv6_hdrlen",
-    "cilium_dbg",
-    "ct_lookup6",
     "ipv6_addr_copy",
+    "lookup_ip6_remote_endpoint",
+    "ct_lookup6",
     "ct_create6",
+    "ipv6_hdrlen",
+    "send_policy_verdict_notify",
     "policy_can_egress6",
-    "get_ct_map6",
-    "revalidate_data"
+    "IS_ERR",
+    "cilium_dbg",
+    "revalidate_data",
+    "get_ct_map6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -277,8 +277,8 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -346,18 +346,18 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "policy_can_access_ingress",
-    "lookup_ip6_remote_endpoint",
-    "send_policy_verdict_notify",
-    "cilium_dbg",
-    "ipv6_hdrlen",
     "ipv6_addr_copy",
+    "lookup_ip6_remote_endpoint",
     "ct_lookup6",
     "ct_create6",
+    "ipv6_hdrlen",
+    "send_policy_verdict_notify",
     "ctx_change_type",
-    "get_ct_map6",
-    "revalidate_data"
+    "IS_ERR",
+    "policy_can_access_ingress",
+    "cilium_dbg",
+    "revalidate_data",
+    "get_ct_map6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -520,8 +520,8 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -555,10 +555,10 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
   ],
   "called_function_list": [
     "ct_create4",
-    "IS_ERR",
     "get_ct_map4",
     "ct_lookup4",
     "ipv4_hdrlen",
+    "IS_ERR",
     "revalidate_data"
   ],
   "call_depth": -1,
@@ -669,8 +669,8 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -736,16 +736,16 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "}\n"
   ],
   "called_function_list": [
-    "ct_create4",
-    "whitelist_snated_egress_connections",
-    "IS_ERR",
     "lookup_ip4_remote_endpoint",
+    "ct_create4",
     "get_ct_map4",
     "ct_lookup4",
     "send_policy_verdict_notify",
-    "cilium_dbg",
-    "ipv4_hdrlen",
+    "whitelist_snated_egress_connections",
     "policy_can_egress4",
+    "ipv4_hdrlen",
+    "IS_ERR",
+    "cilium_dbg",
     "revalidate_data"
   ],
   "call_depth": -1,
@@ -894,8 +894,8 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -964,17 +964,17 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "ct_create4",
-    "IS_ERR",
     "lookup_ip4_remote_endpoint",
-    "ct_lookup4",
+    "ct_create4",
     "get_ct_map4",
-    "policy_can_access_ingress",
+    "ct_lookup4",
     "send_policy_verdict_notify",
-    "cilium_dbg",
-    "ipv4_hdrlen",
-    "ctx_change_type",
     "ipv4_is_fragment",
+    "ctx_change_type",
+    "ipv4_hdrlen",
+    "policy_can_access_ingress",
+    "IS_ERR",
+    "cilium_dbg",
     "revalidate_data"
   ],
   "call_depth": -1,

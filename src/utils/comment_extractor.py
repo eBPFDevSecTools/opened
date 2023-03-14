@@ -16,8 +16,8 @@ def get_human_func_description(human_comments_file, path, func_name):
     fname = path.split('/')[-1]
     q = Query()
     res = db.search(q.Funcname.search(func_name) & q.File.search(fname))
-    print("Result")
-    print(res)
+    #print("Result")
+    #print(res)
     if len(res) > 1:
         print("WARNING: MULTIPLE FILES MATCHING FNAME")
     

@@ -132,9 +132,9 @@ SEC("mptm_encap_xdp")
   "output": "int",
   "helper": [
     "XDP_PASS",
-    "bpf_map_lookup_elem",
+    "bpf_redirect_map",
     "bpf_redirect",
-    "bpf_redirect_map"
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -180,13 +180,13 @@ SEC("mptm_encap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "parse_pkt_headers",
     "encap_vlan",
+    "bpf_debug",
+    "parse_pkt_headers",
     "encap_geneve",
-    "likely",
     "xdp_stats_record_action",
     "mptm_print",
-    "bpf_debug"
+    "likely"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -259,23 +259,20 @@ SEC("mptm_decap_xdp")
 {
   "capabilities": [
     {
-      "capability": "update_pkt",
-      "update_pkt": [
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
         {
           "Project": "libbpf",
           "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ],
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
           "compatible_hookpoints": [
             "xdp"
           ],
           "capabilities": [
-            "update_pkt"
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -295,6 +292,28 @@ SEC("mptm_decap_xdp")
           ],
           "capabilities": [
             "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ],
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
@@ -342,25 +361,6 @@ SEC("mptm_decap_xdp")
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -377,12 +377,12 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_xdp_adjust_head",
+    "bpf_redirect",
+    "XDP_DROP",
     "XDP_PASS",
     "bpf_redirect_map",
-    "bpf_map_lookup_elem",
-    "XDP_DROP",
-    "bpf_redirect"
+    "bpf_xdp_adjust_head",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -434,10 +434,10 @@ SEC("mptm_decap_xdp")
     "}\n"
   ],
   "called_function_list": [
+    "parse_pkt_headers",
     "unlikely",
-    "xdp_stats_record_action",
     "mptm_print",
-    "parse_pkt_headers"
+    "xdp_stats_record_action"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

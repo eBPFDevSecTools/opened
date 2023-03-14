@@ -135,21 +135,27 @@ SEC("tc")
       ]
     },
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
+      "capability": "update_pkt",
+      "update_pkt": [
         {
           "Project": "libbpf",
           "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_SHOT",
-          "Return": 2,
-          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "Description": "Populate tunnel metadata for packet associated to skb. The tunnel metadata is set to the contents of <[ key ]>(IP: 1) , of size. The <[ flags ]>(IP: 3) can be set to a combination of the following values: BPF_F_TUNINFO_IPV6 Indicate that the tunnel is based on IPv6 protocol instead of IPv4. BPF_F_ZERO_CSUM_TX For IPv4 packets , add a flag to tunnel metadata indicating that checksum computation should be skipped and checksum set to zeroes. BPF_F_DONT_FRAGMENT Add a flag to tunnel metadata indicating that the packet should not be fragmented. BPF_F_SEQ_NUMBER Add a flag to tunnel metadata indicating that a sequence number should be added to tunnel header before sending the packet. This flag was added for GRE encapsulation , but might be used with other protocols as well in the future. Here is a typical usage on the transmit path: struct bpf_tunnel_key key; populate <[ key ]>(IP: 1) . . . bpf_skb_set_tunnel_key(skb , &key , sizeof(key) , 0); bpf_clone_redirect(skb , vxlan_dev_ifindex , 0); See also the description of the bpf_skb_get_tunnel_key() helper for additional information. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "bpf_skb_set_tunnel_key",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  struct bpf_tunnel_key ,Var: *key}",
+            "{Type:  u32 ,Var: size}",
+            "{Type:  u64 ,Var: flags}"
+          ],
           "compatible_hookpoints": [
             "sched_cls",
-            "sched_act"
+            "sched_act",
+            "lwt_xmit"
           ],
           "capabilities": [
-            "pkt_stop_processing_drop_packet"
+            "update_pkt"
           ]
         }
       ]
@@ -175,27 +181,21 @@ SEC("tc")
       ]
     },
     {
-      "capability": "update_pkt",
-      "update_pkt": [
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
         {
           "Project": "libbpf",
           "Return Type": "int",
-          "Description": "Populate tunnel metadata for packet associated to skb. The tunnel metadata is set to the contents of <[ key ]>(IP: 1) , of size. The <[ flags ]>(IP: 3) can be set to a combination of the following values: BPF_F_TUNINFO_IPV6 Indicate that the tunnel is based on IPv6 protocol instead of IPv4. BPF_F_ZERO_CSUM_TX For IPv4 packets , add a flag to tunnel metadata indicating that checksum computation should be skipped and checksum set to zeroes. BPF_F_DONT_FRAGMENT Add a flag to tunnel metadata indicating that the packet should not be fragmented. BPF_F_SEQ_NUMBER Add a flag to tunnel metadata indicating that a sequence number should be added to tunnel header before sending the packet. This flag was added for GRE encapsulation , but might be used with other protocols as well in the future. Here is a typical usage on the transmit path: struct bpf_tunnel_key key; populate <[ key ]>(IP: 1) . . . bpf_skb_set_tunnel_key(skb , &key , sizeof(key) , 0); bpf_clone_redirect(skb , vxlan_dev_ifindex , 0); See also the description of the bpf_skb_get_tunnel_key() helper for additional information. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_skb_set_tunnel_key",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  struct bpf_tunnel_key ,Var: *key}",
-            "{Type:  u32 ,Var: size}",
-            "{Type:  u64 ,Var: flags}"
-          ],
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
           "compatible_hookpoints": [
             "sched_cls",
-            "sched_act",
-            "lwt_xmit"
+            "sched_act"
           ],
           "capabilities": [
-            "update_pkt"
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -208,9 +208,9 @@ SEC("tc")
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
+    " hc_reals_map",
     "  hc_stats_map",
-    " hc_ctrl_map",
-    " hc_reals_map"
+    " hc_ctrl_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
@@ -218,10 +218,10 @@ SEC("tc")
   "output": "int",
   "helper": [
     "bpf_map_lookup_elem",
-    "TC_ACT_SHOT",
-    "TC_ACT_UNSPEC",
     "bpf_skb_set_tunnel_key",
-    "bpf_redirect"
+    "bpf_redirect",
+    "TC_ACT_UNSPEC",
+    "TC_ACT_SHOT"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -285,9 +285,9 @@ SEC("tc")
     "}\n"
   ],
   "called_function_list": [
-    "memcpy",
+    "set_hc_key",
     "HC_ENCAP",
-    "set_hc_key"
+    "memcpy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

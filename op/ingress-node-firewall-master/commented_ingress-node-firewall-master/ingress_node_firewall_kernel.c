@@ -104,29 +104,29 @@ struct {
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
-    "sk_reuseport",
-    "lwt_out",
-    "cgroup_sock",
-    "lwt_seg6local",
     "cgroup_sysctl",
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "sk_msg",
-    "sk_skb",
-    "kprobe",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint_writable",
-    "xdp",
     "lwt_xmit",
+    "sk_skb",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
+    "kprobe",
+    "sk_reuseport",
+    "sk_msg",
+    "lwt_out",
+    "sched_act",
+    "xdp",
     "cgroup_device",
+    "cgroup_skb",
     "tracepoint",
-    "socket_filter"
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "lwt_in",
+    "raw_tracepoint"
   ],
   "source": [
     "static inline int ip_extract_l4info (void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort, __u8 *icmpType, __u8 *icmpCode, __u8 is_v4)\n",
@@ -341,29 +341,29 @@ ip_extract_l4info(void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort,
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sk_reuseport",
-    "lwt_out",
-    "cgroup_sock",
-    "lwt_seg6local",
     "cgroup_sysctl",
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "sk_msg",
-    "sk_skb",
-    "kprobe",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint_writable",
-    "xdp",
     "lwt_xmit",
+    "sk_skb",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
+    "kprobe",
+    "sk_reuseport",
+    "sk_msg",
+    "lwt_out",
+    "sched_act",
+    "xdp",
     "cgroup_device",
+    "cgroup_skb",
     "tracepoint",
-    "socket_filter"
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "lwt_in",
+    "raw_tracepoint"
   ],
   "source": [
     "static inline __u32 ipv4_firewall_lookup (void *dataStart, void *dataEnd, __u32 ifId)\n",
@@ -427,13 +427,13 @@ ip_extract_l4info(void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort,
   ],
   "called_function_list": [
     "SET_ACTIONRULE_RESPONSE",
-    "likely",
-    "SET_ACTION",
-    "ip_extract_l4info",
-    "bpf_printk",
-    "memset",
+    "bpf_ntohs",
     "unroll",
-    "bpf_ntohs"
+    "SET_ACTION",
+    "bpf_printk",
+    "likely",
+    "ip_extract_l4info",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -556,29 +556,29 @@ ipv4_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sk_reuseport",
-    "lwt_out",
-    "cgroup_sock",
-    "lwt_seg6local",
     "cgroup_sysctl",
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "sk_msg",
-    "sk_skb",
-    "kprobe",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint_writable",
-    "xdp",
     "lwt_xmit",
+    "sk_skb",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
+    "kprobe",
+    "sk_reuseport",
+    "sk_msg",
+    "lwt_out",
+    "sched_act",
+    "xdp",
     "cgroup_device",
+    "cgroup_skb",
     "tracepoint",
-    "socket_filter"
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "lwt_in",
+    "raw_tracepoint"
   ],
   "source": [
     "static inline __u32 ipv6_firewall_lookup (void *dataStart, void *dataEnd, __u32 ifId)\n",
@@ -638,14 +638,14 @@ ipv4_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   ],
   "called_function_list": [
     "SET_ACTIONRULE_RESPONSE",
-    "SET_ACTION",
-    "likely",
-    "ip_extract_l4info",
-    "memcpy",
-    "bpf_printk",
-    "memset",
+    "bpf_ntohs",
     "unroll",
-    "bpf_ntohs"
+    "ip_extract_l4info",
+    "SET_ACTION",
+    "bpf_printk",
+    "likely",
+    "memcpy",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -857,26 +857,26 @@ ipv6_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   "output": "staticinlinevoid",
   "helper": [
     "bpf_map_update_elem",
-    "bpf_map_lookup_elem",
-    "bpf_perf_event_output"
+    "bpf_perf_event_output",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
-    "xdp",
-    "lwt_in",
-    "cgroup_skb",
-    "lwt_out",
-    "sock_ops",
-    "perf_event",
-    "sk_skb",
     "raw_tracepoint_writable",
+    "cgroup_skb",
     "tracepoint",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
+    "sched_cls",
+    "sched_act",
+    "perf_event",
     "kprobe",
     "lwt_seg6local",
+    "lwt_in",
     "raw_tracepoint",
+    "xdp",
     "socket_filter",
-    "sched_cls"
+    "lwt_out"
   ],
   "source": [
     "static inline void generate_event_and_update_statistics (struct xdp_md *ctx, __u16 packet_len, __u8 action, __u16 ruleId, __u8 generateEvent, __u32 ifId)\n",
@@ -916,8 +916,8 @@ ipv6_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
     "}\n"
   ],
   "called_function_list": [
-    "likely",
     "__sync_fetch_and_add",
+    "likely",
     "memset"
   ],
   "call_depth": -1,
@@ -992,25 +992,6 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -1028,6 +1009,25 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -1042,8 +1042,8 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_DROP",
-    "XDP_PASS"
+    "XDP_PASS",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1093,14 +1093,14 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
     "}\n"
   ],
   "called_function_list": [
+    "bpf_htons",
+    "ipv6_firewall_lookup",
+    "ipv4_firewall_lookup",
+    "unlikely",
+    "bpf_printk",
     "generate_event_and_update_statistics",
     "GET_ACTION",
-    "unlikely",
-    "ipv4_firewall_lookup",
-    "GET_RULE_ID",
-    "bpf_printk",
-    "bpf_htons",
-    "ipv6_firewall_lookup"
+    "GET_RULE_ID"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1183,29 +1183,29 @@ SEC("xdp_ingress_node_firewall_process")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_act",
-    "sk_reuseport",
-    "lwt_out",
-    "cgroup_sock",
-    "lwt_seg6local",
     "cgroup_sysctl",
-    "raw_tracepoint",
-    "flow_dissector",
-    "cgroup_skb",
-    "sk_msg",
-    "sk_skb",
-    "kprobe",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint_writable",
-    "xdp",
     "lwt_xmit",
+    "sk_skb",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
+    "kprobe",
+    "sk_reuseport",
+    "sk_msg",
+    "lwt_out",
+    "sched_act",
+    "xdp",
     "cgroup_device",
+    "cgroup_skb",
     "tracepoint",
-    "socket_filter"
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "lwt_in",
+    "raw_tracepoint"
   ],
   "source": [
     "int ingress_node_firewall_process (struct xdp_md *ctx)\n",

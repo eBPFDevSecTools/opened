@@ -36,26 +36,6 @@ SEC("tc")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_UNSPEC",
-          "Return": -1,
-          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -118,6 +98,26 @@ SEC("tc")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_UNSPEC",
+          "Return": -1,
+          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -127,22 +127,22 @@ SEC("tc")
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    "  hc_stats_map",
-    " per_hckey_stats",
     " hc_reals_map",
-    "  hc_pckt_macs",
+    " per_hckey_stats",
     " hc_ctrl_map",
-    " hc_key_map"
+    " hc_key_map",
+    "  hc_pckt_macs",
+    "  hc_stats_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
-    "TC_ACT_UNSPEC",
-    "bpf_redirect",
     "bpf_map_lookup_elem",
-    "TC_ACT_SHOT"
+    "TC_ACT_SHOT",
+    "bpf_redirect",
+    "TC_ACT_UNSPEC"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -239,9 +239,9 @@ SEC("tc")
     "}\n"
   ],
   "called_function_list": [
-    "memcpy",
+    "set_hc_key",
     "HC_ENCAP",
-    "set_hc_key"
+    "memcpy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

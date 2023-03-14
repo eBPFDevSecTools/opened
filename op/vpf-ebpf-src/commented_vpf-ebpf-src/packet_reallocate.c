@@ -61,9 +61,9 @@ __attribute__((section("socket_filter"), used))
   ],
   "compatibleHookpoints": [
     "sk_skb",
+    "lwt_xmit",
     "sched_cls",
-    "sched_act",
-    "lwt_xmit"
+    "sched_act"
   ],
   "source": [
     "int reallocate_invalidates (struct sk_buff *ctx)\n",

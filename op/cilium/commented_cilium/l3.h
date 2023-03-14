@@ -60,8 +60,8 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -83,10 +83,10 @@
   ],
   "called_function_list": [
     "icmp6_send_time_exceeded",
-    "ipv6_dec_hoplimit",
-    "IS_ERR",
+    "eth_store_daddr",
     "eth_store_saddr",
-    "eth_store_daddr"
+    "IS_ERR",
+    "ipv6_dec_hoplimit"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -172,8 +172,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -191,8 +191,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "called_function_list": [
     "eth_store_saddr",
-    "eth_store_daddr",
-    "ipv4_dec_ttl"
+    "ipv4_dec_ttl",
+    "eth_store_daddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -277,13 +277,13 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
+    "tail_call",
     "redirect",
-    "tail_call"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -319,15 +319,15 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "ctx_store_meta",
-    "tail_call_dynamic",
-    "set_identity_mark",
-    "update_metrics",
-    "redirect_ep",
-    "cilium_dbg",
+    "ipv6_l3",
     "ctx_full_len",
-    "ipv6_l3"
+    "tail_call_dynamic",
+    "redirect_ep",
+    "set_identity_mark",
+    "ctx_store_meta",
+    "update_metrics",
+    "cilium_dbg",
+    "defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -438,13 +438,13 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "CTX_ACT_OK",
+    "tail_call",
     "redirect",
-    "tail_call"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "xdp",
+    "sched_cls",
     "sched_act"
   ],
   "source": [
@@ -480,14 +480,14 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_meta",
-    "tail_call_dynamic",
-    "set_identity_mark",
-    "update_metrics",
-    "redirect_ep",
-    "cilium_dbg",
     "ipv4_l3",
     "ctx_full_len",
+    "tail_call_dynamic",
+    "redirect_ep",
+    "set_identity_mark",
+    "ctx_store_meta",
+    "update_metrics",
+    "cilium_dbg",
     "defined"
   ],
   "call_depth": -1,
@@ -615,29 +615,29 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "socket_filter",
-    "cgroup_sysctl",
-    "kprobe",
-    "raw_tracepoint",
-    "perf_event",
-    "lwt_xmit",
-    "lwt_seg6local",
-    "sock_ops",
-    "lwt_out",
-    "xdp",
-    "cgroup_skb",
-    "sk_reuseport",
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_skb",
-    "lwt_in",
-    "raw_tracepoint_writable",
-    "sched_act",
     "sched_cls",
-    "tracepoint"
+    "perf_event",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline __u8 get_min_encrypt_key (__u8 peer_key __maybe_unused)\n",
