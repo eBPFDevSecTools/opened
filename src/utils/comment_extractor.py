@@ -11,10 +11,12 @@ from tinydb import Query
 def update_human_func_description(comments_db,comment_dict):
     funcName = comment_dict['funcName']
     fname = comment_dict['File']
+    fname = fname.split('/')[-1]
     startLine = comment_dict['startLine']
     json_str = json.dumps(comment_dict)
     q = Query()
-    res = comments_db.search(Query().funcName.matches(funcName))
+    print("Checking funcName: "+funcName+ " fname: "+fname)
+    res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname))
     print("Query Result1: " + str(len(res)))
     print(res)
     for e in res:
@@ -36,7 +38,7 @@ def update_human_func_description(comments_db,comment_dict):
                
 
     print("VALIDATING")
-    res = comments_db.search(Query().funcName.matches(funcName)
+    res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname) )
     print("Query REsult2: " + str(len(res)))
     print(res)
     for e in res:
@@ -220,19 +222,21 @@ if __name__ == "__main__":
 
     files = []
     files.append(src_dir)
+    files.append(comments_db_file)
     if authors_file != None:
         files.append(authors_file)
 
     if check_if_file_does_not_exist(files)  == True:
         print("Input file does not Exist..Quitting")
         exit(0)
-
+    '''
     files.clear()
     files.append(comments_db_file)
     if check_if_file_already_exists(files)  == True:
         print("Comments db file already exists..Quitting")
         exit(0)
 
+    '''
     
     #comments_db_file="boston_comments.json"
     comments_db = TinyDB(comments_db_file)
@@ -251,4 +255,4 @@ if __name__ == "__main__":
                         author_dict = json.load(json_str)
                         op_dict = get_author(author_dict, fname, op_dict)
                 print(op_dict)
-                insert_to_db(comments_db,op_dict)
+                update_human_func_description(comments_db,op_dict)
