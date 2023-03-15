@@ -12,6 +12,7 @@ import shutil
 from collections import defaultdict
 from tinydb import TinyDB
 import utils.comment_extractor as extractor
+import handle_c_style_comments as rmc
 
 def run_cmd(cmd):
     status, output = subprocess.getstatusoutput(cmd)
@@ -83,9 +84,8 @@ def parseTXLFunctionOutputFileForComments(txlFile, opFile, srcFile, helperdict, 
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
             capability_dict['funcName'] = funcName
-            capability_dict['developer_inline_comments'] = list()
-            #call func with srcLineList[prevEndLine:endLine]
-            #prevEndLine = endLine + 1
+            capability_dict['developer_inline_comments'] = rmc.find_c_style_comment_matches(''.join(srcLineList[prevEndLine:endLine]))
+            prevEndLine = endLine + 1
             capability_dict['updateMaps'] = smt.get_update_maps(lines, map_update_fn)
             capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)
             capability_dict['input'] = funcArgs.split(',')
