@@ -43,6 +43,7 @@
   "endLine": 75,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -54,8 +55,8 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -120,10 +121,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data_pull",
     "ctx_change_type",
-    "ctx_redirect",
-    "bpf_htons"
+    "revalidate_data_pull",
+    "bpf_htons",
+    "ctx_redirect"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -234,6 +235,7 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
   "endLine": 81,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -245,8 +247,8 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -256,10 +258,10 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data_pull",
     "ctx_change_type",
-    "ctx_redirect",
-    "bpf_htons"
+    "revalidate_data_pull",
+    "bpf_htons",
+    "ctx_redirect"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

@@ -16,27 +16,6 @@
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -64,6 +43,27 @@
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -71,6 +71,7 @@
   "endLine": 42,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket_tcp",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -82,12 +83,12 @@
   "output": "static__always_inlineint",
   "helper": [
     "sk_release",
-    "CTX_ACT_OK",
-    "skc_lookup_tcp"
+    "skc_lookup_tcp",
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -171,27 +172,6 @@ out:
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -219,6 +199,27 @@ out:
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -226,6 +227,7 @@ out:
   "endLine": 67,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket_udp",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -236,13 +238,13 @@ out:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "sk_release",
+    "sk_lookup_udp",
     "CTX_ACT_OK",
-    "sk_lookup_udp"
+    "sk_release"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -320,6 +322,7 @@ out:
   "endLine": 86,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "assign_socket",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -332,29 +335,29 @@ out:
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int assign_socket (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established)\n",
@@ -420,6 +423,7 @@ assign_socket(struct __ctx_buff *ctx,
   "endLine": 96,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "combine_ports",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -429,29 +433,29 @@ assign_socket(struct __ctx_buff *ctx,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline __u32 combine_ports (__u16 dport, __u16 sport)\n",
@@ -607,6 +611,7 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   "endLine": 220,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "__ctx_redirect_to_proxy",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -621,8 +626,8 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -661,10 +666,10 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_change_type",
+    "ctx_redirect_to_proxy_ingress6",
     "cilium_dbg",
     "ctx_redirect_to_proxy_ingress4",
-    "ctx_redirect_to_proxy_ingress6"
+    "ctx_change_type"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -724,6 +729,7 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   "endLine": 228,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy4",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -735,29 +741,29 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy4 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)\n",
@@ -802,6 +808,7 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   "endLine": 237,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy6",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -813,29 +820,29 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy6 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)\n",
@@ -941,6 +948,7 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   "endLine": 337,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "ctx_redirect_to_proxy_first",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -952,8 +960,8 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -1010,15 +1018,15 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
     "}\n"
   ],
   "called_function_list": [
-    "validate_ethertype",
     "ctx_redirect_to_proxy_ingress6",
-    "ctx_change_type",
-    "extract_tuple6",
     "bpf_htons",
-    "cilium_dbg",
+    "validate_ethertype",
     "ctx_redirect_to_proxy_ingress4",
-    "defined",
-    "extract_tuple4"
+    "ctx_change_type",
+    "extract_tuple4",
+    "extract_tuple6",
+    "cilium_dbg",
+    "defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1107,6 +1115,7 @@ out: __maybe_unused
   "endLine": 351,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "tc_index_skip_ingress_proxy",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1115,29 +1124,29 @@ out: __maybe_unused
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline bool tc_index_skip_ingress_proxy (struct  __ctx_buff *ctx)\n",
@@ -1194,6 +1203,7 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "endLine": 365,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/proxy.h",
   "funcName": "tc_index_skip_egress_proxy",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1202,29 +1212,29 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline bool tc_index_skip_egress_proxy (struct  __ctx_buff *ctx)\n",

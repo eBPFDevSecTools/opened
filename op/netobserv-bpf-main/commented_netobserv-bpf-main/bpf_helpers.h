@@ -104,6 +104,7 @@
   "endLine": 123,
   "File": "/home/sayandes/opened_extraction/examples/netobserv-bpf-main/headers/bpf_helpers.h",
   "funcName": "bpf_tail_call_static",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -116,27 +117,27 @@
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "lwt_seg6local",
-    "tracepoint",
-    "sk_msg",
-    "kprobe",
-    "sock_ops",
-    "cgroup_skb",
-    "sched_cls",
-    "sk_reuseport",
-    "sk_skb",
-    "lwt_out",
-    "lwt_xmit",
-    "cgroup_sock",
     "perf_event",
+    "sk_skb",
+    "lwt_in",
+    "raw_tracepoint",
+    "cgroup_sock",
+    "lwt_xmit",
     "raw_tracepoint_writable",
     "socket_filter",
-    "raw_tracepoint",
-    "xdp"
+    "lwt_out",
+    "xdp",
+    "kprobe",
+    "sk_msg",
+    "sock_ops",
+    "cgroup_skb",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "sched_cls",
+    "lwt_seg6local",
+    "flow_dissector",
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void bpf_tail_call_static (void *ctx, const void *map, const __u32 slot)\n",
@@ -160,8 +161,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_constant_p",
-    "__bpf_unreachable"
+    "__bpf_unreachable",
+    "__builtin_constant_p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

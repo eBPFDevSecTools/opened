@@ -50,6 +50,7 @@ __attribute__((section("socket_filter"), used))
   "endLine": 34,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
   "funcName": "reallocate_invalidates",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -60,9 +61,9 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sk_skb",
-    "lwt_xmit",
     "sched_cls",
+    "lwt_xmit",
+    "sk_skb",
     "sched_act"
   ],
   "source": [

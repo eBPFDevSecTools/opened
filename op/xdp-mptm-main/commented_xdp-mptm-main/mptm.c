@@ -122,6 +122,7 @@ SEC("mptm_encap_xdp")
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
   "funcName": "mptm_encap",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  mptm_tnl_info_map"
@@ -131,10 +132,10 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
     "bpf_redirect_map",
-    "bpf_redirect",
-    "bpf_map_lookup_elem"
+    "XDP_PASS",
+    "bpf_map_lookup_elem",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -180,13 +181,13 @@ SEC("mptm_encap_xdp")
     "}\n"
   ],
   "called_function_list": [
+    "encap_geneve",
+    "likely",
+    "mptm_print",
     "encap_vlan",
     "bpf_debug",
     "parse_pkt_headers",
-    "encap_geneve",
-    "xdp_stats_record_action",
-    "mptm_print",
-    "likely"
+    "xdp_stats_record_action"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -259,6 +260,28 @@ SEC("mptm_decap_xdp")
 {
   "capabilities": [
     {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ],
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "update_pkt"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -292,28 +315,6 @@ SEC("mptm_decap_xdp")
           ],
           "capabilities": [
             "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ],
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "update_pkt"
           ]
         }
       ]
@@ -368,6 +369,7 @@ SEC("mptm_decap_xdp")
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
   "funcName": "mptm_decap",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  mptm_tnl_info_map"
@@ -377,12 +379,12 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
-    "XDP_DROP",
-    "XDP_PASS",
     "bpf_redirect_map",
     "bpf_xdp_adjust_head",
-    "bpf_map_lookup_elem"
+    "XDP_DROP",
+    "XDP_PASS",
+    "bpf_map_lookup_elem",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -434,9 +436,9 @@ SEC("mptm_decap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "parse_pkt_headers",
-    "unlikely",
     "mptm_print",
+    "unlikely",
+    "parse_pkt_headers",
     "xdp_stats_record_action"
   ],
   "call_depth": -1,

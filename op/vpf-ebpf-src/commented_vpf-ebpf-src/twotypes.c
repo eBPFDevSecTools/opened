@@ -77,6 +77,7 @@ struct ctx;
   "endLine": 48,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
   "funcName": "func",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " map"
@@ -86,31 +87,31 @@ struct ctx;
   ],
   "output": "int",
   "helper": [
-    "get_prandom_u32",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
     "lwt_xmit",
-    "raw_tracepoint",
+    "cgroup_skb",
+    "lwt_in",
+    "kprobe",
+    "xdp",
+    "cgroup_sock",
+    "perf_event",
+    "tracepoint",
+    "sk_reuseport",
+    "cgroup_sock_addr",
     "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter",
-    "perf_event",
+    "lwt_out",
     "sched_act",
-    "lwt_in",
-    "sk_skb",
-    "xdp"
+    "lwt_seg6local",
+    "sk_msg",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
+    "raw_tracepoint",
+    "sk_skb"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",

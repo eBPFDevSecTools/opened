@@ -154,6 +154,7 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   "endLine": 158,
   "File": "/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c",
   "funcName": "compare_mac",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -163,29 +164,29 @@ struct bpf_elf_map iface_stat_map __section("maps") = {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_skb",
-    "flow_dissector",
-    "cgroup_device",
-    "sched_act",
-    "sock_ops",
     "lwt_out",
-    "cgroup_sock",
     "cgroup_sysctl",
-    "xdp",
     "kprobe",
+    "cgroup_skb",
     "lwt_xmit",
-    "lwt_in",
-    "socket_filter",
-    "perf_event",
     "tracepoint",
-    "lwt_seg6local",
-    "sk_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "lwt_in",
+    "cgroup_device",
+    "sched_cls",
     "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "xdp",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sk_msg"
+    "raw_tracepoint",
+    "perf_event",
+    "sched_act"
   ],
   "source": [
     "static __inline int compare_mac (__u8 *mac1, __u8 *mac2)\n",
@@ -304,6 +305,7 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   "endLine": 240,
   "File": "/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c",
   "funcName": "is_broadcast_mac",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -312,29 +314,29 @@ static __inline int compare_mac(__u8 *mac1, __u8 *mac2) {
   "output": "static__inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_skb",
-    "flow_dissector",
-    "cgroup_device",
-    "sched_act",
-    "sock_ops",
     "lwt_out",
-    "cgroup_sock",
     "cgroup_sysctl",
-    "xdp",
     "kprobe",
+    "cgroup_skb",
     "lwt_xmit",
-    "lwt_in",
-    "socket_filter",
-    "perf_event",
     "tracepoint",
-    "lwt_seg6local",
-    "sk_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "lwt_in",
+    "cgroup_device",
+    "sched_cls",
     "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "xdp",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sk_msg"
+    "raw_tracepoint",
+    "perf_event",
+    "sched_act"
   ],
   "source": [
     "static __inline int is_broadcast_mac (__u8 *m)\n",
@@ -665,21 +667,21 @@ static __inline int is_broadcast_mac(__u8 *m) {
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
         {
           "Project": "libbpf",
           "Return Type": "int",
           "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
           "compatible_hookpoints": [
             "sched_cls",
             "sched_act"
           ],
           "capabilities": [
-            "pkt_go_to_next_module"
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -729,21 +731,21 @@ static __inline int is_broadcast_mac(__u8 *m) {
       ]
     },
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
           "Project": "libbpf",
           "Return Type": "int",
           "Input Params": [],
-          "Function Name": "TC_ACT_SHOT",
-          "Return": 2,
-          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
           "compatible_hookpoints": [
             "sched_cls",
             "sched_act"
           ],
           "capabilities": [
-            "pkt_stop_processing_drop_packet"
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -754,21 +756,22 @@ static __inline int is_broadcast_mac(__u8 *m) {
   "endLine": 638,
   "File": "/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c",
   "funcName": "filter",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
+    "  iface_stat_map",
     "  iface_ip_map",
-    "  iface_map",
-    "  iface_stat_map"
+    "  iface_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "static__inlineint",
   "helper": [
-    "TC_ACT_OK",
+    "TC_ACT_SHOT",
     "bpf_map_lookup_elem",
     "bpf_trace_printk",
-    "TC_ACT_SHOT"
+    "TC_ACT_OK"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -852,11 +855,11 @@ static __inline int is_broadcast_mac(__u8 *m) {
     "}\n"
   ],
   "called_function_list": [
-    "ADD_DROP_STAT",
     "ADD_PASS_STAT",
+    "ADD_DROP_STAT",
+    "is_broadcast_mac",
     "bpf_memcpy",
-    "compare_mac",
-    "is_broadcast_mac"
+    "compare_mac"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1063,6 +1066,7 @@ static __inline int filter(struct __sk_buff *skb)
   "endLine": 711,
   "File": "/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c",
   "funcName": "bpf_filter",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1071,29 +1075,29 @@ static __inline int filter(struct __sk_buff *skb)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_skb",
-    "flow_dissector",
-    "cgroup_device",
-    "sched_act",
-    "sock_ops",
     "lwt_out",
-    "cgroup_sock",
     "cgroup_sysctl",
-    "xdp",
     "kprobe",
+    "cgroup_skb",
     "lwt_xmit",
-    "lwt_in",
-    "socket_filter",
-    "perf_event",
     "tracepoint",
-    "lwt_seg6local",
-    "sk_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "lwt_in",
+    "cgroup_device",
+    "sched_cls",
     "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "xdp",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sk_msg"
+    "raw_tracepoint",
+    "perf_event",
+    "sched_act"
   ],
   "source": [
     "int bpf_filter (struct  __sk_buff *skb)\n",

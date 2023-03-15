@@ -87,6 +87,7 @@
   "endLine": 66,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
   "funcName": "redirect_direct_v6",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -102,8 +103,8 @@
     "fib_lookup"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -155,15 +156,15 @@
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addr_copy",
-    "ipv6_l3",
-    "unlikely",
     "redirect_neigh",
+    "unlikely",
+    "ipv6_l3",
     "eth_store_daddr",
-    "is_defined",
     "eth_store_saddr",
+    "ipv6_addr_copy",
     "ctx_redirect",
-    "__bpf_memcpy_builtin"
+    "__bpf_memcpy_builtin",
+    "is_defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -313,6 +314,7 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   "endLine": 126,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
   "funcName": "redirect_direct_v4",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -328,8 +330,8 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
     "fib_lookup"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -381,14 +383,14 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
+    "ipv4_l3",
     "redirect_neigh",
     "unlikely",
-    "ipv4_l3",
-    "is_defined",
     "eth_store_daddr",
     "eth_store_saddr",
     "ctx_redirect",
-    "__bpf_memcpy_builtin"
+    "__bpf_memcpy_builtin",
+    "is_defined"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

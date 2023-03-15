@@ -102,40 +102,20 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
 {
   "capabilities": [
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
         {
-          "Project": "bcc",
-          "FunctionName": "bpf_ktime_get_ns",
-          "Return Type": "u64",
-          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
-          "Return": "u64 number of nanoseconds",
-          "Input Prameters": [],
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
           "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
+            "xdp"
           ],
           "capabilities": [
-            "read_sys_info"
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -187,20 +167,40 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
       ]
     },
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
+      "capability": "read_sys_info",
+      "read_sys_info": [
         {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
+          "Return Type": "u64",
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
           "compatible_hookpoints": [
-            "xdp"
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
           ],
           "capabilities": [
-            "pkt_go_to_next_module"
+            "read_sys_info"
           ]
         }
       ]
@@ -250,20 +250,20 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
       ]
     },
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
           "Project": "libbpf",
           "Return Type": "int",
           "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
           "compatible_hookpoints": [
             "xdp"
           ],
           "capabilities": [
-            "pkt_stop_processing_drop_packet"
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -274,26 +274,27 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
   "endLine": 276,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_kern.c",
   "funcName": "_xdp_ratelimit",
+  "developer_inline_comments": [],
   "updateMaps": [
     " rl_window_map"
   ],
   "readMaps": [
-    " rl_window_map",
+    " rl_recv_count_map",
+    " rl_drop_count_map",
     "  rl_window_map",
     " rl_config_map",
-    " rl_recv_count_map",
-    " rl_drop_count_map"
+    " rl_window_map"
   ],
   "input": [
     "struct xdp_md *ctx"
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "bpf_ktime_get_ns",
+    "XDP_DROP",
     "bpf_map_update_elem",
-    "XDP_PASS",
+    "bpf_ktime_get_ns",
     "bpf_map_lookup_elem",
-    "XDP_DROP"
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -380,9 +381,9 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
     "}\n"
   ],
   "called_function_list": [
-    "ntohs",
+    "bpf_printk",
     "bpf_ntohs",
-    "bpf_printk"
+    "ntohs"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -584,25 +585,6 @@ SEC("xdp_ratelimiting")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -620,6 +602,25 @@ SEC("xdp_ratelimiting")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -627,6 +628,7 @@ SEC("xdp_ratelimiting")
   "endLine": 289,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/ratelimiting_kern.c",
   "funcName": "_xdp_ratelimiting",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -634,8 +636,8 @@ SEC("xdp_ratelimiting")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"

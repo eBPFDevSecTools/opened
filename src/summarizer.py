@@ -168,15 +168,14 @@ def run_cmd(cmd):
         print(output)
         return output
 
-def read_src_file(fname,beg,end):
-    ifile = open(fname,'r')
-    lines = "".join(ifile.readlines()[beg:end])
+def remove_line_comments(lines):
+    lines = "".join(lines)
     lines = rmc.removeComments(lines)
     lines = lines.replace("}","").replace("{",";").replace("\n","");
     return lines.split(";")
     
-def get_capability_dict(begL, endL, example_file, helperdict):
-    code_lines = read_src_file(example_file,begL,endL)
+def get_capability_dict(code_lines, helperdict):
+    code_lines = remove_line_comments(code_lines)
 
     helperCallParams = defaultdict(list)
     helpers_list = get_helper_encoding(code_lines, helperdict, helperCallParams)

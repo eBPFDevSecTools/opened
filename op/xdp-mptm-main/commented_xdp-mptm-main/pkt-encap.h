@@ -44,6 +44,7 @@
   "endLine": 46,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "set_dst_mac",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -53,29 +54,29 @@
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "lwt_out",
-    "cgroup_sysctl",
-    "sock_ops",
-    "sk_reuseport",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock_addr",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "lwt_out",
     "socket_filter",
-    "xdp",
-    "lwt_xmit",
-    "flow_dissector",
-    "cgroup_device",
+    "tracepoint",
+    "cgroup_skb",
+    "sock_ops",
+    "cgroup_sock",
+    "sk_msg",
     "kprobe",
-    "lwt_seg6local"
+    "cgroup_sock_addr",
+    "xdp",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "flow_dissector",
+    "cgroup_sysctl"
   ],
   "source": [
     "static __ALWAYS_INLINE__ void set_dst_mac (void *data, unsigned char *dst_mac)\n",
@@ -123,6 +124,7 @@ static __ALWAYS_INLINE__ void set_dst_mac(void *data, unsigned char *dst_mac)
   "endLine": 56,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "set_src_mac",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -132,29 +134,29 @@ static __ALWAYS_INLINE__ void set_dst_mac(void *data, unsigned char *dst_mac)
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "lwt_out",
-    "cgroup_sysctl",
-    "sock_ops",
-    "sk_reuseport",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock_addr",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "lwt_out",
     "socket_filter",
-    "xdp",
-    "lwt_xmit",
-    "flow_dissector",
-    "cgroup_device",
+    "tracepoint",
+    "cgroup_skb",
+    "sock_ops",
+    "cgroup_sock",
+    "sk_msg",
     "kprobe",
-    "lwt_seg6local"
+    "cgroup_sock_addr",
+    "xdp",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "flow_dissector",
+    "cgroup_sysctl"
   ],
   "source": [
     "static __ALWAYS_INLINE__ void set_src_mac (void *data, unsigned char *src_mac)\n",
@@ -202,6 +204,7 @@ static __ALWAYS_INLINE__ void set_src_mac(void *data, unsigned char *src_mac)
   "endLine": 67,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "csum_fold_helper",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -210,29 +213,29 @@ static __ALWAYS_INLINE__ void set_src_mac(void *data, unsigned char *src_mac)
   "output": "static__ALWAYS_INLINE____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "lwt_out",
-    "cgroup_sysctl",
-    "sock_ops",
-    "sk_reuseport",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock_addr",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "lwt_out",
     "socket_filter",
-    "xdp",
-    "lwt_xmit",
-    "flow_dissector",
-    "cgroup_device",
+    "tracepoint",
+    "cgroup_skb",
+    "sock_ops",
+    "cgroup_sock",
+    "sk_msg",
     "kprobe",
-    "lwt_seg6local"
+    "cgroup_sock_addr",
+    "xdp",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "flow_dissector",
+    "cgroup_sysctl"
   ],
   "source": [
     "static __ALWAYS_INLINE__ __u16 csum_fold_helper (__u64 csum)\n",
@@ -284,6 +287,7 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
   "endLine": 77,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "ipv4_csum_inline",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -293,29 +297,29 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
   "output": "static__ALWAYS_INLINE__void",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "lwt_out",
-    "cgroup_sysctl",
-    "sock_ops",
-    "sk_reuseport",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock_addr",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "lwt_out",
     "socket_filter",
-    "xdp",
-    "lwt_xmit",
-    "flow_dissector",
-    "cgroup_device",
+    "tracepoint",
+    "cgroup_skb",
+    "sock_ops",
+    "cgroup_sock",
+    "sk_msg",
     "kprobe",
-    "lwt_seg6local"
+    "cgroup_sock_addr",
+    "xdp",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "flow_dissector",
+    "cgroup_sysctl"
   ],
   "source": [
     "static __ALWAYS_INLINE__ void ipv4_csum_inline (void *iph, __u64 *csum)\n",
@@ -330,8 +334,8 @@ static __ALWAYS_INLINE__ __u16 csum_fold_helper(__u64 csum)
     "}\n"
   ],
   "called_function_list": [
-    "csum_fold_helper",
-    "unroll"
+    "unroll",
+    "csum_fold_helper"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -367,25 +371,6 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "update_pkt",
       "update_pkt": [
         {
@@ -403,6 +388,25 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
           ],
           "capabilities": [
             "update_pkt"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -446,6 +450,7 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   "endLine": 192,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "__encap_geneve",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -455,8 +460,8 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   ],
   "output": "static__ALWAYS_INLINE__int",
   "helper": [
-    "XDP_PASS",
     "bpf_xdp_adjust_head",
+    "XDP_PASS",
     "XDP_DROP",
     "XDP_ABORTED"
   ],
@@ -546,11 +551,11 @@ static __ALWAYS_INLINE__ void ipv4_csum_inline(void *iph, __u64 *csum)
   ],
   "called_function_list": [
     "__builtin_memset",
-    "bpf_htons",
-    "mptm_print",
     "set_dst_mac",
+    "mptm_print",
     "set_src_mac",
-    "ipv4_csum_inline"
+    "ipv4_csum_inline",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -689,6 +694,7 @@ static __ALWAYS_INLINE__ int __encap_geneve(struct xdp_md *ctx,
   "endLine": 200,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "encap_geneve",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -699,29 +705,29 @@ static __ALWAYS_INLINE__ int __encap_geneve(struct xdp_md *ctx,
   "output": "static__ALWAYS_INLINE__int",
   "helper": [],
   "compatibleHookpoints": [
-    "tracepoint",
-    "sk_msg",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "lwt_out",
-    "cgroup_sysctl",
-    "sock_ops",
-    "sk_reuseport",
-    "sk_skb",
-    "sched_cls",
-    "cgroup_sock_addr",
     "lwt_in",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "sched_act",
+    "lwt_out",
     "socket_filter",
-    "xdp",
-    "lwt_xmit",
-    "flow_dissector",
-    "cgroup_device",
+    "tracepoint",
+    "cgroup_skb",
+    "sock_ops",
+    "cgroup_sock",
+    "sk_msg",
     "kprobe",
-    "lwt_seg6local"
+    "cgroup_sock_addr",
+    "xdp",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "flow_dissector",
+    "cgroup_sysctl"
   ],
   "source": [
     "static __ALWAYS_INLINE__ int encap_geneve (struct xdp_md *ctx, struct ethhdr *eth, mptm_tunnel_info *tn)\n",
@@ -806,6 +812,7 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
   "endLine": 214,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-encap.h",
   "funcName": "encap_vlan",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -833,8 +840,8 @@ static __ALWAYS_INLINE__ int encap_geneve(struct xdp_md *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "vlan_tag_push",
-    "mptm_print"
+    "mptm_print",
+    "vlan_tag_push"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

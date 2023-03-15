@@ -27,6 +27,45 @@ __attribute__((__always_inline__))
 {
   "capabilities": [
     {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
+          "Return Type": "u64",
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -69,45 +108,6 @@ __attribute__((__always_inline__))
           ]
         }
       ]
-    },
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "bcc",
-          "FunctionName": "bpf_ktime_get_ns",
-          "Return Type": "u64",
-          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
-          "Return": "u64 number of nanoseconds",
-          "Input Prameters": [],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -115,6 +115,7 @@ __attribute__((__always_inline__))
   "endLine": 50,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "is_under_flood",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " stats"
@@ -124,30 +125,30 @@ __attribute__((__always_inline__))
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_ktime_get_ns"
+    "bpf_ktime_get_ns",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
+    "lwt_in",
     "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
     "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -227,50 +228,6 @@ __attribute__((__always_inline__))
 {
   "capabilities": [
     {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_update",
       "map_update": [
         {
@@ -315,6 +272,50 @@ __attribute__((__always_inline__))
           ]
         }
       ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -322,14 +323,15 @@ __attribute__((__always_inline__))
   "endLine": 131,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "get_packet_dst",
+  "developer_inline_comments": [],
   "updateMaps": [
     " lru_map"
   ],
   "readMaps": [
-    " reals",
-    "  ch_rings",
     "  lpm_src_v4",
     "  lpm_src_v6",
+    "  ch_rings",
+    " reals",
     " stats"
   ],
   "input": [
@@ -341,32 +343,32 @@ __attribute__((__always_inline__))
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_map_update_elem"
+    "bpf_map_update_elem",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "cgroup_sysctl",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "lwt_xmit",
+    "lwt_in",
     "cgroup_device",
+    "sched_act",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -448,8 +450,8 @@ __attribute__((__always_inline__))
   "called_function_list": [
     "is_under_flood",
     "memcpy",
-    "memset",
-    "get_packet_hash"
+    "get_packet_hash",
+    "memset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -557,6 +559,45 @@ __attribute__((__always_inline__))
 {
   "capabilities": [
     {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
+          "Return Type": "u64",
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -599,45 +640,6 @@ __attribute__((__always_inline__))
           ]
         }
       ]
-    },
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "bcc",
-          "FunctionName": "bpf_ktime_get_ns",
-          "Return Type": "u64",
-          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
-          "Return": "u64 number of nanoseconds",
-          "Input Prameters": [],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -645,6 +647,7 @@ __attribute__((__always_inline__))
   "endLine": 156,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "connection_table_lookup",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " reals",
@@ -658,30 +661,30 @@ __attribute__((__always_inline__))
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_ktime_get_ns"
+    "bpf_ktime_get_ns",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
+    "lwt_in",
     "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
     "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -783,6 +786,7 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
   "endLine": 230,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_l3_headers",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -865,10 +869,10 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
     "}\n"
   ],
   "called_function_list": [
-    "memcpy",
-    "bpf_ntohs",
+    "parse_icmp",
     "parse_icmpv6",
-    "parse_icmp"
+    "bpf_ntohs",
+    "memcpy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -971,6 +975,25 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 {
   "capabilities": [
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -1013,25 +1036,6 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -1039,6 +1043,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "endLine": 255,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "check_decap_dst",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " decap_dst",
@@ -1051,8 +1056,8 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "XDP_DROP"
+    "XDP_DROP",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1143,6 +1148,7 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   "endLine": 277,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "reals_have_same_addr",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1152,28 +1158,28 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "cgroup_sysctl",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "lwt_xmit",
+    "lwt_in",
     "cgroup_device",
+    "sched_act",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -1240,6 +1246,25 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
 {
   "capabilities": [
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -1282,25 +1307,6 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -1308,10 +1314,11 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
   "endLine": 335,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "perform_global_lru_lookup",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
-    " global_lru_maps",
-    " stats"
+    " stats",
+    " global_lru_maps"
   ],
   "input": [
     "struct real_definition **dst",
@@ -1322,8 +1329,8 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "XDP_DROP"
+    "XDP_DROP",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1362,9 +1369,9 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
     "}\n"
   ],
   "called_function_list": [
+    "connection_table_lookup",
     "get_packet_dst",
-    "reals_have_same_addr",
-    "connection_table_lookup"
+    "reals_have_same_addr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1453,25 +1460,6 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -1489,6 +1477,25 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -1496,6 +1503,7 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
   "endLine": 387,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_encaped_ipip_pckt",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1508,8 +1516,8 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1561,10 +1569,10 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
     "}\n"
   ],
   "called_function_list": [
-    "decrement_ttl",
-    "decap_v6",
     "decap_v4",
-    "recirculate"
+    "decrement_ttl",
+    "recirculate",
+    "decap_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1643,25 +1651,6 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -1679,6 +1668,25 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -1686,6 +1694,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "endLine": 441,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_encaped_gue_pckt",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1697,8 +1706,8 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1749,10 +1758,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "decrement_ttl",
-    "gue_decap_v4",
     "recirculate",
-    "gue_decap_v6"
+    "decrement_ttl",
+    "gue_decap_v6",
+    "gue_decap_v4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1882,6 +1891,7 @@ process_encaped_gue_pckt(
   "endLine": 457,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "increment_quic_cid_version_stats",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " stats"
@@ -1894,28 +1904,28 @@ process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "cgroup_sysctl",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "lwt_xmit",
+    "lwt_in",
     "cgroup_device",
+    "sched_act",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -2025,6 +2035,7 @@ increment_quic_cid_version_stats(int host_id) {
   "endLine": 468,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "increment_quic_cid_drop_no_real",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " stats"
@@ -2037,28 +2048,28 @@ increment_quic_cid_version_stats(int host_id) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "cgroup_sysctl",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "lwt_xmit",
+    "lwt_in",
     "cgroup_device",
+    "sched_act",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -2159,6 +2170,7 @@ increment_quic_cid_drop_no_real() {
   "endLine": 478,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "increment_quic_cid_drop_real_0",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " stats"
@@ -2171,28 +2183,28 @@ increment_quic_cid_drop_no_real() {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "cgroup_sysctl",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "lwt_xmit",
+    "lwt_in",
     "cgroup_device",
+    "sched_act",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -2243,6 +2255,44 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
 {
   "capabilities": [
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_TX",
+          "Return": 3,
+          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -2287,6 +2337,25 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
       ]
     },
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -2326,63 +2395,6 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_alter_or_redo_processing_or_interface",
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_alter_or_redo_processing_or_interface"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -2390,14 +2402,15 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   "endLine": 791,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_packet",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
-    " lru_mapping",
-    "  reals",
+    "  ctl_array",
     "  reals_stats",
     "  stats",
-    "  ctl_array",
+    " lru_mapping",
     "  vip_map",
+    "  reals",
     " stats",
     " server_id_map"
   ],
@@ -2408,11 +2421,11 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_get_smp_processor_id",
     "XDP_DROP",
     "XDP_TX",
-    "XDP_PASS"
+    "bpf_map_lookup_elem",
+    "XDP_PASS",
+    "bpf_get_smp_processor_id"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -2677,28 +2690,28 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
     "}\n"
   ],
   "called_function_list": [
-    "REPORT_PACKET_TOOBIG",
-    "parse_quic",
-    "PCKT_ENCAP_V6",
-    "increment_quic_cid_drop_real_0",
-    "get_packet_dst",
-    "increment_quic_cid_drop_no_real",
-    "connection_table_lookup",
-    "PCKT_ENCAP_V4",
-    "bpf_htons",
     "REPORT_TCP_NONSYN_LRUMISS",
-    "tcp_hdr_opt_lookup",
-    "process_l3_headers",
-    "perform_global_lru_lookup",
-    "parse_udp",
-    "parse_tcp",
-    "increment_quic_cid_version_stats",
-    "send_icmp_too_big",
-    "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "process_encaped_ipip_pckt",
-    "memcpy",
     "check_decap_dst",
-    "process_encaped_gue_pckt"
+    "process_encaped_ipip_pckt",
+    "increment_quic_cid_drop_real_0",
+    "perform_global_lru_lookup",
+    "parse_quic",
+    "send_icmp_too_big",
+    "increment_quic_cid_version_stats",
+    "get_packet_dst",
+    "parse_udp",
+    "connection_table_lookup",
+    "tcp_hdr_opt_lookup",
+    "PCKT_ENCAP_V6",
+    "bpf_htons",
+    "process_encaped_gue_pckt",
+    "PCKT_ENCAP_V4",
+    "REPORT_PACKET_TOOBIG",
+    "increment_quic_cid_drop_no_real",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "memcpy",
+    "parse_tcp",
+    "process_l3_headers"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3040,25 +3053,6 @@ SEC("xdp")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -3076,6 +3070,25 @@ SEC("xdp")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -3083,6 +3096,7 @@ SEC("xdp")
   "endLine": 817,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "balancer_ingress",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -3090,8 +3104,8 @@ SEC("xdp")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -3177,6 +3191,7 @@ int balancer_ingress(struct xdp_md* ctx) {
   "endLine": 827,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "get_packet_hash",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -3186,28 +3201,28 @@ int balancer_ingress(struct xdp_md* ctx) {
   "output": "staticinline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
+    "cgroup_sock",
+    "lwt_seg6local",
+    "sk_skb",
     "raw_tracepoint",
-    "sock_ops",
+    "raw_tracepoint_writable",
+    "perf_event",
+    "cgroup_sysctl",
+    "xdp",
+    "sched_cls",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "cgroup_skb",
+    "kprobe",
     "lwt_out",
     "tracepoint",
-    "flow_dissector",
-    "perf_event",
-    "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
-    "cgroup_sock",
-    "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
-    "kprobe",
-    "lwt_xmit",
+    "lwt_in",
     "cgroup_device",
+    "sched_act",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "sock_ops",
     "sk_reuseport"
   ],
   "source": [
@@ -3222,8 +3237,8 @@ int balancer_ingress(struct xdp_md* ctx) {
     "}\n"
   ],
   "called_function_list": [
-    "jhash_2words",
-    "jhash"
+    "jhash",
+    "jhash_2words"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

@@ -30,6 +30,7 @@ SEC("mptm_redirect_xdp")
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c",
   "funcName": "mptm_redirect",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -37,8 +38,8 @@ SEC("mptm_redirect_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
-    "bpf_redirect_map"
+    "bpf_redirect_map",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -105,6 +106,7 @@ SEC("mptm_pass_xdp")
   "endLine": 34,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c",
   "funcName": "mptm_pass",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [

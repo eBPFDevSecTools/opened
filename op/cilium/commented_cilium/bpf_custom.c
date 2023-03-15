@@ -38,6 +38,7 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
   "endLine": 45,
   "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c",
   "funcName": "custom_hook",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -46,29 +47,29 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "int custom_hook (const struct  __ctx_buff *ctx)\n",
@@ -81,8 +82,8 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
     "}\n"
   ],
   "called_function_list": [
-    "ctx_load_meta",
-    "custom_prog"
+    "custom_prog",
+    "ctx_load_meta"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
