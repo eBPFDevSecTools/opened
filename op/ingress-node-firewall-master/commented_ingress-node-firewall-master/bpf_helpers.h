@@ -104,7 +104,58 @@
   "endLine": 123,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/headers/bpf_helpers.h",
   "funcName": "bpf_tail_call_static",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 5,
+      "end_line": 10,
+      "text": "/*\n * Note that bpf programs need to include either\n * vmlinux.h (auto-generated from BTF) or linux/types.h\n * in advance since bpf_helper_defs.h uses such types\n * as __u64.\n */"
+    },
+    {
+      "start_line": 17,
+      "end_line": 24,
+      "text": "/*\n * Helper macro to place programs, maps, license in\n * different sections in elf_bpf file. Section names\n * are interpreted by libbpf depending on the context (BPF programs, BPF maps,\n * extern variables, etc).\n * To allow use of SEC() with externs (e.g., for extern .maps declarations),\n * make sure __attribute__((unused)) doesn't trigger compilation warning.\n */"
+    },
+    {
+      "start_line": 31,
+      "end_line": 31,
+      "text": "/* Avoid 'linux/stddef.h' definition of '__always_inline'. */"
+    },
+    {
+      "start_line": 42,
+      "end_line": 47,
+      "text": "/*\n * Use __hidden attribute to mark a non-static BPF subprogram effectively\n * static for BPF verifier's verification algorithm purposes, allowing more\n * extensive and permissive BPF verification process, taking into account\n * subprogram's caller context.\n */"
+    },
+    {
+      "start_line": 50,
+      "end_line": 55,
+      "text": "/* When utilizing vmlinux.h with BPF CO-RE, user BPF programs can't include\n * any system-level headers (such as stddef.h, linux/version.h, etc), and\n * commonly-used macros like NULL and KERNEL_VERSION aren't available through\n * vmlinux.h. This just adds unnecessary hurdles and forces users to re-define\n * them on their own. So as a convenience, provide such definitions here.\n */"
+    },
+    {
+      "start_line": 64,
+      "end_line": 66,
+      "text": "/*\n * Helper macros to manipulate data structures\n */"
+    },
+    {
+      "start_line": 78,
+      "end_line": 89,
+      "text": "/*\n * Helper macro to throw a compilation error if __bpf_unreachable() gets\n * built into the resulting code. This works given BPF back end does not\n * implement __builtin_trap(). This is useful to assert that certain paths\n * of the program code are never used and hence eliminated by the compiler.\n *\n * For example, consider a switch statement that covers known cases used by\n * the program. __bpf_unreachable() can then reside in the default case. If\n * the program gets extended such that a case is not covered in the switch\n * statement, then it will throw a build error due to the default case not\n * being compiled out.\n */"
+    },
+    {
+      "start_line": 94,
+      "end_line": 96,
+      "text": "/*\n * Helper function to perform a tail call with a constant/immediate map slot.\n */"
+    },
+    {
+      "start_line": 104,
+      "end_line": 116,
+      "text": "/*\n\t * Provide a hard guarantee that LLVM won't optimize setting r2 (map\n\t * pointer) and r3 (constant map index) from _different paths_ ending\n\t * up at the _same_ call insn as otherwise we won't be able to use the\n\t * jmpq/nopl retpoline-free patching by the x86-64 JIT in the kernel\n\t * given they mismatch. See also d2e4c1e6c294 (\"bpf: Constant map key\n\t * tracking for prog array pokes\") for details on verifier tracking.\n\t *\n\t * Note on clobber list: we need to stay in-line with BPF calling\n\t * convention, so even if we don't end up using r0, r4, r5, we need\n\t * to mark them as clobber so that LLVM doesn't end up using them\n\t * before / after the call.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -117,27 +168,27 @@
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "sk_reuseport",
-    "sk_msg",
     "sched_act",
+    "sk_reuseport",
+    "sk_skb",
     "cgroup_sock_addr",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_skb",
-    "perf_event",
-    "lwt_xmit",
-    "kprobe",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sock",
-    "socket_filter",
     "sched_cls",
-    "raw_tracepoint_writable",
-    "xdp",
-    "lwt_seg6local",
+    "cgroup_sock",
+    "lwt_xmit",
+    "sk_msg",
     "flow_dissector",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint",
+    "socket_filter",
+    "lwt_out",
+    "kprobe",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_skb",
     "tracepoint",
-    "sk_skb"
+    "raw_tracepoint_writable",
+    "sock_ops"
   ],
   "source": [
     "static __always_inline void bpf_tail_call_static (void *ctx, const void *map, const __u32 slot)\n",

@@ -56,7 +56,13 @@ struct {
   "endLine": 37,
   "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_root",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (C) 2018-present, Facebook, Inc.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -64,8 +70,8 @@ struct {
   ],
   "output": "\\xdp\\)",
   "helper": [
-    "bpf_tail_call",
-    "XDP_PASS"
+    "XDP_PASS",
+    "bpf_tail_call"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -153,8 +159,8 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   ],
   "output": "\\xdp\\)",
   "helper": [
-    "bpf_tail_call",
-    "XDP_PASS"
+    "XDP_PASS",
+    "bpf_tail_call"
   ],
   "compatibleHookpoints": [
     "xdp"

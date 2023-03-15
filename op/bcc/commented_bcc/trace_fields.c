@@ -8,7 +8,13 @@
   "endLine": 6,
   "File": "/home/sayandes/opened_extraction/examples/bcc/trace_fields.c",
   "funcName": "hello",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "//int hello (void *ctx)"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -19,29 +25,29 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "sk_skb",
-    "sched_act",
-    "socket_filter",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "lwt_xmit",
-    "cgroup_device",
     "lwt_out",
-    "raw_tracepoint",
     "lwt_seg6local",
-    "raw_tracepoint_writable",
-    "sk_msg",
-    "cgroup_skb",
-    "xdp",
-    "tracepoint",
-    "cgroup_sock",
     "sk_reuseport",
-    "sock_ops",
-    "perf_event",
-    "lwt_in",
     "kprobe",
+    "lwt_in",
     "flow_dissector",
-    "sched_cls"
+    "sk_msg",
+    "perf_event",
+    "sched_cls",
+    "sock_ops",
+    "xdp",
+    "raw_tracepoint",
+    "sched_act",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sock",
+    "cgroup_skb",
+    "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "cgroup_device",
+    "socket_filter",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "int hello ()\n",

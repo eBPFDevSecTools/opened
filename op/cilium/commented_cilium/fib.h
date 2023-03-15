@@ -16,51 +16,6 @@
 {
   "capabilities": [
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "bpf_fib_lookup",
-          "Input Params": [
-            "{Type: void ,Var: *ctx}",
-            "{Type:  struct bpf_fib_lookup ,Var: *params}",
-            "{Type:  int ,Var: plen}",
-            "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
-          "Input Params": [
-            "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
-            "{Type:  int ,Var: plen}",
-            "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -80,6 +35,51 @@
           ]
         }
       ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        },
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "bpf_fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct bpf_fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -87,7 +87,28 @@
   "endLine": 66,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
   "funcName": "redirect_direct_v6",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 51,
+      "end_line": 51,
+      "text": "/* ENABLE_SKIP_FIB */"
+    },
+    {
+      "start_line": 64,
+      "end_line": 64,
+      "text": "/* ENABLE_SKIP_FIB */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -98,9 +119,9 @@
   "output": "static__always_inlineint",
   "helper": [
     "redirect",
-    "bpf_fib_lookup",
     "CTX_ACT_OK",
-    "fib_lookup"
+    "fib_lookup",
+    "bpf_fib_lookup"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -156,13 +177,13 @@
     "}\n"
   ],
   "called_function_list": [
-    "redirect_neigh",
-    "unlikely",
-    "ipv6_l3",
-    "eth_store_daddr",
-    "eth_store_saddr",
-    "ipv6_addr_copy",
     "ctx_redirect",
+    "redirect_neigh",
+    "ipv6_l3",
+    "eth_store_saddr",
+    "unlikely",
+    "eth_store_daddr",
+    "ipv6_addr_copy",
     "__bpf_memcpy_builtin",
     "is_defined"
   ],
@@ -243,51 +264,6 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
 {
   "capabilities": [
     {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "bpf_fib_lookup",
-          "Input Params": [
-            "{Type: void ,Var: *ctx}",
-            "{Type:  struct bpf_fib_lookup ,Var: *params}",
-            "{Type:  int ,Var: plen}",
-            "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        },
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
-          "Function Name": "fib_lookup",
-          "Input Params": [
-            "{Type: void ,Var: *ctx}",
-            "{Type:  struct fib_lookup ,Var: *params}",
-            "{Type:  int ,Var: plen}",
-            "{Type:  u32 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act",
-            "xdp"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -307,6 +283,51 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
           ]
         }
       ]
+    },
+    {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        },
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Description": "Do FIB lookup in kernel tables using parameters in params. If lookup is successful and result shows packet is to be forwarded , the neighbor tables are searched for the nexthop. If successful (ie. , FIB lookup shows forwarding and nexthop is resolved) , the nexthop address is returned in ipv4_dst or ipv6_dst based on family , smac is set to mac address of egress device , dmac is set to nexthop mac address , rt_metric is set to metric from route (IPv4/IPv6 only) , and ifindex is set to the device index of the nexthop from the FIB lookup. <[ plen ]>(IP: 2) argument is the size of the passed in struct. <[ flags ]>(IP: 3) argument can be a combination of one or more of the following values: BPF_FIB_LOOKUP_DIRECT Do a direct table lookup vs full lookup using FIB rules. BPF_FIB_LOOKUP_OUTPUT Perform lookup from an egress perspective (default is ingress). <[ ctx ]>(IP: 0) is either struct xdp_md for XDP programs or struct sk_buff tc cls_act programs. Return \u00b7 < 0 if any input argument is invalid \u00b7 0 on success (packet is forwarded , nexthop neighbor exists) \u00b7 > 0 one of BPF_FIB_LKUP_RET_ codes explaining why the packet is not forwarded or needs assist from full stack ",
+          "Function Name": "bpf_fib_lookup",
+          "Input Params": [
+            "{Type: void ,Var: *ctx}",
+            "{Type:  struct bpf_fib_lookup ,Var: *params}",
+            "{Type:  int ,Var: plen}",
+            "{Type:  u32 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -314,7 +335,28 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   "endLine": 126,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/fib.h",
   "funcName": "redirect_direct_v4",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 8,
+      "end_line": 13,
+      "text": "/* For deployments with just single external dev, redirect_neigh()\n\t * will resolve the GW and do L2 resolution for us. For multi-device\n\t * deployments we perform a FIB lookup prior to the redirect. If the\n\t * neigh entry cannot be resolved, we ask redirect_neigh() to do it,\n\t * otherwise we can directly call redirect().\n\t */"
+    },
+    {
+      "start_line": 32,
+      "end_line": 32,
+      "text": "/* GW could also be v6, so copy union. */"
+    },
+    {
+      "start_line": 44,
+      "end_line": 44,
+      "text": "/* ENABLE_SKIP_FIB */"
+    },
+    {
+      "start_line": 57,
+      "end_line": 57,
+      "text": "/* ENABLE_SKIP_FIB */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -325,9 +367,9 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [
     "redirect",
-    "bpf_fib_lookup",
     "CTX_ACT_OK",
-    "fib_lookup"
+    "fib_lookup",
+    "bpf_fib_lookup"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -383,12 +425,12 @@ redirect_direct_v6(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "ipv4_l3",
+    "ctx_redirect",
     "redirect_neigh",
+    "eth_store_saddr",
     "unlikely",
     "eth_store_daddr",
-    "eth_store_saddr",
-    "ctx_redirect",
+    "ipv4_l3",
     "__bpf_memcpy_builtin",
     "is_defined"
   ],

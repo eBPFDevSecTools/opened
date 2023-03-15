@@ -40,7 +40,38 @@
   "endLine": 60,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "xdp_load_bytes",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 22,
+      "end_line": 22,
+      "text": "/* hairpin only */"
+    },
+    {
+      "start_line": 27,
+      "end_line": 27,
+      "text": "/* cb + RECIRC_MARKER + XFER_MARKER */"
+    },
+    {
+      "start_line": 31,
+      "end_line": 31,
+      "text": "/* This must be a mask and all offsets guaranteed to be less than that. */"
+    },
+    {
+      "start_line": 39,
+      "end_line": 42,
+      "text": "/* LLVM tends to generate code that verifier doesn't understand,\n\t * so force it the way we want it in order to open up a range\n\t * on the reg.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -52,29 +83,29 @@
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused int xdp_load_bytes (const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)\n",
@@ -162,7 +193,13 @@ xdp_load_bytes(const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
   "endLine": 86,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "xdp_store_bytes",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 7,
+      "end_line": 7,
+      "text": "/* See xdp_load_bytes(). */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -175,29 +212,29 @@ xdp_load_bytes(const struct xdp_md *ctx, __u64 off, void *to, const __u64 len)
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused int xdp_store_bytes (const struct xdp_md *ctx, __u64 off, const void *from, const __u64 len, __u64 flags __maybe_unused)\n",
@@ -305,7 +342,18 @@ xdp_store_bytes(const struct xdp_md *ctx, __u64 off, const void *from,
   "endLine": 114,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "__csum_replace_by_diff",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 4,
+      "end_line": 6,
+      "text": "/* Fyi, remapping to stubs helps to assert that the code is not in\n * use since it otherwise triggers a verifier error.\n */"
+    },
+    {
+      "start_line": 11,
+      "end_line": 11,
+      "text": "/* Already linear. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -315,29 +363,29 @@ xdp_store_bytes(const struct xdp_md *ctx, __u64 off, const void *from,
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused void __csum_replace_by_diff (__sum16 *sum, __wsum diff)\n",
@@ -392,29 +440,29 @@ __csum_replace_by_diff(__sum16 *sum, __wsum diff)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused void __csum_replace_by_4 (__sum16 *sum, __wsum from, __wsum to)\n",
@@ -457,7 +505,13 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "l3_csum_replace",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 14,
+      "end_line": 14,
+      "text": "/* See xdp_load_bytes(). */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -472,9 +526,9 @@ __csum_replace_by_4(__sum16 *sum, __wsum from, __wsum to)
     "l3_csum_replace"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline __maybe_unused int l3_csum_replace (const struct xdp_md *ctx, __u64 off, const __u32 from, __u32 to, __u32 flags)\n",
@@ -576,7 +630,13 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
   "endLine": 196,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "l4_csum_replace",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 17,
+      "end_line": 17,
+      "text": "/* See xdp_load_bytes(). */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -591,9 +651,9 @@ l3_csum_replace(const struct xdp_md *ctx, __u64 off, const __u32 from,
     "l4_csum_replace"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline __maybe_unused int l4_csum_replace (const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to, __u32 flags)\n",
@@ -728,7 +788,23 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
   "endLine": 234,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_change_proto",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 7,
+      "end_line": 7,
+      "text": "/* 4->6 */"
+    },
+    {
+      "start_line": 7,
+      "end_line": 7,
+      "text": "/* 6->4 */"
+    },
+    {
+      "start_line": 12,
+      "end_line": 14,
+      "text": "/* We make the assumption that when ctx_change_proto() is called\n\t * the target proto != current proto.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -773,11 +849,11 @@ l4_csum_replace(const struct xdp_md *ctx, __u64 off, __u32 from, __u32 to,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_data_end",
     "build_bug_on",
-    "__constant_htons",
+    "ctx_data",
+    "ctx_data_end",
     "__bpf_memmove_fwd",
-    "ctx_data"
+    "__constant_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -940,7 +1016,43 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
   "endLine": 289,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_adjust_hroom",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 15,
+      "end_line": 18,
+      "text": "/* XXX: Note, this hack is currently tailored to NodePort DSR\n\t * requirements and not a generic helper. If needed elsewhere,\n\t * this must be made more generic.\n\t */"
+    },
+    {
+      "start_line": 23,
+      "end_line": 23,
+      "text": "/* struct {iphdr + icmphdr} */"
+    },
+    {
+      "start_line": 25,
+      "end_line": 25,
+      "text": "/* struct iphdr */"
+    },
+    {
+      "start_line": 26,
+      "end_line": 26,
+      "text": "/* __u32 opt[2] */"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "/* struct {ipv6hdr + icmp6hdr} */"
+    },
+    {
+      "start_line": 35,
+      "end_line": 35,
+      "text": "/* struct ipv6hdr */"
+    },
+    {
+      "start_line": 36,
+      "end_line": 36,
+      "text": "/* struct dsr_opt_v6 */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -996,11 +1108,11 @@ ctx_adjust_troom(struct xdp_md *ctx, const __s32 len_diff)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_data_end",
-    "__throw_build_bug",
     "build_bug_on",
-    "__bpf_memmove_fwd",
-    "ctx_data"
+    "__throw_build_bug",
+    "ctx_data",
+    "ctx_data_end",
+    "__bpf_memmove_fwd"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1155,7 +1267,13 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
   "endLine": 307,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_redirect_peer",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 6,
+      "end_line": 6,
+      "text": "/* bpf_redirect_peer() is available only in TC BPF. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1166,29 +1284,29 @@ ctx_redirect(const struct xdp_md *ctx, int ifindex, const __u32 flags)
   "output": "static__always_inline__maybe_unusedint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused int ctx_redirect_peer (const struct xdp_md * ctx __maybe_unused, int ifindex __maybe_unused, const __u32 flags __maybe_unused)\n",
@@ -1233,7 +1351,13 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
   "endLine": 314,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/xdp.h",
   "funcName": "ctx_full_len",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 4,
+      "end_line": 4,
+      "text": "/* No non-linear section in XDP. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1242,29 +1366,29 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
   "output": "static__always_inline__maybe_unused__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u64 ctx_full_len (const struct xdp_md *ctx)\n",
@@ -1273,8 +1397,8 @@ ctx_redirect_peer(const struct xdp_md *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_data_end",
-    "ctx_data"
+    "ctx_data",
+    "ctx_data_end"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1317,29 +1441,29 @@ ctx_full_len(const struct xdp_md *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 ctx_wire_len (const struct xdp_md *ctx)\n",
@@ -1449,29 +1573,29 @@ struct {
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused void ctx_store_meta (struct xdp_md * ctx __maybe_unused, const __u64 off, __u32 datum)\n",
@@ -1483,8 +1607,8 @@ struct {
     "}\n"
   ],
   "called_function_list": [
-    "always_succeeds",
-    "build_bug_on"
+    "build_bug_on",
+    "always_succeeds"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1580,29 +1704,29 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 ctx_load_meta (const struct xdp_md * ctx __maybe_unused, const __u64 off)\n",
@@ -1615,8 +1739,8 @@ ctx_store_meta(struct xdp_md *ctx __maybe_unused, const __u64 off, __u32 datum)
     "}\n"
   ],
   "called_function_list": [
-    "always_succeeds",
-    "build_bug_on"
+    "build_bug_on",
+    "always_succeeds"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1663,29 +1787,29 @@ ctx_load_meta(const struct xdp_md *ctx __maybe_unused, const __u64 off)
   "output": "static__always_inline__maybe_unused__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u16 ctx_get_protocol (const struct xdp_md *ctx)\n",
@@ -1698,9 +1822,9 @@ ctx_load_meta(const struct xdp_md *ctx __maybe_unused, const __u64 off)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_data_end",
     "ctx_no_room",
-    "ctx_data"
+    "ctx_data",
+    "ctx_data_end"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1748,29 +1872,29 @@ ctx_get_protocol(const struct xdp_md *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 ctx_get_ifindex (const struct xdp_md *ctx)\n",

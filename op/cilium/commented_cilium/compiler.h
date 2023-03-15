@@ -92,7 +92,33 @@
   "endLine": 93,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/compiler.h",
   "funcName": "bpf_barrier",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 47,
+      "end_line": 47,
+      "text": "/* Mainly for documentation purpose. */"
+    },
+    {
+      "start_line": 51,
+      "end_line": 51,
+      "text": "/* stddef.h defines its own */"
+    },
+    {
+      "start_line": 88,
+      "end_line": 91,
+      "text": "/* Workaround to avoid verifier complaint:\n\t * \"dereference of modified ctx ptr R5 off=48+0, ctx+const is allowed,\n\t *        ctx+const+const is not\"\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -101,29 +127,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void bpf_barrier (void)\n",

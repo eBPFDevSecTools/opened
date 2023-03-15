@@ -376,7 +376,7 @@ if __name__ == "__main__":
         if cmt_op_dir is None:
             json.dump(txl_dict_func, outfile)
         else:
-            json.dump(funcCapDict, outfile)
+            json.dump(funcCapDict, outfile, indent=2)
     outfile.close()
 
     with open(txl_struct_list, "w") as outfile:

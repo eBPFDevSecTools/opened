@@ -282,7 +282,128 @@ struct {
   "endLine": 280,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/maps.h",
   "funcName": "ep_tail_call",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "/* Global map to jump into policy enforcement of receiving endpoint */"
+    },
+    {
+      "start_line": 42,
+      "end_line": 42,
+      "text": "/* SKIP_POLICY_MAP */"
+    },
+    {
+      "start_line": 45,
+      "end_line": 45,
+      "text": "/* Global map to jump into policy enforcement of sending endpoint */"
+    },
+    {
+      "start_line": 65,
+      "end_line": 65,
+      "text": "/* ENABLE_BANDWIDTH_MANAGER */"
+    },
+    {
+      "start_line": 67,
+      "end_line": 67,
+      "text": "/* Map to link endpoint id to per endpoint cilium_policy map */"
+    },
+    {
+      "start_line": 79,
+      "end_line": 79,
+      "text": "/* Per-endpoint policy enforcement map */"
+    },
+    {
+      "start_line": 91,
+      "end_line": 91,
+      "text": "/* Private per EP map for internal tail calls */"
+    },
+    {
+      "start_line": 100,
+      "end_line": 100,
+      "text": "/* SKIP_CALLS_MAP */"
+    },
+    {
+      "start_line": 116,
+      "end_line": 120,
+      "text": "/* Private per-EP map for tail calls to user-defined programs.\n * CUSTOM_CALLS_MAP is a per-EP map name, only defined for programs that need\n * to use the map, so we do not want to compile this definition if\n * CUSTOM_CALLS_MAP has not been #define-d.\n */"
+    },
+    {
+      "start_line": 127,
+      "end_line": 127,
+      "text": "/* ingress and egress, IPv4 and IPv6 */"
+    },
+    {
+      "start_line": 134,
+      "end_line": 134,
+      "text": "/* ENABLE_CUSTOM_CALLS && CUSTOM_CALLS_MAP */"
+    },
+    {
+      "start_line": 143,
+      "end_line": 147,
+      "text": "/* Define a function with the following NAME which iterates through PREFIXES\n * (a list of integers ordered from high to low representing prefix length),\n * performing a lookup in MAP using LOOKUP_FN to find a provided IP of type\n * IPTYPE.\n */"
+    },
+    {
+      "start_line": 162,
+      "end_line": 162,
+      "text": "/* HAVE_LPM_TRIE_MAP_TYPE */"
+    },
+    {
+      "start_line": 184,
+      "end_line": 184,
+      "text": "/* Global IP -> Identity map for applying egress label-based policy */"
+    },
+    {
+      "start_line": 212,
+      "end_line": 212,
+      "text": "/* ENABLE_EGRESS_GATEWAY */"
+    },
+    {
+      "start_line": 238,
+      "end_line": 238,
+      "text": "/* inner header */"
+    },
+    {
+      "start_line": 239,
+      "end_line": 239,
+      "text": "/* outer header */"
+    },
+    {
+      "start_line": 248,
+      "end_line": 248,
+      "text": "/* ENABLE_IPV4 */"
+    },
+    {
+      "start_line": 256,
+      "end_line": 256,
+      "text": "/* SID */"
+    },
+    {
+      "start_line": 257,
+      "end_line": 257,
+      "text": "/* VRF ID */"
+    },
+    {
+      "start_line": 262,
+      "end_line": 262,
+      "text": "/* ENABLE_SRV6 */"
+    },
+    {
+      "start_line": 273,
+      "end_line": 273,
+      "text": "/* ENABLE_VTEP */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -294,27 +415,27 @@ struct {
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void ep_tail_call (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused)\n",

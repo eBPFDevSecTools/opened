@@ -43,7 +43,13 @@
   "endLine": 77,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "set_hc_key",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -54,29 +60,29 @@
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "cgroup_sysctl",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "lwt_in",
+    "cgroup_skb",
+    "sk_skb",
     "cgroup_device",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "tracepoint",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6)\n",
@@ -236,7 +242,18 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
   "endLine": 139,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_ipip",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 23,
+      "end_line": 23,
+      "text": "// new header would be inserted after MAC but before old L3 header"
+    },
+    {
+      "start_line": 48,
+      "end_line": 48,
+      "text": "// new header would be inserted after MAC but before old L3 header"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  hc_pckt_srcs_map"
@@ -252,29 +269,29 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "cgroup_sysctl",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "lwt_in",
+    "cgroup_skb",
+    "sk_skb",
     "cgroup_device",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "tracepoint",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)\n",
@@ -329,8 +346,8 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
     "}\n"
   ],
   "called_function_list": [
-    "create_v6_hdr",
-    "create_v4_hdr"
+    "create_v4_hdr",
+    "create_v6_hdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -428,29 +445,29 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "cgroup_sysctl",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "lwt_in",
+    "cgroup_skb",
+    "sk_skb",
     "cgroup_device",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "tracepoint",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline __u16 gue_sport (__u32 seed)\n",
@@ -533,7 +550,18 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
   "endLine": 213,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
   "funcName": "hc_encap_gue",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 26,
+      "end_line": 26,
+      "text": "// new headers would be inserted after MAC but before old L3 header"
+    },
+    {
+      "start_line": 53,
+      "end_line": 53,
+      "text": "// new headers would be inserted after MAC but before old L3 header"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  hc_pckt_srcs_map"
@@ -549,29 +577,29 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "cgroup_sysctl",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "lwt_in",
+    "cgroup_skb",
+    "sk_skb",
     "cgroup_device",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "tracepoint",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline bool hc_encap_gue (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)\n",
@@ -632,10 +660,10 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
     "}\n"
   ],
   "called_function_list": [
-    "create_v6_hdr",
-    "create_udp_hdr",
+    "create_v4_hdr",
     "gue_sport",
-    "create_v4_hdr"
+    "create_udp_hdr",
+    "create_v6_hdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

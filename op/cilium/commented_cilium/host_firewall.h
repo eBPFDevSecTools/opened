@@ -45,7 +45,48 @@
   "endLine": 100,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv6_host_policy_egress",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 7,
+      "end_line": 9,
+      "text": "/* Only compile in if host firewall is enabled and file is included from\n * bpf_host.\n */"
+    },
+    {
+      "start_line": 32,
+      "end_line": 32,
+      "text": "/* Only enforce host policies for packets from host IPs. */"
+    },
+    {
+      "start_line": 39,
+      "end_line": 39,
+      "text": "/* Lookup connection in conntrack map. */"
+    },
+    {
+      "start_line": 55,
+      "end_line": 55,
+      "text": "/* Retrieve destination identity. */"
+    },
+    {
+      "start_line": 62,
+      "end_line": 62,
+      "text": "/* Perform policy lookup. */"
+    },
+    {
+      "start_line": 66,
+      "end_line": 66,
+      "text": "/* Reply traffic and related are allowed regardless of policy verdict. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -122,17 +163,17 @@
     "}\n"
   ],
   "called_function_list": [
-    "send_policy_verdict_notify",
-    "revalidate_data",
-    "ct_create6",
+    "lookup_ip6_remote_endpoint",
+    "policy_can_egress6",
+    "IS_ERR",
     "ct_lookup6",
     "get_ct_map6",
+    "revalidate_data",
+    "cilium_dbg",
+    "send_policy_verdict_notify",
     "ipv6_hdrlen",
     "ipv6_addr_copy",
-    "lookup_ip6_remote_endpoint",
-    "IS_ERR",
-    "policy_can_egress6",
-    "cilium_dbg"
+    "ct_create6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -266,7 +307,48 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
   "endLine": 199,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv6_host_policy_ingress",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "/* Retrieve destination identity. */"
+    },
+    {
+      "start_line": 27,
+      "end_line": 27,
+      "text": "/* Only enforce host policies for packets to host IPs. */"
+    },
+    {
+      "start_line": 31,
+      "end_line": 31,
+      "text": "/* Lookup connection in conntrack map. */"
+    },
+    {
+      "start_line": 46,
+      "end_line": 46,
+      "text": "/* Retrieve source identity. */"
+    },
+    {
+      "start_line": 53,
+      "end_line": 53,
+      "text": "/* Perform policy lookup */"
+    },
+    {
+      "start_line": 58,
+      "end_line": 58,
+      "text": "/* Reply traffic and related are allowed regardless of policy verdict. */"
+    },
+    {
+      "start_line": 72,
+      "end_line": 72,
+      "text": "/* Create new entry for connection in conntrack map. */"
+    },
+    {
+      "start_line": 93,
+      "end_line": 95,
+      "text": "/* This change is necessary for packets redirected from the lxc device to\n\t * the host device.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -348,18 +430,18 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "send_policy_verdict_notify",
-    "revalidate_data",
-    "ct_create6",
-    "ct_lookup6",
-    "get_ct_map6",
-    "ipv6_hdrlen",
-    "policy_can_access_ingress",
-    "ipv6_addr_copy",
-    "lookup_ip6_remote_endpoint",
     "ctx_change_type",
     "IS_ERR",
-    "cilium_dbg"
+    "ct_lookup6",
+    "cilium_dbg",
+    "revalidate_data",
+    "get_ct_map6",
+    "ct_create6",
+    "policy_can_access_ingress",
+    "send_policy_verdict_notify",
+    "ipv6_hdrlen",
+    "lookup_ip6_remote_endpoint",
+    "ipv6_addr_copy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -510,7 +592,13 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
   "endLine": 249,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "whitelist_snated_egress_connections",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 14,
+      "end_line": 23,
+      "text": "/* If kube-proxy is in use (no BPF-based masquerading), packets from\n\t * pods may be SNATed. The response packet will therefore have a host\n\t * IP as the destination IP.\n\t * To avoid enforcing host policies for response packets to pods, we\n\t * need to create a CT entry for the forward, SNATed packet from the\n\t * pod. Response packets will thus match this CT entry and bypass host\n\t * policies.\n\t * We know the packet is a SNATed packet if the srcid from ipcache is\n\t * HOST_ID, but the actual srcid (derived from the packet mark) isn't.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -557,12 +645,12 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "}\n"
   ],
   "called_function_list": [
-    "revalidate_data",
+    "ipv4_hdrlen",
     "ct_lookup4",
     "get_ct_map4",
-    "ipv4_hdrlen",
+    "IS_ERR",
     "ct_create4",
-    "IS_ERR"
+    "revalidate_data"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -659,7 +747,33 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
   "endLine": 337,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv4_host_policy_egress",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 22,
+      "end_line": 22,
+      "text": "/* Only enforce host policies for packets from host IPs. */"
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "/* Lookup connection in conntrack map. */"
+    },
+    {
+      "start_line": 42,
+      "end_line": 42,
+      "text": "/* Retrieve destination identity. */"
+    },
+    {
+      "start_line": 49,
+      "end_line": 49,
+      "text": "/* Perform policy lookup. */"
+    },
+    {
+      "start_line": 53,
+      "end_line": 53,
+      "text": "/* Reply traffic and related are allowed regardless of policy verdict. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -740,17 +854,17 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "}\n"
   ],
   "called_function_list": [
-    "send_policy_verdict_notify",
-    "revalidate_data",
-    "lookup_ip4_remote_endpoint",
+    "ipv4_hdrlen",
     "ct_lookup4",
     "get_ct_map4",
-    "ipv4_hdrlen",
-    "ct_create4",
-    "whitelist_snated_egress_connections",
     "IS_ERR",
+    "ct_create4",
+    "policy_can_egress4",
     "cilium_dbg",
-    "policy_can_egress4"
+    "revalidate_data",
+    "send_policy_verdict_notify",
+    "lookup_ip4_remote_endpoint",
+    "whitelist_snated_egress_connections"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -886,7 +1000,53 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
   "endLine": 439,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv4_host_policy_ingress",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "/* Retrieve destination identity. */"
+    },
+    {
+      "start_line": 26,
+      "end_line": 26,
+      "text": "/* Only enforce host policies for packets to host IPs. */"
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "/* Lookup connection in conntrack map. */"
+    },
+    {
+      "start_line": 36,
+      "end_line": 38,
+      "text": "/* Indicate that this is a datagram fragment for which we cannot\n\t * retrieve L4 ports. Do not set flag if we support fragmentation.\n\t */"
+    },
+    {
+      "start_line": 48,
+      "end_line": 48,
+      "text": "/* Retrieve source identity. */"
+    },
+    {
+      "start_line": 55,
+      "end_line": 55,
+      "text": "/* Perform policy lookup */"
+    },
+    {
+      "start_line": 61,
+      "end_line": 61,
+      "text": "/* Reply traffic and related are allowed regardless of policy verdict. */"
+    },
+    {
+      "start_line": 75,
+      "end_line": 75,
+      "text": "/* Create new entry for connection in conntrack map. */"
+    },
+    {
+      "start_line": 96,
+      "end_line": 98,
+      "text": "/* This change is necessary for packets redirected from the lxc device to\n\t * the host device.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -969,18 +1129,18 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "send_policy_verdict_notify",
-    "ipv4_is_fragment",
-    "lookup_ip4_remote_endpoint",
-    "revalidate_data",
-    "ct_lookup4",
-    "get_ct_map4",
-    "policy_can_access_ingress",
     "ipv4_hdrlen",
-    "ct_create4",
+    "ipv4_is_fragment",
+    "ct_lookup4",
     "ctx_change_type",
+    "get_ct_map4",
     "IS_ERR",
-    "cilium_dbg"
+    "ct_create4",
+    "cilium_dbg",
+    "revalidate_data",
+    "policy_can_access_ingress",
+    "send_policy_verdict_notify",
+    "lookup_ip4_remote_endpoint"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

@@ -58,7 +58,78 @@ static int (*get_prandom_u32)() = (void*)7;
   "endLine": 46,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twostackvars.c",
   "funcName": "func",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 17,
+      "end_line": 17,
+      "text": "// In this path we want ptr to point to one section"
+    },
+    {
+      "start_line": 18,
+      "end_line": 18,
+      "text": "// of stack space that is known to be a number, and have"
+    },
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "// the rest of the stack be unknown."
+    },
+    {
+      "start_line": 26,
+      "end_line": 26,
+      "text": "// Do something with the pointer to force it to be saved in a"
+    },
+    {
+      "start_line": 27,
+      "end_line": 27,
+      "text": "// register before joining the two paths."
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "// In this path we want ptr to point to a different section"
+    },
+    {
+      "start_line": 31,
+      "end_line": 31,
+      "text": "// of stack space that is known to be a number, and have"
+    },
+    {
+      "start_line": 32,
+      "end_line": 32,
+      "text": "// the rest of the stack be unknown."
+    },
+    {
+      "start_line": 40,
+      "end_line": 40,
+      "text": "// Here we want to dereference the pointer to get a number."
+    },
+    {
+      "start_line": 41,
+      "end_line": 41,
+      "text": "// In both paths above, ptr safely points to a number, even"
+    },
+    {
+      "start_line": 42,
+      "end_line": 42,
+      "text": "// though each part of stack_buffer is not necessarily a number"
+    },
+    {
+      "start_line": 43,
+      "end_line": 43,
+      "text": "// at this point."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -69,27 +140,27 @@ static int (*get_prandom_u32)() = (void*)7;
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
     "lwt_xmit",
     "cgroup_skb",
-    "lwt_in",
+    "sock_ops",
     "kprobe",
-    "xdp",
+    "cgroup_sock_addr",
+    "lwt_seg6local",
     "cgroup_sock",
     "perf_event",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "sock_ops",
     "raw_tracepoint_writable",
     "lwt_out",
-    "sched_act",
-    "lwt_seg6local",
+    "raw_tracepoint",
     "sk_msg",
     "socket_filter",
-    "flow_dissector",
-    "sched_cls",
-    "raw_tracepoint",
-    "sk_skb"
+    "xdp"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",

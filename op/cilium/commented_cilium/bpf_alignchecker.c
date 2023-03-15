@@ -50,7 +50,33 @@
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_alignchecker.c",
   "funcName": "main",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 4,
+      "end_line": 4,
+      "text": "/* Ensure declaration of notification event types */"
+    },
+    {
+      "start_line": 29,
+      "end_line": 34,
+      "text": "/* DECLARE declares a unique usage of the union or struct 'x' on the stack.\n *\n * To prevent compiler from optimizing away the var, we pass a reference\n * to the var to a BPF helper function which accepts a reference as\n * an argument.\n */"
+    },
+    {
+      "start_line": 41,
+      "end_line": 43,
+      "text": "/* This function is a placeholder for C struct definitions shared with Go,\n * it is never executed.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -59,29 +85,29 @@
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "int main (void)\n",
@@ -141,15 +167,15 @@
     "}\n"
   ],
   "called_function_list": [
+    "dump_kern_jiffies",
+    "pin_to_cpu",
+    "fix_priority",
     "prep_kern_jiffies",
     "getopt",
-    "nanosleep",
-    "strerror",
     "fprintf",
-    "fix_priority",
     "fetch_kern_jiffies",
-    "dump_kern_jiffies",
-    "pin_to_cpu"
+    "nanosleep",
+    "strerror"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

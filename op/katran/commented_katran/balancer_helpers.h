@@ -97,7 +97,23 @@
   "endLine": 70,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (C) 2018-present, Facebook, Inc.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    },
+    {
+      "start_line": 19,
+      "end_line": 21,
+      "text": "/*\n * This file contains common used routines. such as csum helpers etc\n */"
+    },
+    {
+      "start_line": 43,
+      "end_line": 45,
+      "text": "/**\n * helper to print blob of data into perf pipe\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  ctl_array"
@@ -112,26 +128,26 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_perf_event_output",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_perf_event_output"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_seg6local",
-    "sk_skb",
-    "socket_filter",
-    "raw_tracepoint",
-    "tracepoint",
-    "lwt_in",
     "sock_ops",
+    "lwt_out",
+    "sched_act",
     "raw_tracepoint_writable",
     "perf_event",
-    "sched_act",
-    "xdp",
-    "cgroup_skb",
-    "lwt_xmit",
+    "raw_tracepoint",
+    "lwt_in",
     "kprobe",
-    "lwt_out"
+    "cgroup_skb",
+    "sk_skb",
+    "sched_cls",
+    "tracepoint",
+    "lwt_seg6local",
+    "xdp",
+    "socket_filter",
+    "lwt_xmit"
   ],
   "source": [
     "static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)\n",
@@ -233,7 +249,13 @@ __attribute__((__always_inline__)) static inline void submit_event(
   "endLine": 80,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 7,
+      "end_line": 7,
+      "text": "// we should never hit this"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -241,8 +263,8 @@ __attribute__((__always_inline__)) static inline void submit_event(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_tail_call",
-    "XDP_PASS"
+    "XDP_PASS",
+    "bpf_tail_call"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -310,7 +332,18 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "endLine": 111,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 13,
+      "end_line": 13,
+      "text": "// ttl 0"
+    },
+    {
+      "start_line": 23,
+      "end_line": 23,
+      "text": "// ttl 0"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [

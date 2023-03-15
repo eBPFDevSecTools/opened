@@ -90,7 +90,43 @@ struct {
   "endLine": 160,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/ingress_node_firewall_kernel.c",
   "funcName": "ip_extract_l4info",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// +build ignore"
+    },
+    {
+      "start_line": 21,
+      "end_line": 21,
+      "text": "// FIXME: Hack this structure defined in linux/sctp.h however I am getting incomplete type when I reference it"
+    },
+    {
+      "start_line": 29,
+      "end_line": 32,
+      "text": "/*\n * ingress_node_firewall_events_map: is perf event array map type\n * key is the rule id, packet header is captured and used to generate events.\n */"
+    },
+    {
+      "start_line": 40,
+      "end_line": 44,
+      "text": "/*\n * ingress_node_firewall_statistics_map: is per cpu array map type\n * key is the rule id\n * user space collects statistics per CPU and aggregate them.\n */"
+    },
+    {
+      "start_line": 47,
+      "end_line": 47,
+      "text": "// ruleId"
+    },
+    {
+      "start_line": 52,
+      "end_line": 58,
+      "text": "/*\n * ingress_node_firewall_table_map: is LPM trie map type\n * key is the ingress interface index and the sourceCIDR.\n * lookup returns an array of rules with actions for the XDP program\n * to process.\n * Note: this map is pinned to specific path in bpffs.\n */"
+    },
+    {
+      "start_line": 68,
+      "end_line": 83,
+      "text": "/*\n * ip_extract_l4info(): extracts L4 info for the supported protocols from\n * the incoming packet's headers.\n * Input:\n * void *dataStart : pointer to packet start in memory.\n * void *dataEnd: pointer to packet end in memory.\n * bool is_v4: true for ipv4 and false for ipv6.\n * Output:\n * __u8 *proto: L4 protocol type supported types are TCP/UDP/SCTP/ICMP/ICMPv6.\n * __u16 *dstPort: pointer to L4 destination port for TCP/UDP/SCTP protocols.\n * __u8 *icmpType: pointer to ICMP or ICMPv6's type value.\n * __u8 *icmpCode: pointer to ICMP or ICMPv6's code value.\n * Return:\n * 0 for Success.\n * -1 for Failure.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -106,28 +142,28 @@ struct {
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_device",
-    "sk_reuseport",
-    "sk_msg",
     "sched_act",
-    "cgroup_sock_addr",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_skb",
-    "perf_event",
-    "lwt_xmit",
-    "kprobe",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sock",
-    "socket_filter",
-    "sched_cls",
-    "raw_tracepoint_writable",
-    "xdp",
-    "lwt_seg6local",
-    "flow_dissector",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint",
+    "socket_filter",
+    "lwt_out",
+    "kprobe",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_skb",
     "tracepoint",
-    "sk_skb"
+    "raw_tracepoint_writable",
+    "sock_ops"
   ],
   "source": [
     "static inline int ip_extract_l4info (void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort, __u8 *icmpType, __u8 *icmpCode, __u8 is_v4)\n",
@@ -328,7 +364,23 @@ ip_extract_l4info(void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort,
   "endLine": 242,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/ingress_node_firewall_kernel.c",
   "funcName": "ipv4_firewall_lookup",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 14,
+      "text": "/*\n * ipv4_firewall_lookup(): matches ipv4 packet with LPM map's key,\n * match L4 headers with the result rules in order and return the action.\n * if there is no match it will return UNDEF action.\n * Input:\n * void *dataStart: pointer to packet start in memory.\n * void *dataEnd: pointer to packet end in memory.\n * __u32 ifID: ingress interface index where the packet is received from.\n * Output:\n * none.\n * Return:\n * __u32 action: returned action is the logical or of the rule id and action field\n * from the matching rule, in case of no match it returns UNDEF.\n */"
+    },
+    {
+      "start_line": 29,
+      "end_line": 29,
+      "text": "// ipv4 address + ifId"
+    },
+    {
+      "start_line": 73,
+      "end_line": 73,
+      "text": "// Protocol is not set so just apply the action"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " ingress_node_firewall_table_map"
@@ -344,28 +396,28 @@ ip_extract_l4info(void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort,
   ],
   "compatibleHookpoints": [
     "cgroup_device",
-    "sk_reuseport",
-    "sk_msg",
     "sched_act",
-    "cgroup_sock_addr",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_skb",
-    "perf_event",
-    "lwt_xmit",
-    "kprobe",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sock",
-    "socket_filter",
-    "sched_cls",
-    "raw_tracepoint_writable",
-    "xdp",
-    "lwt_seg6local",
-    "flow_dissector",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint",
+    "socket_filter",
+    "lwt_out",
+    "kprobe",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_skb",
     "tracepoint",
-    "sk_skb"
+    "raw_tracepoint_writable",
+    "sock_ops"
   ],
   "source": [
     "static inline __u32 ipv4_firewall_lookup (void *dataStart, void *dataEnd, __u32 ifId)\n",
@@ -430,12 +482,12 @@ ip_extract_l4info(void *dataStart, void *dataEnd, __u8 *proto, __u16 *dstPort,
   "called_function_list": [
     "SET_ACTION",
     "memset",
-    "bpf_printk",
-    "SET_ACTIONRULE_RESPONSE",
-    "bpf_ntohs",
-    "likely",
     "unroll",
-    "ip_extract_l4info"
+    "bpf_ntohs",
+    "bpf_printk",
+    "likely",
+    "ip_extract_l4info",
+    "SET_ACTIONRULE_RESPONSE"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -544,7 +596,23 @@ ipv4_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   "endLine": 318,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/ingress_node_firewall_kernel.c",
   "funcName": "ipv6_firewall_lookup",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 14,
+      "text": "/*\n * ipv6_firewall_lookup(): matches ipv6 packet with LPM map's key,\n * match L4 headers with the result rules in order and return the action.\n * if there is no rule match it will return UNDEF action.\n * Input:\n * void *dataStart: pointer to packet start in memory.\n * void *dataEnd: pointer to packet end in memory.\n * __u32 ifID: ingress interface index where the packet is received from.\n * Output:\n * none.\n * Return:\n __u32 action: returned action is the logical or of the rule id and action field\n * from the matching rule, in case of no match it returns UNDEF.\n */"
+    },
+    {
+      "start_line": 28,
+      "end_line": 28,
+      "text": "// ipv6 address _ ifId"
+    },
+    {
+      "start_line": 67,
+      "end_line": 67,
+      "text": "// Protocol is not set so just apply the action"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " ingress_node_firewall_table_map"
@@ -560,28 +628,28 @@ ipv4_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   ],
   "compatibleHookpoints": [
     "cgroup_device",
-    "sk_reuseport",
-    "sk_msg",
     "sched_act",
-    "cgroup_sock_addr",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_skb",
-    "perf_event",
-    "lwt_xmit",
-    "kprobe",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sock",
-    "socket_filter",
-    "sched_cls",
-    "raw_tracepoint_writable",
-    "xdp",
-    "lwt_seg6local",
-    "flow_dissector",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint",
+    "socket_filter",
+    "lwt_out",
+    "kprobe",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_skb",
     "tracepoint",
-    "sk_skb"
+    "raw_tracepoint_writable",
+    "sock_ops"
   ],
   "source": [
     "static inline __u32 ipv6_firewall_lookup (void *dataStart, void *dataEnd, __u32 ifId)\n",
@@ -642,13 +710,13 @@ ipv4_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   "called_function_list": [
     "SET_ACTION",
     "memset",
-    "bpf_printk",
-    "SET_ACTIONRULE_RESPONSE",
-    "bpf_ntohs",
-    "likely",
     "unroll",
+    "bpf_ntohs",
+    "bpf_printk",
+    "likely",
+    "memcpy",
     "ip_extract_l4info",
-    "memcpy"
+    "SET_ACTIONRULE_RESPONSE"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -843,7 +911,18 @@ ipv6_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   "endLine": 374,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/ingress_node_firewall_kernel.c",
   "funcName": "generate_event_and_update_statistics",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/*\n * generate_event_and_update_statistics() : it will generate eBPF event including the packet header\n * and update statistics for the specificed rule id.\n * Input:\n * struct xdp_md *ctx: pointer to XDP context including input interface and packet pointer.\n * __u16 packet_len: packet length in bytes including layer2 header.\n * __u8 action: valid actions ALLOW/DENY/UNDEF.\n * __u16 ruleId: ruled id where the packet matches against (in case of match of course).\n * __u8 generateEvent: need to generate event for this packet or not.\n * __u32 ifID: input interface index where the packet is arrived from.\n * Output:\n * none.\n * Return:\n * none.\n */"
+    },
+    {
+      "start_line": 49,
+      "end_line": 49,
+      "text": "// enable the following flag to dump packet header"
+    }
+  ],
   "updateMaps": [
     " ingress_node_firewall_statistics_map"
   ],
@@ -861,26 +940,26 @@ ipv6_firewall_lookup(void *dataStart, void *dataEnd, __u32 ifId) {
   "output": "staticinlinevoid",
   "helper": [
     "bpf_map_update_elem",
-    "bpf_perf_event_output",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "bpf_perf_event_output"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "lwt_xmit",
-    "sched_act",
-    "lwt_seg6local",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sock_ops",
-    "tracepoint",
+    "lwt_xmit",
+    "lwt_out",
+    "sched_act",
+    "kprobe",
     "lwt_in",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sk_skb",
-    "cgroup_skb",
+    "perf_event",
     "xdp",
-    "perf_event"
+    "sk_skb",
+    "raw_tracepoint",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "socket_filter"
   ],
   "source": [
     "static inline void generate_event_and_update_statistics (struct xdp_md *ctx, __u16 packet_len, __u8 action, __u16 ruleId, __u8 generateEvent, __u32 ifId)\n",
@@ -996,25 +1075,6 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -1032,6 +1092,25 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -1039,7 +1118,13 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
   "endLine": 431,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/ingress_node_firewall_kernel.c",
   "funcName": "ingress_node_firewall_main",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 10,
+      "text": "/*\n * ingress_node_firewall_main(): is the entry point for the XDP program to do\n * ingress node firewall.\n * Input:\n * struct xdp_md *ctx: pointer to XDP context which contains packet pointer and input interface index.\n * Output:\n * none.\n * Return:\n * int XDP action: valid values XDP_DROP and XDP_PASS.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1047,8 +1132,8 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1098,14 +1183,14 @@ generate_event_and_update_statistics(struct xdp_md *ctx, __u16 packet_len, __u8 
     "}\n"
   ],
   "called_function_list": [
-    "GET_RULE_ID",
+    "ipv4_firewall_lookup",
     "generate_event_and_update_statistics",
     "bpf_htons",
-    "ipv6_firewall_lookup",
-    "bpf_printk",
-    "ipv4_firewall_lookup",
+    "unlikely",
     "GET_ACTION",
-    "unlikely"
+    "bpf_printk",
+    "GET_RULE_ID",
+    "ipv6_firewall_lookup"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1190,28 +1275,28 @@ SEC("xdp_ingress_node_firewall_process")
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_device",
-    "sk_reuseport",
-    "sk_msg",
     "sched_act",
-    "cgroup_sock_addr",
-    "raw_tracepoint",
-    "lwt_in",
-    "cgroup_skb",
-    "perf_event",
-    "lwt_xmit",
-    "kprobe",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sock",
-    "socket_filter",
-    "sched_cls",
-    "raw_tracepoint_writable",
-    "xdp",
-    "lwt_seg6local",
-    "flow_dissector",
     "cgroup_sysctl",
+    "sk_reuseport",
+    "sk_skb",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "cgroup_sock",
+    "lwt_xmit",
+    "sk_msg",
+    "flow_dissector",
+    "perf_event",
+    "xdp",
+    "raw_tracepoint",
+    "socket_filter",
+    "lwt_out",
+    "kprobe",
+    "lwt_in",
+    "lwt_seg6local",
+    "cgroup_skb",
     "tracepoint",
-    "sk_skb"
+    "raw_tracepoint_writable",
+    "sock_ops"
   ],
   "source": [
     "int ingress_node_firewall_process (struct xdp_md *ctx)\n",

@@ -77,7 +77,28 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
   "endLine": 39,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/mapvalue-overrun.c",
   "funcName": "func",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 35,
+      "end_line": 35,
+      "text": "// The map's value size can only hold a uint32_t."
+    },
+    {
+      "start_line": 36,
+      "end_line": 36,
+      "text": "// So verification should fail if we try to read past the space returned."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " map"
@@ -90,29 +111,29 @@ static void* (*bpf_map_lookup_elem)(bpf_map_def_t* map, void* key) = (void*) 1;
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "cgroup_skb",
-    "lwt_in",
-    "kprobe",
-    "xdp",
-    "cgroup_sock",
-    "perf_event",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "cgroup_sysctl",
+    "flow_dissector",
     "sched_act",
     "cgroup_device",
+    "lwt_in",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "kprobe",
+    "cgroup_sock_addr",
     "lwt_seg6local",
+    "cgroup_sysctl",
+    "cgroup_sock",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "raw_tracepoint",
     "sk_msg",
     "socket_filter",
-    "flow_dissector",
-    "sched_cls",
-    "raw_tracepoint",
-    "sk_skb"
+    "xdp"
   ],
   "source": [
     "int func (void *ctx)\n",

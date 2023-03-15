@@ -47,7 +47,53 @@ extern struct bpf_map_def mptm_tunnel_iface_map;
   "endLine": 97,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/lib/pkt-parse.h",
   "funcName": "parse_pkt_headers",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 7,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-2-clause)\n *\n * Authors:\n * Dushyant Behl <dushyantbehl@in.ibm.com>\n * Sayandeep Sen <sayandes@in.ibm.com>\n * Palanivel Kodeswaran <palani.kodeswaran@in.ibm.com>\n*/"
+    },
+    {
+      "start_line": 28,
+      "end_line": 31,
+      "text": "/* Inspired from Katran.\n * ETH_P_IP and ETH_P_IPV6 in Big Endian format.\n * So we don't have to do htons on each packet\n */"
+    },
+    {
+      "start_line": 38,
+      "end_line": 40,
+      "text": "/* Parse eth, ip and udp headers of a packet.\n * If any header is passed as NULL then stop processing and return.\n */"
+    },
+    {
+      "start_line": 60,
+      "end_line": 60,
+      "text": "// We don't support ipv6 for now."
+    },
+    {
+      "start_line": 63,
+      "end_line": 63,
+      "text": "/* set the header */"
+    },
+    {
+      "start_line": 74,
+      "end_line": 74,
+      "text": "/* set the header */"
+    },
+    {
+      "start_line": 81,
+      "end_line": 81,
+      "text": "/* Check the protocol. If TCP we return else for udp we process further */"
+    },
+    {
+      "start_line": 85,
+      "end_line": 85,
+      "text": "/* Parse udp header */"
+    },
+    {
+      "start_line": 90,
+      "end_line": 90,
+      "text": "/* set the header */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -60,29 +106,29 @@ extern struct bpf_map_def mptm_tunnel_iface_map;
   "output": "static__ALWAYS_INLINE__int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sk_skb",
-    "sk_reuseport",
     "sched_cls",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "tracepoint",
-    "cgroup_skb",
-    "sock_ops",
+    "raw_tracepoint",
     "cgroup_sock",
+    "xdp",
+    "lwt_in",
+    "lwt_out",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sock_ops",
+    "cgroup_sysctl",
+    "socket_filter",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "sk_skb",
     "sk_msg",
     "kprobe",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_seg6local",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "perf_event",
     "flow_dissector",
-    "cgroup_sysctl"
+    "cgroup_sock_addr",
+    "sched_act",
+    "tracepoint",
+    "cgroup_skb",
+    "perf_event",
+    "cgroup_device"
   ],
   "source": [
     "static __ALWAYS_INLINE__ int parse_pkt_headers (void *data, void *data_end, struct ethhdr **ethhdr, struct iphdr **iphdr, struct udphdr **udphdr)\n",
@@ -123,9 +169,9 @@ extern struct bpf_map_def mptm_tunnel_iface_map;
     "}\n"
   ],
   "called_function_list": [
+    "parse_iphdr",
     "parse_ethhdr",
-    "parse_udphdr",
-    "parse_iphdr"
+    "parse_udphdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

@@ -66,7 +66,28 @@
   "endLine": 64,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/ctx/skb.h",
   "funcName": "ctx_redirect",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "/* Discouraged since prologue will unclone full skb. */"
+    },
+    {
+      "start_line": 53,
+      "end_line": 56,
+      "text": "/* Avoid expensive calls into the kernel flow dissector if it's not an L4\n * hash. We currently only use the hash for debugging. If needed later, we\n * can map it to BPF_FUNC(get_hash_recalc) to get the L4 hash.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -79,10 +100,10 @@
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline __maybe_unused int ctx_redirect (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags)\n",
@@ -135,10 +156,10 @@ ctx_redirect(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32 flag
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_cls",
     "xdp",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline __maybe_unused int ctx_redirect_peer (const struct  __sk_buff * ctx __maybe_unused, int ifindex, __u32 flags)\n",
@@ -219,10 +240,10 @@ ctx_redirect_peer(const struct __sk_buff *ctx __maybe_unused, int ifindex, __u32
     "skb_change_tail"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "sched_cls",
     "sk_skb",
-    "sched_act"
+    "sched_act",
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline __maybe_unused int ctx_adjust_troom (struct  __sk_buff *ctx, const __s32 len_diff)\n",
@@ -271,29 +292,29 @@ ctx_adjust_troom(struct __sk_buff *ctx, const __s32 len_diff)
   "output": "static__always_inline__maybe_unused__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u64 ctx_full_len (const struct  __sk_buff *ctx)\n",
@@ -302,8 +323,8 @@ ctx_adjust_troom(struct __sk_buff *ctx, const __s32 len_diff)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_data_end",
-    "ctx_data"
+    "ctx_data",
+    "ctx_data_end"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -345,29 +366,29 @@ ctx_full_len(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 ctx_wire_len (const struct  __sk_buff *ctx)\n",
@@ -420,29 +441,29 @@ ctx_wire_len(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unusedvoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused void ctx_store_meta (struct  __sk_buff *ctx, const __u32 off, __u32 data)\n",
@@ -451,8 +472,8 @@ ctx_wire_len(const struct __sk_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "always_succeeds",
-    "build_bug_on"
+    "build_bug_on",
+    "always_succeeds"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -495,29 +516,29 @@ ctx_store_meta(struct __sk_buff *ctx, const __u32 off, __u32 data)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 ctx_load_meta (const struct  __sk_buff *ctx, const __u32 off)\n",
@@ -526,8 +547,8 @@ ctx_store_meta(struct __sk_buff *ctx, const __u32 off, __u32 data)
     "}\n"
   ],
   "called_function_list": [
-    "always_succeeds",
-    "build_bug_on"
+    "build_bug_on",
+    "always_succeeds"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -569,29 +590,29 @@ ctx_load_meta(const struct __sk_buff *ctx, const __u32 off)
   "output": "static__always_inline__maybe_unused__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u16 ctx_get_protocol (const struct  __sk_buff *ctx)\n",
@@ -600,9 +621,9 @@ ctx_load_meta(const struct __sk_buff *ctx, const __u32 off)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_data_end",
     "ctx_no_room",
-    "ctx_data"
+    "ctx_data",
+    "ctx_data_end"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -644,29 +665,29 @@ ctx_get_protocol(const struct __sk_buff *ctx)
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 ctx_get_ifindex (const struct  __sk_buff *ctx)\n",

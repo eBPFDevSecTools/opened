@@ -56,7 +56,18 @@ struct ctx;
   "endLine": 26,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/byteswap.c",
   "funcName": "func",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -67,27 +78,27 @@ struct ctx;
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
     "lwt_xmit",
     "cgroup_skb",
-    "lwt_in",
+    "sock_ops",
     "kprobe",
-    "xdp",
+    "cgroup_sock_addr",
+    "lwt_seg6local",
     "cgroup_sock",
     "perf_event",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "sock_ops",
     "raw_tracepoint_writable",
     "lwt_out",
-    "sched_act",
-    "lwt_seg6local",
+    "raw_tracepoint",
     "sk_msg",
     "socket_filter",
-    "flow_dissector",
-    "sched_cls",
-    "raw_tracepoint",
-    "sk_skb"
+    "xdp"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",

@@ -23,7 +23,28 @@
   "endLine": 22,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_set_aggregate",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 13,
+      "end_line": 15,
+      "text": "/* From XDP layer, we neither go through an egress hook nor qdisc\n * from here, hence nothing to be set.\n */"
+    },
+    {
+      "start_line": 20,
+      "end_line": 20,
+      "text": "/* 16 bit as current used aggregate, and preserved in host ns. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -33,29 +54,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void edt_set_aggregate (struct  __ctx_buff *ctx, __u32 aggregate)\n",
@@ -96,7 +117,13 @@ static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
   "endLine": 34,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_get_aggregate",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 5,
+      "end_line": 7,
+      "text": "/* We need to reset queue mapping here such that new mapping will\n\t * be performed based on skb hash. See netdev_pick_tx().\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -105,29 +132,29 @@ static __always_inline void edt_set_aggregate(struct __ctx_buff *ctx,
   "output": "static__always_inline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __u32 edt_get_aggregate (struct  __ctx_buff *ctx)\n",
@@ -215,6 +242,27 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
       ]
     },
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -254,27 +302,6 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -282,7 +309,13 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
   "endLine": 77,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/edt.h",
   "funcName": "edt_sched_departure",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 32,
+      "end_line": 36,
+      "text": "/* FQ implements a drop horizon, see also 39d010504e6b (\"net_sched:\n\t * sch_fq: add horizon attribute\"). However, we explicitly need the\n\t * drop horizon here to i) avoid having t_last messed up and ii) to\n\t * potentially allow for per aggregate control.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  THROTTLE_MAP"
@@ -293,8 +326,8 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [
     "map_lookup_elem",
-    "ktime_get_ns",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "ktime_get_ns"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -337,10 +370,10 @@ static __always_inline __u32 edt_get_aggregate(struct __ctx_buff *ctx)
   ],
   "called_function_list": [
     "ctx_wire_len",
+    "edt_get_aggregate",
+    "validate_ethertype",
     "WRITE_ONCE",
     "READ_ONCE",
-    "validate_ethertype",
-    "edt_get_aggregate",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -421,29 +454,29 @@ static __always_inline int edt_sched_departure(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void edt_set_aggregate (struct  __ctx_buff * ctx __maybe_unused, __u32 aggregate __maybe_unused)\n",

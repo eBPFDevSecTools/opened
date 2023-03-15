@@ -87,7 +87,58 @@
   "endLine": 79,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_sk_egress",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "/* Start with L3/L4 lookup. */"
+    },
+    {
+      "start_line": 36,
+      "end_line": 36,
+      "text": "/* FIXME: Need byte counter */"
+    },
+    {
+      "start_line": 43,
+      "end_line": 43,
+      "text": "/* L4-only lookup. */"
+    },
+    {
+      "start_line": 47,
+      "end_line": 47,
+      "text": "/* FIXME: Need byte counter */"
+    },
+    {
+      "start_line": 55,
+      "end_line": 55,
+      "text": "/* If L4 policy check misses, fall back to L3. */"
+    },
+    {
+      "start_line": 60,
+      "end_line": 60,
+      "text": "/* FIXME: Need byte counter */"
+    },
+    {
+      "start_line": 67,
+      "end_line": 67,
+      "text": "/* Final fallback if allow-all policy is in place. */"
+    },
+    {
+      "start_line": 71,
+      "end_line": 71,
+      "text": "/* FIXME: Need byte counter */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " map"
@@ -160,10 +211,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "likely",
-    "lookup_ip4_endpoint_policy_map",
     "unlikely",
-    "__sync_fetch_and_add"
+    "likely",
+    "__sync_fetch_and_add",
+    "lookup_ip4_endpoint_policy_map"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -256,7 +307,13 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
   "endLine": 87,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "account",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 4,
+      "end_line": 4,
+      "text": "/* FIXME: Use per cpu counters */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -266,29 +323,29 @@ policy_sk_egress(__u32 identity, __u32 ip,  __u16 dport)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void account (struct  __ctx_buff *ctx, struct policy_entry *policy)\n",
@@ -400,7 +457,58 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
   "endLine": 222,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "__policy_can_access",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 16,
+      "end_line": 18,
+      "text": "/* When ALLOW_ICMP_FRAG_NEEDED is defined we allow all packets\n\t * of ICMP type 3 code 4 - Fragmentation Needed.\n\t */"
+    },
+    {
+      "start_line": 36,
+      "end_line": 36,
+      "text": "/* ALLOW_ICMP_FRAG_NEEDED */"
+    },
+    {
+      "start_line": 51,
+      "end_line": 54,
+      "text": "/* Convert from unsigned char to unsigned short considering byte order(little-endian).\n\t\t * In the little-endian case, for example, 2byte data \"AB\" convert to \"BA\".\n\t\t * Therefore, the \"icmp_type\" should be shifted not just casting.\n\t\t */"
+    },
+    {
+      "start_line": 68,
+      "end_line": 71,
+      "text": "/* Convert from unsigned char to unsigned short considering byte order(little-endian).\n\t\t * In the little-endian case, for example, 2byte data \"AB\" convert to \"BA\".\n\t\t * Therefore, the \"icmp_type\" should be shifted not just casting.\n\t\t */"
+    },
+    {
+      "start_line": 74,
+      "end_line": 74,
+      "text": "/* ENABLE_ICMP_RULE */"
+    },
+    {
+      "start_line": 76,
+      "end_line": 76,
+      "text": "/* L4 lookup can't be done on untracked fragments. */"
+    },
+    {
+      "start_line": 78,
+      "end_line": 78,
+      "text": "/* Start with L3/L4 lookup. */"
+    },
+    {
+      "start_line": 91,
+      "end_line": 91,
+      "text": "/* L4-only lookup. */"
+    },
+    {
+      "start_line": 104,
+      "end_line": 104,
+      "text": "/* If L4 policy check misses, fall back to L3. */"
+    },
+    {
+      "start_line": 116,
+      "end_line": 116,
+      "text": "/* Final fallback if allow-all policy is in place. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " map"
@@ -530,13 +638,13 @@ account(struct __ctx_buff *ctx, struct policy_entry *policy)
     "}\n"
   ],
   "called_function_list": [
+    "ipv4_hdrlen",
     "account",
-    "revalidate_data",
     "cilium_dbg3",
     "unlikely",
     "ctx_load_meta",
+    "revalidate_data",
     "ipv6_hdrlen",
-    "ipv4_hdrlen",
     "ctx_load_bytes",
     "likely"
   ],
@@ -738,7 +846,13 @@ __policy_can_access(const void *map, struct __ctx_buff *ctx, __u32 local_id,
   "endLine": 264,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_can_access_ingress",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 16,
+      "text": "/**\n * Determine whether the policy allows this traffic on ingress.\n * @arg ctx\t\tPacket to allow or deny\n * @arg src_id\t\tSource security identity for this packet\n * @arg dst_id\t\tDestination security identity for this packet\n * @arg dport\t\tDestination port of this packet\n * @arg proto\t\tL3 Protocol of this packet\n * @arg is_untracked_fragment\tTrue if packet is a TCP/UDP datagram fragment\n *\t\t\t\tAND IPv4 fragment tracking is disabled\n * @arg match_type\t\tPointer to store layers used for policy match\n *\n * Returns:\n *   - Positive integer indicating the proxy_port to handle this traffic\n *   - CTX_ACT_OK if the policy allows this traffic based only on labels/L3/L4\n *   - Negative error code if the packet should be dropped\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -847,29 +961,29 @@ policy_can_access_ingress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline bool is_encap (__u16 dport, __u8 proto)\n",
@@ -981,10 +1095,10 @@ static __always_inline bool is_encap(__u16 dport, __u8 proto)
     "}\n"
   ],
   "called_function_list": [
-    "__policy_can_access",
-    "IS_ERR",
     "is_encap",
-    "cilium_dbg"
+    "IS_ERR",
+    "cilium_dbg",
+    "__policy_can_access"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1050,29 +1164,29 @@ policy_can_egress(struct __ctx_buff *ctx, __u32 src_id, __u32 dst_id,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int policy_can_egress6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)\n",
@@ -1131,29 +1245,29 @@ static __always_inline int policy_can_egress6(struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int policy_can_egress4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, __u32 src_id, __u32 dst_id, __u8 *match_type, __u8 *audited)\n",
@@ -1205,7 +1319,13 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
   "endLine": 326,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/policy.h",
   "funcName": "policy_mark_skip",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 7,
+      "text": "/**\n * Mark ctx to skip policy enforcement\n * @arg ctx\tpacket\n *\n * Will cause the packet to ignore the policy enforcement verdict for allow rules and\n * be considered accepted despite of the policy outcome. Has no effect on deny rules.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1214,29 +1334,29 @@ static __always_inline int policy_can_egress4(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void policy_mark_skip (struct  __ctx_buff *ctx)\n",
@@ -1286,29 +1406,29 @@ static __always_inline void policy_mark_skip(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void policy_clear_mark (struct  __ctx_buff *ctx)\n",

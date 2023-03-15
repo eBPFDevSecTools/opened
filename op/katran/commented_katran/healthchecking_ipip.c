@@ -91,27 +91,21 @@ SEC("tc")
 {
   "capabilities": [
     {
-      "capability": "update_pkt",
-      "update_pkt": [
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
         {
           "Project": "libbpf",
           "Return Type": "int",
-          "Description": "Populate tunnel metadata for packet associated to skb. The tunnel metadata is set to the contents of <[ key ]>(IP: 1) , of size. The <[ flags ]>(IP: 3) can be set to a combination of the following values: BPF_F_TUNINFO_IPV6 Indicate that the tunnel is based on IPv6 protocol instead of IPv4. BPF_F_ZERO_CSUM_TX For IPv4 packets , add a flag to tunnel metadata indicating that checksum computation should be skipped and checksum set to zeroes. BPF_F_DONT_FRAGMENT Add a flag to tunnel metadata indicating that the packet should not be fragmented. BPF_F_SEQ_NUMBER Add a flag to tunnel metadata indicating that a sequence number should be added to tunnel header before sending the packet. This flag was added for GRE encapsulation , but might be used with other protocols as well in the future. Here is a typical usage on the transmit path: struct bpf_tunnel_key key; populate <[ key ]>(IP: 1) . . . bpf_skb_set_tunnel_key(skb , &key , sizeof(key) , 0); bpf_clone_redirect(skb , vxlan_dev_ifindex , 0); See also the description of the bpf_skb_get_tunnel_key() helper for additional information. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_skb_set_tunnel_key",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  struct bpf_tunnel_key ,Var: *key}",
-            "{Type:  u32 ,Var: size}",
-            "{Type:  u64 ,Var: flags}"
-          ],
+          "Input Params": [],
+          "Function Name": "TC_ACT_UNSPEC",
+          "Return": -1,
+          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
           "compatible_hookpoints": [
             "sched_cls",
-            "sched_act",
-            "lwt_xmit"
+            "sched_act"
           ],
           "capabilities": [
-            "update_pkt"
+            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -181,21 +175,27 @@ SEC("tc")
       ]
     },
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
+      "capability": "update_pkt",
+      "update_pkt": [
         {
           "Project": "libbpf",
           "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_UNSPEC",
-          "Return": -1,
-          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "Description": "Populate tunnel metadata for packet associated to skb. The tunnel metadata is set to the contents of <[ key ]>(IP: 1) , of size. The <[ flags ]>(IP: 3) can be set to a combination of the following values: BPF_F_TUNINFO_IPV6 Indicate that the tunnel is based on IPv6 protocol instead of IPv4. BPF_F_ZERO_CSUM_TX For IPv4 packets , add a flag to tunnel metadata indicating that checksum computation should be skipped and checksum set to zeroes. BPF_F_DONT_FRAGMENT Add a flag to tunnel metadata indicating that the packet should not be fragmented. BPF_F_SEQ_NUMBER Add a flag to tunnel metadata indicating that a sequence number should be added to tunnel header before sending the packet. This flag was added for GRE encapsulation , but might be used with other protocols as well in the future. Here is a typical usage on the transmit path: struct bpf_tunnel_key key; populate <[ key ]>(IP: 1) . . . bpf_skb_set_tunnel_key(skb , &key , sizeof(key) , 0); bpf_clone_redirect(skb , vxlan_dev_ifindex , 0); See also the description of the bpf_skb_get_tunnel_key() helper for additional information. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "bpf_skb_set_tunnel_key",
+          "Input Params": [
+            "{Type: struct sk_buff ,Var: *skb}",
+            "{Type:  struct bpf_tunnel_key ,Var: *key}",
+            "{Type:  u32 ,Var: size}",
+            "{Type:  u64 ,Var: flags}"
+          ],
           "compatible_hookpoints": [
             "sched_cls",
-            "sched_act"
+            "sched_act",
+            "lwt_xmit"
           ],
           "capabilities": [
-            "pkt_go_to_next_module"
+            "update_pkt"
           ]
         }
       ]
@@ -206,7 +206,73 @@ SEC("tc")
   "endLine": 157,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
   "funcName": "healthcheck_encap",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.\n * *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    },
+    {
+      "start_line": 34,
+      "end_line": 34,
+      "text": "// Specify max packet size to avoid packets exceed mss (after encapsulation)"
+    },
+    {
+      "start_line": 39,
+      "end_line": 39,
+      "text": "// position in stats map where we are storing generic counters."
+    },
+    {
+      "start_line": 42,
+      "end_line": 42,
+      "text": "// size of stats map."
+    },
+    {
+      "start_line": 57,
+      "end_line": 57,
+      "text": "// struct to record packet level for counters for relevant events"
+    },
+    {
+      "start_line": 79,
+      "end_line": 79,
+      "text": "// map which contains counters for monitoring"
+    },
+    {
+      "start_line": 113,
+      "end_line": 113,
+      "text": "// some strange (w/ fwmark; but not a healthcheck) local packet"
+    },
+    {
+      "start_line": 119,
+      "end_line": 119,
+      "text": "// do not allow packets bigger than the specified size"
+    },
+    {
+      "start_line": 127,
+      "end_line": 127,
+      "text": "// we dont have ifindex for ipip v4 interface"
+    },
+    {
+      "start_line": 128,
+      "end_line": 128,
+      "text": "// not much we can do without it. Drop packet so that hc will fail"
+    },
+    {
+      "start_line": 141,
+      "end_line": 141,
+      "text": "// to prevent recursion, when encaped packet would run through this filter"
+    },
+    {
+      "start_line": 145,
+      "end_line": 145,
+      "text": "// the dst is v6."
+    },
+    {
+      "start_line": 150,
+      "end_line": 150,
+      "text": "// the dst is v4"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " hc_reals_map",
@@ -218,15 +284,15 @@ SEC("tc")
   ],
   "output": "int",
   "helper": [
-    "bpf_skb_set_tunnel_key",
+    "bpf_redirect",
+    "TC_ACT_UNSPEC",
     "bpf_map_lookup_elem",
     "TC_ACT_SHOT",
-    "bpf_redirect",
-    "TC_ACT_UNSPEC"
+    "bpf_skb_set_tunnel_key"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
   ],
   "source": [
     "int healthcheck_encap (struct  __sk_buff *skb)\n",
@@ -286,9 +352,9 @@ SEC("tc")
     "}\n"
   ],
   "called_function_list": [
-    "HC_ENCAP",
     "memcpy",
-    "set_hc_key"
+    "set_hc_key",
+    "HC_ENCAP"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
