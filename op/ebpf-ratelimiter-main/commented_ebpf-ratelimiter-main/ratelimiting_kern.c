@@ -102,52 +102,6 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
 {
   "capabilities": [
     {
-      "capability": "map_update",
-      "map_update": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_map_update_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}",
-            "{Type:  const void ,Var: *value}",
-            "{Type:  u64 ,Var: flags}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_update"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -264,6 +218,52 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
           ],
           "capabilities": [
             "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_update",
+      "map_update": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Description": "Add or update the <[ value ]>(IP: 2) of the entry associated to <[ key ]>(IP: 1) in <[ map ]>(IP: 0) with value. <[ flags ]>(IP: 3) is one of: BPF_NOEXIST The entry for <[ key ]>(IP: 1) must not exist in the map. BPF_EXIST The entry for <[ key ]>(IP: 1) must already exist in the map. BPF_ANY No condition on the existence of the entry for key. Flag <[ value ]>(IP: 2) BPF_NOEXIST cannot be used for maps of types BPF_MAP_TYPE_ARRAY or BPF_MAP_TYPE_PERCPU_ARRAY (all elements always exist) , the helper would return an error. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "bpf_map_update_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}",
+            "{Type:  const void ,Var: *value}",
+            "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
@@ -525,10 +525,10 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
     " rl_window_map"
   ],
   "readMaps": [
-    "  rl_window_map",
-    " rl_recv_count_map",
-    " rl_drop_count_map",
     " rl_window_map",
+    " rl_recv_count_map",
+    "  rl_window_map",
+    " rl_drop_count_map",
     " rl_config_map"
   ],
   "input": [
@@ -536,11 +536,11 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "bpf_map_update_elem",
     "bpf_ktime_get_ns",
     "bpf_map_lookup_elem",
     "XDP_DROP",
-    "XDP_PASS"
+    "XDP_PASS",
+    "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -627,9 +627,9 @@ struct bpf_elf_map SEC("maps") rl_ports_map = {
     "}\n"
   ],
   "called_function_list": [
-    "bpf_printk",
+    "bpf_ntohs",
     "ntohs",
-    "bpf_ntohs"
+    "bpf_printk"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -900,8 +900,8 @@ SEC("xdp_ratelimiting")
     "}\n"
   ],
   "called_function_list": [
-    "bpf_printk",
-    "_xdp_ratelimit"
+    "_xdp_ratelimit",
+    "bpf_printk"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

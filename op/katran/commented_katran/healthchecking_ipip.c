@@ -111,6 +111,26 @@ SEC("tc")
       ]
     },
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -150,26 +170,6 @@ SEC("tc")
           ],
           "capabilities": [
             "map_read"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_SHOT",
-          "Return": 2,
-          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -275,20 +275,20 @@ SEC("tc")
   ],
   "updateMaps": [],
   "readMaps": [
-    " hc_reals_map",
+    " hc_ctrl_map",
     "  hc_stats_map",
-    " hc_ctrl_map"
+    " hc_reals_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
     "TC_ACT_UNSPEC",
-    "bpf_map_lookup_elem",
     "TC_ACT_SHOT",
-    "bpf_skb_set_tunnel_key"
+    "bpf_map_lookup_elem",
+    "bpf_skb_set_tunnel_key",
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
     "sched_act",
@@ -352,8 +352,8 @@ SEC("tc")
     "}\n"
   ],
   "called_function_list": [
-    "memcpy",
     "set_hc_key",
+    "memcpy",
     "HC_ENCAP"
   ],
   "call_depth": -1,

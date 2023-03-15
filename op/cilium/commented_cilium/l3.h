@@ -78,8 +78,8 @@
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv6_l3 (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, __u8 direction)\n",
@@ -99,11 +99,11 @@
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "eth_store_saddr",
-    "eth_store_daddr",
     "icmp6_send_time_exceeded",
-    "ipv6_dec_hoplimit"
+    "eth_store_daddr",
+    "ipv6_dec_hoplimit",
+    "IS_ERR",
+    "eth_store_saddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -177,8 +177,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "funcName": "ipv4_l3",
   "developer_inline_comments": [
     {
-      "start_line": 7,
-      "end_line": 7,
+      "start_line": 46,
+      "end_line": 46,
       "text": "/* FIXME: Send ICMP TTL */"
     }
   ],
@@ -197,8 +197,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv4_l3 (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, struct iphdr *ip4)\n",
@@ -214,9 +214,9 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "eth_store_daddr",
     "ipv4_dec_ttl",
-    "eth_store_saddr"
+    "eth_store_saddr",
+    "eth_store_daddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -291,23 +291,23 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   "funcName": "ipv6_local_delivery",
   "developer_inline_comments": [
     {
-      "start_line": 3,
-      "end_line": 7,
+      "start_line": 60,
+      "end_line": 64,
       "text": "/* Performs IPv6 L2/L3 handling and delivers the packet to the destination pod\n * on the same node, either via the stack or via a redirect call.\n * Depending on the configuration, it may also enforce ingress policies for the\n * destination pod via a tail call.\n */"
     },
     {
-      "start_line": 20,
-      "end_line": 20,
+      "start_line": 77,
+      "end_line": 77,
       "text": "/* This will invalidate the size check */"
     },
     {
-      "start_line": 26,
-      "end_line": 30,
+      "start_line": 83,
+      "end_line": 87,
       "text": "/*\n\t * Special LXC case for updating egress forwarding metrics.\n\t * Note that the packet could still be dropped but it would show up\n\t * as an ingress drop counter in metrics.\n\t */"
     },
     {
-      "start_line": 41,
-      "end_line": 41,
+      "start_line": 98,
+      "end_line": 98,
       "text": "/* Jumps to destination pod's BPF program to enforce ingress policies. */"
     }
   ],
@@ -323,14 +323,14 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
     "CTX_ACT_OK",
-    "tail_call"
+    "tail_call",
+    "redirect"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv6_local_delivery (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, const struct endpoint_info *ep, __u8 direction, bool from_host __maybe_unused)\n",
@@ -365,15 +365,15 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "redirect_ep",
-    "ctx_full_len",
-    "update_metrics",
-    "ipv6_l3",
-    "ctx_store_meta",
-    "cilium_dbg",
     "set_identity_mark",
-    "tail_call_dynamic"
+    "ctx_store_meta",
+    "ipv6_l3",
+    "tail_call_dynamic",
+    "defined",
+    "ctx_full_len",
+    "redirect_ep",
+    "cilium_dbg",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -473,18 +473,18 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   "funcName": "ipv4_local_delivery",
   "developer_inline_comments": [
     {
-      "start_line": 2,
-      "end_line": 6,
+      "start_line": 109,
+      "end_line": 113,
       "text": "/* Performs IPv4 L2/L3 handling and delivers the packet to the destination pod\n * on the same node, either via the stack or via a redirect call.\n * Depending on the configuration, it may also enforce ingress policies for the\n * destination pod via a tail call.\n */"
     },
     {
-      "start_line": 24,
-      "end_line": 28,
+      "start_line": 131,
+      "end_line": 135,
       "text": "/*\n\t * Special LXC case for updating egress forwarding metrics.\n\t * Note that the packet could still be dropped but it would show up\n\t * as an ingress drop counter in metrics.\n\t */"
     },
     {
-      "start_line": 39,
-      "end_line": 39,
+      "start_line": 146,
+      "end_line": 146,
       "text": "/* Jumps to destination pod's BPF program to enforce ingress policies. */"
     }
   ],
@@ -501,14 +501,14 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
     "CTX_ACT_OK",
-    "tail_call"
+    "tail_call",
+    "redirect"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv4_local_delivery (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, struct iphdr *ip4, const struct endpoint_info *ep, __u8 direction __maybe_unused, bool from_host __maybe_unused)\n",
@@ -543,15 +543,15 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "redirect_ep",
-    "ctx_full_len",
-    "update_metrics",
-    "ctx_store_meta",
-    "cilium_dbg",
     "set_identity_mark",
+    "ctx_store_meta",
+    "tail_call_dynamic",
+    "defined",
     "ipv4_l3",
-    "tail_call_dynamic"
+    "ctx_full_len",
+    "redirect_ep",
+    "cilium_dbg",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -668,18 +668,18 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   "funcName": "get_min_encrypt_key",
   "developer_inline_comments": [
     {
-      "start_line": 10,
-      "end_line": 10,
+      "start_line": 165,
+      "end_line": 165,
       "text": "/* Having no key info for a context is the same as no encryption */"
     },
     {
-      "start_line": 14,
-      "end_line": 21,
+      "start_line": 169,
+      "end_line": 176,
       "text": "/* If both ends can encrypt/decrypt use smaller of the two this\n\t * way both ends will have keys installed assuming key IDs are\n\t * always increasing. However, we have to handle roll-over case\n\t * and to do this safely we assume keys are no more than one ahead.\n\t * We expect user/control-place to accomplish this. Notice zero\n\t * will always be returned if either local or peer have the zero\n\t * key indicating no encryption.\n\t */"
     },
     {
-      "start_line": 29,
-      "end_line": 29,
+      "start_line": 184,
+      "end_line": 184,
       "text": "/* ENABLE_IPSEC */"
     }
   ],
@@ -696,28 +696,28 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u8 get_min_encrypt_key (__u8 peer_key __maybe_unused)\n",

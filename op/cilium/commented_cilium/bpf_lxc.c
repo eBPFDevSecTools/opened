@@ -207,8 +207,8 @@ int NAME(struct __ctx_buff *ctx)						\
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
     "sched_act",
+    "xdp",
     "lwt_xmit"
   ],
   "source": [
@@ -269,13 +269,13 @@ redirect_to_proxy(int verdict, enum ct_status status)
   "funcName": "encode_custom_prog_meta",
   "developer_inline_comments": [
     {
-      "start_line": 3,
-      "end_line": 10,
+      "start_line": 166,
+      "end_line": 173,
       "text": "/* Encode return value and identity into cb buffer. This is used before\n * executing tail calls to custom programs. \"ret\" is the return value supposed\n * to be returned to the kernel, needed by the callee to preserve the datapath\n * logics. The \"identity\" is the security identity of the local endpoint: the\n * source of the packet on ingress path, or its destination on the egress path.\n * We encode it so that custom programs can retrieve it and use it at their\n * convenience.\n */"
     },
     {
-      "start_line": 16,
-      "end_line": 19,
+      "start_line": 179,
+      "end_line": 182,
       "text": "/* If we cannot encode return value on 8 bits, return an error so we can\n\t * skip the tail call entirely, as custom program has no way to return\n\t * expected value and datapath logics will break.\n\t */"
     }
   ],
@@ -290,28 +290,28 @@ redirect_to_proxy(int verdict, enum ct_status status)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int encode_custom_prog_meta (struct  __ctx_buff *ctx, int ret, __u32 identity)\n",
@@ -394,6 +394,27 @@ struct {
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -436,27 +457,6 @@ struct {
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -466,198 +466,198 @@ struct {
   "funcName": "handle_ipv6_from_lxc",
   "developer_inline_comments": [
     {
-      "start_line": 17,
-      "end_line": 23,
+      "start_line": 207,
+      "end_line": 213,
       "text": "/* Handle egress IPv6 traffic from a container after service translation has been done\n * either at the socket level or by the caller.\n * In the case of the caller doing the service translation it passes in state via CB,\n * which we take in with lb6_ctx_restore_state().\n *\n * Kernel 4.9 verifier is very finicky about the order of this code, modify with caution.\n */"
     },
     {
-      "start_line": 42,
-      "end_line": 42,
+      "start_line": 232,
+      "end_line": 232,
       "text": "/* endpoint wants to access itself via service IP */"
     },
     {
-      "start_line": 53,
-      "end_line": 57,
+      "start_line": 243,
+      "end_line": 247,
       "text": "/* Determine the destination category for policy fallback.  Service\n\t * translation of the destination address is done before this function,\n\t * so we can do this first. Also, verifier on kernel 4.9 insisted this\n\t * be done before the CT lookup below.\n\t */"
     },
     {
-      "start_line": 71,
-      "end_line": 71,
+      "start_line": 261,
+      "end_line": 261,
       "text": "/* ENABLE_WIREGUARD */"
     },
     {
-      "start_line": 81,
-      "end_line": 81,
+      "start_line": 271,
+      "end_line": 271,
       "text": "/* verifier workaround on kernel 4.9, not needed otherwise */"
     },
     {
-      "start_line": 85,
-      "end_line": 85,
+      "start_line": 275,
+      "end_line": 275,
       "text": "/* Restore ct_state from per packet lb handling in the previous tail call. */"
     },
     {
-      "start_line": 87,
-      "end_line": 87,
+      "start_line": 277,
+      "end_line": 277,
       "text": "/* No hairpin/loopback support for IPv6, see lb6_local(). */"
-    },
-    {
-      "start_line": 88,
-      "end_line": 88,
-      "text": "/* ENABLE_PER_PACKET_LB */"
-    },
-    {
-      "start_line": 94,
-      "end_line": 94,
-      "text": "/* The map value is zeroed so the map update didn't happen somehow. */"
-    },
-    {
-      "start_line": 105,
-      "end_line": 105,
-      "text": "/* HAVE_DIRECT_ACCESS_TO_MAP_VALUES */"
-    },
-    {
-      "start_line": 113,
-      "end_line": 113,
-      "text": "/* tuple addresses have been swapped by CT lookup */"
-    },
-    {
-      "start_line": 120,
-      "end_line": 120,
-      "text": "/* ENABLE_L7_LB */"
-    },
-    {
-      "start_line": 122,
-      "end_line": 122,
-      "text": "/* Check it this is return traffic to an ingress proxy. */"
-    },
-    {
-      "start_line": 125,
-      "end_line": 125,
-      "text": "/* Stack will do a socket match and deliver locally. */"
-    },
-    {
-      "start_line": 129,
-      "end_line": 134,
-      "text": "/* When an endpoint connects to itself via service clusterIP, we need\n\t * to skip the policy enforcement. If we didn't, the user would have to\n\t * define policy rules to allow pods to talk to themselves. We still\n\t * want to execute the conntrack logic so that replies can be correctly\n\t * matched.\n\t */"
-    },
-    {
-      "start_line": 140,
-      "end_line": 143,
-      "text": "/* If the packet is in the establishing direction and it's destined\n\t * within the cluster, it must match policy or be dropped. If it's\n\t * bound for the host/outside, perform the CIDR policy check.\n\t */"
-    },
-    {
-      "start_line": 165,
-      "end_line": 169,
-      "text": "/* New connection implies that rev_nat_index remains untouched\n\t\t * to the index provided by the loadbalancer (if it applied).\n\t\t * Create a CT entry which allows to track replies and to\n\t\t * reverse NAT.\n\t\t */"
-    },
-    {
-      "start_line": 184,
-      "end_line": 184,
-      "text": "/* Did we end up at a stale non-service entry? Recreate if so. */"
-    },
-    {
-      "start_line": 206,
-      "end_line": 206,
-      "text": "/* ENABLE_DSR */"
-    },
-    {
-      "start_line": 207,
-      "end_line": 207,
-      "text": "/* See comment in handle_ipv4_from_lxc(). */"
-    },
-    {
-      "start_line": 216,
-      "end_line": 216,
-      "text": "/* ENABLE_NODEPORT */"
-    },
-    {
-      "start_line": 227,
-      "end_line": 230,
-      "text": "/* A reverse translate packet is always allowed except\n\t\t\t * for delivery on the local node in which case this\n\t\t\t * marking is cleared again.\n\t\t\t */"
-    },
-    {
-      "start_line": 241,
-      "end_line": 243,
-      "text": "/* L7 LB does L7 policy enforcement, so we only redirect packets\n\t * NOT from L7 LB.\n\t */"
-    },
-    {
-      "start_line": 246,
-      "end_line": 246,
-      "text": "/* Trace the packet before it is forwarded to proxy */"
-    },
-    {
-      "start_line": 256,
-      "end_line": 256,
-      "text": "/* See handle_ipv4_from_lxc() re hairpin_flow */"
-    },
-    {
-      "start_line": 260,
-      "end_line": 265,
-      "text": "/* Lookup IPv6 address, this will return a match if:\n\t\t *  - The destination IP address belongs to a local endpoint managed by\n\t\t *    cilium\n\t\t *  - The destination IP address is an IP address associated with the\n\t\t *    host itself.\n\t\t */"
-    },
-    {
-      "start_line": 276,
-      "end_line": 276,
-      "text": "/* ENABLE_ROUTING */"
     },
     {
       "start_line": 278,
       "end_line": 278,
-      "text": "/* If the packet is from L7 LB it is coming from the host */"
+      "text": "/* ENABLE_PER_PACKET_LB */"
     },
     {
-      "start_line": 285,
-      "end_line": 287,
-      "text": "/* If the destination is the local host and per-endpoint routes are\n\t * enabled, jump to the bpf_host program to enforce ingress host policies.\n\t */"
-    },
-    {
-      "start_line": 293,
-      "end_line": 293,
-      "text": "/* ENABLE_HOST_FIREWALL && !ENABLE_ROUTING */"
+      "start_line": 284,
+      "end_line": 284,
+      "text": "/* The map value is zeroed so the map update didn't happen somehow. */"
     },
     {
       "start_line": 295,
       "end_line": 295,
+      "text": "/* HAVE_DIRECT_ACCESS_TO_MAP_VALUES */"
+    },
+    {
+      "start_line": 303,
+      "end_line": 303,
+      "text": "/* tuple addresses have been swapped by CT lookup */"
+    },
+    {
+      "start_line": 310,
+      "end_line": 310,
+      "text": "/* ENABLE_L7_LB */"
+    },
+    {
+      "start_line": 312,
+      "end_line": 312,
+      "text": "/* Check it this is return traffic to an ingress proxy. */"
+    },
+    {
+      "start_line": 315,
+      "end_line": 315,
+      "text": "/* Stack will do a socket match and deliver locally. */"
+    },
+    {
+      "start_line": 319,
+      "end_line": 324,
+      "text": "/* When an endpoint connects to itself via service clusterIP, we need\n\t * to skip the policy enforcement. If we didn't, the user would have to\n\t * define policy rules to allow pods to talk to themselves. We still\n\t * want to execute the conntrack logic so that replies can be correctly\n\t * matched.\n\t */"
+    },
+    {
+      "start_line": 330,
+      "end_line": 333,
+      "text": "/* If the packet is in the establishing direction and it's destined\n\t * within the cluster, it must match policy or be dropped. If it's\n\t * bound for the host/outside, perform the CIDR policy check.\n\t */"
+    },
+    {
+      "start_line": 355,
+      "end_line": 359,
+      "text": "/* New connection implies that rev_nat_index remains untouched\n\t\t * to the index provided by the loadbalancer (if it applied).\n\t\t * Create a CT entry which allows to track replies and to\n\t\t * reverse NAT.\n\t\t */"
+    },
+    {
+      "start_line": 374,
+      "end_line": 374,
+      "text": "/* Did we end up at a stale non-service entry? Recreate if so. */"
+    },
+    {
+      "start_line": 396,
+      "end_line": 396,
+      "text": "/* ENABLE_DSR */"
+    },
+    {
+      "start_line": 397,
+      "end_line": 397,
+      "text": "/* See comment in handle_ipv4_from_lxc(). */"
+    },
+    {
+      "start_line": 406,
+      "end_line": 406,
+      "text": "/* ENABLE_NODEPORT */"
+    },
+    {
+      "start_line": 417,
+      "end_line": 420,
+      "text": "/* A reverse translate packet is always allowed except\n\t\t\t * for delivery on the local node in which case this\n\t\t\t * marking is cleared again.\n\t\t\t */"
+    },
+    {
+      "start_line": 431,
+      "end_line": 433,
+      "text": "/* L7 LB does L7 policy enforcement, so we only redirect packets\n\t * NOT from L7 LB.\n\t */"
+    },
+    {
+      "start_line": 436,
+      "end_line": 436,
+      "text": "/* Trace the packet before it is forwarded to proxy */"
+    },
+    {
+      "start_line": 446,
+      "end_line": 446,
+      "text": "/* See handle_ipv4_from_lxc() re hairpin_flow */"
+    },
+    {
+      "start_line": 450,
+      "end_line": 455,
+      "text": "/* Lookup IPv6 address, this will return a match if:\n\t\t *  - The destination IP address belongs to a local endpoint managed by\n\t\t *    cilium\n\t\t *  - The destination IP address is an IP address associated with the\n\t\t *    host itself.\n\t\t */"
+    },
+    {
+      "start_line": 466,
+      "end_line": 466,
+      "text": "/* ENABLE_ROUTING */"
+    },
+    {
+      "start_line": 468,
+      "end_line": 468,
+      "text": "/* If the packet is from L7 LB it is coming from the host */"
+    },
+    {
+      "start_line": 475,
+      "end_line": 477,
+      "text": "/* If the destination is the local host and per-endpoint routes are\n\t * enabled, jump to the bpf_host program to enforce ingress host policies.\n\t */"
+    },
+    {
+      "start_line": 483,
+      "end_line": 483,
+      "text": "/* ENABLE_HOST_FIREWALL && !ENABLE_ROUTING */"
+    },
+    {
+      "start_line": 485,
+      "end_line": 485,
       "text": "/* The packet goes to a peer not managed by this agent instance */"
     },
     {
-      "start_line": 299,
-      "end_line": 299,
+      "start_line": 489,
+      "end_line": 489,
       "text": "/* ENABLE_WIREGUARD */"
     },
     {
-      "start_line": 304,
-      "end_line": 310,
+      "start_line": 494,
+      "end_line": 500,
       "text": "/* Lookup the destination prefix in the list of known\n\t\t * destination prefixes. If there is a match, the packet will\n\t\t * be encapsulated to that node and then routed by the agent on\n\t\t * the remote node.\n\t\t *\n\t\t * IPv6 lookup key: daddr/96\n\t\t */"
     },
     {
-      "start_line": 316,
-      "end_line": 320,
+      "start_line": 506,
+      "end_line": 510,
       "text": "/* Three cases exist here either (a) the encap and redirect could\n\t\t * not find the tunnel so fallthrough to nat46 and stack, (b)\n\t\t * the packet needs IPSec encap so push ctx to stack for encap, or\n\t\t * (c) packet was redirected to tunnel device so return.\n\t\t */"
     },
     {
-      "start_line": 363,
-      "end_line": 363,
+      "start_line": 553,
+      "end_line": 553,
       "text": "/* IP_POOLS */"
     },
     {
-      "start_line": 366,
-      "end_line": 366,
+      "start_line": 556,
+      "end_line": 556,
       "text": "/* ENABLE_IDENTITY_MARK */"
     },
     {
-      "start_line": 368,
-      "end_line": 368,
+      "start_line": 558,
+      "end_line": 558,
       "text": "/* ENABLE_IPSEC */"
     },
     {
-      "start_line": 369,
-      "end_line": 369,
+      "start_line": 559,
+      "end_line": 559,
       "text": "/* ENABLE_WIREGUARD */"
     },
     {
-      "start_line": 372,
-      "end_line": 376,
+      "start_line": 562,
+      "end_line": 566,
       "text": "/* Always encode the source identity when passing to the stack.\n\t\t * If the stack hairpins the packet back to a local endpoint the\n\t\t * source identity can still be derived even if SNAT is\n\t\t * performed by a component such as portmap.\n\t\t */"
     }
   ],
@@ -672,14 +672,14 @@ struct {
   "output": "static__always_inlineint",
   "helper": [
     "redirect",
-    "map_lookup_elem",
     "tail_call",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int handle_ipv6_from_lxc (struct  __ctx_buff *ctx, __u32 *dst_id)\n",
@@ -979,48 +979,48 @@ struct {
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "is_defined",
-    "set_encrypt_mark",
-    "redirect_to_proxy",
-    "lookup_ip6_endpoint",
-    "ipv6_hdrlen",
-    "tail_call_static",
+    "ipv6_local_delivery",
+    "ipv6_l3",
+    "identity_is_node",
+    "bpf_ntohs",
     "ipv6_store_flowlabel",
-    "redirect_direct_v6",
+    "set_encrypt_key_mark",
+    "set_encrypt_mark",
+    "cilium_dbg",
+    "xlate_dsr_v6",
+    "lookup_ip6_remote_endpoint",
+    "set_identity_mark",
+    "ctx_store_meta",
+    "send_policy_verdict_notify",
+    "cilium_dbg_capture",
+    "lb6_ctx_restore_state",
+    "tail_call_static",
+    "unlikely",
+    "lb6_rev_nat",
+    "ctx_redirect",
+    "is_defined",
+    "encap_and_redirect_lxc",
+    "ctx_redirect_to_proxy6",
+    "ipv6_hdrlen",
+    "policy_can_egress6",
     "policy_mark_skip",
     "ep_tail_call",
-    "IS_ERR",
-    "csum_l4_offset_and_flags",
-    "ctx_load_meta",
+    "send_trace_notify",
+    "ct_create6",
     "get_ct_map6",
     "revalidate_data",
-    "encap_and_redirect_lxc",
-    "xlate_dsr_v6",
-    "identity_is_node",
-    "send_policy_verdict_notify",
-    "set_identity_mark",
-    "set_encrypt_key_mark",
-    "ctx_redirect_to_proxy6",
-    "bpf_ntohs",
-    "policy_can_egress6",
-    "ipv6_l3",
-    "send_trace_notify",
-    "unlikely",
-    "cilium_dbg",
-    "cilium_dbg_capture",
-    "policy_clear_mark",
-    "ct_create6",
-    "lb6_ctx_restore_state",
-    "ctx_redirect",
-    "memcpy",
-    "ctx_store_meta",
-    "cilium_dbg3",
-    "set_encrypt_dip",
-    "lookup_ip6_remote_endpoint",
     "get_min_encrypt_key",
-    "ipv6_local_delivery",
-    "lb6_rev_nat"
+    "set_encrypt_dip",
+    "memcpy",
+    "redirect_direct_v6",
+    "cilium_dbg3",
+    "redirect_to_proxy",
+    "defined",
+    "lookup_ip6_endpoint",
+    "IS_ERR",
+    "policy_clear_mark",
+    "ctx_load_meta",
+    "csum_l4_offset_and_flags"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1434,26 +1434,26 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_handle_ipv6_cont (struct  __ctx_buff *ctx)\n",
@@ -1474,13 +1474,13 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_
     "}\n"
   ],
   "called_function_list": [
-    "ctx_full_len",
-    "update_metrics",
-    "handle_ipv6_from_lxc",
-    "IS_ERR",
-    "send_drop_notify",
+    "encode_custom_prog_meta",
     "tail_call_static",
-    "encode_custom_prog_meta"
+    "send_drop_notify",
+    "IS_ERR",
+    "handle_ipv6_from_lxc",
+    "ctx_full_len",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1539,28 +1539,28 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
   "funcName": "__tail_handle_ipv6",
   "developer_inline_comments": [
     {
-      "start_line": 14,
-      "end_line": 17,
+      "start_line": 618,
+      "end_line": 621,
       "text": "/* Handle special ICMPv6 messages. This includes echo requests to the\n\t * logical router address, neighbour advertisements to the router.\n\t * All remaining packets are subjected to forwarding into the container.\n\t */"
     },
     {
-      "start_line": 59,
-      "end_line": 65,
+      "start_line": 663,
+      "end_line": 669,
       "text": "/*\n\t\t * Check if the destination address is among the address that should\n\t\t * be load balanced. This operation is performed before we go through\n\t\t * the connection tracker to allow storing the reverse nat index in\n\t\t * the CT entry for destination endpoints where we can't encode the\n\t\t * state in the address.\n\t\t */"
     },
     {
-      "start_line": 73,
-      "end_line": 73,
+      "start_line": 677,
+      "end_line": 677,
       "text": "/* ENABLE_L7_LB */"
     },
     {
-      "start_line": 82,
-      "end_line": 82,
+      "start_line": 686,
+      "end_line": 686,
       "text": "/* Store state to be picked up on the continuation tail call. */"
     },
     {
-      "start_line": 85,
-      "end_line": 85,
+      "start_line": 689,
+      "end_line": 689,
       "text": "/* ENABLE_PER_PACKET_LB */"
     }
   ],
@@ -1573,28 +1573,28 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int __tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -1665,21 +1665,21 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
     "}\n"
   ],
   "called_function_list": [
-    "icmp6_handle",
-    "defined",
-    "lb6_lookup_service",
-    "lb6_local",
-    "IS_ERR",
-    "revalidate_data_pull",
-    "is_valid_lxc_src_ip",
-    "unlikely",
     "get_ct_map6",
-    "lb6_ctx_store_state",
-    "lb6_svc_is_l7loadbalancer",
-    "lb6_extract_key",
-    "ipv6_addr_copy",
-    "ipv6_hdrlen",
     "invoke_tailcall_if",
+    "ipv6_hdrlen",
+    "lb6_extract_key",
+    "lb6_lookup_service",
+    "revalidate_data_pull",
+    "lb6_local",
+    "is_valid_lxc_src_ip",
+    "defined",
+    "icmp6_handle",
+    "lb6_ctx_store_state",
+    "unlikely",
+    "IS_ERR",
+    "lb6_svc_is_l7loadbalancer",
+    "ipv6_addr_copy",
     "is_defined"
   ],
   "call_depth": -1,
@@ -1810,28 +1810,28 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_LXC)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -1843,12 +1843,12 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_LXC)
     "}\n"
   ],
   "called_function_list": [
+    "__tail_handle_ipv6",
     "ctx_store_meta",
-    "IS_ERR",
     "ctx_load_meta",
-    "send_drop_notify_error",
+    "IS_ERR",
     "handle_ipv6",
-    "__tail_handle_ipv6"
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1907,6 +1907,27 @@ struct {
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -1949,27 +1970,6 @@ struct {
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -1979,228 +1979,228 @@ struct {
   "funcName": "handle_ipv4_from_lxc",
   "developer_inline_comments": [
     {
-      "start_line": 17,
-      "end_line": 21,
+      "start_line": 723,
+      "end_line": 727,
       "text": "/* Handle egress IPv6 traffic from a container after service translation has been done\n * either at the socket level or by the caller.\n * In the case of the caller doing the service translation it passes in state via CB,\n * which we take in with lb4_ctx_restore_state().\n */"
     },
     {
-      "start_line": 38,
-      "end_line": 38,
+      "start_line": 744,
+      "end_line": 744,
       "text": "/* endpoint wants to access itself via service IP */"
     },
     {
-      "start_line": 54,
-      "end_line": 54,
+      "start_line": 760,
+      "end_line": 760,
       "text": "/* Determine the destination category for policy fallback. */"
     },
     {
-      "start_line": 64,
-      "end_line": 69,
+      "start_line": 770,
+      "end_line": 775,
       "text": "/* If we detect that the dst is a remote endpoint, we\n\t\t\t * need to mark the packet. The ip rule which matches\n\t\t\t * on the MARK_MAGIC_ENCRYPT mark will steer the packet\n\t\t\t * to the Wireguard tunnel. The marking happens lower\n\t\t\t * in the code in the same place where we handle IPSec.\n\t\t\t */"
     },
     {
-      "start_line": 73,
-      "end_line": 73,
+      "start_line": 779,
+      "end_line": 779,
       "text": "/* ENABLE_WIREGUARD */"
     },
     {
-      "start_line": 83,
-      "end_line": 83,
+      "start_line": 789,
+      "end_line": 789,
       "text": "/* Restore ct_state from per packet lb handling in the previous tail call. */"
     },
     {
-      "start_line": 86,
-      "end_line": 86,
+      "start_line": 792,
+      "end_line": 792,
       "text": "/* ENABLE_PER_PACKET_LB */"
     },
     {
-      "start_line": 94,
-      "end_line": 94,
+      "start_line": 800,
+      "end_line": 800,
       "text": "/* The map value is zeroed so the map update didn't happen somehow. */"
     },
     {
-      "start_line": 105,
-      "end_line": 105,
+      "start_line": 811,
+      "end_line": 811,
       "text": "/* HAVE_DIRECT_ACCESS_TO_MAP_VALUES */"
     },
     {
-      "start_line": 113,
-      "end_line": 113,
+      "start_line": 819,
+      "end_line": 819,
       "text": "/* tuple addresses have been swapped by CT lookup */"
     },
     {
-      "start_line": 119,
-      "end_line": 119,
+      "start_line": 825,
+      "end_line": 825,
       "text": "/* ENABLE_L7_LB */"
     },
     {
-      "start_line": 121,
-      "end_line": 121,
+      "start_line": 827,
+      "end_line": 827,
       "text": "/* Check it this is return traffic to an ingress proxy. */"
     },
     {
-      "start_line": 123,
-      "end_line": 123,
+      "start_line": 829,
+      "end_line": 829,
       "text": "/* Stack will do a socket match and deliver locally. */"
     },
     {
-      "start_line": 127,
-      "end_line": 132,
+      "start_line": 833,
+      "end_line": 838,
       "text": "/* When an endpoint connects to itself via service clusterIP, we need\n\t * to skip the policy enforcement. If we didn't, the user would have to\n\t * define policy rules to allow pods to talk to themselves. We still\n\t * want to execute the conntrack logic so that replies can be correctly\n\t * matched.\n\t */"
     },
     {
-      "start_line": 138,
-      "end_line": 141,
+      "start_line": 844,
+      "end_line": 847,
       "text": "/* If the packet is in the establishing direction and it's destined\n\t * within the cluster, it must match policy or be dropped. If it's\n\t * bound for the host/outside, perform the CIDR policy check.\n\t */"
     },
     {
-      "start_line": 163,
-      "end_line": 167,
+      "start_line": 869,
+      "end_line": 873,
       "text": "/* New connection implies that rev_nat_index remains untouched\n\t\t * to the index provided by the loadbalancer (if it applied).\n\t\t * Create a CT entry which allows to track replies and to\n\t\t * reverse NAT.\n\t\t */"
     },
     {
-      "start_line": 169,
-      "end_line": 171,
+      "start_line": 875,
+      "end_line": 877,
       "text": "/* We could avoid creating related entries for legacy ClusterIP\n\t\t * handling here, but turns out that verifier cannot handle it.\n\t\t */"
     },
     {
-      "start_line": 184,
-      "end_line": 184,
+      "start_line": 890,
+      "end_line": 890,
       "text": "/* Did we end up at a stale non-service entry? Recreate if so. */"
     },
     {
-      "start_line": 200,
-      "end_line": 200,
+      "start_line": 906,
+      "end_line": 906,
       "text": "/* ENABLE_DSR */"
     },
     {
-      "start_line": 201,
-      "end_line": 204,
+      "start_line": 907,
+      "end_line": 910,
       "text": "/* This handles reply traffic for the case where the nodeport EP\n\t\t * is local to the node. We'll do the tail call to perform\n\t\t * the reverse DNAT.\n\t\t */"
     },
     {
-      "start_line": 214,
-      "end_line": 214,
+      "start_line": 920,
+      "end_line": 920,
       "text": "/* ENABLE_NODEPORT */"
     },
     {
-      "start_line": 233,
-      "end_line": 235,
+      "start_line": 939,
+      "end_line": 941,
       "text": "/* L7 LB does L7 policy enforcement, so we only redirect packets\n\t * NOT from L7 LB.\n\t */"
     },
     {
-      "start_line": 238,
-      "end_line": 238,
+      "start_line": 944,
+      "end_line": 944,
       "text": "/* Trace the packet before it is forwarded to proxy */"
     },
     {
-      "start_line": 245,
-      "end_line": 245,
+      "start_line": 951,
+      "end_line": 951,
       "text": "/* After L4 write in port mapping: revalidate for direct packet access */"
     },
     {
-      "start_line": 249,
-      "end_line": 253,
+      "start_line": 955,
+      "end_line": 959,
       "text": "/* Allow a hairpin packet to be redirected even if ENABLE_ROUTING is\n\t * disabled. Otherwise, the packet will be dropped by the kernel if\n\t * it is going to be routed via an interface it came from after it has\n\t * been passed to the stack.\n\t */"
     },
     {
-      "start_line": 257,
-      "end_line": 263,
+      "start_line": 963,
+      "end_line": 969,
       "text": "/* Lookup IPv4 address, this will return a match if:\n\t\t *  - The destination IP address belongs to a local endpoint\n\t\t *    managed by cilium\n\t\t *  - The destination IP address is an IP address associated with the\n\t\t *    host itself\n\t\t *  - The destination IP address belongs to endpoint itself.\n\t\t */"
     },
     {
-      "start_line": 274,
-      "end_line": 274,
+      "start_line": 980,
+      "end_line": 980,
       "text": "/* ENABLE_ROUTING */"
     },
     {
-      "start_line": 276,
-      "end_line": 276,
+      "start_line": 982,
+      "end_line": 982,
       "text": "/* If the packet is from L7 LB it is coming from the host */"
     },
     {
-      "start_line": 283,
-      "end_line": 285,
+      "start_line": 989,
+      "end_line": 991,
       "text": "/* If the destination is the local host and per-endpoint routes are\n\t * enabled, jump to the bpf_host program to enforce ingress host policies.\n\t */"
     },
     {
-      "start_line": 291,
-      "end_line": 291,
+      "start_line": 997,
+      "end_line": 997,
       "text": "/* ENABLE_HOST_FIREWALL && !ENABLE_ROUTING */"
     },
     {
-      "start_line": 299,
-      "end_line": 303,
+      "start_line": 1005,
+      "end_line": 1009,
       "text": "/* If the packet is destined to an entity inside the cluster,\n\t\t * either EP or node, it should not be forwarded to an egress\n\t\t * gateway since only traffic leaving the cluster is supposed to\n\t\t * be masqueraded with an egress IP.\n\t\t */"
     },
     {
-      "start_line": 307,
-      "end_line": 311,
+      "start_line": 1013,
+      "end_line": 1017,
       "text": "/* If the packet is a reply or is related, it means that outside\n\t\t * has initiated the connection, and so we should skip egress\n\t\t * gateway, since an egress policy is only matching connections\n\t\t * originating from a pod.\n\t\t */"
     },
     {
-      "start_line": 319,
-      "end_line": 322,
+      "start_line": 1025,
+      "end_line": 1028,
       "text": "/* If the gateway node is the local node, then just let the\n\t\t * packet go through, as it will be SNATed later on by\n\t\t * handle_nat_fwd().\n\t\t */"
     },
     {
-      "start_line": 327,
-      "end_line": 329,
+      "start_line": 1033,
+      "end_line": 1035,
       "text": "/* Otherwise encap and redirect the packet to egress gateway\n\t\t * node through a tunnel.\n\t\t */"
     },
     {
-      "start_line": 340,
-      "end_line": 344,
+      "start_line": 1046,
+      "end_line": 1050,
       "text": "/* L7 proxy result in VTEP redirection in bpf_host, but when L7 proxy disabled\n\t * We want VTEP redirection handled earlier here to avoid packets passing to\n\t * stack to bpf_host for VTEP redirection. When L7 proxy enabled, but no\n\t * L7 policy applied to pod, VTEP redirection also happen here.\n\t */"
     },
     {
-      "start_line": 367,
-      "end_line": 369,
+      "start_line": 1073,
+      "end_line": 1075,
       "text": "/* In the tunnel mode we encapsulate pod2pod traffic only via Wireguard\n\t * device, i.e. we do not encapsulate twice.\n\t */"
     },
     {
-      "start_line": 371,
-      "end_line": 371,
+      "start_line": 1077,
+      "end_line": 1077,
       "text": "/* ENABLE_WIREGUARD */"
     },
     {
-      "start_line": 382,
-      "end_line": 384,
+      "start_line": 1088,
+      "end_line": 1090,
       "text": "/* If not redirected noteably due to IPSEC then pass up to stack\n\t\t * for further processing.\n\t\t */"
     },
     {
-      "start_line": 387,
-      "end_line": 389,
+      "start_line": 1093,
+      "end_line": 1095,
       "text": "/* This is either redirect by encap code or an error has\n\t\t * occurred either way return and stack will consume ctx.\n\t\t */"
     },
     {
-      "start_line": 393,
-      "end_line": 393,
+      "start_line": 1099,
+      "end_line": 1099,
       "text": "/* TUNNEL_MODE */"
     },
     {
-      "start_line": 418,
-      "end_line": 418,
+      "start_line": 1124,
+      "end_line": 1124,
       "text": "/* Wireguard and identity mark are mutually exclusive */"
     },
     {
-      "start_line": 425,
-      "end_line": 425,
+      "start_line": 1131,
+      "end_line": 1131,
       "text": "/* IP_POOLS */"
     },
     {
-      "start_line": 430,
-      "end_line": 430,
+      "start_line": 1136,
+      "end_line": 1136,
       "text": "/* ENABLE_IPSEC */"
     },
     {
-      "start_line": 431,
-      "end_line": 431,
+      "start_line": 1137,
+      "end_line": 1137,
       "text": "/* ENABLE_WIREGUARD */"
     },
     {
-      "start_line": 434,
-      "end_line": 438,
+      "start_line": 1140,
+      "end_line": 1144,
       "text": "/* Always encode the source identity when passing to the stack.\n\t\t * If the stack hairpins the packet back to a local endpoint the\n\t\t * source identity can still be derived even if SNAT is\n\t\t * performed by a component such as portmap.\n\t\t */"
     }
   ],
@@ -2216,14 +2216,14 @@ struct {
   "output": "static__always_inlineint",
   "helper": [
     "redirect",
-    "map_lookup_elem",
     "tail_call",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int handle_ipv4_from_lxc (struct  __ctx_buff *ctx, __u32 *dst_id)\n",
@@ -2556,53 +2556,53 @@ struct {
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "set_encrypt_mark",
-    "redirect_to_proxy",
-    "tail_call_static",
-    "lookup_ip4_egress_gw_policy",
-    "policy_mark_skip",
-    "ipv4_hdrlen",
-    "ep_tail_call",
-    "IS_ERR",
-    "csum_l4_offset_and_flags",
-    "lb4_rev_nat",
-    "ctx_load_meta",
-    "redirect_direct_v4",
-    "revalidate_data",
-    "encap_and_redirect_lxc",
-    "eth_store_daddr",
     "identity_is_node",
-    "send_policy_verdict_notify",
-    "set_identity_mark",
-    "__lookup_ip4_endpoint",
-    "set_encrypt_key_mark",
-    "policy_can_egress4",
     "bpf_ntohs",
-    "ctx_redirect_to_proxy4",
-    "get_ct_map4",
-    "send_trace_notify",
-    "unlikely",
-    "cilium_dbg",
-    "cilium_dbg_capture",
-    "policy_clear_mark",
     "ipv4_local_delivery",
-    "ctx_redirect",
-    "memcpy",
-    "ctx_store_meta",
-    "identity_is_cluster",
-    "xlate_dsr_v4",
-    "cilium_dbg3",
-    "ct_create4",
-    "__encap_and_redirect_with_nodeid",
-    "set_encrypt_dip",
-    "ipv4_has_l4_header",
-    "lookup_ip4_endpoint",
-    "lb4_ctx_restore_state",
-    "lookup_ip4_remote_endpoint",
     "ipv4_l3",
+    "policy_can_egress4",
+    "xlate_dsr_v4",
+    "set_encrypt_key_mark",
+    "set_encrypt_mark",
+    "cilium_dbg",
+    "set_identity_mark",
+    "ctx_store_meta",
+    "send_policy_verdict_notify",
+    "ipv4_hdrlen",
+    "cilium_dbg_capture",
+    "tail_call_static",
+    "unlikely",
+    "identity_is_cluster",
+    "ctx_redirect",
+    "is_defined",
+    "encap_and_redirect_lxc",
+    "lb4_ctx_restore_state",
+    "redirect_direct_v4",
+    "ipv4_has_l4_header",
+    "policy_mark_skip",
+    "ct_create4",
+    "ep_tail_call",
+    "__lookup_ip4_endpoint",
+    "eth_store_daddr",
+    "send_trace_notify",
+    "ctx_redirect_to_proxy4",
+    "lookup_ip4_remote_endpoint",
+    "revalidate_data",
     "get_min_encrypt_key",
-    "is_defined"
+    "set_encrypt_dip",
+    "memcpy",
+    "cilium_dbg3",
+    "lookup_ip4_egress_gw_policy",
+    "redirect_to_proxy",
+    "defined",
+    "get_ct_map4",
+    "lb4_rev_nat",
+    "IS_ERR",
+    "lookup_ip4_endpoint",
+    "policy_clear_mark",
+    "ctx_load_meta",
+    "__encap_and_redirect_with_nodeid",
+    "csum_l4_offset_and_flags"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3078,26 +3078,26 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_handle_ipv4_cont (struct  __ctx_buff *ctx)\n",
@@ -3118,13 +3118,13 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_
     "}\n"
   ],
   "called_function_list": [
-    "ctx_full_len",
-    "update_metrics",
-    "IS_ERR",
-    "send_drop_notify",
-    "handle_ipv4_from_lxc",
     "tail_call_static",
-    "encode_custom_prog_meta"
+    "send_drop_notify",
+    "IS_ERR",
+    "handle_ipv4_from_lxc",
+    "encode_custom_prog_meta",
+    "ctx_full_len",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3183,23 +3183,23 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
   "funcName": "__tail_handle_ipv4",
   "developer_inline_comments": [
     {
-      "start_line": 14,
-      "end_line": 17,
+      "start_line": 1194,
+      "end_line": 1197,
       "text": "/* If IPv4 fragmentation is disabled\n * AND a IPv4 fragmented packet is received,\n * then drop the packet.\n */"
     },
     {
-      "start_line": 60,
-      "end_line": 60,
+      "start_line": 1240,
+      "end_line": 1240,
       "text": "/* ENABLE_L7_LB */"
     },
     {
-      "start_line": 68,
-      "end_line": 68,
+      "start_line": 1248,
+      "end_line": 1248,
       "text": "/* Store state to be picked up on the continuation tail call. */"
     },
     {
-      "start_line": 71,
-      "end_line": 71,
+      "start_line": 1251,
+      "end_line": 1251,
       "text": "/* ENABLE_PER_PACKET_LB */"
     }
   ],
@@ -3212,28 +3212,28 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int __tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -3304,18 +3304,18 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
   "called_function_list": [
     "lb4_local",
     "lb4_ctx_store_state",
-    "ipv4_hdrlen",
-    "defined",
-    "ipv4_is_fragment",
-    "lb4_extract_key",
-    "get_ct_map4",
-    "IS_ERR",
-    "revalidate_data_pull",
-    "lb4_lookup_service",
-    "unlikely",
-    "ipv4_has_l4_header",
     "invoke_tailcall_if",
+    "ipv4_has_l4_header",
+    "ipv4_hdrlen",
+    "revalidate_data_pull",
+    "lb4_extract_key",
     "lb4_svc_is_l7loadbalancer",
+    "defined",
+    "get_ct_map4",
+    "unlikely",
+    "IS_ERR",
+    "lb4_lookup_service",
+    "ipv4_is_fragment",
     "is_valid_lxc_src_ipv4",
     "is_defined"
   ],
@@ -3433,28 +3433,28 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_LXC)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -3467,11 +3467,11 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_LXC)
   ],
   "called_function_list": [
     "ctx_store_meta",
+    "ctx_load_meta",
     "IS_ERR",
     "__tail_handle_ipv4",
-    "ctx_load_meta",
-    "send_drop_notify_error",
-    "handle_ipv4"
+    "handle_ipv4",
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3543,18 +3543,18 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   "funcName": "tail_handle_arp",
   "developer_inline_comments": [
     {
-      "start_line": 2,
-      "end_line": 5,
+      "start_line": 1270,
+      "end_line": 1273,
       "text": "/*\n * ARP responder for ARP requests from container\n * Respond to IPV4_GATEWAY with NODE_MAC\n */"
     },
     {
-      "start_line": 14,
-      "end_line": 14,
+      "start_line": 1282,
+      "end_line": 1282,
       "text": "/* Pass any unknown ARP requests to the Linux stack */"
     },
     {
-      "start_line": 18,
-      "end_line": 27,
+      "start_line": 1286,
+      "end_line": 1295,
       "text": "/*\n\t * The endpoint is expected to make ARP requests for its gateway IP.\n\t * Most of the time, the gateway IP configured on the endpoint is\n\t * IPV4_GATEWAY but it may not be the case if after cilium agent reload\n\t * a different gateway is chosen. In such a case, existing endpoints\n\t * will have an old gateway configured. Since we don't know the IP of\n\t * previous gateways, we answer requests for all IPs with the exception\n\t * of the LXC IP (to avoid specific problems, like IP duplicate address\n\t * detection checks that might run within the container).\n\t */"
     }
   ],
@@ -3569,8 +3569,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_handle_arp (struct  __ctx_buff *ctx)\n",
@@ -3587,15 +3587,15 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
     "}\n"
   ],
   "called_function_list": [
-    "arp_prepare_response",
+    "arp_validate",
     "arp_respond",
+    "__lookup_ip4_endpoint",
+    "ctx_get_tunnel_key",
     "send_trace_notify",
     "unlikely",
-    "__encap_and_redirect_with_nodeid",
+    "arp_prepare_response",
     "send_drop_notify_error",
-    "ctx_get_tunnel_key",
-    "arp_validate",
-    "__lookup_ip4_endpoint"
+    "__encap_and_redirect_with_nodeid"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3684,28 +3684,28 @@ __section("from-container")
   "funcName": "handle_xgress",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 1,
+      "start_line": 1302,
+      "end_line": 1302,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 3,
-      "end_line": 5,
+      "start_line": 1304,
+      "end_line": 1306,
       "text": "/* Attachment/entry point is ingress for veth, egress for ipvlan.\n * It corresponds to packets leaving the container.\n */"
     },
     {
-      "start_line": 30,
-      "end_line": 30,
+      "start_line": 1331,
+      "end_line": 1331,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 46,
-      "end_line": 46,
+      "start_line": 1347,
+      "end_line": 1347,
       "text": "/* ENABLE_ARP_RESPONDER */"
     },
     {
-      "start_line": 47,
-      "end_line": 47,
+      "start_line": 1348,
+      "end_line": 1348,
       "text": "/* ENABLE_IPV4 */"
     }
   ],
@@ -3720,8 +3720,8 @@ __section("from-container")
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int handle_xgress (struct  __ctx_buff *ctx)\n",
@@ -3777,16 +3777,16 @@ __section("from-container")
     "}\n"
   ],
   "called_function_list": [
-    "defined",
     "edt_set_aggregate",
     "bpf_clear_meta",
     "ep_tail_call",
-    "send_trace_notify",
-    "IS_ERR",
-    "validate_ethertype",
+    "defined",
     "send_drop_notify",
-    "bpf_htons",
-    "reset_queue_mapping"
+    "send_trace_notify",
+    "validate_ethertype",
+    "IS_ERR",
+    "reset_queue_mapping",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3867,6 +3867,27 @@ out:
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -3909,27 +3930,6 @@ out:
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -3939,63 +3939,63 @@ out:
   "funcName": "ipv6_policy",
   "developer_inline_comments": [
     {
-      "start_line": 28,
-      "end_line": 30,
+      "start_line": 1387,
+      "end_line": 1389,
       "text": "/* If packet is coming from the ingress proxy we have to skip\n\t * redirection to the ingress proxy as we would loop forever.\n\t */"
     },
     {
-      "start_line": 37,
-      "end_line": 37,
+      "start_line": 1396,
+      "end_line": 1396,
       "text": "/* The map value is zeroed so the map update didn't happen somehow. */"
     },
     {
-      "start_line": 48,
-      "end_line": 48,
+      "start_line": 1407,
+      "end_line": 1407,
       "text": "/* HAVE_DIRECT_ACCESS_TO_MAP_VALUES */"
     },
     {
-      "start_line": 53,
-      "end_line": 56,
+      "start_line": 1412,
+      "end_line": 1415,
       "text": "/* Check it this is return traffic to an egress proxy.\n\t * Do not redirect again if the packet is coming from the egress proxy.\n\t * Always redirect connections that originated from L7 LB.\n\t */"
     },
     {
-      "start_line": 60,
-      "end_line": 62,
+      "start_line": 1419,
+      "end_line": 1421,
       "text": "/* This is a reply, the proxy port does not need to be embedded\n\t\t * into ctx->mark and *proxy_port can be left unset.\n\t\t */"
     },
     {
-      "start_line": 92,
-      "end_line": 94,
+      "start_line": 1451,
+      "end_line": 1453,
       "text": "/* Reply packets and related packets are allowed, all others must be\n\t * permitted by policy.\n\t */"
     },
     {
-      "start_line": 126,
-      "end_line": 126,
+      "start_line": 1485,
+      "end_line": 1485,
       "text": "/* ENABLE_DSR */"
     },
     {
-      "start_line": 139,
-      "end_line": 139,
+      "start_line": 1498,
+      "end_line": 1498,
       "text": "/* ENABLE_NODEPORT */"
     },
     {
-      "start_line": 148,
-      "end_line": 148,
+      "start_line": 1507,
+      "end_line": 1507,
       "text": "/* NOTE: tuple has been invalidated after this */"
     },
     {
-      "start_line": 163,
-      "end_line": 163,
+      "start_line": 1522,
+      "end_line": 1522,
       "text": "/* Not redirected to host / proxy. */"
     },
     {
-      "start_line": 168,
-      "end_line": 168,
+      "start_line": 1527,
+      "end_line": 1527,
       "text": "/* See comment in IPv4 path. */"
     },
     {
-      "start_line": 174,
-      "end_line": 174,
+      "start_line": 1533,
+      "end_line": 1533,
       "text": "/* !ENABLE_ROUTING && TUNNEL_MODE && !ENABLE_NODEPORT */"
     }
   ],
@@ -4015,13 +4015,13 @@ out:
   "output": "static__always_inlineint",
   "helper": [
     "redirect",
-    "map_lookup_elem",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv6_policy (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv6_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused)\n",
@@ -4150,33 +4150,33 @@ out:
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "redirect_to_proxy",
-    "ct_update6_dsr",
+    "bpf_ntohs",
     "ct_update_nodeport",
-    "ipv6_hdrlen",
-    "ct_has_nodeport_egress_entry6",
-    "ctx_change_type",
-    "IS_ERR",
-    "csum_l4_offset_and_flags",
-    "ctx_load_meta",
-    "get_ct_map6",
-    "revalidate_data",
     "tc_index_skip_egress_proxy",
+    "ct_update6_dsr",
+    "redirect_ep",
     "send_trace_notify6",
     "tc_index_skip_ingress_proxy",
     "send_policy_verdict_notify",
-    "ipv6_addr_copy",
-    "bpf_ntohs",
-    "redirect_ep",
-    "unlikely",
     "ct_state_is_from_l7lb",
-    "policy_clear_mark",
-    "handle_dsr_v6",
-    "ct_create6",
-    "memcpy",
+    "unlikely",
     "policy_can_access_ingress",
-    "lb6_rev_nat"
+    "lb6_rev_nat",
+    "ipv6_addr_copy",
+    "ipv6_hdrlen",
+    "ctx_change_type",
+    "ct_has_nodeport_egress_entry6",
+    "ct_create6",
+    "get_ct_map6",
+    "revalidate_data",
+    "handle_dsr_v6",
+    "memcpy",
+    "redirect_to_proxy",
+    "defined",
+    "IS_ERR",
+    "policy_clear_mark",
+    "ctx_load_meta",
+    "csum_l4_offset_and_flags"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4389,13 +4389,13 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   "funcName": "tail_ipv6_policy",
   "developer_inline_comments": [
     {
-      "start_line": 26,
-      "end_line": 26,
+      "start_line": 1563,
+      "end_line": 1563,
       "text": "/* Store meta: essential for proxy ingress, see bpf_host.c */"
     },
     {
-      "start_line": 30,
-      "end_line": 34,
+      "start_line": 1567,
+      "end_line": 1571,
       "text": "/* Make sure we skip the tail call when the packet is being redirected\n\t * to a L7 proxy, to avoid running the custom program twice on the\n\t * incoming packet (before redirecting, and on the way back from the\n\t * proxy).\n\t */"
     }
   ],
@@ -4410,26 +4410,26 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_ipv6_policy (struct  __ctx_buff *ctx)\n",
@@ -4465,15 +4465,15 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   ],
   "called_function_list": [
     "ctx_redirect_to_proxy6",
-    "ipv6_policy",
     "ctx_store_meta",
-    "ctx_full_len",
-    "update_metrics",
-    "IS_ERR",
-    "ctx_load_meta",
-    "send_drop_notify",
+    "ipv6_policy",
     "tail_call_static",
-    "encode_custom_prog_meta"
+    "send_drop_notify",
+    "IS_ERR",
+    "encode_custom_prog_meta",
+    "ctx_load_meta",
+    "ctx_full_len",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4551,18 +4551,18 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
   "funcName": "tail_ipv6_to_endpoint",
   "developer_inline_comments": [
     {
-      "start_line": 17,
-      "end_line": 17,
+      "start_line": 1599,
+      "end_line": 1599,
       "text": "/* Packets from the proxy will already have a real identity. */"
     },
     {
-      "start_line": 27,
-      "end_line": 34,
+      "start_line": 1609,
+      "end_line": 1616,
       "text": "/* When SNAT is enabled on traffic ingressing\n\t\t\t\t * into Cilium, all traffic from the world will\n\t\t\t\t * have a source IP of the host. It will only\n\t\t\t\t * actually be from the host if \"src_identity\"\n\t\t\t\t * (passed into this function) reports the src\n\t\t\t\t * as the host. So we can ignore the ipcache\n\t\t\t\t * if it reports the source as HOST_ID.\n\t\t\t\t */"
     },
     {
-      "start_line": 62,
-      "end_line": 66,
+      "start_line": 1644,
+      "end_line": 1648,
       "text": "/* Make sure we skip the tail call when the packet is being redirected\n\t * to a L7 proxy, to avoid running the custom program twice on the\n\t * incoming packet (before redirecting, and on the way back from the\n\t * proxy).\n\t */"
     }
   ],
@@ -4577,26 +4577,26 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_ipv6_to_endpoint (struct  __ctx_buff *ctx)\n",
@@ -4652,20 +4652,20 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_policy",
-    "ctx_store_meta",
-    "ctx_full_len",
-    "update_metrics",
-    "IS_ERR",
-    "ctx_load_meta",
-    "cilium_dbg",
+    "lookup_ip6_remote_endpoint",
     "revalidate_data",
+    "ctx_store_meta",
     "ctx_redirect_to_proxy_hairpin_ipv6",
+    "ipv6_policy",
+    "tail_call_static",
     "send_drop_notify",
     "identity_is_reserved",
-    "lookup_ip6_remote_endpoint",
-    "tail_call_static",
-    "encode_custom_prog_meta"
+    "IS_ERR",
+    "encode_custom_prog_meta",
+    "ctx_load_meta",
+    "ctx_full_len",
+    "cilium_dbg",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4780,6 +4780,27 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -4822,27 +4843,6 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -4852,88 +4852,88 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
   "funcName": "ipv4_policy",
   "developer_inline_comments": [
     {
-      "start_line": 8,
-      "end_line": 8,
+      "start_line": 1668,
+      "end_line": 1668,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 36,
-      "end_line": 38,
+      "start_line": 1696,
+      "end_line": 1698,
       "text": "/* If packet is coming from the ingress proxy we have to skip\n\t * redirection to the ingress proxy as we would loop forever.\n\t */"
     },
     {
-      "start_line": 44,
-      "end_line": 46,
+      "start_line": 1704,
+      "end_line": 1706,
       "text": "/* Indicate that this is a datagram fragment for which we cannot\n\t * retrieve L4 ports. Do not set flag if we support fragmentation.\n\t */"
     },
     {
-      "start_line": 54,
-      "end_line": 54,
+      "start_line": 1714,
+      "end_line": 1714,
       "text": "/* The map value is zeroed so the map update didn't happen somehow. */"
     },
     {
-      "start_line": 65,
-      "end_line": 65,
+      "start_line": 1725,
+      "end_line": 1725,
       "text": "/* HAVE_DIRECT_ACCESS_TO_MAP_VALUES */"
     },
     {
-      "start_line": 70,
-      "end_line": 73,
+      "start_line": 1730,
+      "end_line": 1733,
       "text": "/* Check it this is return traffic to an egress proxy.\n\t * Do not redirect again if the packet is coming from the egress proxy.\n\t * Always redirect connections that originated from L7 LB.\n\t */"
     },
     {
-      "start_line": 78,
-      "end_line": 80,
+      "start_line": 1738,
+      "end_line": 1740,
       "text": "/* This is a reply, the proxy port does not need to be embedded\n\t\t * into ctx->mark and *proxy_port can be left unset.\n\t\t */"
     },
     {
-      "start_line": 108,
-      "end_line": 113,
+      "start_line": 1768,
+      "end_line": 1773,
       "text": "/* When an endpoint connects to itself via service clusterIP, we need\n\t * to skip the policy enforcement. If we didn't, the user would have to\n\t * define policy rules to allow pods to talk to themselves. We still\n\t * want to execute the conntrack logic so that replies can be correctly\n\t * matched.\n\t */"
     },
     {
-      "start_line": 116,
-      "end_line": 116,
+      "start_line": 1776,
+      "end_line": 1776,
       "text": "/* ENABLE_PER_PACKET_LB && !DISABLE_LOOPBACK_LB */"
     },
     {
-      "start_line": 123,
-      "end_line": 125,
+      "start_line": 1783,
+      "end_line": 1785,
       "text": "/* Reply packets and related packets are allowed, all others must be\n\t * permitted by policy.\n\t */"
     },
     {
-      "start_line": 146,
-      "end_line": 146,
+      "start_line": 1806,
+      "end_line": 1806,
       "text": "/* ENABLE_PER_PACKET_LB && !DISABLE_LOOPBACK_LB */"
     },
     {
-      "start_line": 161,
-      "end_line": 161,
+      "start_line": 1821,
+      "end_line": 1821,
       "text": "/* ENABLE_DSR */"
     },
     {
-      "start_line": 174,
-      "end_line": 174,
+      "start_line": 1834,
+      "end_line": 1834,
       "text": "/* ENABLE_NODEPORT */"
     },
     {
-      "start_line": 183,
-      "end_line": 183,
+      "start_line": 1843,
+      "end_line": 1843,
       "text": "/* NOTE: tuple has been invalidated after this */"
     },
     {
-      "start_line": 198,
-      "end_line": 198,
+      "start_line": 1858,
+      "end_line": 1858,
       "text": "/* Not redirected to host / proxy. */"
     },
     {
-      "start_line": 203,
-      "end_line": 210,
+      "start_line": 1863,
+      "end_line": 1870,
       "text": "/* In tunneling mode, we execute this code to send the packet from\n\t * cilium_vxlan to lxc*. If we're using kube-proxy, we don't want to use\n\t * redirect() because that would bypass conntrack and the reverse DNAT.\n\t * Thus, we send packets to the stack, but since they have the wrong\n\t * Ethernet addresses, we need to mark them as PACKET_HOST or the kernel\n\t * will drop them.\n\t * See #14646 for details.\n\t */"
     },
     {
-      "start_line": 216,
-      "end_line": 216,
+      "start_line": 1876,
+      "end_line": 1876,
       "text": "/* !ENABLE_ROUTING && TUNNEL_MODE && !ENABLE_NODEPORT */"
     }
   ],
@@ -4953,13 +4953,13 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
   "output": "static__always_inlineint",
   "helper": [
     "redirect",
-    "map_lookup_elem",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv4_policy (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv4_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused)\n",
@@ -5106,35 +5106,35 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "redirect_to_proxy",
-    "ct_update_nodeport",
-    "ipv4_hdrlen",
-    "ctx_change_type",
-    "IS_ERR",
-    "csum_l4_offset_and_flags",
-    "lb4_rev_nat",
-    "ctx_load_meta",
-    "revalidate_data",
-    "tc_index_skip_egress_proxy",
-    "tc_index_skip_ingress_proxy",
-    "send_policy_verdict_notify",
-    "send_trace_notify4",
-    "relax_verifier",
     "bpf_ntohs",
+    "send_trace_notify4",
+    "ct_update_nodeport",
+    "tc_index_skip_egress_proxy",
     "redirect_ep",
-    "get_ct_map4",
-    "unlikely",
-    "ct_has_nodeport_egress_entry4",
-    "ct_update4_dsr",
-    "ct_state_is_from_l7lb",
-    "policy_clear_mark",
+    "tc_index_skip_ingress_proxy",
     "handle_dsr_v4",
-    "memcpy",
+    "send_policy_verdict_notify",
+    "ipv4_hdrlen",
+    "ct_state_is_from_l7lb",
+    "unlikely",
+    "policy_can_access_ingress",
     "ipv4_is_fragment",
-    "ct_create4",
     "ipv4_has_l4_header",
-    "policy_can_access_ingress"
+    "ct_create4",
+    "ctx_change_type",
+    "relax_verifier",
+    "ct_has_nodeport_egress_entry4",
+    "revalidate_data",
+    "memcpy",
+    "redirect_to_proxy",
+    "defined",
+    "lb4_rev_nat",
+    "get_ct_map4",
+    "ct_update4_dsr",
+    "IS_ERR",
+    "policy_clear_mark",
+    "ctx_load_meta",
+    "csum_l4_offset_and_flags"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5380,13 +5380,13 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   "funcName": "tail_ipv4_policy",
   "developer_inline_comments": [
     {
-      "start_line": 26,
-      "end_line": 26,
+      "start_line": 1906,
+      "end_line": 1906,
       "text": "/* Store meta: essential for proxy ingress, see bpf_host.c */"
     },
     {
-      "start_line": 30,
-      "end_line": 34,
+      "start_line": 1910,
+      "end_line": 1914,
       "text": "/* Make sure we skip the tail call when the packet is being redirected\n\t * to a L7 proxy, to avoid running the custom program twice on the\n\t * incoming packet (before redirecting, and on the way back from the\n\t * proxy).\n\t */"
     }
   ],
@@ -5401,26 +5401,26 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_ipv4_policy (struct  __ctx_buff *ctx)\n",
@@ -5455,16 +5455,16 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect_to_proxy4",
     "ctx_store_meta",
-    "ctx_full_len",
-    "update_metrics",
-    "IS_ERR",
-    "ctx_load_meta",
-    "ipv4_policy",
-    "send_drop_notify",
     "tail_call_static",
-    "encode_custom_prog_meta"
+    "send_drop_notify",
+    "ipv4_policy",
+    "IS_ERR",
+    "ctx_redirect_to_proxy4",
+    "encode_custom_prog_meta",
+    "ctx_load_meta",
+    "ctx_full_len",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5542,18 +5542,18 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
   "funcName": "tail_ipv4_to_endpoint",
   "developer_inline_comments": [
     {
-      "start_line": 17,
-      "end_line": 17,
+      "start_line": 1942,
+      "end_line": 1942,
       "text": "/* Packets from the proxy will already have a real identity. */"
     },
     {
-      "start_line": 26,
-      "end_line": 33,
+      "start_line": 1951,
+      "end_line": 1958,
       "text": "/* When SNAT is enabled on traffic ingressing\n\t\t\t\t * into Cilium, all traffic from the world will\n\t\t\t\t * have a source IP of the host. It will only\n\t\t\t\t * actually be from the host if \"src_identity\"\n\t\t\t\t * (passed into this function) reports the src\n\t\t\t\t * as the host. So we can ignore the ipcache\n\t\t\t\t * if it reports the source as HOST_ID.\n\t\t\t\t */"
     },
     {
-      "start_line": 61,
-      "end_line": 65,
+      "start_line": 1986,
+      "end_line": 1990,
       "text": "/* Make sure we skip the tail call when the packet is being redirected\n\t * to a L7 proxy, to avoid running the custom program twice on the\n\t * incoming packet (before redirecting, and on the way back from the\n\t * proxy).\n\t */"
     }
   ],
@@ -5568,26 +5568,26 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
   ],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_ipv4_to_endpoint (struct  __ctx_buff *ctx)\n",
@@ -5642,20 +5642,20 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_meta",
-    "ctx_full_len",
-    "update_metrics",
-    "IS_ERR",
-    "ctx_load_meta",
-    "cilium_dbg",
     "revalidate_data",
-    "ipv4_policy",
-    "send_drop_notify",
-    "lookup_ip4_remote_endpoint",
-    "identity_is_reserved",
-    "tail_call_static",
+    "ctx_store_meta",
     "ctx_redirect_to_proxy_hairpin_ipv4",
-    "encode_custom_prog_meta"
+    "tail_call_static",
+    "send_drop_notify",
+    "ipv4_policy",
+    "identity_is_reserved",
+    "IS_ERR",
+    "lookup_ip4_remote_endpoint",
+    "encode_custom_prog_meta",
+    "ctx_load_meta",
+    "ctx_full_len",
+    "cilium_dbg",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5786,23 +5786,23 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
   "funcName": "handle_policy",
   "developer_inline_comments": [
     {
-      "start_line": 8,
-      "end_line": 8,
+      "start_line": 2010,
+      "end_line": 2010,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 10,
-      "end_line": 20,
+      "start_line": 2012,
+      "end_line": 2022,
       "text": "/* Handle policy decisions as the packet makes its way towards the endpoint.\n * Previously, the packet may have come from another local endpoint, another\n * endpoint in the cluster, or from the big blue room (as identified by the\n * contents of ctx / CB_SRC_LABEL. Determine whether the traffic may be\n * passed into the endpoint or if it needs further inspection by a userspace\n * proxy.\n *\n * This program will be tail called to in ipv{4,6}_local_delivery from either\n * bpf_host, bpf_overlay (if coming from the tunnel), or bpf_lxc (if coming\n * from another local pod).\n */"
     },
     {
-      "start_line": 40,
-      "end_line": 40,
+      "start_line": 2042,
+      "end_line": 2042,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 47,
-      "end_line": 47,
+      "start_line": 2049,
+      "end_line": 2049,
       "text": "/* ENABLE_IPV4 */"
     }
   ],
@@ -5815,28 +5815,28 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int handle_policy (struct  __ctx_buff *ctx)\n",
@@ -5874,14 +5874,14 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
     "}\n"
   ],
   "called_function_list": [
-    "IS_ERR",
-    "ctx_load_meta",
-    "validate_ethertype",
+    "invoke_tailcall_if",
     "__and",
     "send_drop_notify",
-    "invoke_tailcall_if",
-    "bpf_htons",
-    "is_defined"
+    "validate_ethertype",
+    "IS_ERR",
+    "ctx_load_meta",
+    "is_defined",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5963,28 +5963,28 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
   "funcName": "handle_policy_egress",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 7,
+      "start_line": 2063,
+      "end_line": 2069,
       "text": "/* Handle policy decisions as the packet makes its way from the\n * endpoint.  Previously, the packet has come from the same endpoint,\n * but was redirected to a L7 LB.\n *\n * This program will be tail called from bpf_host for packets sent by\n * a L7 LB.\n */"
     },
     {
-      "start_line": 22,
-      "end_line": 22,
+      "start_line": 2084,
+      "end_line": 2084,
       "text": "/* do not count this traffic again */"
     },
     {
-      "start_line": 24,
-      "end_line": 24,
+      "start_line": 2086,
+      "end_line": 2086,
       "text": "/*ifindex*/"
     },
     {
-      "start_line": 33,
-      "end_line": 33,
+      "start_line": 2095,
+      "end_line": 2095,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 39,
-      "end_line": 39,
+      "start_line": 2101,
+      "end_line": 2101,
       "text": "/* ENABLE_IPV4 */"
     }
   ],
@@ -5997,28 +5997,28 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int handle_policy_egress (struct  __ctx_buff *ctx)\n",
@@ -6063,10 +6063,10 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
     "ctx_store_meta",
     "edt_set_aggregate",
     "ep_tail_call",
-    "send_trace_notify",
-    "IS_ERR",
-    "validate_ethertype",
     "send_drop_notify",
+    "send_trace_notify",
+    "validate_ethertype",
+    "IS_ERR",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -6171,28 +6171,28 @@ __section("to-container")
   "funcName": "handle_to_container",
   "developer_inline_comments": [
     {
-      "start_line": 2,
-      "end_line": 4,
+      "start_line": 2116,
+      "end_line": 2118,
       "text": "/* Attached to the lxc device on the way to the container, only if endpoint\n * routes are enabled.\n */"
     },
     {
-      "start_line": 34,
-      "end_line": 41,
+      "start_line": 2148,
+      "end_line": 2155,
       "text": "/* If the packet comes from the hostns and per-endpoint routes are enabled,\n\t * jump to bpf_host to enforce egress host policies before anything else.\n\t *\n\t * We will jump back to bpf_lxc once host policies are enforced. Whenever\n\t * we call inherit_identity_from_host, the packet mark is cleared. Thus,\n\t * when we jump back, the packet mark will have been cleared and the\n\t * identity won't match HOST_ID anymore.\n\t */"
     },
     {
-      "start_line": 48,
-      "end_line": 48,
+      "start_line": 2162,
+      "end_line": 2162,
       "text": "/* ENABLE_HOST_FIREWALL && !ENABLE_ROUTING */"
     },
     {
-      "start_line": 63,
-      "end_line": 63,
+      "start_line": 2177,
+      "end_line": 2177,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 69,
-      "end_line": 69,
+      "start_line": 2183,
+      "end_line": 2183,
       "text": "/* ENABLE_IPV4 */"
     }
   ],
@@ -6208,8 +6208,8 @@ __section("to-container")
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int handle_to_container (struct  __ctx_buff *ctx)\n",
@@ -6281,18 +6281,18 @@ __section("to-container")
     "}\n"
   ],
   "called_function_list": [
-    "defined",
     "ctx_store_meta",
     "bpf_clear_meta",
-    "ep_tail_call",
-    "send_trace_notify",
-    "IS_ERR",
-    "validate_ethertype",
-    "bpf_htons",
-    "send_drop_notify",
-    "inherit_identity_from_host",
     "tail_call_static",
-    "tail_call_dynamic"
+    "ep_tail_call",
+    "defined",
+    "send_drop_notify",
+    "send_trace_notify",
+    "validate_ethertype",
+    "IS_ERR",
+    "inherit_identity_from_host",
+    "tail_call_dynamic",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

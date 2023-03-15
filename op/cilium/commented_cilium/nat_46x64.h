@@ -54,28 +54,28 @@
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused bool is_v4_in_v6 (const union v6addr *daddr)\n",
@@ -145,28 +145,28 @@ static __always_inline __maybe_unused bool is_v4_in_v6(const union v6addr *daddr
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void build_v4_in_v6 (union v6addr *daddr, __be32 v4)\n",
@@ -225,28 +225,28 @@ void build_v4_in_v6(union v6addr *daddr, __be32 v4)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void build_v4_from_v6 (const union v6addr *v6, __be32 *daddr)\n",
@@ -296,28 +296,28 @@ void build_v4_from_v6(const union v6addr *v6, __be32 *daddr)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int get_csum_offset (__u8 protocol)\n",
@@ -428,13 +428,13 @@ static __always_inline int get_csum_offset(__u8 protocol)
   "funcName": "icmp4_to_icmp6",
   "developer_inline_comments": [
     {
-      "start_line": 38,
-      "end_line": 38,
+      "start_line": 113,
+      "end_line": 113,
       "text": "/* FIXME */"
     },
     {
-      "start_line": 68,
-      "end_line": 68,
+      "start_line": 143,
+      "end_line": 143,
       "text": "/* FIXME */"
     }
   ],
@@ -449,13 +449,13 @@ static __always_inline int get_csum_offset(__u8 protocol)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int icmp4_to_icmp6 (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -537,10 +537,10 @@ static __always_inline int get_csum_offset(__u8 protocol)
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohs",
     "ctx_store_bytes",
     "ctx_load_bytes",
-    "bpf_htonl"
+    "bpf_htonl",
+    "bpf_ntohs"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -681,8 +681,8 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
   "funcName": "icmp6_to_icmp4",
   "developer_inline_comments": [
     {
-      "start_line": 42,
-      "end_line": 42,
+      "start_line": 197,
+      "end_line": 197,
       "text": "/* FIXME */"
     }
   ],
@@ -697,13 +697,13 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int icmp6_to_icmp4 (struct  __ctx_buff *ctx, int nh_off)\n",
@@ -784,10 +784,10 @@ static __always_inline int icmp4_to_icmp6(struct __ctx_buff *ctx, int nh_off)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_bytes",
-    "bpf_htons",
     "bpf_ntohl",
-    "ctx_load_bytes"
+    "ctx_load_bytes",
+    "ctx_store_bytes",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -937,13 +937,13 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int ipv4_to_ipv6 (struct  __ctx_buff *ctx, int nh_off, const union v6addr *src6, const union v6addr *dst6)\n",
@@ -1001,15 +1001,15 @@ static __always_inline int icmp6_to_icmp4(struct __ctx_buff *ctx, int nh_off)
     "}\n"
   ],
   "called_function_list": [
-    "icmp4_to_icmp6",
-    "bpf_ntohs",
     "ipv4_hdrlen",
     "get_csum_offset",
+    "bpf_ntohs",
     "ctx_store_bytes",
-    "ctx_change_proto",
+    "icmp4_to_icmp6",
+    "ipv6_pseudohdr_checksum",
     "ctx_load_bytes",
-    "bpf_htons",
-    "ipv6_pseudohdr_checksum"
+    "ctx_change_proto",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1127,8 +1127,8 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
   "funcName": "ipv6_to_ipv4",
   "developer_inline_comments": [
     {
-      "start_line": 13,
-      "end_line": 13,
+      "start_line": 302,
+      "end_line": 302,
       "text": "/* Drop frames which carry extensions headers */"
     }
   ],
@@ -1144,13 +1144,13 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int ipv6_to_ipv4 (struct  __ctx_buff *ctx, __be32 src4, __be32 dst4)\n",
@@ -1207,17 +1207,17 @@ static __always_inline int ipv4_to_ipv6(struct __ctx_buff *ctx, int nh_off,
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohs",
+    "ipv6_hdrlen",
+    "csum_sub",
     "get_csum_offset",
+    "bpf_ntohs",
     "ctx_store_bytes",
-    "ctx_change_proto",
-    "offsetof",
+    "ipv6_pseudohdr_checksum",
     "icmp6_to_icmp4",
     "ctx_load_bytes",
-    "ipv6_hdrlen",
-    "bpf_htons",
-    "ipv6_pseudohdr_checksum",
-    "csum_sub"
+    "offsetof",
+    "ctx_change_proto",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

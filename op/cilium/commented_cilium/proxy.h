@@ -16,6 +16,27 @@
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -40,27 +61,6 @@
           ],
           "capabilities": [
             "read_sys_info"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
           ]
         }
       ]
@@ -93,14 +93,14 @@
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "skc_lookup_tcp",
+    "sk_release",
     "CTX_ACT_OK",
-    "sk_release"
+    "skc_lookup_tcp"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int assign_socket_tcp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established)\n",
@@ -129,8 +129,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "sk_assign",
-    "cilium_dbg"
+    "cilium_dbg",
+    "sk_assign"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -255,8 +255,8 @@ out:
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int assign_socket_udp (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, bool established __maybe_unused)\n",
@@ -280,8 +280,8 @@ out:
     "}\n"
   ],
   "called_function_list": [
-    "sk_assign",
-    "cilium_dbg"
+    "cilium_dbg",
+    "sk_assign"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -335,8 +335,8 @@ out:
   "funcName": "assign_socket",
   "developer_inline_comments": [
     {
-      "start_line": 6,
-      "end_line": 10,
+      "start_line": 74,
+      "end_line": 78,
       "text": "/* Workaround: While the below functions are nearly identical in C\n\t * implementation, the 'struct bpf_sock *' has a different verifier\n\t * pointer type, which means we can't fold these implementations\n\t * together.\n\t */"
     }
   ],
@@ -353,28 +353,28 @@ out:
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int assign_socket (struct  __ctx_buff *ctx, struct bpf_sock_tuple *tuple, __u32 len, __u8 nexthdr, bool established)\n",
@@ -389,8 +389,8 @@ out:
     "}\n"
   ],
   "called_function_list": [
-    "assign_socket_tcp",
-    "assign_socket_udp"
+    "assign_socket_udp",
+    "assign_socket_tcp"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -442,8 +442,8 @@ assign_socket(struct __ctx_buff *ctx,
   "funcName": "combine_ports",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 4,
+      "start_line": 88,
+      "end_line": 91,
       "text": "/**\n * combine_ports joins the specified ports in a manner consistent with\n * pkg/monitor/dataapth_debug.go to report the ports ino monitor messages.\n */"
     }
   ],
@@ -457,28 +457,28 @@ assign_socket(struct __ctx_buff *ctx,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u32 combine_ports (__u16 dport, __u16 sport)\n",
@@ -636,53 +636,53 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   "funcName": "__ctx_redirect_to_proxy",
   "developer_inline_comments": [
     {
-      "start_line": 3,
-      "end_line": 11,
+      "start_line": 100,
+      "end_line": 108,
       "text": "/**\t\t\t\t\t\t\t\t\t\t\\\n * ctx_redirect_to_proxy_ingress4 / ctx_redirect_to_proxy_ingress6\t\t\\\n * @ctx\t\t\tpointer to program context\t\t\t\t\\\n * @tuple\t\tpointer to *scratch buffer* with packet tuple\t\t\\\n * @proxy_port\t\tport to redirect traffic towards\t\t\t\\\n *\t\t\t\t\t\t\t\t\t\t\\\n * Prefetch the proxy socket and associate with the ctx. Must be run on tc\t\\\n * ingress. Will modify 'tuple'!\t\t\t\t\t\t\\\n */"
     },
     {
-      "start_line": 21,
-      "end_line": 26,
+      "start_line": 118,
+      "end_line": 123,
       "text": "/* The provided 'ct_tuple' is in the internal Cilium format, which\t\\\n\t * reverses the source/destination ports as compared with the actual\t\\\n\t * packet contents. 'bpf_sock_tuple' in the eBPF API needs these to\t\\\n\t * match normal packet ordering to successfully look up the\t\t\\\n\t * corresponding socket. So, swap them here.\t\t\t\t\\\n\t */"
     },
     {
-      "start_line": 31,
-      "end_line": 31,
+      "start_line": 128,
+      "end_line": 128,
       "text": "/* Look for established socket locally first */"
     },
     {
-      "start_line": 39,
-      "end_line": 39,
+      "start_line": 136,
+      "end_line": 136,
       "text": "/* if there's no established connection, locate the tproxy socket */"
     },
     {
-      "start_line": 62,
-      "end_line": 62,
+      "start_line": 159,
+      "end_line": 159,
       "text": "/* ENABLE_TPROXY */"
     },
     {
-      "start_line": 64,
-      "end_line": 92,
+      "start_line": 161,
+      "end_line": 189,
       "text": "/**\n * __ctx_redirect_to_proxy configures the ctx with the proxy mark and proxy\n * port number to ensure that the stack redirects the packet into the proxy.\n *\n * It is called from both ingress and egress side of endpoint devices.\n *\n * In regular veth mode:\n * * To apply egress policy, the egressing endpoint configures the mark,\n *   which returns CTX_ACT_OK to pass the packet to the stack in the context\n *   of the source device (stack ingress).\n * * To apply ingress policy, the egressing endpoint or netdev program tail\n *   calls into the policy program which configures the mark here, which\n *   returns CTX_ACT_OK to pass the packet to the stack in the context of the\n *   source device (netdev or egress endpoint device, stack ingress).\n *\n * In chaining mode with bridged endpoint devices:\n * * To apply egress policy, the egressing endpoint configures the mark,\n *   which is propagated via ctx_store_meta() in the caller. The redirect() call\n *   here redirects the packet to the ingress TC filter configured on the bridge\n *   master device.\n * * To apply ingress policy, the stack transmits the packet into the bridge\n *   master device which tail calls into the policy program for the ingress\n *   endpoint, which configures mark and cb[] as described for the egress path.\n *   The redirect() call here redirects the packet to the ingress TC filter\n *   configured on the bridge master device.\n * * In both cases for bridged endpoint devices, the bridge master device has\n *   a BPF program configured upon ingress to transfer the cb[] to the mark\n *   before passing the traffic up to the stack towards the proxy.\n */"
     },
     {
-      "start_line": 114,
-      "end_line": 114,
+      "start_line": 211,
+      "end_line": 211,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 118,
-      "end_line": 118,
+      "start_line": 215,
+      "end_line": 215,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 120,
-      "end_line": 120,
+      "start_line": 217,
+      "end_line": 217,
       "text": "/* ENABLE_TPROXY */"
     },
     {
-      "start_line": 121,
-      "end_line": 121,
+      "start_line": 218,
+      "end_line": 218,
       "text": "/* Required for ingress packets from overlay */"
     }
   ],
@@ -701,8 +701,8 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int __ctx_redirect_to_proxy (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused, bool ipv4 __maybe_unused)\n",
@@ -740,10 +740,10 @@ CTX_REDIRECT_FN(ctx_redirect_to_proxy_ingress6, struct ipv6_ct_tuple, ipv6,
     "}\n"
   ],
   "called_function_list": [
+    "ctx_change_type",
     "ctx_redirect_to_proxy_ingress6",
-    "ctx_redirect_to_proxy_ingress4",
     "cilium_dbg",
-    "ctx_change_type"
+    "ctx_redirect_to_proxy_ingress4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -816,28 +816,28 @@ __ctx_redirect_to_proxy(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy4 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)\n",
@@ -895,28 +895,28 @@ ctx_redirect_to_proxy4(struct __ctx_buff *ctx, void *tuple __maybe_unused,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy6 (struct  __ctx_buff *ctx, void * tuple __maybe_unused, __be16 proxy_port, bool from_host __maybe_unused)\n",
@@ -1024,48 +1024,48 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   "funcName": "ctx_redirect_to_proxy_first",
   "developer_inline_comments": [
     {
-      "start_line": 4,
-      "end_line": 11,
+      "start_line": 242,
+      "end_line": 249,
       "text": "/**\t\t\t\t\t\t\t\t\t\\\n * extract_tuple4 / extract_tuple6\t\t\t\t\t\\\n *\t\t\t\t\t\t\t\t\t\\\n * Extracts the packet 5-tuple into 'tuple'.\t\t\t\t\\\n *\t\t\t\t\t\t\t\t\t\\\n * Note that it doesn't fully initialize 'tuple' as the directionality\t\\\n * bit is unused in the proxy paths.\t\t\t\t\t\\\n */"
     },
     {
-      "start_line": 31,
-      "end_line": 31,
+      "start_line": 269,
+      "end_line": 269,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 34,
-      "end_line": 34,
+      "start_line": 272,
+      "end_line": 272,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 35,
-      "end_line": 35,
+      "start_line": 273,
+      "end_line": 273,
       "text": "/* ENABLE_TPROXY */"
     },
     {
-      "start_line": 37,
-      "end_line": 41,
+      "start_line": 275,
+      "end_line": 279,
       "text": "/**\n * ctx_redirect_to_proxy_first() applies changes to the context to forward\n * the packet towards the proxy. It is designed to run as the first function\n * that accesses the context from the current BPF program.\n */"
     },
     {
-      "start_line": 49,
-      "end_line": 56,
+      "start_line": 287,
+      "end_line": 294,
       "text": "/**\n\t * For reply traffic to egress proxy for a local endpoint, we skip the\n\t * policy & proxy_port lookup and just hairpin & rely on local stack\n\t * routing via ctx->mark to ensure that the return traffic reaches the\n\t * proxy. This is only relevant for endpoint-routes mode but we don't\n\t * have a macro for this so the logic applies unconditionally here.\n\t * See ct_state.proxy_redirect usage in bpf_lxc.c for more info.\n\t */"
     },
     {
-      "start_line": 75,
-      "end_line": 75,
+      "start_line": 313,
+      "end_line": 313,
       "text": "/* ENABLE_IPV6 */"
     },
     {
-      "start_line": 86,
-      "end_line": 86,
+      "start_line": 324,
+      "end_line": 324,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 90,
-      "end_line": 90,
+      "start_line": 328,
+      "end_line": 328,
       "text": "/* ENABLE_TPROXY */"
     }
   ],
@@ -1081,8 +1081,8 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ctx_redirect_to_proxy_first (struct  __ctx_buff *ctx, __be16 proxy_port)\n",
@@ -1138,14 +1138,14 @@ IP_TUPLE_EXTRACT_FN(extract_tuple6, ipv6)
     "}\n"
   ],
   "called_function_list": [
+    "extract_tuple4",
+    "extract_tuple6",
     "defined",
     "ctx_redirect_to_proxy_ingress4",
     "ctx_change_type",
     "validate_ethertype",
     "cilium_dbg",
     "ctx_redirect_to_proxy_ingress6",
-    "extract_tuple6",
-    "extract_tuple4",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -1237,8 +1237,8 @@ out: __maybe_unused
   "funcName": "tc_index_skip_ingress_proxy",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 3,
+      "start_line": 339,
+      "end_line": 341,
       "text": "/**\n * tc_index_skip_ingress_proxy - returns true if packet originates from ingress proxy\n */"
     }
   ],
@@ -1251,28 +1251,28 @@ out: __maybe_unused
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool tc_index_skip_ingress_proxy (struct  __ctx_buff *ctx)\n",
@@ -1331,8 +1331,8 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "funcName": "tc_index_skip_egress_proxy",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 3,
+      "start_line": 353,
+      "end_line": 355,
       "text": "/**\n * tc_index_skip_egress_proxy - returns true if packet originates from egress proxy\n */"
     }
   ],
@@ -1345,28 +1345,28 @@ static __always_inline bool tc_index_skip_ingress_proxy(struct __ctx_buff *ctx)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool tc_index_skip_egress_proxy (struct  __ctx_buff *ctx)\n",

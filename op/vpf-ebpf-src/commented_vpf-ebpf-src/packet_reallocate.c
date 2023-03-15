@@ -72,10 +72,10 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
     "sched_act",
-    "sk_skb",
-    "sched_cls"
+    "lwt_xmit",
+    "sk_skb"
   ],
   "source": [
     "int reallocate_invalidates (struct sk_buff *ctx)\n",

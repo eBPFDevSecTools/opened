@@ -150,10 +150,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "parse_icmpv6",
-    "bpf_ntohs",
     "memcpy",
-    "parse_icmp"
+    "bpf_ntohs",
+    "parse_icmp",
+    "parse_icmpv6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -309,10 +309,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "}\n"
   ],
   "called_function_list": [
-    "decap_v6",
-    "recirculate",
     "decap_v4",
-    "decrement_ttl"
+    "recirculate",
+    "decrement_ttl",
+    "decap_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -404,18 +404,18 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "funcName": "process_encaped_gue_pckt",
   "developer_inline_comments": [
     {
-      "start_line": 12,
-      "end_line": 12,
+      "start_line": 133,
+      "end_line": 133,
       "text": "// 1 byte for gue v1 marker to figure out what is internal protocol"
     },
     {
-      "start_line": 19,
-      "end_line": 19,
+      "start_line": 140,
+      "end_line": 140,
       "text": "// inner packet is ipv6 as well"
     },
     {
-      "start_line": 24,
-      "end_line": 24,
+      "start_line": 145,
+      "end_line": 145,
       "text": "// inner packet is ipv4"
     }
   ],
@@ -542,6 +542,25 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -584,25 +603,6 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -612,8 +612,8 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   "funcName": "process_packet",
   "developer_inline_comments": [
     {
-      "start_line": 57,
-      "end_line": 57,
+      "start_line": 219,
+      "end_line": 219,
       "text": "// INLINE_DECAP_GUE"
     }
   ],
@@ -630,8 +630,8 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "XDP_PASS"
+    "XDP_PASS",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -693,28 +693,28 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "process_encaped_gue_pckt",
-    "connection_table_lookup",
     "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "REPORT_TCP_NONSYN_LRUMISS",
+    "send_icmp_too_big",
+    "process_l3_headers",
+    "tcp_hdr_opt_lookup",
     "process_encaped_ipip_pckt",
+    "perform_global_lru_lookup",
+    "parse_tcp",
+    "PCKT_ENCAP_V6",
+    "increment_quic_cid_drop_no_real",
+    "parse_udp",
+    "connection_table_lookup",
+    "bpf_htons",
+    "memcpy",
+    "parse_quic",
+    "REPORT_PACKET_TOOBIG",
+    "REPORT_TCP_NONSYN_LRUMISS",
+    "check_decap_dst",
+    "get_packet_dst",
+    "process_encaped_gue_pckt",
     "PCKT_ENCAP_V4",
     "increment_quic_cid_drop_real_0",
-    "check_decap_dst",
-    "PCKT_ENCAP_V6",
-    "process_l3_headers",
-    "parse_udp",
-    "increment_quic_cid_drop_no_real",
-    "perform_global_lru_lookup",
-    "memcpy",
-    "get_packet_dst",
-    "bpf_htons",
-    "send_icmp_too_big",
-    "increment_quic_cid_version_stats",
-    "REPORT_PACKET_TOOBIG",
-    "parse_tcp",
-    "parse_quic",
-    "tcp_hdr_opt_lookup"
+    "increment_quic_cid_version_stats"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -802,25 +802,6 @@ SEC("decap")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -838,6 +819,25 @@ SEC("decap")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -847,13 +847,13 @@ SEC("decap")
   "funcName": "xdpdecap",
   "developer_inline_comments": [
     {
-      "start_line": 11,
-      "end_line": 11,
+      "start_line": 233,
+      "end_line": 233,
       "text": "// bogus packet, len less than minimum ethernet frame size"
     },
     {
-      "start_line": 22,
-      "end_line": 22,
+      "start_line": 244,
+      "end_line": 244,
       "text": "// pass to tcp/ip stack"
     }
   ],
@@ -864,8 +864,8 @@ SEC("decap")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"

@@ -128,26 +128,26 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_perf_event_output"
+    "bpf_perf_event_output",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sock_ops",
-    "lwt_out",
-    "sched_act",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "raw_tracepoint",
+    "socket_filter",
     "lwt_in",
-    "kprobe",
     "cgroup_skb",
     "sk_skb",
-    "sched_cls",
+    "lwt_xmit",
+    "sock_ops",
+    "kprobe",
     "tracepoint",
-    "lwt_seg6local",
+    "sched_act",
+    "perf_event",
+    "sched_cls",
+    "raw_tracepoint",
     "xdp",
-    "socket_filter",
-    "lwt_xmit"
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out"
   ],
   "source": [
     "static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)\n",
@@ -251,8 +251,8 @@ __attribute__((__always_inline__)) static inline void submit_event(
   "funcName": "recirculate",
   "developer_inline_comments": [
     {
-      "start_line": 7,
-      "end_line": 7,
+      "start_line": 78,
+      "end_line": 78,
       "text": "// we should never hit this"
     }
   ],
@@ -334,13 +334,13 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "funcName": "decrement_ttl",
   "developer_inline_comments": [
     {
-      "start_line": 13,
-      "end_line": 13,
+      "start_line": 94,
+      "end_line": 94,
       "text": "// ttl 0"
     },
     {
-      "start_line": 23,
-      "end_line": 23,
+      "start_line": 104,
+      "end_line": 104,
       "text": "// ttl 0"
     }
   ],

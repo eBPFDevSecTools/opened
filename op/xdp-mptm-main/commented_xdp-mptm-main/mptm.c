@@ -168,8 +168,8 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect_map",
     "bpf_map_lookup_elem",
+    "bpf_redirect_map",
     "bpf_redirect",
     "XDP_PASS"
   ],
@@ -217,13 +217,13 @@ SEC("mptm_encap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "likely",
-    "encap_geneve",
-    "encap_vlan",
-    "bpf_debug",
-    "xdp_stats_record_action",
     "mptm_print",
-    "parse_pkt_headers"
+    "encap_geneve",
+    "parse_pkt_headers",
+    "xdp_stats_record_action",
+    "encap_vlan",
+    "likely",
+    "bpf_debug"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -340,6 +340,25 @@ SEC("mptm_decap_xdp")
       ]
     },
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "update_pkt",
       "update_pkt": [
         {
@@ -357,25 +376,6 @@ SEC("mptm_decap_xdp")
           ],
           "capabilities": [
             "update_pkt"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -407,53 +407,53 @@ SEC("mptm_decap_xdp")
   "funcName": "mptm_decap",
   "developer_inline_comments": [
     {
-      "start_line": 3,
-      "end_line": 3,
+      "start_line": 103,
+      "end_line": 103,
       "text": "//default action"
     },
     {
-      "start_line": 5,
-      "end_line": 5,
+      "start_line": 105,
+      "end_line": 105,
       "text": "/* header pointers */"
     },
     {
-      "start_line": 16,
-      "end_line": 16,
+      "start_line": 116,
+      "end_line": 116,
       "text": "// GENEVE packet"
     },
     {
-      "start_line": 17,
-      "end_line": 17,
+      "start_line": 117,
+      "end_line": 117,
       "text": "// Check inner packet if there is a rule corresponding to"
     },
     {
-      "start_line": 18,
-      "end_line": 18,
+      "start_line": 118,
+      "end_line": 118,
       "text": "// inner source which will be source for us as we received the packet"
     },
     {
-      "start_line": 29,
-      "end_line": 29,
+      "start_line": 129,
+      "end_line": 129,
       "text": "/* recalculate the data pointers */"
     },
     {
-      "start_line": 33,
-      "end_line": 33,
+      "start_line": 133,
+      "end_line": 133,
       "text": "/* header pointers */"
     },
     {
-      "start_line": 40,
-      "end_line": 40,
+      "start_line": 140,
+      "end_line": 140,
       "text": "/* map values and tunnel informations */"
     },
     {
-      "start_line": 44,
-      "end_line": 44,
+      "start_line": 144,
+      "end_line": 144,
       "text": "// keep redirect flags zero for now"
     },
     {
-      "start_line": 46,
-      "end_line": 46,
+      "start_line": 146,
+      "end_line": 146,
       "text": "/* Packet is coming from outside so source and dest must be inversed */"
     }
   ],
@@ -466,11 +466,11 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
     "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head",
-    "bpf_redirect_map",
     "XDP_DROP",
+    "bpf_redirect_map",
+    "bpf_redirect",
+    "bpf_xdp_adjust_head",
     "XDP_PASS"
   ],
   "compatibleHookpoints": [
@@ -524,9 +524,9 @@ SEC("mptm_decap_xdp")
   ],
   "called_function_list": [
     "mptm_print",
-    "parse_pkt_headers",
     "xdp_stats_record_action",
-    "unlikely"
+    "unlikely",
+    "parse_pkt_headers"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

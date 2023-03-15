@@ -156,29 +156,29 @@ const u8 ip4in6[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff};
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sock_ops",
-    "lwt_xmit",
-    "sk_skb",
-    "xdp",
     "perf_event",
-    "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
     "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "sk_skb",
+    "lwt_out",
+    "cgroup_sock",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sk_msg",
     "lwt_seg6local",
+    "sched_act",
+    "kprobe",
     "flow_dissector",
-    "tracepoint"
+    "sched_cls",
+    "cgroup_device",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_in"
   ],
   "source": [
     "static inline void set_flags (struct tcphdr *th, u16 *flags)\n",
@@ -280,29 +280,29 @@ static inline void set_flags(struct tcphdr *th, u16 *flags) {
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sock_ops",
-    "lwt_xmit",
-    "sk_skb",
-    "xdp",
     "perf_event",
-    "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
     "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "sk_skb",
+    "lwt_out",
+    "cgroup_sock",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sk_msg",
     "lwt_seg6local",
+    "sched_act",
+    "kprobe",
     "flow_dissector",
-    "tracepoint"
+    "sched_cls",
+    "cgroup_device",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_in"
   ],
   "source": [
     "static inline int fill_iphdr (struct iphdr *ip, void *data_end, flow_id *id, u16 *flags)\n",
@@ -344,8 +344,8 @@ static inline void set_flags(struct tcphdr *th, u16 *flags) {
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_memcpy",
     "set_flags",
+    "__builtin_memcpy",
     "__bpf_ntohs"
   ],
   "call_depth": -1,
@@ -410,8 +410,8 @@ static inline int fill_iphdr(struct iphdr *ip, void *data_end, flow_id *id, u16 
   "funcName": "fill_ip6hdr",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 1,
+      "start_line": 140,
+      "end_line": 140,
       "text": "// sets flow fields from IPv6 header information"
     }
   ],
@@ -426,29 +426,29 @@ static inline int fill_iphdr(struct iphdr *ip, void *data_end, flow_id *id, u16 
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sock_ops",
-    "lwt_xmit",
-    "sk_skb",
-    "xdp",
     "perf_event",
-    "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
     "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "sk_skb",
+    "lwt_out",
+    "cgroup_sock",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sk_msg",
     "lwt_seg6local",
+    "sched_act",
+    "kprobe",
     "flow_dissector",
-    "tracepoint"
+    "sched_cls",
+    "cgroup_device",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_in"
   ],
   "source": [
     "static inline int fill_ip6hdr (struct ipv6hdr *ip, void *data_end, flow_id *id, u16 *flags)\n",
@@ -488,8 +488,8 @@ static inline int fill_iphdr(struct iphdr *ip, void *data_end, flow_id *id, u16 
     "}\n"
   ],
   "called_function_list": [
-    "__bpf_ntohs",
-    "set_flags"
+    "set_flags",
+    "__bpf_ntohs"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -550,13 +550,13 @@ static inline int fill_ip6hdr(struct ipv6hdr *ip, void *data_end, flow_id *id, u
   "funcName": "fill_ethhdr",
   "developer_inline_comments": [
     {
-      "start_line": 16,
-      "end_line": 16,
+      "start_line": 188,
+      "end_line": 188,
       "text": "// TODO : Need to implement other specific ethertypes if needed"
     },
     {
-      "start_line": 17,
-      "end_line": 17,
+      "start_line": 189,
+      "end_line": 189,
       "text": "// For now other parts of flow id remain zero"
     }
   ],
@@ -571,29 +571,29 @@ static inline int fill_ip6hdr(struct ipv6hdr *ip, void *data_end, flow_id *id, u
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sock_ops",
-    "lwt_xmit",
-    "sk_skb",
-    "xdp",
     "perf_event",
-    "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
     "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "sk_skb",
+    "lwt_out",
+    "cgroup_sock",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sk_msg",
     "lwt_seg6local",
+    "sched_act",
+    "kprobe",
     "flow_dissector",
-    "tracepoint"
+    "sched_cls",
+    "cgroup_device",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_in"
   ],
   "source": [
     "static inline int fill_ethhdr (struct ethhdr *eth, void *data_end, flow_id *id, u16 *flags)\n",
@@ -623,11 +623,11 @@ static inline int fill_ip6hdr(struct ipv6hdr *ip, void *data_end, flow_id *id, u
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_memcpy",
     "fill_iphdr",
-    "__bpf_ntohs",
     "memset",
-    "fill_ip6hdr"
+    "fill_ip6hdr",
+    "__bpf_ntohs",
+    "__builtin_memcpy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -675,70 +675,6 @@ static inline int fill_ethhdr(struct ethhdr *eth, void *data_end, flow_id *id, u
  OPENED COMMENT BEGIN 
 {
   "capabilities": [
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
     {
       "capability": "read_sys_info",
       "read_sys_info": [
@@ -823,6 +759,70 @@ static inline int fill_ethhdr(struct ethhdr *eth, void *data_end, flow_id *id, u
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -832,93 +832,93 @@ static inline int fill_ethhdr(struct ethhdr *eth, void *data_end, flow_id *id, u
   "funcName": "flow_monitor",
   "developer_inline_comments": [
     {
-      "start_line": 2,
-      "end_line": 2,
+      "start_line": 200,
+      "end_line": 200,
       "text": "// If sampling is defined, will only parse 1 out of \"sampling\" flows"
     },
     {
-      "start_line": 19,
-      "end_line": 19,
+      "start_line": 217,
+      "end_line": 217,
       "text": "// TODO: we need to add spinlock here when we deprecate versions prior to 5.1, or provide"
     },
     {
-      "start_line": 20,
-      "end_line": 20,
+      "start_line": 218,
+      "end_line": 218,
       "text": "// a spinlocked alternative version and use it selectively https://lwn.net/Articles/779120/"
     },
     {
-      "start_line": 26,
-      "end_line": 26,
+      "start_line": 224,
+      "end_line": 224,
       "text": "// it might happen that start_mono_time hasn't been set due to"
     },
     {
-      "start_line": 27,
-      "end_line": 27,
+      "start_line": 225,
+      "end_line": 225,
       "text": "// the way percpu hashmap deal with concurrent map entries"
     },
     {
-      "start_line": 34,
-      "end_line": 34,
+      "start_line": 232,
+      "end_line": 232,
       "text": "// usually error -16 (-EBUSY) is printed here."
     },
     {
-      "start_line": 35,
-      "end_line": 35,
+      "start_line": 233,
+      "end_line": 233,
       "text": "// In this case, the flow is dropped, as submitting it to the ringbuffer would cause"
     },
     {
-      "start_line": 36,
-      "end_line": 36,
+      "start_line": 234,
+      "end_line": 234,
       "text": "// a duplicated UNION of flows (two different flows with partial aggregation of the same packets),"
     },
     {
-      "start_line": 37,
-      "end_line": 37,
+      "start_line": 235,
+      "end_line": 235,
       "text": "// which can't be deduplicated."
     },
     {
-      "start_line": 38,
-      "end_line": 38,
+      "start_line": 236,
+      "end_line": 236,
       "text": "// other possible values https://chromium.googlesource.com/chromiumos/docs/+/master/constants/errnos.md"
     },
     {
-      "start_line": 42,
-      "end_line": 42,
+      "start_line": 240,
+      "end_line": 240,
       "text": "// Key does not exist in the map, and will need to create a new entry."
     },
     {
-      "start_line": 51,
-      "end_line": 51,
+      "start_line": 249,
+      "end_line": 249,
       "text": "// even if we know that the entry is new, another CPU might be concurrently inserting a flow"
     },
     {
-      "start_line": 52,
-      "end_line": 52,
+      "start_line": 250,
+      "end_line": 250,
       "text": "// so we need to specify BPF_ANY"
     },
     {
-      "start_line": 55,
-      "end_line": 55,
+      "start_line": 253,
+      "end_line": 253,
       "text": "// usually error -16 (-EBUSY) or -7 (E2BIG) is printed here."
     },
     {
-      "start_line": 56,
-      "end_line": 56,
+      "start_line": 254,
+      "end_line": 254,
       "text": "// In this case, we send the single-packet flow via ringbuffer as in the worst case we can have"
     },
     {
-      "start_line": 57,
-      "end_line": 57,
+      "start_line": 255,
+      "end_line": 255,
       "text": "// a repeated INTERSECTION of flows (different flows aggregating different packets),"
     },
     {
-      "start_line": 58,
-      "end_line": 58,
+      "start_line": 256,
+      "end_line": 256,
       "text": "// which can be re-aggregated at userpace."
     },
     {
-      "start_line": 59,
-      "end_line": 59,
+      "start_line": 257,
+      "end_line": 257,
       "text": "// other possible values https://chromium.googlesource.com/chromiumos/docs/+/master/constants/errnos.md"
     }
   ],
@@ -934,10 +934,10 @@ static inline int fill_ethhdr(struct ethhdr *eth, void *data_end, flow_id *id, u
   ],
   "output": "staticinlineint",
   "helper": [
-    "TC_ACT_OK",
-    "bpf_map_lookup_elem",
     "bpf_ktime_get_ns",
-    "bpf_map_update_elem"
+    "bpf_map_update_elem",
+    "TC_ACT_OK",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -1004,10 +1004,10 @@ static inline int fill_ethhdr(struct ethhdr *eth, void *data_end, flow_id *id, u
     "}\n"
   ],
   "called_function_list": [
-    "bpf_printk",
-    "bpf_ringbuf_submit",
     "bpf_ringbuf_reserve",
-    "fill_ethhdr"
+    "fill_ethhdr",
+    "bpf_printk",
+    "bpf_ringbuf_submit"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1122,29 +1122,29 @@ SEC("tc_ingress")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sock_ops",
-    "lwt_xmit",
-    "sk_skb",
-    "xdp",
     "perf_event",
-    "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
     "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "sk_skb",
+    "lwt_out",
+    "cgroup_sock",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sk_msg",
     "lwt_seg6local",
+    "sched_act",
+    "kprobe",
     "flow_dissector",
-    "tracepoint"
+    "sched_cls",
+    "cgroup_device",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_in"
   ],
   "source": [
     "int ingress_flow_parse (struct  __sk_buff *skb)\n",
@@ -1194,29 +1194,29 @@ SEC("tc_egress")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_in",
-    "sched_act",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sysctl",
-    "cgroup_device",
-    "sock_ops",
-    "lwt_xmit",
-    "sk_skb",
-    "xdp",
     "perf_event",
-    "lwt_out",
-    "socket_filter",
-    "sched_cls",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "raw_tracepoint",
-    "kprobe",
     "cgroup_sock_addr",
+    "cgroup_sysctl",
+    "sk_skb",
+    "lwt_out",
+    "cgroup_sock",
+    "socket_filter",
+    "raw_tracepoint_writable",
     "sk_msg",
     "lwt_seg6local",
+    "sched_act",
+    "kprobe",
     "flow_dissector",
-    "tracepoint"
+    "sched_cls",
+    "cgroup_device",
+    "sk_reuseport",
+    "sock_ops",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_xmit",
+    "xdp",
+    "raw_tracepoint",
+    "lwt_in"
   ],
   "source": [
     "int egress_flow_parse (struct  __sk_buff *skb)\n",

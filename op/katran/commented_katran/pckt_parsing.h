@@ -110,29 +110,29 @@ struct quic_short_header {
   "output": "staticinline__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_skb",
-    "sk_skb",
-    "cgroup_device",
-    "tracepoint",
-    "socket_filter",
-    "xdp",
-    "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sched_cls",
-    "lwt_out",
-    "sched_act",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "lwt_xmit",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint",
     "sk_msg",
+    "perf_event",
     "lwt_in",
-    "cgroup_sock"
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_device",
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "static inline __u64 calc_offset (bool is_ipv6, bool is_icmp)\n",
@@ -199,13 +199,13 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
   "funcName": "parse_udp",
   "developer_inline_comments": [
     {
-      "start_line": 19,
-      "end_line": 19,
+      "start_line": 94,
+      "end_line": 94,
       "text": "// packet_description was created from icmp \"packet too big\". hence"
     },
     {
-      "start_line": 20,
-      "end_line": 20,
+      "start_line": 95,
+      "end_line": 95,
       "text": "// we need to invert src/dst ports"
     }
   ],
@@ -220,29 +220,29 @@ __attribute__((__always_inline__)) static inline __u64 calc_offset(
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_skb",
-    "sk_skb",
-    "cgroup_device",
-    "tracepoint",
-    "socket_filter",
-    "xdp",
-    "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sched_cls",
-    "lwt_out",
-    "sched_act",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "lwt_xmit",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint",
     "sk_msg",
+    "perf_event",
     "lwt_in",
-    "cgroup_sock"
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_device",
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "static inline bool parse_udp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)\n",
@@ -321,13 +321,13 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
   "funcName": "parse_tcp",
   "developer_inline_comments": [
     {
-      "start_line": 23,
-      "end_line": 23,
+      "start_line": 124,
+      "end_line": 124,
       "text": "// packet_description was created from icmp \"packet too big\". hence"
     },
     {
-      "start_line": 24,
-      "end_line": 24,
+      "start_line": 125,
+      "end_line": 125,
       "text": "// we need to invert src/dst ports"
     }
   ],
@@ -342,29 +342,29 @@ __attribute__((__always_inline__)) static inline bool parse_udp(
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_skb",
-    "sk_skb",
-    "cgroup_device",
-    "tracepoint",
-    "socket_filter",
-    "xdp",
-    "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sched_cls",
-    "lwt_out",
-    "sched_act",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "lwt_xmit",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint",
     "sk_msg",
+    "perf_event",
     "lwt_in",
-    "cgroup_sock"
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_device",
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "static inline bool parse_tcp (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)\n",
@@ -462,8 +462,8 @@ __attribute__ ((__always_inline__))
   "funcName": "parse_hdr_opt",
   "developer_inline_comments": [
     {
-      "start_line": 19,
-      "end_line": 19,
+      "start_line": 150,
+      "end_line": 150,
       "text": "// Need this check to satisify the verifier"
     }
   ],
@@ -476,29 +476,29 @@ __attribute__ ((__always_inline__))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_skb",
-    "sk_skb",
-    "cgroup_device",
-    "tracepoint",
-    "socket_filter",
-    "xdp",
-    "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sched_cls",
-    "lwt_out",
-    "sched_act",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "lwt_xmit",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint",
     "sk_msg",
+    "perf_event",
     "lwt_in",
-    "cgroup_sock"
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_device",
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "int parse_hdr_opt (const struct xdp_md *xdp, struct hdr_opt_state *state)\n",
@@ -621,50 +621,6 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
 {
   "capabilities": [
     {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_update",
       "map_update": [
         {
@@ -709,6 +665,50 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
           ]
         }
       ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -718,38 +718,38 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
   "funcName": "tcp_hdr_opt_lookup",
   "developer_inline_comments": [
     {
-      "start_line": 17,
-      "end_line": 17,
+      "start_line": 215,
+      "end_line": 215,
       "text": "/* is_icmp */"
     },
     {
-      "start_line": 31,
-      "end_line": 31,
+      "start_line": 229,
+      "end_line": 229,
       "text": "// For linux kernel version < 5.3, there isn't support in the bpf verifier"
     },
     {
-      "start_line": 32,
-      "end_line": 32,
+      "start_line": 230,
+      "end_line": 230,
       "text": "// for validating bounded loops, so we need to unroll the loop"
     },
     {
-      "start_line": 53,
-      "end_line": 53,
+      "start_line": 251,
+      "end_line": 251,
       "text": "// Since server_id_map is a bpf_map_array all its members are 0-initialized"
     },
     {
-      "start_line": 54,
-      "end_line": 54,
+      "start_line": 252,
+      "end_line": 252,
       "text": "// This can lead to a false match for non-existing key to real at index 0."
     },
     {
-      "start_line": 55,
-      "end_line": 55,
+      "start_line": 253,
+      "end_line": 253,
       "text": "// So, just skip key of value 0 to avoid misrouting of packets."
     },
     {
-      "start_line": 63,
-      "end_line": 63,
+      "start_line": 261,
+      "end_line": 261,
       "text": "// update this routing decision in the lru_map as well"
     }
   ],
@@ -757,9 +757,9 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
     " lru_map"
   ],
   "readMaps": [
-    " lru_map",
+    " reals",
     " server_id_map",
-    " reals"
+    " lru_map"
   ],
   "input": [
     "const struct xdp_md *xdp",
@@ -771,33 +771,33 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_map_update_elem"
+    "bpf_map_update_elem",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_skb",
-    "kprobe",
-    "cgroup_device",
-    "tracepoint",
-    "socket_filter",
-    "xdp",
-    "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sched_cls",
-    "lwt_out",
-    "sched_act",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "lwt_xmit",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint",
     "sk_msg",
+    "perf_event",
     "lwt_in",
-    "cgroup_sock"
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_xmit",
+    "lwt_seg6local",
+    "lwt_out",
+    "cgroup_skb",
+    "cgroup_device",
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "static inline int tcp_hdr_opt_lookup (const struct xdp_md *xdp, bool is_ipv6, struct real_definition **real, struct packet_description *pckt, bool bypass_lru, void *lru_map)\n",
@@ -869,8 +869,8 @@ int parse_hdr_opt(const struct xdp_md *xdp, struct hdr_opt_state *state)
   "called_function_list": [
     "parse_hdr_opt",
     "unroll",
-    "calc_offset",
-    "KERNEL_VERSION"
+    "KERNEL_VERSION",
+    "calc_offset"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -976,78 +976,78 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
   "funcName": "parse_quic",
   "developer_inline_comments": [
     {
-      "start_line": 9,
-      "end_line": 9,
+      "start_line": 283,
+      "end_line": 283,
       "text": "// offset points to the beginning of transport header (udp) of quic's packet"
     },
     {
-      "start_line": 10,
-      "end_line": 10,
+      "start_line": 284,
+      "end_line": 284,
       "text": "/*                                      |QUIC PKT TYPE|           */"
     },
     {
-      "start_line": 18,
-      "end_line": 18,
+      "start_line": 292,
+      "end_line": 292,
       "text": "// the position of conn id varies depending on whether the packet has a"
     },
     {
-      "start_line": 19,
-      "end_line": 19,
+      "start_line": 293,
+      "end_line": 293,
       "text": "// long-header or short-header."
     },
     {
-      "start_line": 20,
-      "end_line": 20,
+      "start_line": 294,
+      "end_line": 294,
       "text": "// Once we compute the offset of conn id, just read fixed length,"
     },
     {
-      "start_line": 21,
-      "end_line": 21,
+      "start_line": 295,
+      "end_line": 295,
       "text": "// even if the connid len can be of 0 or 4-18 bytes, since katran is only"
     },
     {
-      "start_line": 22,
-      "end_line": 22,
+      "start_line": 296,
+      "end_line": 296,
       "text": "// concerned about the first 16 bits in Dest Conn Id"
     },
     {
-      "start_line": 24,
-      "end_line": 24,
+      "start_line": 298,
+      "end_line": 298,
       "text": "// packet with long header"
     },
     {
-      "start_line": 29,
-      "end_line": 29,
+      "start_line": 303,
+      "end_line": 303,
       "text": "// for client initial and 0rtt packet - fall back to use c. hash, since"
     },
     {
-      "start_line": 30,
-      "end_line": 30,
+      "start_line": 304,
+      "end_line": 304,
       "text": "// the connection-id is not the server-chosen one."
     },
     {
-      "start_line": 35,
-      "end_line": 35,
+      "start_line": 309,
+      "end_line": 309,
       "text": "// Post draft version 22, this byte is the conn id length of dest conn id"
     },
     {
-      "start_line": 41,
-      "end_line": 41,
+      "start_line": 315,
+      "end_line": 315,
       "text": "// short header: just read the connId"
     },
     {
-      "start_line": 50,
-      "end_line": 50,
+      "start_line": 324,
+      "end_line": 324,
       "text": "// connId schema: if first two bits contain the right version info"
     },
     {
-      "start_line": 53,
-      "end_line": 53,
+      "start_line": 327,
+      "end_line": 327,
       "text": "// extract last 16 bits from the first 18 bits:"
     },
     {
-      "start_line": 54,
-      "end_line": 54,
+      "start_line": 328,
+      "end_line": 328,
       "text": "//            last 6 bits         +    8 bits        +   first 2 bits"
     }
   ],
@@ -1062,29 +1062,29 @@ __attribute__((__always_inline__)) static inline int tcp_hdr_opt_lookup(
   "output": "staticinlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_skb",
-    "sk_skb",
-    "cgroup_device",
-    "tracepoint",
-    "socket_filter",
-    "xdp",
-    "raw_tracepoint_writable",
-    "flow_dissector",
-    "lwt_seg6local",
-    "sched_cls",
-    "lwt_out",
-    "sched_act",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "lwt_xmit",
-    "sock_ops",
-    "perf_event",
-    "raw_tracepoint",
     "sk_msg",
+    "perf_event",
     "lwt_in",
-    "cgroup_sock"
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
+    "sk_skb",
+    "sock_ops",
+    "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
+    "lwt_xmit",
+    "cgroup_skb",
+    "cgroup_device",
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "static inline int parse_quic (void *data, void *data_end, bool is_ipv6, struct packet_description *pckt)\n",

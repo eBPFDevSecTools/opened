@@ -58,28 +58,28 @@
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)\n",
@@ -92,8 +92,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "READ_ONCE",
-    "bpf_ntohl"
+    "bpf_ntohl",
+    "READ_ONCE"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -144,8 +144,8 @@ __section("sk_msg")
   "funcName": "bpf_redir_proxy",
   "developer_inline_comments": [
     {
-      "start_line": 12,
-      "end_line": 16,
+      "start_line": 52,
+      "end_line": 56,
       "text": "/* Currently, pulling dstIP out of endpoint\n\t * tables. This can be simplified by caching this information with the\n\t * socket to avoid extra overhead. This would require the agent though\n\t * to flush the sock ops map on policy changes.\n\t */"
     }
   ],
@@ -184,8 +184,8 @@ __section("sk_msg")
   ],
   "called_function_list": [
     "policy_sk_egress",
-    "lookup_ip4_remote_endpoint",
-    "sk_msg_extract4_key"
+    "sk_msg_extract4_key",
+    "lookup_ip4_remote_endpoint"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

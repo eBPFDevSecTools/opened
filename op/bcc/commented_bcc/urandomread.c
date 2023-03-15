@@ -19,29 +19,29 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "lwt_out",
-    "lwt_seg6local",
-    "sk_reuseport",
-    "kprobe",
-    "lwt_in",
-    "flow_dissector",
-    "sk_msg",
-    "perf_event",
-    "sched_cls",
-    "sock_ops",
     "xdp",
-    "raw_tracepoint",
-    "sched_act",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_skb",
-    "cgroup_sock",
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
     "cgroup_device",
+    "raw_tracepoint_writable",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "kprobe",
+    "lwt_seg6local",
+    "lwt_out",
+    "sk_msg",
+    "sched_act",
+    "flow_dissector",
     "socket_filter",
-    "raw_tracepoint_writable"
+    "cgroup_sysctl",
+    "cgroup_sock",
+    "sk_skb",
+    "sock_ops",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "sched_cls",
+    "lwt_in"
   ],
   "source": [
     "TRACEPOINT_PROBE (random, urandom_read)\n",
@@ -51,8 +51,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "update",
-    "lookup"
+    "lookup",
+    "update"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

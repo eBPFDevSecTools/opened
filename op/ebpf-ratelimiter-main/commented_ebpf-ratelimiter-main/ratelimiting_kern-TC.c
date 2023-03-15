@@ -66,6 +66,45 @@ xdp_rl_ingress_next_prog = {
 {
   "capabilities": [
     {
+      "capability": "read_sys_info",
+      "read_sys_info": [
+        {
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
+          "Return Type": "u64",
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -81,6 +120,70 @@ xdp_rl_ingress_next_prog = {
           ],
           "capabilities": [
             "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -130,109 +233,6 @@ xdp_rl_ingress_next_prog = {
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_SHOT",
-          "Return": 2,
-          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "read_sys_info",
-      "read_sys_info": [
-        {
-          "Project": "bcc",
-          "FunctionName": "bpf_ktime_get_ns",
-          "Return Type": "u64",
-          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
-          "Return": "u64 number of nanoseconds",
-          "Input Prameters": [],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "read_sys_info"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -245,11 +245,11 @@ xdp_rl_ingress_next_prog = {
     " rl_window_map"
   ],
   "readMaps": [
-    " rl_ports_map",
-    "  rl_window_map",
-    " rl_recv_count_map",
-    " rl_drop_count_map",
     " rl_window_map",
+    " rl_recv_count_map",
+    "  rl_window_map",
+    " rl_drop_count_map",
+    " rl_ports_map",
     " rl_config_map"
   ],
   "input": [
@@ -257,15 +257,15 @@ xdp_rl_ingress_next_prog = {
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "TC_ACT_OK",
-    "bpf_map_update_elem",
-    "TC_ACT_SHOT",
     "bpf_ktime_get_ns",
-    "bpf_map_lookup_elem"
+    "TC_ACT_OK",
+    "bpf_map_lookup_elem",
+    "TC_ACT_SHOT",
+    "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
   ],
   "source": [
     "static __always_inline int _xdp_ratelimit (struct  __sk_buff *ctx)\n",
@@ -336,9 +336,9 @@ xdp_rl_ingress_next_prog = {
     "}\n"
   ],
   "called_function_list": [
-    "bpf_printk",
+    "bpf_ntohs",
     "ntohs",
-    "bpf_ntohs"
+    "bpf_printk"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -486,8 +486,8 @@ SEC ("xdp_ratelimiting")
     "TC_ACT_SHOT"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
   ],
   "source": [
     "int _xdp_ratelimiting (struct  __sk_buff *ctx)\n",
@@ -501,8 +501,8 @@ SEC ("xdp_ratelimiting")
     "}\n"
   ],
   "called_function_list": [
-    "bpf_printk",
-    "_xdp_ratelimit"
+    "_xdp_ratelimit",
+    "bpf_printk"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

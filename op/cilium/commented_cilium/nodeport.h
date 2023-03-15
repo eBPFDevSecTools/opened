@@ -58,28 +58,28 @@
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void bpf_skip_nodeport_clear (struct  __ctx_buff *ctx)\n",
@@ -131,28 +131,28 @@ bpf_skip_nodeport_clear(struct __ctx_buff *ctx)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void bpf_skip_nodeport_set (struct  __ctx_buff *ctx)\n",
@@ -204,28 +204,28 @@ bpf_skip_nodeport_set(struct __ctx_buff *ctx)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused bool bpf_skip_nodeport (struct  __ctx_buff *ctx)\n",
@@ -301,38 +301,38 @@ struct dsr_opt_v6 {
   "funcName": "nodeport_uses_dsr",
   "developer_inline_comments": [
     {
-      "start_line": 5,
-      "end_line": 5,
+      "start_line": 53,
+      "end_line": 53,
       "text": "/* ipv4 addr */"
     },
     {
-      "start_line": 6,
-      "end_line": 6,
+      "start_line": 54,
+      "end_line": 54,
       "text": "/* hw addr */"
     },
     {
-      "start_line": 10,
-      "end_line": 10,
+      "start_line": 58,
+      "end_line": 58,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 15,
-      "end_line": 15,
+      "start_line": 63,
+      "end_line": 63,
       "text": "/* ipv6 addr */"
     },
     {
-      "start_line": 16,
-      "end_line": 16,
+      "start_line": 64,
+      "end_line": 64,
       "text": "/* hw addr */"
     },
     {
-      "start_line": 21,
-      "end_line": 21,
+      "start_line": 69,
+      "end_line": 69,
       "text": "/* The IPv6 extension should be 8-bytes aligned */"
     },
     {
-      "start_line": 31,
-      "end_line": 31,
+      "start_line": 79,
+      "end_line": 79,
       "text": "/* ENABLE_IPV6 */"
     }
   ],
@@ -345,28 +345,28 @@ struct dsr_opt_v6 {
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool nodeport_uses_dsr (__u8 nexthdr __maybe_unused)\n",
@@ -429,8 +429,8 @@ static __always_inline bool nodeport_uses_dsr(__u8 nexthdr __maybe_unused)
   "funcName": "bpf_mark_snat_done",
   "developer_inline_comments": [
     {
-      "start_line": 4,
-      "end_line": 6,
+      "start_line": 97,
+      "end_line": 99,
       "text": "/* From XDP layer, we do not go through an egress hook from\n\t * here, hence nothing to be done.\n\t */"
     }
   ],
@@ -443,28 +443,28 @@ static __always_inline bool nodeport_uses_dsr(__u8 nexthdr __maybe_unused)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void bpf_mark_snat_done (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -515,8 +515,8 @@ bpf_mark_snat_done(struct __ctx_buff *ctx __maybe_unused)
   "funcName": "bpf_skip_recirculation",
   "developer_inline_comments": [
     {
-      "start_line": 4,
-      "end_line": 6,
+      "start_line": 108,
+      "end_line": 110,
       "text": "/* From XDP layer, we do not go through an egress hook from\n\t * here, hence nothing to be skipped.\n\t */"
     }
   ],
@@ -529,28 +529,28 @@ bpf_mark_snat_done(struct __ctx_buff *ctx __maybe_unused)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool bpf_skip_recirculation (const struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -614,28 +614,28 @@ bpf_skip_recirculation(const struct __ctx_buff *ctx __maybe_unused)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u64 ctx_adjust_hroom_dsr_flags (void)\n",
@@ -695,28 +695,28 @@ static __always_inline __u64 ctx_adjust_hroom_dsr_flags(void)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool dsr_fail_needs_reply (int code __maybe_unused)\n",
@@ -776,28 +776,28 @@ static __always_inline bool dsr_fail_needs_reply(int code __maybe_unused)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool dsr_is_too_big (struct  __ctx_buff * ctx __maybe_unused, __u16 expanded_len __maybe_unused)\n",
@@ -849,13 +849,13 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
   "funcName": "maybe_add_l2_hdr",
   "developer_inline_comments": [
     {
-      "start_line": 7,
-      "end_line": 9,
+      "start_line": 152,
+      "end_line": 154,
       "text": "/* NodePort request is going to be redirected to L3 dev, so skip\n\t\t * L2 addr settings.\n\t\t */"
     },
     {
-      "start_line": 12,
-      "end_line": 14,
+      "start_line": 157,
+      "end_line": 159,
       "text": "/* NodePort request is going to be redirected from L3 to L2 dev,\n\t\t * so we need to create L2 hdr first.\n\t\t */"
     }
   ],
@@ -870,28 +870,28 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int maybe_add_l2_hdr (struct  __ctx_buff * ctx __maybe_unused, __u32 ifindex __maybe_unused, bool * l2_hdr_required __maybe_unused)\n",
@@ -910,9 +910,9 @@ static __always_inline bool dsr_is_too_big(struct __ctx_buff *ctx __maybe_unused
   ],
   "called_function_list": [
     "eth_store_proto",
-    "ctx_change_head",
     "ctx_get_protocol",
-    "IS_L3_DEV"
+    "IS_L3_DEV",
+    "ctx_change_head"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -976,28 +976,28 @@ maybe_add_l2_hdr(struct __ctx_buff *ctx __maybe_unused,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool nodeport_uses_dsr6 (const struct ipv6_ct_tuple *tuple)\n",
@@ -1043,18 +1043,18 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
   "funcName": "snat_v6_needed",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 3,
+      "start_line": 178,
+      "end_line": 180,
       "text": "/* TODO(brb): after GH#6320, we can move snat_v{4,6}_needed() to lib/nat.h, as\n * then the helper function won't depend the dsr checks.\n */"
     },
     {
-      "start_line": 23,
-      "end_line": 23,
+      "start_line": 200,
+      "end_line": 200,
       "text": "/* ENABLE_DSR_HYBRID */"
     },
     {
-      "start_line": 24,
-      "end_line": 24,
+      "start_line": 201,
+      "end_line": 201,
       "text": "/* See snat_v4_needed(). */"
     }
   ],
@@ -1068,28 +1068,28 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool snat_v6_needed (struct  __ctx_buff *ctx, const union v6addr *addr)\n",
@@ -1115,10 +1115,10 @@ static __always_inline bool nodeport_uses_dsr6(const struct ipv6_ct_tuple *tuple
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addrcmp",
     "nodeport_uses_dsr",
-    "ipv6_hdrlen",
-    "revalidate_data"
+    "ipv6_addrcmp",
+    "revalidate_data",
+    "ipv6_hdrlen"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1204,8 +1204,8 @@ static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int nodeport_nat_ipv6_fwd (struct  __ctx_buff *ctx, const union v6addr *addr)\n",
@@ -1223,9 +1223,9 @@ static __always_inline bool snat_v6_needed(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "snat_v6_process",
+    "ipv6_addr_copy",
     "snat_v6_needed",
-    "ipv6_addr_copy"
+    "snat_v6_process"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1284,28 +1284,28 @@ static __always_inline int nodeport_nat_ipv6_fwd(struct __ctx_buff *ctx,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void rss_gen_src6 (union v6addr *src, const union v6addr *client, __be32 l4_hint)\n",
@@ -1405,28 +1405,28 @@ static __always_inline void rss_gen_src6(union v6addr *src,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int dsr_set_ipip6 (struct  __ctx_buff *ctx, const struct ipv6hdr *ip6, const union v6addr *backend_addr, __be32 l4_hint, int *ohead)\n",
@@ -1460,13 +1460,13 @@ static __always_inline void rss_gen_src6(union v6addr *src,
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohs",
-    "rss_gen_src6",
-    "ctx_store_bytes",
-    "offsetof",
-    "ctx_adjust_hroom",
     "ctx_adjust_hroom_dsr_flags",
     "dsr_is_too_big",
+    "bpf_ntohs",
+    "ctx_store_bytes",
+    "rss_gen_src6",
+    "ctx_adjust_hroom",
+    "offsetof",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -1536,8 +1536,8 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
   "funcName": "dsr_set_ext6",
   "developer_inline_comments": [
     {
-      "start_line": 9,
-      "end_line": 9,
+      "start_line": 302,
+      "end_line": 302,
       "text": "/* The IPv6 extension should be 8-bytes aligned */"
     }
   ],
@@ -1554,28 +1554,28 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int dsr_set_ext6 (struct  __ctx_buff *ctx, struct ipv6hdr *ip6, const union v6addr *svc_addr, __be16 svc_port, int *ohead)\n",
@@ -1604,14 +1604,14 @@ static __always_inline int dsr_set_ipip6(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
+    "ctx_adjust_hroom_dsr_flags",
+    "dsr_is_too_big",
     "bpf_ntohs",
     "build_bug_on",
     "ctx_store_bytes",
-    "bpf_htons",
     "ctx_adjust_hroom",
-    "ctx_adjust_hroom_dsr_flags",
     "ipv6_addr_copy",
-    "dsr_is_too_big"
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1676,8 +1676,8 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
   "funcName": "find_dsr_v6",
   "developer_inline_comments": [
     {
-      "start_line": 48,
-      "end_line": 48,
+      "start_line": 376,
+      "end_line": 376,
       "text": "/* Reached limit of supported extension headers */"
     }
   ],
@@ -1693,28 +1693,28 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int find_dsr_v6 (struct  __ctx_buff *ctx, __u8 nexthdr, struct dsr_opt_v6 *dsr_opt, bool *found)\n",
@@ -1758,9 +1758,9 @@ static __always_inline int dsr_set_ext6(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
+    "ctx_load_bytes",
     "ipv6_authlen",
-    "ipv6_optlen",
-    "ctx_load_bytes"
+    "ipv6_optlen"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1848,28 +1848,28 @@ static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int handle_dsr_v6 (struct  __ctx_buff *ctx, bool *dsr)\n",
@@ -1892,9 +1892,9 @@ static __always_inline int find_dsr_v6(struct __ctx_buff *ctx, __u8 nexthdr,
     "}\n"
   ],
   "called_function_list": [
-    "find_dsr_v6",
+    "revalidate_data",
     "snat_v6_create_dsr",
-    "revalidate_data"
+    "find_dsr_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1955,28 +1955,28 @@ static __always_inline int handle_dsr_v6(struct __ctx_buff *ctx, bool *dsr)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int xlate_dsr_v6 (struct  __ctx_buff *ctx, const struct ipv6_ct_tuple *tuple, int l4_off)\n",
@@ -2086,13 +2086,13 @@ static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int dsr_reply_icmp6 (struct  __ctx_buff *ctx, const struct ipv6hdr * ip6 __maybe_unused, int code, int ohead __maybe_unused)\n",
@@ -2157,27 +2157,27 @@ static __always_inline int xlate_dsr_v6(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "eth_store_saddr",
-    "ctx_data",
-    "ctx_adjust_hroom",
-    "ipv6_pseudohdr_checksum",
-    "ctx_full_len",
     "csum_fold",
-    "ctx_get_ifindex",
-    "eth_store_daddr",
-    "eth_load_daddr",
-    "ctx_adjust_troom",
-    "eth_load_saddr",
-    "bpf_ntohs",
-    "update_metrics",
-    "ctx_store_bytes",
-    "unlikely",
     "ctx_adjust_hroom_dsr_flags",
-    "bpf_htons",
-    "bpf_htonl",
+    "bpf_ntohs",
+    "ctx_adjust_hroom",
+    "eth_load_daddr",
+    "unlikely",
     "ctx_redirect",
+    "send_drop_notify_error",
+    "update_metrics",
+    "ctx_full_len",
+    "bpf_htonl",
     "ctx_data_end",
-    "send_drop_notify_error"
+    "eth_store_daddr",
+    "ctx_store_bytes",
+    "ctx_data",
+    "eth_load_saddr",
+    "ctx_adjust_troom",
+    "ctx_get_ifindex",
+    "ipv6_pseudohdr_checksum",
+    "eth_store_saddr",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2338,8 +2338,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_nodeport_ipv6_dsr (struct  __ctx_buff *ctx)\n",
@@ -2415,21 +2415,21 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_DSR)
     "}\n"
   ],
   "called_function_list": [
+    "dsr_reply_icmp6",
+    "revalidate_data",
+    "maybe_add_l2_hdr",
+    "cilium_capture_out",
+    "dsr_set_ipip6",
+    "ctx_load_meta",
+    "eth_store_daddr",
+    "ctx_get_ifindex",
+    "unlikely",
     "ctx_redirect",
     "dsr_fail_needs_reply",
-    "dsr_reply_icmp6",
-    "dsr_set_ipip6",
-    "eth_store_saddr",
     "dsr_set_ext6",
-    "ctx_load_meta",
-    "unlikely",
-    "revalidate_data",
-    "ctx_get_ifindex",
-    "eth_store_daddr",
+    "eth_store_saddr",
     "ipv6_addr_copy",
-    "maybe_add_l2_hdr",
-    "send_drop_notify_error_ext",
-    "cilium_capture_out"
+    "send_drop_notify_error_ext"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2584,13 +2584,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
   "funcName": "tail_nodeport_nat_ipv6",
   "developer_inline_comments": [
     {
-      "start_line": 51,
-      "end_line": 51,
+      "start_line": 623,
+      "end_line": 623,
       "text": "/* fib lookup not necessary when going over tunnel. */"
     },
     {
-      "start_line": 65,
-      "end_line": 69,
+      "start_line": 637,
+      "end_line": 641,
       "text": "/* In case of no mapping, recircle back to main path. SNAT is very\n\t\t * expensive in terms of instructions (since we don't have BPF to\n\t\t * BPF calls as we use tail calls) and complexity, hence this is\n\t\t * done inside a tail call here.\n\t\t */"
     }
   ],
@@ -2606,8 +2606,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_nodeport_nat_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -2732,26 +2732,26 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_NAT)
     "}\n"
   ],
   "called_function_list": [
-    "__encap_with_nodeid",
-    "eth_store_saddr",
-    "lb6_to_lb4",
-    "cilium_capture_out",
-    "bpf_mark_snat_done",
-    "ep_tail_call",
-    "IS_ERR",
     "bpf_skip_nodeport_set",
-    "BPF_V6",
-    "ctx_load_meta",
-    "revalidate_data",
-    "ctx_get_ifindex",
-    "eth_store_daddr",
     "ipcache_lookup6",
-    "ipv6_addr_copy",
-    "build_v4_in_v6",
+    "cilium_capture_out",
+    "send_drop_notify_error_ext",
     "ctx_redirect",
-    "snat_v6_process",
+    "ipv6_addr_copy",
     "maybe_add_l2_hdr",
-    "send_drop_notify_error_ext"
+    "ep_tail_call",
+    "eth_store_daddr",
+    "build_v4_in_v6",
+    "lb6_to_lb4",
+    "revalidate_data",
+    "bpf_mark_snat_done",
+    "__encap_with_nodeid",
+    "snat_v6_process",
+    "ctx_get_ifindex",
+    "BPF_V6",
+    "IS_ERR",
+    "ctx_load_meta",
+    "eth_store_saddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2917,6 +2917,27 @@ drop_err:
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_update",
       "map_update": [
         {
@@ -3005,27 +3026,6 @@ drop_err:
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -3035,18 +3035,18 @@ drop_err:
   "funcName": "nodeport_lb6",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 1,
+      "start_line": 717,
+      "end_line": 717,
       "text": "/* See nodeport_lb4(). */"
     },
     {
-      "start_line": 143,
-      "end_line": 143,
+      "start_line": 859,
+      "end_line": 859,
       "text": "/* DSR_ENCAP_MODE */"
     },
     {
-      "start_line": 147,
-      "end_line": 153,
+      "start_line": 863,
+      "end_line": 869,
       "text": "/* This code path is not only hit for NAT64, but also\n\t\t\t * for NAT46. For the latter we initially hit the IPv4\n\t\t\t * NodePort path, then migrate the request to IPv6 and\n\t\t\t * recirculate into the regular IPv6 NodePort path. So\n\t\t\t * we need to make sure to not NAT back to IPv4 for\n\t\t\t * IPv4-in-IPv6 converted addresses.\n\t\t\t */"
     }
   ],
@@ -3062,14 +3062,14 @@ drop_err:
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "map_update_elem",
-    "map_lookup_elem",
-    "CTX_ACT_OK"
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int nodeport_lb6 (struct  __ctx_buff *ctx, __u32 src_identity)\n",
@@ -3208,36 +3208,36 @@ drop_err:
     "}\n"
   ],
   "called_function_list": [
-    "ctx_set_xfer",
-    "defined",
-    "__lookup_ip6_endpoint",
     "nodeport_uses_dsr6",
-    "cilium_capture_in",
-    "ipv6_hdrlen",
+    "ctx_set_xfer",
+    "bpf_ntohs",
     "lb6_svc_is_hostport",
+    "cilium_capture_in",
+    "is_v4_in_v6",
+    "ctx_store_meta",
+    "lb6_extract_key",
     "lb6_lookup_service",
+    "unlikely",
+    "__lookup_ip6_endpoint",
+    "eth_addrcmp",
+    "ipv6_addr_copy",
+    "lb6_src_range_ok",
+    "ct_lookup6",
+    "ipv6_hdrlen",
+    "edt_set_aggregate",
+    "ctx_redirect_to_proxy_hairpin_ipv6",
+    "lb6_svc_is_routable",
     "ep_tail_call",
-    "IS_ERR",
+    "send_trace_notify",
+    "lb6_svc_is_l7loadbalancer",
+    "ct_create6",
     "get_ct_map6",
     "revalidate_data",
-    "ipv6_addr_copy",
-    "lb6_local",
-    "is_v4_in_v6",
     "eth_load_saddr",
-    "bpf_ntohs",
-    "send_trace_notify",
-    "unlikely",
-    "lb6_svc_is_l7loadbalancer",
-    "lb6_extract_key",
-    "ctx_redirect_to_proxy_hairpin_ipv6",
-    "ct_create6",
-    "lb6_src_range_ok",
-    "ctx_store_meta",
-    "edt_set_aggregate",
-    "ct_lookup6",
-    "lb6_svc_is_routable",
-    "eth_addrcmp",
-    "lb6_to_lb4_service"
+    "lb6_local",
+    "lb6_to_lb4_service",
+    "defined",
+    "IS_ERR"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3426,71 +3426,6 @@ redo:
 {
   "capabilities": [
     {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -3534,6 +3469,71 @@ redo:
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -3543,18 +3543,18 @@ redo:
   "funcName": "rev_nodeport_lb6",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 1,
+      "start_line": 883,
+      "end_line": 883,
       "text": "/* See comment in tail_rev_nodeport_lb4(). */"
     },
     {
-      "start_line": 61,
-      "end_line": 61,
+      "start_line": 943,
+      "end_line": 943,
       "text": "/* fib lookup not necessary when going over tunnel. */"
     },
     {
-      "start_line": 99,
-      "end_line": 99,
+      "start_line": 981,
+      "end_line": 981,
       "text": "/* See comment in rev_nodeport_lb4(). */"
     }
   ],
@@ -3569,15 +3569,15 @@ redo:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_lookup_elem",
-    "CTX_ACT_OK",
     "fib_lookup",
-    "bpf_fib_lookup"
+    "CTX_ACT_OK",
+    "bpf_fib_lookup",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int rev_nodeport_lb6 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)\n",
@@ -3681,28 +3681,28 @@ redo:
     "}\n"
   ],
   "called_function_list": [
-    "__encap_with_nodeid",
-    "eth_store_saddr",
-    "bpf_skip_recirculation",
-    "ipv6_hdrlen",
-    "bpf_mark_snat_done",
-    "ep_tail_call",
-    "IS_ERR",
     "bpf_skip_nodeport_set",
-    "csum_l4_offset_and_flags",
+    "ipcache_lookup6",
+    "NATIVE_DEV_MAC_BY_IFINDEX",
+    "unlikely",
+    "lb6_rev_nat",
+    "ipv6_addr_copy",
+    "ct_lookup6",
+    "ipv6_hdrlen",
+    "maybe_add_l2_hdr",
+    "ep_tail_call",
+    "eth_store_daddr",
+    "eth_store_saddr_aligned",
     "get_ct_map6",
     "revalidate_data",
+    "bpf_mark_snat_done",
+    "__encap_with_nodeid",
     "ctx_get_ifindex",
-    "eth_store_daddr",
-    "ipcache_lookup6",
-    "ipv6_addr_copy",
+    "IS_ERR",
+    "bpf_skip_recirculation",
     "eth_store_daddr_aligned",
-    "unlikely",
-    "NATIVE_DEV_MAC_BY_IFINDEX",
-    "ct_lookup6",
-    "eth_store_saddr_aligned",
-    "maybe_add_l2_hdr",
-    "lb6_rev_nat"
+    "eth_store_saddr",
+    "csum_l4_offset_and_flags"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -3856,13 +3856,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
   "funcName": "tail_rev_nodeport_lb6",
   "developer_inline_comments": [
     {
-      "start_line": 10,
-      "end_line": 12,
+      "start_line": 1017,
+      "end_line": 1019,
       "text": "/* We only enforce the host policies if nodeport.h is included from\n\t * bpf_host.\n\t */"
     },
     {
-      "start_line": 23,
-      "end_line": 25,
+      "start_line": 1030,
+      "end_line": 1032,
       "text": "/* We don't want to enforce host policies a second time if we jump back to\n\t * bpf_host's handle_ipv6.\n\t */"
     }
   ],
@@ -3875,28 +3875,28 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_rev_nodeport_lb6 (struct  __ctx_buff *ctx)\n",
@@ -3936,19 +3936,19 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_NODEPORT_REVNAT)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "send_drop_notify_error_ext",
-    "defined",
-    "edt_set_aggregate",
-    "IS_ERR",
-    "revalidate_data",
-    "ipv6_host_policy_ingress",
-    "send_drop_notify_error",
-    "ctx_skip_host_fw_set",
-    "lb6_to_lb4",
     "is_v4_in_v6",
+    "revalidate_data",
+    "edt_set_aggregate",
+    "send_drop_notify_error_ext",
+    "cilium_capture_out",
+    "defined",
+    "IS_ERR",
+    "ctx_redirect",
+    "ctx_skip_host_fw_set",
+    "send_drop_notify_error",
+    "lb6_to_lb4",
     "rev_nodeport_lb6",
-    "cilium_capture_out"
+    "ipv6_host_policy_ingress"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4035,28 +4035,28 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4),
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_handle_nat_fwd_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -4085,11 +4085,11 @@ declare_tailcall_if(__or(__and(is_defined(ENABLE_IPV4),
   ],
   "called_function_list": [
     "defined",
+    "nodeport_nat_ipv6_fwd",
     "send_trace_notify",
-    "IS_ERR",
     "BPF_V6",
-    "send_drop_notify_error",
-    "nodeport_nat_ipv6_fwd"
+    "IS_ERR",
+    "send_drop_notify_error"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4149,28 +4149,28 @@ int tail_handle_nat_fwd_ipv6(struct __ctx_buff *ctx)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool nodeport_uses_dsr4 (const struct ipv4_ct_tuple *tuple)\n",
@@ -4227,83 +4227,83 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
   "funcName": "snat_v4_needed",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 14,
+      "start_line": 1087,
+      "end_line": 1100,
       "text": "/* The function contains a core logic for deciding whether an egressing packet\n * has to be SNAT-ed. Currently, the function targets the following flows:\n *\n *\t- From pod to outside to masquerade requests\n *\t  when --enable-bpf-masquerade=true.\n *\t- From host to outside to track (and masquerade) flows which\n *\t  can conflict with NodePort BPF.\n *\n * The function sets \"addr\" to the SNAT IP addr, and \"from_endpoint\" to true\n * if the packet is sent from a local endpoint.\n *\n * Callers should treat contents of \"from_endpoint\" and \"addr\" as undetermined,\n * if function returns false.\n */"
     },
     {
-      "start_line": 28,
-      "end_line": 31,
+      "start_line": 1114,
+      "end_line": 1117,
       "text": "/* Basic minimum is to only NAT when there is a potential of\n\t * overlapping tuples, e.g. applications in hostns reusing\n\t * source IPs we SNAT in NodePort and BPF-masq.\n\t */"
     },
     {
-      "start_line": 38,
-      "end_line": 41,
+      "start_line": 1124,
+      "end_line": 1127,
       "text": "/* NATIVE_DEV_IFINDEX == DIRECT_ROUTING_DEV_IFINDEX cannot be moved into\n     * preprocessor, as the former is known only during load time (templating).\n     * This checks whether bpf_host is running on the direct routing device.\n     */"
     },
     {
-      "start_line": 53,
-      "end_line": 53,
+      "start_line": 1139,
+      "end_line": 1139,
       "text": "/* defined(TUNNEL_MODE) && defined(IS_BPF_OVERLAY) */"
     },
     {
-      "start_line": 58,
-      "end_line": 64,
+      "start_line": 1144,
+      "end_line": 1150,
       "text": "/* Check if this packet belongs to reply traffic coming from a\n\t * local endpoint.\n\t *\n\t * If local_ep is NULL, it means there's no endpoint running on the\n\t * node which matches the packet source IP, which means we can\n\t * skip the CT lookup since this cannot be reply traffic.\n\t */"
     },
     {
-      "start_line": 76,
-      "end_line": 76,
+      "start_line": 1162,
+      "end_line": 1162,
       "text": "/* SNAT local pod to world packets */"
     },
     {
-      "start_line": 78,
-      "end_line": 81,
+      "start_line": 1164,
+      "end_line": 1167,
       "text": "/* Do not MASQ when this function is executed from bpf_overlay\n\t * (IS_BPF_OVERLAY denotes this fact). Otherwise, a packet will\n\t * be SNAT'd to cilium_host IP addr.\n\t */"
     },
     {
-      "start_line": 85,
-      "end_line": 90,
+      "start_line": 1171,
+      "end_line": 1176,
       "text": "/* Check if the packet matches an egress NAT policy and so needs to be SNAT'ed.\n *\n * This check must happen before the IPV4_SNAT_EXCLUSION_DST_CIDR check below as\n * the destination may be in the SNAT exclusion CIDR but regardless of that we\n * always want to SNAT a packet if it's matched by an egress NAT policy.\n */"
     },
     {
-      "start_line": 92,
-      "end_line": 95,
+      "start_line": 1178,
+      "end_line": 1181,
       "text": "/* If the packet is destined to an entity inside the cluster, either EP\n\t * or node, skip SNAT since only traffic leaving the cluster is supposed\n\t * to be masqueraded with an egress IP.\n\t */"
     },
     {
-      "start_line": 100,
-      "end_line": 102,
+      "start_line": 1186,
+      "end_line": 1188,
       "text": "/* If the packet is a reply it means that outside has initiated the\n\t * connection, so no need to SNAT the reply.\n\t */"
     },
     {
-      "start_line": 119,
-      "end_line": 124,
+      "start_line": 1205,
+      "end_line": 1210,
       "text": "/* Do not MASQ if a dst IP belongs to a pods CIDR\n\t * (ipv4-native-routing-cidr if specified, otherwise local pod CIDR).\n\t * The check is performed before we determine that a packet is\n\t * sent from a local pod, as this check is cheaper than\n\t * the map lookup done in the latter check.\n\t */"
     },
     {
-      "start_line": 130,
-      "end_line": 130,
+      "start_line": 1216,
+      "end_line": 1216,
       "text": "/* if this is a localhost endpoint, no SNAT is needed */"
     },
     {
-      "start_line": 136,
-      "end_line": 138,
+      "start_line": 1222,
+      "end_line": 1224,
       "text": "/* Do not SNAT if dst belongs to any ip-masq-agent\n\t\t * subnet.\n\t\t */"
     },
     {
-      "start_line": 147,
-      "end_line": 155,
+      "start_line": 1233,
+      "end_line": 1241,
       "text": "/* In the tunnel mode, a packet from a local ep\n\t\t * to a remote node is not encap'd, and is sent\n\t\t * via a native dev. Therefore, such packet has\n\t\t * to be MASQ'd. Otherwise, it might be dropped\n\t\t * either by underlying network (e.g. AWS drops\n\t\t * packets by default from unknown subnets) or\n\t\t * by the remote node if its native dev's\n\t\t * rp_filter=1.\n\t\t */"
     },
     {
-      "start_line": 160,
-      "end_line": 163,
+      "start_line": 1246,
+      "end_line": 1249,
       "text": "/* If the packet is a reply it means that outside has\n\t\t * initiated the connection, so no need to SNAT the\n\t\t * reply.\n\t\t */"
     },
     {
-      "start_line": 170,
-      "end_line": 170,
+      "start_line": 1256,
+      "end_line": 1256,
       "text": "/*ENABLE_MASQUERADE */"
     }
   ],
@@ -4320,28 +4320,28 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool snat_v4_needed (struct  __ctx_buff *ctx, __be32 *addr, bool * from_endpoint __maybe_unused)\n",
@@ -4444,18 +4444,18 @@ static __always_inline bool nodeport_uses_dsr4(const struct ipv4_ct_tuple *tuple
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "ipv4_hdrlen",
-    "identity_is_cluster",
-    "memcpy",
-    "identity_is_remote_node",
-    "get_ct_map4",
     "revalidate_data",
-    "ipv4_is_in_subnet",
-    "ct_is_reply4",
-    "lookup_ip4_remote_endpoint",
+    "memcpy",
+    "ipv4_hdrlen",
+    "lookup_ip4_egress_gw_policy",
     "__lookup_ip4_endpoint",
-    "lookup_ip4_egress_gw_policy"
+    "defined",
+    "ct_is_reply4",
+    "ipv4_is_in_subnet",
+    "get_ct_map4",
+    "identity_is_cluster",
+    "identity_is_remote_node",
+    "lookup_ip4_remote_endpoint"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -4676,8 +4676,8 @@ skip_egress_gateway:
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int nodeport_nat_ipv4_fwd (struct  __ctx_buff *ctx)\n",
@@ -4757,28 +4757,28 @@ static __always_inline int nodeport_nat_ipv4_fwd(struct __ctx_buff *ctx)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __be32 rss_gen_src4 (__be32 client, __be32 l4_hint)\n",
@@ -4869,8 +4869,8 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
   "funcName": "dsr_set_ipip4",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 6,
+      "start_line": 1292,
+      "end_line": 1297,
       "text": "/*\n * Original packet: [clientIP:clientPort -> serviceIP:servicePort] } IP/L4\n *\n * After DSR IPIP:  [rssSrcIP -> backendIP]                        } IP\n *                  [clientIP:clientPort -> serviceIP:servicePort] } IP/L4\n */"
     }
   ],
@@ -4888,13 +4888,13 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int dsr_set_ipip4 (struct  __ctx_buff *ctx, const struct iphdr *ip4, __be32 backend_addr, __be32 l4_hint, __be16 *ohead)\n",
@@ -4941,13 +4941,13 @@ static __always_inline __be32 rss_gen_src4(__be32 client, __be32 l4_hint)
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohs",
-    "ctx_store_bytes",
-    "offsetof",
-    "ctx_adjust_hroom",
     "ctx_adjust_hroom_dsr_flags",
     "dsr_is_too_big",
+    "bpf_ntohs",
     "rss_gen_src4",
+    "ctx_store_bytes",
+    "ctx_adjust_hroom",
+    "offsetof",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -5063,8 +5063,8 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
   "funcName": "dsr_set_opt4",
   "developer_inline_comments": [
     {
-      "start_line": 16,
-      "end_line": 20,
+      "start_line": 1367,
+      "end_line": 1371,
       "text": "/* Setting the option is required only for the first packet\n\t\t * (SYN), in the case of TCP, as for further packets of the\n\t\t * same connection a remote node will use a NAT entry to\n\t\t * reverse xlate a reply.\n\t\t */"
     }
   ],
@@ -5082,13 +5082,13 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int dsr_set_opt4 (struct  __ctx_buff *ctx, struct iphdr *ip4, __be32 svc_addr, __be32 svc_port, __be16 *ohead)\n",
@@ -5127,15 +5127,15 @@ static __always_inline int dsr_set_ipip4(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ntohs",
-    "ctx_store_bytes",
-    "bpf_htons",
-    "offsetof",
-    "ctx_adjust_hroom",
     "ctx_adjust_hroom_dsr_flags",
-    "ctx_load_bytes",
     "dsr_is_too_big",
-    "bpf_htonl"
+    "bpf_ntohs",
+    "bpf_htonl",
+    "ctx_store_bytes",
+    "ctx_adjust_hroom",
+    "ctx_load_bytes",
+    "offsetof",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5219,8 +5219,8 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
   "funcName": "handle_dsr_v4",
   "developer_inline_comments": [
     {
-      "start_line": 10,
-      "end_line": 12,
+      "start_line": 1415,
+      "end_line": 1417,
       "text": "/* Check whether IPv4 header contains a 64-bit option (IPv4 header\n\t * w/o option (5 x 32-bit words) + the DSR option (2 x 32-bit words)).\n\t */"
     }
   ],
@@ -5234,28 +5234,28 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int handle_dsr_v4 (struct  __ctx_buff *ctx, bool *dsr)\n",
@@ -5286,10 +5286,10 @@ static __always_inline int dsr_set_opt4(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "snat_v4_create_dsr",
     "bpf_ntohl",
     "ctx_load_bytes",
-    "revalidate_data"
+    "revalidate_data",
+    "snat_v4_create_dsr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5370,28 +5370,28 @@ static __always_inline int handle_dsr_v4(struct __ctx_buff *ctx, bool *dsr)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int xlate_dsr_v4 (struct  __ctx_buff *ctx, const struct ipv4_ct_tuple *tuple, int l4_off, bool has_l4_header)\n",
@@ -5489,8 +5489,8 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
   "funcName": "dsr_reply_icmp4",
   "developer_inline_comments": [
     {
-      "start_line": 46,
-      "end_line": 49,
+      "start_line": 1511,
+      "end_line": 1514,
       "text": "/* We use a workaround here in that we push zero-bytes into the\n\t * payload in order to support dynamic IPv4 header size. This\n\t * works given one's complement sum does not change.\n\t */"
     }
   ],
@@ -5507,13 +5507,13 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "sched_act",
+    "xdp",
+    "lwt_xmit",
     "sched_cls",
-    "lwt_in"
+    "lwt_in",
+    "lwt_out"
   ],
   "source": [
     "static __always_inline int dsr_reply_icmp4 (struct  __ctx_buff *ctx, struct iphdr * ip4 __maybe_unused, int code, __be16 ohead __maybe_unused)\n",
@@ -5582,24 +5582,24 @@ static __always_inline int xlate_dsr_v4(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "ipv4_hdrlen",
-    "ctx_full_len",
-    "update_metrics",
+    "eth_load_saddr",
     "csum_fold",
-    "ctx_store_bytes",
-    "eth_store_saddr",
     "memset",
-    "ctx_adjust_hroom",
-    "ctx_get_ifindex",
-    "eth_store_daddr",
-    "send_drop_notify_error",
-    "eth_load_daddr",
-    "ctx_load_bytes",
-    "ctx_adjust_troom",
+    "eth_store_saddr",
+    "ipv4_hdrlen",
     "ctx_adjust_hroom_dsr_flags",
-    "bpf_htons",
-    "eth_load_saddr"
+    "ctx_adjust_troom",
+    "ctx_store_bytes",
+    "eth_store_daddr",
+    "ctx_get_ifindex",
+    "send_drop_notify_error",
+    "ctx_adjust_hroom",
+    "ctx_load_bytes",
+    "ctx_redirect",
+    "ctx_full_len",
+    "eth_load_daddr",
+    "update_metrics",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -5771,8 +5771,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_nodeport_ipv4_dsr (struct  __ctx_buff *ctx)\n",
@@ -5841,20 +5841,20 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_DSR)
     "}\n"
   ],
   "called_function_list": [
+    "revalidate_data",
+    "dsr_set_opt4",
+    "dsr_set_ipip4",
+    "maybe_add_l2_hdr",
+    "cilium_capture_out",
     "dsr_reply_icmp4",
+    "eth_store_daddr",
+    "ctx_get_ifindex",
+    "unlikely",
     "ctx_redirect",
     "dsr_fail_needs_reply",
-    "dsr_set_ipip4",
-    "eth_store_saddr",
     "ctx_load_meta",
-    "unlikely",
-    "revalidate_data",
-    "ctx_get_ifindex",
-    "eth_store_daddr",
-    "dsr_set_opt4",
-    "maybe_add_l2_hdr",
-    "send_drop_notify_error_ext",
-    "cilium_capture_out"
+    "eth_store_saddr",
+    "send_drop_notify_error_ext"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -6002,33 +6002,33 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
   "funcName": "tail_nodeport_nat_ipv4",
   "developer_inline_comments": [
     {
-      "start_line": 22,
-      "end_line": 26,
+      "start_line": 1644,
+      "end_line": 1648,
       "text": "/* Unfortunately, the bpf_fib_lookup() is not able to set src IP addr.\n\t * So we need to assume that the direct routing device is going to be\n\t * used to fwd the NodePort request, thus SNAT-ing to its IP addr.\n\t * This will change once we have resolved GH#17158.\n\t */"
     },
     {
-      "start_line": 39,
-      "end_line": 47,
+      "start_line": 1661,
+      "end_line": 1669,
       "text": "/* The dir == NAT_DIR_EGRESS branch is executed for\n\t\t\t * N/S LB requests which needs to be fwd-ed to a remote\n\t\t\t * node. As the request came from outside, we need to\n\t\t\t * set the security id in the tunnel header to WORLD_ID.\n\t\t\t * Otherwise, the remote node will assume, that the\n\t\t\t * request originated from a cluster node which will\n\t\t\t * bypass any netpol which disallows LB requests from\n\t\t\t * outside.\n\t\t\t */"
     },
     {
-      "start_line": 59,
-      "end_line": 59,
+      "start_line": 1681,
+      "end_line": 1681,
       "text": "/* fib lookup not necessary when going over tunnel. */"
     },
     {
-      "start_line": 71,
-      "end_line": 73,
+      "start_line": 1693,
+      "end_line": 1695,
       "text": "/* Handles SNAT on NAT_DIR_EGRESS and reverse SNAT for reply packets\n\t * from remote backends on NAT_DIR_INGRESS.\n\t */"
     },
     {
-      "start_line": 76,
-      "end_line": 80,
+      "start_line": 1698,
+      "end_line": 1702,
       "text": "/* In case of no mapping, recircle back to main path. SNAT is very\n\t\t * expensive in terms of instructions (since we don't have BPF to\n\t\t * BPF calls as we use tail calls) and complexity, hence this is\n\t\t * done inside a tail call here.\n\t\t */"
     },
     {
-      "start_line": 94,
-      "end_line": 100,
+      "start_line": 1716,
+      "end_line": 1722,
       "text": "/* At this point we know that a reverse SNAT mapping exists.\n\t\t * Otherwise, we would have tail-called back to\n\t\t * CALL_IPV4_FROM_NETDEV in the code above. The existence of the\n\t\t * mapping is an indicator that the packet might be a reply from\n\t\t * a remote backend. So handle the service reverse DNAT (if\n\t\t * needed)\n\t\t */"
     }
   ],
@@ -6044,8 +6044,8 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_nodeport_nat_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -6149,22 +6149,22 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_NAT)
     "}\n"
   ],
   "called_function_list": [
+    "bpf_skip_nodeport_set",
+    "revalidate_data",
     "snat_v4_process",
-    "ctx_redirect",
+    "maybe_add_l2_hdr",
+    "cilium_capture_out",
     "bpf_mark_snat_done",
     "__encap_with_nodeid",
-    "ep_tail_call",
-    "eth_store_saddr",
     "ipcache_lookup4",
-    "IS_ERR",
-    "bpf_skip_nodeport_set",
-    "ctx_load_meta",
-    "revalidate_data",
-    "ctx_get_ifindex",
     "eth_store_daddr",
-    "maybe_add_l2_hdr",
-    "send_drop_notify_error_ext",
-    "cilium_capture_out"
+    "ep_tail_call",
+    "ctx_get_ifindex",
+    "IS_ERR",
+    "ctx_redirect",
+    "ctx_load_meta",
+    "eth_store_saddr",
+    "send_drop_notify_error_ext"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -6335,6 +6335,27 @@ drop_err:
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_update",
       "map_update": [
         {
@@ -6423,27 +6444,6 @@ drop_err:
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -6453,33 +6453,33 @@ drop_err:
   "funcName": "nodeport_lb4",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 4,
+      "start_line": 1769,
+      "end_line": 1772,
       "text": "/* Main node-port entry point for host-external ingressing node-port traffic\n * which handles the case of: i) backend is local EP, ii) backend is remote EP,\n * iii) reply from remote backend EP.\n */"
     },
     {
-      "start_line": 74,
-      "end_line": 77,
+      "start_line": 1842,
+      "end_line": 1845,
       "text": "/* The packet is not destined to a service but it can be a reply\n\t\t * packet from a remote backend, in which case we need to perform\n\t\t * the reverse NAT.\n\t\t */"
     },
     {
-      "start_line": 87,
-      "end_line": 89,
+      "start_line": 1855,
+      "end_line": 1857,
       "text": "/* For NAT64 we might see an IPv4 reply from the backend to\n\t\t * the LB entering this path. Thus, transform back to IPv6.\n\t\t */"
     },
     {
-      "start_line": 106,
-      "end_line": 108,
+      "start_line": 1874,
+      "end_line": 1876,
       "text": "/* Reply from DSR packet is never seen on this node again hence no\n\t * need to track in here.\n\t */"
     },
     {
-      "start_line": 128,
-      "end_line": 130,
+      "start_line": 1896,
+      "end_line": 1898,
       "text": "/* Recreate CT entries, as the existing one is stale and\n\t\t\t * belongs to a flow which target a different svc.\n\t\t\t */"
     },
     {
-      "start_line": 163,
-      "end_line": 163,
+      "start_line": 1931,
+      "end_line": 1931,
       "text": "/* DSR_ENCAP_MODE */"
     }
   ],
@@ -6495,14 +6495,14 @@ drop_err:
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "map_update_elem",
-    "map_lookup_elem",
-    "CTX_ACT_OK"
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int nodeport_lb4 (struct  __ctx_buff *ctx, __u32 src_identity)\n",
@@ -6649,38 +6649,38 @@ drop_err:
     "}\n"
   ],
   "called_function_list": [
-    "lb4_local",
-    "ctx_set_xfer",
-    "defined",
-    "ct_lookup4",
-    "cilium_capture_in",
-    "lb4_lookup_service",
-    "lb4_svc_is_routable",
-    "ctx_redirect_to_proxy_hairpin_ipv4",
-    "ipv4_hdrlen",
     "lb4_src_range_ok",
+    "ctx_set_xfer",
+    "bpf_ntohs",
+    "lb4_svc_is_l7loadbalancer",
+    "nodeport_uses_dsr4",
+    "lb4_lookup_service",
+    "lb4_to_lb6_service",
+    "snat_v6_has_v4_match",
+    "cilium_capture_in",
+    "ctx_store_meta",
+    "ipv4_hdrlen",
+    "unlikely",
+    "eth_addrcmp",
+    "ct_lookup4",
+    "lb4_local",
+    "edt_set_aggregate",
+    "ipv4_has_l4_header",
     "lb4_extract_key",
     "ep_tail_call",
-    "IS_ERR",
-    "revalidate_data",
     "__lookup_ip4_endpoint",
-    "lb4_svc_is_hostport",
-    "lb4_to_lb6_service",
-    "eth_load_saddr",
-    "bpf_ntohs",
-    "lb4_populate_ports",
+    "ct_create4",
     "send_trace_notify",
     "lb4_to_lb6",
+    "revalidate_data",
+    "eth_load_saddr",
+    "ctx_redirect_to_proxy_hairpin_ipv4",
+    "lb4_svc_is_routable",
+    "defined",
+    "lb4_populate_ports",
     "get_ct_map4",
-    "unlikely",
-    "snat_v6_has_v4_match",
-    "lb4_svc_is_l7loadbalancer",
-    "ctx_store_meta",
-    "edt_set_aggregate",
-    "nodeport_uses_dsr4",
-    "ct_create4",
-    "ipv4_has_l4_header",
-    "eth_addrcmp"
+    "IS_ERR",
+    "lb4_svc_is_hostport"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -6885,71 +6885,6 @@ redo:
 {
   "capabilities": [
     {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -6993,6 +6928,71 @@ redo:
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -7002,33 +7002,33 @@ redo:
   "funcName": "rev_nodeport_lb4",
   "developer_inline_comments": [
     {
-      "start_line": 1,
-      "end_line": 10,
+      "start_line": 1945,
+      "end_line": 1954,
       "text": "/* Reverse NAT handling of node-port traffic for the case where the\n * backend i) was a local EP and bpf_lxc redirected to us, ii) was\n * a remote backend and we got here after reverse SNAT from the\n * tail_nodeport_nat_ipv4().\n *\n * Also, reverse NAT handling return path egress-gw traffic.\n *\n * CILIUM_CALL_IPV{4,6}_NODEPORT_REVNAT is plugged into CILIUM_MAP_CALLS\n * of the bpf_host, bpf_overlay and of the bpf_lxc.\n */"
     },
     {
-      "start_line": 38,
-      "end_line": 50,
+      "start_line": 1982,
+      "end_line": 1994,
       "text": "/* Traffic from clients to egress gateway nodes reaches said gateways\n\t * by a vxlan tunnel. If we are not using TUNNEL_MODE, we need to\n\t * identify reverse traffic from the gateway to clients and also steer\n\t * it via the vxlan tunnel to avoid issues with iptables dropping these\n\t * packets. We do this in the code below, by performing a lookup in the\n\t * egress gateway map using a reverse address tuple. A match means that\n\t * the corresponding forward traffic was forwarded to the egress gateway\n\t * via the tunnel.\n\t *\n\t * Currently, we don't support redirect to a tunnel netdev / encap on\n\t * XDP. Thus, the problem mentioned above is present when using the\n\t * egress gw feature with bpf_xdp.\n\t */"
     },
     {
-      "start_line": 65,
-      "end_line": 65,
+      "start_line": 2009,
+      "end_line": 2009,
       "text": "/* ENABLE_EGRESS_GATEWAY */"
     },
     {
-      "start_line": 104,
-      "end_line": 110,
+      "start_line": 2048,
+      "end_line": 2054,
       "text": "/* If the FIB lookup was successful, use the outgoing\n\t\t\t * iface from its result. Otherwise, we will fallback\n\t\t\t * to CT's ifindex which was learned when the request\n\t\t\t * was sent. The latter assumes that the reply should\n\t\t\t * be sent over the same device which received the\n\t\t\t * request.\n\t\t\t */"
     },
     {
-      "start_line": 129,
-      "end_line": 138,
+      "start_line": 2073,
+      "end_line": 2082,
       "text": "/* For the case where a client from the same L2\n\t\t\t * domain previously sent traffic over the node\n\t\t\t * which did the service -> backend translation\n\t\t\t * and that node has never seen the client before\n\t\t\t * then XDP/tc BPF layer won't create a neighbor\n\t\t\t * entry for it. This makes the above fib_lookup()\n\t\t\t * fail and we have to consult the NODEPORT_NEIGH4\n\t\t\t * table instead where we recorded the client\n\t\t\t * address in nodeport_lb4().\n\t\t\t */"
     },
     {
-      "start_line": 174,
-      "end_line": 174,
+      "start_line": 2118,
+      "end_line": 2118,
       "text": "/* fib lookup not necessary when going over tunnel. */"
     }
   ],
@@ -7043,15 +7043,15 @@ redo:
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_lookup_elem",
-    "CTX_ACT_OK",
     "fib_lookup",
-    "bpf_fib_lookup"
+    "CTX_ACT_OK",
+    "bpf_fib_lookup",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int rev_nodeport_lb4 (struct  __ctx_buff *ctx, int *ifindex, int *ext_err)\n",
@@ -7179,30 +7179,30 @@ redo:
     "}\n"
   ],
   "called_function_list": [
-    "defined",
-    "ct_lookup4",
-    "__encap_with_nodeid",
-    "eth_store_saddr",
-    "ipcache_lookup4",
-    "bpf_skip_recirculation",
-    "lookup_ip4_egress_gw_policy",
-    "ipv4_hdrlen",
-    "bpf_mark_snat_done",
-    "ep_tail_call",
-    "IS_ERR",
     "bpf_skip_nodeport_set",
-    "csum_l4_offset_and_flags",
-    "lb4_rev_nat",
-    "revalidate_data",
-    "ctx_get_ifindex",
-    "eth_store_daddr",
-    "get_ct_map4",
-    "eth_store_daddr_aligned",
-    "unlikely",
+    "ipv4_hdrlen",
     "NATIVE_DEV_MAC_BY_IFINDEX",
-    "eth_store_saddr_aligned",
+    "unlikely",
+    "ct_lookup4",
     "ipv4_has_l4_header",
-    "maybe_add_l2_hdr"
+    "maybe_add_l2_hdr",
+    "ep_tail_call",
+    "eth_store_daddr",
+    "eth_store_saddr_aligned",
+    "revalidate_data",
+    "lookup_ip4_egress_gw_policy",
+    "bpf_mark_snat_done",
+    "__encap_with_nodeid",
+    "defined",
+    "ipcache_lookup4",
+    "get_ct_map4",
+    "lb4_rev_nat",
+    "ctx_get_ifindex",
+    "IS_ERR",
+    "bpf_skip_recirculation",
+    "eth_store_daddr_aligned",
+    "eth_store_saddr",
+    "csum_l4_offset_and_flags"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7405,13 +7405,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
   "funcName": "tail_rev_nodeport_lb4",
   "developer_inline_comments": [
     {
-      "start_line": 8,
-      "end_line": 10,
+      "start_line": 2135,
+      "end_line": 2137,
       "text": "/* We only enforce the host policies if nodeport.h is included from\n\t * bpf_host.\n\t */"
     },
     {
-      "start_line": 21,
-      "end_line": 23,
+      "start_line": 2148,
+      "end_line": 2150,
       "text": "/* We don't want to enforce host policies a second time if we jump back to\n\t * bpf_host's handle_ipv6.\n\t */"
     }
   ],
@@ -7424,28 +7424,28 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_rev_nodeport_lb4 (struct  __ctx_buff *ctx)\n",
@@ -7475,16 +7475,16 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_NODEPORT_REVNAT)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
-    "send_drop_notify_error_ext",
-    "defined",
     "edt_set_aggregate",
-    "IS_ERR",
+    "cilium_capture_out",
+    "defined",
     "rev_nodeport_lb4",
-    "send_drop_notify_error",
+    "IS_ERR",
+    "ctx_redirect",
     "ctx_skip_host_fw_set",
-    "ipv4_host_policy_ingress",
-    "cilium_capture_out"
+    "send_drop_notify_error",
+    "send_drop_notify_error_ext",
+    "ipv4_host_policy_ingress"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7562,28 +7562,28 @@ declare_tailcall_if(__or3(__and(is_defined(ENABLE_IPV4),
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int tail_handle_nat_fwd_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -7661,8 +7661,8 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
   "funcName": "health_encap_v4",
   "developer_inline_comments": [
     {
-      "start_line": 9,
-      "end_line": 12,
+      "start_line": 2198,
+      "end_line": 2201,
       "text": "/* When encapsulating, a packet originating from the local\n\t * host is being considered as a packet from a remote node\n\t * as it is being received.\n\t */"
     }
   ],
@@ -7677,28 +7677,28 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int health_encap_v4 (struct  __ctx_buff *ctx, __u32 tunnel_ep, __u32 seclabel)\n",
@@ -7714,10 +7714,10 @@ int tail_handle_nat_fwd_ipv4(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_set_tunnel_key",
-    "bpf_htonl",
     "unlikely",
-    "memset"
+    "memset",
+    "ctx_set_tunnel_key",
+    "bpf_htonl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7777,28 +7777,28 @@ health_encap_v4(struct __ctx_buff *ctx, __u32 tunnel_ep,
   "helper": [],
   "compatibleHookpoints": [
     "cgroup_sock",
-    "lwt_xmit",
-    "sock_ops",
-    "flow_dissector",
-    "raw_tracepoint",
-    "cgroup_sysctl",
-    "tracepoint",
-    "kprobe",
-    "lwt_out",
-    "sched_act",
-    "cgroup_device",
     "cgroup_sock_addr",
+    "lwt_xmit",
+    "sk_skb",
+    "sock_ops",
     "sk_reuseport",
     "perf_event",
-    "xdp",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "socket_filter",
     "cgroup_skb",
-    "sk_msg",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
+    "socket_filter",
+    "flow_dissector",
+    "sched_cls",
     "lwt_in",
-    "raw_tracepoint_writable"
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int health_encap_v6 (struct  __ctx_buff *ctx, const union v6addr *tunnel_ep, __u32 seclabel)\n",
@@ -7817,9 +7817,9 @@ health_encap_v4(struct __ctx_buff *ctx, __u32 tunnel_ep,
     "}\n"
   ],
   "called_function_list": [
+    "memset",
     "ctx_set_tunnel_key",
-    "unlikely",
-    "memset"
+    "unlikely"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -7862,50 +7862,6 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [
-    {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "cilium",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "map_lookup_elem",
-          "Input Params": [
-            "{Type: struct map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
     {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
@@ -7953,6 +7909,50 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
           ]
         }
       ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "cilium",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "map_lookup_elem",
+          "Input Params": [
+            "{Type: struct map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -7971,9 +7971,9 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "map_lookup_elem",
     "CTX_ACT_OK",
-    "get_socket_cookie"
+    "get_socket_cookie",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "sched_cls",
@@ -8030,12 +8030,12 @@ health_encap_v6(struct __ctx_buff *ctx, const union v6addr *tunnel_ep,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_redirect",
     "defined",
-    "validate_ethertype",
+    "health_encap_v4",
     "health_encap_v6",
-    "bpf_htons",
-    "health_encap_v4"
+    "validate_ethertype",
+    "ctx_redirect",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -8135,13 +8135,13 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
   "funcName": "handle_nat_fwd",
   "developer_inline_comments": [
     {
-      "start_line": 20,
-      "end_line": 20,
+      "start_line": 2301,
+      "end_line": 2301,
       "text": "/* ENABLE_IPV4 */"
     },
     {
-      "start_line": 30,
-      "end_line": 30,
+      "start_line": 2311,
+      "end_line": 2311,
       "text": "/* ENABLE_IPV6 */"
     }
   ],
@@ -8156,8 +8156,8 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int handle_nat_fwd (struct  __ctx_buff *ctx)\n",
@@ -8191,14 +8191,14 @@ lb_handle_health(struct __ctx_buff *ctx __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "build_bug_on",
-    "validate_ethertype",
-    "__and",
-    "__or3",
-    "__or",
     "invoke_tailcall_if",
-    "bpf_htons",
-    "is_defined"
+    "__and",
+    "build_bug_on",
+    "__or3",
+    "validate_ethertype",
+    "__or",
+    "is_defined",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

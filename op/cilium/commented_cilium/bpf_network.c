@@ -17,27 +17,6 @@ __section("from-network")
 {
   "capabilities": [
     {
-      "capability": "pkt_alter_or_redo_processing_or_interface",
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "CTX_ACT_REDIRECT",
-          "Return": 7,
-          "Description": "Cilium wrapper. This allows to redirect the skb to the same or another\u2019s device ingress or egress path together with the redirect() helper. Being able to inject the packet into another device\u2019s ingress or egress direction allows for full flexibility in packet forwarding with BPF. There are no requirements on the target networking device other than being a networking device itself, there is no need to run another instance of cls_bpf on the target device or other such restrictions.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_alter_or_redo_processing_or_interface"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -54,6 +33,27 @@ __section("from-network")
           ],
           "capabilities": [
             "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "CTX_ACT_REDIRECT",
+          "Return": 7,
+          "Description": "Cilium wrapper. This allows to redirect the skb to the same or another\u2019s device ingress or egress path together with the redirect() helper. Being able to inject the packet into another device\u2019s ingress or egress direction allows for full flexibility in packet forwarding with BPF. There are no requirements on the target networking device other than being a networking device itself, there is no need to run another instance of cls_bpf on the target device or other such restrictions.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
           ]
         }
       ]
@@ -103,13 +103,13 @@ __section("from-network")
   ],
   "output": "int",
   "helper": [
-    "CTX_ACT_REDIRECT",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "CTX_ACT_REDIRECT"
   ],
   "compatibleHookpoints": [
     "sched_cls",
-    "xdp",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int from_network (struct  __ctx_buff *ctx)\n",
@@ -145,8 +145,8 @@ __section("from-network")
   ],
   "called_function_list": [
     "send_trace_notify",
-    "do_decrypt",
     "validate_ethertype",
+    "do_decrypt",
     "bpf_clear_meta"
   ],
   "call_depth": -1,
