@@ -84,7 +84,7 @@ def parseTXLFunctionOutputFileForComments(txlFile, opFile, srcFile, helperdict, 
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
             capability_dict['funcName'] = funcName
-            capability_dict['developer_inline_comments'] = rmc.find_c_style_comment_matches(''.join(srcLineList[prevEndLine:endLine]))
+            capability_dict['developer_inline_comments'] = rmc.find_c_style_comment_matches_in_func(''.join(srcLineList[prevEndLine:endLine]), prevEndLine)
             prevEndLine = endLine + 1
             capability_dict['updateMaps'] = smt.get_update_maps(lines, map_update_fn)
             capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)

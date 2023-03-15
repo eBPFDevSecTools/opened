@@ -20,6 +20,13 @@ def find_c_style_comment_matches(data, comment_regex_pattern=r'//.*?$|/\*.*?\*/'
         })
     return matches
 
+def find_c_style_comment_matches_in_func(data, lineOffset):
+    matches = find_c_style_comment_matches(data)
+    for match in matches:
+        match['start_line'] = match['start_line']+lineOffset
+        match['end_line'] = match['end_line']+lineOffset
+    return matches
+
 def removeComments(text):
     """ remove c-style comments.
         text: blob of text with comments (can include newlines)
