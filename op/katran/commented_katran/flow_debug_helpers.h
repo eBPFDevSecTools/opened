@@ -35,7 +35,13 @@
   "endLine": 53,
   "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "get_next_ports",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -46,29 +52,29 @@
   "output": "staticinline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "cgroup_sysctl",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "lwt_in",
+    "cgroup_skb",
+    "sk_skb",
     "cgroup_device",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "tracepoint",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline __u32 get_next_ports (void *transport_hdr, __u8 proto, void *data_end)\n",
@@ -191,7 +197,18 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
   "endLine": 128,
   "File": "/home/sayandes/opened_extraction/examples/katran/flow_debug_helpers.h",
   "funcName": "gue_record_route",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 15,
+      "end_line": 20,
+      "text": "/*XXX\nvoid* flow_debug_map = bpf_map_lookup_elem(&flow_debug_maps, &cpu_num);\n  if (!flow_debug_map) {\n    return;\n  }\n  */"
+    },
+    {
+      "start_line": 70,
+      "end_line": 72,
+      "text": "/* XXX\n  bpf_map_update_elem(flow_debug_map, &flow, &debug_info, BPF_ANY);\n  */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -206,27 +223,27 @@ get_next_ports(void* transport_hdr, __u8 proto, void* data_end) {
     "bpf_get_smp_processor_id"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
+    "cgroup_skb",
+    "sk_skb",
     "tracepoint",
-    "lwt_in",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline void gue_record_route (struct ethhdr *outer_eth, struct ethhdr *inner_eth, void *data_end, bool outer_v4, bool inner_v4)\n",

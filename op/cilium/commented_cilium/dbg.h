@@ -189,7 +189,158 @@ struct debug_msg {
   "endLine": 194,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/dbg.h",
   "funcName": "cilium_dbg",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 7,
+      "end_line": 7,
+      "text": "/* Trace types */"
+    },
+    {
+      "start_line": 10,
+      "end_line": 10,
+      "text": "/* Generic, no message, useful to dump random integers */"
+    },
+    {
+      "start_line": 15,
+      "end_line": 15,
+      "text": "/* unused */"
+    },
+    {
+      "start_line": 16,
+      "end_line": 16,
+      "text": "/* unused */"
+    },
+    {
+      "start_line": 18,
+      "end_line": 18,
+      "text": "/* unused */"
+    },
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "/* unused */"
+    },
+    {
+      "start_line": 55,
+      "end_line": 55,
+      "text": "/* arg1: security-context, arg2: unused */"
+    },
+    {
+      "start_line": 56,
+      "end_line": 56,
+      "text": "/* arg1 encap lookup key, arg2: identity */"
+    },
+    {
+      "start_line": 57,
+      "end_line": 60,
+      "text": "/* arg1: saddr\n\t\t\t\t * arg2: daddr\n\t\t\t\t * arg3: (sport << 16) | dport\n\t\t\t\t */"
+    },
+    {
+      "start_line": 61,
+      "end_line": 64,
+      "text": "/* arg1: (nexthdr << 8) | flags\n\t\t\t\t * arg2: direction\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 65,
+      "end_line": 68,
+      "text": "/* arg1: (unused << 16) | rev_nat_index\n\t\t\t\t * arg2: src sec-id\n\t\t\t\t * arg3: lb address\n\t\t\t\t */"
+    },
+    {
+      "start_line": 69,
+      "end_line": 72,
+      "text": "/* arg1: saddr (last 4 bytes)\n\t\t\t\t * arg2: daddr (last 4 bytes)\n\t\t\t\t * arg3: (sport << 16) | dport\n\t\t\t\t */"
+    },
+    {
+      "start_line": 73,
+      "end_line": 76,
+      "text": "/* arg1: (nexthdr << 8) | flags\n\t\t\t\t * arg2: direction\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 77,
+      "end_line": 80,
+      "text": "/* arg1: (unused << 16) | rev_nat_index\n\t\t\t\t * arg2: src sec-id\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 81,
+      "end_line": 83,
+      "text": "/* arg1: ctx->tc_index\n\t\t\t\t  * arg2: unused\n\t\t\t\t  */"
+    },
+    {
+      "start_line": 84,
+      "end_line": 87,
+      "text": "/* arg1: src sec-id\n\t\t\t\t * arg2: dst sec-id\n\t\t\t\t * arg3: (dport << 16) | protocol\n\t\t\t\t */"
+    },
+    {
+      "start_line": 88,
+      "end_line": 91,
+      "text": "/* arg1: daddr\n\t\t\t\t * arg2: unused\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 92,
+      "end_line": 95,
+      "text": "/* arg1: daddr (last 4 bytes)\n\t\t\t\t * arg2: unused\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 96,
+      "end_line": 99,
+      "text": "/* arg1: daddr\n\t\t\t\t * arg2: identity\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 100,
+      "end_line": 103,
+      "text": "/* arg1: daddr (last 4 bytes)\n\t\t\t\t * arg2: identity\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 104,
+      "end_line": 107,
+      "text": "/* arg1: svc rev_nat_id\n\t\t\t\t * arg2: stale CT rev_nat_id\n\t\t\t\t * arg3: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 108,
+      "end_line": 110,
+      "text": "/* arg1: ctx->mark\n\t\t\t\t * arg2: unused\n\t\t\t\t */"
+    },
+    {
+      "start_line": 111,
+      "end_line": 114,
+      "text": "/* arg1: saddr\n\t\t\t\t * arg2: daddr\n\t\t\t\t * arg3: (sport << 16) | dport\n\t\t\t\t */"
+    },
+    {
+      "start_line": 115,
+      "end_line": 118,
+      "text": "/* arg1: saddr (last 4 bytes)\n\t\t\t\t * arg2: daddr (last 4 bytes)\n\t\t\t\t * arg3: (sport << 16) | dport\n\t\t\t\t */"
+    },
+    {
+      "start_line": 119,
+      "end_line": 121,
+      "text": "/* arg1: result\n\t\t\t\t * arg2: unuseds\n\t\t\t\t */"
+    },
+    {
+      "start_line": 122,
+      "end_line": 125,
+      "text": "/* arg1: saddr (last 4 bytes for IPv6)\n\t\t\t\t * arg2: daddr (last 4 bytes for IPv6)\n\t\t\t\t * arg3: proxy port (in host byte order)\n\t\t\t\t */"
+    },
+    {
+      "start_line": 128,
+      "end_line": 128,
+      "text": "/* Capture types */"
+    },
+    {
+      "start_line": 156,
+      "end_line": 168,
+      "text": "/* This takes both literals and modifiers, e.g.,\n * printk(\"hello\\n\");\n * printk(\"%d\\n\", ret);\n *\n * Three caveats when using this:\n * - message needs to end with newline\n *\n * - only a subset of specifier are supported:\n *   https://elixir.bootlin.com/linux/v5.7.7/source/kernel/trace/bpf_trace.c#L325\n *\n * - cannot use more than 3 format specifiers in the format string\n *   because BPF helpers take a maximum of 5 arguments\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -201,29 +352,29 @@ struct debug_msg {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2)\n",
@@ -236,8 +387,8 @@ struct debug_msg {
     "}\n"
   ],
   "called_function_list": [
-    "__notify_common_hdr",
-    "ctx_event_output"
+    "ctx_event_output",
+    "__notify_common_hdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -290,29 +441,29 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg3 (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2, __u32 arg3)\n",
@@ -326,8 +477,8 @@ static __always_inline void cilium_dbg(struct __ctx_buff *ctx, __u8 type,
     "}\n"
   ],
   "called_function_list": [
-    "__notify_common_hdr",
-    "ctx_event_output"
+    "ctx_event_output",
+    "__notify_common_hdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -386,29 +537,29 @@ struct debug_capture_msg {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg_capture2 (struct  __ctx_buff *ctx, __u8 type, __u32 arg1, __u32 arg2)\n",
@@ -423,10 +574,10 @@ struct debug_capture_msg {
     "}\n"
   ],
   "called_function_list": [
-    "ctx_event_output",
-    "ctx_full_len",
     "__notify_common_hdr",
+    "ctx_full_len",
     "__notify_pktcap_hdr",
+    "ctx_event_output",
     "min_t"
   ],
   "call_depth": -1,
@@ -482,29 +633,29 @@ static __always_inline void cilium_dbg_capture2(struct __ctx_buff *ctx, __u8 typ
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg_capture (struct  __ctx_buff *ctx, __u8 type, __u32 arg1)\n",
@@ -561,29 +712,29 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused)\n",
@@ -591,8 +742,8 @@ static __always_inline void cilium_dbg_capture(struct __ctx_buff *ctx, __u8 type
     "}\n"
   ],
   "called_function_list": [
-    "__notify_common_hdr",
-    "ctx_event_output"
+    "ctx_event_output",
+    "__notify_common_hdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -638,29 +789,29 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg3 (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused, __u32 arg3 __maybe_unused)\n",
@@ -668,8 +819,8 @@ void cilium_dbg(struct __ctx_buff *ctx __maybe_unused, __u8 type __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "__notify_common_hdr",
-    "ctx_event_output"
+    "ctx_event_output",
+    "__notify_common_hdr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -714,29 +865,29 @@ void cilium_dbg3(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg_capture (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused)\n",
@@ -789,29 +940,29 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void cilium_dbg_capture2 (struct  __ctx_buff * ctx __maybe_unused, __u8 type __maybe_unused, __u32 arg1 __maybe_unused, __u32 arg2 __maybe_unused)\n",
@@ -819,10 +970,10 @@ void cilium_dbg_capture(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_event_output",
-    "ctx_full_len",
     "__notify_common_hdr",
+    "ctx_full_len",
     "__notify_pktcap_hdr",
+    "ctx_event_output",
     "min_t"
   ],
   "call_depth": -1,

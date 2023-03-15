@@ -66,7 +66,7 @@ def parseTXLFunctionOutputFileForComments(txlFile, opFile, srcFile, helperdict, 
     output=""
     startLine = -1
     endLine = -1
-    prevLine = 0
+    prevEndLine = 0
 
     ifile = open(srcFile,'r')
     srcLineList = ifile.readlines()

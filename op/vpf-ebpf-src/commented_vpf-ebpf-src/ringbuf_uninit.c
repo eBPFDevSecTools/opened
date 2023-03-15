@@ -30,7 +30,23 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
   "endLine": 32,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ringbuf_uninit.c",
   "funcName": "test",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 28,
+      "end_line": 28,
+      "text": "// The following call should fail verification as test is not initialized."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -39,29 +55,29 @@ struct ebpf_map ring_buffer = {.type = BPF_MAP_TYPE_RINGBUF, .max_entries = 256 
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "cgroup_skb",
-    "lwt_in",
-    "kprobe",
-    "xdp",
-    "cgroup_sock",
-    "perf_event",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "cgroup_sysctl",
+    "flow_dissector",
     "sched_act",
     "cgroup_device",
+    "lwt_in",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "kprobe",
+    "cgroup_sock_addr",
     "lwt_seg6local",
+    "cgroup_sysctl",
+    "cgroup_sock",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "raw_tracepoint",
     "sk_msg",
     "socket_filter",
-    "flow_dissector",
-    "sched_cls",
-    "raw_tracepoint",
-    "sk_skb"
+    "xdp"
   ],
   "source": [
     "int test (void *ctx)\n",

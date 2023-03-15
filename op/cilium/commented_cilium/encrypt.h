@@ -43,7 +43,38 @@
   "endLine": 75,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encrypt.h",
   "funcName": "do_decrypt",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 54,
+      "end_line": 56,
+      "text": "/* Allow all non-ESP packets up the stack per normal case\n\t\t * without encryption enabled.\n\t\t */"
+    },
+    {
+      "start_line": 59,
+      "end_line": 59,
+      "text": "/* Decrypt \"key\" is determined by SPI */"
+    },
+    {
+      "start_line": 61,
+      "end_line": 65,
+      "text": "/* We are going to pass this up the stack for IPsec decryption\n\t\t * but eth_type_trans may already have labeled this as an\n\t\t * OTHERHOST type packet. To avoid being dropped by IP stack\n\t\t * before IPSec can be processed mark as a HOST packet.\n\t\t */"
+    },
+    {
+      "start_line": 74,
+      "end_line": 74,
+      "text": "/* ENABLE_ROUTING */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -121,10 +152,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "ctx_change_type",
+    "ctx_redirect",
     "revalidate_data_pull",
     "bpf_htons",
-    "ctx_redirect"
+    "ctx_change_type"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -258,10 +289,10 @@ do_decrypt(struct __ctx_buff *ctx, __u16 proto)
     "}\n"
   ],
   "called_function_list": [
-    "ctx_change_type",
+    "ctx_redirect",
     "revalidate_data_pull",
     "bpf_htons",
-    "ctx_redirect"
+    "ctx_change_type"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

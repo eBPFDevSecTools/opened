@@ -10,7 +10,6 @@ def find_c_style_comment_matches(data, comment_regex_pattern=r'//.*?$|/\*.*?\*/'
     regex = re.compile(comment_regex_pattern, re.MULTILINE | re.DOTALL)
     matches = []
     for match in regex.finditer(data):
-        print('matched')
         start_line = data.count('\n', 0, match.start()) + 1
         end_line = data.count('\n', 0, match.end()) + 1
         matched_text = match.group()

@@ -46,7 +46,23 @@
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_l3",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 28,
+      "end_line": 28,
+      "text": "/* Hoplimit was reached */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -83,11 +99,11 @@
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_dec_hoplimit",
-    "icmp6_send_time_exceeded",
-    "eth_store_daddr",
+    "IS_ERR",
     "eth_store_saddr",
-    "IS_ERR"
+    "eth_store_daddr",
+    "icmp6_send_time_exceeded",
+    "ipv6_dec_hoplimit"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -159,7 +175,13 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "endLine": 56,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_l3",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 7,
+      "end_line": 7,
+      "text": "/* FIXME: Send ICMP TTL */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -192,8 +214,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "ipv4_dec_ttl",
     "eth_store_daddr",
+    "ipv4_dec_ttl",
     "eth_store_saddr"
   ],
   "call_depth": -1,
@@ -267,7 +289,28 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   "endLine": 106,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_local_delivery",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 3,
+      "end_line": 7,
+      "text": "/* Performs IPv6 L2/L3 handling and delivers the packet to the destination pod\n * on the same node, either via the stack or via a redirect call.\n * Depending on the configuration, it may also enforce ingress policies for the\n * destination pod via a tail call.\n */"
+    },
+    {
+      "start_line": 20,
+      "end_line": 20,
+      "text": "/* This will invalidate the size check */"
+    },
+    {
+      "start_line": 26,
+      "end_line": 30,
+      "text": "/*\n\t * Special LXC case for updating egress forwarding metrics.\n\t * Note that the packet could still be dropped but it would show up\n\t * as an ingress drop counter in metrics.\n\t */"
+    },
+    {
+      "start_line": 41,
+      "end_line": 41,
+      "text": "/* Jumps to destination pod's BPF program to enforce ingress policies. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -322,15 +365,15 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "update_metrics",
-    "tail_call_dynamic",
+    "defined",
     "redirect_ep",
+    "ctx_full_len",
+    "update_metrics",
     "ipv6_l3",
     "ctx_store_meta",
-    "ctx_full_len",
-    "set_identity_mark",
     "cilium_dbg",
-    "defined"
+    "set_identity_mark",
+    "tail_call_dynamic"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -428,7 +471,23 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_local_delivery",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 2,
+      "end_line": 6,
+      "text": "/* Performs IPv4 L2/L3 handling and delivers the packet to the destination pod\n * on the same node, either via the stack or via a redirect call.\n * Depending on the configuration, it may also enforce ingress policies for the\n * destination pod via a tail call.\n */"
+    },
+    {
+      "start_line": 24,
+      "end_line": 28,
+      "text": "/*\n\t * Special LXC case for updating egress forwarding metrics.\n\t * Note that the packet could still be dropped but it would show up\n\t * as an ingress drop counter in metrics.\n\t */"
+    },
+    {
+      "start_line": 39,
+      "end_line": 39,
+      "text": "/* Jumps to destination pod's BPF program to enforce ingress policies. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -484,15 +543,15 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
     "}\n"
   ],
   "called_function_list": [
-    "ipv4_l3",
-    "update_metrics",
-    "tail_call_dynamic",
+    "defined",
     "redirect_ep",
-    "ctx_store_meta",
     "ctx_full_len",
-    "set_identity_mark",
+    "update_metrics",
+    "ctx_store_meta",
     "cilium_dbg",
-    "defined"
+    "set_identity_mark",
+    "ipv4_l3",
+    "tail_call_dynamic"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -607,7 +666,23 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   "endLine": 185,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "get_min_encrypt_key",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 10,
+      "end_line": 10,
+      "text": "/* Having no key info for a context is the same as no encryption */"
+    },
+    {
+      "start_line": 14,
+      "end_line": 21,
+      "text": "/* If both ends can encrypt/decrypt use smaller of the two this\n\t * way both ends will have keys installed assuming key IDs are\n\t * always increasing. However, we have to handle roll-over case\n\t * and to do this safely we assume keys are no more than one ahead.\n\t * We expect user/control-place to accomplish this. Notice zero\n\t * will always be returned if either local or peer have the zero\n\t * key indicating no encryption.\n\t */"
+    },
+    {
+      "start_line": 29,
+      "end_line": 29,
+      "text": "/* ENABLE_IPSEC */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  ENCRYPT_MAP"
@@ -620,29 +695,29 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __u8 get_min_encrypt_key (__u8 peer_key __maybe_unused)\n",

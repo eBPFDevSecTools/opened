@@ -16,7 +16,28 @@
   "endLine": 33,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/access.h",
   "funcName": "map_array_get_32",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 19,
+      "end_line": 23,
+      "text": "/* LLVM tends to optimize code away that is needed for the verifier to\n\t * understand dynamic map access. Input constraint is that index < limit\n\t * for this util function, so we never fail here, and returned datum is\n\t * always valid.\n\t */"
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "/* no clobbers */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -27,29 +48,29 @@
   "output": "static__always_inline__maybe_unused__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline __maybe_unused __u32 map_array_get_32 (const __u32 *array, __u32 index, const __u32 limit)\n",
@@ -70,8 +91,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_constant_p",
-    "__throw_build_bug"
+    "__throw_build_bug",
+    "__builtin_constant_p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

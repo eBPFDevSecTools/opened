@@ -54,7 +54,13 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
   "funcName": "RAW_TRACEPOINT_PROBE",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 10,
+      "end_line": 10,
+      "text": "// TP_PROTO(struct request *rq, blk_status_t error, unsigned int nr_bytes)"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -65,27 +71,27 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "sk_skb",
-    "sched_act",
-    "socket_filter",
-    "cgroup_sock_addr",
-    "lwt_xmit",
     "lwt_out",
-    "raw_tracepoint",
     "lwt_seg6local",
-    "raw_tracepoint_writable",
-    "sk_msg",
-    "cgroup_skb",
-    "xdp",
-    "tracepoint",
-    "cgroup_sock",
     "sk_reuseport",
-    "sock_ops",
-    "perf_event",
-    "lwt_in",
     "kprobe",
+    "lwt_in",
     "flow_dissector",
-    "sched_cls"
+    "sk_msg",
+    "perf_event",
+    "sched_cls",
+    "sock_ops",
+    "xdp",
+    "raw_tracepoint",
+    "sched_act",
+    "lwt_xmit",
+    "tracepoint",
+    "sk_skb",
+    "cgroup_sock",
+    "cgroup_skb",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "RAW_TRACEPOINT_PROBE (block_rq_complete)\n",
@@ -111,9 +117,9 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "}\n"
   ],
   "called_function_list": [
-    "div_u64",
+    "increment",
     "min_t",
-    "increment"
+    "div_u64"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

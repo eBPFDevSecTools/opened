@@ -24,7 +24,28 @@
   "endLine": 40,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_nomark_ipsec",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 13,
+      "end_line": 15,
+      "text": "/* NOT_VTEP_DST is passed to an encapsulation function when the\n * destination of the tunnel is not a VTEP.\n */"
+    },
+    {
+      "start_line": 22,
+      "end_line": 35,
+      "text": "/* Traffic from local host in tunnel mode will be passed to\n\t * cilium_host. In non-IPSec case traffic with non-local dst\n\t * will then be redirected to tunnel device. In IPSec case\n\t * though we need to traverse xfrm path still. The mark +\n\t * cb[4] hints will not survive a veth pair xmit to ingress\n\t * however so below encap_and_redirect_ipsec will not work.\n\t * Instead pass hints via cb[0], cb[4] (cb is not cleared\n\t * by dev_ctx_forward) and catch hints with bpf_host\n\t * prog that will populate mark/cb as expected by xfrm and 2nd\n\t * traversal into bpf_host. Remember we can't use cb[0-3]\n\t * in both cases because xfrm layer would overwrite them. We\n\t * use cb[4] here so it doesn't need to be reset by\n\t * bpf_host.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -36,29 +57,29 @@
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_nomark_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -70,8 +91,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "ctx_store_meta",
-    "or_encrypt_key"
+    "or_encrypt_key",
+    "ctx_store_meta"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -122,7 +143,13 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "endLine": 57,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_ipsec",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 5,
+      "end_line": 11,
+      "text": "/* IPSec is performed by the stack on any packets with the\n\t * MARK_MAGIC_ENCRYPT bit set. During the process though we\n\t * lose the lxc context (seclabel and tunnel endpoint). The\n\t * tunnel endpoint can be looked up from daddr but the sec\n\t * label is stashed in the mark and extracted in bpf_host\n\t * to send ctx onto tunnel for encap.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -134,29 +161,29 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_ipsec (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key, __u32 seclabel)\n",
@@ -168,9 +195,9 @@ encap_and_redirect_nomark_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
+    "set_encrypt_key_mark",
     "ctx_store_meta",
-    "set_identity_mark",
-    "set_encrypt_key_mark"
+    "set_identity_mark"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -247,7 +274,18 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "endLine": 117,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_remap_v6_host_address",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 24,
+      "end_line": 28,
+      "text": "/* For requests routed via tunnel with external v6 node IP\n\t * we need to remap their source address to the router address\n\t * as otherwise replies are not routed via tunnel but public\n\t * address instead.\n\t */"
+    },
+    {
+      "start_line": 57,
+      "end_line": 57,
+      "text": "/* ENABLE_ENCAP_HOST_REMAP */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -259,13 +297,13 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
     "xdp",
-    "lwt_in",
-    "sched_act",
     "lwt_out",
-    "lwt_seg6local"
+    "lwt_seg6local",
+    "sched_act",
+    "sched_cls",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encap_remap_v6_host_address (struct  __ctx_buff * ctx __maybe_unused, const bool egress __maybe_unused)\n",
@@ -324,15 +362,15 @@ encap_and_redirect_ipsec(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
-    "csum_l4_replace",
-    "revalidate_data",
-    "BPF_V6",
-    "offsetof",
-    "ipv6_hdrlen",
-    "validate_ethertype",
-    "ipv6_addrcmp",
-    "csum_l4_offset_and_flags",
     "ctx_store_bytes",
+    "BPF_V6",
+    "csum_l4_offset_and_flags",
+    "validate_ethertype",
+    "revalidate_data",
+    "offsetof",
+    "ipv6_addrcmp",
+    "csum_l4_replace",
+    "ipv6_hdrlen",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -419,7 +457,18 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "__encap_with_nodeid",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 10,
+      "end_line": 13,
+      "text": "/* When encapsulating, a packet originating from the local host is\n\t * being considered as a packet from a remote node as it is being\n\t * received.\n\t */"
+    },
+    {
+      "start_line": 22,
+      "end_line": 22,
+      "text": "/* ENABLE_VTEP */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -433,29 +482,29 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int __encap_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni __maybe_unused, enum trace_reason ct_reason, __u32 monitor)\n",
@@ -486,11 +535,11 @@ encap_remap_v6_host_address(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
+    "ctx_set_tunnel_key",
     "send_trace_notify",
     "unlikely",
-    "bpf_htonl",
     "cilium_dbg",
-    "ctx_set_tunnel_key"
+    "bpf_htonl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -567,29 +616,29 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int __encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u32 seclabel, __u32 vni, const struct trace_ctx *trace)\n",
@@ -601,8 +650,8 @@ __encap_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
-    "__encap_with_nodeid",
-    "ctx_redirect"
+    "ctx_redirect",
+    "__encap_with_nodeid"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -647,7 +696,13 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "endLine": 185,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_with_nodeid",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 5,
+      "text": "/* encap_and_redirect_with_nodeid returns IPSEC_ENDPOINT after ctx meta-data is\n * set when IPSec is enabled. Caller should pass the ctx to the stack at this\n * point. Otherwise returns CTX_ACT_TX on successful redirect to tunnel device.\n * On error returns CTX_ACT_DROP, DROP_NO_TUNNEL_ENDPOINT or DROP_WRITE_ERROR.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -660,29 +715,29 @@ __encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_with_nodeid (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 key __maybe_unused, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -793,7 +848,23 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
   "endLine": 242,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/encap.h",
   "funcName": "encap_and_redirect_lxc",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 10,
+      "text": "/* encap_and_redirect based on ENABLE_IPSEC flag and from_host bool will decide\n * which version of code to call. With IPSec enabled and from_host set use the\n * IPSec branch which configures metadata for IPSec kernel stack. Otherwise\n * packet is redirected to output tunnel device and ctx will not be seen by\n * IP stack.\n *\n * Returns IPSEC_ENDPOINT when ctx needs to be handed to IP stack for IPSec\n * handling, CTX_ACT_DROP, DROP_NO_TUNNEL_ENDPOINT or DROP_WRITE_ERROR on error,\n * and finally on successful redirect returns CTX_ACT_TX.\n */"
+    },
+    {
+      "start_line": 26,
+      "end_line": 32,
+      "text": "/* For IPSec and the host firewall, traffic from a pod to a remote node\n\t\t * is sent through the tunnel. In the case of node --> VIP@remote pod,\n\t\t * packets may be DNATed when they enter the remote node. If kube-proxy\n\t\t * is used, the response needs to go through the stack on the way to\n\t\t * the tunnel, to apply the correct reverse DNAT.\n\t\t * See #14674 for details.\n\t\t */"
+    },
+    {
+      "start_line": 38,
+      "end_line": 38,
+      "text": "/* !ENABLE_NODEPORT && (ENABLE_IPSEC || ENABLE_HOST_FIREWALL) */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  TUNNEL_MAP"
@@ -811,29 +882,29 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_lxc (struct  __ctx_buff *ctx, __u32 tunnel_endpoint, __u8 encrypt_key __maybe_unused, struct endpoint_key *key, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -870,11 +941,11 @@ encap_and_redirect_with_nodeid(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
-    "__encap_and_redirect_with_nodeid",
-    "encap_and_redirect_ipsec",
-    "get_min_encrypt_key",
+    "defined",
     "__encap_with_nodeid",
-    "defined"
+    "encap_and_redirect_ipsec",
+    "__encap_and_redirect_with_nodeid",
+    "get_min_encrypt_key"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1009,29 +1080,29 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "cgroup_sock_addr",
-    "cgroup_sysctl",
-    "sk_msg",
-    "xdp",
-    "lwt_in",
-    "flow_dissector",
-    "sched_act",
-    "tracepoint",
-    "kprobe",
+    "cgroup_sock",
     "lwt_xmit",
     "sock_ops",
+    "flow_dissector",
     "raw_tracepoint",
-    "sk_reuseport",
-    "raw_tracepoint_writable",
-    "sk_skb",
+    "cgroup_sysctl",
+    "tracepoint",
+    "kprobe",
     "lwt_out",
+    "sched_act",
+    "cgroup_device",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "perf_event",
+    "xdp",
+    "lwt_seg6local",
+    "sk_skb",
+    "sched_cls",
     "socket_filter",
     "cgroup_skb",
-    "cgroup_device",
-    "perf_event",
-    "cgroup_sock",
-    "lwt_seg6local"
+    "sk_msg",
+    "lwt_in",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline int encap_and_redirect_netdev (struct  __ctx_buff *ctx, struct endpoint_key *k, __u32 seclabel, const struct trace_ctx *trace)\n",
@@ -1052,9 +1123,9 @@ encap_and_redirect_lxc(struct __ctx_buff *ctx, __u32 tunnel_endpoint,
     "}\n"
   ],
   "called_function_list": [
+    "get_min_encrypt_key",
     "encap_and_redirect_nomark_ipsec",
-    "__encap_and_redirect_with_nodeid",
-    "get_min_encrypt_key"
+    "__encap_and_redirect_with_nodeid"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

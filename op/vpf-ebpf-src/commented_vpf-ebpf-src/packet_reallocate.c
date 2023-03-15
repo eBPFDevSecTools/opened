@@ -50,7 +50,18 @@ __attribute__((section("socket_filter"), used))
   "endLine": 34,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
   "funcName": "reallocate_invalidates",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -61,10 +72,10 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
     "lwt_xmit",
+    "sched_act",
     "sk_skb",
-    "sched_act"
+    "sched_cls"
   ],
   "source": [
     "int reallocate_invalidates (struct sk_buff *ctx)\n",

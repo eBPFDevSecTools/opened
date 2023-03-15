@@ -30,7 +30,13 @@ SEC("mptm_redirect_xdp")
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c",
   "funcName": "mptm_redirect",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 7,
+      "text": "/* SPDX-License-Identifier: GPL-2.0\n *  \n * Authors:\n * Dushyant Behl <dushyantbehl@in.ibm.com>\n * Sayandeep Sen <sayandes@in.ibm.com>\n * Palanivel Kodeswaran <palani.kodeswaran@in.ibm.com>\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [

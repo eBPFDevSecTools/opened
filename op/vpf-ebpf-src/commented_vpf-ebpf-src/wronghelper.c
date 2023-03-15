@@ -60,7 +60,28 @@ __attribute__((section("xdp"), used))
   "endLine": 37,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c",
   "funcName": "func",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "// The following should fail because the ctx doesn't match, and in particular"
+    },
+    {
+      "start_line": 34,
+      "end_line": 34,
+      "text": "// the memory pointed to by ctx might be smaller than the memory read by the helper."
+    }
+  ],
   "updateMaps": [
     " ctx"
   ],

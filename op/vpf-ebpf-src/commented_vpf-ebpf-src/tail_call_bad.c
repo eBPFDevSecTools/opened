@@ -30,7 +30,28 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
   "endLine": 32,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c",
   "funcName": "caller",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 27,
+      "end_line": 27,
+      "text": "// This should fail validation since the map is not a prog array."
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "// bpf_tail_call failed at runtime."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -41,27 +62,27 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "flow_dissector",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
     "lwt_xmit",
     "cgroup_skb",
-    "lwt_in",
+    "sock_ops",
     "kprobe",
-    "xdp",
+    "cgroup_sock_addr",
+    "lwt_seg6local",
     "cgroup_sock",
     "perf_event",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "sock_ops",
     "raw_tracepoint_writable",
     "lwt_out",
-    "sched_act",
-    "lwt_seg6local",
+    "raw_tracepoint",
     "sk_msg",
     "socket_filter",
-    "flow_dissector",
-    "sched_cls",
-    "raw_tracepoint",
-    "sk_skb"
+    "xdp"
   ],
   "source": [
     "int caller (struct xdp_md *ctx)\n",
@@ -115,29 +136,29 @@ caller(struct xdp_md* ctx)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "cgroup_skb",
-    "lwt_in",
-    "kprobe",
-    "xdp",
-    "cgroup_sock",
-    "perf_event",
-    "tracepoint",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "sock_ops",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "cgroup_sysctl",
+    "flow_dissector",
     "sched_act",
     "cgroup_device",
+    "lwt_in",
+    "sk_skb",
+    "sk_reuseport",
+    "sched_cls",
+    "tracepoint",
+    "lwt_xmit",
+    "cgroup_skb",
+    "sock_ops",
+    "kprobe",
+    "cgroup_sock_addr",
     "lwt_seg6local",
+    "cgroup_sysctl",
+    "cgroup_sock",
+    "perf_event",
+    "raw_tracepoint_writable",
+    "lwt_out",
+    "raw_tracepoint",
     "sk_msg",
     "socket_filter",
-    "flow_dissector",
-    "sched_cls",
-    "raw_tracepoint",
-    "sk_skb"
+    "xdp"
   ],
   "source": [
     "int callee (struct xdp_md *ctx)\n",

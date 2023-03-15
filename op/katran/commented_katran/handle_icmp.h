@@ -64,7 +64,18 @@
   "endLine": 48,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac_and_send",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (C) 2018-present, Facebook, Inc.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    },
+    {
+      "start_line": 20,
+      "end_line": 23,
+      "text": "/*\n * This file contains all routines which are responsible for parsing\n * and handling ICMP packets\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -140,29 +151,29 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "lwt_seg6local",
-    "sk_skb",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "perf_event",
-    "cgroup_sysctl",
-    "xdp",
-    "sched_cls",
-    "cgroup_sock_addr",
-    "socket_filter",
-    "cgroup_skb",
     "kprobe",
-    "lwt_out",
-    "tracepoint",
-    "lwt_in",
+    "cgroup_skb",
+    "sk_skb",
     "cgroup_device",
-    "sched_act",
-    "lwt_xmit",
-    "sk_msg",
+    "tracepoint",
+    "socket_filter",
+    "xdp",
+    "raw_tracepoint_writable",
     "flow_dissector",
+    "lwt_seg6local",
+    "sched_cls",
+    "lwt_out",
+    "sched_act",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sk_reuseport",
+    "lwt_xmit",
     "sock_ops",
-    "sk_reuseport"
+    "perf_event",
+    "raw_tracepoint",
+    "sk_msg",
+    "lwt_in",
+    "cgroup_sock"
   ],
   "source": [
     "static inline void swap_mac (void *data, struct ethhdr *orig_eth)\n",
@@ -232,7 +243,23 @@ __attribute__((__always_inline__)) static inline void swap_mac(
   "endLine": 90,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_reply",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "// the only diff between icmp echo and reply hdrs is type;"
+    },
+    {
+      "start_line": 20,
+      "end_line": 20,
+      "text": "// in first case it's 8; in second it's 0; so instead of recalc"
+    },
+    {
+      "start_line": 21,
+      "end_line": 21,
+      "text": "// checksum from ground up we will just adjust it."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -354,7 +381,23 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
   "endLine": 117,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_reply",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 17,
+      "end_line": 17,
+      "text": "// the only diff between icmp echo and reply hdrs is type;"
+    },
+    {
+      "start_line": 18,
+      "end_line": 18,
+      "text": "// in first case it's 128; in second it's 129; so instead of recalc"
+    },
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "// checksum from ground up we will just adjust it."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -443,25 +486,6 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_alter_or_redo_processing_or_interface",
       "pkt_alter_or_redo_processing_or_interface": [
         {
@@ -476,6 +500,25 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
           ],
           "capabilities": [
             "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -494,8 +537,8 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_DROP",
-    "XDP_TX"
+    "XDP_TX",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -547,9 +590,9 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
     "}\n"
   ],
   "called_function_list": [
+    "swap_mac",
     "ipv4_csum",
-    "bpf_htons",
-    "swap_mac"
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -617,25 +660,6 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_alter_or_redo_processing_or_interface",
       "pkt_alter_or_redo_processing_or_interface": [
         {
@@ -650,6 +674,25 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
           ],
           "capabilities": [
             "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -668,8 +711,8 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_DROP",
-    "XDP_TX"
+    "XDP_TX",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -717,12 +760,12 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
     "}\n"
   ],
   "called_function_list": [
+    "swap_mac",
     "memcpy",
+    "bpf_htonl",
     "ipv6_csum",
     "memset",
-    "bpf_htons",
-    "bpf_htonl",
-    "swap_mac"
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -889,25 +932,6 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -925,6 +949,25 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -932,7 +975,18 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   "endLine": 253,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmpv6",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 20,
+      "end_line": 20,
+      "text": "// data partition of icmp 'pkt too big' contains header (and as much data as"
+    },
+    {
+      "start_line": 21,
+      "end_line": 21,
+      "text": "// as possible) of the packet, which has trigered this icmp."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -943,8 +997,8 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_DROP",
-    "XDP_PASS"
+    "XDP_PASS",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1033,25 +1087,6 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -1066,6 +1101,25 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
           ],
           "capabilities": [
             "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
@@ -1087,8 +1141,8 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_DROP",
-    "XDP_PASS"
+    "XDP_PASS",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"

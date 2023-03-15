@@ -54,25 +54,6 @@ SEC("mptm_encap_xdp")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -115,6 +96,25 @@ SEC("mptm_encap_xdp")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -122,7 +122,43 @@ SEC("mptm_encap_xdp")
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
   "funcName": "mptm_encap",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 7,
+      "text": "/* SPDX-License-Identifier: GPL-2.0 \n *  \n * Authors:\n * Dushyant Behl <dushyantbehl@in.ibm.com>\n * Sayandeep Sen <sayandes@in.ibm.com>\n * Palanivel Kodeswaran <palani.kodeswaran@in.ibm.com>\n */"
+    },
+    {
+      "start_line": 23,
+      "end_line": 23,
+      "text": "/* Defines xdp_stats_map */"
+    },
+    {
+      "start_line": 27,
+      "end_line": 30,
+      "text": "/* Inspired from Katran.\n * ETH_P_IP and ETH_P_IPV6 in Big Endian format.\n * So we don't have to do htons on each packet\n */"
+    },
+    {
+      "start_line": 53,
+      "end_line": 53,
+      "text": "//default action"
+    },
+    {
+      "start_line": 55,
+      "end_line": 55,
+      "text": "/* header pointers */"
+    },
+    {
+      "start_line": 59,
+      "end_line": 59,
+      "text": "/* map values and tunnel informations */"
+    },
+    {
+      "start_line": 93,
+      "end_line": 93,
+      "text": "// keep redirect flags zero for now"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  mptm_tnl_info_map"
@@ -133,9 +169,9 @@ SEC("mptm_encap_xdp")
   "output": "int",
   "helper": [
     "bpf_redirect_map",
-    "XDP_PASS",
     "bpf_map_lookup_elem",
-    "bpf_redirect"
+    "bpf_redirect",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -181,13 +217,13 @@ SEC("mptm_encap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "encap_geneve",
     "likely",
-    "mptm_print",
+    "encap_geneve",
     "encap_vlan",
     "bpf_debug",
-    "parse_pkt_headers",
-    "xdp_stats_record_action"
+    "xdp_stats_record_action",
+    "mptm_print",
+    "parse_pkt_headers"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -260,6 +296,50 @@ SEC("mptm_decap_xdp")
 {
   "capabilities": [
     {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "update_pkt",
       "update_pkt": [
         {
@@ -318,50 +398,6 @@ SEC("mptm_decap_xdp")
           ]
         }
       ]
-    },
-    {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -369,7 +405,58 @@ SEC("mptm_decap_xdp")
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
   "funcName": "mptm_decap",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 3,
+      "end_line": 3,
+      "text": "//default action"
+    },
+    {
+      "start_line": 5,
+      "end_line": 5,
+      "text": "/* header pointers */"
+    },
+    {
+      "start_line": 16,
+      "end_line": 16,
+      "text": "// GENEVE packet"
+    },
+    {
+      "start_line": 17,
+      "end_line": 17,
+      "text": "// Check inner packet if there is a rule corresponding to"
+    },
+    {
+      "start_line": 18,
+      "end_line": 18,
+      "text": "// inner source which will be source for us as we received the packet"
+    },
+    {
+      "start_line": 29,
+      "end_line": 29,
+      "text": "/* recalculate the data pointers */"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "/* header pointers */"
+    },
+    {
+      "start_line": 40,
+      "end_line": 40,
+      "text": "/* map values and tunnel informations */"
+    },
+    {
+      "start_line": 44,
+      "end_line": 44,
+      "text": "// keep redirect flags zero for now"
+    },
+    {
+      "start_line": 46,
+      "end_line": 46,
+      "text": "/* Packet is coming from outside so source and dest must be inversed */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  mptm_tnl_info_map"
@@ -379,12 +466,12 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect_map",
-    "bpf_xdp_adjust_head",
-    "XDP_DROP",
-    "XDP_PASS",
+    "bpf_redirect",
     "bpf_map_lookup_elem",
-    "bpf_redirect"
+    "bpf_xdp_adjust_head",
+    "bpf_redirect_map",
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -437,9 +524,9 @@ SEC("mptm_decap_xdp")
   ],
   "called_function_list": [
     "mptm_print",
-    "unlikely",
     "parse_pkt_headers",
-    "xdp_stats_record_action"
+    "xdp_stats_record_action",
+    "unlikely"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

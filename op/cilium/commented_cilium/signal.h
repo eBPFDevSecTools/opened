@@ -42,7 +42,18 @@ struct signal_msg {
   "endLine": 41,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -54,11 +65,11 @@ struct signal_msg {
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "kprobe",
     "raw_tracepoint",
-    "raw_tracepoint_writable",
+    "tracepoint",
     "perf_event",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)\n",
@@ -113,11 +124,11 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "kprobe",
     "raw_tracepoint",
-    "raw_tracepoint_writable",
+    "tracepoint",
     "perf_event",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
@@ -178,11 +189,11 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "kprobe",
     "raw_tracepoint",
-    "raw_tracepoint_writable",
+    "tracepoint",
     "perf_event",
-    "tracepoint"
+    "kprobe",
+    "raw_tracepoint_writable"
   ],
   "source": [
     "static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",

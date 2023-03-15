@@ -60,7 +60,38 @@
   "endLine": 83,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_l3_headers",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (C) 2019-present, Facebook, Inc.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    },
+    {
+      "start_line": 57,
+      "end_line": 57,
+      "text": "// we drop fragmented packets"
+    },
+    {
+      "start_line": 65,
+      "end_line": 65,
+      "text": "// ihl contains len of ipv4 header in 32bit words"
+    },
+    {
+      "start_line": 67,
+      "end_line": 67,
+      "text": "// if len of ipv4 hdr is not equal to 20bytes that means that header"
+    },
+    {
+      "start_line": 68,
+      "end_line": 68,
+      "text": "// contains ip options, and we dont support em"
+    },
+    {
+      "start_line": 78,
+      "end_line": 78,
+      "text": "// we drop fragmented packets."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -119,10 +150,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "parse_icmp",
     "parse_icmpv6",
     "bpf_ntohs",
-    "memcpy"
+    "memcpy",
+    "parse_icmp"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -278,10 +309,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "}\n"
   ],
   "called_function_list": [
-    "decap_v4",
-    "decrement_ttl",
+    "decap_v6",
     "recirculate",
-    "decap_v6"
+    "decap_v4",
+    "decrement_ttl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -371,7 +402,23 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "endLine": 161,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_gue_pckt",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 12,
+      "end_line": 12,
+      "text": "// 1 byte for gue v1 marker to figure out what is internal protocol"
+    },
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "// inner packet is ipv6 as well"
+    },
+    {
+      "start_line": 24,
+      "end_line": 24,
+      "text": "// inner packet is ipv4"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -423,10 +470,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "recirculate",
-    "decrement_ttl",
     "gue_decap_v6",
-    "gue_decap_v4"
+    "recirculate",
+    "gue_decap_v4",
+    "decrement_ttl"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -495,25 +542,6 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -556,6 +584,25 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -563,7 +610,13 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   "endLine": 221,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_packet",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 57,
+      "end_line": 57,
+      "text": "// INLINE_DECAP_GUE"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  decap_counters"
@@ -577,8 +630,8 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -640,28 +693,28 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "}\n"
   ],
   "called_function_list": [
+    "process_encaped_gue_pckt",
+    "connection_table_lookup",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
     "REPORT_TCP_NONSYN_LRUMISS",
-    "check_decap_dst",
     "process_encaped_ipip_pckt",
+    "PCKT_ENCAP_V4",
     "increment_quic_cid_drop_real_0",
+    "check_decap_dst",
+    "PCKT_ENCAP_V6",
+    "process_l3_headers",
+    "parse_udp",
+    "increment_quic_cid_drop_no_real",
     "perform_global_lru_lookup",
-    "parse_quic",
+    "memcpy",
+    "get_packet_dst",
+    "bpf_htons",
     "send_icmp_too_big",
     "increment_quic_cid_version_stats",
-    "get_packet_dst",
-    "parse_udp",
-    "connection_table_lookup",
-    "tcp_hdr_opt_lookup",
-    "PCKT_ENCAP_V6",
-    "bpf_htons",
-    "process_encaped_gue_pckt",
-    "PCKT_ENCAP_V4",
     "REPORT_PACKET_TOOBIG",
-    "increment_quic_cid_drop_no_real",
-    "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "memcpy",
     "parse_tcp",
-    "process_l3_headers"
+    "parse_quic",
+    "tcp_hdr_opt_lookup"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -749,25 +802,6 @@ SEC("decap")
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -785,6 +819,25 @@ SEC("decap")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -792,7 +845,18 @@ SEC("decap")
   "endLine": 247,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "xdpdecap",
-  "developer_inline_comments": [],
+  "developer_inline_comments": [
+    {
+      "start_line": 11,
+      "end_line": 11,
+      "text": "// bogus packet, len less than minimum ethernet frame size"
+    },
+    {
+      "start_line": 22,
+      "end_line": 22,
+      "text": "// pass to tcp/ip stack"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -800,8 +864,8 @@ SEC("decap")
   ],
   "output": "int",
   "helper": [
-    "XDP_DROP",
-    "XDP_PASS"
+    "XDP_PASS",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
     "xdp"
