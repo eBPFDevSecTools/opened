@@ -277,18 +277,7 @@ struct {
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t_staticctx",
-          " &CALLS_MAP",
-          " index"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 276,
   "endLine": 280,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/maps.h",
@@ -304,27 +293,27 @@ struct {
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline void ep_tail_call (struct  __ctx_buff * ctx __maybe_unused, const __u32 index __maybe_unused)\n",
@@ -332,13 +321,11 @@ struct {
     "    tail_call_static (ctx, &CALLS_MAP, index);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "tail_call_static"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

@@ -25,21 +25,38 @@
           "Function Name": "get_smp_processor_id",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "get_smp_processor_id": [
-      {
-        "opVar": "#ifndef HAVE_LARGE_INSN_LIMIT       volatile int __maybe_unused id ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 13,
   "endLine": 18,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h",
@@ -54,27 +71,27 @@
     "get_smp_processor_id"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline void relax_verifier (void)\n",
@@ -86,13 +103,9 @@
     "#endif\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

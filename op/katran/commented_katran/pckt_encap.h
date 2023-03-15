@@ -41,35 +41,8 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    if xdp",
-          " 0 - intsizeofstruct ipv6hdr "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 41,
   "endLine": 91,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -85,11 +58,31 @@
     " __u32 pkt_bytes"
   ],
   "output": "staticinlinebool",
-  "helper": [
-    "bpf_xdp_adjust_head"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)\n",
@@ -135,13 +128,12 @@
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy",
+    "create_v6_hdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -211,35 +203,8 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    if xdp",
-          " 0 - intsizeofstruct iphdr "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 93,
   "endLine": 133,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -254,11 +219,31 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
     " __u32 pkt_bytes"
   ],
   "output": "staticinlinebool",
-  "helper": [
-    "bpf_xdp_adjust_head"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)\n",
@@ -289,13 +274,13 @@ __attribute__((__always_inline__)) static inline bool encap_v6(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons",
+    "memcpy",
+    "create_v4_hdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -357,35 +342,8 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    if xdp",
-          " intsizeofstruct ipv6hdr "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 137,
   "endLine": 156,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -399,11 +357,31 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
     " bool inner_v4"
   ],
   "output": "staticinlinebool",
-  "helper": [
-    "bpf_xdp_adjust_head"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)\n",
@@ -428,13 +406,11 @@ __attribute__((__always_inline__)) static inline bool encap_v4(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -473,35 +449,8 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "  if xdp",
-          " intsizeofstruct iphdr "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 158,
   "endLine": 173,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -514,11 +463,31 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
     " void **data_end"
   ],
   "output": "staticinlinebool",
-  "helper": [
-    "bpf_xdp_adjust_head"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool decap_v4 (struct xdp_md *xdp, void **data, void **data_end)\n",
@@ -538,13 +507,11 @@ decap_v6(struct xdp_md* xdp, void** data, void** data_end, bool inner_v4) {
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -600,29 +567,29 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool gue_csum (void *data, void *data_end, bool outer_v6, bool inner_v6, struct packet_description *pckt, __u64 *csum)\n",
@@ -688,13 +655,13 @@ decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "gue_csum_v4_in_v6",
+    "gue_csum_v4",
+    "gue_csum_v6"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -788,22 +755,6 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
 {
   "capabilities": [
     {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -815,31 +766,40 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  src ",
-        "inpVar": [
-          " &pckt_srcs",
-          " &ipv4_src"
-        ]
-      }
-    ],
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "  if           xdp",
-          " 0 - intsizeofstruct iphdr + intsizeofstruct udphdr "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 251,
   "endLine": 307,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -857,11 +817,32 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool gue_encap_v4 (struct xdp_md *xdp, struct ctl_value *cval, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)\n",
@@ -905,13 +886,15 @@ __attribute__((__always_inline__)) static inline bool gue_csum(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons",
+    "create_udp_hdr",
+    "memcpy",
+    "create_v4_hdr",
+    "gue_csum"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -989,22 +972,6 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
 {
   "capabilities": [
     {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -1016,31 +983,40 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  src ",
-        "inpVar": [
-          " &pckt_srcs",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    if           xdp",
-          "          0 - intsizeofstruct ipv6hdr + intsizeofstruct udphdr "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 309,
   "endLine": 367,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -1059,11 +1035,32 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_xdp_adjust_head"
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool gue_encap_v6 (struct xdp_md *xdp, struct ctl_value *cval, bool is_ipv6, struct packet_description *pckt, struct real_definition *dst, __u32 pkt_bytes)\n",
@@ -1114,13 +1111,14 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v4(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "gue_csum",
+    "create_udp_hdr",
+    "memcpy",
+    "create_v6_hdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1201,35 +1199,8 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "  if           xdp",
-          " intsizeofstruct iphdr + sizeofstruct udphdr "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 372,
   "endLine": 389,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -1242,11 +1213,31 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
     " void **data_end"
   ],
   "output": "staticinlinebool",
-  "helper": [
-    "bpf_xdp_adjust_head"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool gue_decap_v4 (struct xdp_md *xdp, void **data, void **data_end)\n",
@@ -1267,13 +1258,12 @@ __attribute__((__always_inline__)) static inline bool gue_encap_v6(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "RECORD_GUE_ROUTE",
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1310,35 +1300,8 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    if           xdp",
-          " intsizeofstruct ipv6hdr + sizeofstruct udphdr "
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 391,
   "endLine": 412,
   "File": "/home/sayandes/opened_extraction/examples/katran/pckt_encap.h",
@@ -1352,11 +1315,31 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     " bool inner_v4"
   ],
   "output": "staticinlinebool",
-  "helper": [
-    "bpf_xdp_adjust_head"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "xdp"
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool gue_decap_v6 (struct xdp_md *xdp, void **data, void **data_end, bool inner_v4)\n",
@@ -1382,13 +1365,12 @@ gue_decap_v4(struct xdp_md* xdp, void** data, void** data_end) {
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "RECORD_GUE_ROUTE",
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

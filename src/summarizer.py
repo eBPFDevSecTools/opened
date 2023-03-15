@@ -12,64 +12,64 @@ from collections import defaultdict
 
 CAP="capability"
 
-def create_capability_json(cap_dict, manpage_info_dict):
+def get_read_maps(lines, map_read_fn):
+    map_read_set=set()
+    for line in lines:
+        mapname= check_map_access(map_read_fn,line)
+        if mapname != None:
+            map_read_set.add(mapname)
+    return list(map_read_set)
+
+def get_update_maps(lines, map_update_fn):
+    map_update_set=set()
+    for line in lines:
+        mapname= check_map_access(map_update_fn,line)
+        if mapname != None:
+            map_update_set.add(mapname)
+    return list(map_update_set)
+
+def get_helper_list(lines,helperdict):
+    helper_set= set()
+    for line in lines:
+        present= check_and_return_func_present(helperdict,line)
+        if present != None:
+            helper_set.update(present)
+    return list(helper_set)
+
+def create_capability_dict(helper_list, helperdict):
+    cap_dict = {}
+    for fn in helper_list:
+        for cap in helperdict[fn]['capabilities']:
+            if cap not in cap_dict:
+                cap_dict[cap] = list()
+            cap_dict[cap].append(fn)
+
     data_list = []
     for cap_name in cap_dict.keys():
         data = {}
         data["capability"] = cap_name
         lst = []
-        for helper in list(cap_dict[cap_name]):
+        for helper in cap_dict[cap_name]:
             #print("got "+helper+"->")#+str(manpage_info_dict[helper]["Function Name"]))
-            lst.append(manpage_info_dict[helper])
+            lst.append(helperdict[helper])
         data[cap_name]=lst
         data_list.append(data)
     return data_list
-
-
-def add_dict_to_cap_dict(cap_dict,cap_name):
-    if  not (cap_name in cap_dict):
-        cap_dict[cap_name] = {}
-        
-def add_helper_to_dict(cap_dict,cap_name,helper_name):
-    try:
-        helper_dict = cap_dict[cap_name]
-        helper_dict[helper_name] = 1
-    except Exception as e:
-        print(e)
-
-def generate_capabilities(helper_list,cap_dict):
-    capabilities = {}
-    #print("Capabilities")
-    for cap_name in cap_dict.keys():
-        helpers=set()
-        #print(cap_name)
-        cap_helpers = cap_dict[cap_name]
-        #print("cap_helpers")
-        #print(cap_helpers)
-        for helper_name in helper_list:
-            #print(helper_name)
-            if helper_name in cap_helpers.keys():
-                #print("Adding: "+cap_name)
-                helpers.add(helper_name)
-        if len(helpers) > 0:
-            #capabilities[cap_name]=set_to_string(helpers)
-            capabilities[cap_name] = helpers
-    return capabilities
 
 def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
     if helpers is None or len(helpers) == 0:
         hook_set = get_all_available_hookpoints(helper_hookpoint_dict)
-        print("Helpers None: ")
-        print(hook_set)
-        return get_all_available_hookpoints(helper_hookpoint_dict)
+        #print("Helpers None: ")
+        #print(hook_set)
+        return list(hook_set)
         #return ["All_hookpoints"]
     
-    for helper in helpers:
-        hookpoint_list = helper_hookpoint_dict[helper]
-        #print(hookpoint_list)
-        hookpoints = hookpoint_list.split(",")
-        helper_set=set(hookpoints)
+    for helper in set(helpers):
+        if 'compatible_hookpoints' not in helper_hookpoint_dict[helper]:
+            continue
+
+        helper_set = set(helper_hookpoint_dict[helper]["compatible_hookpoints"])
         if hook_set == None:
             hook_set = helper_set
         else:
@@ -78,33 +78,6 @@ def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
         return None
     return list(hook_set)
 
-'''
-#Sample:
-#capability,map_read
-bpf_map_peek_elem,1
-bpf_map_lookup_elem,1
-
-'''
-def load_capability_file(file_name, cap_dict):
-    cap_name = ""
-    try:
-        f = open(file_name,'r')
-        for line in f.readlines():
-            line = line.strip()
-            if "#" in line:
-                if CAP in line:
-                    tokens = line.split(",")
-                    cap_name = tokens[1]
-                    add_dict_to_cap_dict(cap_dict,cap_name)
-            else:
-                tokens = line.split(",")
-                helper_name = tokens[0]
-                value = tokens[1]
-
-                if int(value) == 1:
-                    add_helper_to_dict(cap_dict,cap_name,helper_name)
-    except Exception as e:
-        print(e)
 
 def decompile(prog_file):
     lines = []
@@ -122,7 +95,7 @@ def decompile(prog_file):
         print(line)
     return lines
 
-def load_bpf_helper_map(fname):
+def load_bpf_helper_cap(fname):
     data = {}
     try:
         with open(fname, 'r') as f:
@@ -132,7 +105,8 @@ def load_bpf_helper_map(fname):
     return data
 
 
-def load_manpage_helper_map(fname):
+def load_bpf_helper_map(fname):
+    print("Filename: "+fname)
     data = []
     ret = {}
     try:
@@ -141,81 +115,29 @@ def load_manpage_helper_map(fname):
     except IOError as e:
         print("Could not open file: "+fname)
     for entry in data:
+        #print("This is entry: "+entry)
         keys = entry.keys()
         for keys in entry:
             ret[keys] = entry[keys]
     return ret
 
+def check_and_return_func_present(helperdict, line):
+    hls =  list()
+    for helper in helperdict.keys():
+        if line.find(' '+helper)>=0:
+            hls.append(helper)
+    return hls
 
-def check_and_return_func_present(my_dict,line):
-    for key in my_dict.keys():
-        if line.find(key)>=0:
-            return key
-    return None
-
-def append_helper_details(line, helper, helper_set, helperCallParams):
-    helper_set.add(helper)
-    details_dict = {}
-    # save the op variable name and arguments
-    #print("line:"+line+" END")
-    re.sub(' +', ' ',line)
-    if'=' in line:
-        details_dict["opVar"] = line.split('=')[0]
-        rest = line.split('=')[1].replace("(","").replace(")","")
-    else:
-        details_dict["opVar"] = "NA"
-        rest = line
-    rest = rest.replace(helper,"").replace("(","").replace(")","")
-    details_dict["inpVar"] = rest.split(",")
-    #helperCallParams[helper].append(json.dumps(details_dict,indent=1))
-    helperCallParams[helper].append(details_dict)
-
-def append_return_details(ret_type, rettypedict, ret_set):
-    #print("RETURN TYPE: "+ret_type+" value: "+str(rettypedict[ret_type]))
-    ret_set.add(ret_type)
-    return
-
-def check_and_return_helper_present(my_dict,line):
-    for key in my_dict.keys():
-        if line.find(key)>= 0:
-            return key
-    return None
-
-def get_helper_list(lines,helperdict):
+def get_helper_encoding(lines, helperdict, helperCallParams):
     helper_set= set()
     for line in lines:
-        present= check_and_return_helper_present(helperdict,line)
-        if present != None:
-            helper_set.add(present)
+        helper_list = check_and_return_func_present(helperdict,line)
+        if len(helper_list) > 0:
+            #experimental stuff disabled for now XXX
+            #for helper in helper_list:
+            #append_helper_details(line, helper, helper_set, helperCallParams)
+            helper_set.update(helper_list)
     return list(helper_set)
-
-def get_helper_encoding(lines, helperdict, helperCallParams, rettypedict):
-    helper_set= set()
-    ret_set= set()
-    for line in lines:
-        helper=check_and_return_func_present(helperdict,line)
-        if helper != None:
-            append_helper_details(line, helper, helper_set, helperCallParams)
-        ret_type = check_and_return_func_present(rettypedict, line)
-        if ret_type != None:
-            append_return_details(ret_type, rettypedict, ret_set)
-    return list(helper_set)
-
-def get_read_maps(lines, map_read_fn):
-    map_read_set=set()
-    for line in lines:
-        mapname= check_map_access(map_read_fn,line)
-        if mapname != None:
-            map_read_set.add(mapname)
-    return list(map_read_set)
-            
-def get_update_maps(lines, map_update_fn):
-    map_update_set=set()
-    for line in lines:
-        mapname= check_map_access(map_update_fn,line)
-        if mapname != None:
-            map_update_set.add(mapname)
-    return list(map_update_set)
 
 def get_prog_id(sec_name,output):
     lines = output.split("\n")
@@ -253,48 +175,23 @@ def read_src_file(fname,beg,end):
     lines = lines.replace("}","").replace("{",";").replace("\n","");
     return lines.split(";")
     
-def get_capability_dict(begL, endL, example_file, isCilium, bpfHelperFile):
-    #Default init values
-    capability_files = ["asset/bpf_helper_info/bpf_helpers_read_skb.txt", "asset/bpf_helper_info/bpf_helpers_mangle_skb.txt","asset/bpf_helper_info/bpf_helpers_map_read.txt","asset/bpf_helper_info/bpf_helpers_map_update.txt","asset/bpf_helper_info/bpf_helpers_read_sys_info.txt","asset/bpf_return_type_info/return_type_drop_pkt.txt","asset/bpf_return_type_info/return_type_pass_pkt.txt", "asset/bpf_return_type_info/return_type_redirect_pkt.txt"]
-    bpf_helper_file= './asset/helper_hookpoint_map.json'
-    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
-    manpage_info_file = "./asset/bpf_helpers_desc_mod.json"
-    
-    if(isCilium is True):
-        map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
-        map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
-    
-    cap_dict = {}
-    for file_name in capability_files:
-        load_capability_file(file_name,cap_dict)
-    
-    if(bpfHelperFile is not None):
-        bpf_helper_file = bpfHelperFile
-    helperdict = load_bpf_helper_map(bpf_helper_file)
-    rettypedict = load_bpf_helper_map("./asset/PktRetTypesInfo.json")
-
+def get_capability_dict(begL, endL, example_file, helperdict):
     code_lines = read_src_file(example_file,begL,endL)
+
     helperCallParams = defaultdict(list)
-    helpers_list = get_helper_encoding(code_lines, helperdict, helperCallParams, rettypedict)
-    caps = generate_capabilities(helpers_list, cap_dict)
-    manpage_info_dict = load_manpage_helper_map(manpage_info_file)
+    helpers_list = get_helper_encoding(code_lines, helperdict, helperCallParams)
     op_dict = {}
-    op_dict["capabilities"] = create_capability_json(caps, manpage_info_dict)
+    op_dict["capabilities"] = create_capability_dict(helpers_list, helperdict)
     op_dict["helperCallParams"] = helperCallParams
     return op_dict
 
 
 def get_all_available_hookpoints(helper_hookpoint_dict):
     hookpoint_set = set()
-    for hookpoint_str in helper_hookpoint_dict.values():
-        if hookpoint_str is None:
+    for info_str in helper_hookpoint_dict.values():
+        if info_str is None or "compatible_hookpoints" not in info_str:
             continue
-        hookpts = hookpoint_str.split(",")
-        print("hookpts: ")
-        print(hookpts)
-        for hookpt in hookpts:
-            hookpoint_set.add(hookpt)
+        hookpoint_set.update(info_str["compatible_hookpoints"])
     return list(hookpoint_set)
 
 if __name__ == "__main__":
@@ -308,29 +205,14 @@ if __name__ == "__main__":
 
     parser.add_argument('-e','--secName', type=str,required=True,
             help='Section Name')
-    parser.add_argument('-q','--isCilium', type=bool,required=True,
-            help='whether repository is cilium')
-
 
     args = parser.parse_args()
 
     print("Args",args)
-
-
     
     fname = args.srcFile
     sec_name = args.secName
-    bpf_helper_file= '../asset/helper_hookpoint_map.json'
-    map_update_fn = ["bpf_sock_map_update", "bpf_map_delete_elem", "bpf_map_update_elem","bpf_map_pop_elem", "bpf_map_push_elem"]
-    map_read_fn = ["bpf_map_peek_elem", "bpf_map_lookup_elem", "bpf_map_pop_elem"]
-    isCilium=args.isCilium
-
-    if(isCilium == True):
-        print("Warning: bpf_helper_file not specified using default asset/cilium.helper_hookpoint_map.json\n")
-        bpf_helper_file = "asset/cilium.helper_hookpoint_map.json"
-        map_update_fn = ["sock_map_update", "map_delete_elem", "map_update_elem","map_pop_elem", "map_push_elem"]
-        map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
-    
+    bpf_helper_file= '../asset/bpf_helpers_desc_mod.json'
     if(args.bpfHelperFile is not None):
         bpf_helper_file = args.bpfHelperFile
     
@@ -341,11 +223,4 @@ if __name__ == "__main__":
     ifile = open('decompiled.c','r')
     lines = ifile.readlines();
     helperCallParams = {}
-    encoding = get_helper_encoding(lines,helperdict, helperCallParams)
-    read_maps = get_read_maps(lines)
-    update_maps = get_update_maps(lines)
-    #print("Encoding: ",encoding,"Read Maps: ",read_maps,"Update Maps: ",update_maps)
-
-    
-    #print(rc.decode("utf-8"))
-    #runbpftool()
+    encoding = get_helper_encoding(lines, helperdict, helperCallParams)

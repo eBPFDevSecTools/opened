@@ -30,21 +30,38 @@ __attribute__((section("xdp"), used))
           "Function Name": "get_prandom_u32",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "get_prandom_u32": [
-      {
-        "opVar": "    uint32_t rand32 ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 18,
   "endLine": 58,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
@@ -59,27 +76,27 @@ __attribute__((section("xdp"), used))
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
+    "cgroup_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sched_act",
     "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
     "lwt_out",
     "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_skb",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "xdp"
   ],
   "source": [
     "int test_packet_access (struct xdp_md *ctx)\n",
@@ -111,13 +128,9 @@ __attribute__((section("xdp"), used))
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

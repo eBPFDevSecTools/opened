@@ -99,18 +99,7 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "_staticvoid *ctx",
-          " const void *map",
-          " const __u32 slot"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 98,
   "endLine": 123,
   "File": "/home/sayandes/opened_extraction/examples/ingress-node-firewall-master/bpf/headers/bpf_helpers.h",
@@ -127,27 +116,27 @@
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint_writable",
-    "cgroup_skb",
-    "lwt_out",
-    "lwt_seg6local",
-    "tracepoint",
-    "sk_skb",
-    "raw_tracepoint",
-    "sock_ops",
-    "sched_cls",
-    "sk_msg",
-    "socket_filter",
     "lwt_xmit",
-    "xdp",
-    "flow_dissector",
-    "sk_reuseport",
-    "cgroup_sock_addr",
+    "sk_skb",
+    "cgroup_sock",
+    "sched_cls",
+    "perf_event",
     "kprobe",
-    "lwt_in"
+    "sk_reuseport",
+    "sk_msg",
+    "lwt_out",
+    "sched_act",
+    "xdp",
+    "cgroup_skb",
+    "tracepoint",
+    "flow_dissector",
+    "sock_ops",
+    "lwt_seg6local",
+    "cgroup_sock_addr",
+    "socket_filter",
+    "raw_tracepoint_writable",
+    "lwt_in",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void bpf_tail_call_static (void *ctx, const void *map, const __u32 slot)\n",
@@ -170,13 +159,12 @@
     "        );\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_constant_p",
+    "__bpf_unreachable"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

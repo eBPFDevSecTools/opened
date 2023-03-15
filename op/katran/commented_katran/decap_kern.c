@@ -34,7 +34,27 @@
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 34,
   "endLine": 83,
@@ -52,31 +72,11 @@
     " bool is_ipv6"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)\n",
@@ -117,18 +117,19 @@
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy",
+    "bpf_ntohs",
+    "parse_icmpv6",
+    "parse_icmp"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,                   which means it contains ip options, and we do not support them.                   Otherwise, perform decapsulation of the packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -197,7 +198,27 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 85,
   "endLine": 120,
@@ -216,31 +237,11 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     " __u16 *pkt_bytes"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes)\n",
@@ -274,18 +275,19 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "decrement_ttl",
+    "decap_v6",
+    "decap_v4",
+    "recirculate"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Process ip-in-ip encaped packet, drop the packet if 1) bogus packet, len less than minimum ethernet frame size, 2) not decaped successfully.                   Otherwise, perform decapsulation of the outer packet header. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -341,7 +343,27 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 123,
   "endLine": 161,
@@ -356,31 +378,11 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     " bool is_ipv6"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6)\n",
@@ -417,18 +419,19 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "decrement_ttl",
+    "gue_decap_v4",
+    "recirculate",
+    "gue_decap_v6"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " Decapsulate the outer header of the packet based on whether the inner-outer combo is ipv6 or ipv4.                   Drop the packet if: 1) bogus packet, len less than minimum ethernet frame size, 2) not decaped succesfully.                   When ipv6, check the situation that the inner packet is ipv6 and ipv4                   When ipv4, check the situation that the inner packet is ipv4 ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -500,22 +503,59 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  data_stats ",
-        "inpVar": [
-          " &decap_counters",
-          " &key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 164,
   "endLine": 221,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
@@ -533,32 +573,11 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_packet (void *data, __u64 off, void *data_end, bool is_ipv6, struct xdp_md *xdp)\n",
@@ -616,18 +635,37 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "REPORT_PACKET_TOOBIG",
+    "parse_quic",
+    "PCKT_ENCAP_V6",
+    "increment_quic_cid_drop_real_0",
+    "get_packet_dst",
+    "increment_quic_cid_drop_no_real",
+    "connection_table_lookup",
+    "PCKT_ENCAP_V4",
+    "bpf_htons",
+    "REPORT_TCP_NONSYN_LRUMISS",
+    "tcp_hdr_opt_lookup",
+    "process_l3_headers",
+    "perform_global_lru_lookup",
+    "parse_udp",
+    "parse_tcp",
+    "increment_quic_cid_version_stats",
+    "send_icmp_too_big",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "process_encaped_ipip_pckt",
+    "memcpy",
+    "check_decap_dst",
+    "process_encaped_gue_pckt"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " This is a function which assembles the previous 3 functions process_l3_headers, process_encaped_ipip_pckt                   and process_encaped_gue_pckt. It process the packet regardless the type of the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -705,7 +743,46 @@ SEC("decap")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 224,
   "endLine": 247,
@@ -717,31 +794,12 @@ SEC("decap")
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "XDP_PASS",
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "int xdpdecap (struct xdp_md *ctx)\n",
@@ -767,18 +825,16 @@ SEC("decap")
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [
+    "process_packet"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Process layer 3 headers. Drop the packet if it is 1)bogus packet, len less than minimum ethernet frame size, 2)fragmented, 3)ipv4 header not equals to 20 bytes,",
+      "description": " This is wrapper function which decapsulates the packet packet header for all types. After processing the packet, pass it to tcp/ip stack. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

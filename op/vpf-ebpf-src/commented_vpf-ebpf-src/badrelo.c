@@ -46,24 +46,40 @@ struct ctx;
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "            return &map2",
-          " const void*0",
-          " const void*0",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 31,
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badrelo.c",
@@ -80,29 +96,29 @@ struct ctx;
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sysctl",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_device",
     "cgroup_skb",
+    "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "sched_cls",
+    "lwt_out",
+    "lwt_xmit",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "xdp"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",
@@ -111,13 +127,12 @@ struct ctx;
     "    return bpf_map_update_elem (&map2, (const void *) 0, (const void *) 0, 0);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ebpf_map_update_elem",
+    "ebpf_get_current_comm"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/bcc/dddos.c" funcheader="int detect_ddos (struct pt_regs *ctx, void *skb)" startline="15" endline="61">
+int detect_ddos (struct pt_regs *ctx, void *skb)
+{
+    struct detectionPackets detectionPacket = {}
+    ;
+    u64 rcv_packets_nb_index = 0, rcv_packets_nb_inter = 1, *rcv_packets_nb_ptr;
+    u64 rcv_packets_ts_index = 1, rcv_packets_ts_inter = 0, *rcv_packets_ts_ptr;
+    rcv_packets_nb_ptr = rcv_packets.lookup (&rcv_packets_nb_index);
+    rcv_packets_ts_ptr = rcv_packets.lookup (&rcv_packets_ts_index);
+    if (rcv_packets_nb_ptr != 0 && rcv_packets_ts_ptr != 0) {
+        rcv_packets_nb_inter = *rcv_packets_nb_ptr;
+        rcv_packets_ts_inter = bpf_ktime_get_ns () - *rcv_packets_ts_ptr;
+        if (rcv_packets_ts_inter < LEGAL_DIFF_TIMESTAMP_PACKETS) {
+            rcv_packets_nb_inter++;
+        }
+        else {
+            rcv_packets_nb_inter = 0;
+        }
+        if (rcv_packets_nb_inter > MAX_NB_PACKETS) {
+            detectionPacket.nb_ddos_packets = rcv_packets_nb_inter;
+            events.perf_submit (ctx, &detectionPacket, sizeof (detectionPacket));
+        }
+    }
+    rcv_packets_ts_inter = bpf_ktime_get_ns ();
+    rcv_packets.update (&rcv_packets_nb_index, &rcv_packets_nb_inter);
+    rcv_packets.update (&rcv_packets_ts_index, &rcv_packets_ts_inter);
+    return 0;
+}
+</source>
+</doc>

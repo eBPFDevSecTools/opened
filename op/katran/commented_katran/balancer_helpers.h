@@ -59,34 +59,40 @@
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  gk ",
-        "inpVar": [
-          " &ctl_array",
-          " &introspection_gk_pos"
-        ]
-      }
-    ],
-    "bpf_perf_event_output": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    ctx",
-          " map",
-          " flags",
-          " &md",
-          " sizeofstruct event_metadata"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 46,
   "endLine": 70,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
@@ -109,22 +115,22 @@
     "bpf_perf_event_output"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "raw_tracepoint",
+    "socket_filter",
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
+    "tracepoint",
     "lwt_seg6local",
+    "cgroup_skb",
+    "sock_ops",
+    "perf_event",
+    "sk_skb",
     "sched_cls",
+    "raw_tracepoint",
     "xdp",
     "raw_tracepoint_writable",
-    "perf_event",
-    "sched_act",
-    "lwt_xmit",
     "kprobe",
-    "sk_skb",
-    "tracepoint",
-    "sock_ops",
-    "lwt_out",
-    "socket_filter",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline void submit_event (struct xdp_md *ctx, void *map, __u32 event_id, void *data, __u32 size, bool metadata_only)\n",
@@ -150,13 +156,11 @@
     "    bpf_perf_event_output (ctx, map, flags, &md, sizeof (struct event_metadata));\n",
     "}\n"
   ],
+  "called_function_list": [
+    "min_helper"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -202,19 +206,28 @@ __attribute__((__always_inline__)) static inline void submit_event(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "  ctx",
-          " &subprograms",
-          " i"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 74,
   "endLine": 80,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
@@ -226,30 +239,11 @@ __attribute__((__always_inline__)) static inline void submit_event(
   ],
   "output": "staticinlineint",
   "helper": [
+    "XDP_PASS",
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int recirculate (struct xdp_md *ctx)\n",
@@ -259,13 +253,9 @@ __attribute__((__always_inline__)) static inline void submit_event(
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -292,7 +282,27 @@ __attribute__((__always_inline__)) static inline int recirculate(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 83,
   "endLine": 111,
@@ -307,31 +317,11 @@ __attribute__((__always_inline__)) static inline int recirculate(
     " bool is_ipv6"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int decrement_ttl (void *data, void *data_end, int offset, bool is_ipv6)\n",
@@ -362,13 +352,9 @@ __attribute__((__always_inline__)) static inline int recirculate(
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

@@ -4,17 +4,7 @@ BPF_HASH(start, u8, u8);
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_trace_printk": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\"KVM_EXIT exit_reason : %d\\\\n\"",
-          " args->exit_reason"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 3,
   "endLine": 11,
   "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
@@ -30,29 +20,29 @@ BPF_HASH(start, u8, u8);
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
-    "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "cgroup_sysctl",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_seg6local",
-    "socket_filter",
-    "cgroup_device",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
+    "sock_ops",
     "sk_skb",
+    "flow_dissector",
+    "socket_filter",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "kprobe",
+    "xdp",
+    "lwt_in",
+    "cgroup_sysctl",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "perf_event",
+    "sched_act",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "cgroup_device",
     "sk_msg",
-    "raw_tracepoint"
+    "lwt_seg6local",
+    "cgroup_skb"
   ],
   "source": [
     "TRACEPOINT_PROBE (kvm, kvm_exit)\n",
@@ -66,13 +56,12 @@ BPF_HASH(start, u8, u8);
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update",
+    "lookup"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -100,17 +89,7 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_trace_printk": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\"KVM_ENTRY vcpu_id : %u\\\\n\"",
-          " args->vcpu_id"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 12,
   "endLine": 21,
   "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
@@ -126,29 +105,29 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
-    "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "cgroup_sysctl",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_seg6local",
-    "socket_filter",
-    "cgroup_device",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
+    "sock_ops",
     "sk_skb",
+    "flow_dissector",
+    "socket_filter",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "kprobe",
+    "xdp",
+    "lwt_in",
+    "cgroup_sysctl",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "perf_event",
+    "sched_act",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "cgroup_device",
     "sk_msg",
-    "raw_tracepoint"
+    "lwt_seg6local",
+    "cgroup_skb"
   ],
   "source": [
     "TRACEPOINT_PROBE (kvm, kvm_entry)\n",
@@ -163,13 +142,12 @@ TRACEPOINT_PROBE(kvm, kvm_exit) {
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update",
+    "lookup"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -198,17 +176,7 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_trace_printk": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\"HYPERCALL nr : %d\\\\n\"",
-          " args->nr"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 22,
   "endLine": 30,
   "File": "/home/sayandes/opened_extraction/examples/bcc/kvm_hypercall.c",
@@ -224,29 +192,29 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
-    "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "cgroup_sysctl",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_seg6local",
-    "socket_filter",
-    "cgroup_device",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
+    "sock_ops",
     "sk_skb",
+    "flow_dissector",
+    "socket_filter",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "kprobe",
+    "xdp",
+    "lwt_in",
+    "cgroup_sysctl",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "perf_event",
+    "sched_act",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "cgroup_device",
     "sk_msg",
-    "raw_tracepoint"
+    "lwt_seg6local",
+    "cgroup_skb"
   ],
   "source": [
     "TRACEPOINT_PROBE (kvm, kvm_hypercall)\n",
@@ -260,13 +228,12 @@ TRACEPOINT_PROBE(kvm, kvm_entry) {
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "update",
+    "lookup"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

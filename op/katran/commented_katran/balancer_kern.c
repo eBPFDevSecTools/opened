@@ -38,6 +38,34 @@ __attribute__((__always_inline__))
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
@@ -46,37 +74,43 @@ __attribute__((__always_inline__))
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "libbpf",
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
           "Return Type": "u64",
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": " Current ktime.",
-          "Function Name": "bpf_ktime_get_ns",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  struct lb_stats* conn_rate_stats ",
-        "inpVar": [
-          "      &stats",
-          " &conn_rate_key"
-        ]
-      }
-    ],
-    "bpf_ktime_get_ns": [
-      {
-        "opVar": "    *cur_time ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 25,
   "endLine": 50,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
@@ -94,27 +128,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool is_under_flood (__u64 *cur_time)\n",
@@ -138,18 +172,14 @@ __attribute__((__always_inline__))
     "    return false;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Check how many connection have been made within the last one second(or other predefined value), function will return true if it's exceding the max connection rate and false otherwise. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -208,6 +238,34 @@ __attribute__((__always_inline__))
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
@@ -226,61 +284,40 @@ __attribute__((__always_inline__))
             "{Type:  const void ,Var: *key}",
             "{Type:  const void ,Var: *value}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "      lpm_val ",
-        "inpVar": [
-          " &lpm_src_v6",
-          " &lpm_key_v6"
-        ]
-      },
-      {
-        "opVar": "      lpm_val ",
-        "inpVar": [
-          " &lpm_src_v4",
-          " &lpm_key_v4"
-        ]
-      },
-      {
-        "opVar": "    struct lb_stats* data_stats ",
-        "inpVar": [
-          " &stats",
-          " &stats_key"
-        ]
-      },
-      {
-        "opVar": "    real_pos ",
-        "inpVar": [
-          " &ch_rings",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "  *real ",
-        "inpVar": [
-          " &reals",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_map_update_elem": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    lru_map",
-          " &pckt->flow",
-          " &new_dst_lru",
-          " BPF_ANY"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 53,
   "endLine": 131,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
@@ -289,11 +326,11 @@ __attribute__((__always_inline__))
     " lru_map"
   ],
   "readMaps": [
-    " stats",
     " reals",
     "  ch_rings",
     "  lpm_src_v4",
-    "  lpm_src_v6"
+    "  lpm_src_v6",
+    " stats"
   ],
   "input": [
     "struct real_definition **real",
@@ -308,29 +345,29 @@ __attribute__((__always_inline__))
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool get_packet_dst (struct real_definition **real, struct packet_description *pckt, struct vip_meta *vip_info, bool is_ipv6, void *lru_map)\n",
@@ -408,18 +445,19 @@ __attribute__((__always_inline__))
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "is_under_flood",
+    "memcpy",
+    "memset",
+    "get_packet_hash"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " This function checks the source routing for new connections. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -530,6 +568,34 @@ __attribute__((__always_inline__))
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
@@ -538,52 +604,51 @@ __attribute__((__always_inline__))
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "libbpf",
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
           "Return Type": "u64",
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": " Current ktime.",
-          "Function Name": "bpf_ktime_get_ns",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  dst_lru ",
-        "inpVar": [
-          " lru_map",
-          " &pckt->flow"
-        ]
-      },
-      {
-        "opVar": "  *real ",
-        "inpVar": [
-          " &reals",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_ktime_get_ns": [
-      {
-        "opVar": "    cur_time ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 133,
   "endLine": 156,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "connection_table_lookup",
   "updateMaps": [],
   "readMaps": [
-    " lru_map",
-    " reals"
+    " reals",
+    " lru_map"
   ],
   "input": [
     "struct real_definition **real",
@@ -597,27 +662,27 @@ __attribute__((__always_inline__))
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void connection_table_lookup (struct real_definition **real, struct packet_description *pckt, void *lru_map, bool isGlobalLru)\n",
@@ -642,18 +707,14 @@ __attribute__((__always_inline__))
     "    return;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " First check if the packet flow exists in lru_map and whether this connection is legal regarding its connection time(only check this if it is UDP protocol). Then we update the input real using the info from reals ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -696,7 +757,27 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 158,
   "endLine": 230,
@@ -714,31 +795,11 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
     " bool is_ipv6"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_l3_headers (struct packet_description *pckt, __u8 *protocol, __u64 off, __u16 *pkt_bytes, void *data, void *data_end, bool is_ipv6)\n",
@@ -803,18 +864,19 @@ __attribute__((__always_inline__)) static inline void connection_table_lookup(
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy",
+    "bpf_ntohs",
+    "parse_icmpv6",
+    "parse_icmp"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Function processes the packet based on protocol and stores information in packet_description structure  ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -920,37 +982,67 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    __u32* decap_dst_flags ",
-        "inpVar": [
-          " &decap_dst",
-          " &dst_addr"
-        ]
-      },
-      {
-        "opVar": "    data_stats ",
-        "inpVar": [
-          " &stats",
-          " &stats_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 233,
   "endLine": 255,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "check_decap_dst",
   "updateMaps": [],
   "readMaps": [
-    "  stats",
-    " decap_dst"
+    " decap_dst",
+    "  stats"
   ],
   "input": [
     "struct packet_description *pckt",
@@ -959,32 +1051,11 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int check_decap_dst (struct packet_description *pckt, bool is_ipv6, bool *pass)\n",
@@ -1011,18 +1082,16 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Given input \"pckt\", check if its flow's dst is legal. if it does, increase the coresponding stats's amount ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1083,29 +1152,29 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool reals_have_same_addr (struct real_definition *a, struct real_definition *b)\n",
@@ -1126,18 +1195,14 @@ check_decap_dst(struct packet_description* pckt, bool is_ipv6, bool* pass) {
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Function checks the input 2 backend servers have the same dst addresses ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1186,36 +1251,59 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    void* g_lru_map ",
-        "inpVar": [
-          " &global_lru_maps",
-          " &cpu_num"
-        ]
-      },
-      {
-        "opVar": "  struct lb_stats* global_lru_stats ",
-        "inpVar": [
-          "      &stats",
-          " &global_lru_stats_key"
-        ]
-      },
-      {
-        "opVar": "      struct lb_stats* global_lru_mismatch_stats ",
-        "inpVar": [
-          "          &stats",
-          " &global_lru_mismatch_stats_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 279,
   "endLine": 335,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
@@ -1234,32 +1322,11 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem"
+    "bpf_map_lookup_elem",
+    "XDP_DROP"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int perform_global_lru_lookup (struct real_definition **dst, struct packet_description *pckt, __u32 cpu_num, struct vip_meta *vip_info, bool is_ipv6)\n",
@@ -1294,18 +1361,18 @@ __attribute__((__always_inline__)) static inline bool reals_have_same_addr(
     "    return FURTHER_PROCESSING;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "get_packet_dst",
+    "reals_have_same_addr",
+    "connection_table_lookup"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " (can't understand) find the lru_map from global cache based on gicen cpu_num, ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1384,7 +1451,46 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 340,
   "endLine": 387,
@@ -1401,31 +1507,12 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
     " bool pass"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_PASS",
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_encaped_ipip_pckt (void **data, void **data_end, struct xdp_md *xdp, bool *is_ipv6, __u8 *protocol, bool pass)\n",
@@ -1473,18 +1560,19 @@ __attribute__((__always_inline__)) static inline int perform_global_lru_lookup(
     "    return recirculate (xdp);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "decrement_ttl",
+    "decap_v6",
+    "decap_v4",
+    "recirculate"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Used for IPIP packets, Based on the encapsulate packet protocol type,  call the appropriate decapsulation function and decrement ttl ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1553,7 +1641,46 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 391,
   "endLine": 441,
@@ -1569,31 +1696,12 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     " bool pass"
   ],
   "output": "staticinlineint",
-  "helper": [],
+  "helper": [
+    "XDP_PASS",
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_encaped_gue_pckt (void **data, void **data_end, struct xdp_md *xdp, bool is_ipv6, bool pass)\n",
@@ -1640,18 +1748,19 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "    return recirculate (xdp);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "decrement_ttl",
+    "gue_decap_v4",
+    "recirculate",
+    "gue_decap_v6"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Used for GUE packets,Based on the encapsulate packet protocol type,  call the appropriate decapsulation function and decrement ttl ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1735,22 +1844,40 @@ process_encaped_gue_pckt(
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  struct lb_stats* quic_version ",
-        "inpVar": [
-          "      &stats",
-          " &quic_version_stats_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 444,
   "endLine": 457,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
@@ -1767,29 +1894,29 @@ process_encaped_gue_pckt(
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void increment_quic_cid_version_stats (int host_id)\n",
@@ -1807,18 +1934,14 @@ process_encaped_gue_pckt(
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " Function updates quic protocol stats ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1864,22 +1987,40 @@ increment_quic_cid_version_stats(int host_id) {
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  struct lb_stats* quic_drop ",
-        "inpVar": [
-          "      &stats",
-          " &quic_drop_stats_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 459,
   "endLine": 468,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
@@ -1896,29 +2037,29 @@ increment_quic_cid_version_stats(int host_id) {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void increment_quic_cid_drop_no_real ()\n",
@@ -1931,18 +2072,14 @@ increment_quic_cid_version_stats(int host_id) {
     "    quic_drop->v1 += 1;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " lookup stats by QUIC_CID_DROP_STATS, increment stats v1 by 1 ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1984,22 +2121,40 @@ increment_quic_cid_drop_no_real() {
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  struct lb_stats* quic_drop ",
-        "inpVar": [
-          "      &stats",
-          " &quic_drop_stats_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 470,
   "endLine": 478,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
@@ -2016,29 +2171,29 @@ increment_quic_cid_drop_no_real() {
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "cgroup_device",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void increment_quic_cid_drop_real_0 ()\n",
@@ -2051,18 +2206,14 @@ increment_quic_cid_drop_no_real() {
     "    quic_drop->v2 += 1;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " lookup stats by QUIC_CID_DROP_STATS, update Corresponding stats's v2 ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2103,6 +2254,34 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
@@ -2118,135 +2297,109 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
           "Function Name": "bpf_get_smp_processor_id",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_TX",
+          "Return": 3,
+          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  vip_info ",
-        "inpVar": [
-          " &vip_map",
-          " &vip"
-        ]
-      },
-      {
-        "opVar": "    vip_info ",
-        "inpVar": [
-          " &vip_map",
-          " &vip"
-        ]
-      },
-      {
-        "opVar": "    data_stats ",
-        "inpVar": [
-          " &stats",
-          " &stats_key"
-        ]
-      },
-      {
-        "opVar": "  data_stats ",
-        "inpVar": [
-          " &stats",
-          " &stats_key"
-        ]
-      },
-      {
-        "opVar": "    struct lb_stats* quic_stats ",
-        "inpVar": [
-          " &stats",
-          " &quic_stats_key"
-        ]
-      },
-      {
-        "opVar": "      __u32* real_pos ",
-        "inpVar": [
-          " &server_id_map",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "          dst ",
-        "inpVar": [
-          " &reals",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "    void* lru_map ",
-        "inpVar": [
-          " &lru_mapping",
-          " &cpu_num"
-        ]
-      },
-      {
-        "opVar": "      struct lb_stats* lru_stats ",
-        "inpVar": [
-          " &stats",
-          " &lru_stats_key"
-        ]
-      },
-      {
-        "opVar": "      struct lb_stats* routing_stats ",
-        "inpVar": [
-          "          &stats",
-          " &routing_stats_key"
-        ]
-      },
-      {
-        "opVar": "        struct lb_stats* lru_stats ",
-        "inpVar": [
-          "            &stats",
-          " &lru_stats_key"
-        ]
-      },
-      {
-        "opVar": "        cval ",
-        "inpVar": [
-          " &ctl_array",
-          " &mac_addr_pos"
-        ]
-      },
-      {
-        "opVar": "  data_stats ",
-        "inpVar": [
-          " &stats",
-          " &vip_num"
-        ]
-      },
-      {
-        "opVar": "    data_stats ",
-        "inpVar": [
-          " &reals_stats",
-          " &pckt.real_index"
-        ]
-      }
-    ],
-    "bpf_get_smp_processor_id": [
-      {
-        "opVar": "        __u32 cpu_num ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 480,
   "endLine": 791,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_kern.c",
   "funcName": "process_packet",
   "updateMaps": [],
   "readMaps": [
-    "  reals",
-    " stats",
-    "  ctl_array",
-    "  reals_stats",
     " lru_mapping",
+    "  reals",
+    "  reals_stats",
     "  stats",
-    " server_id_map",
-    "  vip_map"
+    "  ctl_array",
+    "  vip_map",
+    " stats",
+    " server_id_map"
   ],
   "input": [
     "struct xdp_md *xdp",
@@ -2256,30 +2409,13 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
   "output": "staticinlineint",
   "helper": [
     "bpf_map_lookup_elem",
-    "bpf_get_smp_processor_id"
+    "bpf_get_smp_processor_id",
+    "XDP_DROP",
+    "XDP_TX",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "static inline int process_packet (struct xdp_md *xdp, __u64 off, bool is_ipv6)\n",
@@ -2540,18 +2676,37 @@ __attribute__((__always_inline__)) static inline void increment_quic_cid_drop_re
     "    return XDP_TX;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "REPORT_PACKET_TOOBIG",
+    "parse_quic",
+    "PCKT_ENCAP_V6",
+    "increment_quic_cid_drop_real_0",
+    "get_packet_dst",
+    "increment_quic_cid_drop_no_real",
+    "connection_table_lookup",
+    "PCKT_ENCAP_V4",
+    "bpf_htons",
+    "REPORT_TCP_NONSYN_LRUMISS",
+    "tcp_hdr_opt_lookup",
+    "process_l3_headers",
+    "perform_global_lru_lookup",
+    "parse_udp",
+    "parse_tcp",
+    "increment_quic_cid_version_stats",
+    "send_icmp_too_big",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "process_encaped_ipip_pckt",
+    "memcpy",
+    "check_decap_dst",
+    "process_encaped_gue_pckt"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " This function process the packet based on the protocol and updates corresponding stats. ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2883,7 +3038,46 @@ SEC("xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 794,
   "endLine": 817,
@@ -2895,31 +3089,12 @@ SEC("xdp")
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "XDP_PASS",
+    "XDP_DROP"
+  ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "cgroup_sysctl",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "int balancer_ingress (struct xdp_md *ctx)\n",
@@ -2945,18 +3120,16 @@ SEC("xdp")
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [
+    "process_packet"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " process the input ctx packet ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3013,29 +3186,29 @@ int balancer_ingress(struct xdp_md* ctx) {
   "output": "staticinline__u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline __u32 get_packet_hash (struct packet_description *pckt, bool hash_16bytes)\n",
@@ -3048,18 +3221,17 @@ int balancer_ingress(struct xdp_md* ctx) {
     "    }\n",
     "}\n"
   ],
+  "called_function_list": [
+    "jhash_2words",
+    "jhash"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Check how many connection have been made within the last one second(or other",
+      "description": " return the hash value of input packet ",
       "author": "Nengneng Yu",
       "authorEmail": "ynn1999@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

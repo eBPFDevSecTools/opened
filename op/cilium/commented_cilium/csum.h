@@ -24,29 +24,29 @@
   "output": "static__always_inline__sum16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline __sum16 csum_fold (__wsum csum)\n",
@@ -56,13 +56,9 @@
     "    return (__sum16) ~csum;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -101,29 +97,29 @@ static __always_inline __sum16 csum_fold(__wsum csum)
   "output": "static__always_inline__wsum",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline __wsum csum_unfold (__sum16 csum)\n",
@@ -131,13 +127,9 @@ static __always_inline __sum16 csum_fold(__wsum csum)
     "    return (__wsum) csum;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -175,29 +167,29 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
   "output": "static__always_inline__wsum",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline __wsum csum_add (__wsum csum, __wsum addend)\n",
@@ -206,13 +198,9 @@ static __always_inline __wsum csum_unfold(__sum16 csum)
     "    return csum + (csum < addend);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -251,29 +239,29 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
   "output": "static__always_inline__wsum",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline __wsum csum_sub (__wsum csum, __wsum addend)\n",
@@ -281,13 +269,11 @@ static __always_inline __wsum csum_add(__wsum csum, __wsum addend)
     "    return csum_add (csum, ~addend);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "csum_add"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -326,25 +312,24 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "csum_diff": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn _externalfrom",
-          " size_from",
-          " to",
-          " size_to",
-          " seed"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 33,
   "endLine": 52,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/csum.h",
@@ -363,12 +348,12 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
     "csum_diff"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "lwt_xmit",
     "sched_act",
     "lwt_seg6local",
     "lwt_out",
+    "lwt_xmit",
+    "xdp",
     "lwt_in"
   ],
   "source": [
@@ -383,13 +368,13 @@ static __always_inline __wsum csum_sub(__wsum csum, __wsum addend)
     "    return csum_diff_external (from, size_from, to, size_to, seed);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_constant_p",
+    "csum_diff_external",
+    "csum_add"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

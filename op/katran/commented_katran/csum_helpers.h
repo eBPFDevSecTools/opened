@@ -44,29 +44,29 @@
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline __u16 csum_fold_helper (__u64 csum)\n",
@@ -81,13 +81,9 @@
     "    return ~csum;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -131,29 +127,29 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
   "output": "staticint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static int min_helper (int a, int b)\n",
@@ -161,13 +157,9 @@ __attribute__((__always_inline__)) static inline __u16 csum_fold_helper(
     "    return a < b ? a : b;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -205,25 +197,24 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " data_start",
-          " data_size",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 45,
   "endLine": 49,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -240,13 +231,13 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline void ipv4_csum (void *data_start, int data_size, __u64 *csum)\n",
@@ -255,13 +246,11 @@ __attribute__((__always_inline__)) static int min_helper(int a, int b) {
     "    *csum = csum_fold_helper (*csum);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "csum_fold_helper"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -300,29 +289,29 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void ipv4_csum_inline (void *iph, __u64 *csum)\n",
@@ -336,13 +325,12 @@ ipv4_csum(void* data_start, int data_size, __u64* csum) {
     "    *csum = csum_fold_helper (*csum);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "unroll",
+    "csum_fold_helper"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -387,65 +375,24 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &iph->saddr",
-          " sizeof__be32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &iph->daddr",
-          " sizeof__be32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " data_start",
-          " data_size",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 62,
   "endLine": 73,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -463,13 +410,13 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline void ipv4_l4_csum (void *data_start, int data_size, __u64 *csum, struct iphdr *iph)\n",
@@ -485,13 +432,12 @@ __attribute__((__always_inline__)) static inline void ipv4_csum_inline(
     "    *csum = csum_fold_helper (*csum);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bswap32",
+    "csum_fold_helper"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -538,65 +484,24 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &ip6h->saddr",
-          " sizeofstruct in6_addr",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &ip6h->daddr",
-          " sizeofstruct in6_addr",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "    *csum ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " data_start",
-          " data_size",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 75,
   "endLine": 88,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -614,13 +519,13 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline void ipv6_csum (void *data_start, int data_size, __u64 *csum, struct ipv6hdr *ip6h)\n",
@@ -636,13 +541,12 @@ ipv4_l4_csum(void* data_start, int data_size, __u64* csum, struct iphdr* iph) {
     "    *csum = csum_fold_helper (*csum);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bswap32",
+    "csum_fold_helper"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -696,55 +600,24 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &ip6h->saddr",
-          " sizeofstruct in6_addr",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &ip6h->daddr",
-          " sizeofstruct in6_addr",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 95,
   "endLine": 127,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -760,13 +633,13 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline __s64 add_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)\n",
@@ -799,13 +672,13 @@ ipv6_csum(void* data_start, int data_size, __u64* csum, struct ipv6hdr* ip6h) {
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bswap32",
+    "bpf_ntohs",
+    "bpf_htonl"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -873,55 +746,24 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &ip6h->saddr",
-          " sizeofstruct in6_addr",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &ip6h->daddr",
-          " sizeofstruct in6_addr",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &tmp",
-          " sizeof__u32",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &tmp",
-          " sizeof__u32",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 129,
   "endLine": 158,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -937,13 +779,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline __s64 rem_pseudo_ipv6_header (struct ipv6hdr *ip6h, __u64 *csum)\n",
@@ -976,13 +818,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv6_header(
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bswap32",
+    "bpf_ntohs",
+    "bpf_htonl"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1047,55 +889,24 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &iph->saddr",
-          " sizeof__be32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &iph->daddr",
-          " sizeof__be32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &tmp",
-          " sizeof__u32",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 160,
   "endLine": 189,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -1111,13 +922,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline __s64 add_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)\n",
@@ -1150,13 +961,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv6_header(
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bswap32",
+    "bpf_ntohs",
+    "bpf_htonl"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1221,55 +1032,24 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &iph->saddr",
-          " sizeof__be32",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &iph->daddr",
-          " sizeof__be32",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &tmp",
-          " sizeof__u32",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " &tmp",
-          " sizeof__u32",
-          " 0",
-          " 0",
-          " *csum"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 191,
   "endLine": 220,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -1285,13 +1065,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline __s64 rem_pseudo_ipv4_header (struct iphdr *iph, __u64 *csum)\n",
@@ -1324,13 +1104,13 @@ __attribute__((__always_inline__)) static inline __s64 add_pseudo_ipv4_header(
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_bswap32",
+    "bpf_ntohs",
+    "bpf_htonl"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1407,45 +1187,24 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &orig_csum",
-          " sizeof__u32",
-          " seed"
-        ]
-      },
-      {
-        "opVar": "    ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " inner_ip6h",
-          " sizeofstruct ipv6hdr",
-          " *csum_in_hdr"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " udph",
-          " sizeofstruct udphdr",
-          " *csum_in_hdr"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 234,
   "endLine": 268,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -1463,13 +1222,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline bool gue_csum_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct ipv6hdr *inner_ip6h, __u64 *csum_in_hdr)\n",
@@ -1503,13 +1262,13 @@ __attribute__((__always_inline__)) static inline __s64 rem_pseudo_ipv4_header(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "rem_pseudo_ipv6_header",
+    "add_pseudo_ipv6_header",
+    "csum_fold_helper"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1579,45 +1338,24 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &orig_csum",
-          " sizeof__u32",
-          " seed"
-        ]
-      },
-      {
-        "opVar": "    ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " inner_iph",
-          " sizeofstruct iphdr",
-          " *csum_in_hdr"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " udph",
-          " sizeofstruct udphdr",
-          " *csum_in_hdr"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 270,
   "endLine": 302,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -1635,13 +1373,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline bool gue_csum_v4 (struct iphdr *outer_iph, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)\n",
@@ -1675,13 +1413,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v6(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "add_pseudo_ipv4_header",
+    "csum_fold_helper",
+    "rem_pseudo_ipv4_header"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -1749,45 +1487,24 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
             "{Type:  __be32 ,Var: *to}",
             "{Type:  u32 ,Var: to_size}",
             "{Type:  __wsum ,Var: seed}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "xdp",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "lwt_seg6local"
+          ],
+          "capabilities": [
+            "read_skb"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_csum_diff": [
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " &orig_csum",
-          " sizeof__u32",
-          " seed"
-        ]
-      },
-      {
-        "opVar": "    ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " inner_iph",
-          " sizeofstruct iphdr",
-          " *csum_in_hdr"
-        ]
-      },
-      {
-        "opVar": "  ret ",
-        "inpVar": [
-          " 0",
-          " 0",
-          " udph",
-          " sizeofstruct udphdr",
-          " *csum_in_hdr"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 304,
   "endLine": 336,
   "File": "/home/sayandes/opened_extraction/examples/katran/csum_helpers.h",
@@ -1805,13 +1522,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
     "bpf_csum_diff"
   ],
   "compatibleHookpoints": [
+    "lwt_in",
+    "lwt_xmit",
+    "sched_act",
     "lwt_seg6local",
     "sched_cls",
     "xdp",
-    "sched_act",
-    "lwt_xmit",
-    "lwt_out",
-    "lwt_in"
+    "lwt_out"
   ],
   "source": [
     "static inline bool gue_csum_v4_in_v6 (struct ipv6hdr *outer_ip6h, struct udphdr *udph, struct iphdr *inner_iph, __u64 *csum_in_hdr)\n",
@@ -1845,13 +1562,13 @@ __attribute__((__always_inline__)) static inline bool gue_csum_v4(
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "add_pseudo_ipv6_header",
+    "csum_fold_helper",
+    "rem_pseudo_ipv4_header"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

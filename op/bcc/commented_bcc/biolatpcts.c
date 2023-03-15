@@ -13,28 +13,43 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
       "capability": "read_sys_info",
       "read_sys_info": [
         {
-          "Project": "libbpf",
+          "Project": "bcc",
+          "FunctionName": "bpf_ktime_get_ns",
           "Return Type": "u64",
-          "Description": "Return the time elapsed since system boot , in nanoseconds. ",
-          "Return": " Current ktime.",
-          "Function Name": "bpf_ktime_get_ns",
-          "Input Params": [
-            "{Type: voi ,Var: void}"
+          "Description": "u64 bpf_ktime_get_ns(void) Return: u64 number of nanoseconds. Starts at system boot time but stops during suspend. Examples in situ: \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Aexamples&type=Code search /examples , \"https://github.com/iovisor/bcc/search?q=bpf_ktime_get_ns+path%3Atools&type=Code search /tools ",
+          "Return": "u64 number of nanoseconds",
+          "Input Prameters": [],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_ktime_get_ns": [
-      {
-        "opVar": "\tdur ",
-        "inpVar": [
-          "  - rq->io_start_time_ns"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 8,
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/bcc/biolatpcts.c",
@@ -49,27 +64,27 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "bpf_ktime_get_ns"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
-    "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_seg6local",
-    "socket_filter",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
+    "sock_ops",
     "sk_skb",
+    "flow_dissector",
+    "socket_filter",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "kprobe",
+    "xdp",
+    "lwt_in",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "perf_event",
+    "sched_act",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "lwt_seg6local",
     "sk_msg",
-    "raw_tracepoint"
+    "cgroup_skb"
   ],
   "source": [
     "RAW_TRACEPOINT_PROBE (block_rq_complete)\n",
@@ -94,13 +109,13 @@ BPF_PERCPU_ARRAY(lat_10us, u64, 100);
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "div_u64",
+    "increment",
+    "min_t"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

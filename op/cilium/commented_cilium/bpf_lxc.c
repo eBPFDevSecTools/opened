@@ -158,17 +158,7 @@ int NAME(struct __ctx_buff *ctx)						\
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "_to_proxyint verdict",
-          " enum ct_status status"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 157,
   "endLine": 162,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -184,10 +174,10 @@ int NAME(struct __ctx_buff *ctx)						\
     "redirect"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
     "xdp",
+    "sched_cls",
     "sched_act",
-    "sched_cls"
+    "lwt_xmit"
   ],
   "source": [
     "static __always_inline bool redirect_to_proxy (int verdict, enum ct_status status)\n",
@@ -195,18 +185,16 @@ int NAME(struct __ctx_buff *ctx)						\
     "    return is_defined (ENABLE_HOST_REDIRECT) && verdict > 0 && (status == CT_NEW || status == CT_ESTABLISHED || status == CT_REOPENED);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "is_defined"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -257,29 +245,29 @@ redirect_to_proxy(int verdict, enum ct_status status)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int encode_custom_prog_meta (struct  __ctx_buff *ctx, int ret, __u32 identity)\n",
@@ -293,18 +281,16 @@ redirect_to_proxy(int verdict, enum ct_status status)
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_store_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " encode meta data (return value and identity), and store it into ctx buffer ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -375,99 +361,61 @@ struct {
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\t#endif \tct_buffer ",
-        "inpVar": [
-          " &CT_TAIL_CALL_BUFFER6",
-          " &zero"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "\t#endif \t\tif ((ct_status ",
-        "inpVar": [
-          ""
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\t\treturn ctx__to_proxy6ctx",
-          " tuple",
-          " 0",
-          " false"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tif !from_l7lb && _to_proxyverdict",
-          " ct_status "
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx__to_proxy6ctx",
-          " tuple",
-          " proxy_port",
-          " false"
-        ]
-      },
-      {
-        "opVar": "\t\t\t\tret ",
-        "inpVar": [
-          " encap_and__lxcctx",
-          " tunnel_endpoint",
-          " encrypt_key",
-          "\t\t\t\t\t     &key",
-          " SECLABEL",
-          " &trace"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t#endif\tif is_definedENABLE_HOST_ROUTING\t\treturn _direct_v6ctx",
-          " ETH_HLEN",
-          " ip6"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx_ctx",
-          " HOST_IFINDEX",
-          " BPF_F_INGRESS"
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\tep_ctx",
-          " CILIUM_CALL_IPV6_NODEPORT_REVNAT"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &POLICY_CALL_MAP",
-          " HOST_EP_ID"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 214,
   "endLine": 581,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -482,15 +430,15 @@ struct {
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
     "map_lookup_elem",
+    "redirect",
+    "CTX_ACT_OK",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int handle_ipv6_from_lxc (struct  __ctx_buff *ctx, __u32 *dst_id)\n",
@@ -789,18 +737,57 @@ struct {
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "policy_clear_mark",
+    "unlikely",
+    "send_policy_verdict_notify",
+    "ctx_load_meta",
+    "cilium_dbg3",
+    "IS_ERR",
+    "csum_l4_offset_and_flags",
+    "tail_call_static",
+    "send_trace_notify",
+    "xlate_dsr_v6",
+    "memcpy",
+    "policy_mark_skip",
+    "ipv6_local_delivery",
+    "ctx_store_meta",
+    "defined",
+    "lookup_ip6_remote_endpoint",
+    "identity_is_node",
+    "set_encrypt_dip",
+    "get_min_encrypt_key",
+    "is_defined",
+    "set_encrypt_key_mark",
+    "ct_create6",
+    "encap_and_redirect_lxc",
+    "redirect_to_proxy",
+    "policy_can_egress6",
+    "lb6_rev_nat",
+    "cilium_dbg",
+    "ctx_redirect_to_proxy6",
+    "revalidate_data",
+    "ep_tail_call",
+    "get_ct_map6",
+    "lookup_ip6_endpoint",
+    "cilium_dbg_capture",
+    "ipv6_l3",
+    "ipv6_store_flowlabel",
+    "set_encrypt_mark",
+    "ipv6_hdrlen",
+    "lb6_ctx_restore_state",
+    "set_identity_mark",
+    "bpf_ntohs",
+    "redirect_direct_v6",
+    "ctx_redirect"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Handling egress ipv6 traffic by  a) lookup the destination_id. For encrypted and tunneled traffic b) tunnel endpoint, and c) encryption key as well. Also mark the traffic if it has a remote endpoint destination. Restore ct_state from per packet lb handling in the previous tail call. Enable the per pecket load balancer, swap the address by CT_lookup and establish the connection. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1189,18 +1176,7 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &CUSTOM_CALLS_MAP",
-          "\t\t\t\t CUSTOM_CALLS_IDX_IPV6_EGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 584,
   "endLine": 603,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -1215,27 +1191,27 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_handle_ipv6_cont (struct  __ctx_buff *ctx)\n",
@@ -1255,18 +1231,22 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV6_FROM_LXC_
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "tail_call_static",
+    "ctx_full_len",
+    "IS_ERR",
+    "update_metrics",
+    "send_drop_notify",
+    "handle_ipv6_from_lxc",
+    "encode_custom_prog_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Count ipv6 tail calls ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1323,29 +1303,29 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int __tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -1415,18 +1395,31 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_EGRESS, tail_ipv6_ct_egress, CT_EGRESS,
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ipv6_addr_copy",
+    "lb6_lookup_service",
+    "unlikely",
+    "lb6_ctx_store_state",
+    "is_defined",
+    "ipv6_hdrlen",
+    "icmp6_handle",
+    "invoke_tailcall_if",
+    "is_valid_lxc_src_ip",
+    "lb6_extract_key",
+    "IS_ERR",
+    "lb6_local",
+    "revalidate_data_pull",
+    "defined",
+    "lb6_svc_is_l7loadbalancer",
+    "get_ct_map6"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Handle tail messages. Check if it is not special ICMPv6 messages such as echo requests, neighbour advertisement, then check if the destination address is among the address that should be  load balanced. Then store information to ctx for continuous tail call. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1546,29 +1539,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_LXC)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_handle_ipv6 (struct  __ctx_buff *ctx)\n",
@@ -1579,18 +1572,21 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_FROM_LXC)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "handle_ipv6",
+    "__tail_handle_ipv6",
+    "ctx_load_meta",
+    "IS_ERR",
+    "ctx_store_meta",
+    "send_drop_notify_error"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Count ipv6 tail calls ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -1652,135 +1648,69 @@ struct {
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\tct_buffer ",
-        "inpVar": [
-          " &CT_TAIL_CALL_BUFFER4",
-          " &zero"
-        ]
-      },
-      {
-        "opVar": "\t\tvtep ",
-        "inpVar": [
-          " &VTEP_MAP",
-          " &vkey"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "\t#endif \t\tif ((ct_status ",
-        "inpVar": [
-          ""
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\t\treturn ctx__to_proxy4ctx",
-          " tuple",
-          " 0",
-          " false"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tif !from_l7lb && _to_proxyverdict",
-          " ct_status "
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx__to_proxy4ctx",
-          " tuple",
-          " proxy_port",
-          " false"
-        ]
-      },
-      {
-        "opVar": "\t\t\t\tret ",
-        "inpVar": [
-          " encap_and__lxcctx",
-          " egress_gw_policy->gateway_ip",
-          " encrypt_key",
-          "\t\t\t\t\t     &key",
-          " SECLABEL",
-          " &trace"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\treturn __encap_and__with_nodeidctx",
-          " vtep->tunnel_endpoint",
-          "\t\t\t\t\t\t\t\tSECLABEL",
-          " WORLD_ID",
-          " &trace"
-        ]
-      },
-      {
-        "opVar": "\t\tret ",
-        "inpVar": [
-          " encap_and__lxcctx",
-          " tunnel_endpoint",
-          " encrypt_key",
-          "\t\t\t\t\t     &key",
-          " SECLABEL",
-          " &trace"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t#endif \tif is_definedENABLE_HOST_ROUTING\t\treturn _direct_v4ctx",
-          " ETH_HLEN",
-          " ip4"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\treturn ctx_ctx",
-          " HOST_IFINDEX",
-          " BPF_F_INGRESS"
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t\tep_ctx",
-          " CILIUM_CALL_IPV4_NODEPORT_REVNAT"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &POLICY_CALL_MAP",
-          " HOST_EP_ID"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 728,
   "endLine": 1157,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
   "funcName": "handle_ipv4_from_lxc",
   "updateMaps": [],
   "readMaps": [
-    "  CT_TAIL_CALL_BUFFER4",
-    "  VTEP_MAP"
+    "  VTEP_MAP",
+    "  CT_TAIL_CALL_BUFFER4"
   ],
   "input": [
     "struct  __ctx_buff *ctx",
@@ -1788,15 +1718,15 @@ struct {
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "redirect",
     "map_lookup_elem",
+    "redirect",
+    "CTX_ACT_OK",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int handle_ipv4_from_lxc (struct  __ctx_buff *ctx, __u32 *dst_id)\n",
@@ -2128,18 +2058,62 @@ struct {
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "policy_clear_mark",
+    "unlikely",
+    "ctx_redirect_to_proxy4",
+    "policy_can_egress4",
+    "send_policy_verdict_notify",
+    "ctx_load_meta",
+    "__lookup_ip4_endpoint",
+    "cilium_dbg3",
+    "ipv4_hdrlen",
+    "IS_ERR",
+    "csum_l4_offset_and_flags",
+    "lb4_ctx_restore_state",
+    "tail_call_static",
+    "xlate_dsr_v4",
+    "send_trace_notify",
+    "memcpy",
+    "policy_mark_skip",
+    "ctx_store_meta",
+    "defined",
+    "__encap_and_redirect_with_nodeid",
+    "identity_is_node",
+    "identity_is_cluster",
+    "lookup_ip4_remote_endpoint",
+    "lookup_ip4_egress_gw_policy",
+    "ipv4_has_l4_header",
+    "get_min_encrypt_key",
+    "is_defined",
+    "ipv4_local_delivery",
+    "set_encrypt_key_mark",
+    "set_encrypt_dip",
+    "encap_and_redirect_lxc",
+    "lb4_rev_nat",
+    "redirect_to_proxy",
+    "redirect_direct_v4",
+    "lookup_ip4_endpoint",
+    "cilium_dbg",
+    "revalidate_data",
+    "ep_tail_call",
+    "cilium_dbg_capture",
+    "eth_store_daddr",
+    "ipv4_l3",
+    "ct_create4",
+    "set_encrypt_mark",
+    "get_ct_map4",
+    "set_identity_mark",
+    "bpf_ntohs",
+    "ctx_redirect"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Handling egress ipv4 traffic. Mark the traffic if it has a remote endpoint destination. Restore ct_state from per packet lb handling in the previous tail call. Enable the per pecket load balancer, swap the address by CT_lookup and establish the connection. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2590,18 +2564,7 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &CUSTOM_CALLS_MAP",
-          "\t\t\t\t CUSTOM_CALLS_IDX_IPV4_EGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1160,
   "endLine": 1179,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -2616,27 +2579,27 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_handle_ipv4_cont (struct  __ctx_buff *ctx)\n",
@@ -2656,18 +2619,22 @@ declare_tailcall_if(is_defined(ENABLE_PER_PACKET_LB), CILIUM_CALL_IPV4_FROM_LXC_
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "tail_call_static",
+    "handle_ipv4_from_lxc",
+    "ctx_full_len",
+    "IS_ERR",
+    "update_metrics",
+    "send_drop_notify",
+    "encode_custom_prog_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Count ipv4 tail call. Helper function for handling ipv4 traffic ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2724,29 +2691,29 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline int __tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -2814,18 +2781,31 @@ TAIL_CT_LOOKUP4(CILIUM_CALL_IPV4_CT_EGRESS, tail_ipv4_ct_egress, CT_EGRESS,
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "lb4_extract_key",
+    "lb4_svc_is_l7loadbalancer",
+    "unlikely",
+    "ipv4_has_l4_header",
+    "is_defined",
+    "lb4_local",
+    "get_ct_map4",
+    "invoke_tailcall_if",
+    "ipv4_is_fragment",
+    "lb4_ctx_store_state",
+    "ipv4_hdrlen",
+    "IS_ERR",
+    "revalidate_data_pull",
+    "lb4_lookup_service",
+    "is_valid_lxc_src_ipv4",
+    "defined"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " helper function to handle ipv4 tail call ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -2931,29 +2911,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_LXC)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_handle_ipv4 (struct  __ctx_buff *ctx)\n",
@@ -2964,18 +2944,21 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_FROM_LXC)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__tail_handle_ipv4",
+    "ctx_load_meta",
+    "send_drop_notify_error",
+    "IS_ERR",
+    "ctx_store_meta",
+    "handle_ipv4"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Count ipv4 tail call. Helper function for handling ipv4 traffic ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3009,7 +2992,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 1275,
   "endLine": 1300,
@@ -3021,31 +3026,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
     "struct  __ctx_buff *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "CTX_ACT_OK"
+  ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "int tail_handle_arp (struct  __ctx_buff *ctx)\n",
@@ -3061,18 +3048,24 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_ARP)
     "    return arp_respond (ctx, &mac, tip, &smac, sip, 0);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "unlikely",
+    "send_trace_notify",
+    "ctx_get_tunnel_key",
+    "__lookup_ip4_endpoint",
+    "arp_prepare_response",
+    "arp_validate",
+    "send_drop_notify_error",
+    "arp_respond",
+    "__encap_and_redirect_with_nodeid"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Validate ARP requests. Send unknown and LXC endpoint ARP requests to linux kernel stack.  Send response for all other ARP requests. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3123,32 +3116,30 @@ __section("from-container")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tep_ctx",
-          " CILIUM_CALL_IPV6_FROM_LXC"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\tep_ctx",
-          " CILIUM_CALL_IPV4_FROM_LXC"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#elif definedENABLE_ARP_RESPONDER\tcase bpf_htonsETH_P_ARP:\t\tep_ctx",
-          " CILIUM_CALL_ARP"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 1308,
   "endLine": 1358,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -3160,30 +3151,12 @@ __section("from-container")
   ],
   "output": "int",
   "helper": [
-    "tail_call"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "int handle_xgress (struct  __ctx_buff *ctx)\n",
@@ -3238,18 +3211,25 @@ __section("from-container")
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "defined",
+    "ep_tail_call",
+    "validate_ethertype",
+    "send_trace_notify",
+    "edt_set_aggregate",
+    "bpf_htons",
+    "IS_ERR",
+    "send_drop_notify",
+    "reset_queue_mapping",
+    "bpf_clear_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Use previous exgress ipv6/v4 traffic handler to handle exgress traffic. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3333,45 +3313,61 @@ out:
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "\tct_buffer ",
-        "inpVar": [
-          " &CT_TAIL_CALL_BUFFER6",
-          " &zero"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "\t\tif ((ret ",
-        "inpVar": [
-          ""
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif _to_proxyverdict",
-          " *ct_status "
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ifindex\t\treturn _epctx",
-          " ifindex",
-          " from_host"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1361,
   "endLine": 1536,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -3391,14 +3387,14 @@ out:
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "map_lookup_elem",
     "redirect",
-    "map_lookup_elem"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv6_policy (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv6_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused)\n",
@@ -3526,18 +3522,42 @@ out:
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "policy_clear_mark",
+    "unlikely",
+    "ct_has_nodeport_egress_entry6",
+    "redirect_ep",
+    "send_policy_verdict_notify",
+    "ctx_load_meta",
+    "IS_ERR",
+    "csum_l4_offset_and_flags",
+    "ipv6_addr_copy",
+    "ct_update_nodeport",
+    "memcpy",
+    "defined",
+    "tc_index_skip_egress_proxy",
+    "handle_dsr_v6",
+    "ct_create6",
+    "redirect_to_proxy",
+    "ctx_change_type",
+    "policy_can_access_ingress",
+    "lb6_rev_nat",
+    "revalidate_data",
+    "tc_index_skip_ingress_proxy",
+    "get_ct_map6",
+    "ct_update6_dsr",
+    "ipv6_hdrlen",
+    "send_trace_notify6",
+    "bpf_ntohs",
+    "ct_state_is_from_l7lb"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Check if the packet is ingress or exgress traffic, redirect the traffic if necessary. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3735,49 +3755,7 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "\tbool proxy_redirect __maybe_unused ",
-        "inpVar": [
-          " false"
-        ]
-      },
-      {
-        "opVar": "\t\tret ",
-        "inpVar": [
-          " ctx__to_proxy6ctx",
-          " &tuple",
-          " proxy_port",
-          " from_host"
-        ]
-      },
-      {
-        "opVar": "\t\tproxy_redirect ",
-        "inpVar": [
-          " true"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ && !encode_custom_prog_metactx",
-          " ret",
-          " src_label "
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &CUSTOM_CALLS_MAP",
-          "\t\t\t\t CUSTOM_CALLS_IDX_IPV6_INGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1540,
   "endLine": 1581,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -3789,14 +3767,30 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   ],
   "output": "int",
   "helper": [
-    "redirect",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_ipv6_policy (struct  __ctx_buff *ctx)\n",
@@ -3830,18 +3824,25 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "tail_call_static",
+    "ctx_full_len",
+    "ipv6_policy",
+    "ctx_load_meta",
+    "update_metrics",
+    "IS_ERR",
+    "ctx_store_meta",
+    "send_drop_notify",
+    "ctx_redirect_to_proxy6",
+    "encode_custom_prog_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Identify ipv6 tail call, store data to ctx. Skip tail call when packet is being redirected to a L7 proxy. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -3904,47 +3905,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "\tbool proxy_redirect __maybe_unused ",
-        "inpVar": [
-          " false"
-        ]
-      },
-      {
-        "opVar": "\t\tret ",
-        "inpVar": [
-          " ctx__to_proxy_hairpin_ipv6ctx",
-          " proxy_port"
-        ]
-      },
-      {
-        "opVar": "\t\tproxy_redirect ",
-        "inpVar": [
-          " true"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ &&\t    !encode_custom_prog_metactx",
-          " ret",
-          " src_identity "
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &CUSTOM_CALLS_MAP",
-          "\t\t\t\t CUSTOM_CALLS_IDX_IPV6_INGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1584,
   "endLine": 1659,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -3956,14 +3917,30 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
   ],
   "output": "int",
   "helper": [
-    "redirect",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_ipv6_to_endpoint (struct  __ctx_buff *ctx)\n",
@@ -4018,18 +3995,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV6_TO_ENDPOINT)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "lookup_ip6_remote_endpoint",
+    "tail_call_static",
+    "ctx_full_len",
+    "send_drop_notify",
+    "identity_is_reserved",
+    "ctx_redirect_to_proxy_hairpin_ipv6",
+    "ipv6_policy",
+    "ctx_load_meta",
+    "ctx_store_meta",
+    "IS_ERR",
+    "update_metrics",
+    "cilium_dbg",
+    "revalidate_data",
+    "encode_custom_prog_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " delivery ipv6 tail call to endpoint, skip if it is send to L7 proxy ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -4147,45 +4135,61 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
           "Input Params": [
             "{Type: struct map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "map_lookup_elem": [
-      {
-        "opVar": "#endif\tct_buffer ",
-        "inpVar": [
-          " &CT_TAIL_CALL_BUFFER4",
-          " &zero"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "\tif ((ret ",
-        "inpVar": [
-          ""
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif _to_proxyverdict",
-          " *ct_status "
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tif ifindex\t\treturn _epctx",
-          " ifindex",
-          " from_host"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1671,
   "endLine": 1879,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -4205,14 +4209,14 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "map_lookup_elem",
     "redirect",
-    "map_lookup_elem"
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
-    "sched_act",
     "xdp",
-    "sched_cls"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "static __always_inline int ipv4_policy (struct  __ctx_buff *ctx, int ifindex, __u32 src_label, enum ct_status *ct_status, struct ipv4_ct_tuple *tuple_out, __u16 *proxy_port, bool from_host __maybe_unused)\n",
@@ -4358,18 +4362,44 @@ TAIL_CT_LOOKUP6(CILIUM_CALL_IPV6_CT_INGRESS, tail_ipv6_ct_ingress, CT_INGRESS,
     "    return CTX_ACT_OK;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "policy_clear_mark",
+    "unlikely",
+    "redirect_ep",
+    "send_policy_verdict_notify",
+    "ctx_load_meta",
+    "ct_has_nodeport_egress_entry4",
+    "relax_verifier",
+    "ipv4_hdrlen",
+    "IS_ERR",
+    "csum_l4_offset_and_flags",
+    "ct_update_nodeport",
+    "memcpy",
+    "ct_update4_dsr",
+    "defined",
+    "tc_index_skip_egress_proxy",
+    "ipv4_has_l4_header",
+    "send_trace_notify4",
+    "lb4_rev_nat",
+    "redirect_to_proxy",
+    "ctx_change_type",
+    "policy_can_access_ingress",
+    "handle_dsr_v4",
+    "revalidate_data",
+    "tc_index_skip_ingress_proxy",
+    "ct_create4",
+    "get_ct_map4",
+    "ipv4_is_fragment",
+    "bpf_ntohs",
+    "ct_state_is_from_l7lb"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Identify ipv4 message and store its meta data to ctx. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -4600,49 +4630,7 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "\tbool proxy_redirect __maybe_unused ",
-        "inpVar": [
-          " false"
-        ]
-      },
-      {
-        "opVar": "\t\tret ",
-        "inpVar": [
-          " ctx__to_proxy4ctx",
-          " &tuple",
-          " proxy_port",
-          " from_host"
-        ]
-      },
-      {
-        "opVar": "\t\tproxy_redirect ",
-        "inpVar": [
-          " true"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ && !encode_custom_prog_metactx",
-          " ret",
-          " src_label "
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &CUSTOM_CALLS_MAP",
-          "\t\t\t\t CUSTOM_CALLS_IDX_IPV4_INGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1883,
   "endLine": 1924,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -4654,14 +4642,30 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
   ],
   "output": "int",
   "helper": [
-    "redirect",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_ipv4_policy (struct  __ctx_buff *ctx)\n",
@@ -4695,18 +4699,25 @@ declare_tailcall_if(__and(is_defined(ENABLE_IPV4), is_defined(ENABLE_IPV6)),
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "tail_call_static",
+    "ctx_full_len",
+    "ctx_redirect_to_proxy4",
+    "ctx_load_meta",
+    "ipv4_policy",
+    "update_metrics",
+    "IS_ERR",
+    "ctx_store_meta",
+    "send_drop_notify",
+    "encode_custom_prog_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Redirect ipv4 tail call, skip tail calls when packet is being redirected to L7 proxy. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -4769,47 +4780,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "redirect": [
-      {
-        "opVar": "\tbool proxy_redirect __maybe_unused ",
-        "inpVar": [
-          " false"
-        ]
-      },
-      {
-        "opVar": "\t\tret ",
-        "inpVar": [
-          " ctx__to_proxy_hairpin_ipv4ctx",
-          " proxy_port"
-        ]
-      },
-      {
-        "opVar": "\t\tproxy_redirect ",
-        "inpVar": [
-          " true"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#ifdef ENABLE_CUSTOM_CALLS\t\tif !proxy_ &&\t    !encode_custom_prog_metactx",
-          " ret",
-          " src_identity "
-        ]
-      }
-    ],
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &CUSTOM_CALLS_MAP",
-          "\t\t\t\t CUSTOM_CALLS_IDX_IPV4_INGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1927,
   "endLine": 2001,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -4821,14 +4792,30 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
   ],
   "output": "int",
   "helper": [
-    "redirect",
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "lwt_xmit",
+    "sched_cls",
+    "perf_event",
     "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "lwt_out",
+    "raw_tracepoint_writable",
     "xdp",
-    "sched_cls"
+    "sk_reuseport",
+    "sock_ops",
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int tail_ipv4_to_endpoint (struct  __ctx_buff *ctx)\n",
@@ -4882,18 +4869,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_IPV4_TO_ENDPOINT)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "tail_call_static",
+    "lookup_ip4_remote_endpoint",
+    "ctx_full_len",
+    "send_drop_notify",
+    "identity_is_reserved",
+    "ctx_redirect_to_proxy_hairpin_ipv4",
+    "ctx_load_meta",
+    "ipv4_policy",
+    "ctx_store_meta",
+    "IS_ERR",
+    "update_metrics",
+    "cilium_dbg",
+    "revalidate_data",
+    "encode_custom_prog_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Send ipv4 tail call to its enpoint. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -5022,29 +5020,29 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int handle_policy (struct  __ctx_buff *ctx)\n",
@@ -5081,18 +5079,23 @@ __section_tail(CILIUM_MAP_POLICY, TEMPLATE_LXC_ID)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "validate_ethertype",
+    "__and",
+    "is_defined",
+    "ctx_load_meta",
+    "bpf_htons",
+    "IS_ERR",
+    "send_drop_notify",
+    "invoke_tailcall_if"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Identify if the traffic is ipv6/v4, handle policy using previous helper function. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -5159,24 +5162,7 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#ifdef ENABLE_IPV6\tcase bpf_htonsETH_P_IPV6:\t\tep_ctx",
-          " CILIUM_CALL_IPV6_FROM_LXC"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#endif #ifdef ENABLE_IPV4\tcase bpf_htonsETH_P_IP:\t\tep_ctx",
-          " CILIUM_CALL_IPV4_FROM_LXC"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 2072,
   "endLine": 2113,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -5187,31 +5173,31 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
     "struct  __ctx_buff *ctx"
   ],
   "output": "int",
-  "helper": [
-    "tail_call"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
+    "cgroup_device",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "int handle_policy_egress (struct  __ctx_buff *ctx)\n",
@@ -5252,18 +5238,23 @@ __section_tail(CILIUM_MAP_EGRESSPOLICY, TEMPLATE_LXC_ID)
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "validate_ethertype",
+    "send_trace_notify",
+    "edt_set_aggregate",
+    "bpf_htons",
+    "ctx_store_meta",
+    "IS_ERR",
+    "send_drop_notify",
+    "ep_tail_call"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " Handle egress traffic  ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -5329,41 +5320,30 @@ __section("to-container")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_dynamicctx",
-          " &POLICY_EGRESSCALL_MAP",
-          " identity"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\t_staticctx",
-          " &POLICY_CALL_MAP",
-          " HOST_EP_ID"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#endif#ifdef ENABLE_IPV6\tcase bpf_htonsETH_P_IPV6:\t\tep_ctx",
-          " CILIUM_CALL_IPV6_CT_INGRESS"
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "#endif #ifdef ENABLE_IPV4\tcase bpf_htonsETH_P_IP:\t\tep_ctx",
-          " CILIUM_CALL_IPV4_CT_INGRESS"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 2120,
   "endLine": 2195,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_lxc.c",
@@ -5375,30 +5355,13 @@ __section("to-container")
   ],
   "output": "int",
   "helper": [
-    "tail_call"
+    "tail_call",
+    "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "sk_reuseport",
-    "lwt_out",
-    "kprobe",
-    "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
     "xdp",
-    "raw_tracepoint",
-    "perf_event",
-    "sk_skb",
-    "cgroup_skb",
-    "sock_ops",
-    "tracepoint"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "int handle_to_container (struct  __ctx_buff *ctx)\n",
@@ -5469,18 +5432,27 @@ __section("to-container")
     "    return ret;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "inherit_identity_from_host",
+    "tail_call_static",
+    "ep_tail_call",
+    "validate_ethertype",
+    "send_trace_notify",
+    "tail_call_dynamic",
+    "ctx_store_meta",
+    "bpf_htons",
+    "IS_ERR",
+    "send_drop_notify",
+    "defined",
+    "bpf_clear_meta"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " check if the proxy is able to be redirected, and redirect the proxy, store in status. Return true if successful.",
+      "description": " handle ingress policy by checking it's source and destination stored in ctx buffer. Check identity and drop the unsupported and tail calls. ",
       "author": "Yihe Bi",
       "authorEmail": "ybi@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

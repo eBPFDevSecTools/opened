@@ -40,29 +40,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
     "cgroup_device",
-    "sk_msg",
-    "flow_dissector",
-    "cgroup_sock",
-    "lwt_xmit",
-    "raw_tracepoint_writable",
-    "lwt_out",
-    "sk_reuseport",
-    "cgroup_sysctl",
-    "kprobe",
     "sched_cls",
-    "socket_filter",
-    "sched_act",
-    "lwt_seg6local",
-    "lwt_in",
-    "xdp",
-    "raw_tracepoint",
     "perf_event",
-    "sk_skb",
+    "sched_act",
+    "cgroup_sock",
+    "raw_tracepoint",
+    "sk_msg",
     "cgroup_skb",
+    "lwt_seg6local",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "tracepoint",
+    "cgroup_sysctl",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "xdp",
+    "sk_reuseport",
     "sock_ops",
-    "tracepoint"
+    "flow_dissector",
+    "sk_skb",
+    "kprobe",
+    "socket_filter",
+    "lwt_in"
   ],
   "source": [
     "static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)\n",
@@ -74,18 +74,17 @@
     "    key->dport = READ_ONCE (msg->remote_port) >> 16;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "READ_ONCE",
+    "bpf_ntohl"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4)  ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -121,19 +120,7 @@ __section("sk_msg")
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "msg_redirect_hash": [
-      {
-        "opVar": "\tif (verdict >",
-        "inpVar": [
-          " 0\t\tmsg",
-          " &SOCK_OPS_MAP",
-          " &key",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 42,
   "endLine": 67,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
@@ -171,18 +158,18 @@ __section("sk_msg")
     "    return SK_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "sk_msg_extract4_key",
+    "lookup_ip4_remote_endpoint",
+    "policy_sk_egress"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " set the sport and dport of the input key with 32 bits local port and remote port (ip4) ",
+      "description": " Store infomations about destination id, dport and sport ip4 into message, flag set to be BPF_F_INGRESS ",
       "author": "Shun Zhang",
       "authorEmail": "shunz@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

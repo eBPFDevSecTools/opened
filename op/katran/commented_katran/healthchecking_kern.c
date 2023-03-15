@@ -47,84 +47,91 @@ SEC("tc")
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_UNSPEC",
+          "Return": -1,
+          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "  prog_stats ",
-        "inpVar": [
-          " &hc_stats_map",
-          " &stats_key"
-        ]
-      },
-      {
-        "opVar": "    struct hc_real_definition* real ",
-        "inpVar": [
-          " &hc_reals_map",
-          " &somark"
-        ]
-      },
-      {
-        "opVar": "  #endif  __u32* intf_ifindex ",
-        "inpVar": [
-          " &hc_ctrl_map",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "  esrc ",
-        "inpVar": [
-          " &hc_pckt_macs",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "  edst ",
-        "inpVar": [
-          " &hc_pckt_macs",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "    __u32* hc_key_cntr_index ",
-        "inpVar": [
-          " &hc_key_map",
-          " &hckey"
-        ]
-      },
-      {
-        "opVar": "      __u32* packets_processed_for_hc_key ",
-        "inpVar": [
-          "          &per_hckey_stats",
-          " hc_key_cntr_index"
-        ]
-      }
-    ],
-    "bpf_redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "              return *intf_ifindex",
-          " REDIRECT_EGRESS"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 34,
   "endLine": 139,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_kern.c",
   "funcName": "healthcheck_encap",
   "updateMaps": [],
   "readMaps": [
-    " hc_ctrl_map",
-    " per_hckey_stats",
-    "  hc_pckt_macs",
     " hc_reals_map",
+    " per_hckey_stats",
+    " hc_ctrl_map",
     " hc_key_map",
+    "  hc_pckt_macs",
     "  hc_stats_map"
   ],
   "input": [
@@ -133,13 +140,13 @@ SEC("tc")
   "output": "int",
   "helper": [
     "bpf_map_lookup_elem",
-    "bpf_redirect"
+    "TC_ACT_SHOT",
+    "bpf_redirect",
+    "TC_ACT_UNSPEC"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "sched_cls",
-    "lwt_xmit",
-    "xdp"
+    "sched_act"
   ],
   "source": [
     "int healthcheck_encap (struct  __sk_buff *skb)\n",
@@ -231,18 +238,18 @@ SEC("tc")
     "    return bpf_redirect (*intf_ifindex, REDIRECT_EGRESS);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "set_hc_key",
+    "HC_ENCAP",
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Input is user accessible mirror of in-kernel sk_buff",
+      "description": " Input is user accessible mirror of in-kernel sk_buff                   This function performs healthcheck for encapsulation                   Use default action configured from tc (TC_ACT_UNSPEC), which is skip the packet, if                    1) program stats is NULL/stats_key is not found in hc_stats_map,                    2)mark of the sk_buff is 0,                    3)somark is not found in hc_reals_map                   The program returns error/healthcheck fails (TC_ACT_SHOT) if 1)packet is bigger than the specified size,                   2)do not have ifindex for main interface,                   3)do not find HC_SRC_MAC_POS or HC_DST_MAC_POS,                   4)the result for HC_ENCAP (healthcheck encap) is faulse.                   Otherwise, the packet passes the healthcheck, and will be redirected to another net device of index intf_ifindex. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

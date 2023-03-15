@@ -31,22 +31,6 @@ struct ctx;
 {
   "capabilities": [
     {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "read_sys_info",
       "read_sys_info": [
         {
@@ -57,30 +41,38 @@ struct ctx;
           "Function Name": "get_prandom_u32",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "get_prandom_u32": [
-      {
-        "opVar": "    uint32_t rand32 ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ],
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    uint8_t* map_value ",
-        "inpVar": [
-          " uint8_t*&map",
-          " &map_key"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 29,
   "endLine": 48,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/twotypes.c",
@@ -94,31 +86,31 @@ struct ctx;
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
-    "get_prandom_u32"
+    "get_prandom_u32",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "flow_dissector",
-    "lwt_in",
-    "perf_event",
+    "cgroup_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sched_act",
     "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
     "lwt_out",
     "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_skb",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "xdp"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",
@@ -140,13 +132,12 @@ struct ctx;
     "    return (*ptr == stack_buffer[0]) ? 1 : 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ebpf_map_update_elem",
+    "ebpf_get_current_comm"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

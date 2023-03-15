@@ -63,7 +63,7 @@ optional arguments:
 
 ```
 
-NOTE: **example is given in run1.sh**
+NOTE: **The description given above might be dated, always check examples given in run1.sh for latest capabilities.**
  
 3. Run annotated function call graph extraction phase, 
 ```

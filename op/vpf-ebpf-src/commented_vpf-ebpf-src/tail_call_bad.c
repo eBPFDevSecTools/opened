@@ -25,18 +25,7 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "        long error ",
-        "inpVar": [
-          " ctx",
-          " &map",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 24,
   "endLine": 32,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c",
@@ -51,27 +40,27 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
+    "cgroup_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sched_act",
     "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
     "lwt_out",
     "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_skb",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "xdp"
   ],
   "source": [
     "int caller (struct xdp_md *ctx)\n",
@@ -80,13 +69,9 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     "    return (int) error;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -128,29 +113,29 @@ caller(struct xdp_md* ctx)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sysctl",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_device",
     "cgroup_skb",
+    "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "sched_cls",
+    "lwt_out",
+    "lwt_xmit",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "xdp"
   ],
   "source": [
     "int callee (struct xdp_md *ctx)\n",
@@ -158,13 +143,9 @@ caller(struct xdp_md* ctx)
     "    return 42;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

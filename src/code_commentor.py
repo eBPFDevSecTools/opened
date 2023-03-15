@@ -7,22 +7,25 @@ import os
 import json
 import summarizer as smt
 import argparse
+import subprocess
+import shutil
 from collections import defaultdict
 from tinydb import TinyDB
 import utils.comment_extractor as extractor
 
-def insert_to_db(db,comment_dict):
-    comment_json = json.dumps(comment_dict)
-    #print("Inserting comments to DB: "+ comment_json )
-    db.insert(comment_dict)
+def run_cmd(cmd):
+    status, output = subprocess.getstatusoutput(cmd)
+    if(status != 0):
+        print("Running: ",cmd)
+        print("Failed while running: ",cmd,"Message: ",output, " Exiting...")
+        exit(1)
+    return output
 
 
 def dump_comment(fname,startLineDict, ofname):
     if fname  == "":
         return
     ifile = open(fname,'r')
-    #ofname = fname+"-OPENED"
-    print("Dumping for: ",fname," outputFile: ",ofname)
     ofile = open(ofname,'w')
     ct = 0
     for line in ifile.readlines():
@@ -35,12 +38,25 @@ def dump_comment(fname,startLineDict, ofname):
     ifile.close()
 
 
+def get_called_fn_list(fn_name, db_file_name, manpage_info_dict):
+    fn_name_s = fn_name.replace("*","")
+    cmd = "cqsearch -s "+ db_file_name+" -t "+ fn_name_s +"  -p 7  -u -e"
+    op = run_cmd(cmd).split("\n")
+    called_fn_dict = set()
+    for en in op:
+        if "Search string:" not in en:
+            fn_det_list = en.split("\t")
+            func = fn_det_list[0].replace("*","")
+            if func not in manpage_info_dict and func != "DECLARE":
+                called_fn_dict.add(func)
+    return list(called_fn_dict)
+
 def generate_comment(capability_dict):
     return "/* \n OPENED COMMENT BEGIN \n"+json.dumps(capability_dict,indent=2)+" \n OPENED COMMENT END \n */ \n"
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium,comments_db,human_comments_file):
+def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, human_comments_file, db_file_name, funcCapDict):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -52,11 +68,10 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
     for line in inputFile.readlines():
         ending = re.match(r"</source",line)
         if ending:
-            srcSeen = False;
+            srcSeen = False
             #dump to file
-            #print(lines)
-            #print("funcName: ",funcName," srcFile: ",srcFile)
-            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, isCilium, None)
+            funcName = funcName.replace('*','')
+            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, helperdict)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
@@ -65,18 +80,23 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)
             capability_dict['input'] = funcArgs.split(',')
             capability_dict['output'] = output
-            capability_dict['helper'] = smt.get_helper_list(lines,helperdict)
+            capability_dict['helper'] = smt.get_helper_list(lines, helperdict)
             capability_dict['compatibleHookpoints'] = smt.get_compatible_hookpoints(capability_dict['helper'] , helperdict)
             capability_dict['source'] = lines
+            capability_dict['called_function_list'] = get_called_fn_list(funcName, db_file_name, helperdict)
+            if capability_dict['called_function_list'] is not None and not len(capability_dict['called_function_list']):
+                capability_dict["call_depth"] =  0
+            else:
+                capability_dict["call_depth"] = -1
+
             func_desc_list = []
-            human_description = extractor.get_human_func_description(human_comments_file,srcFile)
+            human_description = extractor.get_human_func_description(human_comments_file,srcFile,funcName)
             empty_desc = {}
             empty_desc['description'] = ""
             empty_desc['author'] = ""
             empty_desc['authorEmail'] = ""
             empty_desc['date'] = ""
 
-            func_desc_list.append(empty_desc)
             func_desc_list.append(human_description)
             capability_dict['humanFuncDescription'] = func_desc_list
             empty_desc_auto = {}
@@ -88,13 +108,13 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             ai_func_desc_list = []
             ai_func_desc_list.append(empty_desc_auto)
             capability_dict['AI_func_description'] = ai_func_desc_list
-            #comment = generate_comment(srcFile,funcName,startLine,endLine,funcArgs,output,encoding,read_maps,update_maps, capability_dict)
             comment = generate_comment(capability_dict)
-            insert_to_db(comments_db,capability_dict)
-            #dump_comment(srcFile,startLine,comment)
+            #insert_to_db(comments_db,capability_dict)
+            if funcName not in funcCapDict:
+                funcCapDict[funcName] = list()
+            funcCapDict[funcName].append(capability_dict)
             
             startLineDict[startLine] = comment
-            #print(comment)
             lines = []
             continue;
         if srcSeen:
@@ -102,7 +122,6 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             continue;
         starting = re.match(r"<source",line)
         if starting:
-            #print("Starting",line)
             srcSeen = True
         
             line = line.replace("funcheader","")
@@ -112,14 +131,10 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             line = line.replace("\n","")
             line = line.replace("\"","")
             tokens = line.split('=')
-            #print("len",len(tokens),"tokens",tokens)
 
             funcHeader=tokens[2]
-            #print("funcHeader: ",funcHeader)
             funcArgs = funcHeader.split('(')[-1]
             funcArgs = funcArgs.split(')')[0]
-            #funcArgs = funcArgs.replace(" ","")
-            #print("args ",funcArgs)
             if(funcArgs is None or not funcArgs or funcArgs.isspace() is True):
                 funcArgs = "NA"
 
@@ -127,8 +142,6 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             srcFile = srcFile.replace(" ","")
 
             funcName = tokens[-3].replace(" (","(")
-            #print("funcName: ",funcName)
-            #print("funcName.split('(')[-2]: ",funcName.split('(')[-2])
             output= " ".join(funcName.split('(')[-2].split(" ")[:-1])
             output = output.replace(" ","")
             if(output is None or not output or output.isspace() is True):
@@ -137,16 +150,11 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
 
             startLine = int(tokens[-2])
             endLine = int(tokens[-1])
-            #print("File: ",srcFile, " startline: ",startLine," endline: ",endLine," funcname: ",funcName, "Input: (", funcArgs, ") Output: ",output)
     if srcFile != "":
-        #print("Going to call dump_comment for: "+srcFile)
-        #print(startLineDict)
         dump_comment(srcFile,startLineDict, opFile)
-
+    return funcCapDict
 
         
-        #print("XML: ",inputFile," StartLineDict: ",startLineDict)
-
 if __name__ =="__main__":
     parser = argparse.ArgumentParser(description='Code commentor')
     parser.add_argument('-o','--opFile', type=str,required=True,
@@ -185,10 +193,5 @@ if __name__ =="__main__":
             map_read_fn = ["map_peek_elem", "map_lookup_elem", "map_pop_elem"]
 
         xmlFile = open(txlFile,'r')
-        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, isCilium)
+        parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn)
         xmlFile.close()
-        '''
-        ifile = open("./txl_annotate/annotate_func_test_decap_kern.c.xml",'r')
-        parseTXLFunctionOutputFileForComments(ifile)
-        ifile.close()
-        '''

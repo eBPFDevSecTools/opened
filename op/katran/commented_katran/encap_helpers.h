@@ -50,29 +50,29 @@
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void create_v4_hdr (struct iphdr *iph, __u8 tos, __u32 saddr, __u32 daddr, __u16 pkt_bytes, __u8 proto)\n",
@@ -99,13 +99,12 @@
     "    iph->check = csum;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons",
+    "ipv4_csum_inline"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -168,29 +167,29 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void create_v6_hdr (struct ipv6hdr *ip6h, __u8 tc, __u32 *saddr, __u32 *daddr, __u16 payload_len, __u8 proto)\n",
@@ -213,13 +212,13 @@ __attribute__((__always_inline__)) static inline void create_v4_hdr(
     "    memcpy (ip6h->daddr.s6_addr32, daddr, 16);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons",
+    "memcpy",
+    "memset"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -277,29 +276,29 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline void create_udp_hdr (struct udphdr *udph, __u16 sport, __u16 dport, __u16 len, __u16 csum)\n",
@@ -310,13 +309,11 @@ __attribute__((__always_inline__)) static inline void create_v6_hdr(
     "    udph->check = csum;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "bpf_htons"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

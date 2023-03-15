@@ -28,35 +28,8 @@ bpf_map_def_t test_map = {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [
-    {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ]
-        }
-      ]
-    }
-  ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    uint32_t* value ",
-        "inpVar": [
-          " e&test_map",
-          " &key"
-        ]
-      }
-    ]
-  },
+  "capabilities": [],
+  "helperCallParams": {},
   "startLine": 28,
   "endLine": 40,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
@@ -69,33 +42,31 @@ bpf_map_def_t test_map = {
     "void *ctx"
   ],
   "output": "int",
-  "helper": [
-    "bpf_map_lookup_elem"
-  ],
+  "helper": [],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
-    "cgroup_sock_addr",
-    "sk_reuseport",
-    "sched_act",
-    "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
-    "lwt_out",
-    "cgroup_sysctl",
-    "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_device",
     "cgroup_skb",
+    "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
+    "sk_reuseport",
+    "sched_cls",
+    "lwt_out",
+    "lwt_xmit",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "cgroup_device",
+    "cgroup_sysctl",
+    "xdp"
   ],
   "source": [
     "int test_repro (void *ctx)\n",
@@ -106,13 +77,11 @@ bpf_map_def_t test_map = {
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ebpf_map_lookup_elem"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

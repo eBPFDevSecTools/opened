@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/bcc/bitehist.c" funcheader="int trace_req_done (struct pt_regs *ctx, struct request *req)" startline="7" endline="12">
+int trace_req_done (struct pt_regs *ctx, struct request *req)
+{
+    dist.increment (bpf_log2l (req->__data_len / 1024));
+    dist_linear.increment (req->__data_len / 1024);
+    return 0;
+}
+</source>
+</doc>

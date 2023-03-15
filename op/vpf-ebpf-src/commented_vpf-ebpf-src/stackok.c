@@ -20,21 +20,38 @@ static int (*get_prandom_u32)() = (void*)7;
           "Function Name": "get_prandom_u32",
           "Input Params": [
             "{Type: voi ,Var: void}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "read_sys_info"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "get_prandom_u32": [
-      {
-        "opVar": "      uint32_t rand32 ",
-        "inpVar": [
-          " "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 8,
   "endLine": 19,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c",
@@ -49,27 +66,27 @@ static int (*get_prandom_u32)() = (void*)7;
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "kprobe",
-    "cgroup_sock",
-    "lwt_in",
-    "flow_dissector",
-    "perf_event",
+    "cgroup_skb",
     "cgroup_sock_addr",
+    "cgroup_sock",
+    "tracepoint",
+    "kprobe",
+    "sk_msg",
+    "flow_dissector",
+    "lwt_seg6local",
     "sk_reuseport",
-    "sched_act",
     "sched_cls",
-    "sk_skb",
-    "xdp",
-    "sock_ops",
     "lwt_out",
     "lwt_xmit",
-    "tracepoint",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_skb",
     "raw_tracepoint",
+    "sock_ops",
     "raw_tracepoint_writable",
-    "socket_filter"
+    "socket_filter",
+    "perf_event",
+    "sched_act",
+    "lwt_in",
+    "sk_skb",
+    "xdp"
   ],
   "source": [
     "int func (void *ctx)\n",
@@ -80,13 +97,12 @@ static int (*get_prandom_u32)() = (void*)7;
     "    return array[index];\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ebpf_map_update_elem",
+    "ebpf_get_current_comm"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

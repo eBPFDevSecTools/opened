@@ -54,6 +54,25 @@ SEC("mptm_encap_xdp")
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -65,40 +84,40 @@ SEC("mptm_encap_xdp")
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    tn ",
-        "inpVar": [
-          " &mptm_tnl_info_map",
-          " &key"
-        ]
-      }
-    ],
-    "redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        if likelytn-> "
-        ]
-      }
-    ],
-    "bpf_redirect": [
-      {
-        "opVar": "         action ",
-        "inpVar": [
-          " _map&mptm_tnl_redirect_devmap",
-          " tn->veth_iface",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 52,
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
@@ -112,14 +131,12 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
-    "redirect",
-    "bpf_redirect"
+    "XDP_PASS",
+    "bpf_redirect_map",
+    "bpf_redirect",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
-    "sched_act",
     "xdp"
   ],
   "source": [
@@ -162,13 +179,17 @@ SEC("mptm_encap_xdp")
     "    return xdp_stats_record_action (ctx, action);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "encap_vlan",
+    "bpf_debug",
+    "parse_pkt_headers",
+    "encap_geneve",
+    "xdp_stats_record_action",
+    "mptm_print",
+    "likely"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -238,6 +259,44 @@ SEC("mptm_decap_xdp")
 {
   "capabilities": [
     {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "update_pkt",
       "update_pkt": [
         {
@@ -249,6 +308,12 @@ SEC("mptm_decap_xdp")
           "Input Params": [
             "{Type: struct xdp_buff ,Var: *xdp_md}",
             "{Type:  int ,Var: delta}"
+          ],
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
@@ -265,41 +330,40 @@ SEC("mptm_decap_xdp")
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_xdp_adjust_head": [
-      {
-        "opVar": "        long ret ",
-        "inpVar": [
-          " ctx",
-          " outer_hdr_size"
-        ]
-      }
-    ],
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "        tn ",
-        "inpVar": [
-          " &mptm_tnl_info_map",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_redirect": [
-      {
-        "opVar": "                action ",
-        "inpVar": [
-          " _map&mptm_tnl_redirect_devmap",
-          " tn->eth0_iface",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 102,
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
@@ -313,9 +377,12 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_map_lookup_elem",
+    "bpf_redirect",
+    "XDP_DROP",
+    "XDP_PASS",
+    "bpf_redirect_map",
     "bpf_xdp_adjust_head",
-    "bpf_redirect"
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -366,13 +433,14 @@ SEC("mptm_decap_xdp")
     "    return xdp_stats_record_action (ctx, action);\n",
     "}\n"
   ],
+  "called_function_list": [
+    "parse_pkt_headers",
+    "unlikely",
+    "mptm_print",
+    "xdp_stats_record_action"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

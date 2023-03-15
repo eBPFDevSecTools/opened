@@ -2,17 +2,7 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_trace_printk": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\t\"Hello",
-          " World!\\\\n\""
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 1,
   "endLine": 4,
   "File": "/home/sayandes/opened_extraction/examples/bcc/hello_fields.c",
@@ -27,29 +17,29 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint_writable",
-    "lwt_xmit",
-    "sock_ops",
-    "lwt_out",
-    "sk_reuseport",
-    "flow_dissector",
-    "cgroup_sysctl",
-    "tracepoint",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_seg6local",
-    "socket_filter",
-    "cgroup_device",
-    "sched_act",
-    "kprobe",
-    "perf_event",
-    "lwt_in",
-    "cgroup_skb",
     "cgroup_sock",
-    "sched_cls",
+    "sock_ops",
     "sk_skb",
+    "flow_dissector",
+    "socket_filter",
+    "sk_reuseport",
+    "raw_tracepoint",
+    "kprobe",
+    "xdp",
+    "lwt_in",
+    "cgroup_sysctl",
+    "lwt_xmit",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "perf_event",
+    "sched_act",
+    "lwt_out",
+    "raw_tracepoint_writable",
+    "tracepoint",
+    "cgroup_device",
     "sk_msg",
-    "raw_tracepoint"
+    "lwt_seg6local",
+    "cgroup_skb"
   ],
   "source": [
     "int hello (void *ctx)\n",
@@ -58,13 +48,9 @@
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

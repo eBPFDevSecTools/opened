@@ -30,19 +30,28 @@ struct {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    ctx",
-          " &root_array",
-          " i"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 30,
   "endLine": 37,
   "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
@@ -54,30 +63,11 @@ struct {
   ],
   "output": "\\xdp\\)",
   "helper": [
+    "XDP_PASS",
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "int SEC (\"xdp\") xdp_root (struct xdp_md *ctx)\n",
@@ -91,18 +81,16 @@ struct {
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "unroll"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook",
+      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook                   The program will jump into another eBPF program.                   For each index in root_array, the program attempts to jump into a program referenced at index i                   and passes ctx, a pointer to the context.                   This programs chains and executes the input program, and finally pass the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [
@@ -130,19 +118,28 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    ctx",
-          " &root_array",
-          " i"
-        ]
-      }
-    ]
-  },
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
+  "helperCallParams": {},
   "startLine": 40,
   "endLine": 47,
   "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
@@ -154,30 +151,11 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   ],
   "output": "\\xdp\\)",
   "helper": [
+    "XDP_PASS",
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "sched_act",
-    "lwt_out",
-    "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
-    "lwt_in",
-    "lwt_seg6local",
-    "sched_cls",
-    "perf_event",
-    "lwt_xmit",
-    "sk_skb",
-    "kprobe",
-    "cgroup_sock"
+    "xdp"
   ],
   "source": [
     "int SEC (\"xdp\") xdp_val (struct xdp_md *ctx)\n",
@@ -191,18 +169,16 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "unroll"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
     {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
-    {
-      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook",
+      "description": " Input (struct xdp_md* ctx) is user accessible metadata for XDP packet hook                   The program will jump into another eBPF program.                   For each index in root_array, the program attempts to jump into a program referenced at index i                   and passes ctx, a pointer to the context.                   This programs chains and executes the input program, and finally pass the packet. ",
       "author": "Qintian Huang",
       "authorEmail": "qthuang@bu.edu",
-      "date": "2023-02-08"
+      "date": "2023-02-24"
     }
   ],
   "AI_func_description": [

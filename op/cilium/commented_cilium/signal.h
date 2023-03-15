@@ -53,11 +53,11 @@ struct signal_msg {
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "kprobe",
     "perf_event",
+    "kprobe",
     "raw_tracepoint_writable",
-    "tracepoint"
+    "tracepoint",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)\n",
@@ -65,13 +65,11 @@ struct signal_msg {
     "    ctx_event_output (ctx, &SIGNAL_MAP, BPF_F_CURRENT_CPU, msg, sizeof (*msg));\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ctx_event_output"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -97,17 +95,7 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "send_signal": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tctx",
-          " &msg"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 43,
   "endLine": 52,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
@@ -123,11 +111,11 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "kprobe",
     "perf_event",
+    "kprobe",
     "raw_tracepoint_writable",
-    "tracepoint"
+    "tracepoint",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
@@ -139,13 +127,9 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "    send_signal (ctx, &msg);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -175,17 +159,7 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "send_signal": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "\tctx",
-          " &msg"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 54,
   "endLine": 63,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
@@ -201,11 +175,11 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "raw_tracepoint",
-    "kprobe",
     "perf_event",
+    "kprobe",
     "raw_tracepoint_writable",
-    "tracepoint"
+    "tracepoint",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
@@ -217,13 +191,9 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "    send_signal (ctx, &msg);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

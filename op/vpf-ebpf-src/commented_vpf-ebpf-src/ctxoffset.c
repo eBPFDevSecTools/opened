@@ -44,24 +44,18 @@ __attribute__((section("sockops"), used))
             "{Type:  struct bpf_map ,Var: *map}",
             "{Type:  void ,Var: *key}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sock_ops"
+          ],
+          "capabilities": [
+            "map_update"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_sock_map_update": [
-      {
-        "opVar": "    int result ",
-        "inpVar": [
-          " ctx",
-          " &map",
-          " &key",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 29,
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
@@ -89,13 +83,12 @@ __attribute__((section("sockops"), used))
     "    return result;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "ebpf_map_update_elem",
+    "ebpf_get_current_comm"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

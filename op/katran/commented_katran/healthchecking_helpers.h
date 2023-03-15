@@ -53,29 +53,29 @@
   "output": "staticinlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool set_hc_key (const struct  __sk_buff *skb, struct hc_key *hckey, bool is_ipv6)\n",
@@ -120,13 +120,11 @@
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "memcpy"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -188,24 +186,6 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
 {
   "capabilities": [
     {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There are two supported modes at this time: \u00b7 BPF_ADJ_ROOM_MAC: Adjust room at the mac layer (room space is added or removed below the layer 2 header). \u00b7 BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). The following <[ flags ]>(IP: 3) are supported at this time: \u00b7 BPF_F_ADJ_ROOM_FIXED_GSO: Do not adjust gso_size. Adjusting mss in this way is not allowed for datagrams. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L3_IPV4 , BPF_F_ADJ_ROOM_ENCAP_L3_IPV6: Any new space is reserved to hold a tunnel header. Configure <[ skb ]>(IP: 0) offsets and other fields accordingly. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L4_GRE , BPF_F_ADJ_ROOM_ENCAP_L4_UDP: Use with ENCAP_L3 <[ flags ]>(IP: 3) to further specify the tunnel type. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L2(len): Use with ENCAP_L3/L4 <[ flags ]>(IP: 3) to further specify the tunnel type; len is the length of the inner MAC header. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_skb_adjust_room",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  s32 ,Var: len_diff}",
-            "{Type:  u32 ,Var: mode}",
-            "{Type:  u64 ,Var: flags}"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -217,49 +197,40 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    src ",
-        "inpVar": [
-          " &hc_pckt_srcs_map",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "    src ",
-        "inpVar": [
-          " &hc_pckt_srcs_map",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_skb_adjust_room": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        if skb",
-          " adjust_len",
-          " BPF_ADJ_ROOM_MAC",
-          " flags "
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        if skb",
-          " adjust_len",
-          " BPF_ADJ_ROOM_MAC",
-          " flags "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 79,
   "endLine": 139,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
@@ -276,12 +247,32 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_skb_adjust_room",
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
     "sched_act",
-    "sched_cls"
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool hc_encap_ipip (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)\n",
@@ -335,13 +326,12 @@ set_hc_key(const struct __sk_buff* skb, struct hc_key* hckey, bool is_ipv6) {
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "create_v4_hdr",
+    "create_v6_hdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -435,29 +425,29 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
   "output": "staticinline__u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "raw_tracepoint_writable",
-    "cgroup_device",
-    "sched_act",
-    "lwt_out",
     "socket_filter",
-    "sk_msg",
-    "xdp",
-    "flow_dissector",
-    "tracepoint",
-    "sock_ops",
-    "cgroup_sock_addr",
     "lwt_in",
     "cgroup_sysctl",
-    "lwt_seg6local",
+    "cgroup_sock_addr",
     "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
     "perf_event",
-    "lwt_xmit",
+    "sk_msg",
+    "lwt_seg6local",
+    "sched_act",
+    "cgroup_skb",
+    "cgroup_sock",
     "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
     "kprobe",
-    "cgroup_sock"
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline __u16 gue_sport (__u32 seed)\n",
@@ -465,13 +455,9 @@ __attribute__((__always_inline__)) static inline bool hc_encap_ipip(
     "    return (__u16) ((seed ^ (seed >> 16)) & 0xFFFF);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [
@@ -495,24 +481,6 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
 {
   "capabilities": [
     {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Grow or shrink the room for data in the packet associated to <[ skb ]>(IP: 0) by <[ len_diff ]>(IP: 1) , and according to the selected mode. There are two supported modes at this time: \u00b7 BPF_ADJ_ROOM_MAC: Adjust room at the mac layer (room space is added or removed below the layer 2 header). \u00b7 BPF_ADJ_ROOM_NET: Adjust room at the network layer (room space is added or removed below the layer 3 header). The following <[ flags ]>(IP: 3) are supported at this time: \u00b7 BPF_F_ADJ_ROOM_FIXED_GSO: Do not adjust gso_size. Adjusting mss in this way is not allowed for datagrams. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L3_IPV4 , BPF_F_ADJ_ROOM_ENCAP_L3_IPV6: Any new space is reserved to hold a tunnel header. Configure <[ skb ]>(IP: 0) offsets and other fields accordingly. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L4_GRE , BPF_F_ADJ_ROOM_ENCAP_L4_UDP: Use with ENCAP_L3 <[ flags ]>(IP: 3) to further specify the tunnel type. \u00b7 BPF_F_ADJ_ROOM_ENCAP_L2(len): Use with ENCAP_L3/L4 <[ flags ]>(IP: 3) to further specify the tunnel type; len is the length of the inner MAC header. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_skb_adjust_room",
-          "Input Params": [
-            "{Type: struct sk_buff ,Var: *skb}",
-            "{Type:  s32 ,Var: len_diff}",
-            "{Type:  u32 ,Var: mode}",
-            "{Type:  u64 ,Var: flags}"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -524,49 +492,40 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
           "Input Params": [
             "{Type: struct bpf_map ,Var: *map}",
             "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_map_lookup_elem": [
-      {
-        "opVar": "    src ",
-        "inpVar": [
-          " &hc_pckt_srcs_map",
-          " &key"
-        ]
-      },
-      {
-        "opVar": "    src ",
-        "inpVar": [
-          " &hc_pckt_srcs_map",
-          " &key"
-        ]
-      }
-    ],
-    "bpf_skb_adjust_room": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        if skb",
-          " adjust_len",
-          " BPF_ADJ_ROOM_MAC",
-          " flags "
-        ]
-      },
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "        if skb",
-          " adjust_len",
-          " BPF_ADJ_ROOM_MAC",
-          " flags "
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 145,
   "endLine": 213,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_helpers.h",
@@ -583,12 +542,32 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
   ],
   "output": "staticinlinebool",
   "helper": [
-    "bpf_skb_adjust_room",
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
+    "socket_filter",
+    "lwt_in",
+    "cgroup_sysctl",
+    "cgroup_sock_addr",
+    "sched_cls",
+    "raw_tracepoint",
+    "sock_ops",
+    "lwt_out",
+    "tracepoint",
+    "flow_dissector",
+    "perf_event",
+    "sk_msg",
+    "lwt_seg6local",
     "sched_act",
-    "sched_cls"
+    "cgroup_skb",
+    "cgroup_sock",
+    "sk_skb",
+    "xdp",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "lwt_xmit",
+    "cgroup_device",
+    "sk_reuseport"
   ],
   "source": [
     "static inline bool hc_encap_gue (struct  __sk_buff *skb, struct hc_real_definition *real, struct ethhdr *ethh, bool is_ipv6)\n",
@@ -648,13 +627,14 @@ __attribute__((__always_inline__)) static inline __u16 gue_sport(__u32 seed) {
     "    return true;\n",
     "}\n"
   ],
+  "called_function_list": [
+    "create_v4_hdr",
+    "create_udp_hdr",
+    "gue_sport",
+    "create_v6_hdr"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     null
   ],
   "AI_func_description": [

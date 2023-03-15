@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/root/examples/bcc/strlen_hist_ifunc.c" funcheader="int count (struct pt_regs *ctx)" startline="4" endline="7">
+int count (struct pt_regs *ctx)
+{
+    dist.increment (bpf_log2l (PT_REGS_RC (ctx)));
+    return 0;
+}
+</source>
+<source file="/root/examples/bcc/strlen_hist_ifunc.c" funcheader="void submit_impl_func_addr (struct pt_regs *ctx)" startline="11" endline="14">
+void submit_impl_func_addr (struct pt_regs *ctx)
+{
+    u64 addr = PT_REGS_RC (ctx);
+    impl_func_addr.perf_submit (ctx, &addr, sizeof (addr));
+}
+</source>
+<source file="/root/examples/bcc/strlen_hist_ifunc.c" funcheader="int submit_resolv_func_addr (struct pt_regs *ctx)" startline="18" endline="22">
+int submit_resolv_func_addr (struct pt_regs *ctx)
+{
+    u64 rip = PT_REGS_IP (ctx);
+    resolv_func_addr.perf_submit (ctx, &rip, sizeof (rip));
+    return 0;
+}
+</source>
+</doc>

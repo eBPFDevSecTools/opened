@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+<source file="/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c" funcheader="static __inline int compare_mac (__u8 *mac1, __u8 *mac2)" startline="148" endline="158">
+static __inline int compare_mac (__u8 *mac1, __u8 *mac2)
+{
+    if (mac1[0] == mac2[0] && mac1[1] == mac2[1] && mac1[2] == mac2[2] && mac1[3] == mac2[3] && mac1[4] == mac2[4] && mac1[5] == mac2[5]) {
+        return 1;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c" funcheader="static __inline int is_broadcast_mac (__u8 *m)" startline="230" endline="240">
+static __inline int is_broadcast_mac (__u8 *m)
+{
+    if (m[0] == (__u8) '0xff' && m[1] == (__u8) '0xff' && m[2] == (__u8) '0xff' && m[3] == (__u8) '0xff' && m[4] == (__u8) '0xff' && m[5] == (__u8) '0xff') {
+        return 1;
+    }
+    return 0;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c" funcheader="static __inline int filter (struct  __sk_buff *skb)" startline="528" endline="638">
+static __inline int filter (struct  __sk_buff *skb)
+{
+    char pkt_fmt [] = "MAC_FILTER: pkt skb contain mac: %x%x\n";
+    char src_fmt [] = "MAC_FILTER: expected source mac: %x%x\n";
+    char broadcast [] = "MAC_FILTER: BROADCAST MESSAGE DETECTED\n";
+    char mac_matched [] = "MAC_FILTER: MAC MATCHED\n";
+    char mac_unmatched [] = "MAC_FILTER: MAC DID NOT MATCH\n";
+    char map_error [] = "MAC_FILTER: Unable to get iface %s from map\n";
+    char ip_matched [] = "IP_FILTER: IP iface:%x == pkt:%x MATCHED\n";
+    char ip_unmatched [] = "IP_FILTER: IP iface:%x != pkt:%x DID NOT MATCH\n";
+    char ipstr [] = "ip";
+    char macstr [] = "mac";
+    char statsstr [] = "stats";
+    uint32_t *bytes;
+    pkt_count *inf;
+    void *data = (void *) (long) skb->data;
+    void *data_end = (void *) (long) skb->data_end;
+    struct ethhdr *eth = data;
+    uint32_t idx = skb->ifindex;
+    struct iphdr *ip;
+    __u8 iface_mac [ETH_ALEN];
+    __be32 iface_ip;
+    __u64 l3_offset = sizeof (struct ethhdr);
+    if (data_end < (void *) eth + l3_offset)
+        return TC_ACT_SHOT;
+    if (eth->h_proto != 0x0008) {
+        return TC_ACT_OK;
+    }
+    ip = data + l3_offset;
+    if ((void *) (ip + 1) > data_end) {
+        return TC_ACT_OK;
+    }
+    inf = bpf_map_lookup_elem (& iface_stat_map, & (idx));
+    if (!inf) {
+        bpf_trace_printk (map_error, sizeof (map_error), statsstr);
+        return TC_ACT_OK;
+    }
+    bytes = bpf_map_lookup_elem (& iface_map, & (idx));
+    if (bytes == NULL) {
+        bpf_trace_printk (map_error, sizeof (map_error), macstr);
+        return TC_ACT_OK;
+    }
+    bpf_memcpy (iface_mac, bytes, ETH_ALEN);
+    bytes = bpf_map_lookup_elem (& iface_ip_map, & (idx));
+    if (bytes == NULL) {
+        bpf_trace_printk (map_error, sizeof (map_error), ipstr);
+        return TC_ACT_OK;
+    }
+    bpf_memcpy (&iface_ip, bytes, sizeof (__be32));
+    if ((is_broadcast_mac (eth->h_source) == 1) || (is_broadcast_mac (eth->h_dest) == 1)) {
+        bpf_trace_printk (broadcast, sizeof (broadcast));
+        return TC_ACT_OK;
+    }
+    if (compare_mac (eth->h_dest, iface_mac) == 1) {
+        return TC_ACT_OK;
+    }
+    __u8 *pkt_mac = (__u8 *) eth->h_source;
+    __be32 pkt_ip = ip->saddr;
+    if (compare_mac (pkt_mac, iface_mac) == 0) {
+        bpf_trace_printk (mac_unmatched, sizeof (mac_unmatched));
+        bpf_trace_printk (src_fmt, sizeof (src_fmt), (iface_mac[0] << 16 | iface_mac[1] << 8 | iface_mac[2]), (iface_mac[3] << 16 | iface_mac[4] << 8 | iface_mac[5]));
+        bpf_trace_printk (pkt_fmt, sizeof (pkt_fmt), (pkt_mac[0] << 16 | pkt_mac[1] << 8 | pkt_mac[2]), (pkt_mac[3] << 16 | pkt_mac[4] << 8 | pkt_mac[5]));
+        ADD_DROP_STAT (idx, inf);
+        return TC_ACT_SHOT;
+    }
+    bpf_trace_printk (mac_matched, sizeof (mac_matched));
+    if (iface_ip != pkt_ip) {
+        bpf_trace_printk (ip_unmatched, sizeof (ip_unmatched), iface_ip, pkt_ip);
+        ADD_DROP_STAT (idx, inf);
+        return TC_ACT_SHOT;
+    }
+    bpf_trace_printk (ip_matched, sizeof (ip_matched), iface_ip, pkt_ip);
+    ADD_PASS_STAT (idx, inf);
+    return TC_ACT_OK;
+}
+</source>
+<source file="/home/sayandes/opened_extraction/examples/bpf-filter-master/human_commented_bpf-filter-master/drop.c" funcheader="int bpf_filter (struct  __sk_buff *skb)" startline="708" endline="711">
+int bpf_filter (struct  __sk_buff *skb)
+{
+    return filter (skb);
+}
+</source>
+</doc>

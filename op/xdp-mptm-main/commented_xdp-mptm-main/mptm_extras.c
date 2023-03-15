@@ -25,18 +25,7 @@ SEC("mptm_redirect_xdp")
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_redirect": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    return _map&mptm_extras_redirect_devmap",
-          " key",
-          " flags"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 24,
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm_extras.c",
@@ -48,13 +37,10 @@ SEC("mptm_redirect_xdp")
   ],
   "output": "int",
   "helper": [
-    "redirect",
-    "bpf_redirect"
+    "bpf_redirect",
+    "bpf_redirect_map"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "lwt_xmit",
-    "sched_act",
     "xdp"
   ],
   "source": [
@@ -65,13 +51,9 @@ SEC("mptm_redirect_xdp")
     "    return bpf_redirect_map (&mptm_extras_redirect_devmap, key, flags);\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
@@ -97,7 +79,27 @@ SEC("mptm_pass_xdp")
 /* 
  OPENED COMMENT BEGIN 
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    }
+  ],
   "helperCallParams": {},
   "startLine": 32,
   "endLine": 34,
@@ -109,31 +111,11 @@ SEC("mptm_pass_xdp")
     "struct xdp_md *ctx"
   ],
   "output": "int",
-  "helper": [],
+  "helper": [
+    "XDP_PASS"
+  ],
   "compatibleHookpoints": [
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "cgroup_skb",
-    "xdp",
-    "sk_reuseport",
-    "flow_dissector",
-    "kprobe",
-    "cgroup_device",
-    "sk_msg",
-    "raw_tracepoint",
-    "sched_act",
-    "lwt_seg6local",
-    "sk_skb",
-    "sched_cls",
-    "perf_event",
-    "raw_tracepoint_writable",
-    "lwt_xmit",
-    "lwt_in",
-    "lwt_out",
-    "sock_ops",
-    "cgroup_sysctl",
-    "tracepoint",
-    "socket_filter"
+    "xdp"
   ],
   "source": [
     "int mptm_pass (struct xdp_md *ctx)\n",
@@ -141,13 +123,9 @@ SEC("mptm_pass_xdp")
     "    return XDP_PASS;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

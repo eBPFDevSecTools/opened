@@ -31,23 +31,21 @@ __attribute__((section("socket_filter"), used))
             "{Type: struct sk_buff ,Var: *skb}",
             "{Type:  u32 ,Var: len}",
             "{Type:  u64 ,Var: flags}"
+          ],
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act",
+            "lwt_xmit",
+            "sk_skb"
+          ],
+          "capabilities": [
+            "update_pkt"
           ]
         }
       ]
     }
   ],
-  "helperCallParams": {
-    "bpf_skb_change_head": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "    ctx",
-          " 4",
-          " 0"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 17,
   "endLine": 34,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_reallocate.c",
@@ -62,10 +60,10 @@ __attribute__((section("socket_filter"), used))
     "bpf_skb_change_head"
   ],
   "compatibleHookpoints": [
-    "sched_act",
-    "sched_cls",
+    "sk_skb",
     "lwt_xmit",
-    "sk_skb"
+    "sched_cls",
+    "sched_act"
   ],
   "source": [
     "int reallocate_invalidates (struct sk_buff *ctx)\n",
@@ -82,13 +80,9 @@ __attribute__((section("socket_filter"), used))
     "    return 0;\n",
     "}\n"
   ],
+  "called_function_list": [],
+  "call_depth": 0,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [

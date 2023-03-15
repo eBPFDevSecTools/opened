@@ -99,18 +99,7 @@
  OPENED COMMENT BEGIN 
 {
   "capabilities": [],
-  "helperCallParams": {
-    "bpf_tail_call": [
-      {
-        "opVar": "NA",
-        "inpVar": [
-          "_staticvoid *ctx",
-          " const void *map",
-          " const __u32 slot"
-        ]
-      }
-    ]
-  },
+  "helperCallParams": {},
   "startLine": 98,
   "endLine": 123,
   "File": "/home/sayandes/opened_extraction/examples/netobserv-bpf-main/headers/bpf_helpers.h",
@@ -127,27 +116,27 @@
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
+    "cgroup_sock_addr",
+    "lwt_in",
+    "flow_dissector",
+    "sched_act",
+    "lwt_seg6local",
+    "tracepoint",
     "sk_msg",
-    "lwt_xmit",
-    "raw_tracepoint",
+    "kprobe",
+    "sock_ops",
+    "cgroup_skb",
+    "sched_cls",
+    "sk_reuseport",
     "sk_skb",
     "lwt_out",
-    "perf_event",
-    "sk_reuseport",
-    "cgroup_sock_addr",
-    "raw_tracepoint_writable",
-    "lwt_in",
-    "sched_act",
-    "xdp",
-    "flow_dissector",
+    "lwt_xmit",
     "cgroup_sock",
-    "tracepoint",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "kprobe",
-    "sched_cls",
-    "sock_ops",
-    "socket_filter"
+    "perf_event",
+    "raw_tracepoint_writable",
+    "socket_filter",
+    "raw_tracepoint",
+    "xdp"
   ],
   "source": [
     "static __always_inline void bpf_tail_call_static (void *ctx, const void *map, const __u32 slot)\n",
@@ -170,13 +159,12 @@
     "        );\n",
     "}\n"
   ],
+  "called_function_list": [
+    "__builtin_constant_p",
+    "__bpf_unreachable"
+  ],
+  "call_depth": -1,
   "humanFuncDescription": [
-    {
-      "description": "",
-      "author": "",
-      "authorEmail": "",
-      "date": ""
-    },
     {}
   ],
   "AI_func_description": [
