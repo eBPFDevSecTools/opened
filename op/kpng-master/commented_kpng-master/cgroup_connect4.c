@@ -110,6 +110,68 @@ struct {
   "endLine": 69,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "lb4_lookup_service",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 17,
+      "end_line": 17,
+      "text": "/* Service virtual IPv4 address  4*/"
+    },
+    {
+      "start_line": 18,
+      "end_line": 18,
+      "text": "/* L4 port filter, if unset, all ports apply   */"
+    },
+    {
+      "start_line": 19,
+      "end_line": 19,
+      "text": "/* Backend iterator, 0 indicates the svc frontend  2*/"
+    },
+    {
+      "start_line": 24,
+      "end_line": 24,
+      "text": "/* Backend ID in lb4_backends */"
+    },
+    {
+      "start_line": 25,
+      "end_line": 25,
+      "text": "/* In seconds, only for svc frontend */"
+    },
+    {
+      "start_line": 26,
+      "end_line": 27,
+      "text": "/* In host byte order, only when flags2 &&\n                               SVC_FLAG_L7LOADBALANCER */"
+    },
+    {
+      "start_line": 29,
+      "end_line": 31,
+      "text": "/* For the service frontend, count denotes number of service backend\n   * slots (otherwise zero).\n   */"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "/* Reverse NAT ID in lb4_reverse_nat */"
+    },
+    {
+      "start_line": 40,
+      "end_line": 40,
+      "text": "/* Service endpoint IPv4 address */"
+    },
+    {
+      "start_line": 41,
+      "end_line": 41,
+      "text": "/* L4 port filter */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  v4_svc_map"
@@ -123,28 +185,28 @@ struct {
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline struct lb4_service *lb4_lookup_service (struct V4_key *key)\n",
@@ -196,6 +258,13 @@ lb4_lookup_service(struct V4_key *key) {
   "endLine": 76,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "ctx_dst_port",
+  "developer_inline_comments": [
+    {
+      "start_line": 71,
+      "end_line": 71,
+      "text": "/* Hack due to missing narrow ctx access. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -205,28 +274,28 @@ lb4_lookup_service(struct V4_key *key) {
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline __be16 ctx_dst_port (const struct bpf_sock_addr *ctx)\n",
@@ -307,6 +376,7 @@ static __always_inline __be16 ctx_dst_port(const struct bpf_sock_addr *ctx) {
   "endLine": 80,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "sock_select_slot",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -318,26 +388,26 @@ static __always_inline __be16 ctx_dst_port(const struct bpf_sock_addr *ctx) {
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
-    "raw_tracepoint_writable",
-    "perf_event",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline __u64 sock_select_slot (struct bpf_sock_addr *ctx)\n",
@@ -420,6 +490,7 @@ static __always_inline __u64 sock_select_slot(struct bpf_sock_addr *ctx) {
   "endLine": 85,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "__lb4_lookup_backend",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " v4_backend_map"
@@ -433,28 +504,28 @@ static __always_inline __u64 sock_select_slot(struct bpf_sock_addr *ctx) {
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline struct lb4_backend *__lb4_lookup_backend (__u32 backend_id)\n",
@@ -538,6 +609,7 @@ __lb4_lookup_backend(__u32 backend_id) {
   "endLine": 90,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "__lb4_lookup_backend_slot",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " v4_svc_map"
@@ -551,28 +623,28 @@ __lb4_lookup_backend(__u32 backend_id) {
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline struct lb4_service *__lb4_lookup_backend_slot (struct V4_key *key)\n",
@@ -631,9 +703,9 @@ __lb4_lookup_backend_slot(struct V4_key *key) {
         {
           "Project": "cilium",
           "Return Type": "struct sock*",
-          "Description": "Look for TCP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
-          "Return": " Pointer to struct  sock, or NULL in case of failure.   For  sockets  with                     reuseport  option,  the  struct  sock result is from reuse->socks[] using                     the hash of the tuple.",
-          "Function Name": "sk_lookup_tcp",
+          "Description": "Look for UDP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_udp",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
             "{Type:  struct sock_tuple ,Var: *tuple}",
@@ -655,9 +727,9 @@ __lb4_lookup_backend_slot(struct V4_key *key) {
         {
           "Project": "cilium",
           "Return Type": "struct sock*",
-          "Description": "Look for UDP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
-          "Return": " Pointer  to  struct  sock, or NULL in case of failure.  For sockets with                     reuseport option, the struct  sock result is  from  reuse->socks[]  using                     the hash of the tuple.",
-          "Function Name": "sk_lookup_udp",
+          "Description": "Look for TCP socket matching <[ tuple ]>(IP: 1) , optionally in a child network namespace netns. The return value must be checked , and if non-NULL , released via sk_release(). The <[ ctx ]>(IP: 0) should point to the context of the program , such as the skb or socket (depending on the hook in use). This is used to determine the base network namespace for the lookup. <[ tuple_size ]>(IP: 2) must be one of: sizeof(tuple->ipv4) Look for an IPv4 socket. sizeof(tuple->ipv6) Look for an IPv6 socket. If the <[ netns ]>(IP: 3) is a negative signed 32-bit integer , then the socket lookup table in the <[ netns ]>(IP: 3) associated with the <[ ctx ]>(IP: 0) will will be used. For the TC hooks , this is the <[ netns ]>(IP: 3) of the device in the skb. For socket hooks , this is the <[ netns ]>(IP: 3) of the socket. If <[ netns ]>(IP: 3) is any other signed 32-bit value greater than or equal to zero then it specifies the ID of the <[ netns ]>(IP: 3) relative to the <[ netns ]>(IP: 3) associated with the ctx. <[ netns ]>(IP: 3) values beyond the range of 32-bit integers are reserved for future use. All values for <[ flags ]>(IP: 4) are reserved for future usage , and must be left at zero. This helper is available only if the kernel was compiled with CONFIG_NET configuration option. ",
+          "Return": " Pointer to struct  sock, or NULL in case of failure.   For  sockets  with                     reuseport  option,  the  struct  sock result is from reuse->socks[] using                     the hash of the tuple.",
+          "Function Name": "sk_lookup_tcp",
           "Input Params": [
             "{Type: void ,Var: *ctx}",
             "{Type:  struct sock_tuple ,Var: *tuple}",
@@ -684,6 +756,18 @@ __lb4_lookup_backend_slot(struct V4_key *key) {
   "endLine": 136,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "sock4_skip_xlate_if_same_netns",
+  "developer_inline_comments": [
+    {
+      "start_line": 92,
+      "end_line": 110,
+      "text": "/* Service translation logic for a local-redirect service can cause packets to\n * be looped back to a service node-local backend after translation. This can\n * happen when the node-local backend itself tries to connect to the service\n * frontend for which it acts as a backend. There are cases where this can break\n * traffic flow if the backend needs to forward the redirected traffic to the\n * actual service frontend. Hence, allow service translation for pod traffic\n * getting redirected to backend (across network namespaces), but skip service\n * translation for backend to itself or another service backend within the same\n * namespace. Currently only v4 and v4-in-v6, but no plain v6 is supported.\n *\n * For example, in EKS cluster, a local-redirect service exists with the AWS\n * metadata IP, port as the frontend <169.254.169.254, 80> and kiam proxy as a\n * backend Pod. When traffic destined to the frontend originates from the kiam\n * Pod in namespace ns1 (host ns when the kiam proxy Pod is deployed in\n * hostNetwork mode or regular Pod ns) and the Pod is selected as a backend, the\n * traffic would get looped back to the proxy Pod. Identify such cases by doing\n * a socket lookup for the backend <ip, port> in its namespace, ns1, and skip\n * service translation.\n */"
+    },
+    {
+      "start_line": 134,
+      "end_line": 134,
+      "text": "/* BPF_HAVE_SOCKET_LOOKUP */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -693,14 +777,14 @@ __lb4_lookup_backend_slot(struct V4_key *key) {
   "output": "static__always_inlinebool",
   "helper": [
     "sk_release",
-    "sk_lookup_tcp",
-    "sk_lookup_udp"
+    "sk_lookup_udp",
+    "sk_lookup_tcp"
   ],
   "compatibleHookpoints": [
-    "sched_act",
     "sched_cls",
     "cgroup_sock_addr",
     "sk_skb",
+    "sched_act",
     "xdp"
   ],
   "source": [
@@ -783,6 +867,7 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx,
   "endLine": 141,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "ctx_set_port",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -793,28 +878,28 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx,
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline void ctx_set_port (struct bpf_sock_addr *ctx, __be16 dport)\n",
@@ -853,6 +938,13 @@ static __always_inline void ctx_set_port(struct bpf_sock_addr *ctx,
   "endLine": 191,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "__sock4_fwd",
+  "developer_inline_comments": [
+    {
+      "start_line": 161,
+      "end_line": 161,
+      "text": "// Logs are in /sys/kernel/debug/tracing/trace_pipe"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -864,28 +956,28 @@ static __always_inline void ctx_set_port(struct bpf_sock_addr *ctx,
   ],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "static __always_inline int __sock4_fwd (struct bpf_sock_addr *ctx)\n",
@@ -927,12 +1019,12 @@ static __always_inline void ctx_set_port(struct bpf_sock_addr *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "lb4_lookup_service",
-    "__lb4_lookup_backend",
     "ctx_set_port",
+    "__lb4_lookup_backend_slot",
+    "lb4_lookup_service",
     "sock4_skip_xlate_if_same_netns",
     "ctx_dst_port",
-    "__lb4_lookup_backend_slot",
+    "__lb4_lookup_backend",
     "sock_select_slot"
   ],
   "call_depth": -1,
@@ -1011,6 +1103,7 @@ SEC("cgroup/connect4")
   "endLine": 198,
   "File": "/home/sayandes/opened_extraction/examples/kpng-master/backends/ebpf/bpf/cgroup_connect4.c",
   "funcName": "sock4_connect",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1020,28 +1113,28 @@ SEC("cgroup/connect4")
   "helper": [],
   "compatibleHookpoints": [
     "sk_msg",
-    "cgroup_device",
-    "cgroup_skb",
-    "sock_ops",
-    "flow_dissector",
-    "kprobe",
-    "sched_cls",
+    "raw_tracepoint_writable",
+    "sk_skb",
     "sched_act",
-    "cgroup_sock_addr",
-    "xdp",
-    "lwt_out",
     "lwt_seg6local",
     "raw_tracepoint",
-    "sk_skb",
-    "cgroup_sock",
+    "sock_ops",
+    "lwt_out",
+    "cgroup_sock_addr",
+    "xdp",
     "socket_filter",
+    "cgroup_skb",
+    "lwt_in",
+    "sched_cls",
+    "tracepoint",
     "cgroup_sysctl",
-    "raw_tracepoint_writable",
-    "perf_event",
     "lwt_xmit",
     "sk_reuseport",
-    "tracepoint",
-    "lwt_in"
+    "perf_event",
+    "flow_dissector",
+    "kprobe",
+    "cgroup_device",
+    "cgroup_sock"
   ],
   "source": [
     "int sock4_connect (struct bpf_sock_addr *ctx)\n",

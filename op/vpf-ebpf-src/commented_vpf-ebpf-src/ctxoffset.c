@@ -60,6 +60,28 @@ __attribute__((section("sockops"), used))
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
   "funcName": "func",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 33,
+      "end_line": 33,
+      "text": "// The following should fail because the sock_ops ctx isn't the same pointer passed in"
+    },
+    {
+      "start_line": 34,
+      "end_line": 34,
+      "text": "// but is offset 8 bytes into it."
+    }
+  ],
   "updateMaps": [
     " ctx"
   ],

@@ -71,6 +71,23 @@
   "endLine": 29,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "lookup_ip4_egress_gw_policy",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 13,
+      "end_line": 15,
+      "text": "/* EGRESS_STATIC_PREFIX represents the size in bits of the static prefix part of\n * an egress policy key (i.e. the source IP).\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " EGRESS_POLICY_MAP"
@@ -84,29 +101,29 @@
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy (__be32 saddr, __be32 daddr)\n",
@@ -215,6 +232,18 @@ struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy(__be32 saddr, __be32 
   "endLine": 53,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_vrf4",
+  "developer_inline_comments": [
+    {
+      "start_line": 31,
+      "end_line": 31,
+      "text": "/* ENABLE_EGRESS_GATEWAY */"
+    },
+    {
+      "start_line": 36,
+      "end_line": 38,
+      "text": "/* SRV6_VRF_STATIC_PREFIX4 gets sizeof non-IP, non-prefix part of\n * srv6_vrf_key4.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " SRV6_VRF_MAP4"
@@ -228,29 +257,29 @@ struct egress_gw_policy_entry *lookup_ip4_egress_gw_policy(__be32 saddr, __be32 
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u32 *srv6_lookup_vrf4 (__be32 sip, __be32 dip)\n",
@@ -354,6 +383,13 @@ srv6_lookup_vrf4(__be32 sip, __be32 dip)
   "endLine": 72,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_policy4",
+  "developer_inline_comments": [
+    {
+      "start_line": 55,
+      "end_line": 57,
+      "text": "/* SRV6_POLICY_STATIC_PREFIX4 gets sizeof non-IP, non-prefix part of\n * srv6_policy_key4.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " SRV6_POLICY_MAP4"
@@ -367,29 +403,29 @@ srv6_lookup_vrf4(__be32 sip, __be32 dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline union v6addr *srv6_lookup_policy4 (__u32 vrf_id, __be32 dip)\n",
@@ -494,6 +530,13 @@ srv6_lookup_policy4(__u32 vrf_id, __be32 dip)
   "endLine": 92,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_vrf6",
+  "developer_inline_comments": [
+    {
+      "start_line": 75,
+      "end_line": 77,
+      "text": "/* SRV6_VRF_STATIC_PREFIX6 gets sizeof non-IP, non-prefix part of\n * srv6_vrf_key6.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " SRV6_VRF_MAP6"
@@ -507,29 +550,29 @@ srv6_lookup_policy4(__u32 vrf_id, __be32 dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u32 *srv6_lookup_vrf6 (const struct in6_addr *sip, const struct in6_addr *dip)\n",
@@ -634,6 +677,13 @@ srv6_lookup_vrf6(const struct in6_addr *sip, const struct in6_addr *dip)
   "endLine": 112,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_policy6",
+  "developer_inline_comments": [
+    {
+      "start_line": 94,
+      "end_line": 96,
+      "text": "/* SRV6_POLICY_STATIC_PREFIX6 gets sizeof non-IP, non-prefix part of\n * srv6_policy_key6.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " SRV6_POLICY_MAP6"
@@ -647,29 +697,29 @@ srv6_lookup_vrf6(const struct in6_addr *sip, const struct in6_addr *dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline union v6addr *srv6_lookup_policy6 (__u32 vrf_id, const struct in6_addr *dip)\n",
@@ -765,6 +815,7 @@ srv6_lookup_policy6(__u32 vrf_id, const struct in6_addr *dip)
   "endLine": 123,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_sid",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  SRV6_SID_MAP"
@@ -777,29 +828,29 @@ srv6_lookup_policy6(__u32 vrf_id, const struct in6_addr *dip)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u32 srv6_lookup_sid (const struct in6_addr *sid)\n",
@@ -848,6 +899,7 @@ srv6_lookup_sid(const struct in6_addr *sid)
   "endLine": 134,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "is_srv6_packet",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -856,29 +908,29 @@ srv6_lookup_sid(const struct in6_addr *sid)
   "output": "static__always_inlinebool",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool is_srv6_packet (const struct ipv6hdr *ip6)\n",
@@ -930,6 +982,7 @@ is_srv6_packet(const struct ipv6hdr *ip6)
   "endLine": 144,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "ctx_adjust_hroom_flags",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -938,29 +991,29 @@ is_srv6_packet(const struct ipv6hdr *ip6)
   "output": "static__always_inline__u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u64 ctx_adjust_hroom_flags (void)\n",
@@ -1010,6 +1063,13 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
   "endLine": 171,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_encapsulation",
+  "developer_inline_comments": [
+    {
+      "start_line": 158,
+      "end_line": 158,
+      "text": "/* Add room between Ethernet and network headers. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1023,29 +1083,29 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int srv6_encapsulation (struct  __ctx_buff *ctx, int growth, __u16 new_payload_len, __u8 nexthdr, union v6addr *saddr, struct in6_addr *sid)\n",
@@ -1069,10 +1129,10 @@ static __always_inline __u64 ctx_adjust_hroom_flags(void)
     "}\n"
   ],
   "called_function_list": [
-    "offsetof",
-    "ctx_adjust_hroom",
     "ctx_adjust_hroom_flags",
     "ctx_store_bytes",
+    "ctx_adjust_hroom",
+    "offsetof",
     "bpf_htons"
   ],
   "call_depth": -1,
@@ -1127,6 +1187,18 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
   "endLine": 210,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_decapsulation",
+  "developer_inline_comments": [
+    {
+      "start_line": 191,
+      "end_line": 195,
+      "text": "/* ctx_change_proto above shrinks the packet from IPv6 header\n\t\t * length to IPv4 header length. It removes that space from the\n\t\t * same header we will later delete.\n\t\t * Thus, deduce this space from the next packet shrinking.\n\t\t */"
+    },
+    {
+      "start_line": 205,
+      "end_line": 205,
+      "text": "/* Remove the outer IPv6 header. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1135,29 +1207,29 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int srv6_decapsulation (struct  __ctx_buff *ctx)\n",
@@ -1188,13 +1260,13 @@ srv6_encapsulation(struct __ctx_buff *ctx, int growth, __u16 new_payload_len,
     "}\n"
   ],
   "called_function_list": [
-    "ctx_change_proto",
-    "offsetof",
-    "ctx_adjust_hroom",
+    "revalidate_data",
     "ctx_adjust_hroom_flags",
     "ctx_store_bytes",
-    "bpf_htons",
-    "revalidate_data"
+    "ctx_adjust_hroom",
+    "offsetof",
+    "ctx_change_proto",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1260,9 +1332,16 @@ srv6_decapsulation(struct __ctx_buff *ctx)
   "endLine": 252,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_create_state_entry",
+  "developer_inline_comments": [
+    {
+      "start_line": 248,
+      "end_line": 248,
+      "text": "/* ENABLE_IPV4 */"
+    }
+  ],
   "updateMaps": [
-    " SRV6_STATE_MAP4",
-    " SRV6_STATE_MAP6"
+    " SRV6_STATE_MAP6",
+    " SRV6_STATE_MAP4"
   ],
   "readMaps": [],
   "input": [
@@ -1271,29 +1350,29 @@ srv6_decapsulation(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int srv6_create_state_entry (struct  __ctx_buff *ctx)\n",
@@ -1449,6 +1528,7 @@ srv6_create_state_entry(struct __ctx_buff *ctx)
   "endLine": 260,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_state_entry4",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " SRV6_STATE_MAP4"
@@ -1461,29 +1541,29 @@ srv6_create_state_entry(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry4 (struct iphdr *ip4)\n",
@@ -1570,6 +1650,7 @@ srv6_lookup_state_entry4(struct iphdr *ip4)
   "endLine": 268,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_lookup_state_entry6",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     " SRV6_STATE_MAP6"
@@ -1582,29 +1663,29 @@ srv6_lookup_state_entry4(struct iphdr *ip4)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline struct srv6_ipv6_2tuple *srv6_lookup_state_entry6 (struct ipv6hdr *ip6)\n",
@@ -1645,6 +1726,28 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
   "endLine": 310,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_handling4",
+  "developer_inline_comments": [
+    {
+      "start_line": 280,
+      "end_line": 280,
+      "text": "/* Inner packet is IPv4. */"
+    },
+    {
+      "start_line": 284,
+      "end_line": 289,
+      "text": "/* IPv4's tot_len fields has the size of the entire packet\n\t * including headers while IPv6's payload_len field has only\n\t * the size of the IPv6 payload. Therefore, without IPv6\n\t * extension headers (none here), the outer IPv6 payload_len\n\t * is equal to the inner IPv4 tot_len.\n\t */"
+    },
+    {
+      "start_line": 292,
+      "end_line": 294,
+      "text": "/* We need to change skb->protocol and the corresponding packet\n\t * field because the L3 protocol will now be IPv6.\n\t */"
+    },
+    {
+      "start_line": 300,
+      "end_line": 305,
+      "text": "/* ctx_change_proto above grows the packet from IPv4 header\n\t * length to IPv6 header length. It adds the additional space\n\t * before the inner L3 header, in the same place we will later\n\t * add the outer IPv6 header.\n\t * Thus, deduce this space from the next packet growth.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1655,29 +1758,29 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int srv6_handling4 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)\n",
@@ -1700,13 +1803,13 @@ srv6_lookup_state_entry6(struct ipv6hdr *ip6)
     "}\n"
   ],
   "called_function_list": [
+    "revalidate_data",
     "srv6_encapsulation",
-    "ctx_change_proto",
-    "offsetof",
-    "ctx_store_bytes",
-    "bpf_htons",
     "bpf_ntohs",
-    "revalidate_data"
+    "ctx_store_bytes",
+    "offsetof",
+    "ctx_change_proto",
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1775,6 +1878,13 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
   "endLine": 331,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_handling6",
+  "developer_inline_comments": [
+    {
+      "start_line": 322,
+      "end_line": 322,
+      "text": "/* Inner packet is IPv6. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1785,29 +1895,29 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int srv6_handling6 (struct  __ctx_buff *ctx, union v6addr *src_sid, struct in6_addr *dst_sid)\n",
@@ -1826,9 +1936,9 @@ srv6_handling4(struct __ctx_buff *ctx, union v6addr *src_sid,
     "}\n"
   ],
   "called_function_list": [
-    "srv6_encapsulation",
+    "bpf_ntohs",
     "revalidate_data",
-    "bpf_ntohs"
+    "srv6_encapsulation"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1876,6 +1986,18 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
   "endLine": 373,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_handling",
+  "developer_inline_comments": [
+    {
+      "start_line": 356,
+      "end_line": 356,
+      "text": "/* ENABLE_IPV6 */"
+    },
+    {
+      "start_line": 369,
+      "end_line": 369,
+      "text": "/* ENABLE_IPV4 */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1886,29 +2008,29 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int srv6_handling (struct  __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)\n",
@@ -1953,13 +2075,13 @@ srv6_handling6(struct __ctx_buff *ctx, union v6addr *src_sid,
     "}\n"
   ],
   "called_function_list": [
+    "revalidate_data",
+    "srv6_lookup_policy4",
     "validate_ethertype",
     "srv6_lookup_policy6",
     "srv6_handling4",
-    "srv6_lookup_policy4",
-    "bpf_htons",
     "srv6_handling6",
-    "revalidate_data"
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2050,6 +2172,13 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
   "endLine": 413,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_reply",
+  "developer_inline_comments": [
+    {
+      "start_line": 409,
+      "end_line": 409,
+      "text": "/* ENABLE_IPV4 */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -2060,9 +2189,9 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int srv6_reply (struct  __ctx_buff *ctx)\n",
@@ -2098,13 +2227,13 @@ srv6_handling(struct __ctx_buff *ctx, __u32 vrf_id, struct in6_addr *dst_sid)
     "}\n"
   ],
   "called_function_list": [
-    "srv6_lookup_state_entry4",
-    "validate_ethertype",
+    "revalidate_data",
     "srv6_lookup_state_entry6",
+    "validate_ethertype",
+    "srv6_lookup_state_entry4",
     "srv6_handling4",
-    "bpf_htons",
     "srv6_handling6",
-    "revalidate_data"
+    "bpf_htons"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -2171,6 +2300,7 @@ srv6_reply(struct __ctx_buff *ctx)
   "endLine": 422,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_load_meta_sid",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -2180,29 +2310,29 @@ srv6_reply(struct __ctx_buff *ctx)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void srv6_load_meta_sid (struct  __ctx_buff *ctx, struct in6_addr *sid)\n",
@@ -2250,6 +2380,7 @@ srv6_load_meta_sid(struct __ctx_buff *ctx, struct in6_addr *sid)
   "endLine": 431,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "srv6_store_meta_sid",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -2259,29 +2390,29 @@ srv6_load_meta_sid(struct __ctx_buff *ctx, struct in6_addr *sid)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void srv6_store_meta_sid (struct  __ctx_buff *ctx, const union v6addr *sid)\n",
@@ -2352,6 +2483,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
   "endLine": 452,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "tail_srv6_encap",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -2362,9 +2494,9 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_srv6_encap (struct  __ctx_buff *ctx)\n",
@@ -2382,10 +2514,10 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_ENCAP)
     "}\n"
   ],
   "called_function_list": [
-    "send_trace_notify",
     "srv6_load_meta_sid",
-    "ctx_load_meta",
+    "send_trace_notify",
     "srv6_handling",
+    "ctx_load_meta",
     "send_drop_notify_error"
   ],
   "call_depth": -1,
@@ -2456,6 +2588,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
   "endLine": 473,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "tail_srv6_decap",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -2466,9 +2599,9 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_srv6_decap (struct  __ctx_buff *ctx)\n",
@@ -2487,9 +2620,9 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_DECAP)
     "}\n"
   ],
   "called_function_list": [
+    "send_trace_notify",
     "send_drop_notify_error",
     "srv6_create_state_entry",
-    "send_trace_notify",
     "srv6_decapsulation"
   ],
   "call_depth": -1,
@@ -2560,6 +2693,7 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_REPLY)
   "endLine": 485,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/egress_policies.h",
   "funcName": "tail_srv6_reply",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -2570,9 +2704,9 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_SRV6_REPLY)
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "int tail_srv6_reply (struct  __ctx_buff *ctx)\n",

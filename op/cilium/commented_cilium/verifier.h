@@ -61,6 +61,23 @@
   "endLine": 18,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/verifier.h",
   "funcName": "relax_verifier",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 9,
+      "end_line": 12,
+      "text": "/* relax_verifier is a dummy helper call to introduce a pruning checkpoint\n * to help relax the verifier to avoid reaching complexity limits on older\n * kernels.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -71,27 +88,27 @@
     "get_smp_processor_id"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void relax_verifier (void)\n",

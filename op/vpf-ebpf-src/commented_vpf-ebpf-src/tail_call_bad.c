@@ -30,6 +30,28 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
   "endLine": 32,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c",
   "funcName": "caller",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 27,
+      "end_line": 27,
+      "text": "// This should fail validation since the map is not a prog array."
+    },
+    {
+      "start_line": 30,
+      "end_line": 30,
+      "text": "// bpf_tail_call failed at runtime."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -40,27 +62,27 @@ __attribute__((section("maps"), used)) struct bpf_map map = {
     "bpf_tail_call"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
-    "xdp"
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int caller (struct xdp_md *ctx)\n",
@@ -105,6 +127,7 @@ caller(struct xdp_md* ctx)
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/tail_call_bad.c",
   "funcName": "callee",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -113,29 +136,29 @@ caller(struct xdp_md* ctx)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
     "cgroup_device",
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
-    "xdp"
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int callee (struct xdp_md *ctx)\n",

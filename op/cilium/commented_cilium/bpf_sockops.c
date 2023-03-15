@@ -32,6 +32,23 @@
   "endLine": 40,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "sk_extract4_key",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 34,
+      "end_line": 38,
+      "text": "/* clang-7.1 or higher seems to think it can do a 16-bit read here\n\t * which unfortunately most kernels (as of October 2019) do not\n\t * support, which leads to verifier failures. Insert a READ_ONCE\n\t * to make sure that a 32-bit read followed by shift is generated.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -41,29 +58,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void sk_extract4_key (const struct bpf_sock_ops *ops, struct sock_key *key)\n",
@@ -76,8 +93,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "READ_ONCE",
-    "bpf_ntohl"
+    "bpf_ntohl",
+    "READ_ONCE"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -125,6 +142,13 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
   "endLine": 48,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "sk_lb4_key",
+  "developer_inline_comments": [
+    {
+      "start_line": 45,
+      "end_line": 45,
+      "text": "/* SK MSG is always egress, so use daddr */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -134,29 +158,29 @@ static __always_inline void sk_extract4_key(const struct bpf_sock_ops *ops,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void sk_lb4_key (struct lb4_key *lb4, const struct sock_key *key)\n",
@@ -204,6 +228,7 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
   "endLine": 53,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "redirect_to_proxy",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -214,9 +239,9 @@ static __always_inline void sk_lb4_key(struct lb4_key *lb4,
     "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
     "sched_act",
+    "xdp",
     "lwt_xmit"
   ],
   "source": [
@@ -263,6 +288,23 @@ static __always_inline bool redirect_to_proxy(int verdict)
   "endLine": 118,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "bpf_sock_ops_ipv4",
+  "developer_inline_comments": [
+    {
+      "start_line": 66,
+      "end_line": 68,
+      "text": "/* If endpoint a service use L4/L3 stack for now. These can be\n\t * pulled in as needed.\n\t */"
+    },
+    {
+      "start_line": 74,
+      "end_line": 74,
+      "text": "/* Policy lookup required to learn proxy port */"
+    },
+    {
+      "start_line": 98,
+      "end_line": 105,
+      "text": "/* Lookup IPv4 address, this will return a match if:\n\t * - The destination IP address belongs to the local endpoint manage\n\t *   by Cilium.\n\t * - The destination IP address is an IP address associated with the\n\t *   host itself.\n\t * Then because these are local IPs that have passed LB/Policy/NAT\n\t * blocks redirect directly to socket.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -322,13 +364,13 @@ static __always_inline bool redirect_to_proxy(int verdict)
     "}\n"
   ],
   "called_function_list": [
-    "lookup_ip4_remote_endpoint",
+    "sk_lb4_key",
     "policy_sk_egress",
-    "sk_extract4_key",
     "redirect_to_proxy",
     "__lookup_ip4_endpoint",
-    "sk_lb4_key",
-    "lb4_lookup_service"
+    "sk_extract4_key",
+    "lb4_lookup_service",
+    "lookup_ip4_remote_endpoint"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -427,6 +469,7 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
   "endLine": 126,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "bpf_sock_ops_ipv6",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -435,29 +478,29 @@ static inline void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static inline void bpf_sock_ops_ipv6 (struct bpf_sock_ops *skops)\n",
@@ -507,6 +550,7 @@ __section("sockops")
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_sockops.c",
   "funcName": "bpf_sockmap",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -515,29 +559,29 @@ __section("sockops")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int bpf_sockmap (struct bpf_sock_ops *skops)\n",
@@ -568,8 +612,8 @@ __section("sockops")
     "}\n"
   ],
   "called_function_list": [
-    "bpf_sock_ops_ipv6",
-    "bpf_sock_ops_ipv4"
+    "bpf_sock_ops_ipv4",
+    "bpf_sock_ops_ipv6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

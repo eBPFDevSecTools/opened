@@ -62,6 +62,23 @@ struct {
   "endLine": 24,
   "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bytecount.h",
   "funcName": "custom_prog",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 22,
+      "end_line": 22,
+      "text": "/* No entry for endpoint in hashmap, attempt to create one */"
+    }
+  ],
   "updateMaps": [
     " bytecount_map"
   ],
@@ -74,33 +91,33 @@ struct {
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "map_lookup_elem",
-    "map_update_elem"
+    "map_update_elem",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void custom_prog (const struct  __ctx_buff *ctx, __u32 identity)\n",

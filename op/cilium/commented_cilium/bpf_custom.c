@@ -38,6 +38,43 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
   "endLine": 45,
   "File": "/home/sayandes/opened_extraction/examples/cilium/custom/bpf_custom.c",
   "funcName": "custom_hook",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 12,
+      "end_line": 17,
+      "text": "/* Use the macros below to set the name of the program and the name of the file\n * containing the implementation for custom_prog(). The values for these macros\n * should typically be passed to the Makefile, for example:\n *\n *     BPF_CUSTOM_PROG_FILE=bytecount.h make\n */"
+    },
+    {
+      "start_line": 20,
+      "end_line": 20,
+      "text": "/* Default to bytecount.h for the included file */"
+    },
+    {
+      "start_line": 25,
+      "end_line": 25,
+      "text": "/* Default to __section(\"custom\") for the program */"
+    },
+    {
+      "start_line": 38,
+      "end_line": 38,
+      "text": "/* Call user-defined function from custom header file. */"
+    },
+    {
+      "start_line": 41,
+      "end_line": 43,
+      "text": "/* Return action code selected from parent program, independently of\n\t * what the custom function does, to maintain datapath consistency.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -46,29 +83,29 @@ __section(STRINGIFY(BPF_CUSTOM_PROG_NAME))
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int custom_hook (const struct  __ctx_buff *ctx)\n",

@@ -31,6 +31,23 @@
   "endLine": 39,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
   "funcName": "sk_msg_extract4_key",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 33,
+      "end_line": 37,
+      "text": "/* clang-7.1 or higher seems to think it can do a 16-bit read here\n\t * which unfortunately most kernels (as of October 2019) do not\n\t * support, which leads to verifier failures. Insert a READ_ONCE\n\t * to make sure that a 32-bit read followed by shift is generated.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -40,29 +57,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)\n",
@@ -75,8 +92,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "READ_ONCE",
-    "bpf_ntohl"
+    "bpf_ntohl",
+    "READ_ONCE"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -125,6 +142,13 @@ __section("sk_msg")
   "endLine": 67,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
   "funcName": "bpf_redir_proxy",
+  "developer_inline_comments": [
+    {
+      "start_line": 52,
+      "end_line": 56,
+      "text": "/* Currently, pulling dstIP out of endpoint\n\t * tables. This can be simplified by caching this information with the\n\t * socket to avoid extra overhead. This would require the agent though\n\t * to flush the sock ops map on policy changes.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -159,9 +183,9 @@ __section("sk_msg")
     "}\n"
   ],
   "called_function_list": [
+    "policy_sk_egress",
     "sk_msg_extract4_key",
-    "lookup_ip4_remote_endpoint",
-    "policy_sk_egress"
+    "lookup_ip4_remote_endpoint"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

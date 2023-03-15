@@ -84,6 +84,33 @@ struct ctx;
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/badrelo.c",
   "funcName": "func",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 25,
+      "end_line": 25,
+      "text": "// This will be an unresolved symbol in the resulting .o file."
+    },
+    {
+      "start_line": 35,
+      "end_line": 35,
+      "text": "// And we can furthermore pass some bad parameters in here.  These"
+    },
+    {
+      "start_line": 36,
+      "end_line": 36,
+      "text": "// would be illegal to pass to bpf_map_update_elem if it were resolved."
+    }
+  ],
   "updateMaps": [
     " map2"
   ],
@@ -96,29 +123,29 @@ struct ctx;
     "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
     "cgroup_device",
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
-    "xdp"
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int func (struct ctx *ctx)\n",

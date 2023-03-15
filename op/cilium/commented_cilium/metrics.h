@@ -75,6 +75,28 @@
   "endLine": 43,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h",
   "funcName": "update_metrics",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 4,
+      "end_line": 7,
+      "text": "/*\n * Data metrics collection functions\n *\n */"
+    },
+    {
+      "start_line": 16,
+      "end_line": 23,
+      "text": "/**\n * update_metrics\n * @direction:\t1: Ingress 2: Egress\n * @reason:\treason for forwarding or dropping packet.\n *\t\treason is 0 if packet is being forwarded, else reason\n *\t\tis the drop error code.\n * Update the metrics map.\n */"
+    }
+  ],
   "updateMaps": [
     " METRICS_MAP"
   ],
@@ -88,33 +110,33 @@
   ],
   "output": "static__always_inlinevoid",
   "helper": [
-    "map_lookup_elem",
-    "map_update_elem"
+    "map_update_elem",
+    "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void update_metrics (__u64 bytes, __u8 direction, __u8 reason)\n",
@@ -188,6 +210,13 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
   "endLine": 62,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/metrics.h",
   "funcName": "ct_to_metrics_dir",
+  "developer_inline_comments": [
+    {
+      "start_line": 45,
+      "end_line": 49,
+      "text": "/**\n * ct_to_metrics_dir\n * @direction:\t1: Ingress 2: Egress 3: Service\n * Convert a CT direction into the corresponding one for metrics.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -196,29 +225,29 @@ static __always_inline void update_metrics(__u64 bytes, __u8 direction,
   "output": "static__always_inlineenummetric_dir",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline enum metric_dir ct_to_metrics_dir (enum ct_dir ct_dir)\n",

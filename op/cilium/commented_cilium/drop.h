@@ -58,6 +58,33 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
   "endLine": 80,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
   "funcName": "__send_drop_notify",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 4,
+      "end_line": 12,
+      "text": "/*\n * Drop & error notification via perf event ring buffer\n *\n * API:\n * int send_drop_notify(ctx, src, dst, dst_id, reason, exitcode, enum metric_dir direction)\n * int send_drop_notify_error(ctx, error, exitcode, enum metric_dir direction)\n *\n * If DROP_NOTIFY is not defined, the API will be compiled in as a NOP.\n */"
+    },
+    {
+      "start_line": 34,
+      "end_line": 49,
+      "text": "/*\n * We pass information in the meta area as follows:\n *\n *     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n *     |                         Source Label                          |\n *     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n *     |                       Destination Label                       |\n *     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n *     |  Error Code  | Extended Error|            Unused              |\n *     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n *     |             Designated Destination Endpoint ID                |\n *     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n *     |   Exit Code  |  Source File  |         Source Line            |\n *     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n *\n */"
+    },
+    {
+      "start_line": 54,
+      "end_line": 54,
+      "text": "/* Mask needed to calm verifier. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -66,29 +93,29 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "int __send_drop_notify (struct  __ctx_buff *ctx)\n",
@@ -113,13 +140,13 @@ __section_tail(CILIUM_MAP_CALLS, CILIUM_CALL_DROP_NOTIFY)
     "}\n"
   ],
   "called_function_list": [
-    "min_t",
-    "__notify_pktcap_hdr",
     "ctx_full_len",
+    "__notify_pktcap_hdr",
     "__notify_common_hdr",
-    "typeof",
     "ctx_event_output",
-    "ctx_load_meta"
+    "min_t",
+    "ctx_load_meta",
+    "typeof"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -189,6 +216,18 @@ int __send_drop_notify(struct __ctx_buff *ctx)
   "endLine": 116,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
   "funcName": "_send_drop_notify",
+  "developer_inline_comments": [
+    {
+      "start_line": 82,
+      "end_line": 94,
+      "text": "/**\n * send_drop_notify\n * @ctx:\tsocket buffer\n * @src:\tsource identity\n * @dst:\tdestination identity\n * @dst_id:\tdesignated destination endpoint ID\n * @reason:\tReason for drop\n * @exitcode:\terror code to return to the kernel\n *\n * Generate a notification to indicate a packet was dropped.\n *\n * NOTE: This is terminal function and will cause the BPF program to exit\n */"
+    },
+    {
+      "start_line": 100,
+      "end_line": 100,
+      "text": "/* These fields should be constants and fit (together) in 32 bits */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -205,29 +244,29 @@ int __send_drop_notify(struct __ctx_buff *ctx)
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int _send_drop_notify (__u8 file, __u16 line, struct  __ctx_buff *ctx, __u32 src, __u32 dst, __u32 dst_id, __u32 reason, __u32 exitcode, enum metric_dir direction)\n",
@@ -245,12 +284,12 @@ int __send_drop_notify(struct __ctx_buff *ctx)
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_constant_p",
     "__throw_build_bug",
-    "ctx_full_len",
     "ctx_store_meta",
-    "update_metrics",
-    "ep_tail_call"
+    "ep_tail_call",
+    "ctx_full_len",
+    "__builtin_constant_p",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -300,6 +339,7 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
   "endLine": 126,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/drop.h",
   "funcName": "_send_drop_notify",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -316,29 +356,29 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
   "output": "static__always_inlineint",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline int _send_drop_notify (__u8 file __maybe_unused, __u16 line __maybe_unused, struct  __ctx_buff *ctx, __u32 src __maybe_unused, __u32 dst __maybe_unused, __u32 dst_id __maybe_unused, __u32 reason, __u32 exitcode, enum metric_dir direction)\n",
@@ -348,12 +388,12 @@ _send_drop_notify(__u8 file, __u16 line, struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_constant_p",
     "__throw_build_bug",
-    "ctx_full_len",
     "ctx_store_meta",
-    "update_metrics",
-    "ep_tail_call"
+    "ep_tail_call",
+    "ctx_full_len",
+    "__builtin_constant_p",
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

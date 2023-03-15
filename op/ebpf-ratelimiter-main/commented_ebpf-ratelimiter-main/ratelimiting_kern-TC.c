@@ -105,6 +105,70 @@ xdp_rl_ingress_next_prog = {
       ]
     },
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_OK",
+          "Return": 0,
+          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "map_read",
+      "map_read": [
+        {
+          "Project": "libbpf",
+          "Return Type": "void*",
+          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
+          "Return": " Map value associated to key, or NULL if no entry was found.",
+          "Function Name": "bpf_map_lookup_elem",
+          "Input Params": [
+            "{Type: struct bpf_map ,Var: *map}",
+            "{Type:  const void ,Var: *key}"
+          ],
+          "compatible_hookpoints": [
+            "socket_filter",
+            "kprobe",
+            "sched_cls",
+            "sched_act",
+            "tracepoint",
+            "xdp",
+            "perf_event",
+            "cgroup_skb",
+            "cgroup_sock",
+            "lwt_in",
+            "lwt_out",
+            "lwt_xmit",
+            "sock_ops",
+            "sk_skb",
+            "cgroup_device",
+            "sk_msg",
+            "raw_tracepoint",
+            "cgroup_sock_addr",
+            "lwt_seg6local",
+            "sk_reuseport",
+            "flow_dissector",
+            "cgroup_sysctl",
+            "raw_tracepoint_writable"
+          ],
+          "capabilities": [
+            "map_read"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -169,70 +233,6 @@ xdp_rl_ingress_next_prog = {
           ]
         }
       ]
-    },
-    {
-      "capability": "map_read",
-      "map_read": [
-        {
-          "Project": "libbpf",
-          "Return Type": "void*",
-          "Description": "Perform a lookup in <[ map ]>(IP: 0) for an entry associated to key. ",
-          "Return": " Map value associated to key, or NULL if no entry was found.",
-          "Function Name": "bpf_map_lookup_elem",
-          "Input Params": [
-            "{Type: struct bpf_map ,Var: *map}",
-            "{Type:  const void ,Var: *key}"
-          ],
-          "compatible_hookpoints": [
-            "socket_filter",
-            "kprobe",
-            "sched_cls",
-            "sched_act",
-            "tracepoint",
-            "xdp",
-            "perf_event",
-            "cgroup_skb",
-            "cgroup_sock",
-            "lwt_in",
-            "lwt_out",
-            "lwt_xmit",
-            "sock_ops",
-            "sk_skb",
-            "cgroup_device",
-            "sk_msg",
-            "raw_tracepoint",
-            "cgroup_sock_addr",
-            "lwt_seg6local",
-            "sk_reuseport",
-            "flow_dissector",
-            "cgroup_sysctl",
-            "raw_tracepoint_writable"
-          ],
-          "capabilities": [
-            "map_read"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_OK",
-          "Return": 0,
-          "Description": "will terminate the packet processing pipeline and allows the packet to proceed. Pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -240,16 +240,17 @@ xdp_rl_ingress_next_prog = {
   "endLine": 128,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/transformed/ratelimiting_kern-TC.c",
   "funcName": "_xdp_ratelimit",
+  "developer_inline_comments": [],
   "updateMaps": [
     " rl_window_map"
   ],
   "readMaps": [
     " rl_window_map",
-    " rl_ports_map",
-    "  rl_window_map",
-    " rl_config_map",
     " rl_recv_count_map",
-    " rl_drop_count_map"
+    "  rl_window_map",
+    " rl_drop_count_map",
+    " rl_ports_map",
+    " rl_config_map"
   ],
   "input": [
     "struct  __sk_buff *ctx"
@@ -257,10 +258,10 @@ xdp_rl_ingress_next_prog = {
   "output": "static__always_inlineint",
   "helper": [
     "bpf_ktime_get_ns",
-    "TC_ACT_SHOT",
-    "bpf_map_update_elem",
+    "TC_ACT_OK",
     "bpf_map_lookup_elem",
-    "TC_ACT_OK"
+    "TC_ACT_SHOT",
+    "bpf_map_update_elem"
   ],
   "compatibleHookpoints": [
     "sched_act",
@@ -335,8 +336,8 @@ xdp_rl_ingress_next_prog = {
     "}\n"
   ],
   "called_function_list": [
-    "ntohs",
     "bpf_ntohs",
+    "ntohs",
     "bpf_printk"
   ],
   "call_depth": -1,
@@ -472,6 +473,7 @@ SEC ("xdp_ratelimiting")
   "endLine": 138,
   "File": "/home/sayandes/opened_extraction/examples/ebpf-ratelimiter-main/transformed/ratelimiting_kern-TC.c",
   "funcName": "_xdp_ratelimiting",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -480,8 +482,8 @@ SEC ("xdp_ratelimiting")
   "output": "int",
   "helper": [
     "TC_ACT_OK",
-    "TC_ACT_SHOT",
-    "bpf_tail_call"
+    "bpf_tail_call",
+    "TC_ACT_SHOT"
   ],
   "compatibleHookpoints": [
     "sched_act",
@@ -499,8 +501,8 @@ SEC ("xdp_ratelimiting")
     "}\n"
   ],
   "called_function_list": [
-    "bpf_printk",
-    "_xdp_ratelimit"
+    "_xdp_ratelimit",
+    "bpf_printk"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

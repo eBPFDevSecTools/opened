@@ -34,6 +34,33 @@ bpf_map_def_t test_map = {
   "endLine": 40,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/nullmapref.c",
   "funcName": "test_repro",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 22,
+      "end_line": 22,
+      "text": "// BPF_MAP_TYPE_HASH"
+    },
+    {
+      "start_line": 35,
+      "end_line": 35,
+      "text": "// ebpf_map_lookup_elem can return NULL if not found,"
+    },
+    {
+      "start_line": 36,
+      "end_line": 36,
+      "text": "// so this unchecked dereference should fail verification."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     " test_map"
@@ -44,29 +71,29 @@ bpf_map_def_t test_map = {
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
     "cgroup_device",
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
-    "xdp"
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int test_repro (void *ctx)\n",

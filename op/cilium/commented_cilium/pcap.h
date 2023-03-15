@@ -54,6 +54,38 @@ struct capture_msg {
   "endLine": 75,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 26,
+      "end_line": 29,
+      "text": "/* User space needs to perform inline conversion from\n\t\t * boot offset to time of day before writing out to\n\t\t * an external file.\n\t\t */"
+    },
+    {
+      "start_line": 38,
+      "end_line": 40,
+      "text": "/* The hash is reserved and always zero for allowing different\n\t * header extensions in future.\n\t */"
+    },
+    {
+      "start_line": 42,
+      "end_line": 44,
+      "text": "/* The pcap hdr must be the last member so that the placement\n\t * inside the perf RB is linear: pcap hdr + packet payload.\n\t */"
+    },
+    {
+      "start_line": 57,
+      "end_line": 59,
+      "text": "/* rule_id is the demuxer for the target pcap file when there are\n\t * multiple capturing rules present.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -66,29 +98,29 @@ struct capture_msg {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture (struct  __ctx_buff *ctx, const __u8 subtype, const __u16 rule_id, const __u64 tstamp, __u64  __cap_len)\n",
@@ -166,6 +198,13 @@ static __always_inline void cilium_capture(struct __ctx_buff *ctx,
   "endLine": 86,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "__cilium_capture_in",
+  "developer_inline_comments": [
+    {
+      "start_line": 80,
+      "end_line": 83,
+      "text": "/* For later pcap file generation, we export boot time to the RB\n\t * such that user space can later reconstruct a real time of day\n\t * timestamp in-place.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -176,29 +215,29 @@ static __always_inline void cilium_capture(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void __cilium_capture_in (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)\n",
@@ -246,6 +285,7 @@ static __always_inline void __cilium_capture_in(struct __ctx_buff *ctx,
   "endLine": 93,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "__cilium_capture_out",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -256,29 +296,29 @@ static __always_inline void __cilium_capture_in(struct __ctx_buff *ctx,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void __cilium_capture_out (struct  __ctx_buff *ctx, __u16 rule_id, __u32 cap_len)\n",
@@ -287,8 +327,8 @@ static __always_inline void __cilium_capture_in(struct __ctx_buff *ctx,
     "}\n"
   ],
   "called_function_list": [
-    "bpf_ktime_cache_get",
-    "cilium_capture"
+    "cilium_capture",
+    "bpf_ktime_cache_get"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -385,6 +425,108 @@ struct {
   "endLine": 170,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture4_masked_key",
+  "developer_inline_comments": [
+    {
+      "start_line": 95,
+      "end_line": 99,
+      "text": "/* The capture_enabled integer ({0,1}) is enabled/disabled via BPF based ELF\n * templating. Meaning, when disabled, the verifier's dead code elimination\n * will ensure that there is no overhead when the facility is not used. The\n * below is a fallback definition for when the templating var is not defined.\n */"
+    },
+    {
+      "start_line": 102,
+      "end_line": 102,
+      "text": "/* capture_enabled */"
+    },
+    {
+      "start_line": 124,
+      "end_line": 124,
+      "text": "/* 5-tuple wildcard key / mask. */"
+    },
+    {
+      "start_line": 126,
+      "end_line": 126,
+      "text": "/* masking: prefix */"
+    },
+    {
+      "start_line": 127,
+      "end_line": 127,
+      "text": "/* masking: prefix */"
+    },
+    {
+      "start_line": 128,
+      "end_line": 128,
+      "text": "/* masking: 0 or 0xffff */"
+    },
+    {
+      "start_line": 129,
+      "end_line": 129,
+      "text": "/* masking: 0 or 0xffff */"
+    },
+    {
+      "start_line": 130,
+      "end_line": 130,
+      "text": "/* masking: 0 or 0xff */"
+    },
+    {
+      "start_line": 131,
+      "end_line": 131,
+      "text": "/* prefix len: saddr */"
+    },
+    {
+      "start_line": 132,
+      "end_line": 132,
+      "text": "/* prefix len: daddr */"
+    },
+    {
+      "start_line": 133,
+      "end_line": 133,
+      "text": "/* reserved: 0 */"
+    },
+    {
+      "start_line": 136,
+      "end_line": 136,
+      "text": "/* 5-tuple wildcard key / mask. */"
+    },
+    {
+      "start_line": 138,
+      "end_line": 138,
+      "text": "/* masking: prefix */"
+    },
+    {
+      "start_line": 139,
+      "end_line": 139,
+      "text": "/* masking: prefix */"
+    },
+    {
+      "start_line": 140,
+      "end_line": 140,
+      "text": "/* masking: 0 or 0xffff */"
+    },
+    {
+      "start_line": 141,
+      "end_line": 141,
+      "text": "/* masking: 0 or 0xffff */"
+    },
+    {
+      "start_line": 142,
+      "end_line": 142,
+      "text": "/* masking: 0 or 0xff */"
+    },
+    {
+      "start_line": 143,
+      "end_line": 143,
+      "text": "/* prefix len: saddr */"
+    },
+    {
+      "start_line": 144,
+      "end_line": 144,
+      "text": "/* prefix len: daddr */"
+    },
+    {
+      "start_line": 145,
+      "end_line": 145,
+      "text": "/* reserved: 0 */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -395,29 +537,29 @@ struct {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture4_masked_key (const struct capture4_wcard *orig, const struct capture4_wcard *mask, struct capture4_wcard *out)\n",
@@ -561,6 +703,33 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
   "endLine": 257,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture4_classify_wcard",
+  "developer_inline_comments": [
+    {
+      "start_line": 172,
+      "end_line": 178,
+      "text": "/* The agent is generating and emitting the PREFIX_MASKS4 and regenerating\n * if a mask was added or removed. The cilium_capture4_rules can have n\n * entries with m different PREFIX_MASKS4 where n >> m. Lookup performance\n * depends mainly on m. Below is a fallback / example definition mainly for\n * compile testing given agent typically emits this instead. Ordering of\n * masks from agent side can f.e. be based on # of 1s from high to low.\n */"
+    },
+    {
+      "start_line": 182,
+      "end_line": 184,
+      "text": "/* rule_id 1:\t\t\t\t\\\n\t\t *  srcIP/32, dstIP/32, dport, nexthdr\t\\\n\t\t */"
+    },
+    {
+      "start_line": 193,
+      "end_line": 195,
+      "text": "/* rule_id 2 (1st mask):\t\t\\\n\t\t *  srcIP/32 or dstIP/32\t\t\\\n\t\t */"
+    },
+    {
+      "start_line": 204,
+      "end_line": 206,
+      "text": "/* rule_id 2 (2nd mask):\t\t\\\n\t\t *  srcIP/32 or dstIP/32\t\t\\\n\t\t */"
+    },
+    {
+      "start_line": 215,
+      "end_line": 215,
+      "text": "/* PREFIX_MASKS4 */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  CAPTURE4_RULES"
@@ -573,29 +742,29 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline struct capture_rule *cilium_capture4_classify_wcard (struct  __ctx_buff *ctx)\n",
@@ -631,11 +800,11 @@ cilium_capture4_masked_key(const struct capture4_wcard *orig,
     "}\n"
   ],
   "called_function_list": [
-    "_Pragma",
-    "ctx_load_bytes",
+    "revalidate_data",
     "cilium_capture4_masked_key",
+    "_Pragma",
     "ipv4_hdrlen",
-    "revalidate_data"
+    "ctx_load_bytes"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -715,6 +884,7 @@ struct {
   "endLine": 284,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture6_masked_key",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -725,29 +895,29 @@ struct {
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture6_masked_key (const struct capture6_wcard *orig, const struct capture6_wcard *mask, struct capture6_wcard *out)\n",
@@ -903,6 +1073,33 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
   "endLine": 382,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture6_classify_wcard",
+  "developer_inline_comments": [
+    {
+      "start_line": 286,
+      "end_line": 288,
+      "text": "/* The agent is generating and emitting the PREFIX_MASKS6 and regenerating\n * if a mask was added or removed. Example for compile testing:\n */"
+    },
+    {
+      "start_line": 292,
+      "end_line": 294,
+      "text": "/* rule_id 1:\t\t\t\t \\\n\t\t *  srcIP/128, dstIP/128, dport, nexthdr \\\n\t\t */"
+    },
+    {
+      "start_line": 309,
+      "end_line": 311,
+      "text": "/* rule_id 2 (1st mask):\t\t \\\n\t\t *  srcIP/128 or dstIP/128\t\t \\\n\t\t */"
+    },
+    {
+      "start_line": 323,
+      "end_line": 325,
+      "text": "/* rule_id 2 (2nd mask):\t\t \\\n\t\t *  srcIP/128 or dstIP/128\t\t \\\n\t\t */"
+    },
+    {
+      "start_line": 337,
+      "end_line": 337,
+      "text": "/* PREFIX_MASKS6 */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  CAPTURE6_RULES"
@@ -915,29 +1112,29 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline struct capture_rule *cilium_capture6_classify_wcard (struct  __ctx_buff *ctx)\n",
@@ -976,12 +1173,12 @@ cilium_capture6_masked_key(const struct capture6_wcard *orig,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_addr_copy",
+    "revalidate_data",
+    "ipv6_hdrlen",
     "_Pragma",
     "cilium_capture6_masked_key",
     "ctx_load_bytes",
-    "ipv6_hdrlen",
-    "revalidate_data"
+    "ipv6_addr_copy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1054,6 +1251,7 @@ _Pragma("unroll")
   "endLine": 408,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_classify_wcard",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1062,29 +1260,29 @@ _Pragma("unroll")
   "output": "static__always_inlinestructcapture_rule",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline struct capture_rule *cilium_capture_classify_wcard (struct  __ctx_buff *ctx)\n",
@@ -1215,6 +1413,7 @@ cilium_capture_classify_wcard(struct __ctx_buff *ctx)
   "endLine": 432,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_candidate",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  cilium_capture_cache"
@@ -1229,29 +1428,29 @@ cilium_capture_classify_wcard(struct __ctx_buff *ctx)
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool cilium_capture_candidate (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u16 * cap_len __maybe_unused)\n",
@@ -1372,6 +1571,13 @@ cilium_capture_candidate(struct __ctx_buff *ctx __maybe_unused,
   "endLine": 455,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_cached",
+  "developer_inline_comments": [
+    {
+      "start_line": 443,
+      "end_line": 446,
+      "text": "/* Avoid full classification a 2nd time due to i) overhead but\n\t\t * also since ii) we might have pushed an encap header in front\n\t\t * where we don't want to dissect everything again.\n\t\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  cilium_capture_cache"
@@ -1386,29 +1592,29 @@ cilium_capture_candidate(struct __ctx_buff *ctx __maybe_unused,
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline bool cilium_capture_cached (struct  __ctx_buff * ctx __maybe_unused, __u16 * rule_id __maybe_unused, __u32 * cap_len __maybe_unused)\n",
@@ -1477,6 +1683,7 @@ cilium_capture_cached(struct __ctx_buff *ctx __maybe_unused,
   "endLine": 465,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_in",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1485,29 +1692,29 @@ cilium_capture_cached(struct __ctx_buff *ctx __maybe_unused,
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -1519,8 +1726,8 @@ cilium_capture_cached(struct __ctx_buff *ctx __maybe_unused,
     "}\n"
   ],
   "called_function_list": [
-    "cilium_capture_candidate",
-    "__cilium_capture_in"
+    "__cilium_capture_in",
+    "cilium_capture_candidate"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1557,6 +1764,13 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
   "endLine": 479,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_out",
+  "developer_inline_comments": [
+    {
+      "start_line": 473,
+      "end_line": 476,
+      "text": "/* cilium_capture_out() is always paired with cilium_capture_in(), so\n\t * we can rely on previous cached result on whether to push the pkt\n\t * to the RB or not.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1565,29 +1779,29 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -1643,6 +1857,13 @@ cilium_capture_out(struct __ctx_buff *ctx __maybe_unused)
   "endLine": 486,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_in",
+  "developer_inline_comments": [
+    {
+      "start_line": 481,
+      "end_line": 481,
+      "text": "/* ENABLE_CAPTURE */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1651,29 +1872,29 @@ cilium_capture_out(struct __ctx_buff *ctx __maybe_unused)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture_in (struct  __ctx_buff * ctx __maybe_unused)\n",
@@ -1681,8 +1902,8 @@ cilium_capture_out(struct __ctx_buff *ctx __maybe_unused)
     "}\n"
   ],
   "called_function_list": [
-    "cilium_capture_candidate",
-    "__cilium_capture_in"
+    "__cilium_capture_in",
+    "cilium_capture_candidate"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1714,6 +1935,7 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
   "endLine": 491,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/pcap.h",
   "funcName": "cilium_capture_out",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1722,29 +1944,29 @@ cilium_capture_in(struct __ctx_buff *ctx __maybe_unused)
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline void cilium_capture_out (struct  __ctx_buff * ctx __maybe_unused)\n",

@@ -15,6 +15,23 @@
   "endLine": 22,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/qm.h",
   "funcName": "reset_queue_mapping",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 12,
+      "end_line": 19,
+      "text": "/* Workaround for GH-18311 where veth driver might have recorded\n\t * veth's RX queue mapping instead of leaving it at 0. This can\n\t * cause issues on the phys device where all traffic would only\n\t * hit a single TX queue (given veth device had a single one and\n\t * mapping was left at 1). Reset so that stack picks a fresh queue.\n\t * Kernel fix is at 710ad98c363a (\"veth: Do not record rx queue\n\t * hint in veth_xmit\").\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -23,29 +40,29 @@
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static inline void reset_queue_mapping (struct  __ctx_buff * ctx __maybe_unused)\n",

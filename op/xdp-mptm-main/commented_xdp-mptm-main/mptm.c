@@ -54,25 +54,6 @@ SEC("mptm_encap_xdp")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -115,6 +96,25 @@ SEC("mptm_encap_xdp")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -122,6 +122,43 @@ SEC("mptm_encap_xdp")
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
   "funcName": "mptm_encap",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 7,
+      "text": "/* SPDX-License-Identifier: GPL-2.0 \n *  \n * Authors:\n * Dushyant Behl <dushyantbehl@in.ibm.com>\n * Sayandeep Sen <sayandes@in.ibm.com>\n * Palanivel Kodeswaran <palani.kodeswaran@in.ibm.com>\n */"
+    },
+    {
+      "start_line": 23,
+      "end_line": 23,
+      "text": "/* Defines xdp_stats_map */"
+    },
+    {
+      "start_line": 27,
+      "end_line": 30,
+      "text": "/* Inspired from Katran.\n * ETH_P_IP and ETH_P_IPV6 in Big Endian format.\n * So we don't have to do htons on each packet\n */"
+    },
+    {
+      "start_line": 53,
+      "end_line": 53,
+      "text": "//default action"
+    },
+    {
+      "start_line": 55,
+      "end_line": 55,
+      "text": "/* header pointers */"
+    },
+    {
+      "start_line": 59,
+      "end_line": 59,
+      "text": "/* map values and tunnel informations */"
+    },
+    {
+      "start_line": 93,
+      "end_line": 93,
+      "text": "// keep redirect flags zero for now"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  mptm_tnl_info_map"
@@ -131,10 +168,10 @@ SEC("mptm_encap_xdp")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
+    "bpf_map_lookup_elem",
     "bpf_redirect_map",
     "bpf_redirect",
-    "bpf_map_lookup_elem"
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -180,13 +217,13 @@ SEC("mptm_encap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "encap_vlan",
-    "bpf_debug",
-    "parse_pkt_headers",
-    "encap_geneve",
-    "xdp_stats_record_action",
     "mptm_print",
-    "likely"
+    "encap_geneve",
+    "parse_pkt_headers",
+    "xdp_stats_record_action",
+    "encap_vlan",
+    "likely",
+    "bpf_debug"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -259,66 +296,6 @@ SEC("mptm_decap_xdp")
 {
   "capabilities": [
     {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_DROP",
-          "Return": 1,
-          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "update_pkt",
-      "update_pkt": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
-          "Return": " 0 on success, or a negative error in case of failure.",
-          "Function Name": "bpf_xdp_adjust_head",
-          "Input Params": [
-            "{Type: struct xdp_buff ,Var: *xdp_md}",
-            "{Type:  int ,Var: delta}"
-          ],
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "update_pkt"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "map_read",
       "map_read": [
         {
@@ -361,6 +338,66 @@ SEC("mptm_decap_xdp")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_DROP",
+          "Return": 1,
+          "Description": "will drop the packet right at the driver level without wasting any further resources. This is in particular useful for BPF programs implementing DDoS mitigation mechanisms or firewalling in general.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "update_pkt",
+      "update_pkt": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Description": "Adjust (move) xdp_md->data by <[ delta ]>(IP: 1) bytes. Note that it is possible to use a negative value for delta. This helper can be used to prepare the packet for pushing or popping headers. A call to this helper is susceptible to change the underlying packet buffer. Therefore , at load time , all checks on pointers previously done by the verifier are invalidated and must be performed again , if the helper is used in combination with direct packet access. ",
+          "Return": " 0 on success, or a negative error in case of failure.",
+          "Function Name": "bpf_xdp_adjust_head",
+          "Input Params": [
+            "{Type: struct xdp_buff ,Var: *xdp_md}",
+            "{Type:  int ,Var: delta}"
+          ],
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "update_pkt"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -368,6 +405,58 @@ SEC("mptm_decap_xdp")
   "endLine": 167,
   "File": "/home/sayandes/opened_extraction/examples/xdp-mptm-main/src/kernel/mptm.c",
   "funcName": "mptm_decap",
+  "developer_inline_comments": [
+    {
+      "start_line": 103,
+      "end_line": 103,
+      "text": "//default action"
+    },
+    {
+      "start_line": 105,
+      "end_line": 105,
+      "text": "/* header pointers */"
+    },
+    {
+      "start_line": 116,
+      "end_line": 116,
+      "text": "// GENEVE packet"
+    },
+    {
+      "start_line": 117,
+      "end_line": 117,
+      "text": "// Check inner packet if there is a rule corresponding to"
+    },
+    {
+      "start_line": 118,
+      "end_line": 118,
+      "text": "// inner source which will be source for us as we received the packet"
+    },
+    {
+      "start_line": 129,
+      "end_line": 129,
+      "text": "/* recalculate the data pointers */"
+    },
+    {
+      "start_line": 133,
+      "end_line": 133,
+      "text": "/* header pointers */"
+    },
+    {
+      "start_line": 140,
+      "end_line": 140,
+      "text": "/* map values and tunnel informations */"
+    },
+    {
+      "start_line": 144,
+      "end_line": 144,
+      "text": "// keep redirect flags zero for now"
+    },
+    {
+      "start_line": 146,
+      "end_line": 146,
+      "text": "/* Packet is coming from outside so source and dest must be inversed */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  mptm_tnl_info_map"
@@ -377,12 +466,12 @@ SEC("mptm_decap_xdp")
   ],
   "output": "int",
   "helper": [
-    "bpf_redirect",
+    "bpf_map_lookup_elem",
     "XDP_DROP",
-    "XDP_PASS",
     "bpf_redirect_map",
+    "bpf_redirect",
     "bpf_xdp_adjust_head",
-    "bpf_map_lookup_elem"
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -434,10 +523,10 @@ SEC("mptm_decap_xdp")
     "}\n"
   ],
   "called_function_list": [
-    "parse_pkt_headers",
-    "unlikely",
     "mptm_print",
-    "xdp_stats_record_action"
+    "xdp_stats_record_action",
+    "unlikely",
+    "parse_pkt_headers"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

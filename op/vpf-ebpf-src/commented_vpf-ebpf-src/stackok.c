@@ -56,6 +56,33 @@ static int (*get_prandom_u32)() = (void*)7;
   "endLine": 19,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/stackok.c",
   "funcName": "func",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 10,
+      "end_line": 10,
+      "text": "// Initialize an array of 256 bytes (to all zeroes in this example)."
+    },
+    {
+      "start_line": 13,
+      "end_line": 13,
+      "text": "// Set index to a random value in the interval [0,255]."
+    },
+    {
+      "start_line": 17,
+      "end_line": 17,
+      "text": "// Return the array element at the specified index."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -66,27 +93,27 @@ static int (*get_prandom_u32)() = (void*)7;
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
-    "xdp"
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int func (void *ctx)\n",

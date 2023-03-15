@@ -86,11 +86,18 @@ struct ebpf_map inner_map =
   "endLine": 49,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/map_in_map.c",
   "funcName": "func",
+  "developer_inline_comments": [
+    {
+      "start_line": 25,
+      "end_line": 25,
+      "text": "// (uint32_t)&inner_map};"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
-    " nolocal_lru_map",
+    " array_of_maps",
     "  inner_map",
-    " array_of_maps"
+    " nolocal_lru_map"
   ],
   "input": [
     "void *ctx"
@@ -100,29 +107,29 @@ struct ebpf_map inner_map =
     "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
     "cgroup_device",
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
     "cgroup_sysctl",
-    "xdp"
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int func (void *ctx)\n",

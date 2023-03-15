@@ -46,6 +46,23 @@
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_l3",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 28,
+      "end_line": 28,
+      "text": "/* Hoplimit was reached */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -60,9 +77,9 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv6_l3 (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, __u8 direction)\n",
@@ -84,9 +101,9 @@
   "called_function_list": [
     "icmp6_send_time_exceeded",
     "eth_store_daddr",
-    "eth_store_saddr",
+    "ipv6_dec_hoplimit",
     "IS_ERR",
-    "ipv6_dec_hoplimit"
+    "eth_store_saddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -158,6 +175,13 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "endLine": 56,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_l3",
+  "developer_inline_comments": [
+    {
+      "start_line": 46,
+      "end_line": 46,
+      "text": "/* FIXME: Send ICMP TTL */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -172,9 +196,9 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv4_l3 (struct  __ctx_buff *ctx, int l3_off, const __u8 *smac, const __u8 *dmac, struct iphdr *ip4)\n",
@@ -190,8 +214,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "eth_store_saddr",
     "ipv4_dec_ttl",
+    "eth_store_saddr",
     "eth_store_daddr"
   ],
   "call_depth": -1,
@@ -265,6 +289,28 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   "endLine": 106,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_local_delivery",
+  "developer_inline_comments": [
+    {
+      "start_line": 60,
+      "end_line": 64,
+      "text": "/* Performs IPv6 L2/L3 handling and delivers the packet to the destination pod\n * on the same node, either via the stack or via a redirect call.\n * Depending on the configuration, it may also enforce ingress policies for the\n * destination pod via a tail call.\n */"
+    },
+    {
+      "start_line": 77,
+      "end_line": 77,
+      "text": "/* This will invalidate the size check */"
+    },
+    {
+      "start_line": 83,
+      "end_line": 87,
+      "text": "/*\n\t * Special LXC case for updating egress forwarding metrics.\n\t * Note that the packet could still be dropped but it would show up\n\t * as an ingress drop counter in metrics.\n\t */"
+    },
+    {
+      "start_line": 98,
+      "end_line": 98,
+      "text": "/* Jumps to destination pod's BPF program to enforce ingress policies. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -277,14 +323,14 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "tail_call",
-    "redirect",
-    "CTX_ACT_OK"
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv6_local_delivery (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, const struct endpoint_info *ep, __u8 direction, bool from_host __maybe_unused)\n",
@@ -319,15 +365,15 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_l3",
-    "ctx_full_len",
-    "tail_call_dynamic",
-    "redirect_ep",
     "set_identity_mark",
     "ctx_store_meta",
-    "update_metrics",
+    "ipv6_l3",
+    "tail_call_dynamic",
+    "defined",
+    "ctx_full_len",
+    "redirect_ep",
     "cilium_dbg",
-    "defined"
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -425,6 +471,23 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_local_delivery",
+  "developer_inline_comments": [
+    {
+      "start_line": 109,
+      "end_line": 113,
+      "text": "/* Performs IPv4 L2/L3 handling and delivers the packet to the destination pod\n * on the same node, either via the stack or via a redirect call.\n * Depending on the configuration, it may also enforce ingress policies for the\n * destination pod via a tail call.\n */"
+    },
+    {
+      "start_line": 131,
+      "end_line": 135,
+      "text": "/*\n\t * Special LXC case for updating egress forwarding metrics.\n\t * Note that the packet could still be dropped but it would show up\n\t * as an ingress drop counter in metrics.\n\t */"
+    },
+    {
+      "start_line": 146,
+      "end_line": 146,
+      "text": "/* Jumps to destination pod's BPF program to enforce ingress policies. */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -438,14 +501,14 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "output": "static__always_inlineint",
   "helper": [
+    "CTX_ACT_OK",
     "tail_call",
-    "redirect",
-    "CTX_ACT_OK"
+    "redirect"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
-    "sched_act"
+    "sched_act",
+    "xdp"
   ],
   "source": [
     "static __always_inline int ipv4_local_delivery (struct  __ctx_buff *ctx, int l3_off, __u32 seclabel, struct iphdr *ip4, const struct endpoint_info *ep, __u8 direction __maybe_unused, bool from_host __maybe_unused)\n",
@@ -480,15 +543,15 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
     "}\n"
   ],
   "called_function_list": [
-    "ipv4_l3",
-    "ctx_full_len",
-    "tail_call_dynamic",
-    "redirect_ep",
     "set_identity_mark",
     "ctx_store_meta",
-    "update_metrics",
+    "tail_call_dynamic",
+    "defined",
+    "ipv4_l3",
+    "ctx_full_len",
+    "redirect_ep",
     "cilium_dbg",
-    "defined"
+    "update_metrics"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -603,6 +666,23 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   "endLine": 185,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "get_min_encrypt_key",
+  "developer_inline_comments": [
+    {
+      "start_line": 165,
+      "end_line": 165,
+      "text": "/* Having no key info for a context is the same as no encryption */"
+    },
+    {
+      "start_line": 169,
+      "end_line": 176,
+      "text": "/* If both ends can encrypt/decrypt use smaller of the two this\n\t * way both ends will have keys installed assuming key IDs are\n\t * always increasing. However, we have to handle roll-over case\n\t * and to do this safely we assume keys are no more than one ahead.\n\t * We expect user/control-place to accomplish this. Notice zero\n\t * will always be returned if either local or peer have the zero\n\t * key indicating no encryption.\n\t */"
+    },
+    {
+      "start_line": 184,
+      "end_line": 184,
+      "text": "/* ENABLE_IPSEC */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
     "  ENCRYPT_MAP"
@@ -615,29 +695,29 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __u8 get_min_encrypt_key (__u8 peer_key __maybe_unused)\n",

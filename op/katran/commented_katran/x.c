@@ -15,6 +15,28 @@ SEC("xdp")
   "endLine": 13,
   "File": "/home/sayandes/opened_extraction/examples/katran/x.c",
   "funcName": "xdp_prog_simple",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: GPL-2.0 */"
+    },
+    {
+      "start_line": 5,
+      "end_line": 5,
+      "text": "//#include <linux/bpf.h>"
+    },
+    {
+      "start_line": 6,
+      "end_line": 6,
+      "text": "//#include <bpf/bpf_helpers.h>"
+    },
+    {
+      "start_line": 12,
+      "end_line": 12,
+      "text": "//return XDP_PASS;"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -23,29 +45,29 @@ SEC("xdp")
   "output": "int",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
-    "raw_tracepoint",
-    "sock_ops",
-    "lwt_out",
-    "tracepoint",
-    "flow_dissector",
-    "perf_event",
     "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
+    "perf_event",
+    "lwt_in",
+    "cgroup_sock_addr",
+    "tracepoint",
     "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
     "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
+    "sock_ops",
     "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
     "lwt_xmit",
+    "cgroup_skb",
     "cgroup_device",
-    "sk_reuseport"
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "int xdp_prog_simple (struct xdp_md *ctx)\n",

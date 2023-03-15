@@ -7,6 +7,7 @@
   "endLine": 5,
   "File": "/home/sayandes/opened_extraction/examples/bcc/urandomread.c",
   "funcName": "TRACEPOINT_PROBE",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -18,29 +19,29 @@
     "bpf_trace_printk"
   ],
   "compatibleHookpoints": [
-    "cgroup_sock",
-    "sock_ops",
-    "sk_skb",
+    "xdp",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "lwt_xmit",
+    "raw_tracepoint",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "kprobe",
+    "lwt_seg6local",
+    "lwt_out",
+    "sk_msg",
+    "sched_act",
     "flow_dissector",
     "socket_filter",
-    "sk_reuseport",
-    "raw_tracepoint",
-    "kprobe",
-    "xdp",
-    "lwt_in",
     "cgroup_sysctl",
-    "lwt_xmit",
+    "cgroup_sock",
+    "sk_skb",
+    "sock_ops",
     "cgroup_sock_addr",
+    "sk_reuseport",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "tracepoint",
-    "cgroup_device",
-    "sk_msg",
-    "lwt_seg6local",
-    "cgroup_skb"
+    "lwt_in"
   ],
   "source": [
     "TRACEPOINT_PROBE (random, urandom_read)\n",
@@ -50,8 +51,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "update",
-    "lookup"
+    "lookup",
+    "update"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

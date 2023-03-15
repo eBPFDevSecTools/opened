@@ -64,6 +64,18 @@
   "endLine": 48,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac_and_send",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (C) 2018-present, Facebook, Inc.\n *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    },
+    {
+      "start_line": 20,
+      "end_line": 23,
+      "text": "/*\n * This file contains all routines which are responsible for parsing\n * and handling ICMP packets\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -129,6 +141,7 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "endLine": 58,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "swap_mac",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -138,29 +151,29 @@ __attribute__((__always_inline__)) static inline int swap_mac_and_send(
   "output": "staticinlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "cgroup_sysctl",
-    "cgroup_sock_addr",
-    "sched_cls",
-    "raw_tracepoint",
-    "sock_ops",
-    "lwt_out",
-    "tracepoint",
-    "flow_dissector",
-    "perf_event",
     "sk_msg",
-    "lwt_seg6local",
-    "sched_act",
-    "cgroup_skb",
+    "perf_event",
+    "lwt_in",
+    "cgroup_sock_addr",
+    "tracepoint",
     "cgroup_sock",
+    "sched_cls",
+    "cgroup_sysctl",
+    "socket_filter",
     "sk_skb",
-    "xdp",
-    "raw_tracepoint_writable",
+    "sock_ops",
     "kprobe",
+    "sched_act",
+    "flow_dissector",
+    "raw_tracepoint",
+    "raw_tracepoint_writable",
+    "lwt_seg6local",
+    "lwt_out",
     "lwt_xmit",
+    "cgroup_skb",
     "cgroup_device",
-    "sk_reuseport"
+    "sk_reuseport",
+    "xdp"
   ],
   "source": [
     "static inline void swap_mac (void *data, struct ethhdr *orig_eth)\n",
@@ -230,6 +243,23 @@ __attribute__((__always_inline__)) static inline void swap_mac(
   "endLine": 90,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_reply",
+  "developer_inline_comments": [
+    {
+      "start_line": 78,
+      "end_line": 78,
+      "text": "// the only diff between icmp echo and reply hdrs is type;"
+    },
+    {
+      "start_line": 79,
+      "end_line": 79,
+      "text": "// in first case it's 8; in second it's 0; so instead of recalc"
+    },
+    {
+      "start_line": 80,
+      "end_line": 80,
+      "text": "// checksum from ground up we will just adjust it."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -271,8 +301,8 @@ __attribute__((__always_inline__)) static inline void swap_mac(
     "}\n"
   ],
   "called_function_list": [
-    "swap_mac_and_send",
-    "ipv4_csum_inline"
+    "ipv4_csum_inline",
+    "swap_mac_and_send"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -351,6 +381,23 @@ __attribute__((__always_inline__)) static inline int send_icmp_reply(
   "endLine": 117,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_reply",
+  "developer_inline_comments": [
+    {
+      "start_line": 108,
+      "end_line": 108,
+      "text": "// the only diff between icmp echo and reply hdrs is type;"
+    },
+    {
+      "start_line": 109,
+      "end_line": 109,
+      "text": "// in first case it's 128; in second it's 129; so instead of recalc"
+    },
+    {
+      "start_line": 110,
+      "end_line": 110,
+      "text": "// checksum from ground up we will just adjust it."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -439,25 +486,6 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
 {
   "capabilities": [
     {
-      "capability": "pkt_alter_or_redo_processing_or_interface",
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_alter_or_redo_processing_or_interface"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -475,6 +503,25 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_TX",
+          "Return": 3,
+          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -482,6 +529,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   "endLine": 162,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp4_too_big",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -489,8 +537,8 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_TX",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_TX"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -542,8 +590,8 @@ __attribute__((__always_inline__)) static inline int send_icmp6_reply(
     "}\n"
   ],
   "called_function_list": [
-    "bpf_htons",
     "swap_mac",
+    "bpf_htons",
     "ipv4_csum"
   ],
   "call_depth": -1,
@@ -612,25 +660,6 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
 {
   "capabilities": [
     {
-      "capability": "pkt_alter_or_redo_processing_or_interface",
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_TX",
-          "Return": 3,
-          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_alter_or_redo_processing_or_interface"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -648,6 +677,25 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_TX",
+          "Return": 3,
+          "Description": "an efficient option to transmit the network packet out of the same NIC it just arrived on again. This is typically useful when few nodes are implementing, for example, firewalling with subsequent load balancing in a cluster and thus act as a hairpinned load balancer pushing the incoming packets back into the switch after rewriting them in XDP BPF.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -655,6 +703,7 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
   "endLine": 203,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp6_too_big",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -662,8 +711,8 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_TX",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_TX"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -711,11 +760,11 @@ __attribute__((__always_inline__)) static inline int send_icmp4_too_big(
     "}\n"
   ],
   "called_function_list": [
-    "memset",
+    "bpf_htonl",
     "bpf_htons",
+    "memset",
     "swap_mac",
     "memcpy",
-    "bpf_htonl",
     "ipv6_csum"
   ],
   "call_depth": -1,
@@ -804,6 +853,7 @@ __attribute__((__always_inline__)) static inline int send_icmp6_too_big(
   "endLine": 221,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "send_icmp_too_big",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -882,25 +932,6 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -918,6 +949,25 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -925,6 +975,18 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   "endLine": 253,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmpv6",
+  "developer_inline_comments": [
+    {
+      "start_line": 242,
+      "end_line": 242,
+      "text": "// data partition of icmp 'pkt too big' contains header (and as much data as"
+    },
+    {
+      "start_line": 243,
+      "end_line": 243,
+      "text": "// as possible) of the packet, which has trigered this icmp."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -935,8 +997,8 @@ send_icmp_too_big(struct xdp_md* xdp, bool is_ipv6, int pckt_size) {
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -1025,25 +1087,6 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -1061,6 +1104,25 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -1068,6 +1130,7 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   "endLine": 285,
   "File": "/home/sayandes/opened_extraction/examples/katran/handle_icmp.h",
   "funcName": "parse_icmp",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1078,8 +1141,8 @@ __attribute__((__always_inline__)) static inline int parse_icmpv6(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"

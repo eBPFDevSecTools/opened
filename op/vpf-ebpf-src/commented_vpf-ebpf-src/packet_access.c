@@ -66,6 +66,38 @@ __attribute__((section("xdp"), used))
   "endLine": 58,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/packet_access.c",
   "funcName": "test_packet_access",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "// Copyright (c) Prevail Verifier contributors."
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "// SPDX-License-Identifier: MIT"
+    },
+    {
+      "start_line": 26,
+      "end_line": 26,
+      "text": "// We now do two code paths that should have identical results."
+    },
+    {
+      "start_line": 32,
+      "end_line": 44,
+      "text": "/* The above code results in the following assembly:\n         *            r0 <<= 2\n         *            r0 &= 60\n         *            r1 = *(u32 *)(r6 + 0)\n         *            r1 += r0    // In the ELSE clause below, this becomes\n         *                        // \"r0 += r1\" then \"r1 = r0\".\n         *            r0 = 1\n         *            r2 = r1\n         *            r2 += 4\n         *            r3 = *(u32 *)(r6 + 4)\n         *            if r2 > r3 goto +13\n         *            r0 = *(u32 *)(r1 + 0)\n         */"
+    },
+    {
+      "start_line": 49,
+      "end_line": 49,
+      "text": "// In the IF clause above, these two instructions"
+    },
+    {
+      "start_line": 50,
+      "end_line": 50,
+      "text": "// are \"r1 += r0\"."
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -76,27 +108,27 @@ __attribute__((section("xdp"), used))
     "get_prandom_u32"
   ],
   "compatibleHookpoints": [
-    "cgroup_skb",
-    "cgroup_sock_addr",
-    "cgroup_sock",
-    "tracepoint",
-    "kprobe",
-    "sk_msg",
-    "flow_dissector",
+    "xdp",
     "lwt_seg6local",
-    "sk_reuseport",
-    "sched_cls",
-    "lwt_out",
-    "lwt_xmit",
-    "raw_tracepoint",
-    "sock_ops",
-    "raw_tracepoint_writable",
     "socket_filter",
-    "perf_event",
-    "sched_act",
+    "sk_reuseport",
+    "kprobe",
+    "raw_tracepoint_writable",
     "lwt_in",
+    "sock_ops",
+    "tracepoint",
     "sk_skb",
-    "xdp"
+    "cgroup_sock",
+    "sched_cls",
+    "lwt_xmit",
+    "flow_dissector",
+    "raw_tracepoint",
+    "sk_msg",
+    "cgroup_sock_addr",
+    "lwt_out",
+    "sched_act",
+    "cgroup_skb",
+    "perf_event"
   ],
   "source": [
     "int test_packet_access (struct xdp_md *ctx)\n",

@@ -52,6 +52,28 @@
   "endLine": 55,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswab16",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of the Linux kernel */"
+    },
+    {
+      "start_line": 8,
+      "end_line": 11,
+      "text": "/*\n * casts are necessary for constants, because we never know how for sure\n * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.\n */"
+    },
+    {
+      "start_line": 40,
+      "end_line": 44,
+      "text": "/*\n * Implement the following as inlines, but define the interface using\n * macros to allow constant folding when possible:\n * ___swab16, ___swab32, ___swab64, ___swahw32, ___swahb32\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -60,29 +82,29 @@
   "output": "static__inline____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u16 __fswab16 (__u16 val)\n",
@@ -101,8 +123,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swab16",
     "__builtin_bswap16",
+    "__arch_swab16",
     "defined",
     "___constant_swab16"
   ],
@@ -142,6 +164,7 @@ static __inline__  __u16 __fswab16(__u16 val)
   "endLine": 66,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswab32",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -150,29 +173,29 @@ static __inline__  __u16 __fswab16(__u16 val)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u32 __fswab32 (__u32 val)\n",
@@ -192,9 +215,9 @@ static __inline__  __u16 __fswab16(__u16 val)
   ],
   "called_function_list": [
     "__builtin_bswap32",
-    "__arch_swab32",
+    "___constant_swab32",
     "defined",
-    "___constant_swab32"
+    "__arch_swab32"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -232,6 +255,7 @@ static __inline__  __u32 __fswab32(__u32 val)
   "endLine": 81,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswab64",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -240,29 +264,29 @@ static __inline__  __u32 __fswab32(__u32 val)
   "output": "static__inline____u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u64 __fswab64 (__u64 val)\n",
@@ -286,11 +310,11 @@ static __inline__  __u32 __fswab32(__u32 val)
     "}\n"
   ],
   "called_function_list": [
+    "defined",
     "__builtin_bswap64",
     "__arch_swab64",
-    "___constant_swab64",
     "__fswab32",
-    "defined"
+    "___constant_swab64"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -332,6 +356,7 @@ static __inline__  __u64 __fswab64(__u64 val)
   "endLine": 90,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswahw32",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -340,29 +365,29 @@ static __inline__  __u64 __fswab64(__u64 val)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u32 __fswahw32 (__u32 val)\n",
@@ -415,6 +440,7 @@ static __inline__  __u32 __fswahw32(__u32 val)
   "endLine": 99,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__fswahb32",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -423,29 +449,29 @@ static __inline__  __u32 __fswahw32(__u32 val)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u32 __fswahb32 (__u32 val)\n",
@@ -551,6 +577,38 @@ static __inline__  __u32 __fswahb32(__u32 val)
   "endLine": 161,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab16p",
+  "developer_inline_comments": [
+    {
+      "start_line": 101,
+      "end_line": 104,
+      "text": "/**\n * __swab16 - return a byteswapped 16-bit value\n * @x: value to byteswap\n */"
+    },
+    {
+      "start_line": 110,
+      "end_line": 113,
+      "text": "/**\n * __swab32 - return a byteswapped 32-bit value\n * @x: value to byteswap\n */"
+    },
+    {
+      "start_line": 119,
+      "end_line": 122,
+      "text": "/**\n * __swab64 - return a byteswapped 64-bit value\n * @x: value to byteswap\n */"
+    },
+    {
+      "start_line": 128,
+      "end_line": 133,
+      "text": "/**\n * __swahw32 - return a word-swapped 32-bit value\n * @x: value to wordswap\n *\n * __swahw32(0x12340000) is 0x00001234\n */"
+    },
+    {
+      "start_line": 139,
+      "end_line": 144,
+      "text": "/**\n * __swahb32 - return a high and low byte-swapped 32-bit value\n * @x: value to byteswap\n *\n * __swahb32(0x12345678) is 0x34127856\n */"
+    },
+    {
+      "start_line": 150,
+      "end_line": 153,
+      "text": "/**\n * __swab16p - return a byteswapped 16-bit value from a pointer\n * @p: pointer to a naturally-aligned 16-bit value\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -559,29 +617,29 @@ static __inline__  __u32 __fswahb32(__u32 val)
   "output": "static__inline____u16",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u16 __swab16p (const __u16 *p)\n",
@@ -597,8 +655,8 @@ static __inline__  __u32 __fswahb32(__u32 val)
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swab16p",
-    "__swab16"
+    "__swab16",
+    "__arch_swab16p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -638,6 +696,13 @@ static __inline__ __u16 __swab16p(const __u16 *p)
   "endLine": 174,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab32p",
+  "developer_inline_comments": [
+    {
+      "start_line": 163,
+      "end_line": 166,
+      "text": "/**\n * __swab32p - return a byteswapped 32-bit value from a pointer\n * @p: pointer to a naturally-aligned 32-bit value\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -646,29 +711,29 @@ static __inline__ __u16 __swab16p(const __u16 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u32 __swab32p (const __u32 *p)\n",
@@ -725,6 +790,13 @@ static __inline__ __u32 __swab32p(const __u32 *p)
   "endLine": 187,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab64p",
+  "developer_inline_comments": [
+    {
+      "start_line": 176,
+      "end_line": 179,
+      "text": "/**\n * __swab64p - return a byteswapped 64-bit value from a pointer\n * @p: pointer to a naturally-aligned 64-bit value\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -733,29 +805,29 @@ static __inline__ __u32 __swab32p(const __u32 *p)
   "output": "static__inline____u64",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u64 __swab64p (const __u64 *p)\n",
@@ -771,8 +843,8 @@ static __inline__ __u32 __swab32p(const __u32 *p)
     "}\n"
   ],
   "called_function_list": [
-    "__swab64",
-    "__arch_swab64p"
+    "__arch_swab64p",
+    "__swab64"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -814,6 +886,13 @@ static __inline__ __u64 __swab64p(const __u64 *p)
   "endLine": 202,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahw32p",
+  "developer_inline_comments": [
+    {
+      "start_line": 189,
+      "end_line": 194,
+      "text": "/**\n * __swahw32p - return a wordswapped 32-bit value from a pointer\n * @p: pointer to a naturally-aligned 32-bit value\n *\n * See __swahw32() for details of wordswapping.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -822,29 +901,29 @@ static __inline__ __u64 __swab64p(const __u64 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u32 __swahw32p (const __u32 *p)\n",
@@ -860,8 +939,8 @@ static __inline__ __u64 __swab64p(const __u64 *p)
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swahw32p",
-    "__swahw32"
+    "__swahw32",
+    "__arch_swahw32p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -903,6 +982,13 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
   "endLine": 217,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahb32p",
+  "developer_inline_comments": [
+    {
+      "start_line": 204,
+      "end_line": 209,
+      "text": "/**\n * __swahb32p - return a high and low byteswapped 32-bit value from a pointer\n * @p: pointer to a naturally-aligned 32-bit value\n *\n * See __swahb32() for details of high/low byteswapping.\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -911,29 +997,29 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
   "output": "static__inline____u32",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ __u32 __swahb32p (const __u32 *p)\n",
@@ -949,8 +1035,8 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swahb32p",
-    "__swahb32"
+    "__swahb32",
+    "__arch_swahb32p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -990,6 +1076,13 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
   "endLine": 230,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab16s",
+  "developer_inline_comments": [
+    {
+      "start_line": 219,
+      "end_line": 222,
+      "text": "/**\n * __swab16s - byteswap a 16-bit value in-place\n * @p: pointer to a naturally-aligned 16-bit value\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -998,29 +1091,29 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ void __swab16s (__u16 *p)\n",
@@ -1076,6 +1169,7 @@ static __inline__ void __swab16s(__u16 *p)
   "endLine": 242,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab32s",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1084,29 +1178,29 @@ static __inline__ void __swab16s(__u16 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ void __swab32s (__u32 *p)\n",
@@ -1122,8 +1216,8 @@ static __inline__ void __swab16s(__u16 *p)
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swab32s",
-    "__swab32p"
+    "__swab32p",
+    "__arch_swab32s"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1163,6 +1257,13 @@ static __inline__ void __swab32s(__u32 *p)
   "endLine": 255,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swab64s",
+  "developer_inline_comments": [
+    {
+      "start_line": 244,
+      "end_line": 247,
+      "text": "/**\n * __swab64s - byteswap a 64-bit value in-place\n * @p: pointer to a naturally-aligned 64-bit value\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1171,29 +1272,29 @@ static __inline__ void __swab32s(__u32 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ void __swab64s (__u64 *p)\n",
@@ -1209,8 +1310,8 @@ static __inline__ void __swab32s(__u32 *p)
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swab64s",
-    "__swab64p"
+    "__swab64p",
+    "__arch_swab64s"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1252,6 +1353,13 @@ static __inline__ void __swab64s(__u64 *p)
   "endLine": 270,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahw32s",
+  "developer_inline_comments": [
+    {
+      "start_line": 257,
+      "end_line": 262,
+      "text": "/**\n * __swahw32s - wordswap a 32-bit value in-place\n * @p: pointer to a naturally-aligned 32-bit value\n *\n * See __swahw32() for details of wordswapping\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1260,29 +1368,29 @@ static __inline__ void __swab64s(__u64 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ void __swahw32s (__u32 *p)\n",
@@ -1298,8 +1406,8 @@ static __inline__ void __swab64s(__u64 *p)
     "}\n"
   ],
   "called_function_list": [
-    "__arch_swahw32s",
-    "__swahw32p"
+    "__swahw32p",
+    "__arch_swahw32s"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -1341,6 +1449,13 @@ static __inline__ void __swahw32s(__u32 *p)
   "endLine": 285,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/linux/swab.h",
   "funcName": "__swahb32s",
+  "developer_inline_comments": [
+    {
+      "start_line": 272,
+      "end_line": 277,
+      "text": "/**\n * __swahb32s - high and low byteswap a 32-bit value in-place\n * @p: pointer to a naturally-aligned 32-bit value\n *\n * See __swahb32() for details of high and low byte swapping\n */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -1349,29 +1464,29 @@ static __inline__ void __swahw32s(__u32 *p)
   "output": "static__inline__void",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
+    "cgroup_sysctl",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "cgroup_device",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __inline__ void __swahb32s (__u32 *p)\n",

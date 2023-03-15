@@ -91,6 +91,46 @@ SEC("tc")
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_UNSPEC",
+          "Return": -1,
+          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
+      "capability": "pkt_stop_processing_drop_packet",
+      "pkt_stop_processing_drop_packet": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "TC_ACT_SHOT",
+          "Return": 2,
+          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
+          "compatible_hookpoints": [
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_stop_processing_drop_packet"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -159,46 +199,6 @@ SEC("tc")
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_UNSPEC",
-          "Return": -1,
-          "Description": "unspecified action and is used in three cases, i) when an offloaded tc BPF program is attached and the tc ingress hook is run where the cls_bpf representation for the offloaded program will return TC_ACT_UNSPEC, ii) in order to continue with the next tc BPF program in cls_bpf for the multi-program case. The latter also works in combination with offloaded tc BPF programs from point i) where the TC_ACT_UNSPEC from there continues with a next tc BPF program solely running in non-offloaded case. Last but not least, iii) TC_ACT_UNSPEC is also used for the single program case to simply tell the kernel to continue with the skb without additional side-effects. TC_ACT_UNSPEC is very similar to the TC_ACT_OK action code in the sense that both pass the skb onwards either to upper layers of the stack on ingress or down to the networking device driver for transmission on egress, respectively. The only difference to TC_ACT_OK is that TC_ACT_OK sets skb->tc_index based on the classid the tc BPF program set. The latter is set out of the tc BPF program itself through skb->tc_classid from the BPF context.",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
-      "capability": "pkt_stop_processing_drop_packet",
-      "pkt_stop_processing_drop_packet": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "TC_ACT_SHOT",
-          "Return": 2,
-          "Description": "instructs the kernel to drop the packet, meaning, upper layers of the networking stack will never see the skb on ingress and similarly the packet will never be submitted for transmission on egress. TC_ACT_SHOT and TC_ACT_STOLEN are both similar in nature with few differences: TC_ACT_SHOT will indicate to the kernel that the skb was released through kfree_skb() and return NET_XMIT_DROP to the callers for immediate feedback, whereas TC_ACT_STOLEN will release the skb through consume_skb() and pretend to upper layers that the transmission was successful through NET_XMIT_SUCCESS. The perf\u2019s drop monitor which records traces of kfree_skb() will therefore also not see any drop indications from TC_ACT_STOLEN since its semantics are such that the skb has been \u201cconsumed\u201d or queued but certainly not \"dropped\".",
-          "compatible_hookpoints": [
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_stop_processing_drop_packet"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -206,26 +206,93 @@ SEC("tc")
   "endLine": 157,
   "File": "/home/sayandes/opened_extraction/examples/katran/healthchecking_ipip.c",
   "funcName": "healthcheck_encap",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 15,
+      "text": "/* Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.\n * *\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; version 2 of the License.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n */"
+    },
+    {
+      "start_line": 34,
+      "end_line": 34,
+      "text": "// Specify max packet size to avoid packets exceed mss (after encapsulation)"
+    },
+    {
+      "start_line": 39,
+      "end_line": 39,
+      "text": "// position in stats map where we are storing generic counters."
+    },
+    {
+      "start_line": 42,
+      "end_line": 42,
+      "text": "// size of stats map."
+    },
+    {
+      "start_line": 57,
+      "end_line": 57,
+      "text": "// struct to record packet level for counters for relevant events"
+    },
+    {
+      "start_line": 79,
+      "end_line": 79,
+      "text": "// map which contains counters for monitoring"
+    },
+    {
+      "start_line": 113,
+      "end_line": 113,
+      "text": "// some strange (w/ fwmark; but not a healthcheck) local packet"
+    },
+    {
+      "start_line": 119,
+      "end_line": 119,
+      "text": "// do not allow packets bigger than the specified size"
+    },
+    {
+      "start_line": 127,
+      "end_line": 127,
+      "text": "// we dont have ifindex for ipip v4 interface"
+    },
+    {
+      "start_line": 128,
+      "end_line": 128,
+      "text": "// not much we can do without it. Drop packet so that hc will fail"
+    },
+    {
+      "start_line": 141,
+      "end_line": 141,
+      "text": "// to prevent recursion, when encaped packet would run through this filter"
+    },
+    {
+      "start_line": 145,
+      "end_line": 145,
+      "text": "// the dst is v6."
+    },
+    {
+      "start_line": 150,
+      "end_line": 150,
+      "text": "// the dst is v4"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [
-    " hc_reals_map",
+    " hc_ctrl_map",
     "  hc_stats_map",
-    " hc_ctrl_map"
+    " hc_reals_map"
   ],
   "input": [
     "struct  __sk_buff *skb"
   ],
   "output": "int",
   "helper": [
+    "TC_ACT_UNSPEC",
+    "TC_ACT_SHOT",
     "bpf_map_lookup_elem",
     "bpf_skb_set_tunnel_key",
-    "bpf_redirect",
-    "TC_ACT_UNSPEC",
-    "TC_ACT_SHOT"
+    "bpf_redirect"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "sched_act"
+    "sched_act",
+    "sched_cls"
   ],
   "source": [
     "int healthcheck_encap (struct  __sk_buff *skb)\n",
@@ -286,8 +353,8 @@ SEC("tc")
   ],
   "called_function_list": [
     "set_hc_key",
-    "HC_ENCAP",
-    "memcpy"
+    "memcpy",
+    "HC_ENCAP"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

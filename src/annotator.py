@@ -172,7 +172,7 @@ def parseTXLFunctionOutputFile(inputFile, func_file_def_dict, isCilium, helperdi
             fn_def['fileName'] = srcFile
             fn_def['startLine'] = str(startLine)
             fn_def['endLine'] = str(endLine)
-            fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, helperdict)
+            #fn_def['capability'] = sm.get_capability_dict(startLine, endLine, srcFile, helperdict)
             func_file_def_dict[key].append(fn_def)
     return func_file_def_dict
 
@@ -217,6 +217,7 @@ def create_code_comments(txl_dict, helperdict, opdir, isCilium, human_comments_f
     for srcFile,txlFile in txl_dict.items():
         opFile = opdir+'/'+os.path.basename(srcFile)
         xmlFile = open(txlFile,'r')
+
         funcCapDict = cmt.parseTXLFunctionOutputFileForComments(xmlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, human_comments_file, db_file, funcCapDict)
 
         xmlFile.close()
@@ -375,7 +376,7 @@ if __name__ == "__main__":
         if cmt_op_dir is None:
             json.dump(txl_dict_func, outfile)
         else:
-            json.dump(funcCapDict, outfile)
+            json.dump(funcCapDict, outfile, indent=2)
     outfile.close()
 
     with open(txl_struct_list, "w") as outfile:

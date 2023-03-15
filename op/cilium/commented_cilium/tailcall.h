@@ -16,6 +16,23 @@
   "endLine": 33,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
   "funcName": "tail_call_static",
+  "developer_inline_comments": [
+    {
+      "start_line": 1,
+      "end_line": 1,
+      "text": "/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */"
+    },
+    {
+      "start_line": 2,
+      "end_line": 2,
+      "text": "/* Copyright Authors of Cilium */"
+    },
+    {
+      "start_line": 17,
+      "end_line": 26,
+      "text": "/* Don't gamble, but _guarantee_ that LLVM won't optimize setting\n\t * r2 and r3 from different paths ending up at the same call insn as\n\t * otherwise we won't be able to use the jmpq/nopl retpoline-free\n\t * patching by the x86-64 JIT in the kernel.\n\t *\n\t * Note on clobber list: we need to stay in-line with BPF calling\n\t * convention, so even if we don't end up using r0, r4, r5, we need\n\t * to mark them as clobber so that LLVM doesn't end up using them\n\t * before / after the call.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -28,27 +45,27 @@
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void tail_call_static (const struct  __ctx_buff *ctx, const void *map, const __u32 slot)\n",
@@ -72,8 +89,8 @@
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_constant_p",
-    "__throw_build_bug"
+    "__throw_build_bug",
+    "__builtin_constant_p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -125,6 +142,13 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
   "endLine": 46,
   "File": "/home/sayandes/opened_extraction/examples/cilium/include/bpf/tailcall.h",
   "funcName": "tail_call_dynamic",
+  "developer_inline_comments": [
+    {
+      "start_line": 41,
+      "end_line": 44,
+      "text": "/* Only for the case where slot is not known at compilation time,\n\t * we give LLVM a free pass to optimize since we cannot do much\n\t * here anyway as x86-64 JIT will emit a retpoline for this case.\n\t */"
+    }
+  ],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -137,27 +161,27 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
     "tail_call"
   ],
   "compatibleHookpoints": [
-    "sched_cls",
-    "perf_event",
-    "sched_act",
     "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
-    "lwt_out",
-    "raw_tracepoint_writable",
-    "xdp",
-    "sk_reuseport",
-    "sock_ops",
-    "flow_dissector",
+    "lwt_xmit",
     "sk_skb",
-    "kprobe",
+    "sock_ops",
+    "sk_reuseport",
+    "perf_event",
+    "cgroup_skb",
+    "tracepoint",
+    "lwt_seg6local",
     "socket_filter",
-    "lwt_in"
+    "flow_dissector",
+    "sched_cls",
+    "lwt_in",
+    "lwt_out",
+    "sk_msg",
+    "raw_tracepoint_writable",
+    "kprobe",
+    "sched_act",
+    "xdp",
+    "raw_tracepoint"
   ],
   "source": [
     "static __always_inline __maybe_unused void tail_call_dynamic (struct  __ctx_buff *ctx, const void *map, __u32 slot)\n",
@@ -168,8 +192,8 @@ tail_call_static(const struct __ctx_buff *ctx, const void *map,
     "}\n"
   ],
   "called_function_list": [
-    "__builtin_constant_p",
-    "__throw_build_bug"
+    "__throw_build_bug",
+    "__builtin_constant_p"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
