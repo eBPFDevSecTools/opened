@@ -4,12 +4,29 @@
 import re
 import sys
 
+# finds a pattern in lines and return an array of  start line, end line and text of the
+# non overlapping matches of the pattern
+def find_c_style_comment_matches(data, comment_regex_pattern=r'//.*?$|/\*.*?\*/'):
+    regex = re.compile(comment_regex_pattern, re.MULTILINE | re.DOTALL)
+    matches = []
+    for match in regex.finditer(data):
+        print('matched')
+        start_line = data.count('\n', 0, match.start()) + 1
+        end_line = data.count('\n', 0, match.end()) + 1
+        matched_text = match.group()
+        matches.append({
+            'start_line': start_line,
+            'end_line': end_line,
+            'text': matched_text
+        })
+    return matches
+
 def removeComments(text):
     """ remove c-style comments.
         text: blob of text with comments (can include newlines)
         returns: text with comments removed
     """
-    pattern = r"""
+    c_style_comments_pattern_verbose = r"""
                             ##  --------- COMMENT ---------
            //.*?$           ##  Start of // .... comment
          |                  ##
@@ -47,9 +64,9 @@ def removeComments(text):
              [^/"'\\]*      ##  Chars which doesn't start a comment, string
            )                ##    or escape
     """
+    pattern = c_style_comments_pattern_verbose
     regex = re.compile(pattern, re.VERBOSE|re.MULTILINE|re.DOTALL)
     noncomments = [m.group(2) for m in regex.finditer(text) if m.group(2)]
-
     return "".join(noncomments)
 
 def commentRemover(text):
@@ -59,16 +76,17 @@ def commentRemover(text):
             return " " # note: a space and not an empty string
         else:
             return s
-    pattern = re.compile(
-        r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"',
-        re.DOTALL | re.MULTILINE
-    )
+    c_style_comments_pattern = r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"'
+    pattern = re.compile(c_style_comments_pattern, re.DOTALL | re.MULTILINE)
     return re.sub(pattern, replacer, text)
 
 
 if __name__ == "__main__":
-    filename = 'examples/mptm.c'
+    filename = 'examples/xdp-mptm-main/src/kernel/mptm.c'
     with open(filename) as f:
         # uncmtFile = removeComments(f.read())
-        uncmtFile = commentRemover(f.read())
-        print(uncmtFile)
+        human_comments = find_c_style_comment_matches(f.read())
+        for comment in human_comments:
+            print(comment)
+        #uncmtFile = commentRemover(f.read())
+        #print('uncmt file '+ str(uncmtFile))

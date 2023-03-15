@@ -116,10 +116,10 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             
             startLineDict[startLine] = comment
             lines = []
-            continue;
+            continue
         if srcSeen:
             lines.append(line)
-            continue;
+            continue
         starting = re.match(r"<source",line)
         if starting:
             srcSeen = True

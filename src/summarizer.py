@@ -7,7 +7,7 @@ import subprocess
 import argparse
 import json
 import re
-import remove_c_style_comments as rmc
+import handle_c_style_comments as rmc
 from collections import defaultdict
 
 CAP="capability"
@@ -55,6 +55,36 @@ def create_capability_dict(helper_list, helperdict):
         data[cap_name]=lst
         data_list.append(data)
     return data_list
+
+def add_dict_to_cap_dict(cap_dict, cap_name):
+    if  not (cap_name in cap_dict):
+        cap_dict[cap_name] = {}
+        
+def add_helper_to_dict(cap_dict,cap_name,helper_name):
+    try:
+        helper_dict = cap_dict[cap_name]
+        helper_dict[helper_name] = 1
+    except Exception as e:
+        print(e)
+
+def generate_capabilities(helper_list,cap_dict):
+    capabilities = {}
+    #print("Capabilities")
+    for cap_name in cap_dict.keys():
+        helpers=set()
+        #print(cap_name)
+        cap_helpers = cap_dict[cap_name]
+        #print("cap_helpers")
+        #print(cap_helpers)
+        for helper_name in helper_list:
+            #print(helper_name)
+            if helper_name in cap_helpers.keys():
+                #print("Adding: "+cap_name)
+                helpers.add(helper_name)
+        if len(helpers) > 0:
+            #capabilities[cap_name]=set_to_string(helpers)
+            capabilities[cap_name] = helpers
+    return capabilities
 
 def get_compatible_hookpoints(helpers,helper_hookpoint_dict):
     hook_set = None
@@ -168,7 +198,7 @@ def run_cmd(cmd):
         print(output)
         return output
 
-def read_src_file(fname,beg,end):
+def read_src_file(fname, beg, end):
     ifile = open(fname,'r')
     lines = "".join(ifile.readlines()[beg:end])
     lines = rmc.removeComments(lines)
@@ -221,6 +251,6 @@ if __name__ == "__main__":
     helper_to_desc_dict = {}
 
     ifile = open('decompiled.c','r')
-    lines = ifile.readlines();
+    lines = ifile.readlines()
     helperCallParams = {}
     encoding = get_helper_encoding(lines, helperdict, helperCallParams)
