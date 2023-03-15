@@ -363,7 +363,10 @@ if __name__ == "__main__":
         funcCapDict = create_code_comments(txl_func_file, helperdict, cmt_op_dir, isCilium, human_comments_file, db_file)
         funcCapDict = remove_txl_missed_fn(funcCapDict)
         add_level_info(funcCapDict)
-        insert_to_db(comments_db, funcCapDict)
+        for fn in funcCapDict.keys():
+            for en in list(funcCapDict[fn]):
+                insert_to_db(comments_db, en)
+        #insert_to_db(comments_db, funcCapDict)
     else:
         print("no comment file found!")
    
