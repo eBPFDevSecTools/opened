@@ -10,16 +10,18 @@ from tinydb.operations import set
 
 def update_human_func_description(comments_db,comment_dict):
     funcName = comment_dict['funcName']
-    fname = comment_dict['File']
-    fname = fname.split('/')[-1]
+    
+    file_name = comment_dict['File']
+    fname = file_name.split('/')[-1]
     startLine = comment_dict['startLine']
     human_comment = comment_dict['humanFuncDescription']
     json_str = json.dumps(human_comment)
 
     print("Human Comment JSON: "+json_str)
     q = Query()
-    print("Checking funcName: "+funcName)
-    res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname))
+    print("Checking funcName: "+funcName+" fname: "+fname+ " file_name: "+file_name)
+    #res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname))
+    res = comments_db.search(q.funcName.search(funcName))
     print("Query Result1: " + str(len(res)))
     print(res)
     c = []
@@ -47,6 +49,7 @@ def update_human_func_description(comments_db,comment_dict):
 
             
     print("VALIDATING")
+    #res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname) )
     res = comments_db.search(q.funcName.search(funcName))
     print("Query REsult2: " + str(len(res)))
     print(res)
@@ -55,16 +58,7 @@ def update_human_func_description(comments_db,comment_dict):
         print(e['humanFuncDescription'])
 
 
-               
-
-    print("VALIDATING")
-    res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname) )
-    print("Query REsult2: " + str(len(res)))
-    print(res)
-    for e in res:
-        print(e['funcName'])
-        print(e['humanFuncDescription'])
-
+     
 
 
 def get_human_func_description(human_comments_file, path, func_name):
