@@ -6,35 +6,55 @@ import argparse
 import glob
 import os
 from tinydb import Query
-
+from tinydb.operations import set
 
 def update_human_func_description(comments_db,comment_dict):
     funcName = comment_dict['funcName']
     fname = comment_dict['File']
     fname = fname.split('/')[-1]
     startLine = comment_dict['startLine']
-    json_str = json.dumps(comment_dict)
+    human_comment = comment_dict['humanFuncDescription']
+    json_str = json.dumps(human_comment)
+
+    print("Human Comment JSON: "+json_str)
     q = Query()
-    print("Checking funcName: "+funcName+ " fname: "+fname)
+    print("Checking funcName: "+funcName)
     res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname))
     print("Query Result1: " + str(len(res)))
     print(res)
+    c = []
+    c.append(json_str)
+
     for e in res:
         print(e['funcName'])
         human_descs = e['humanFuncDescription']
-        print("Human Descs: ")
+        print("Human Descs: "+ str(len(human_descs)))
         print(human_descs)
-        if len(human_descs) > 1:
-            e['humanFuncDescription'].append(json_str)
+        if(len(human_descs) == 1) :
+            desc = human_descs[0]
+            print("desc: ")
+            print(desc)
+            #if desc == None or desc == "{}":
+            #Fix if for None
+            comments_db.update(set('humanFuncDescription',c),Query().funcName.matches(funcName))
+            print("UPDATED")
+            continue
         else:
             #check if description is empty
-            if(len(human_descs) == 1) :
-               desc = human_descs[0]
-               if desc['description'] == " " :
-                   e['humanFuncDescription'] = json_str
-            else:
-               e['humanFuncDescription'].append(json_str)
-               
+            human_descs.append(json_str)
+            comments_db.update(set('humanFuncDescription',c),Query().funcName.matches(funcName) )
+            print("UPDATED")
+
+            
+    print("VALIDATING")
+    res = comments_db.search(q.funcName.search(funcName))
+    print("Query REsult2: " + str(len(res)))
+    print(res)
+    for e in res:
+        print(e['funcName'])
+        print(e['humanFuncDescription'])
+
+
                
 
     print("VALIDATING")
