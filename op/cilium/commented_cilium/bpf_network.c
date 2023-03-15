@@ -17,27 +17,6 @@ __section("from-network")
 {
   "capabilities": [
     {
-      "capability": "pkt_alter_or_redo_processing_or_interface",
-      "pkt_alter_or_redo_processing_or_interface": [
-        {
-          "Project": "cilium",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "CTX_ACT_REDIRECT",
-          "Return": 7,
-          "Description": "Cilium wrapper. This allows to redirect the skb to the same or another\u2019s device ingress or egress path together with the redirect() helper. Being able to inject the packet into another device\u2019s ingress or egress direction allows for full flexibility in packet forwarding with BPF. There are no requirements on the target networking device other than being a networking device itself, there is no need to run another instance of cls_bpf on the target device or other such restrictions.",
-          "compatible_hookpoints": [
-            "xdp",
-            "sched_cls",
-            "sched_act"
-          ],
-          "capabilities": [
-            "pkt_alter_or_redo_processing_or_interface"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_go_to_next_module",
       "pkt_go_to_next_module": [
         {
@@ -57,6 +36,27 @@ __section("from-network")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_alter_or_redo_processing_or_interface",
+      "pkt_alter_or_redo_processing_or_interface": [
+        {
+          "Project": "cilium",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "CTX_ACT_REDIRECT",
+          "Return": 7,
+          "Description": "Cilium wrapper. This allows to redirect the skb to the same or another\u2019s device ingress or egress path together with the redirect() helper. Being able to inject the packet into another device\u2019s ingress or egress direction allows for full flexibility in packet forwarding with BPF. There are no requirements on the target networking device other than being a networking device itself, there is no need to run another instance of cls_bpf on the target device or other such restrictions.",
+          "compatible_hookpoints": [
+            "xdp",
+            "sched_cls",
+            "sched_act"
+          ],
+          "capabilities": [
+            "pkt_alter_or_redo_processing_or_interface"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -64,6 +64,7 @@ __section("from-network")
   "endLine": 88,
   "File": "/home/sayandes/opened_extraction/examples/cilium/bpf_network.c",
   "funcName": "from_network",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -71,12 +72,12 @@ __section("from-network")
   ],
   "output": "int",
   "helper": [
-    "CTX_ACT_REDIRECT",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "CTX_ACT_REDIRECT"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -112,10 +113,10 @@ __section("from-network")
     "}\n"
   ],
   "called_function_list": [
-    "do_decrypt",
-    "validate_ethertype",
     "bpf_clear_meta",
-    "send_trace_notify"
+    "send_trace_notify",
+    "validate_ethertype",
+    "do_decrypt"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

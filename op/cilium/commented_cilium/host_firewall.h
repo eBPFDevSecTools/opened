@@ -45,6 +45,7 @@
   "endLine": 100,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv6_host_policy_egress",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -57,8 +58,8 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -121,17 +122,17 @@
     "}\n"
   ],
   "called_function_list": [
+    "send_policy_verdict_notify",
+    "revalidate_data",
+    "ct_create6",
+    "ct_lookup6",
+    "get_ct_map6",
+    "ipv6_hdrlen",
     "ipv6_addr_copy",
     "lookup_ip6_remote_endpoint",
-    "ct_lookup6",
-    "ct_create6",
-    "ipv6_hdrlen",
-    "send_policy_verdict_notify",
-    "policy_can_egress6",
     "IS_ERR",
-    "cilium_dbg",
-    "revalidate_data",
-    "get_ct_map6"
+    "policy_can_egress6",
+    "cilium_dbg"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -265,6 +266,7 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
   "endLine": 199,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv6_host_policy_ingress",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -277,8 +279,8 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -346,18 +348,18 @@ ipv6_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
+    "send_policy_verdict_notify",
+    "revalidate_data",
+    "ct_create6",
+    "ct_lookup6",
+    "get_ct_map6",
+    "ipv6_hdrlen",
+    "policy_can_access_ingress",
     "ipv6_addr_copy",
     "lookup_ip6_remote_endpoint",
-    "ct_lookup6",
-    "ct_create6",
-    "ipv6_hdrlen",
-    "send_policy_verdict_notify",
     "ctx_change_type",
     "IS_ERR",
-    "policy_can_access_ingress",
-    "cilium_dbg",
-    "revalidate_data",
-    "get_ct_map6"
+    "cilium_dbg"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -508,6 +510,7 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
   "endLine": 249,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "whitelist_snated_egress_connections",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -520,8 +523,8 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -554,12 +557,12 @@ ipv6_host_policy_ingress(struct __ctx_buff *ctx, __u32 *src_id,
     "}\n"
   ],
   "called_function_list": [
-    "ct_create4",
-    "get_ct_map4",
+    "revalidate_data",
     "ct_lookup4",
+    "get_ct_map4",
     "ipv4_hdrlen",
-    "IS_ERR",
-    "revalidate_data"
+    "ct_create4",
+    "IS_ERR"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -656,6 +659,7 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
   "endLine": 337,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv4_host_policy_egress",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -669,8 +673,8 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -736,17 +740,17 @@ whitelist_snated_egress_connections(struct __ctx_buff *ctx, __u32 ipcache_srcid,
     "}\n"
   ],
   "called_function_list": [
-    "lookup_ip4_remote_endpoint",
-    "ct_create4",
-    "get_ct_map4",
-    "ct_lookup4",
     "send_policy_verdict_notify",
-    "whitelist_snated_egress_connections",
-    "policy_can_egress4",
+    "revalidate_data",
+    "lookup_ip4_remote_endpoint",
+    "ct_lookup4",
+    "get_ct_map4",
     "ipv4_hdrlen",
+    "ct_create4",
+    "whitelist_snated_egress_connections",
     "IS_ERR",
     "cilium_dbg",
-    "revalidate_data"
+    "policy_can_egress4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -882,6 +886,7 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
   "endLine": 439,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/host_firewall.h",
   "funcName": "ipv4_host_policy_ingress",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -894,8 +899,8 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -964,18 +969,18 @@ ipv4_host_policy_egress(struct __ctx_buff *ctx, __u32 src_id,
     "}\n"
   ],
   "called_function_list": [
-    "lookup_ip4_remote_endpoint",
-    "ct_create4",
-    "get_ct_map4",
-    "ct_lookup4",
     "send_policy_verdict_notify",
     "ipv4_is_fragment",
-    "ctx_change_type",
-    "ipv4_hdrlen",
+    "lookup_ip4_remote_endpoint",
+    "revalidate_data",
+    "ct_lookup4",
+    "get_ct_map4",
     "policy_can_access_ingress",
+    "ipv4_hdrlen",
+    "ct_create4",
+    "ctx_change_type",
     "IS_ERR",
-    "cilium_dbg",
-    "revalidate_data"
+    "cilium_dbg"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

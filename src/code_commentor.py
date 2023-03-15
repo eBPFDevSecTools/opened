@@ -56,7 +56,7 @@ def generate_comment(capability_dict):
 
 
 # parses output from c-extract-function.txl
-def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, human_comments_file, db_file_name, funcCapDict):
+def parseTXLFunctionOutputFileForComments(txlFile, opFile, srcFile, helperdict, map_update_fn, map_read_fn, human_comments_file, db_file_name, funcCapDict):
     srcSeen=False
     lines = []
     startLineDict ={}
@@ -65,17 +65,27 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
     output=""
     startLine = -1
     endLine = -1
-    for line in inputFile.readlines():
+    prevLine = 0
+
+    ifile = open(srcFile,'r')
+    srcLineList = ifile.readlines()
+    ifile.close()
+
+
+    for line in txlFile.readlines():
         ending = re.match(r"</source",line)
         if ending:
             srcSeen = False
             #dump to file
             funcName = funcName.replace('*','')
-            capability_dict = smt.get_capability_dict(startLine, endLine, srcFile, helperdict)
+            capability_dict = smt.get_capability_dict(srcLineList[startLine:endLine], helperdict)
             capability_dict['startLine'] = startLine
             capability_dict['endLine'] = endLine
             capability_dict['File'] = srcFile
             capability_dict['funcName'] = funcName
+            capability_dict['developer_inline_comments'] = list()
+            #call func with srcLineList[prevEndLine:endLine]
+            #prevEndLine = endLine + 1
             capability_dict['updateMaps'] = smt.get_update_maps(lines, map_update_fn)
             capability_dict['readMaps'] = smt.get_read_maps(lines, map_read_fn)
             capability_dict['input'] = funcArgs.split(',')
@@ -151,7 +161,7 @@ def parseTXLFunctionOutputFileForComments(inputFile, opFile, srcFile, helperdict
             startLine = int(tokens[-2])
             endLine = int(tokens[-1])
     if srcFile != "":
-        dump_comment(srcFile,startLineDict, opFile)
+        dump_comment(srcFile, startLineDict, opFile)
     return funcCapDict
 
         

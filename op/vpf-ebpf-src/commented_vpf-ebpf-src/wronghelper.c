@@ -60,6 +60,7 @@ __attribute__((section("xdp"), used))
   "endLine": 37,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/wronghelper.c",
   "funcName": "func",
+  "developer_inline_comments": [],
   "updateMaps": [
     " ctx"
   ],

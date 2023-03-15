@@ -56,6 +56,7 @@ struct {
   "endLine": 37,
   "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_root",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -63,8 +64,8 @@ struct {
   ],
   "output": "\\xdp\\)",
   "helper": [
-    "XDP_PASS",
-    "bpf_tail_call"
+    "bpf_tail_call",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -144,6 +145,7 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   "endLine": 47,
   "File": "/home/sayandes/opened_extraction/examples/katran/xdp_root.c",
   "funcName": "xdp_val",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -151,8 +153,8 @@ int SEC("xdp") xdp_root(struct xdp_md* ctx) {
   ],
   "output": "\\xdp\\)",
   "helper": [
-    "XDP_PASS",
-    "bpf_tail_call"
+    "bpf_tail_call",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"

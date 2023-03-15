@@ -46,6 +46,7 @@
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_l3",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -60,8 +61,8 @@
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -82,11 +83,11 @@
     "}\n"
   ],
   "called_function_list": [
+    "ipv6_dec_hoplimit",
     "icmp6_send_time_exceeded",
     "eth_store_daddr",
     "eth_store_saddr",
-    "IS_ERR",
-    "ipv6_dec_hoplimit"
+    "IS_ERR"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -158,6 +159,7 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
   "endLine": 56,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_l3",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -172,8 +174,8 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "CTX_ACT_OK"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -190,9 +192,9 @@ static __always_inline int ipv6_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "eth_store_saddr",
     "ipv4_dec_ttl",
-    "eth_store_daddr"
+    "eth_store_daddr",
+    "eth_store_saddr"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -265,6 +267,7 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   "endLine": 106,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv6_local_delivery",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -277,13 +280,13 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "tail_call",
     "redirect",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "tail_call"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -319,13 +322,13 @@ static __always_inline int ipv4_l3(struct __ctx_buff *ctx, int l3_off,
     "}\n"
   ],
   "called_function_list": [
-    "ipv6_l3",
-    "ctx_full_len",
+    "update_metrics",
     "tail_call_dynamic",
     "redirect_ep",
-    "set_identity_mark",
+    "ipv6_l3",
     "ctx_store_meta",
-    "update_metrics",
+    "ctx_full_len",
+    "set_identity_mark",
     "cilium_dbg",
     "defined"
   ],
@@ -425,6 +428,7 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   "endLine": 154,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "ipv4_local_delivery",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -438,13 +442,13 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "output": "static__always_inlineint",
   "helper": [
-    "tail_call",
     "redirect",
-    "CTX_ACT_OK"
+    "CTX_ACT_OK",
+    "tail_call"
   ],
   "compatibleHookpoints": [
-    "xdp",
     "sched_cls",
+    "xdp",
     "sched_act"
   ],
   "source": [
@@ -481,12 +485,12 @@ static __always_inline int ipv6_local_delivery(struct __ctx_buff *ctx, int l3_of
   ],
   "called_function_list": [
     "ipv4_l3",
-    "ctx_full_len",
+    "update_metrics",
     "tail_call_dynamic",
     "redirect_ep",
-    "set_identity_mark",
     "ctx_store_meta",
-    "update_metrics",
+    "ctx_full_len",
+    "set_identity_mark",
     "cilium_dbg",
     "defined"
   ],
@@ -603,6 +607,7 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
   "endLine": 185,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/l3.h",
   "funcName": "get_min_encrypt_key",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  ENCRYPT_MAP"
@@ -615,29 +620,29 @@ static __always_inline int ipv4_local_delivery(struct __ctx_buff *ctx, int l3_of
     "map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline __u8 get_min_encrypt_key (__u8 peer_key __maybe_unused)\n",

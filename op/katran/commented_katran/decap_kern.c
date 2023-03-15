@@ -60,6 +60,7 @@
   "endLine": 83,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_l3_headers",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -118,10 +119,10 @@
     "}\n"
   ],
   "called_function_list": [
-    "memcpy",
-    "bpf_ntohs",
+    "parse_icmp",
     "parse_icmpv6",
-    "parse_icmp"
+    "bpf_ntohs",
+    "memcpy"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -224,6 +225,7 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
   "endLine": 120,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_ipip_pckt",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -276,10 +278,10 @@ __attribute__((__always_inline__)) static inline int process_l3_headers(
     "}\n"
   ],
   "called_function_list": [
-    "decrement_ttl",
-    "decap_v6",
     "decap_v4",
-    "recirculate"
+    "decrement_ttl",
+    "recirculate",
+    "decap_v6"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -369,6 +371,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
   "endLine": 161,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_encaped_gue_pckt",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -420,10 +423,10 @@ __attribute__((__always_inline__)) static inline int process_encaped_ipip_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "decrement_ttl",
-    "gue_decap_v4",
     "recirculate",
-    "gue_decap_v6"
+    "decrement_ttl",
+    "gue_decap_v6",
+    "gue_decap_v4"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -492,6 +495,25 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
 {
   "capabilities": [
     {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
+    },
+    {
       "capability": "map_read",
       "map_read": [
         {
@@ -534,25 +556,6 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
           ]
         }
       ]
-    },
-    {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
     }
   ],
   "helperCallParams": {},
@@ -560,6 +563,7 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   "endLine": 221,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "process_packet",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  decap_counters"
@@ -573,8 +577,8 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
   ],
   "output": "staticinlineint",
   "helper": [
-    "bpf_map_lookup_elem",
-    "XDP_PASS"
+    "XDP_PASS",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -636,28 +640,28 @@ __attribute__((__always_inline__)) static inline int process_encaped_gue_pckt(
     "}\n"
   ],
   "called_function_list": [
-    "REPORT_PACKET_TOOBIG",
-    "parse_quic",
-    "PCKT_ENCAP_V6",
-    "increment_quic_cid_drop_real_0",
-    "get_packet_dst",
-    "increment_quic_cid_drop_no_real",
-    "connection_table_lookup",
-    "PCKT_ENCAP_V4",
-    "bpf_htons",
     "REPORT_TCP_NONSYN_LRUMISS",
-    "tcp_hdr_opt_lookup",
-    "process_l3_headers",
-    "perform_global_lru_lookup",
-    "parse_udp",
-    "parse_tcp",
-    "increment_quic_cid_version_stats",
-    "send_icmp_too_big",
-    "REPORT_QUIC_PACKET_DROP_NO_REAL",
-    "process_encaped_ipip_pckt",
-    "memcpy",
     "check_decap_dst",
-    "process_encaped_gue_pckt"
+    "process_encaped_ipip_pckt",
+    "increment_quic_cid_drop_real_0",
+    "perform_global_lru_lookup",
+    "parse_quic",
+    "send_icmp_too_big",
+    "increment_quic_cid_version_stats",
+    "get_packet_dst",
+    "parse_udp",
+    "connection_table_lookup",
+    "tcp_hdr_opt_lookup",
+    "PCKT_ENCAP_V6",
+    "bpf_htons",
+    "process_encaped_gue_pckt",
+    "PCKT_ENCAP_V4",
+    "REPORT_PACKET_TOOBIG",
+    "increment_quic_cid_drop_no_real",
+    "REPORT_QUIC_PACKET_DROP_NO_REAL",
+    "memcpy",
+    "parse_tcp",
+    "process_l3_headers"
   ],
   "call_depth": -1,
   "humanFuncDescription": [
@@ -745,25 +749,6 @@ SEC("decap")
 {
   "capabilities": [
     {
-      "capability": "pkt_go_to_next_module",
-      "pkt_go_to_next_module": [
-        {
-          "Project": "libbpf",
-          "Return Type": "int",
-          "Input Params": [],
-          "Function Name": "XDP_PASS",
-          "Return": 2,
-          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
-          "compatible_hookpoints": [
-            "xdp"
-          ],
-          "capabilities": [
-            "pkt_go_to_next_module"
-          ]
-        }
-      ]
-    },
-    {
       "capability": "pkt_stop_processing_drop_packet",
       "pkt_stop_processing_drop_packet": [
         {
@@ -781,6 +766,25 @@ SEC("decap")
           ]
         }
       ]
+    },
+    {
+      "capability": "pkt_go_to_next_module",
+      "pkt_go_to_next_module": [
+        {
+          "Project": "libbpf",
+          "Return Type": "int",
+          "Input Params": [],
+          "Function Name": "XDP_PASS",
+          "Return": 2,
+          "Description": "The XDP_PASS return code means that the packet is allowed to be passed up to the kernel\u2019s networking stack. Meaning, the current CPU that was processing this packet now allocates a skb, populates it, and passes it onwards into the GRO engine. This would be equivalent to the default packet handling behavior without XDP.",
+          "compatible_hookpoints": [
+            "xdp"
+          ],
+          "capabilities": [
+            "pkt_go_to_next_module"
+          ]
+        }
+      ]
     }
   ],
   "helperCallParams": {},
@@ -788,6 +792,7 @@ SEC("decap")
   "endLine": 247,
   "File": "/home/sayandes/opened_extraction/examples/katran/decap_kern.c",
   "funcName": "xdpdecap",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -795,8 +800,8 @@ SEC("decap")
   ],
   "output": "int",
   "helper": [
-    "XDP_PASS",
-    "XDP_DROP"
+    "XDP_DROP",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"

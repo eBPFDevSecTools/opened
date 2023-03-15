@@ -60,6 +60,7 @@ __attribute__((section("sockops"), used))
   "endLine": 38,
   "File": "/home/sayandes/opened_extraction/examples/vpf-ebpf-src/ctxoffset.c",
   "funcName": "func",
+  "developer_inline_comments": [],
   "updateMaps": [
     " ctx"
   ],

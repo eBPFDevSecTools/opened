@@ -31,6 +31,7 @@
   "endLine": 39,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
   "funcName": "sk_msg_extract4_key",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -40,29 +41,29 @@
   "output": "static__always_inlinevoid",
   "helper": [],
   "compatibleHookpoints": [
-    "cgroup_device",
     "sched_cls",
-    "perf_event",
-    "sched_act",
-    "cgroup_sock",
-    "raw_tracepoint",
-    "sk_msg",
-    "cgroup_skb",
-    "lwt_seg6local",
-    "lwt_xmit",
     "cgroup_sock_addr",
-    "tracepoint",
     "cgroup_sysctl",
-    "lwt_out",
-    "raw_tracepoint_writable",
+    "sk_msg",
     "xdp",
-    "sk_reuseport",
-    "sock_ops",
+    "lwt_in",
     "flow_dissector",
-    "sk_skb",
+    "sched_act",
+    "tracepoint",
     "kprobe",
+    "lwt_xmit",
+    "sock_ops",
+    "raw_tracepoint",
+    "sk_reuseport",
+    "raw_tracepoint_writable",
+    "sk_skb",
+    "lwt_out",
     "socket_filter",
-    "lwt_in"
+    "cgroup_skb",
+    "cgroup_device",
+    "perf_event",
+    "cgroup_sock",
+    "lwt_seg6local"
   ],
   "source": [
     "static __always_inline void sk_msg_extract4_key (const struct sk_msg_md *msg, struct sock_key *key)\n",
@@ -125,6 +126,7 @@ __section("sk_msg")
   "endLine": 67,
   "File": "/home/sayandes/opened_extraction/examples/cilium/sockops/bpf_redir.c",
   "funcName": "bpf_redir_proxy",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -159,9 +161,9 @@ __section("sk_msg")
     "}\n"
   ],
   "called_function_list": [
-    "sk_msg_extract4_key",
+    "policy_sk_egress",
     "lookup_ip4_remote_endpoint",
-    "policy_sk_egress"
+    "sk_msg_extract4_key"
   ],
   "call_depth": -1,
   "humanFuncDescription": [

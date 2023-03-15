@@ -97,6 +97,7 @@
   "endLine": 70,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "submit_event",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [
     "  ctl_array"
@@ -111,24 +112,24 @@
   ],
   "output": "staticinlinevoid",
   "helper": [
-    "bpf_map_lookup_elem",
-    "bpf_perf_event_output"
+    "bpf_perf_event_output",
+    "bpf_map_lookup_elem"
   ],
   "compatibleHookpoints": [
-    "socket_filter",
-    "lwt_in",
-    "lwt_xmit",
-    "sched_act",
-    "tracepoint",
-    "lwt_seg6local",
-    "cgroup_skb",
-    "sock_ops",
-    "perf_event",
-    "sk_skb",
     "sched_cls",
+    "lwt_seg6local",
+    "sk_skb",
+    "socket_filter",
     "raw_tracepoint",
-    "xdp",
+    "tracepoint",
+    "lwt_in",
+    "sock_ops",
     "raw_tracepoint_writable",
+    "perf_event",
+    "sched_act",
+    "xdp",
+    "cgroup_skb",
+    "lwt_xmit",
     "kprobe",
     "lwt_out"
   ],
@@ -232,6 +233,7 @@ __attribute__((__always_inline__)) static inline void submit_event(
   "endLine": 80,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "recirculate",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -239,8 +241,8 @@ __attribute__((__always_inline__)) static inline void submit_event(
   ],
   "output": "staticinlineint",
   "helper": [
-    "XDP_PASS",
-    "bpf_tail_call"
+    "bpf_tail_call",
+    "XDP_PASS"
   ],
   "compatibleHookpoints": [
     "xdp"
@@ -308,6 +310,7 @@ __attribute__((__always_inline__)) static inline int recirculate(
   "endLine": 111,
   "File": "/home/sayandes/opened_extraction/examples/katran/balancer_helpers.h",
   "funcName": "decrement_ttl",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [

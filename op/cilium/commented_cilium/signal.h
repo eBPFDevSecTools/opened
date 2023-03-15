@@ -42,6 +42,7 @@ struct signal_msg {
   "endLine": 41,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -53,11 +54,11 @@ struct signal_msg {
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "perf_event",
     "kprobe",
+    "raw_tracepoint",
     "raw_tracepoint_writable",
-    "tracepoint",
-    "raw_tracepoint"
+    "perf_event",
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal (struct  __ctx_buff *ctx, struct signal_msg *msg)\n",
@@ -100,6 +101,7 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
   "endLine": 52,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal_nat_fill_up",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -111,11 +113,11 @@ static __always_inline void send_signal(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "perf_event",
     "kprobe",
+    "raw_tracepoint",
     "raw_tracepoint_writable",
-    "tracepoint",
-    "raw_tracepoint"
+    "perf_event",
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal_nat_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
@@ -164,6 +166,7 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
   "endLine": 63,
   "File": "/home/sayandes/opened_extraction/examples/cilium/lib/signal.h",
   "funcName": "send_signal_ct_fill_up",
+  "developer_inline_comments": [],
   "updateMaps": [],
   "readMaps": [],
   "input": [
@@ -175,11 +178,11 @@ static __always_inline void send_signal_nat_fill_up(struct __ctx_buff *ctx,
     "send_signal"
   ],
   "compatibleHookpoints": [
-    "perf_event",
     "kprobe",
+    "raw_tracepoint",
     "raw_tracepoint_writable",
-    "tracepoint",
-    "raw_tracepoint"
+    "perf_event",
+    "tracepoint"
   ],
   "source": [
     "static __always_inline void send_signal_ct_fill_up (struct  __ctx_buff *ctx, __u32 proto)\n",
