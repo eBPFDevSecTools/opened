@@ -17,29 +17,29 @@
       "output": "static__inlineint",
       "helper": [],
       "compatibleHookpoints": [
-        "sk_skb",
-        "xdp",
-        "lwt_seg6local",
-        "kprobe",
-        "lwt_out",
-        "raw_tracepoint_writable",
-        "raw_tracepoint",
-        "cgroup_sock_addr",
-        "cgroup_sysctl",
-        "cgroup_device",
-        "perf_event",
-        "lwt_in",
-        "sk_msg",
-        "tracepoint",
-        "lwt_xmit",
-        "socket_filter",
-        "sk_reuseport",
         "cgroup_skb",
-        "cgroup_sock",
-        "flow_dissector",
-        "sock_ops",
+        "raw_tracepoint",
+        "lwt_out",
+        "sk_skb",
+        "sched_cls",
+        "lwt_in",
+        "sk_reuseport",
+        "raw_tracepoint_writable",
+        "cgroup_sysctl",
+        "kprobe",
         "sched_act",
-        "sched_cls"
+        "flow_dissector",
+        "lwt_xmit",
+        "tracepoint",
+        "cgroup_sock",
+        "socket_filter",
+        "cgroup_sock_addr",
+        "sock_ops",
+        "lwt_seg6local",
+        "cgroup_device",
+        "xdp",
+        "perf_event",
+        "sk_msg"
       ],
       "source": [
         "static __inline int compare_mac (__u8 *mac1, __u8 *mac2)\n",
@@ -83,29 +83,29 @@
       "output": "static__inlineint",
       "helper": [],
       "compatibleHookpoints": [
-        "sk_skb",
-        "xdp",
-        "lwt_seg6local",
-        "kprobe",
-        "lwt_out",
-        "raw_tracepoint_writable",
-        "raw_tracepoint",
-        "cgroup_sock_addr",
-        "cgroup_sysctl",
-        "cgroup_device",
-        "perf_event",
-        "lwt_in",
-        "sk_msg",
-        "tracepoint",
-        "lwt_xmit",
-        "socket_filter",
-        "sk_reuseport",
         "cgroup_skb",
-        "cgroup_sock",
-        "flow_dissector",
-        "sock_ops",
+        "raw_tracepoint",
+        "lwt_out",
+        "sk_skb",
+        "sched_cls",
+        "lwt_in",
+        "sk_reuseport",
+        "raw_tracepoint_writable",
+        "cgroup_sysctl",
+        "kprobe",
         "sched_act",
-        "sched_cls"
+        "flow_dissector",
+        "lwt_xmit",
+        "tracepoint",
+        "cgroup_sock",
+        "socket_filter",
+        "cgroup_sock_addr",
+        "sock_ops",
+        "lwt_seg6local",
+        "cgroup_device",
+        "xdp",
+        "perf_event",
+        "sk_msg"
       ],
       "source": [
         "static __inline int is_broadcast_mac (__u8 *m)\n",
@@ -227,95 +227,95 @@
       "funcName": "filter",
       "developer_inline_comments": [
         {
-          "start_line": 13,
-          "end_line": 17,
+          "start_line": 112,
+          "end_line": 116,
           "text": "/*\n    This filter attaches on veth (interface in root namespace) and not\n    vpeer (interface in the pod namespace) so INGRESS means data coming from pod\n    EGRESS means data going towards the pod.\n*/"
         },
         {
-          "start_line": 49,
-          "end_line": 49,
+          "start_line": 148,
+          "end_line": 148,
           "text": "/* ETH_P_IP in Little Endian Format */"
         },
         {
-          "start_line": 61,
-          "end_line": 61,
+          "start_line": 160,
+          "end_line": 160,
           "text": "// haven't found the stat-entry, unexpected behavior, let packet go through."
         },
         {
-          "start_line": 66,
-          "end_line": 66,
+          "start_line": 165,
+          "end_line": 165,
           "text": "// Mac address lookup"
         },
         {
-          "start_line": 69,
-          "end_line": 69,
+          "start_line": 168,
+          "end_line": 168,
           "text": "/* Unable to get iface MAC. Let the packet through */"
         },
         {
-          "start_line": 75,
-          "end_line": 75,
+          "start_line": 174,
+          "end_line": 174,
           "text": "// IP addresss lookup"
         },
         {
-          "start_line": 78,
-          "end_line": 78,
+          "start_line": 177,
+          "end_line": 177,
           "text": "/* Unable to get iface IP. Let the packet through */"
         },
         {
-          "start_line": 84,
-          "end_line": 84,
+          "start_line": 183,
+          "end_line": 183,
           "text": "// check broadcast messages"
         },
         {
-          "start_line": 85,
-          "end_line": 85,
+          "start_line": 184,
+          "end_line": 184,
           "text": "// Broadcast address should be allowed"
         },
         {
-          "start_line": 92,
-          "end_line": 92,
+          "start_line": 191,
+          "end_line": 191,
           "text": "/* check is packet is coming from pod or going towards pod. */"
         },
         {
-          "start_line": 94,
-          "end_line": 94,
+          "start_line": 193,
+          "end_line": 193,
           "text": "// Packet is going towards the pod. Let is pass"
         },
         {
-          "start_line": 98,
-          "end_line": 98,
+          "start_line": 197,
+          "end_line": 197,
           "text": "// Packet has come from the pod. Check the mac address."
         },
         {
-          "start_line": 114,
-          "end_line": 114,
+          "start_line": 213,
+          "end_line": 213,
           "text": "// MAC Address matches. Now check IP address"
         },
         {
-          "start_line": 117,
-          "end_line": 117,
+          "start_line": 216,
+          "end_line": 216,
           "text": "// If IP addresss do not match"
         },
         {
-          "start_line": 124,
-          "end_line": 124,
+          "start_line": 223,
+          "end_line": 223,
           "text": "// IP address matches"
         }
       ],
       "updateMaps": [],
       "readMaps": [
-        "  iface_stat_map",
+        "  iface_ip_map",
         "  iface_map",
-        "  iface_ip_map"
+        "  iface_stat_map"
       ],
       "input": [
         "struct  __sk_buff *skb"
       ],
       "output": "static__inlineint",
       "helper": [
+        "bpf_trace_printk",
         "bpf_map_lookup_elem",
         "TC_ACT_OK",
-        "bpf_trace_printk",
         "TC_ACT_SHOT"
       ],
       "compatibleHookpoints": [
@@ -435,29 +435,29 @@
       "output": "int",
       "helper": [],
       "compatibleHookpoints": [
-        "sk_skb",
-        "xdp",
-        "lwt_seg6local",
-        "kprobe",
-        "lwt_out",
-        "raw_tracepoint_writable",
-        "raw_tracepoint",
-        "cgroup_sock_addr",
-        "cgroup_sysctl",
-        "cgroup_device",
-        "perf_event",
-        "lwt_in",
-        "sk_msg",
-        "tracepoint",
-        "lwt_xmit",
-        "socket_filter",
-        "sk_reuseport",
         "cgroup_skb",
-        "cgroup_sock",
-        "flow_dissector",
-        "sock_ops",
+        "raw_tracepoint",
+        "lwt_out",
+        "sk_skb",
+        "sched_cls",
+        "lwt_in",
+        "sk_reuseport",
+        "raw_tracepoint_writable",
+        "cgroup_sysctl",
+        "kprobe",
         "sched_act",
-        "sched_cls"
+        "flow_dissector",
+        "lwt_xmit",
+        "tracepoint",
+        "cgroup_sock",
+        "socket_filter",
+        "cgroup_sock_addr",
+        "sock_ops",
+        "lwt_seg6local",
+        "cgroup_device",
+        "xdp",
+        "perf_event",
+        "sk_msg"
       ],
       "source": [
         "int bpf_filter (struct  __sk_buff *skb)\n",
