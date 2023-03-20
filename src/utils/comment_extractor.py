@@ -15,19 +15,16 @@ def update_human_func_description(comments_db,comment_dict):
     file_name = comment_dict['File']
     fname = file_name.split('/')[-1]
     startLine = comment_dict['startLine']
-    human_comment = comment_dict['humanFuncDescription']
-    json_str = json.dumps(human_comment)
+    human_comments = comment_dict['humanFuncDescription']
+    json_str = json.dumps(human_comments)
 
-    print("Human Comment JSON: "+json_str)
+    print("Human Comments JSON: "+json_str)
     q = Query()
     print("Checking funcName: "+funcName+" fname: "+fname+ " file_name: "+file_name)
     res = comments_db.search(q.funcName.search(funcName) & q.File.search(fname))
     #res = comments_db.search(q.funcName.search(funcName))
     print("Query Result1: " + str(len(res)))
     print(res)
-    c = []
-    #c.append(json_str)
-    c.append(human_comment)
 
     for e in res:
         print(e['funcName'])
@@ -40,15 +37,24 @@ def update_human_func_description(comments_db,comment_dict):
             print(desc)
             #if desc == None or desc == "{}":
             #Fix if for None
-            comments_db.update(set('humanFuncDescription',c),(Query().funcName.matches(funcName))  & (Query().File.search(fname)))
+            #comments_db.update(set('humanFuncDescription',c),(Query().funcName.matches(funcName))  & (Query().File.search(fname)))
+            for human_comment in human_comments:
+                human_descs.append(human_comment)
+            comments_db.update(set('humanFuncDescription',human_descs),(Query().funcName.matches(funcName))  & (Query().File.search(fname))  )
+
             print("UPDATED")
-            continue
+            print("UPDATED HUMAN DESCS:")
+            print(human_descs)
+
         else:
             #check if description is empty
             #human_descs.append(json_str)
-            human_descs.append(human_comment)
+            for human_comment in human_comments:
+                human_descs.append(human_comment)
             comments_db.update(set('humanFuncDescription',human_descs),(Query().funcName.matches(funcName))  & (Query().File.search(fname))  )
             print("UPDATED")
+            print("UPDATED HUMAN DESCS:")
+            print(human_descs)
 
             
     print("VALIDATING")
