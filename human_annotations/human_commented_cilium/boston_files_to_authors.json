@@ -1,0 +1,67 @@
+[
+    {
+      "file": "commented_OPENED_cilium_bpf_alignchecker.c",
+      "authorName": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_cilium_bpf_lxc.c",
+      "authorName": "Yihe Bi",
+      "authorEmail": "ybi@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_cilium_bpf_network.c",
+      "authorName": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_cilium_bpf_overlay.c",
+      "authorName": "Yichen Wang",
+      "authorEmail": "wyichen@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_cilium_cilium-probe-kernel-hz.c",
+      "authorName": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_cilium_sockops_bpf_redir.c",
+      "authorName": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_cilium_sockops_bpf_sockops.c",
+      "authorName": "Shun Zhang",
+      "authorEmail": "shunz@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_katran_balancer_kern.c",
+      "authorName": "Nengneng Yu",
+      "authorEmail": "ynn1999@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_katran_decap_kern.c",
+      "authorName": "Qintian Huang",
+      "authorEmail": "qthuang@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_katran_healthchecking_ipip.c",
+      "authorName": "Qintian Huang",
+      "authorEmail": "qthuang@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_katran_healthchecking_kern.c",
+      "authorName": "Qintian Huang",
+      "authorEmail": "qthuang@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_katran_xdp_root.c",
+      "authorName": "Qintian Huang",
+      "authorEmail": "qthuang@bu.edu"
+    },
+    {
+      "file": "commented_OPENED_katran_x.c",
+      "authorName": "Qintian Huang",
+      "authorEmail": "qthuang@bu.edu"
+    }
+  ]
