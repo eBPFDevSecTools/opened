@@ -152,6 +152,7 @@ def copy_include_files(iFile, opdir,base_dir):
         if line.endswith(".h"):
             full_line = run_cmd("readlink -f "+line) 
             header_path= full_line.split(base_dir)[-1]
+            print("Header Path: "+header_path)
             dir_name= opdir+"/"+header_path
             print("dir_name: "+dir_name)
             os.makedirs(os.path.dirname(dir_name), exist_ok=True)
@@ -249,7 +250,8 @@ def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set):
         for func_defn in func_defn_list:
             func_defn_dict = func_defn
             #func_defn_dict = json.loads(func_defn)
-            fileName = func_defn_dict["fileName"]
+            #fileName = func_defn_dict["fileName"]
+            fileName = func_defn_dict["File"]
             startLine = func_defn_dict["startLine"]
             endLine = func_defn_dict["endLine"]
             if not fileName in presDict:
@@ -264,8 +266,6 @@ def build_fn_list_to_extract(txl_func_dict,fcg_fns,extract_defines_files_set):
                 #TODO:DO not include duplicate #defines
                 if fileName.endswith(".c"):
                     extract_defines_files_set.add(fileName)
-                    
-
 
 # read cFile and included headers to headers dict
 def addDependsOn(cFile):
@@ -342,10 +342,6 @@ def buildIncludesOrderingGraph(cFile):
                 h = h.replace(">","")
                 h = h.replace("\"","")
                 print("cFile: ",cFile," h: ",h)
-                
-                
-                
-               
     iFile.close()
 
 def processFuncLine(line,fns):
@@ -409,35 +405,35 @@ def parseFunctionCallGraph(ifile,fns,maps):
             else:
                 print("TODO: PROCESS DUPLICATE MAP DEFNS..IGNORE FOR NOW")
 
+def search_function(function_name, db_file, opf_name):
+    print("Running cqsearch for ",function_name," and outputting dependencies to "+ opf_name)
+    status=run_cmd("cqsearch -s "+db_file+" -t "+function_name+"  -p 7  -l 100 -k 10 -e -o "+ opf_name)
+    base_dir = os.getcwd()
+    cmd_str=" sed -i  -e \"s|\$HOME|"+base_dir+"|g\" " +opf_name
+    status=run_cmd(cmd_str)
+
+
             
 if __name__ == "__main__":
 
- 
+
     parser = argparse.ArgumentParser(description='Function Extractor')
     parser.add_argument('-o','--opdir', type=str,required=True,
-                    help='directory to dump extracted files to ')
-
+            help='directory to dump extracted files to ')
     parser.add_argument('-c','--codequeryOutputFile', type=str,required=True,
-                    help='Function and Map dependency output from codequery ')
-
+            help='Function and Map dependency output from codequery ')
     parser.add_argument('-e','--extractedFileName', type=str,required=True,
-                    help='Output file with extracted function')
-
+            help='Output file with extracted function')
     parser.add_argument('-t','--struct_info', type=str,required=True,
-                    help='json file containing struct definitions in the repo')
-
+            help='JSON file containing struct definitions in the repo')
     parser.add_argument('-f','--func_info', type=str,required=True,
-                    help='json file containing function definitions in the repo')
-
+            help='JSON file containing function definitions in the repo')
     parser.add_argument('-s','--srcdir', type=str,required=True,
-                    help='Directory containing source files for function  to be extraced from')
-
+            help='Directory containing source files for function  to be extraced from')
     parser.add_argument('-b','--basedir', type=str,required=True,
-                    help='Base Directory path relative to which directory structure in opdir will be created')
-
+            help='Base Directory path relative to which directory structure in opdir will be created')
     parser.add_argument('--isCilium', action='store_true',required=False,
             help='whether repository is cilium')
-
     
     args = parser.parse_args()
 
@@ -448,7 +444,6 @@ if __name__ == "__main__":
 
 
     opdir=args.opdir
-    codequeryOutputFile=args.codequeryOutputFile
     extractedFileName = opdir+"/"+args.extractedFileName
 
     struct_info =args.struct_info
@@ -459,6 +454,7 @@ if __name__ == "__main__":
     cscopeFile="./cscope.files"
     dupFileName=opdir+"/"+"duplicates.out"
     extractedFunctionListFile="extractedFuncList.out"
+    codequeryOutputFile = args.codequeryOutputFile 
     
     #dict containing function definitions
     #fns = {}
@@ -564,7 +560,6 @@ if __name__ == "__main__":
         if isDup == True:
             f.write("//ATTENTION END \n")
             isDup=False;
-
         
     dumpFns(f,eFile)
     if isCilium:
@@ -586,8 +581,6 @@ if __name__ == "__main__":
         else:
             print("MAP",mapName)
     
-    
     for dup in duplicates:
         dupFile.write(dup)
     dupFile.close()
-

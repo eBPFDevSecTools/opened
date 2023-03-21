@@ -30,49 +30,18 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
 
 ## Extraction code and artefacts
 
-Code extraction consists of two phases 1) Generating annotated function call graph 2) Extracting required code from source files to generate an independantly compilable module.
+Code extraction consists of three phases 1) Determining the necessary functions and data-structures to be copied, 2) (Manual) disambiguation of the target set of functions identified in previous step and 3) Extracting required code from source files to generate an independantly compilable module.
 
 
-### Phase I: Annotated Function Call Generation
+### Phase I: Determining necessary functions and data-structures for extracting specific functionality
 
- 1. Run the docker. ``docker run -it --privileged --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/examples,dst=/root/examples --mount type=bind,src=<source_code_dir_on_host>/opened_extraction/op, dst=/root/op opened/extract:0.01``. Where ``op`` is the folder created in step Install.3 . The output is expected to be dumped in this folder, so that it is available for later processing/use in host system.
-
-2. Run annotator phase1, 
-TODO: Expand README to include additional capabilities moved into annotator
-```
-python3 src/annotator.py
-usage: annotator.py [-h] [-annotate_only ANNOTATE_ONLY] -s SRC_DIR -o TXL_OP_DIR [-c OPENED_COMMENT_STUB_FOLDER] [-r BPFHELPERFILE]
-                    [-t TXL_FUNCTION_LIST] [-u TXL_STRUCT_LIST] [--isCilium]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -annotate_only ANNOTATE_ONLY
-  -s SRC_DIR, --src_dir SRC_DIR
-                        directory with source code
-  -o TXL_OP_DIR, --txl_op_dir TXL_OP_DIR
-                        directory to put txl annotated files
-  -c OPENED_COMMENT_STUB_FOLDER, --opened_comment_stub_folder OPENED_COMMENT_STUB_FOLDER
-                        directory to put source files with comment stub
-  -r BPFHELPERFILE, --bpfHelperFile BPFHELPERFILE
-                        Information regarding bpf_helper_funcitons
-  -t TXL_FUNCTION_LIST, --txl_function_list TXL_FUNCTION_LIST
-                        JSON with information regarding functions present. output of foundation_maker.py
-  -u TXL_STRUCT_LIST, --txl_struct_list TXL_STRUCT_LIST
-                        JSON with information regarding structures present. output of foundation_maker.py
-  --isCilium            whether repository is cilium
-
-```
-
-NOTE: **The description given above might be dated, always check examples given in run1.sh for latest capabilities.**
- 
-3. Run annotated function call graph extraction phase, 
+1. Run annotated function call graph extraction phase, 
 ```
 python3 src/extraction_runner.py -h
-usage: extraction_runner.py [-h] [-annotate_only ANNOTATE_ONLY] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] [-r REPO_NAME]
+usage: extraction_runner.py [-h] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] [-r REPO_NAME]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -annotate_only ANNOTATE_ONLY
   -f FUNCTION_NAME, --function_name FUNCTION_NAME
                         function name to be extracted
   -d DB_FILE_NAME, --db_file_name DB_FILE_NAME
