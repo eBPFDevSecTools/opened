@@ -44,13 +44,6 @@ RUN python3 -m pip install tinydb
 #install txl
 WORKDIR /root
 RUN mkdir /root/deps
-
-RUN wget -O /tmp/txl.tgz  https://www.txl.ca/download/15372-txl10.8b.linux64.tar.gz
-RUN tar -xvzf '/tmp/txl.tgz' --strip-components 1 --one-top-level=/root/deps/txl -C .
-RUN ls /root
-WORKDIR /root/deps/txl
-RUN ./InstallTxl
-
 RUN rm -rf /root/deps/codequery
 RUN mkdir /root/deps/codequery
 ADD codequery /root/deps/codequery
@@ -65,9 +58,7 @@ RUN ninja install
 
 #add extraction code 
 WORKDIR /root
-ADD asset asset
 ADD src src
-ADD run1.sh run1.sh
 ADD run2.sh run2.sh
 ADD run3.sh run3.sh
 #ADD op op
