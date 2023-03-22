@@ -1,7 +1,0 @@
-#capability,pkt_go_to_next_module
-TC_ACT_OK,1
-XDP_PASS,1
-TC_ACT_PIPE,1
-TC_ACT_RECLASSIFY,1
-TC_ACT_UNSPEC,1
-CTX_ACT_OK,1

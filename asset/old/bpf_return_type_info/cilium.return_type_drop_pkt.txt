@@ -1,2 +1,0 @@
-#capability,pkt_stop_processing_drop_packet
-CTX_ACT_DROP,1
