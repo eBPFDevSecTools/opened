@@ -10,15 +10,14 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
 ## Download
  1. ``git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git``
  2. ``cd opened_extraction``
- 3. 
- 4. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
+ 3. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
  
 ## Install 
 ### Process 1: Docker
  1. ``mkdir op`` To store the output of extraction phase (or any other folder name)
- 2.  ``docker build . -t opened/extract:0.01``
+ 2. ``docker build . -t opened/extract:0.01``
 
-### Process 2: on host
+### Process 2: On Host
  1. **For now:** You will need to parse the Dockerfile and execute the installation steps on your host system.
  2. In future we will provide a script for on-host installation ([Issue #24](https://github.com/sdsen/opened_extraction/issues/24)).
  
@@ -29,15 +28,13 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
  4. If you have on-host install, you will need to re-install ``codequery`` by running the relevant instructions from Dockerfile.
 
 ## Extraction code and artefacts
-
 Code extraction consists of three phases 1) Determining the necessary functions and data-structures to be copied, 2) (Manual) disambiguation of the target set of functions identified in previous step and 3) Extracting required code from source files to generate an independantly compilable module.
 
 
 ### Phase I: Determining necessary functions and data-structures for extracting specific functionality
-
 1. Run annotated function call graph extraction phase, 
 ```
-python3 src/extraction_runner.py -h
+python3 src/extraction_runner.py --help
 usage: extraction_runner.py [-h] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] [-r REPO_NAME]
 
 optional arguments:
@@ -50,9 +47,9 @@ optional arguments:
                         directory to put function and map dependency call graph file. Output of phase I
   -r REPO_NAME, --repo_name REPO_NAME
                         Project repository name
-
 ```
 NOTE:  **example is given in run2.sh**.
+
 ### Phase II
 1. Open the func.out file and remove the duplicate function and struct definitions. A cleaned **func.out.cleaned is shown in asset folder**. This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.
 
@@ -83,6 +80,7 @@ optional arguments:
                         Base Directory path relative to which directory structure in opdir will be created
   --isCilium            whether repository is cilium
 ```
+
 Note that extracted.c may contain duplicate eBPF Map defintions within and ```ATTENTION``` section. We expect the developer to choose the right map definition and delete the offending defintion.
 
 
