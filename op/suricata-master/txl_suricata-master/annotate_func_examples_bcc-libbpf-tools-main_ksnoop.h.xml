@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<doc>
-<source file="/home/sayandes/opened_extraction/examples/bcc-libbpf-tools-main/ksnoop.h" funcheader="static inline int base_arg_is_entry (enum arg base_arg)" startline="120" endline="123">
-static inline int base_arg_is_entry (enum arg base_arg)
-{
-    return base_arg != KSNOOP_RETURN;
-}
-</source>
-</doc>
