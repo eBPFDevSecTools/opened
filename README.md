@@ -8,7 +8,7 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
  3. Docker
  
 ## Download
- 1. ``git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git``
+ 1. ``git clone --recurse-submodules git@github.com:eBPFDevSecTools/opened_extraction.git``
  2. ``cd opened_extraction``
  3. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
  

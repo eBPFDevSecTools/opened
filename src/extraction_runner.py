@@ -11,8 +11,30 @@ import argparse
 import json
 from collections import defaultdict
 
+def create_cqmakedb(db_file, cscope_file, tags_folder):
+    run_cmd("cqmakedb -s "+db_file+" -c "+cscope_file+" -t "+tags_folder+" -p")
+    return
+
+#cqmakedb -s ./myproject.db -c ./cscope.out -t ./tags -p
+def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
+    op_file = open(cscope_files,'w')
+    files = glob.glob(code_dir + '/**/*.c', recursive=True)
+    for f in files:
+        op_file.write(f)
+        op_file.write("\n")
+
+    files = glob.glob(code_dir + '/**/*.h', recursive=True)
+    for f in files:
+        op_file.write(f)
+        op_file.write("\n")
+    op_file.close()        
+    run_cmd("cscope -cb -k -i "+cscope_files)
+    run_cmd("ctags --fields=+i -n -L "+cscope_files)
+    run_cmd("cqmakedb -s "+ db_name+ " -c "+cscope_out+" -t "+tags_folder+" -p")
+
+
 def check_if_cmd_available():
-    commands = ['cqsearch']
+    commands = ['txl', 'cscope', 'ctags', 'cqmakedb', 'cqsearch']
     for cmd in commands:
         if shutil.which(cmd) is None:
             print("Command: ",cmd," unavailable.. ", "Exiting")
@@ -36,6 +58,7 @@ def search_function(function_name, db_file, opf_name):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument('-s','--src_dir',action='store',required=True,help='directory with source code')
     parser.add_argument('-f','--function_name',action='store',required=True, help='function name to be extracted')
     parser.add_argument('-d','--db_file_name',action='store',required=True, help='sqlite3 database with cqmakedb info')
     parser.add_argument('-g','--function_call_graph_path',action='store',required=False, help='directory to put function and map dependency call graph file. Output of phase I')
@@ -54,7 +77,15 @@ if __name__ == "__main__":
     if (os.access(opf_file_path, os.W_OK) is not True):
         print("Cannot write fcg to: " + opf_file_path + " Exiting...")
         exit(1)
-    db_file = args.db_file_name 
+    db_file = args.db_file_name
+    make_cscope_db(db_file,src_dir,cscope_files,cscope_out,tags_folder)
+    # run code query to generate annotated function call graph
+    create_cqmakedb(db_file, cscope_out, tags_folder)
+
+    cscope_files = "cscope.files"
+    cscope_out = "cscope.out"
+    tags_folder = "tags"
+
     repo_name = ""
     if(args.repo_name is not None):
         repo_name = args.repo_name
