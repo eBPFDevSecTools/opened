@@ -8,7 +8,7 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
  3. Docker
  
 ## Download
- 1. ``git clone --recurse-submodules git@github.com:sdsen/opened_extraction.git``
+ 1. ``git clone --recurse-submodules git@github.com:eBPFDevSecTools/opened_extraction.git``
  2. ``cd opened_extraction``
  3. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
  
@@ -35,18 +35,21 @@ Code extraction consists of three phases 1) Determining the necessary functions 
 1. Run annotated function call graph extraction phase, 
 ```
 python3 src/extraction_runner.py --help
-usage: extraction_runner.py [-h] -f FUNCTION_NAME -d DB_FILE_NAME [-g FUNCTION_CALL_GRAPH_PATH] [-r REPO_NAME]
+usage: extraction_runner.py [-h] -s SRC_DIR -f FUNCTION_NAME [-d DB_FILE_NAME] [-g FUNCTION_CALL_GRAPH_PATH] -r REPO_NAME
 
 optional arguments:
   -h, --help            show this help message and exit
+  -s SRC_DIR, --src_dir SRC_DIR
+                        directory with source code
   -f FUNCTION_NAME, --function_name FUNCTION_NAME
                         function name to be extracted
   -d DB_FILE_NAME, --db_file_name DB_FILE_NAME
-                        sqlite3 database with cqmakedb info
+                        Optional sqlite3 database with cqmakedb info
   -g FUNCTION_CALL_GRAPH_PATH, --function_call_graph_path FUNCTION_CALL_GRAPH_PATH
                         directory to put function and map dependency call graph file. Output of phase I
   -r REPO_NAME, --repo_name REPO_NAME
                         Project repository name
+
 ```
 NOTE:  **example is given in run2.sh**.
 
