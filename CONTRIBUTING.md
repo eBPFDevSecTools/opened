@@ -11,6 +11,10 @@ When contributing changes to this project, your commits must include a
 
 Using `-s` with `git commit` will automtaically add the `Signed-off-by:` header.
 
+## Development Work
+
+To contribute changes, please create your fork and raise a PR from the fork to main repo.
+
 ## Submitting Patches
 
 Patches are accepted via GitHub pull requests.
