@@ -51,7 +51,7 @@ def make_cscope_db(db_name,code_dir, cscope_files,cscope_out,tage_folder):
 
 
 def check_if_cmd_available():
-    commands = ['txl', 'cscope', 'ctags', 'cqmakedb', 'cqsearch']
+    commands = ['cscope', 'ctags', 'cqmakedb', 'cqsearch']
     for cmd in commands:
         if shutil.which(cmd) is None:
             print("Command: ",cmd," unavailable.. ", "Exiting")

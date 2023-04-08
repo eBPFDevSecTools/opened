@@ -3,13 +3,13 @@
 LPC 2022 blurb describing the goal of the tool and an initial prototype is here: https://lpc.events/event/16/contributions/1370/ 
  
 ## Dependencies
- 1. Works on a) kernel verion 5.4.0-131, Ubuntu 22:04, Intel arch x86 arch b) Dockerfile works with Wondows 10, WSL2+Docker Desktop with Ubuntu 22.04 App from MS store. There is a known issue with Apple Silicon based Macbooks with installing a) ``gcc-multlib`` b) TXL and c) Codequery, described [here](https://github.com/sdsen/opened_extraction/issues/37)
+ 1. Works on a) kernel verion 5.4.0-131, Ubuntu 22:04, Intel arch x86 arch b) Dockerfile works with Wondows 10, WSL2+Docker Desktop with Ubuntu 22.04 App from MS store. There is a known issue with Apple Silicon based Macbooks with installing a) ``gcc-multlib`` b) TXL and c) Codequery, described [here](https://github.com/eBPFDevSecTools/opened/issues/37)
  2. git
  3. Docker
  
 ## Download
- 1. ``git clone --recurse-submodules git@github.com:eBPFDevSecTools/opened_extraction.git``
- 2. ``cd opened_extraction``
+ 1. Run ``git clone git@github.com:eBPFDevSecTools/opened.git`` followed by ``git submodule update --init --recursive``
+ 2. ``cd opened``
  3. To update the submodules a) ``git submodule update --remote --merge`` b) ``cd codequery; git pull``
  
 ## Install 
@@ -19,7 +19,7 @@ LPC 2022 blurb describing the goal of the tool and an initial prototype is here:
 
 ### Process 2: On Host
  1. **For now:** You will need to parse the Dockerfile and execute the installation steps on your host system.
- 2. In future we will provide a script for on-host installation ([Issue #24](https://github.com/sdsen/opened_extraction/issues/24)).
+ 2. In future we will provide a script for on-host installation ([Issue #24](https://github.com/eBPFDevSecTools/opened/issues/24)).
  
 ## Updating local branch
  1. run ``git pull``
