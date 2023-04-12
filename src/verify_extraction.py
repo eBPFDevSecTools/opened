@@ -116,6 +116,7 @@ def start_nc_server(PORT) :
     # run nc server in ns2 and scapy in ns1
     output = run_cmd("ip netns exec ns2 nc -l -p "+PORT+" &")
 
+    
 def start_python_receiver(PORT):
     # run python server in ns2 and scapy in ns1
     cmd = "ip netns exec ns2 python3 ./pkt-gen/recv.py &"
@@ -125,6 +126,10 @@ def start_python_receiver(PORT):
 def start_python_sender():
     cmd = "ip netns exec ns1 python3 ./pkt-gen/send.py "
     output = run_cmd(cmd)
+
+def run_bpftool_net() :
+    # run bptool net
+    output = run_cmd("bpftool net")
 
 #attach_and_check <hookpoint> <prog> <sec>
 def attach_only(hook_p, obj_f, section, iface):
@@ -169,7 +174,7 @@ def attach_and_check(hook_p, obj_f, section, iface):
 
 if __name__=="__main__":
     #<script> <prog> <sec>
-    parser = argparse.ArgumentParser(description='eBPF Transformation Verifier')
+    parser = argparse.ArgumentParser(description='eBPF Extraction Verifier')
 
     parser.add_argument('-t','--bpfTCProgFile', type=str,required=False,
             help='eBPF Object file for TC hook point')
@@ -220,3 +225,6 @@ if __name__=="__main__":
     if PROG_TC != None:
         print("Attaching at TC")
         attach_at_TC(iface, PROG_TC, SEC_TC)
+
+    print("CMD: bpftool net")
+    run_bpftool_net()

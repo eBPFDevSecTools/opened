@@ -54,7 +54,7 @@ optional arguments:
 NOTE:  **example is given in run2.sh**.
 
 ### Phase II
-1. Open the func.out file and remove the duplicate function and struct definitions. A cleaned **func.out.cleaned is shown in asset folder**. This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.
+1. Open the func.out file and remove the duplicate function and struct definitions.  This will output an annotated function call graph in a file named func.out. Note that func.out may have duplicate function defintions. We expect the developer to disambiguate and identify the required set of functions to be extracted in Phase II.
 
 ### Phase III: Extracting Required Code
 2. Run the function extractor to extract and dump required functions and map definitions.
@@ -83,6 +83,7 @@ optional arguments:
                         Base Directory path relative to which directory structure in opdir will be created
   --isCilium            whether repository is cilium
 ```
+Note that  STRUCT_INFO and FUNC_INFO are generated using the [annotator](https://github.com/eBPFDevSecTools/ebpf-projects-annotations/blob/master/ANNOTATION_GENERATOR.md) script in the [eBPF-projects-annotations repo](https://github.com/eBPFDevSecTools/ebpf-projects-annotations) 
 
 Note that extracted.c may contain duplicate eBPF Map defintions within and ```ATTENTION``` section. We expect the developer to choose the right map definition and delete the offending defintion.
 
